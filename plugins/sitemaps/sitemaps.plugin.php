@@ -1,0 +1,75 @@
+<?php
+class Sitemaps extends Plugin {
+
+	public function info() {
+		return array(
+			'name' => 'Sitemaps',
+			'version' => '0.6',
+			'url' => 'http://habariproject.org/',
+			'author' =>	'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Sitemaps plugin for Habari.',
+			'copyright' => '2007'
+		);
+	}
+	
+	/* Filter function called by the plugin hook `rewrite_rules`
+	 * Add a new rewrite rule to the database's rules. Call `Sitemaps::act('Sitemap')` when a request for `sitemap.xml` is received.
+	 */
+	public function filter_rewrite_rules( $db_rules )
+	{
+		$db_rules[]= RewriteRule::create_url_rule( '"sitemap.xml"', 'Sitemaps', 'Sitemap' );
+		return $db_rules;
+	}
+	
+	/* Act function called by the `Controller` class.
+	 * Dispatches the request to the proper action handling function.
+	 */
+	public function act( $action )
+	{
+		switch ( $action )
+		{
+			case 'Sitemap':
+				self::Sitemap();
+				break;
+		}
+	}
+	
+	/* Sitemap function called by the self `act` function.
+	 * Generates the `sitemap.xml` file to output.
+	 */
+	public function Sitemap()
+	{
+	
+		$xml= '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
+
+		$xml= new SimpleXMLElement( $xml );
+				
+		/* Retreive all published posts and pages from the database */
+		$content['posts']= Posts::get( array( 'content_type' => 'entry', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
+		$content['pages']= Posts::get( array( 'content_type' => 'page', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
+		
+		/* Add the index page first */
+		$url= $xml->addChild( 'url' );
+		$url_loc= $url->addChild( 'loc', Site::get_url( 'habari' ) );
+		
+		/* Generate the `<url>`, `<loc>`, `<lastmod>` markup for each post and page. */
+		foreach ( $content as $entries ) {
+			foreach ( $entries as $entry ) {
+				$url= $xml->addChild( 'url' );
+				$url_loc= $url->addChild( 'loc', $entry->permalink );
+				$url_lastmod= $url->addChild( 'lastmod', Utils::atomtime( $entry->updated ) );
+			}
+		}
+		
+		$xml= $xml->asXML();
+		
+		/* Clean the output buffer, so we can output from the header/scratch. */
+		ob_clean();
+		header( 'Content-Type: application/xml' );
+		print $xml;
+	}
+
+}
+?>
