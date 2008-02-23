@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>Charcoal</name>
+	<author>Ali B.</author>
+	<url>http://code.google.com/p/charcoal/wiki/Charcoal</url>
+	<version>0.2</version>
+	<template_engine>rawphpengine</template_engine></theme>
