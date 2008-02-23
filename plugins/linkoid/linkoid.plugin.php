@@ -76,7 +76,7 @@ class Linkoid extends Plugin
 	 * @param string $tag An optional tag to use instead of the one defined in the plugin options.
 	 * @return string The return value to the template function
 	 */
-	public function filter_theme_call_linkoid( $return, $theme, $tag = null )
+	public function theme_linkoid( $theme, $tag = null )
 	{
 		if(!isset($tag)) {
 			$tag = Options::get('linkoid:show');
@@ -84,40 +84,15 @@ class Linkoid extends Plugin
 		$linkoids = Posts::get(array('tag_slug'=>$tag, 'limit'=>Options::get('linkoid:count')));
 
 		$theme->linkoids = $linkoids;
-		$theme->display( 'linkoid' );
-
-		return $return;
+		return $theme->fetch( 'linkoid' );
 	}
 
 	/**
-	 * Add 'linkoid' template to the list of templates that are present in the current theme
-	 *
-	 * @param array $list List of template names in the current theme
-	 * @return array The modified list of template names
+	 * On plugin init, add the template included with this plugin to the availalbe templates in the theme
 	 */
-	public function filter_available_templates( $list )
+	public function action_init()
 	{
-		$list[] = 'linkoid';
-		return $list;
-	}
-
-	/**
-	 * Serve the correct file for 'linkoid' template requests
-	 *
-	 * @param string $file The filename of the template to display
-	 * @param string $name The name of the template requested
-	 * @return string The potentially modified filename to use for the requested template.
-	 */
-	public function filter_include_template_file( $file, $name )
-	{
-		switch($name){
-			case 'linkoid':
-				if(!file_exists($file)) {
-					$file = dirname(__FILE__) . '/linkoid.php';
-				}
-				break;
-		}
-		return $file;
+		$this->add_template('linkoid', dirname(__FILE__) . '/linkoid.php');
 	}
 
 	/**
