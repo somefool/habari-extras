@@ -50,8 +50,8 @@ class charcoal extends Theme
 		$this->assign('home_label', self::HOME_LABEL);
 		$this->assign('show_powered', self::SHOW_POWERED);
 		$this->assign('display_login', self::DISPLAY_LOGIN);
-		$this->assign('post_class', 'post' . ( ! self::SHOW_ENTRY_PAPERCLIP ? '-alt' : '' ) );
-		$this->assign('page_class', 'post' . ( ! self::SHOW_PAGE_PAPERCLIP ? '-alt' : '' ) );
+		$this->assign('post_class', 'post' . ( ! self::SHOW_ENTRY_PAPERCLIP ? ' alt' : '' ) );
+		$this->assign('page_class', 'post' . ( ! self::SHOW_PAGE_PAPERCLIP ? ' alt' : '' ) );
 		
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );

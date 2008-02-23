@@ -209,10 +209,7 @@ li.login a:hover {
 	background: url(images/paperclip.png) top left no-repeat;
 }
 
-.post-alt {
-	min-height: 153px;
-	padding-left: 100px;
-	padding-top: 60px;
+.post.alt {
 	background: none;
 }
 .post-tags {
