@@ -65,8 +65,32 @@ class charcoal extends Theme
 		$this->assign( 'post_id', ( isset($this->post) && $this->post->content_type == Post::type('page') ) ? $this->post->id : 0 );
 		parent::add_template_vars();
 	}
-		
+	/**
+	 * returns the previous and/or next page links based on the current matched rule
+	 */
 	public function theme_prevnext($theme,$currentpage, $totalpages){
+		//Retreive the current matched rule
+		$rr= URL::get_matched_rule();
+		// Retrieve arguments name the RewriteRule can use to build a URL.
+		$rr_named_args= $rr->named_args;
+		$rr_args= array_merge( $rr_named_args['required'], $rr_named_args['optional']  );
+		// For each argument, check if the handler_vars array has that argument and if it does, use it.
+		$rr_args_values= array();
+		foreach ( $rr_args as $rr_arg ) {
+			if ( !isset( $settings[$rr_arg] ) ) {
+				$rr_arg_value= Controller::get_var( $rr_arg );
+				if ( $rr_arg_value != '' ) {
+					$settings[$rr_arg]= $rr_arg_value;
+				}
+			}
+		}
+		if ( !empty( $settings) )
+		{
+			$url= Site::get_url( 'habari', true ). $rr->build($settings) . '/page/';
+		}
+		else{
+			$url=Site::get_url( 'habari', true ).'page/';
+		}
 		
 		$out='';
 		if ( $currentpage > $totalpages ) {
@@ -76,10 +100,10 @@ class charcoal extends Theme
 			$currentpage= 1;
 		}
 		if ($currentpage < $totalpages){
-			$out.='<span class="nav-prev"><a href="'.Site::get_url( 'habari', true ).'page/'.($currentpage+1).'">Older Posts</a></span>';
+			$out.='<span class="nav-prev"><a href="' . $url .($currentpage+1).'">Older Posts</a></span>';
 		}
 		if ($currentpage > 1){
-			$out.='<span class="nav-next"><a href="'.Site::get_url( 'habari', true ).'page/'.($currentpage-1).'">Newer Posts</a></span>';
+			$out.='<span class="nav-next"><a href="'. $url .'page/'.($currentpage-1).'">Newer Posts</a></span>';
 		}
 		echo $out;
 	}
