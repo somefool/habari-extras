@@ -1,5 +1,3 @@
-/* TODO: Decrese height of the header part */
-	/* TODO: The sarchbox is shifted upwards in Safari/Win. Clean up margins/padding for it and its container
 
 
 /* Default Elements*/
@@ -381,7 +379,6 @@ li.login a:hover {
 	padding-left: 45px;
 	padding-right: 10px;
 	padding-top: 50px
-		/*replace this with any module you wish to add to to the top (idea: about box?) */
 }
 
 #sidebar .module {
@@ -405,6 +402,7 @@ li.login a:hover {
 	background: url(images/bullet.png) center left no-repeat;
 	padding-left: 15px;
 	margin-left: 0;
+	margin-top: 2px;
 }
 
 /*-----------------------------------The lower part of the page---------------*/
@@ -431,7 +429,7 @@ li.login a:hover {
 
 #prev-posts {
 	min-height: 233px;
-	margin: 6px 0px auto;
+	margin: 6px 0px 35px auto;
 	background: url(images/PrevPosts_text.png) top left no-repeat;
 	padding-left: 120px;
 	padding-right: 20px;
@@ -505,7 +503,7 @@ li.login a:hover {
 /*------------------------Comments section----------------------------*/
 #post-comments {
 	min-height: 180px;
-	margin: 6px 0px auto;
+	margin: 6px 0px 35px auto;
 	background: url(images/comments_text.png) top left no-repeat;
 	padding-left: 120px;
 	padding-right: 20px;
@@ -559,7 +557,7 @@ p.post-comment-link a:hover{
 
 #comment-form {
 	min-height: 147px;
-	margin: 35px 0px auto;
+	margin: 0px 0px auto;
 	background: url(images/postcomment_text.png) top left no-repeat;
 	padding-left: 130px;
 	padding-right: 40px;
@@ -580,7 +578,7 @@ p.post-comment-link a:hover{
 /*-------------------------------------------------------*/
 #archives {
 	min-height: 147px;
-	margin: 35px 0px auto;
+	margin: 0px 0px auto;
 	background: url(images/archives_text.png) top left no-repeat;
 	padding-left: 130px;
 	padding-right: 40px;

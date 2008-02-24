@@ -9,31 +9,31 @@ if ( Session::has_errors() ) {
 	Session::messages_out();
 }
 ?>
-      <form action="<?php URL::out( 'submit_feedback', array( 'id' => $post->id ) ); ?>" method="post" id="commentform">
-       <div id="comment-personaldetails">
-        <p>
-         <input type="text" name="name" id="name" value="<?php echo $commenter_name; ?>" size="30" tabindex="1">
-         <label for="name"><strong>Name</strong> (Required)</label>
-        </p>
-        <p>
-         <input type="text" name="email" id="email" value="<?php echo $commenter_email; ?>" size="30" tabindex="2">
-         <label for="email"><strong>Mail</strong> (will not be published - Required)</label>
-        </p>
-        <p>
-         <input type="text" name="url" id="url" value="<?php echo $commenter_url; ?>" size="30" tabindex="3">
-         <label for="url"><strong>Website</strong></label>
-        </p>
-       </div>
-       <p>
-<textarea name="content" id="content" cols="60" rows="10" tabindex="4">
-<?php if ( isset( $details['content'] ) ) { echo $details['content']; } ?>
-</textarea>
-       </p>
-       <p>
-        <input name="submit" type="submit" id="submit" tabindex="5" value="Submit">
-       </p>
-       <div class="clear"></div>
-      </form>
+<form action="<?php URL::out( 'submit_feedback', array( 'id' => $post->id ) ); ?>" method="post" id="commentform">
+	<div id="comment-personaldetails">
+		<p>
+			<input type="text" name="name" id="name" value="<?php echo $commenter_name; ?>" size="30" tabindex="1">
+			<label for="name"><strong>Name</strong> (Required)</label>
+		</p>
+		<p>
+			<input type="text" name="email" id="email" value="<?php echo $commenter_email; ?>" size="30" tabindex="2">
+			<label for="email"><strong>Mail</strong> (will not be published - Required)</label>
+		</p>
+		<p>
+			<input type="text" name="url" id="url" value="<?php echo $commenter_url; ?>" size="30" tabindex="3">
+			<label for="url"><strong>Website</strong></label>
+		</p>
+	</div>
+	<p>
+		<textarea name="content" id="content" cols="60" rows="10" tabindex="4">
+		<?php if ( isset( $details['content'] ) ) { echo $details['content']; } ?>
+		</textarea>
+	</p>
+	<p>
+		<input name="submit" type="submit" id="submit" tabindex="5" value="Submit">
+	</p>
+	<div class="clear"></div>
+</form>
 <?php } 
 else echo '<p style="text-align:center;font-size:1.2em;">Comments are closed for this post</p>'; ?> 
 </div>
