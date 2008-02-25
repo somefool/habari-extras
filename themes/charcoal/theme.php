@@ -68,7 +68,8 @@ class charcoal extends Theme
 	/**
 	 * returns the previous and/or next page links based on the current matched rule
 	 */
-	public function theme_prevnext($theme,$currentpage, $totalpages){
+	public function theme_prevnext($theme,$currentpage, $totalpages)
+	{
 		//Retreive the current matched rule
 		$rr= URL::get_matched_rule();
 		// Retrieve arguments name the RewriteRule can use to build a URL.
@@ -84,7 +85,7 @@ class charcoal extends Theme
 				}
 			}
 		}
-		if ( !empty( $settings) )
+		if ( !empty( $settings) && !isset($settings['page']))
 		{
 			$url= Site::get_url( 'habari', true ). $rr->build($settings) . '/page/';
 		}
@@ -103,7 +104,7 @@ class charcoal extends Theme
 			$out.='<span class="nav-prev"><a href="' . $url .($currentpage+1).'">Older Posts</a></span>';
 		}
 		if ($currentpage > 1){
-			$out.='<span class="nav-next"><a href="'. $url .'page/'.($currentpage-1).'">Newer Posts</a></span>';
+			$out.='<span class="nav-next"><a href="' . $url .($currentpage-1).'">Newer Posts</a></span>';
 		}
 		echo $out;
 	}

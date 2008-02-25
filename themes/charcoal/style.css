@@ -154,6 +154,7 @@ p {
 	display: block;
 	margin-left:1px;
 	margin-right:3px;
+	overflow:hidden;
 	
 }
 
