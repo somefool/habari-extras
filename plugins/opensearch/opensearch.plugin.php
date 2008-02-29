@@ -22,7 +22,7 @@ class OpenSearch extends Plugin {
 	{
 		$db_rules[]= RewriteRule::create_url_rule( '"opensearch.xml"', 'OpenSearch', 'osDescription' );
 		$db_rules[]= new RewriteRule( array(
-			'name' => 'search',
+			'name' => 'opensearch',
 			'parse_regex' => '%^search(?:/(?P<criteria>[^/]+))?(?:/page/(?P<page>\d+))?(?:/count/(?P<count>\d+))?/atom/?$%i',
 			'build_str' => 'search(/{$criteria})(/page/{$page})/atom',
 			'handler' => 'OpenSearch',
@@ -34,6 +34,12 @@ class OpenSearch extends Plugin {
 			) );
 
 		return $db_rules;
+	}
+	
+	public function filter_atom_get_collection_alternate_rules( $alternate_rules )
+	{
+		$alternate_rules['opensearch']= 'opensearch';
+		return $alternate_rules;
 	}
 	
 	/* Output the Open Search description file */
@@ -68,7 +74,7 @@ class OpenSearch extends Plugin {
 	}
 	
 	/* Add the link element to the header */
-	public function action_template_header( $theme ) {
+	public function theme_header( $theme ) {
 		$search_url= Site::get_url('habari') . '/opensearch.xml';
 		$site_title= Options::get('title');
 		
