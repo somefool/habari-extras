@@ -1,11 +1,8 @@
 <?php include 'header.php'; ?>
-<?php if (!isset($post)) Utils::redirect("404"); ?>
+<?php if (isset($post)) : ?>
 <div id="main-posts"><?php $post=reset($posts); ?>
-<h2>Search results for <?php echo htmlspecialchars( $criteria ); ?></h2>
-<?php $post_class='post'; ?>
-<?php if (!$show_entry_paperclip) $post_class.='-alt'; ?>
-<div class="<?php echo $post_class?>">
-<?php if (!isset($post)) Utils::redirect("htt://www.google.com"); ?>
+<p class="search-prompt">Search results for <?php $theme->search_keywords(htmlspecialchars( $criteria )); ?></p>
+<div class="post alt">
 <?php if ( is_array( $post->tags ) ) {;?>
 <div class="post-tags">
 <?php echo $post->tags_out;?>
@@ -26,6 +23,9 @@
 	title="Edit post">Edit</a></span> <?php } ?></div>
 </div>
 </div>
+<?php else: ?>
+<p class="search-prompt">No results found for '<?php echo $criteria;$theme->search_keywords(htmlspecialchars( $criteria )); ?></p>
+<?php endif; ?>
 </div>
 <div id="top-secondary"><?php include'sidebar.php' ?></div>
 <div class="clear"></div>
@@ -34,6 +34,7 @@
 <div id="page-bottom">
 <div id="wrapper-bottom">
 <div id="bottom-primary">
+<?php if (isset($post)): ?>
 <div id="prev-posts"><?php while($post=next($posts)) { ?>
 <div class="prev-post">
 <div class="prev-post-title">
@@ -47,14 +48,8 @@
 <?php } ?>
 <div id="prev-posts-footer"><?php $theme->prevnext($page, Utils::archive_pages($posts->count_all())); ?></div>
 </div>
-
+<?php endif; ?>
 <div id="archives"><?php if (Plugins::is_loaded("extendedmonthlyarchives")) echo $extended_monthly_archives;?></div>
-<?php include 'footer.php'; ?></div>
-<div id="bottom-secondary">
-<div id="tags"><?php if (Plugins::is_loaded('tagcloud')) echo $tag_cloud; ?></div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-</body>
-</html>
+<br class="clear" />
+<?php include 'footer.php'; ?>
+

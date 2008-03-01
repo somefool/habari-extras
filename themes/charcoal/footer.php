@@ -1,7 +1,7 @@
 <div id="footer">
 	<p>
 		<?php Options::out('title'); _e(' is powered by'); ?> <a
-		href="http://www.habariproject.org/" title="Habari">Habari</a> and Charcoal theme
+		href="http://www.habariproject.org/" title="Habari">Habari</a> 
 		<?php _e(' - ') ?><a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Atom
 		Entries</a> and <a href="<?php URL::out( 'atom_feed_comments' ); ?>">Atom Comments</a>
 	</p>

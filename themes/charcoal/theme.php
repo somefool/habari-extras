@@ -85,11 +85,21 @@ class charcoal extends Theme
 				}
 			}
 		}
-		if ( !empty( $settings) && !isset($settings['page']))
+		if ( !empty( $settings) )
 		{
-			$url= Site::get_url( 'habari', true ). $rr->build($settings) . '/page/';
+			$suffix= $rr->build($settings);
+			if (preg_match( "/\bpage\/\d+$/", $suffix) )
+			{
+				$url= Site::get_url( 'habari', true ) . preg_replace("/\bpage\/\d+$/", "page/", $suffix );
+			}
+			else
+			{
+				$url= Site::get_url( 'habari', true ) . $suffix . '/page/';
+			}
+			
 		}
-		else{
+		else
+		{
 			$url=Site::get_url( 'habari', true ).'page/';
 		}
 		
@@ -146,6 +156,21 @@ class charcoal extends Theme
  		return strip_tags($return);
  	}
 
-	
+	public function theme_search_keywords( $theme, $criteria )
+	{
+		$out='';
+		$keywords=explode(' ',trim($criteria));
+		if ( sizeof( $keywords ) > 1 )
+		{
+			foreach ($keywords as $keyword){
+				$out.= '<a href="' . Site::get_url( 'habari', true ) .'search?criteria=' . $keyword . '" title="Search for ' . $keyword . '">' . $keyword . '</a> ';
+			}
+			echo $out;
+		}
+		else
+		{
+			echo $criteria;
+		}
+	}
 }
 ?>

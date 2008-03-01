@@ -39,12 +39,10 @@
 							</li>
 							<?php endforeach; ?>
 							<?php if ($display_login): ?>
+							<li class="login">
 							<?php if ( isset( $user ) && is_object( $user ) ) : ?>
-							<li class="login">
 								<a href="<?php Site::out_url( 'habari' ); ?>/user/logout">Logout</a>
-							</li>
 							<?php else: ?>
-							<li class="login">
 								<a href="<?php Site::out_url( 'habari' ); ?>/user/login">Login</a>
 							</li>
 							<?php endif; ?>

@@ -25,9 +25,9 @@ if ( Session::has_errors() ) {
 		</p>
 	</div>
 	<p>
-		<textarea name="content" id="content" cols="60" rows="10" tabindex="4">
-		<?php if ( isset( $details['content'] ) ) { echo $details['content']; } ?>
-		</textarea>
+<textarea name="content" id="content" cols="60" rows="10" tabindex="4">
+<?php if ( isset( $details['content'] ) ) { echo $details['content']; } ?>
+</textarea>
 	</p>
 	<p>
 		<input name="submit" type="submit" id="submit" tabindex="5" value="Submit">

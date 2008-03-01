@@ -1,11 +1,15 @@
 <?php include 'header.php'; ?>
 <div id="main-posts">
-<div class="post alt">
-<div class="post-entry">
-<h2>Woops! 404</h2>
-The page you were trying to access is not really there. Please try again.
-</div>
-</div>
+	<div class="post alt">
+		<div class="post-title">
+			<h2>
+			Whoops! 404
+			</h2>
+		</div>
+		<div class="post-entry">
+		<p>The page you were trying to access is not really there. Please try again.<p>
+		</div>
+	</div>
 </div>
 </div>
 <div id="top-secondary"><?php include'sidebar.php' ?></div>
