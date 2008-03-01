@@ -24,17 +24,36 @@ class ThemeSwitcher extends Plugin
 		);
 	}
 	
+	function theme_header() {
+		echo '<script src="' . Site::get_url('scripts') . '/jquery.js" type="text/javascript"></script>';
+		echo <<< HEADER
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[@name='themeswitcher_submit']").hide();
+		$("select[@name='theme_dir']").change( function() {
+			$("form[@name='themeswitcher']").submit();
+		});
+	});
+</script>
+
+HEADER;
+	}
+	
 	function action_init()
 	{
 		if (!empty($_GET['theme_dir']) || !empty($_POST['theme_dir'])) {
 			$new_theme_dir= empty($_GET['theme_dir']) ? $_POST['theme_dir'] : $_GET['theme_dir'];
-			if (!isset($_COOKIE['theme_dir']) || (isset($_COOKIE['theme_dir']) && ($_COOKIE['theme_dir'] != $new_theme_dir))) {
-				$_COOKIE['theme_dir']= $new_theme_dir; // Without this, the cookie isn't get in time to change the theme NOW.
-				setcookie( 'theme_dir', $new_theme_dir );
+			$all_themes= Themes::get_all();
+			if ( array_key_exists( $new_theme_dir, $all_themes ) ) {				
+				if (!isset($_COOKIE['theme_dir']) || (isset($_COOKIE['theme_dir']) && ($_COOKIE['theme_dir'] != $new_theme_dir))) {					
+					$_COOKIE['theme_dir']= $new_theme_dir; // Without this, the cookie isn't get in time to change the theme NOW.
+					setcookie( 'theme_dir', $new_theme_dir );
+				}
 			}
 		}
 	}
-	
+		
 	function action_theme_sidebar_bottom()
 	{
 		include('themeswitcher.php');

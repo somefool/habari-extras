@@ -10,6 +10,6 @@ $all_themes= Themes::get_all_data();
 					<option value="<?php echo $theme['dir']; ?>"<?php echo ($theme['dir'] == $active_theme) ? 'selected' : ''; ?>><?php echo $theme['info']->name; ?> <?php echo $theme['info']->version; ?></option>
 				<?php endforeach; ?>
 			</select>
-			<input type="submit" name="s" value="Switch">
+			<input type="submit" name="themeswitcher_submit" value="Switch">
 		</form>
 	</div>
