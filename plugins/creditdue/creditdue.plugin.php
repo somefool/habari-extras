@@ -52,7 +52,7 @@ class CreditDue extends Plugin
 	{
 		$this->add_template('creditdue', dirname(__FILE__) . '/creditdue.php');
 	}
-	}
+
 }
 
 
