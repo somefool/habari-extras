@@ -18,7 +18,7 @@ class CreditDue extends Plugin
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.1',
+			'version' => '0.2',
 			'description' => 'Allows for output of information for active themes and plugins',
 			'license' => 'Apache License 2.0',
 		);
@@ -29,7 +29,7 @@ class CreditDue extends Plugin
 	 * retrieves information about the active theme and returns it for display by a theme.
 	 * 
 	 * Usage: This function is called using <?php $theme->show_credits(); ?>
-	 * This displays the credits for the active theme and a list of credits for active plugins in an unordered list.
+	 * This loads the template creditdue.php (which can be copied to the theme directory and customized) and shows the theme and plugins in unordered lists
 	 */
 	public function theme_show_credits() {
 
@@ -39,22 +39,19 @@ class CreditDue extends Plugin
 		#Utils::debug($theme_credits);
 		#Utils::debug($plugin_credits);
 		
-		$output= "<h3>Theme</h3>\n";
-		$output.= "\t<ul id='theme_credits'>\n";
+		$theme->theme_credits= $theme_credits;
+		$theme->plugin_credits= $plugin_credits;
 		
-			$output.= "\t\t<li>" . $theme_credits->name . " version " . $theme_credits->version . " by <a href='" . $theme_credits->url . "'>" . $theme_credits->author . "</a></li>\n";
-		
-		$output.= "\t</ul>\n\n";
-
-		$output.= "<h3>Plugins</h3>\n";
-		$output.= "\t<ul id='plugin_credits'>\n";
-		foreach ($plugin_credits as $plugin) {
-			$output.= "\t\t<li><a href='" . $plugin->info->url . "'>" . $plugin->info->name . "</a> version " . $plugin->info->version;
-			$output.= empty( $plugin->info->authorurl ) ? " by " . $plugin->info->author : " by <a href='" . $plugin->info->authorurl . "'>" . $plugin->info->author . "</a>";
-		}
-		$output.= "\t</ul>";
-
-		return $output;
+		return $theme->fetch( 'creditdue' );
+	}
+	
+	/**
+	 * On plugin init, add the template included with this plugin to the available templates in the theme
+	 */
+	public function action_init()
+	{
+		$this->add_template('creditdue', dirname(__FILE__) . '/creditdue.php');
+	}
 	}
 }
 
