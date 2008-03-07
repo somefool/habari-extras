@@ -20,8 +20,8 @@ class JWYSIWYG extends Plugin {
 
   public function action_admin_header($theme) {
     if ( $theme->admin_page == 'publish' ) {
-      Stack::add('admin_header_javascript', $this->get_url() . '/jquery.wysiwyg.js');
-      Stack::add('admin_stylesheet', array($this->get_url() . '/jquery.wysiwyg.css', 'screen'));
+      Stack::add('admin_header_javascript', $this->get_url() . '/jwysiwyg/jquery.wysiwyg.js');
+      Stack::add('admin_stylesheet', array($this->get_url() . '/jwysiwyg/jquery.wysiwyg.css', 'screen'));
     }
   }
 
@@ -31,11 +31,11 @@ class JWYSIWYG extends Plugin {
       <script type="text/javascript">
       $(function()
       {
-        jeditor= $('#content').wysiwyg();
+        $('#content').wysiwyg();
       });
       habari.editor = {
         insertSelection: function(value) {
-          jeditor.setContent(jeditor.getContent() + value);
+          $('#content')[0].wysiwyg.setContent($('#content')[0].wysiwyg.getContent() + value); 
         }
       }
 
