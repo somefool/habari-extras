@@ -49,20 +49,19 @@ class RSS extends Plugin {
 		}
 		$pudDate= $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate ) ) );
 		$generator= $channel->addChild( 'generator', 'Habari ' . Version::get_habariversion() . ' http://habariproject.org/' );
-		$items= $channel->addChild( 'items' );
  
 		return $xml;
 	}
 	
 	/**
-	 * Add posts as item to the items element in the provided xml structure
+	 * Add posts as items in the provided xml structure
 	 * @param SimpleXMLElement $xml The document to add to
 	 * @param array $posts An array of Posts to add to the XML
 	 * @return SimpleXMLElement The resultant XML with added posts
 	 */	 	 	 	   	
 	public function add_posts($xml, $posts)
 	{
-		$items = $xml->channel->items;
+		$items = $xml->channel;
 		foreach ( $posts as $post ) {
 			$item= $items->addChild( 'item' );
 			$title= $item->addChild( 'title', htmlspecialchars( $post->title ) );
@@ -82,14 +81,14 @@ class RSS extends Plugin {
 	}
 	
 	/**
-	 * Add comments as item to the items element in the provided xml structure
+	 * Add comments as items in the provided xml structure
 	 * @param SimpleXMLElement $xml The document to add to
 	 * @param array $comments An array of Comments to add to the XML
 	 * @return SimpleXMLElement The resultant XML with added comments
 	 */	 	 	 	   	
 	public function add_comments($xml, $comments)
 	{
-		$items = $xml->channel->items;
+		$items = $xml->channel;
 		foreach ( $comments as $comment ) {
 			$item= $items->addChild( 'item' );
 			$title= $item->addChild( 'title', htmlspecialchars( sprintf( _t( '%1$s on "%2$s"' ), $comment->name, $comment->post->title ) ) );
