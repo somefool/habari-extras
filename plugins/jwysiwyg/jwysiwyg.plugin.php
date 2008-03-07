@@ -35,10 +35,10 @@ class JWYSIWYG extends Plugin {
       });
       habari.editor = {
         insertSelection: function(value) {
-          $('#content')[0].wysiwyg.setContent($('#content')[0].wysiwyg.getContent() + value); 
+          var instance = $.data($('#content')[0], 'wysiwyg');
+          instance.setContent(instance.getContent() + value);
         }
       }
-
       </script>
 JWYSIWYG;
     }
