@@ -39,7 +39,7 @@ class RSS extends Plugin {
 	 */	 	 	
 	public function create_rss_wrapper()
 	{
-		$xml= new SimpleXMLElement( '<?xml version="1.0"?><rrs></rrs>');
+		$xml= new SimpleXMLElement( '<?xml version="1.0"?><rss></rss>');
 		$xml->addAttribute(  'version', '2.0' );
 		$channel= $xml->addChild( 'channel' );
 		$title= $channel->addChild( 'title', htmlspecialchars( Options::get('title') ) );
