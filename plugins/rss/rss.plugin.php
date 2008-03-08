@@ -69,6 +69,7 @@ class RSS extends Plugin {
 			$description= $item->addChild( 'description', htmlspecialchars( $post->content ) );
 			$pubdate= $item->addChild ( 'pubDate', date( DATE_RFC822, strtotime( $post->pubdate ) ) );
 			$guid= $item->addChild( 'guid', $post->guid );
+			$guid->addAttribute( 'isPermaLink', 'false' );
 
 			if ( isset( $post->info->enclosure ) ) {
 				$enclosure= $item->addChild( 'enclosure');
@@ -96,6 +97,7 @@ class RSS extends Plugin {
 			$description= $item->addChild( 'description', htmlspecialchars( $comment->content ) );
 			$pubdate= $item->addChild ( 'pubDate', date( DATE_RFC822, strtotime( $comment->date ) ) );
 			$guid= $item->addChild( 'guid', $comment->post->guid . '/' . $comment->id );
+			$guid->addAttribute( 'isPermaLink', 'false' );
 		}
 		return $xml;
 	}
