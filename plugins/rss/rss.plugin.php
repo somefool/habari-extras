@@ -63,6 +63,7 @@ class RSS extends Plugin {
 	{
 		$items = $xml->channel;
 		foreach ( $posts as $post ) {
+			if ($post)
 			$item= $items->addChild( 'item' );
 			$title= $item->addChild( 'title', htmlspecialchars( $post->title ) );
 			$link= $item->addChild( 'link', $post->permalink );
@@ -108,7 +109,7 @@ class RSS extends Plugin {
 	public function action_handler_rss_feed()
 	{
 		$xml= $this->create_rss_wrapper();
-		$xml= $this->add_posts($xml, Posts::get());
+		$xml= $this->add_posts($xml, Posts::get( array( 'status' => Post::status( 'published' ) ) ) );
 		$xml= Plugins::filter( 'rss_feed', $xml );
 		ob_clean();
 
