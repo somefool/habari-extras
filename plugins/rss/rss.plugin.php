@@ -21,16 +21,25 @@ class RSS extends Plugin {
 
 	/**
 	 * Add additional rewrite rules so that Habari can answer requests for the feed URLs
-	 * @param array $db_rules The array of existing rules to be filtered
+	 * @param array $db_rules The array of default system rules to be filtered
 	 * @return array The extended rule list
 	 */	 	 	 	
-	public function filter_rewrite_rules( $db_rules )
+	public function filter_default_rewrite_rules( $rules )
 	{
-		//' . Options::get( 'RSS:entries_feed' ) . '
-		$db_rules[]= RewriteRule::create_url_rule( '"feed"/"rss"', 'UserThemeHandler', 'rss_feed' );
-		//' . Options::get( 'RSS:comments_feed' ) . '
-		$db_rules[]= RewriteRule::create_url_rule( '"feed"/"rss"/"comments"', 'UserThemeHandler', 'rss_comments' );
-		return $db_rules;
+		// Can't call RewriteRules::by_name() because that'll call this function.
+		foreach($rules as $rule) {
+			if( strpos($rule['name'], 'atom_') === 0 ) {
+				$newrule= $rule;
+				$newrule['name']= str_replace('atom', 'rss', $newrule['name']);
+				$newrule['parse_regex']= str_replace('atom', 'rss', $newrule['parse_regex']);
+				$newrule['build_str']= str_replace('atom', 'rss', $newrule['build_str']);
+				$newrule['handler']= 'UserThemeHandler';
+				$newrule['action']= 'rss_' . $newrule['action']; 
+				$rules[]= $newrule;
+			}
+		}
+
+		return $rules;
 	}
 	
 	/**
@@ -63,20 +72,14 @@ class RSS extends Plugin {
 	{
 		$items = $xml->channel;
 		foreach ( $posts as $post ) {
-			if ($post)
-			$item= $items->addChild( 'item' );
-			$title= $item->addChild( 'title', htmlspecialchars( $post->title ) );
-			$link= $item->addChild( 'link', $post->permalink );
-			$description= $item->addChild( 'description', htmlspecialchars( $post->content ) );
-			$pubdate= $item->addChild ( 'pubDate', date( DATE_RFC822, strtotime( $post->pubdate ) ) );
-			$guid= $item->addChild( 'guid', $post->guid );
-			$guid->addAttribute( 'isPermaLink', 'false' );
-
-			if ( isset( $post->info->enclosure ) ) {
-				$enclosure= $item->addChild( 'enclosure');
-				$enclosure->addAttribute( 'url', $post->info->enclosure['url'] );
-				$enclosure->addAttribute( 'length', $post->info->enclosure['length'] );
-				$enclosure->addAttribute( 'type', $post->info->enclosure['type'] );
+			if ($post instanceof Post) {
+				$item= $items->addChild( 'item' );
+				$title= $item->addChild( 'title', htmlspecialchars( $post->title ) );
+				$link= $item->addChild( 'link', $post->permalink );
+				$description= $item->addChild( 'description', htmlspecialchars( $post->content ) );
+				$pubdate= $item->addChild ( 'pubDate', date( DATE_RFC822, strtotime( $post->pubdate ) ) );
+				$guid= $item->addChild( 'guid', $post->guid );
+				$guid->addAttribute( 'isPermaLink', 'false' );
 			}
 		}
 		return $xml;
@@ -106,11 +109,48 @@ class RSS extends Plugin {
 	/**
 	 * Respond to requests for the RSS feed
 	 */	 
-	public function action_handler_rss_feed()
+	public function action_handler_rss_collection()
 	{
 		$xml= $this->create_rss_wrapper();
 		$xml= $this->add_posts($xml, Posts::get( array( 'status' => Post::status( 'published' ) ) ) );
-		$xml= Plugins::filter( 'rss_feed', $xml );
+		$xml= Plugins::filter( 'rss_collection', $xml );
+		ob_clean();
+
+		header( 'Content-Type: application/xml' );
+		echo $xml->asXML();
+		exit;
+	}
+
+	/**
+	 * Respond to requests for the RSS feed for a specific tag
+	 * @param array $vars Handler variables as passed in by rewrite rules 	 
+	 */	 
+	public function action_handler_rss_tag_collection($vars)
+	{
+		$tag= $vars['tag'];
+		$posts= Posts::get( array('tag'=>$tag) );
+		$xml= $this->create_rss_wrapper();
+		$xml= $this->add_posts($xml, $posts);
+		$xml= Plugins::filter( 'rss_collection', $xml );
+		ob_clean();
+
+		header( 'Content-Type: application/xml' );
+		echo $xml->asXML();
+		exit;
+	}
+
+	/**
+	 * Respond to requests for the RSS feed for a single entry
+	 * This is a weird one, since RSS doesn't usually do this, but Atom does.	 
+	 * @param array $vars Handler variables as passed in by rewrite rules 	 
+	 */	 
+	public function action_handler_rss_entry($vars)
+	{
+		$slug= $vars['slug'];
+		$posts= array( Post::get( $slug ) );
+		$xml= $this->create_rss_wrapper();
+		$xml= $this->add_posts($xml, $posts);
+		$xml= Plugins::filter( 'rss_collection', $xml );
 		ob_clean();
 
 		header( 'Content-Type: application/xml' );
@@ -133,7 +173,26 @@ class RSS extends Plugin {
 		echo $xml->asXML();
 		exit;
 	}
- 
+
+	/**
+	 * Respond to requests for the RSS comments feed for a specific entry
+	 * @param array $vars Handler variables as passed in by rewrite rules
+	 */	 	
+	public function action_handler_rss_entry_comments($vars)
+	{
+		$slug= $vars['slug'];
+		$post= Post::get($slug); 
+		 
+		$xml= $this->create_rss_wrapper();
+		$xml->channel->title = htmlspecialchars( sprintf( _t ( 'Comments on %s' ),  $post->title ) );
+		$xml= $this->add_comments( $xml, $post->comments->comments->approved );
+		$xml= Plugins::filter( 'rss_entry_comments', $xml );
+		ob_clean();
+
+		header( 'Content-Type: application/xml' );
+		echo $xml->asXML();
+		exit;
+	}
 } 
 ?>
  
