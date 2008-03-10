@@ -225,7 +225,8 @@ class OpenID extends Plugin
 				$openid= $response->getDisplayIdentifier();
 				$esc_identity= htmlspecialchars( $openid, ENT_QUOTES );
 				
-				if ( $user= Users::get_by_info( 'openid_url', $openid ) ) {
+				$user= Users::get_by_info( 'openid_url', $openid );
+				if ( count( $user ) != 0 ) {
 					if ( count( $user ) > 1 ) {
 						throw new Exception( 'Authentication error: more than one user have this OpenID.' );
 					}
