@@ -1,5 +1,3 @@
-
-
 /* Default Elements*/
 body {
 	margin: 0px;
@@ -17,6 +15,7 @@ a {
 
 a:hover {
 	background-color: #dadada;
+	-webkit-border-radius: 2px;
 }
 
 h1 {
@@ -39,7 +38,7 @@ h1 a:hover {
 	background: none;
 }
 
-h2 {
+h3 {
 	font-weight: bold;
 	font-size: 2.4em;
 	color: #3f3f3e;
@@ -47,18 +46,18 @@ h2 {
 	line-height: 120%;
 }
 
-h2 a {
+h3 a {
 	color: #3f3f3e;
 	margin: 0px;
 	border: none;
 }
 
-h2 a:hover {
+h3 a:hover {
 	background: none;
 	color: #5f5f5f
 }
 
-h3 {
+h2 {
 	font-weight: bold;
 	font-size: 1.7em;
 	color: #f9f9f9;
@@ -66,14 +65,14 @@ h3 {
 	line-height: 120%
 }
 
-h3 a {
+h2 a {
 	color: #f9f9f9;
 	margin: 0px;
 	line-height: 120%;
 	border: none;
 }
 
-h3 a:hover {
+h2 a:hover {
 	background: none;
 	color: #dadadb;
 }
@@ -85,7 +84,6 @@ p {
 
 /*-------------------------------------The upper part of the page----------------*/
 #page-top {
-	
 	position: relative;
 	background: url(images/main_bg.png) top repeat-x;
 }
@@ -93,7 +91,8 @@ p {
 #wrapper-top {
 	position: relative;
 	width: 972px;
-	margin: 0px auto;
+	margin: 0 auto;
+	padding-bottom: 30px;
 }
 
 #top-primary {
@@ -112,16 +111,18 @@ p {
 	margin-top: 50px;
 	margin-left: 50px;
 	margin-bottom: 20px;
-	position:relative;
-}
-#title img{
-	border:none;
+	position: relative;
 }
 
-#title a, #title a:hover{
+#title img {
+	border: none;
+}
+
+#title a,#title a:hover {
 	text-decoration: none;
-	border:none;
-	background:none;}
+	border: none;
+	background: none;
+}
 
 .tagline,.tagline p {
 	margin-left: 50px;
@@ -131,31 +132,29 @@ p {
 }
 
 #navbar {
-	position:relative;
-	min-width:650px;
-	overflow:visible;
-	display:block;
+	position: relative;
+	min-width: 650px;
+	overflow: visible;
+	display: block;
 	margin-left: 40px;
-	}
+}
 
 #navbar ul {
 	font-size: 0.9em;
 	list-style: none;
 	margin: 10px 0px 0px 10px;
 	padding: 0px;
-	height:48px;
-	display:block;
+	height: 48px;
+	display: block;
 }
 
-	
 #navbar ul li {
 	padding: 3px 0px 0px 0px;
-	float:left;
+	float: left;
 	display: block;
-	margin-left:1px;
-	margin-right:3px;
-	overflow:hidden;
-	
+	margin-left: 1px;
+	margin-right: 3px;
+	overflow: hidden;
 }
 
 #navbar ul li a {
@@ -167,7 +166,6 @@ p {
 	font-weight: normal;
 	border: none;
 	display: block;
-	
 }
 
 #navbar ul li a:hover {
@@ -191,15 +189,19 @@ p {
 }
 
 #navbar ul li.login {
-margin-left:5px;
+	margin-left: 5px;
 }
 
+li.login a {
+	border: none;
+}
 
 li.login a:hover {
 	Background: none !important;
 }
 
 #main-posts {
+	
 }
 
 .post {
@@ -212,6 +214,17 @@ li.login a:hover {
 .post.alt {
 	background: none;
 }
+
+.post.multi {
+	padding-top: 35px;
+	background: none;
+}
+
+.post.multi .post-entry {
+	padding-top: 5px;
+	text-indent: 0;
+}
+
 .post-tags {
 	display: block;
 	margin-left: 2px;
@@ -266,8 +279,7 @@ li.login a:hover {
 }
 
 .post-entry {
-	font-size:1.1em;
-	min-height:250px;
+	font-size: 1.1em;
 	padding-top: 15px;
 	text-align: justify;
 	text-indent: 2em;
@@ -281,10 +293,9 @@ li.login a:hover {
 }
 
 .post-footer {
-	height: 70px;
+	height: 30px;
 	text-align: right;
 }
-
 
 #top-secondary {
 	min-height: 266px;
@@ -310,9 +321,8 @@ li.login a:hover {
 	width: 200px;
 	height: 20px;
 	text-align: center;
-	float:left;
-	margin-top:4px;
-	
+	float: left;
+	margin-top: 4px;
 }
 
 #search #search-btn {
@@ -321,29 +331,25 @@ li.login a:hover {
 	width: 31px;
 	border: none;
 	margin-top: 0px;
-	float:right;
+	float: right;
 	display: inline;
-	cursor: pointer; 
-
+	cursor: pointer;
 }
 
 #feeds {
 	height: 92px;
 	padding: 0px 80px 5px 35px;
-		
 }
 
 #feeds img {
 	border: none;
 	margin-right: 10px;
 	vertical-align: top;
-	
 }
 
 #feeds a {
 	text-decoration: none;
 	padding-bottom: 2px;
-	
 }
 
 #feeds span {
@@ -351,8 +357,7 @@ li.login a:hover {
 	font-size: 1.6em;
 	height: 34px;
 	display: block;
-	text-align: left!important;
-
+	text-align: left !important;
 }
 
 .feedlink {
@@ -361,6 +366,7 @@ li.login a:hover {
 
 .feedlink span:hover {
 	background: #dadada;
+	-webkit-border-radius: 4px;
 }
 
 #habari-link {
@@ -378,10 +384,10 @@ li.login a:hover {
 	text-decoration: none;
 	border: none;
 }
+
 #habari-link a:hover {
-	background:none;
-	}
-	
+	background: none;
+}
 
 #sidebar {
 	padding-left: 45px;
@@ -389,26 +395,26 @@ li.login a:hover {
 	padding-top: 50px
 }
 
-#sidebar .module {
+#sidebar div {
 	margin-bottom: 25px
 }
 
-#sidebar .module h3 {
+#sidebar div h2 {
 	color: #3f3f3d;
 }
 
-#sidebar .module ul {
+#sidebar div ul {
 	list-style: none;
 	margin-top: 10px;
-	margin-left: 10px;
+	margin-left: 5px;
 	padding-left: 0;
 }
 
-#sidebar .module ul li {
+#sidebar div ul li {
 	color: #5a5a5a;
 	font-weight: 400;
 	background: url(images/bullet.png) center left no-repeat;
-	padding-left: 15px;
+	padding-left: 20px;
 	margin-left: 0;
 	margin-top: 4px;
 }
@@ -437,7 +443,7 @@ li.login a:hover {
 
 #prev-posts {
 	min-height: 233px;
-	margin: 6px 0px 35px auto;
+	margin: 6px 0px 0px auto;
 	background: url(images/PrevPosts_text.png) top left no-repeat;
 	padding-left: 120px;
 	padding-right: 20px;
@@ -472,6 +478,9 @@ li.login a:hover {
 #prev-posts-footer {
 	height: 25px;
 	bottom: 0px;
+	padding-left: 120px;
+	padding-right: 20px;
+	margin-bottom: 35px;
 }
 
 #prev-posts-footer a {
@@ -482,7 +491,7 @@ li.login a:hover {
 #prev-posts-footer .nav-prev {
 	background: url(images/nav-left.png) top left no-repeat;
 	float: left;
-	height:25px;
+	height: 25px;
 }
 
 #prev-posts-footer .nav-prev a {
@@ -494,7 +503,7 @@ li.login a:hover {
 #prev-posts-footer .nav-next {
 	background: url(images/nav-right.png) top right no-repeat;
 	float: right;
-	height:25px;
+	height: 25px;
 }
 
 #prev-posts-footer .nav-next a {
@@ -519,15 +528,15 @@ li.login a:hover {
 }
 
 div.post-comments-title {
-text-align: left;
-margin-bottom:20px;
+	text-align: left;
+	margin-bottom: 20px;
 }
 
 .post-comment-u {
-	border:#cccccc 1px dotted ;
+	border: #cccccc 1px dotted;
 }
 
-.post-comment  h3,.post-comment-u h3 {
+.post-comment  h2,.post-comment-u h2 {
 	font-size: 1.5em;
 }
 
@@ -553,19 +562,19 @@ margin-bottom:20px;
 	border-color: #dad7d7;
 }
 
-p.post-comment-link a{
-	color:#dad7d7;
-	}
-p.post-comment-link a:hover{
+p.post-comment-link a {
+	color: #dad7d7;
+}
+
+p.post-comment-link a:hover {
 	background-color: #dadada;
-	color:#aaa7a7
-	}
+	color: #aaa7a7
+}
+
 /*-------------------------------------------------------*/
-
-/*---------------------- Comment form ---------------------*/
-
+	/*---------------------- Comment form ---------------------*/
 #comment-form {
-	min-height: 147px;
+	min-height: 177px;
 	margin: 0px 0px auto;
 	background: url(images/postcomment_text.png) top left no-repeat;
 	padding-left: 130px;
@@ -573,16 +582,21 @@ p.post-comment-link a:hover{
 	padding-top: 20px;
 }
 
-#comment-form p{
-		margin-bottom:5px;
-				
-	}
-#comment-form p input{
-	color: #666666;}
-#comment-form p textarea{
-	color: #666666;}
-#comment-form p #submit{
-	color: #111111;}
+#comment-form p {
+	margin-bottom: 5px;
+}
+
+#comment-form p input {
+	color: #666666;
+}
+
+#comment-form p textarea {
+	color: #666666;
+}
+
+#comment-form p #submit {
+	color: #111111;
+}
 
 /*-------------------------------------------------------*/
 #archives {
@@ -600,7 +614,7 @@ ul.archlist-left {
 
 ul.archlist-right {
 	float: right;
-	padding:0;
+	padding: 0;
 }
 
 ul.archlist-left li {
@@ -639,7 +653,7 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 #tags {
 	min-height: 160px;
 	background: url(images/tagcloud_text.png) top left no-repeat;
-	margin: 6px 0px auto;
+	margin: 6px 0px 30px auto;
 	padding-left: 55px;
 	padding-right: 40px;
 	padding-top: 0px;
@@ -661,6 +675,7 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 
 .tag-cloud li a {
 	color: #8d8d8d;
+	border: none;
 }
 
 .tag-cloud li a:hover {
@@ -672,10 +687,10 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 	padding-bottom: 10px;
 	padding-top: 50px;
 	padding-right: 0;
-	margin-left:100px;
+	margin-left: 100px;
 	text-align: center;
 	font-size: 1em;
-	height:25px;
+	height: 25px;
 }
 
 #footer a {
@@ -687,13 +702,13 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 }
 
 .hidden {
-display: none
+	display: none
 }
 
-.search-prompt{
+.prompt {
 	padding-left: 50px;
-	font-size:1.6em;
-	padding-top:20px;
+	font-size: 1.6em;
+	padding-top: 20px;
 	font-weight: bold;
-	margin:0;
+	margin: 0;
 }

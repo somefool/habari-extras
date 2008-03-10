@@ -8,9 +8,9 @@
 						</div>
 						<?php endif; ?>
 						<div class="post-title">
-							<h2>
+							<h3>
 								<a href="<?php echo $post->permalink; ?>"title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a>
-							</h2>
+							</h3>
 						</div>
 						<div class="post-sup">
 							<span class="post-date">
@@ -19,7 +19,7 @@
 							<span class="post-comments-link">
 								<a href="<?php echo $post->permalink.'#comment-form'; ?>" title="Comments on this post"><?php $theme->post_comments_link( $post, 'No Comments', '%s Comment', '%s Comments' ); ?></a>
 							</span>
-							<span class="clear"></span>
+							<br class="clear"></span>
 						</div>
 						<div class="post-entry">
 							<?php echo $post->content_out; ?>
@@ -44,27 +44,22 @@
 		<div id="wrapper-bottom">
 			<div id="bottom-primary">
 				<div id="prev-posts">
-				<?php while($post=next($posts)) : ?>
-				<div class="prev-post">
-					<div class="prev-post-title">
-						<h3>
-							<a href="<?php echo $post->permalink; ?>" title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a>
-						</h3>
+					<?php while($post=next($posts)) : ?>
+					<div class="prev-post">
+						<div class="prev-post-title">
+							<h2>
+								<a href="<?php echo $post->permalink; ?>" title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a>
+							</h2>
+						</div>
+						<div class="prev-post-excerpt">
+							<p>
+								<?php echo $post->content_excerpt; ?>
+								<a href="<?php echo $post->permalink; ?>" title="Continue reading <?php echo $post->title; ?>"><img src="<?php Site::out_url( 'theme' ); ?>/images/arrow.png" alt="more"></a>
+							</p>
+						</div>
 					</div>
-					<div class="prev-post-excerpt">
-						<p>
-							<?php echo $post->content_excerpt; ?>
-							<a href="<?php echo $post->permalink; ?>" title="Continue reading <?php echo $post->title; ?>"><img src="<?php Site::out_url( 'theme' ); ?>/images/arrow.png" alt="more"></a>
-						</p>
-					</div>
-				</div>
 				<?php endwhile; ?>
-				<div id="prev-posts-footer">
-					<?php $theme->prevnext($page, Utils::archive_pages($posts->count_all())); ?>
 				</div>
-			</div>
-			<div id="archives">
-				<?php if (Plugins::is_loaded("extendedmonthlyarchives")) echo $extended_monthly_archives;?>
-				<br class="clear" />
-			</div>
+				<?php $theme->prevnext($page, Utils::archive_pages($posts->count_all())); ?>
+				<?php $theme->display_archives() ;?>
 			<?php include 'footer.php'; ?>

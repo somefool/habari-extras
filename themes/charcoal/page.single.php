@@ -7,8 +7,8 @@
 </div>
 <?php } ?>
 <div class="post-title">
-<h2><a href="<?php echo $post->permalink; ?>"
-	title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a></h2>
+<h3><a href="<?php echo $post->permalink; ?>"
+	title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a></h3>
 </div>
 
 <div class="post-entry"><?php echo $post->content_out; ?></div>
@@ -25,6 +25,7 @@
 <div id="page-bottom">
 <div id="wrapper-bottom">
 <div id="bottom-primary">
+<?php if ( !$post->info->comments_disabled ) :?>
 <div id="post-comments">
 <?php
 if ( $post->comments->moderated->count ) {
@@ -37,17 +38,20 @@ if ( $post->comments->moderated->count ) {
 ?>
 <div id="comment-<?php echo $comment->id; ?>" class=<?php echo $class; ?>>
 <div class="post-comment-commentor">
-<h3><a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a></h3>
+<h2><a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a></h2>
 </div>
 <div class="post-comment-body">
 <p><?php echo $comment->content_out; ?></p>
 <p class="post-comment-link"><a href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php echo $comment->date; ?></a></p>
 </div>
 </div>
-<?php }} else echo "<h3>Be the first to write a comment!</h3>" ?>
+<?php }} else echo "<h2>Be the first to write a comment!</h2>" ?>
 <div id="post-comments-footer"></div>
 </div>
-<!-- comment form starts here -->
+<!-- comment form -->
 <?php include 'commentform.php'; ?>
-<!-- comment form ends here -->
+<!-- /comment form -->
+<?php else: ?>
+<?php $theme->display_archives() ;?>
+<?php endif; ?>
 <?php include 'footer.php'; ?>

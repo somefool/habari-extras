@@ -22,6 +22,9 @@ class charcoal extends Theme
 	//Set to true to show the Login/Logout link in the navigation bar, false to hide it.
 	const DISPLAY_LOGIN = true;
 	
+	//Set to true to show the post tags in the multiple posts pages (search, tags, archives), false to hide them.
+	const TAGS_IN_MULTIPLE = false;
+	
 	/**
 	 * Execute on theme init to apply these filters to output
 	 */
@@ -50,6 +53,7 @@ class charcoal extends Theme
 		$this->assign('home_label', self::HOME_LABEL);
 		$this->assign('show_powered', self::SHOW_POWERED);
 		$this->assign('display_login', self::DISPLAY_LOGIN);
+		$this->assign('tags_in_multiple', self::TAGS_IN_MULTIPLE);
 		$this->assign('post_class', 'post' . ( ! self::SHOW_ENTRY_PAPERCLIP ? ' alt' : '' ) );
 		$this->assign('page_class', 'post' . ( ! self::SHOW_PAGE_PAPERCLIP ? ' alt' : '' ) );
 		
@@ -103,20 +107,24 @@ class charcoal extends Theme
 			$url=Site::get_url( 'habari', true ).'page/';
 		}
 		
-		$out='';
+		
 		if ( $currentpage > $totalpages ) {
 			$currentpage= $totalpages;
 		}
 		else if ( $currentpage < 1 ) {
 			$currentpage= 1;
 		}
-		if ($currentpage < $totalpages){
-			$out.='<span class="nav-prev"><a href="' . $url .($currentpage+1).'">Older Posts</a></span>';
+		if ( $totalpages > 1 ){
+			$out='<div id="prev-posts-footer">'."\n";
+			if ($currentpage < $totalpages){
+				$out.='<span class="nav-prev"><a href="' . $url .($currentpage+1).'">Older Posts</a></span>';
+			}
+			if ($currentpage > 1){
+				$out.='<span class="nav-next"><a href="' . $url .($currentpage-1).'">Newer Posts</a></span>';
+			}
+			$out.= "\n".'<br class="clear" />'."\n</div>\n";
+			echo $out;
 		}
-		if ($currentpage > 1){
-			$out.='<span class="nav-next"><a href="' . $url .($currentpage-1).'">Newer Posts</a></span>';
-		}
-		echo $out;
 	}
 	
 	/**

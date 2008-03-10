@@ -2,9 +2,9 @@
 <div id="main-posts">
 	<div class="post alt">
 		<div class="post-title">
-			<h2>
+			<h3>
 			Whoops! 404
-			</h2>
+			</h3>
 		</div>
 		<div class="post-entry">
 		<p>The page you were trying to access is not really there. Please try again.<p>
@@ -19,7 +19,5 @@
 <div id="page-bottom">
 <div id="wrapper-bottom">
 <div id="bottom-primary">
-<div id="archives"><?php if (Plugins::is_loaded("extendedmonthlyarchives")) echo $extended_monthly_archives;?>
-<br class="clear" />
-</div>
+<?php $theme->display_archives() ;?>
 <?php include 'footer.php'; ?>

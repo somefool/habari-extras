@@ -1,5 +1,3 @@
-
-/*--------------------IE6 is a spoiled little creap ----------*/
 .post {
 	height: 153px;
 }
@@ -51,10 +49,22 @@
 .post-comments-link {
 	padding-top: 3px;
 }
+#feeds{
+	border:none;
+	cursor: pointer;
+}
+.feedlink {
+border:none;
+}
+
+.feedlink a {
+	border:none;
+}
+
 
 #feeds a:hover {
-	border-bottom: 4px dotted #f2f2f2;
-	padding-bottom: 0-px;
+	padding-bottom: 0px;
+	cursor: pointer;
 }
 
 #habari-link {

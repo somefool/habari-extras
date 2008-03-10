@@ -1,7 +1,6 @@
 <?php include 'header.php'; ?>
-<?php if (isset($post)) : ?>
 <div id="main-posts">
-<p class="prompt">Search results for '<?php $theme->search_keywords(htmlspecialchars( $criteria )); ?>'</p>
+<p class="prompt">Displaying posts tagged: <?php echo $tag; ?></p>
 <?php foreach ($posts as $post): ?>
 <div class="post multi">
 <?php if ( is_array( $post->tags ) && ($tags_in_multiple) ) {;?>
@@ -22,9 +21,6 @@
 </div>
 <?php endforeach; ?>
 </div>
-<?php else: ?>
-<p class="prompt">No results found for '<?php $theme->search_keywords(htmlspecialchars( $criteria )); ?>'</p>
-<?php endif; ?>
 </div>
 <div id="top-secondary"><?php include'sidebar.php' ?></div>
 <div class="clear"></div>
