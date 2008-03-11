@@ -31,7 +31,7 @@ class CreditDue extends Plugin
 	 * Usage: This function is called using <?php $theme->show_credits(); ?>
 	 * This loads the template creditdue.php (which can be copied to the theme directory and customized) and shows the theme and plugins in unordered lists
 	 */
-	public function theme_show_credits() {
+	public function theme_show_credits( $theme ) {
 
 		$theme_credits= Themes::get_active();
 		$plugin_credits= Plugins::get_active();
