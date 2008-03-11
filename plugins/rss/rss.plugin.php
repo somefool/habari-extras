@@ -56,7 +56,7 @@ class RSS extends Plugin {
 		if ( $tagline= Options::get( 'tagline' ) ) {
 			$description= $channel->addChild( 'description', htmlspecialchars( $tagline ) );
 		}
-		$pudDate= $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate ) ) );
+		$pubDate= $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate ) ) );
 		$generator= $channel->addChild( 'generator', 'Habari ' . Version::get_habariversion() . ' http://habariproject.org/' );
  
 		return $xml;
