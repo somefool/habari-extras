@@ -18,7 +18,7 @@ class ThemeSwitcher extends Plugin
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
+			'version' => '1.1',
 			'description' => 'Allows visitors to change the theme of the site.',
 			'license' => 'Apache License 2.0',
 		);
@@ -52,15 +52,17 @@ HEADER;
 				}
 			}
 		}
+		
+		$this->add_template('switcher', dirname(__FILE__) . '/themeswitcher.php');
 	}
 		
 	function action_theme_sidebar_bottom()
 	{
-		include('themeswitcher.php');
+		return $theme->fetch('switcher');
 	}
 	
 	function theme_switcher() {
-		include('themeswitcher.php');
+		return $theme->fetch('switcher');
 	}
 	
 	function filter_option_get_value($value, $name)
