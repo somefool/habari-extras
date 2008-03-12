@@ -180,13 +180,20 @@ class RSS extends Plugin {
 	 */	 	
 	public function action_handler_rss_entry_comments($vars)
 	{
-		$slug= $vars['slug'];
-		$post= Post::get($slug); 
+		if ( isset( $vars['slug'] ) ) {
+			$slug= $vars['slug'];
+			$post= Post::get( $slug );
+		}
+		else if ( isset( $vars['id'] ) ) {
+			$id= $vars['id'];
+			$post= Post::get( $id );
+		}
 		 
 		$xml= $this->create_rss_wrapper();
 		$xml->channel->title = htmlspecialchars( sprintf( _t ( 'Comments on %s' ),  $post->title ) );
 		$xml= $this->add_comments( $xml, $post->comments->comments->approved );
-		$xml= Plugins::filter( 'rss_entry_comments', $xml );
+		$content_type= Post::type_name( $post->content_type );
+		$xml= Plugins::filter( "rss_{$content_type}_comments", $xml );
 		ob_clean();
 
 		header( 'Content-Type: application/xml' );
