@@ -5,7 +5,6 @@
  * @package AlienContact
  * @todo Add documentation
  * @todo Add interface to database
- * @todo Post content filter for inserting URL
  */
 
 class AlienContact extends Plugin {
@@ -73,6 +72,16 @@ class AlienContact extends Plugin {
 		));
 		
 		return $rules;
+	}
+	public function filter_post_content ($content) {
+		$url = Site::get_url('host') . Controller::get_full_url();
+		$input = 'post';
+		
+		$form = self::get_form($url, $input);
+		
+		$content = str_replace('<!--contactForm-->', $form, $content);
+		
+		return $content;
 	}
 	public function action_handler_display_js($handler_vars) {
 		
