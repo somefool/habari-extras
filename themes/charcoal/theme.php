@@ -7,7 +7,7 @@ class charcoal extends Theme
 	//Set to true to show the title image, false to display the title text.
 	const SHOW_TITLE_IMAGE = false;
 
-	//Set to whatever you want your fist tab text to be.
+	//Set to whatever you want your first tab text to be.
 	const HOME_LABEL = 'Blog';
 
 	//Set to true to show the paperclip graphic in posts, false to hide it.
@@ -179,6 +179,11 @@ class charcoal extends Theme
 		{
 			echo $criteria;
 		}
+	}
+	
+	public function theme_search_form( $theme )
+	{
+		return $theme->fetch('searchform');
 	}
 }
 ?>
