@@ -17,16 +17,7 @@
 				<?php endforeach; ?>
 			</ul>
 		</div>
-		<div class="block">
-			<h3>Blogroll</h3>
-			<p>Here is a little collection of links to the websites I enjoy reading. Friends, family and fellow bloggers.</p>
-			<ul>
-				<li><a href="http://www.habariproject.org/en/">Habari</a></li>
-				<li><a href="http://theundersigned.net">The undersigned</a></li>
-				<li><a href="http://femalecliche.net">Female Cliché</a></li>
-			</ul>
-			<p>Please get in touch if you feel betrayed.</p>
-		</div>
+		
 		<div class="block" id="recent_posts">
 			<h3>Recent posts</h3>
 			<ul>
