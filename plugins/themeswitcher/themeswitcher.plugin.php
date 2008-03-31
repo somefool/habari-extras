@@ -21,6 +21,7 @@ class ThemeSwitcher extends Plugin
 			'version' => '1.1',
 			'description' => 'Allows visitors to change the theme of the site.',
 			'license' => 'Apache License 2.0',
+			'copyright' => '2008'
 		);
 	}
 	

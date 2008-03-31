@@ -34,7 +34,7 @@ class StyleSwitcher extends Plugin {
 			'authorurl' => 'http://habariproject.org/',
 			'license' => 'Apache License 2.0',
 			'description' => 'Switch stylesheet without reloading, thanks to jQuery!',
-			'copyright' => '2007'
+			'copyright' => '2008'
 		);
 	}
 	
