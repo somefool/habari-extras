@@ -1,6 +1,9 @@
 <?php
 class Sitemaps extends Plugin {
 
+	/**
+	 * Returns required plugin informations
+	 */
 	public function info() {
 		return array(
 			'name' => 'Sitemaps',
@@ -14,8 +17,14 @@ class Sitemaps extends Plugin {
 		);
 	}
 	
-	/* Filter function called by the plugin hook `rewrite_rules`
-	 * Add a new rewrite rule to the database's rules. Call `Sitemaps::act('Sitemap')` when a request for `sitemap.xml` is received.
+	/**
+	 * Filter function called by the plugin hook `rewrite_rules`
+	 * Add a new rewrite rule to the database's rules.
+	 *
+	 * Call `Sitemaps::act('Sitemap')` when a request for `sitemap.xml` is received.
+	 *
+	 * @param array $db_rules Array of rewrite rules compiled so far
+	 * @return array Modified rewrite rules array, we added our custom rewrite rule
 	 */
 	public function filter_rewrite_rules( $db_rules )
 	{
@@ -23,8 +32,11 @@ class Sitemaps extends Plugin {
 		return $db_rules;
 	}
 	
-	/* Act function called by the `Controller` class.
+	/**
+	 * Act function called by the `Controller` class.
 	 * Dispatches the request to the proper action handling function.
+	 *
+	 * @param string $action Action called by request, we only support 'Sitemap'
 	 */
 	public function act( $action )
 	{
@@ -36,7 +48,8 @@ class Sitemaps extends Plugin {
 		}
 	}
 	
-	/* Sitemap function called by the self `act` function.
+	/**
+	 * Sitemap function called by the self `act` function.
 	 * Generates the `sitemap.xml` file to output.
 	 */
 	public function Sitemap()
@@ -51,15 +64,15 @@ class Sitemaps extends Plugin {
 	
 			$xml= new SimpleXMLElement( $xml );
 					
-			/* Retreive all published posts and pages from the database */
+			// Retreive all published posts and pages from the database
 			$content['posts']= Posts::get( array( 'content_type' => 'entry', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
 			$content['pages']= Posts::get( array( 'content_type' => 'page', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
 			
-			/* Add the index page first */
+			// Add the index page first
 			$url= $xml->addChild( 'url' );
 			$url_loc= $url->addChild( 'loc', Site::get_url( 'habari' ) );
 			
-			/* Generate the `<url>`, `<loc>`, `<lastmod>` markup for each post and page. */
+			// Generate the `<url>`, `<loc>`, `<lastmod>` markup for each post and page.
 			foreach ( $content as $entries ) {
 				foreach ( $entries as $entry ) {
 					$url= $xml->addChild( 'url' );
