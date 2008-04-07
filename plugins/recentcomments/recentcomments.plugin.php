@@ -103,7 +103,7 @@ Class RecentComments extends Plugin
 		$list= array();
 		foreach ($comments as $comment){
 			$name='<a href="'.$comment->url.'" rel="external">'.$comment->name.'</a>';
-			$post='<a href="'.$comment->post->permalink.'>'.$comment->post->title.'</a>';
+			$post='<a href="'.$comment->post->permalink.'">'.$comment->post->title.'</a>';
 			$datearray=date_parse($comment->date);
 			$date=date($dateformat,mktime($datearray['hour'],$datearray['minute'],0,$datearray['month'],$datearray['day'],$datearray['year']));
 			$list[]="<li>".str_replace('[[user]]',$name, str_replace('[[post]]',$post,str_replace('[[date]]',$date,$format)))."</li>\n";
