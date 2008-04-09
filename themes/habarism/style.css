@@ -247,6 +247,12 @@ a:visited {
 			margin:0 0 72px 0;
 		}
 		
+			#content .post.draft {
+				filter:alpha(opacity=50);
+				-moz-opacity:.50;
+				opacity:.50;
+			}
+		
 			#content .post .post_head {
 				margin:0 0 18px 0;
 				padding:0 10px;

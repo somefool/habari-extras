@@ -3,7 +3,7 @@
 	<div id="content" class="with_title">
 		<h3 class="page_title">Posts tagged with <?php echo $tag_text; ?></h3>
 		<?php foreach ( $posts as $post ) { ?>
-		<div class="post" id="post-<?php echo $post->id; ?>">
+		<div class="post<?php if($post->status == 1) { echo ' draft'; } ?>" id="post-<?php echo $post->id; ?>">
 			<div class="post_head">
 				<h2><a href="<?php echo $post->permalink; ?>" title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a></h2>
 				<p class="post_head_meta"><?php echo $post->author->info->displayname; ?> &middot; <?php echo $post->pubdate_out; ?></p>

@@ -17,7 +17,9 @@
 				<?php endforeach; ?>
 			</ul>
 		</div>
-		
+		<div class="block" id="blogroll">
+			<?php $theme->show_blogroll(); ?> 
+		</div>
 		<div class="block" id="recent_posts">
 			<h3>Recent posts</h3>
 			<ul>
@@ -31,7 +33,7 @@
 			<?php include 'loginform.php'; ?>
 		</div>
 		<div class="block" id="footer">
-			<p><?php Options::out('title'); _e(' is powered by'); ?> <a href="http://www.habariproject.org/" title="Habari">Habari</a> and <a href="#">Habarism</a><br>
+			<p><?php Options::out('title'); _e(' is powered by'); ?> <a href="http://www.habariproject.org/" title="Habari">Habari</a> and <a href="http://blog.theundersigned.net/">Habarism</a><br>
 			<a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Atom Entries</a> and <a href="<?php URL::out( 'atom_feed_comments' ); ?>">Atom Comments</a></p>
 			<?php $theme->footer(); ?>
 		</div>

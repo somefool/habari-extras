@@ -20,7 +20,7 @@ class Unknown extends Theme
 	public function add_template_vars()
 	{
 		$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
-		$this->assign('recent_posts', Posts::get( array('limit'=>5, 'orderby'=>'pubdate DESC' ) ) );
+		$this->assign('recent_posts', Posts::get( array('limit'=>5, 'orderby'=>'pubdate DESC', 'content_type'=>1, 'status'=>2 ) ) );
 		
 		if ( '' != Controller::get_var('tag') ) {
 		     $tag_text= DB::get_value('SELECT tag_text FROM {tags} WHERE tag_slug=?', array( Controller::get_var('tag') ) );
