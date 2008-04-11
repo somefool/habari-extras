@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="<?php Site::out_url( 'theme' ); ?>/ie.css" type="text/css" media="screen" />
 	<![endif]-->
 	<?php $theme->header(); ?>
-	<?php Stack::out('template_header_javascript', '<script type="text/javascript" src="%s"></script>'); ?>
 </head>
 <body>
 	<div id="page-top">
