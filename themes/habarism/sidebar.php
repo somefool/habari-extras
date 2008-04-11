@@ -6,7 +6,7 @@
 		</div>
 		<div class="block" id="flickr">
 			<div class="images clearfix">
-				<?php echo $flickr_images; ?>
+			<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=10&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=35634769@N00"></script>
 			</div>
 		</div>
 		<div class="block" id="recent_comments">
@@ -17,9 +17,8 @@
 				<?php endforeach; ?>
 			</ul>
 		</div>
-		<div class="block" id="blogroll">
-			<?php $theme->show_blogroll(); ?> 
-		</div>
+		<?php $theme->twitter (); ?>
+		<?php $theme->show_blogroll(); ?> 
 		<div class="block" id="recent_posts">
 			<h3>Recent posts</h3>
 			<ul>
