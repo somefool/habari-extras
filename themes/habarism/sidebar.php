@@ -6,7 +6,7 @@
 		</div>
 		<div class="block" id="flickr">
 			<div class="images clearfix">
-			<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=10&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=35634769@N00"></script>
+			
 			</div>
 		</div>
 		<div class="block" id="recent_comments">
@@ -32,7 +32,7 @@
 			<?php include 'loginform.php'; ?>
 		</div>
 		<div class="block" id="footer">
-			<p><?php Options::out('title'); _e(' is powered by'); ?> <a href="http://www.habariproject.org/" title="Habari">Habari</a> and <a href="http://blog.theundersigned.net/">Habarism</a><br>
+			<p><?php Options::out('title'); _e(' is powered by'); ?> <a href="http://www.habariproject.org/" title="Habari">Habari</a> and <a rel="nofollow" href="http://blog.theundersigned.net/">Habarism</a><br>
 			<a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Atom Entries</a> and <a href="<?php URL::out( 'atom_feed_comments' ); ?>">Atom Comments</a></p>
 			<?php $theme->footer(); ?>
 		</div>
