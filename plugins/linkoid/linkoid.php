@@ -3,9 +3,9 @@
     	<h2>Linkoid</h2>
     	<ul>
 <?php foreach($linkoids as $post): ?>
-			<p><a href="<?php echo $post->permalink; ?>" style="font-weight: bold;"><?php echo $post->title; ?></a> -
+			<li><p><a href="<?php echo $post->permalink; ?>" style="font-weight: bold;"><?php echo $post->title; ?></a> -
 			<?php echo $post->content; ?>
-			</p>
+			</p></li>
 <?php endforeach; ?>
 			</ul>
 		</div>
