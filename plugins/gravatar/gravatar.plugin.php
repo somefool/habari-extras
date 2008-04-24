@@ -33,7 +33,7 @@ class Gravatar extends Plugin {
 	 * @param object $comment The Comment object to build a Gravatar URL from.
 	 * @return string URL to the author's Gravatar.
 	 */
-	public function theme_gravatar( $out, $theme ) {
+	public function filter_comment_gravatar( $out, $comment ) { 
 		// The Gravar ID is an hexadecimal md5 hash of the author's e-mail address.
 		$query_arguments= array( 'gravatar_id' => md5( $comment->email ) );
 		// Retrieve the Gravatar options.
