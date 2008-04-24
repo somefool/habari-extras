@@ -53,7 +53,9 @@ class Linkoid extends Plugin
 			switch ($action){
 				case 'Configure' :
 					$ui = new FormUI(strtolower(get_class($this)));
-					$links = $ui->add('text', 'count', 'Items to show');
+					$links = $ui->add('text', 'count', 'Number of items to be shown');
+					//required
+					$links->add_validator( 'validate_required' );
 					$tag_control = $ui->add('select', 'show', 'Tag that will be shown via linkoid command');
 					$tags = DB::get_results( 'SELECT tag_slug, tag_text FROM {tags} ORDER BY tag_text ASC' );
 					$options = array();
