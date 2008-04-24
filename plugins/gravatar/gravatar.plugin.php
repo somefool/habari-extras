@@ -33,7 +33,7 @@ class Gravatar extends Plugin {
 	 * @param object $comment The Comment object to build a Gravatar URL from.
 	 * @return string URL to the author's Gravatar.
 	 */
-	public function filter_comment_gravatar( $out, $comment ) {
+	public function theme_gravatar( $out, $theme ) {
 		// The Gravar ID is an hexadecimal md5 hash of the author's e-mail address.
 		$query_arguments= array( 'gravatar_id' => md5( $comment->email ) );
 		// Retrieve the Gravatar options.
@@ -81,6 +81,9 @@ class Gravatar extends Plugin {
 					$ui= new FormUI( 'gravatar' );
 					$g_s_d= $ui->add( 'text', 'default', '<dl><dt>Default Gravatar</dt><dd>An optional "default" parameter may follow that specifies the full, URL encoded URl, protocol included of a GIF, JPEG or PNG image that should be returned if either the request email address has no associated gravatar, or that gravatar has a rating higher than is allowed by the "rating" parameter.</dd></dl>', Options::get( 'gravatar:default' ) );
 					$g_s_s= $ui->add( 'text', 'size', '<dl><dt>Size</dt><dd>An optional "size" parameter may follow that specifies the desired width and height of the gravatar. Valid vaues are from 1 to 80 inclusive. Any size other than 80 will cause the original gravatar image to be downsampled using bicubic resampling before output.</dd></dl>', Options::get( 'gravatar:size' ) );
+					//mark size as required
+					$g_s_s-->add_validator( 'validate_required' );
+					
 					$g_s_r= $ui->add( 'select', 'rating', '<dl><dt>Rating</dt><dd>An optional "rating" parameter may follow with a value of [ G | PG | R | X ] that determines the highest rating (inclusive) that will be returned.</dd></dl>', array( 'G' => 'G', 'PG' => 'PG', 'R' => 'R', 'X' => 'X' ), Options::get( 'gravatar:rating' ) );
 					$ui->on_success( array( $this, 'save_options' ) );
 					$ui->out();
