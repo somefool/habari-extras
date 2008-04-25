@@ -448,7 +448,7 @@ li.login a:hover {
 #prev-posts {
 	min-height: 233px;
 	margin: 6px 0px 0px auto;
-	background: url(images/PrevPosts_text.png) top left no-repeat;
+	background: url(images/prevposts_text.png) top left no-repeat;
 	padding-left: 120px;
 	padding-right: 20px;
 }
@@ -657,8 +657,8 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 #tags {
 	min-height: 160px;
 	background: url(images/tagcloud_text.png) top left no-repeat;
-	margin: 6px 0px 30px auto;
-	padding-left: 55px;
+	margin: 6px 0px 30px 15px;
+	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 0px;
 	font-size: 100%;
