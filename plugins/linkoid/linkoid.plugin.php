@@ -55,7 +55,7 @@ class Linkoid extends Plugin
 					$ui = new FormUI(strtolower(get_class($this)));
 					$links = $ui->add('text', 'count', 'Number of items to be shown');
 					//required
-					$links->add_validator( 'validate_required' );
+					$links->add_validator( 'validate_required' )->add_validator( 'validate_regex', '%^[1-9][0-9]*$', 'Number of items shown must be a number; 1 or more.' );
 					$tag_control = $ui->add('select', 'show', 'Tag that will be shown via linkoid command');
 					$tags = DB::get_results( 'SELECT tag_slug, tag_text FROM {tags} ORDER BY tag_text ASC' );
 					$options = array();
