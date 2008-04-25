@@ -71,11 +71,6 @@ HEADER;
 			return $value;
 		}
 	}
-	public function action_init()
-	{
-		$this->add_template('themeswitcher', dirname(__FILE__) . '\themeswitcher.php');
-	}
-
 }
 
 ?>
