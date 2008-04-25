@@ -56,13 +56,9 @@ HEADER;
 		
 		$this->add_template('switcher', dirname(__FILE__) . '/themeswitcher.php');
 	}
-		
-	function action_theme_sidebar_bottom()
-	{
-		return $theme->fetch('switcher');
-	}
+
 	
-	function theme_switcher() {
+	function theme_switcher( $theme ) {
 		return $theme->fetch('switcher');
 	}
 	
@@ -74,6 +70,10 @@ HEADER;
 		else {
 			return $value;
 		}
+	}
+	public function action_init()
+	{
+		$this->add_template('themeswitcher', dirname(__FILE__) . '\themeswitcher.php');
 	}
 
 }
