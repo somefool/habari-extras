@@ -1,10 +1,11 @@
-/* Default Elements*/
+/* Default Elements */
 body {
 	margin: 0px;
-	font-family: 'Myriad Pro', Helvetica, Arial;
+	font-family: 'myriad pro', helvetica, arial;
 	font-weight: normal;
 	color: #323232;
 	font-size: 14px;
+	background-color: #ffffff;
 }
 
 a {
@@ -15,7 +16,6 @@ a {
 
 a:hover {
 	background-color: #dadada;
-	-webkit-border-radius: 2px;
 }
 
 h1 {
@@ -78,7 +78,7 @@ h2 a:hover {
 }
 
 h4 {
-margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 p {
@@ -86,10 +86,10 @@ p {
 	line-height: 130%;
 }
 
-/*-------------------------------------The upper part of the page----------------*/
+/* The upper part of the page */
 #page-top {
 	position: relative;
-	background: url(images/main_bg.png) top repeat-x;
+	background: url("images/main_bg.png") top repeat-x;
 }
 
 #wrapper-top {
@@ -106,7 +106,7 @@ p {
 
 #header {
 	width: 930px;
-	height: 200px;
+	min-height: 200px;
 }
 
 #title {
@@ -136,24 +136,21 @@ p {
 }
 
 #navbar {
-	position: relative;
 	min-width: 650px;
 	overflow: visible;
 	display: block;
-	margin-left: 40px;
+	margin-left: 50px;
 }
 
 #navbar ul {
 	font-size: 0.9em;
 	list-style: none;
-	margin: 10px 0px 0px 10px;
 	padding: 0px;
 	height: 48px;
 	display: block;
 }
 
 #navbar ul li {
-	padding: 3px 0px 0px 0px;
 	float: left;
 	display: block;
 	margin-left: 1px;
@@ -162,7 +159,7 @@ p {
 }
 
 #navbar ul li a {
-	padding: 5px 12px 20px 12px;
+	padding: 7px 13px 20px 12px;
 	text-decoration: none;
 	color: #e9e9e9;
 	display: block;
@@ -174,17 +171,17 @@ p {
 
 #navbar ul li a:hover {
 	background: none;
-	color: inherit;
+	color: #3f3f3e;
 }
 
 #navbar ul li:hover {
 	border: none;
-	background: url(images/select_bg.png) top left repeat-x;
+	background: url("images/select_bg.png") top left repeat-x;
 	color: #3f3f3e;
 }
 
 .current-page {
-	background: url(images/select_bg.png) top left repeat-x;
+	background: url("images/select_bg.png") top left repeat-x;
 }
 
 #navbar ul li.current-page a {
@@ -212,7 +209,7 @@ li.login a:hover {
 	min-height: 153px;
 	padding-left: 100px;
 	padding-top: 60px;
-	background: url(images/paperclip.png) top left no-repeat;
+	background: url("images/paperclip.png") top left no-repeat;
 }
 
 .post.alt {
@@ -232,7 +229,7 @@ li.login a:hover {
 .post-tags {
 	display: block;
 	margin-left: 2px;
-	background: url(images/tags.png) left no-repeat;
+	background: url("images/tags.png") left no-repeat;
 	padding-left: 40px;
 	word-spacing: 10px;
 	font-size: 0.9em;
@@ -258,7 +255,7 @@ li.login a:hover {
 .post-date {
 	margin-left: 2px;
 	font-weight: 400;
-	background: url(images/dots.png) left no-repeat;
+	background: url("images/dots.png") left no-repeat;
 	padding-left: 17px;
 	color: #5a5a5a;
 	font-size: 1.03em;
@@ -268,7 +265,7 @@ li.login a:hover {
 .post-comments-link a {
 	text-align: right;
 	font-size: 1.03em;
-	background: url(images/comments.png) left no-repeat;
+	background: url("images/comments.png") left no-repeat;
 	float: right;
 	padding-left: 32px;
 	margin-top: -3px;
@@ -296,6 +293,13 @@ li.login a:hover {
 	background-color: #f0f0f0;
 }
 
+.post-entry pre {
+	overflow-x: auto;
+	overflow-y: hidden;
+	width: 100%;
+	background-color: #f7f7f7;
+}
+
 .post-footer {
 	height: 30px;
 	text-align: right;
@@ -304,7 +308,7 @@ li.login a:hover {
 #top-secondary {
 	min-height: 266px;
 	width: 315px;
-	background: url(images/sidebar_top.png) top center no-repeat;
+	background: url("images/sidebar_top.png") top center no-repeat;
 	float: right;
 }
 
@@ -319,18 +323,17 @@ li.login a:hover {
 }
 
 #search #search-box {
-	border: none;
 	font-size: 1.1em;
 	color: #999999;
 	width: 200px;
 	height: 20px;
 	text-align: center;
 	float: left;
-	margin-top: 4px;
+	margin-top: 2px;
 }
 
 #search #search-btn {
-	background: url(images/search_button.png) bottom left no-repeat;
+	background: url("images/search_button.png") bottom left no-repeat;
 	height: 30px;
 	width: 31px;
 	border: none;
@@ -342,35 +345,27 @@ li.login a:hover {
 
 #feeds {
 	height: 92px;
-	padding: 0px 80px 5px 35px;
-}
-
-#feeds img {
-	border: none;
-	margin-right: 10px;
-	vertical-align: top;
-}
-
-#feeds a {
-	text-decoration: none;
-	padding-bottom: 2px;
-}
-
-#feeds span {
-	color: #ffffff;
-	font-size: 1.6em;
-	height: 34px;
-	display: block;
-	text-align: left !important;
+	width: 203px;
+	margin-left: 35px;
+	margin-bottom: 5px;
 }
 
 .feedlink {
 	margin-bottom: 12px;
 }
 
-.feedlink span:hover {
-	background: #dadada;
-	-webkit-border-radius: 4px;
+.feedlink a {
+	background: url("images/feed.png") center left no-repeat;
+	font-size: 1.6em;
+	display: block;
+	padding-left: 50px;
+	color: #ffffff;
+	line-height: 34px;
+	border: none;
+}
+
+.feedlink a:hover {
+	background-color: #dadada;
 }
 
 #habari-link {
@@ -417,18 +412,18 @@ li.login a:hover {
 #sidebar div ul li {
 	color: #5a5a5a;
 	font-weight: 400;
-	background: url(images/bullet.png) center left no-repeat;
+	background: url("images/bullet.png") center left no-repeat;
 	padding-left: 20px;
 	margin-left: 0;
 	margin-top: 4px;
 }
 
-/*-----------------------------------The lower part of the page---------------*/
+/* The lower part of the page */
 #page-bottom {
 	margin: 0px;
 	padding-top: 17px;
 	position: relative;
-	background: #3f3f3f url(images/page_bottom_bg.png) top repeat-x;
+	background: #3f3f3f url("images/page_bottom_bg.png") top repeat-x;
 	color: #ffffff;
 }
 
@@ -437,7 +432,7 @@ li.login a:hover {
 	width: 972px;
 	padding: 0px;
 	margin: 0px auto;
-	background: url(images/secondary_bg.png) left repeat-y;
+	background: url("images/secondary_bg.png") left repeat-y;
 }
 
 #bottom-primary {
@@ -448,7 +443,7 @@ li.login a:hover {
 #prev-posts {
 	min-height: 233px;
 	margin: 6px 0px 0px auto;
-	background: url(images/prevposts_text.png) top left no-repeat;
+	background: url("images/prevposts_text.png") top left no-repeat;
 	padding-left: 120px;
 	padding-right: 20px;
 }
@@ -493,7 +488,7 @@ li.login a:hover {
 }
 
 #prev-posts-footer .nav-prev {
-	background: url(images/nav-left.png) top left no-repeat;
+	background: url("images/nav-left.png") top left no-repeat;
 	float: left;
 	height: 25px;
 }
@@ -505,7 +500,7 @@ li.login a:hover {
 }
 
 #prev-posts-footer .nav-next {
-	background: url(images/nav-right.png) top right no-repeat;
+	background: url("images/nav-right.png") top right no-repeat;
 	float: right;
 	height: 25px;
 }
@@ -522,11 +517,11 @@ li.login a:hover {
 	border-color: #888888;
 }
 
-/*------------------------Comments section----------------------------*/
+/* Comments section */
 #post-comments {
 	min-height: 180px;
 	margin: 6px 0px 35px auto;
-	background: url(images/comments_text.png) top left no-repeat;
+	background: url("images/comments_text.png") top left no-repeat;
 	padding-left: 120px;
 	padding-right: 20px;
 }
@@ -575,15 +570,13 @@ p.post-comment-link a:hover {
 	color: #aaa7a7
 }
 
-/*-------------------------------------------------------*/
-	/*---------------------- Comment form ---------------------*/
+/* Comment form */
 #comment-form {
 	min-height: 177px;
 	margin: 0px 0px auto;
-	background: url(images/postcomment_text.png) top left no-repeat;
-	padding-left: 130px;
-	padding-right: 40px;
-	padding-top: 20px;
+	background: url("images/postcomment_text.png") top left no-repeat;
+	padding-left: 120px;
+	padding-right: 20px;
 }
 
 #comment-form p {
@@ -602,23 +595,25 @@ p.post-comment-link a:hover {
 	color: #111111;
 }
 
-/*-------------------------------------------------------*/
+/* Others */
 #archives {
 	min-height: 147px;
-	margin: 0px 0px auto;
-	background: url(images/archives_text.png) top left no-repeat;
-	padding-left: 130px;
+	background: url("images/archives_text.png") top left no-repeat;
+	padding-left: 150px;
 	padding-right: 40px;
+	margin-bottom: 40px;
 }
 
 ul.archlist-left {
 	float: left;
 	padding: 0;
+	margin: 0px -50px 0px 0px; /*fixing an IE7 Bug */
 }
 
 ul.archlist-right {
 	float: right;
 	padding: 0;
+	margin: 0px 0px 0px -50px; /*fixing an IE7 Bug */
 }
 
 ul.archlist-left li {
@@ -650,13 +645,13 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 	width: 315px;
 	margin-top: -17px;
 	padding-top: 17px;
-	background: url(images/secodary_top.png) top center no-repeat;
+	background: url("images/secodary_top.png") top center no-repeat;
 	float: right;
 }
 
 #tags {
 	min-height: 160px;
-	background: url(images/tagcloud_text.png) top left no-repeat;
+	background: url("images/tagcloud_text.png") top left no-repeat;
 	margin: 6px 0px 30px 15px;
 	padding-left: 40px;
 	padding-right: 40px;
@@ -687,14 +682,9 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 }
 
 #footer {
-	margin: 0px;
-	padding-bottom: 10px;
-	padding-top: 50px;
-	padding-right: 0;
-	margin-left: 100px;
-	text-align: center;
-	font-size: 1em;
-	height: 25px;
+	float: left;
+	width: 645px;
+	margin-left: 145px;
 }
 
 #footer a {
@@ -715,4 +705,13 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 	padding-top: 20px;
 	font-weight: bold;
 	margin: 0;
+}
+
+input {
+	border: 2px solid;
+}
+
+textarea {
+	border: 2px solid;
+	width: 100%;
 }

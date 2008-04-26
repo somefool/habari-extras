@@ -89,37 +89,31 @@ class charcoal extends Theme
 				}
 			}
 		}
-		if ( !empty( $settings) )
-		{
+		if ( !empty( $settings) ) {
 			$suffix= $rr->build($settings);
-			if (preg_match( "/\bpage\/\d+$/", $suffix) )
-			{
+			if (preg_match( "/\bpage\/\d+$/", $suffix) ) {
 				$url= Site::get_url( 'habari', true ) . preg_replace("/\bpage\/\d+$/", "page/", $suffix );
 			}
-			else
-			{
+			else {
 				$url= Site::get_url( 'habari', true ) . $suffix . '/page/';
 			}
-			
 		}
-		else
-		{
+		else {
 			$url=Site::get_url( 'habari', true ).'page/';
 		}
-		
-		
+
 		if ( $currentpage > $totalpages ) {
 			$currentpage= $totalpages;
 		}
 		else if ( $currentpage < 1 ) {
 			$currentpage= 1;
 		}
-		if ( $totalpages > 1 ){
+		if ( $totalpages > 1 ) {
 			$out='<div id="prev-posts-footer">'."\n";
-			if ($currentpage < $totalpages){
+			if ($currentpage < $totalpages) {
 				$out.='<span class="nav-prev"><a href="' . $url .($currentpage+1).'">Older Posts</a></span>';
 			}
-			if ($currentpage > 1){
+			if ($currentpage > 1) {
 				$out.='<span class="nav-next"><a href="' . $url .($currentpage-1).'">Newer Posts</a></span>';
 			}
 			$out.= "\n".'<br class="clear" />'."\n</div>\n";
