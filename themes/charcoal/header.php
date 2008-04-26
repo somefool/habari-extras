@@ -8,7 +8,7 @@
 	<link rel="edit" type="application/atom+xml" title="Atom Publishing Protocol" href="<?php URL::out( 'atompub_servicedocument' ); ?>">
 	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php URL::out( 'rsd' ); ?>">
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php Site::out_url( 'theme' ); ?>/style.css">
-	<!--[if lte IE 6]>
+	<!--[if lt IE 7]>
 	<link rel="stylesheet" href="<?php Site::out_url( 'theme' ); ?>/ie.css" type="text/css" media="screen" />
 	<![endif]-->
 	<?php $theme->header(); ?>
@@ -19,25 +19,24 @@
 			<div id="top-primary">
 				<div id="header">
 					<div id="title">
-						<?php if ( $show_title_image ) : ?>
-							<h1><a href="<?php Site::out_url( 'habari' ); ?>"><img src="<?php Site::out_url( 'theme' ); ?>/images/title.png" alt="<?php Options::out( 'title' ); ?>" ></a><span class="hidden"><?php Options::out( 'title' ); ?></span></h1>
-						<?php else : ?>
-							<h1><a href="<?php Site::out_url( 'habari' ); ?>"><?php Options::out( 'title' ); ?></a></h1>
-						<?php endif; ?>
-							<p class="tagline"><?php Options::out( 'tagline' ); ?></p>
+					<?php if ( $show_title_image ) : ?>
+						<h1><a href="<?php Site::out_url( 'habari' ); ?>"><img src="<?php Site::out_url( 'theme' ); ?>/images/title.png" alt="<?php Options::out( 'title' ); ?>" ></a><span class="hidden"><?php Options::out( 'title' ); ?></span></h1>
+					<?php else : ?>
+						<h1><a href="<?php Site::out_url( 'habari' ); ?>"><?php Options::out( 'title' ); ?></a></h1>
+					<?php endif; ?>
+						<p class="tagline"><?php Options::out( 'tagline' ); ?></p>
 					</div>
-					
 					<div id="navbar">
 						<ul>
 							<li<?php if ($post_id == 0) echo ' class="current-page"'; ?>>
 								<a href="<?php Site::out_url( 'habari' ); ?>"><?php echo $home_label; ?></a>
 							</li>
-							<?php foreach ( $pages as $pagelink ) : ?>
+						<?php foreach ( $pages as $pagelink ) : ?>
 							<li<?php if ($pagelink->id == $post_id) echo ' class="current-page"'; ?>>
 								<a href="<?php echo $pagelink->permalink; ?>" title="<?php echo $pagelink->title; ?>"><?php echo $pagelink->title; ?></a>
 							</li>
-							<?php endforeach; ?>
-							<?php if ($display_login): ?>
+						<?php endforeach; ?>
+						<?php if ($display_login): ?>
 							<li class="login">
 							<?php if ( isset( $user ) && is_object( $user ) ) : ?>
 								<a href="<?php Site::out_url( 'admin' ); ?>" title="Admin area">Admin</a>
@@ -45,7 +44,7 @@
 								<a href="<?php Site::out_url( 'habari' ); ?>/user/login" title="Login">Login</a>
 							</li>
 							<?php endif; ?>
-							<?php endif; ?>
+						<?php endif; ?>
 						</ul>
 					</div>
 				</div>

@@ -570,7 +570,7 @@ p.post-comment-link a:hover {
 	color: #aaa7a7
 }
 
-/* Comment form */
+/* Comments form */
 #comment-form {
 	min-height: 177px;
 	margin: 0px 0px auto;
@@ -595,6 +595,16 @@ p.post-comment-link a:hover {
 	color: #111111;
 }
 
+#comments-closed {
+	padding-left: 120px;
+	padding-bottom: 50px;
+	background:none;
+}
+
+#comments-closed p{
+	text-align:center;
+	font-size:1.2em;	
+}
 /* Others */
 #archives {
 	min-height: 147px;
