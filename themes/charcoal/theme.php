@@ -5,7 +5,7 @@ define( 'THEME_CLASS', 'charcoal' );
 class charcoal extends Theme
 {
 	//Set to true to show the title image, false to display the title text.
-	const SHOW_TITLE_IMAGE = true;
+	const SHOW_TITLE_IMAGE = false;
 
 	//Set to whatever you want your first tab text to be.
 	const HOME_LABEL = 'Blog';
