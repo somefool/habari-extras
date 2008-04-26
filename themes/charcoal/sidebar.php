@@ -13,7 +13,4 @@
 </div>
 <div id="sidebar">
 <!-- call your plugins theme methods here-->
-<?php $theme->show_recentcomments(); ?>
-<?php $theme->show_blogroll(); ?>
-<?php $theme->switcher(); ?>
 </div>
