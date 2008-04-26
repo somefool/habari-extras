@@ -725,3 +725,10 @@ textarea {
 	border: 2px solid;
 	width: 100%;
 }
+blockquote {
+background: url(images/blockquote.png) top left no-repeat;
+margin: 10px 20px 20px 10px;
+padding: 15px 0 0 70px;
+text-indent: 0;
+font-style: italic;
+}
