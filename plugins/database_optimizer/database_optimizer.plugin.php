@@ -24,7 +24,7 @@
 			if ( $file == $this->get_file() ) {
 				
 				// add our cronjob to kick off weekly henceforth
-				CronTab::add_hourly_cron( 'optimize database tables', 'optimize_database', 'Optimizes database tables automagically.' );
+				CronTab::add_weekly_cron( 'optimize database tables', 'optimize_database', 'Optimizes database tables automagically.' );
 				EventLog::log( 'CronTab added to optimize database tables weekly.' );
 				
 				// but go ahead and cron an event to cleanup now
