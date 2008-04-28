@@ -20,7 +20,7 @@
 						<span class="post-comments-link">
 							<a href="<?php echo $post->permalink.'#comment-form'; ?>" title="Comments on this post"><?php $theme->post_comments_link( $post, 'No Comments', '%s Comment', '%s Comments' ); ?></a>
 						</span>
-						<br class="clear"></span>
+						<br class="clear">
 					</div>
 					<div class="post-entry">
 						<?php echo $post->content_out; ?>
@@ -61,7 +61,12 @@
 				</div>
 			<?php endwhile; ?>
 			</div>
-			<?php $theme->prevnext($page, Utils::archive_pages($posts->count_all())); ?>
+			<div id="prev-posts-footer">
+				<span class="nav-next"><?php $theme->prev_page_link('Newer Posts'); ?></span>
+				<span class="nav-prev"><?php $theme->next_page_link('Older Posts'); ?></span>
+				<br class="clear">
+			</div>
+			<?php //$theme->prevnext($page, Utils::archive_pages($posts->count_all())); ?>
 			<?php $theme->display_archives() ;?>
 			
 <?php include 'footer.php'; ?>

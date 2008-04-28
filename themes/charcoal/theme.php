@@ -69,58 +69,7 @@ class charcoal extends Theme
 		$this->assign( 'post_id', ( isset($this->post) && $this->post->content_type == Post::type('page') ) ? $this->post->id : 0 );
 		parent::add_template_vars();
 	}
-	/**
-	 * returns the previous and/or next page links based on the current matched rule
-	 */
-	public function theme_prevnext($theme,$currentpage, $totalpages)
-	{
-		//Retreive the current matched rule
-		$rr= URL::get_matched_rule();
-		// Retrieve arguments name the RewriteRule can use to build a URL.
-		$rr_named_args= $rr->named_args;
-		$rr_args= array_merge( $rr_named_args['required'], $rr_named_args['optional']  );
-		// For each argument, check if the handler_vars array has that argument and if it does, use it.
-		$rr_args_values= array();
-		foreach ( $rr_args as $rr_arg ) {
-			if ( !isset( $settings[$rr_arg] ) ) {
-				$rr_arg_value= Controller::get_var( $rr_arg );
-				if ( $rr_arg_value != '' ) {
-					$settings[$rr_arg]= $rr_arg_value;
-				}
-			}
-		}
-		if ( !empty( $settings) ) {
-			$suffix= $rr->build($settings);
-			if (preg_match( "/\bpage\/\d+$/", $suffix) ) {
-				$url= Site::get_url( 'habari', true ) . preg_replace("/\bpage\/\d+$/", "page/", $suffix );
-			}
-			else {
-				$url= Site::get_url( 'habari', true ) . $suffix . '/page/';
-			}
-		}
-		else {
-			$url=Site::get_url( 'habari', true ).'page/';
-		}
-
-		if ( $currentpage > $totalpages ) {
-			$currentpage= $totalpages;
-		}
-		else if ( $currentpage < 1 ) {
-			$currentpage= 1;
-		}
-		if ( $totalpages > 1 ) {
-			$out='<div id="prev-posts-footer">'."\n";
-			if ($currentpage < $totalpages) {
-				$out.='<span class="nav-prev"><a href="' . $url .($currentpage+1).'">Older Posts</a></span>';
-			}
-			if ($currentpage > 1) {
-				$out.='<span class="nav-next"><a href="' . $url .($currentpage-1).'">Newer Posts</a></span>';
-			}
-			$out.= "\n".'<br class="clear" />'."\n</div>\n";
-			echo $out;
-		}
-	}
-	
+		
 	/**
 	 * Convert a post's tags array into a usable list of links
 	 *

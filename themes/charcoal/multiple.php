@@ -36,7 +36,11 @@
 <div id="page-bottom">
 	<div id="wrapper-bottom">
 		<div id="bottom-primary">
-			<?php $theme->prevnext($page, Utils::archive_pages($posts->count_all())); ?>
+			<div id="prev-posts-footer">
+				<span class="nav-next"><?php $theme->prev_page_link('Newer Posts'); ?></span>
+				<span class="nav-prev"><?php $theme->next_page_link('Older Posts'); ?></span>
+				<br class="clear">
+			</div>
 			<?php $theme->display_archives() ;?>
 
 <?php include 'footer.php'; ?>
