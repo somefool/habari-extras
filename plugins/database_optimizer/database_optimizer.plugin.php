@@ -3,7 +3,7 @@
 	class DatabaseOptimizer extends Plugin
 	{
 		
-		const VERSION= '0.1';
+		const VERSION= '0.2';
 		
 		public function info ( ) {
 			
@@ -17,6 +17,13 @@
 					'license' => 'Apache License 2.0'
 			);
 			
+		}
+		
+			
+		public function action_update_check ( ) {
+
+			Update::add( 'DatabaseOptimizer', 'E619A6D0-15F8-11DD-8567-98DE55D89593', self::VERSION );
+		
 		}
 		
 		public function action_plugin_activation ( $file='' ) {
