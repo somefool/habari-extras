@@ -19,7 +19,7 @@
 		</div>
 		<?php } ?>
 		<div class="page_navigation">
-			<p>Page:<?php echo Utils::page_selector( $page, Utils::archive_pages( $posts->count_all() ), null, array( 'leftSide' => 2, 'rightSide' => 2 ) ); ?></p>
+			<p>Page:<?php $theme->page_selector( null, array( 'leftSide' => 2, 'rightSide' => 2 ) ); ?></p>
 		</div>
 	</div>
 <?php include 'footer.php'; ?>
