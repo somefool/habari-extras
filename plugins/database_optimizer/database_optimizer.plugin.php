@@ -3,7 +3,7 @@
 	class DatabaseOptimizer extends Plugin
 	{
 		
-		const VERSION= '0.2';
+		const VERSION= '0.3';
 		
 		public function info ( ) {
 			
