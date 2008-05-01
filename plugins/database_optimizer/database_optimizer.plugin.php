@@ -85,12 +85,23 @@
 					break;
 					
 				case 'sqlite':
-					$result= false;
+					
+					if ( DB::query( 'VACUUM' ) ) {
+						$result= true;
+						
+						EventLog::log( 'SQLite database VACUUM\'ed successfully.' );
+					}
+					else {
+						$result= false;
+					}
+					
 					break;
 					
 				default:
 					$result= false;
 					break;
+					
+				return $result;
 				
 			}
 			
