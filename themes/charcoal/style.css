@@ -352,6 +352,7 @@ li.login a:hover {
 
 .feedlink {
 	margin-bottom: 12px;
+	
 }
 
 .feedlink a {
@@ -669,31 +670,33 @@ ul.archlist-left li a:hover,ul.archlist-right li a:hover {
 	font-size: 100%;
 }
 
-.tag-cloud {
+#tags ul {
 	margin: 0;
 	padding: 0;
 	text-align: justify;
 	word-spacing: 2px;
+
 }
 
-.tag-cloud li {
+#tags ul li {
 	display: inline;
 	list-style-type: none;
 	font-weight: bold;
+
 }
 
-.tag-cloud li a {
+#tags ul li a {
 	color: #8d8d8d;
 	border: none;
 }
 
-.tag-cloud li a:hover {
+#tags ul li a:hover {
 	border: none;
 }
 
 #footer {
 	float: left;
-	width: 645px;
+	width: 520px;
 	margin-left: 145px;
 }
 
@@ -725,6 +728,7 @@ textarea {
 	border: 2px solid;
 	width: 100%;
 }
+
 blockquote {
 background: url(images/blockquote.png) top left no-repeat;
 margin: 10px 20px 20px 10px;

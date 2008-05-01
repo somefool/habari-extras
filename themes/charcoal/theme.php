@@ -128,5 +128,26 @@ class charcoal extends Theme
 	{
 		return $theme->fetch('searchform');
 	}
+	
+	/**
+	 * Returns an unordered list of all used Tags
+	 */
+	public function theme_show_tags ( $theme )
+	{
+		$sql="SELECT distinct t.tag_slug AS slug, t.tag_text AS text
+			FROM ". DB::table( 'tags' ) ." t
+			RIGHT JOIN ". DB::table( 'tag2post' ) ." tp
+			ON t.id=tp.tag_id
+			LEFT JOIN ". DB::table( 'posts' )." p
+			ON p.id=tp.post_id
+			WHERE p.status=2";
+		$result= DB::get_results( $sql );
+		$tags='';
+		foreach ($result as $tag){
+			$tags.= '<li><a href="' . '#' . '" title="' . $tag->text .'" rel="tag" style="font-size: 125%;">' . $tag->text . '</a></li>'."\n";
+		}
+
+		return '<ul>' . $tags . '</ul>';
+	}
 }
 ?>
