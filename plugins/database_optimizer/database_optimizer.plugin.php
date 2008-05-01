@@ -3,7 +3,7 @@
 	class DatabaseOptimizer extends Plugin
 	{
 		
-		const VERSION= '0.3';
+		const VERSION= '0.3.1';
 		
 		public function info ( ) {
 			
@@ -33,9 +33,6 @@
 				// add our cronjob to kick off weekly henceforth
 				CronTab::add_weekly_cron( 'optimize database tables', 'optimize_database', 'Optimizes database tables automagically.' );
 				EventLog::log( 'CronTab added to optimize database tables weekly.' );
-				
-				// but go ahead and cron an event to cleanup now
-				CronTab::add_single_cron( 'optimize database tables now', 'optimize_database', time(), 'Optimizes database tables... now.' );
 				
 			}
 			
