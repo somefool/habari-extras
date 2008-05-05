@@ -4,11 +4,6 @@
 			<h3>Search</h3>
 			<?php include 'searchform.php'; ?>
 		</div>
-		<div class="block" id="flickr">
-			<div class="images clearfix">
-			
-			</div>
-		</div>
 		<div class="block" id="recent_comments">
 			<h3>Recent comments</h3>
 			<ul>

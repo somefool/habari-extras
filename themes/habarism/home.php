@@ -19,7 +19,7 @@
 		</div>
 		<?php } ?>
 		<div class="page_navigation">
-			<p>Page:<?php $theme->page_selector( null, array( 'leftSide' => 2, 'rightSide' => 2 ) ); ?></p>
+			<p><?php $theme->prev_page_link(); ?> <?php $theme->page_selector( null, array( 'leftSide' => 2, 'rightSide' => 2 ) ); ?> <?php $theme->next_page_link(); ?></p>
 		</div>
 	</div>
 <?php include 'footer.php'; ?>
