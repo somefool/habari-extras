@@ -19,7 +19,7 @@ class LiveHelp extends Plugin
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.1',
+			'version' => '0.11',
 			'description' => 'Allows users to connect to #habari on IRC from within the admin.',
 			'license' => 'Apache License 2.0',
 		);
@@ -33,7 +33,7 @@ class LiveHelp extends Plugin
 	 */
 	function filter_adminhandler_post_loadplugins_main_menu( $menus )
 	{
-		$menus['admin']['submenu']['livehelp'] =  array( 'caption' => _t( 'Live Help' ), 'url' => URL::get( 'admin', 'page=livehelp' ) );
+		$menus['livehelp'] =  array( 'url' => URL::get( 'admin', 'page=livehelp'), 'title' => _t('Live Help'), 'text' => _t('Live Help'), 'selected' => false );
 		return $menus;
 	}
 
