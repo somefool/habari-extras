@@ -360,6 +360,16 @@ a:visited {
 					#content .comments .comment_content blockquote blockquote {
 						margin-top:18px;
 					}
+					
+				#content .post .post_content pre {
+					overflow: auto;
+					margin:0 0 18px 0;
+					width: 95%;
+					display: block;
+					border-top:1px dotted #A7A37E;
+					border-bottom:1px dotted #A7A37E;
+					padding:9px 0;
+				}
 				
 			#content .post .post_meta {
 				background-color:#4D90A4;
