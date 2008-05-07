@@ -43,7 +43,9 @@ class FreeStyleAdmin extends Plugin {
     }
 
     function action_admin_header() {
-		Stack::add('admin_stylesheet', array(self::getvar('css_location'), 'screen'));
+		if (!empty(self::getvar('css_location'))) {
+			Stack::add('admin_stylesheet', array(self::getvar('css_location'), 'screen'));
+		}
     }
 
 }
