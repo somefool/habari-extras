@@ -29,8 +29,49 @@ class Amazon extends Plugin
             'VHS',
             'Video',
             'VideoGames'),
-        'de' => array(),
-        'fr' => array(),
+        'de' => array(
+            'Apparel',
+            'Baby',
+            'Blended',
+            'Books',
+            'Classical',
+            'DVD',
+            'Electronics',
+            'ForeignBooks',
+            'HealthPersonalCare',
+            'HomeGarden',
+            'Kitchen',
+            'Magazines',
+            'Music',
+            'MusicTracks',
+            'OutdoorLiving',
+            'PCHardware',
+            'Photo',
+            'Software',
+            'SoftwareVideoGames',
+            'SportingGoods',
+            'Tools',
+            'Toys',
+            'VHS',
+            'Video',
+            'VideoGames',
+            'Watches'),
+        'fr' => array(
+            'Blended',
+            'Books',
+            'Classical',
+            'DVD',
+            'Electronics',
+            'ForeignBooks',
+            'Kitchen',
+            'Music',
+            'MusicTracks',
+            'Software',
+            'SoftwareVideoGames',
+            'VHS',
+            'Video',
+            'VideoGames',
+            'Watches'),
         'jp' => array(
             'Apparel',
             'Baby',
@@ -52,7 +93,27 @@ class Amazon extends Plugin
             'Video',
             'VideoGames',
             'Watches'),
-        'uk' => array(),
+        'uk' => array(
+            'Apparel',
+            'Baby',
+            'Blended',
+            'Books',
+            'Classical',
+            'DVD',
+            'Electronics',
+            'HealthPersonalCare',
+            'HomeGarden',
+            'Kitchen',
+            'Music',
+            'MusicTracks',
+            'OutdoorLiving',
+            'Software',
+            'SoftwareVideoGames',
+            'Toys',
+            'VHS',
+            'Video',
+            'VideoGames',
+            'Watches'),
         'com' => array(
             'All',
             'Apparel',
@@ -130,8 +191,19 @@ class Amazon extends Plugin
     {
         if ( $file != $this->get_file() ) return;
 
-        Options::set( 'amazon:country',  'com');
+        Options::set( 'amazon:country',  'com' );
         Options::set( 'amazon:associate_tag', '' );
+    }
+
+    /**
+     * action: update_check
+     *
+     * @access public
+     * @return void
+     */
+    public function action_update_check()
+    {
+        Update::add( 'Amazon', '4c91ed13-1fcd-11dd-b5d6-001b210f913f', $this->info->version );
     }
 
     /**
@@ -147,8 +219,8 @@ class Amazon extends Plugin
         if ( $plugin_id != $this->plugin_id() ) return;
         if ( $action == _t( 'Configure' ) ) {
             $ui = new FormUI( strtolower( get_class( $this ) ) );
-            $country = $ui->add( 'select', 'country', _t( 'Country: ' ), $this->countries, Options::get('amazon:country') );
-            $associate_tag = $ui->add( 'text', 'associate_tag', _t('Associate Tag: ' ) );
+            $country = $ui->add( 'select', 'country', _t( 'Country: ' ), $this->countries, Options::get( 'amazon:country' ) );
+            $associate_tag = $ui->add( 'text', 'associate_tag', _t( 'Associate Tag: ' ) );
             $ui->on_success( array( $this, 'updated_config' ) );
             $ui->out();
         }
@@ -256,7 +328,7 @@ class Amazon extends Plugin
 ?>
 <div class="amazon-item">
   <div class="amazon-image" style="width: 160px; float: left;">
-    <a href="<?php echo (string)$item->DetailPageURL; ?>"><img src="<?php echo (string)$item->MediumImage->URL; ?>" style="width: <?php echo (string)$xml->Items->Item->MediumImage->Width; ?>; height: <?php echo (string)$item->MediumImage->Height; ?>px; border: 0px;" alt="<?php echo (string)$item->ItemAttributes->Title; ?>" /></a>
+    <a href="<?php echo (string)$item->DetailPageURL; ?>"><img src="<?php echo (string)$item->MediumImage->URL; ?>" style="width: <?php echo (int)$xml->Items->Item->MediumImage->Width; ?>; height: <?php echo (int)$item->MediumImage->Height; ?>px; border: 0px;" alt="<?php echo (string)$item->ItemAttributes->Title; ?>" /></a>
   </div>
   <div class="amazon-detail" style="float: left; margin-left: 8px;">
     <div class="amazon-title"><a href="<?php echo (string)$xml->Items->Item->DetailPageURL; ?>"><?php echo (string)$item->ItemAttributes->Title; ?></a></div>
@@ -312,7 +384,7 @@ class Amazon extends Plugin
 <div id="amazon-result">
 </div>
 <?php
-        $controls[ _t('Amazon') ] = ob_get_contents();
+        $controls[ _t( 'Amazon' ) ] = ob_get_contents();
         ob_end_clean();
 
         return $controls;
@@ -327,7 +399,7 @@ class Amazon extends Plugin
     public function filter_plugin_config($actions, $plugin_id)
     {
         if ( $plugin_id == $this->plugin_id() ) {
-            $actions[] = _t('Configure');
+            $actions[] = _t( 'Configure' );
         }
         return $actions;
     }
@@ -379,8 +451,8 @@ class Amazon extends Plugin
      */
     private function ratingToStarImage($rating)
     {
-        $rating = sprintf("%.1f", $rating);
-        $rating_str = str_replace('.', '-', $rating);
+        $rating = sprintf( "%.1f", $rating );
+        $rating_str = str_replace( '.', '-', $rating );
         return '<img src="' . $this->star_image_url . $rating_str . '.gif" alt="' . $rating . '" />';
     }
 }
