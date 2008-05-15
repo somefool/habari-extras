@@ -1,9 +1,15 @@
 <!-- sidebar -->
-<?php Plugins::act( 'theme_sidebar_top' ); ?>
+		<?php Plugins::act( 'theme_sidebar_top' ); ?>
 		<div class="block" id="search">
 			<h3>Search</h3>
 			<?php include 'searchform.php'; ?>
 		</div>
+		<div class="block" id="flickr">
+			<div class="images clearfix">
+			<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=10&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=35634769@N00"></script>
+			</div>
+		</div>
+		<?php $theme->switcher(); ?>
 		<div class="block" id="recent_comments">
 			<h3>Recent comments</h3>
 			<ul>
@@ -31,6 +37,6 @@
 			<a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Atom Entries</a> and <a href="<?php URL::out( 'atom_feed_comments' ); ?>">Atom Comments</a></p>
 			<?php $theme->footer(); ?>
 		</div>
+		<?php Plugins::act( 'theme_sidebar_bottom' ); ?>
 	</div>    
-<?php Plugins::act( 'theme_sidebar_bottom' ); ?>
 <!-- /sidebar -->

@@ -167,6 +167,10 @@ a:visited {
 					margin-left:10px;
 				}
 			
+			#sidebar #themeswitcher p {
+				margin:0 0 18px 60px;
+			}
+			
 			#sidebar #flickr {
 				padding:0;
 			}
