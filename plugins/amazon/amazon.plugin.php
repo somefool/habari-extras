@@ -171,7 +171,7 @@ class Amazon extends Plugin
     {
         return array(
             'name' => 'Amazon',
-            'version' => '0.01',
+            'version' => '0.02',
             'url' => 'http://ayu.commun.jp/',
             'author' => 'ayunyan',
             'authorurl' => 'http://ayu.commun.jp/',
@@ -193,6 +193,7 @@ class Amazon extends Plugin
 
         Options::set( 'amazon:country',  'com' );
         Options::set( 'amazon:associate_tag', '' );
+        Options::set( 'amazon:template', 'reviewsummary' );
     }
 
     /**
@@ -218,9 +219,21 @@ class Amazon extends Plugin
     {
         if ( $plugin_id != $this->plugin_id() ) return;
         if ( $action == _t( 'Configure' ) ) {
+            $template_dir = dirname( $this->get_file() ) . DIRECTORY_SEPARATOR . 'templates';
+            $templates = array();
+            if ( $dh = opendir( $template_dir ) ) {
+                while ( ( $file = readdir( $dh ) ) !== false ) {
+                    if ( substr( $file, -4 ) == '.php' ) {
+                        $template = substr( $file, 0, strlen( $file ) - 4 );
+                        $templates[$template] = $template;
+                    }
+                }
+            }
+
             $ui = new FormUI( strtolower( get_class( $this ) ) );
             $country = $ui->add( 'select', 'country', _t( 'Country: ' ), $this->countries, Options::get( 'amazon:country' ) );
             $associate_tag = $ui->add( 'text', 'associate_tag', _t( 'Associate Tag: ' ) );
+            $template = $ui->add( 'select', 'template', _t( 'Template: ' ), $templates, Options::get( 'amazon:template' ) );
             $ui->on_success( array( $this, 'updated_config' ) );
             $ui->out();
         }
@@ -248,6 +261,7 @@ class Amazon extends Plugin
     {
         if ( $theme->admin_page != 'publish' ) return;
         Stack::add( 'admin_header_javascript', $this->get_url() . '/js/amazon.js' );
+        Stack::add( 'admin_stylesheet', array($this->get_url() . '/css/amazon.css', 'screen') );
     }
 
     /**
@@ -274,7 +288,13 @@ class Amazon extends Plugin
             $keywords = InputFilter::filter($handler_vars['keywords']);
             $search_index = InputFilter::filter($handler_vars['search_index']);
 
-            $result = $this->item_search( $keywords, $search_index );
+            if ( empty( $handler_vars['page'] ) ) {
+                $page = 1;
+            } else {
+                $page = InputFilter::filter($handler_vars['page']);
+            }
+
+            $result = $this->item_search( $keywords, $search_index, $page );
             $xml = simplexml_load_string( $result );
 
             if ( (string)$xml->Items->Request->IsValid != 'True' ) {
@@ -288,9 +308,16 @@ class Amazon extends Plugin
             }
 
             $output = array();
-
             $output['TotalResults'] = (int)$xml->Items->TotalResults;
             $output['TotalPages'] = (int)$xml->Items->TotalPages;
+            $output['CurrentPage'] = $page;
+            $output['Start'] = ($page - 1) * 10 + 1;
+            $output['End'] = $output['Start'] + 10;
+            if ( $output['End'] > $output['TotalResults'] ) $output['End'] = $output['TotalResults'];
+            $output['HasPrev'] = false;
+            $output['HasNext'] = false;
+            if ( $page != 1 ) $output['HasPrev'] = true;
+            if ( $page < $output['TotalPages'] ) $output['HasNext'] = true;
             $output['Items'] = array();
             for ( $i = 0; $i < count( $xml->Items->Item ); $i++ ) {
                 $item = array();
@@ -325,31 +352,8 @@ class Amazon extends Plugin
 
             $item =& $xml->Items->Item;
             ob_start();
-?>
-<div class="amazon-item">
-  <div class="amazon-image" style="width: 160px; float: left;">
-    <a href="<?php echo (string)$item->DetailPageURL; ?>"><img src="<?php echo (string)$item->MediumImage->URL; ?>" style="width: <?php echo (int)$xml->Items->Item->MediumImage->Width; ?>; height: <?php echo (int)$item->MediumImage->Height; ?>px; border: 0px;" alt="<?php echo (string)$item->ItemAttributes->Title; ?>" /></a>
-  </div>
-  <div class="amazon-detail" style="float: left; margin-left: 8px;">
-    <div class="amazon-title"><a href="<?php echo (string)$xml->Items->Item->DetailPageURL; ?>"><?php echo (string)$item->ItemAttributes->Title; ?></a></div>
-<?php
-            if ( isset( $item->ItemAttributes->Creator[0] ) ) echo (string)$item->ItemAttributes->Creator[0] . '<br />'; 
-            if ( isset( $item->ItemAttributes->Publisher ) ) echo (string)$item->ItemAttributes->Publisher . '<br />';
-            if ( isset( $item->SalesRank ) ) echo _t('Sales Rank: ') . (int)$item->SalesRank . '<br />';
-            if ( isset( $item->CustomerReviews->AverageRating ) ) {
-                echo '<br />';
-                echo _t('Average Rating: ') . $this->ratingToStarImage( (float)$item->CustomerReviews->AverageRating ) . '<br />';
-                for ( $i = 0; $i < 5; $i++ ) {
-                    if ( !isset( $item->CustomerReviews->Review[$i]) ) break;
-                    echo $this->ratingToStarImage( (int)$item->CustomerReviews->Review[$i]->Rating ) . ' ' . (string)$item->CustomerReviews->Review[$i]->Summary . '<br />';
-                }
-            }
-?>
-    
-  </div>
-  <div class="amazon-clear" style="clear: both;"></div>
-</div>
-<?php
+            $template = preg_replace( '/[^A-Za-z0-9\-\_]/', '', Options::get( 'amazon:template' ) );
+            include( dirname( $this->get_file() ) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . $template . '.php' );
             $output['html'] = ob_get_contents();
             ob_end_clean();
 
@@ -375,12 +379,13 @@ class Amazon extends Plugin
 <div class="container">
 <?php
         $search_index = $this->search_indexes[ Options::get( 'amazon:country' ) ];
-        echo Utils::html_select( 'amazon_search_index', array_combine( $search_index, $search_index ), null);
+        echo Utils::html_select( 'amazon-search-index', array_combine( $search_index, $search_index ), null);
 ?>
-<input type="text" id="amazon_keywords" name="amazon_keywords" />
-<input type="button" id="amazon_search" value="<?php echo _t( 'Search' ); ?>" />
-<div id="spinner"></div>
+<input type="text" id="amazon-keywords" name="amazon-keywords" />
+<input type="button" id="amazon-search" value="<?php echo _t( 'Search' ); ?>" />
+<div id="amazon-spinner"></div>
 </div>
+<a name="amazon-result" />
 <div id="amazon-result">
 </div>
 <?php
@@ -412,10 +417,10 @@ class Amazon extends Plugin
      * @param string $search_index
      * @return string
      */
-    private function item_search($keywords, $search_index)
+    private function item_search($keywords, $search_index, $page = 1)
     {
         // TODO: Paging
-        $url = 'http://ecs.amazonaws.' . Options::get( 'amazon:country' ) .  '/onca/xml?Service=AWSECommerceService&AWSAccessKeyId=' . $this->access_key . '&Operation=ItemSearch&ResponseGroup=Small,Images,ItemAttributes&Keywords=' . urlencode($keywords) . '&SearchIndex=' . $search_index;
+        $url = 'http://ecs.amazonaws.' . Options::get( 'amazon:country' ) .  '/onca/xml?Service=AWSECommerceService&AWSAccessKeyId=' . $this->access_key . '&Operation=ItemSearch&ResponseGroup=Small,Images,ItemAttributes&Keywords=' . urlencode($keywords) . '&SearchIndex=' . $search_index . '&ItemPage=' . $page;
         $associate_tag = Options::get( 'amazon:associate_tag' );
         if ( !empty( $associate_tag ) ) $url .= '&AssociateTag=' . $associate_tag;
 
