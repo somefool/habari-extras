@@ -14,13 +14,21 @@ class Route301 extends Plugin {
 			'handler' => 'Route301',
 			'action' => 'display_entry'
 			),
+		'reroute_feed' => array( // Wordpress RSS/Atom feed
+			'name' => 'reroute_feed',
+			'parse_regex' => '%^feed/?$%i',
+			'build_str' => 'atom/1',
+			'handler' => 'Route301',
+			'action' => 'atom_feed',
+			),
 		);
 		
 	/* Custom callback functions.
 	 * Functions called to add handler_vars values needed by custom rules.
 	 */
 	var $callback_functions= array(
-		'get_date' // Extracts the year, month and day from a post
+		'get_date', // Extracts the year, month and day from a post
+		'feed_index',
 		);
 	
 	
@@ -102,6 +110,14 @@ class Route301 extends Plugin {
 		else {
 			return false;
 		}
+	}
+
+	/* feed_index callback function
+	 * Used to pass the $index variable to atom_feed
+	 */
+	public function feed_index ( $handler_vars )
+	{
+		return array_merge( array( 'index' => 1 ), $handler_vars );
 	}
 	
 }
