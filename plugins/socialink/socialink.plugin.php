@@ -10,21 +10,26 @@
 class Socialink extends Plugin
 {
     var $services= array(
+        // Global
         'digg' => array('name' => 'Digg', 'url' => 'http://digg.com/submit?phase=2&url=%PERMALINK%'),
         'delicious' => array('name' => 'del.icio.us', 'url' => 'http://del.icio.us/post?url=%PERMALINK%'),
         'technorati' => array('name' => 'Technorati', 'url' => 'http://technorati.com/faves?add=%PERMALINK%'),
-        'google' => array('name' => 'Google', 'url' => "javascript:(function(){var a=window,b=document,c=encodeURIComponent,d=a.open('http://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk='+c(b.location)+'&title='+c(b.title),'bkmk_popup','left='+((a.screenX||a.screenLeft)+10)+',top='+((a.screenY||a.screenTop)+10)+',height=420px,width=550px,resizable=1,alwaysRaised=1');a.setTimeout(function(){d.focus()},300)})();"),
+        'google' => array('name' => 'Google', 'url' => "javascript:(function(){var a=window,b=document,c=encodeURIComponent,d=a.open('http://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%PERMALINK%&title=%TITLE%','bkmk_popup','left='+((a.screenX||a.screenLeft)+10)+',top='+((a.screenY||a.screenTop)+10)+',height=420px,width=550px,resizable=1,alwaysRaised=1');a.setTimeout(function(){d.focus()},300)})();"),
         'yahoo' => array('name' => 'Yahoo! My Web 2.0', 'url' => 'http://myweb2.search.yahoo.com/myresults/bookmarklet?u=%PERMALINK%'),
         'furl' => array('name' => 'furl', 'url' => 'http://www.furl.net/storeIt.jsp?u=%PERMALINK%'),
         'reddit' => array('name' => 'Reddit', 'url' => 'http://reddit.com/submit?url=%PERMALINK%'),
         'magnolia' => array('name' => 'Ma.gnolia', 'url' => 'http://ma.gnolia.com/bookmarklet/add?url=%PERMALINK%&title=%TITLE%'),
         'faves' => array('name' => 'Faves', 'url' => 'http://faves.com/Authoring.aspx?u=%PERMALINK%&t=%TITLE%'),
+
+        // Japan
         'hatena' => array('name' => 'Hatena Bookmark', 'url' => "javascript:(function(){window.open('http://b.hatena.ne.jp/add?mode=confirm&is_bm=1&title=%TITLE%&url=%PERMALINK%','socialink','width=550,height=600,resizable=1,scrollbars=1');})();"),
-        'yahooj' => array('name' => 'Yahoo! JAPAN Bookmark', 'url' => "javascript:(function(){window.open('http://bookmarks.yahoo.co.jp/bookmarklet/showpopup?t=%TITLE%&amp;u=%PERMALINK%&amp;opener=bm&amp;ei=UTF-8','socialink','width=550px,height=480px,status=1,location=0,resizable=1,scrollbars=0,left=100,top=50',0);})();"),
-        'pookmark' => array('name' => 'POOKMARK Airlines', 'url' => 'http://pookmark.jp/post?url=%PERMALINK%&title=%TITLE%'),
+        'yahoojbookmarks' => array('name' => 'Yahoo! JAPAN Bookmarks', 'url' => "javascript:(function(){window.open('http://bookmarks.yahoo.co.jp/bookmarklet/showpopup?t=%TITLE%&amp;u=%PERMALINK%&amp;opener=bm&amp;ei=UTF-8','socialink','width=550px,height=480px,status=1,location=0,resizable=1,scrollbars=0,left=100,top=50',0);})();"),
+        'topicit' => array('name' => 'TopicIT@nifty', 'url' => "javascript:(function(){window.open('http://topic.nifty.com/up/add?mode=2&amp;topic_title=%TITLE%&topic_url=%PERMALINK%');})();"),
+        'buzzurl' => array('name' => 'Buzzurl', 'url' => 'http://buzzurl.jp/entry/%PERMALINK%'),
         'choix' => array('name' => 'Choix', 'url' => 'http://www.choix.jp/bloglink/%PERMALINK%'),
         'newsing' => array('name' => 'newsing', 'url' => 'http://newsing.jp/add?url=%PERMALINK%&title=%TITLE%'),
-        
+        'livedoorclip' => array('name' => 'livedoor Clip', '' => 'http://clip.livedoor.com/redirect?link=%PERMALINK%&title=%TITLE%&ie=utf-8'),
+        'pookmark' => array('name' => 'POOKMARK Airlines', 'url' => 'http://pookmark.jp/post?url=%PERMALINK%&title=%TITLE%'),
         );
 
     /**
@@ -130,6 +135,7 @@ class Socialink extends Plugin
      */
     public function filter_post_content_out($content, $post)
     {
+var_dump(Controller::get_action());
        $link_pos= Options::get( 'socialink:link_pos' );
        if ( $link_pos == 'top' ) {
            $content= $this->create_link($post) . $content;
@@ -143,13 +149,18 @@ class Socialink extends Plugin
     private function create_link($post)
     {
         $link = '<div class="socialink">';
+        $site_title= Options::get( 'title' );
         $s_services= Options::get( 'socialink:services' );
         @reset($s_services);
         while (list(, $k) = @each($s_services)) {
             $url= $this->services[$k]['url'];
             $url= str_replace('%PERMALINK%', urlencode($post->permalink), $url);
-            $url= str_replace('%TITLE%', urlencode($post->title_out), $url);
-            $link.= '<a href="' . $url .'" target="_blank" title="Post to ' . $this->services[$k]['name'] . '" rel="nofollow"><img src="' . $this->get_url() .'/img/icon/' . $k . '.png" width="16" height="16" alt="Post to ' . $this->services[$k]['name'] . '" /></a>';
+            $url= str_replace('%TITLE%', urlencode($site_title . ' - ' . $post->title_out), $url);
+            $target= '';
+            if ( substr( $url, 0, 10 ) == 'javascript' ) {
+                $target=' target="_blank"';
+            }
+            $link.= '<a href="' . $url .'"' . $target . ' title="Post to ' . $this->services[$k]['name'] . '" rel="nofollow"><img src="' . $this->get_url() .'/img/icon/' . $k . '.png" width="16" height="16" alt="Post to ' . $this->services[$k]['name'] . '" /></a>';
         }
         $link.= '</div>';
         return $link;
