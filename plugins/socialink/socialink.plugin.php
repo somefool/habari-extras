@@ -28,7 +28,7 @@ class Socialink extends Plugin
         'buzzurl' => array('name' => 'Buzzurl', 'url' => 'http://buzzurl.jp/entry/%PERMALINK%'),
         'choix' => array('name' => 'Choix', 'url' => 'http://www.choix.jp/bloglink/%PERMALINK%'),
         'newsing' => array('name' => 'newsing', 'url' => 'http://newsing.jp/add?url=%PERMALINK%&title=%TITLE%'),
-        'livedoorclip' => array('name' => 'livedoor Clip', '' => 'http://clip.livedoor.com/redirect?link=%PERMALINK%&title=%TITLE%&ie=utf-8'),
+        'livedoorclip' => array('name' => 'livedoor Clip', 'url' => 'http://clip.livedoor.com/redirect?link=%PERMALINK%&title=%TITLE%&ie=utf-8'),
         'pookmark' => array('name' => 'POOKMARK Airlines', 'url' => 'http://pookmark.jp/post?url=%PERMALINK%&title=%TITLE%'),
         );
 
@@ -135,7 +135,6 @@ class Socialink extends Plugin
      */
     public function filter_post_content_out($content, $post)
     {
-var_dump(Controller::get_action());
        $link_pos= Options::get( 'socialink:link_pos' );
        if ( $link_pos == 'top' ) {
            $content= $this->create_link($post) . $content;
@@ -153,6 +152,7 @@ var_dump(Controller::get_action());
         $s_services= Options::get( 'socialink:services' );
         @reset($s_services);
         while (list(, $k) = @each($s_services)) {
+            if ( !isset( $this->services[$k] ) ) continue;
             $url= $this->services[$k]['url'];
             $url= str_replace('%PERMALINK%', urlencode($post->permalink), $url);
             $url= str_replace('%TITLE%', urlencode($site_title . ' - ' . $post->title_out), $url);
