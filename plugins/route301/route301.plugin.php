@@ -21,6 +21,13 @@ class Route301 extends Plugin {
 			'handler' => 'Route301',
 			'action' => 'atom_feed',
 			),
+		'reroute_tag_feed' => array( // Wordpress tag feed
+			'name' => 'reroute_tag_feed',
+			'parse_regex' => '%^tag/(?P<tag>[^/]+)/feed$%i',
+			'build_str' => 'tag/{$tag}/atom',
+			'handler' => 'Route301',
+			'action' => 'atom_feed_tag',
+			),
 		);
 		
 	/* Custom callback functions.
