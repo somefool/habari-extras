@@ -11,15 +11,17 @@ class Socialink extends Plugin
 {
     var $services= array(
         // Global
+        'email' => array('name' => 'Email', 'url' => 'mailto:?subject=%TITLE%&body=%PERMALINK%'),
         'digg' => array('name' => 'Digg', 'url' => 'http://digg.com/submit?phase=2&url=%PERMALINK%'),
         'delicious' => array('name' => 'del.icio.us', 'url' => 'http://del.icio.us/post?url=%PERMALINK%'),
         'technorati' => array('name' => 'Technorati', 'url' => 'http://technorati.com/faves?add=%PERMALINK%'),
         'google' => array('name' => 'Google', 'url' => "javascript:(function(){var a=window,b=document,c=encodeURIComponent,d=a.open('http://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%PERMALINK%&title=%TITLE%','bkmk_popup','left='+((a.screenX||a.screenLeft)+10)+',top='+((a.screenY||a.screenTop)+10)+',height=420px,width=550px,resizable=1,alwaysRaised=1');a.setTimeout(function(){d.focus()},300)})();"),
-        'yahoo' => array('name' => 'Yahoo! My Web 2.0', 'url' => 'http://myweb2.search.yahoo.com/myresults/bookmarklet?u=%PERMALINK%'),
+        'yahoo' => array('name' => 'Yahoo! My Web 2.0', 'url' => 'http://myweb2.search.yahoo.com/myresults/bookmarklet?u=%PERMALINK%&t=%TITLE%'),
         'furl' => array('name' => 'furl', 'url' => 'http://www.furl.net/storeIt.jsp?u=%PERMALINK%'),
-        'reddit' => array('name' => 'Reddit', 'url' => 'http://reddit.com/submit?url=%PERMALINK%'),
+        'reddit' => array('name' => 'Reddit', 'url' => 'http://reddit.com/submit?url=%PERMALINK%&title=%PERMALINK%'),
         'magnolia' => array('name' => 'Ma.gnolia', 'url' => 'http://ma.gnolia.com/bookmarklet/add?url=%PERMALINK%&title=%TITLE%'),
         'faves' => array('name' => 'Faves', 'url' => 'http://faves.com/Authoring.aspx?u=%PERMALINK%&t=%TITLE%'),
+        'blinklist' => array('name' => 'blinklist', 'url' => 'http://www.blinklist.com/?Action=Blink/addblink.php&Description=&Url=%PERMALINK%&Title=%TITLE%'),
 
         // Japan
         'hatena' => array('name' => 'Hatena Bookmark', 'url' => "javascript:(function(){window.open('http://b.hatena.ne.jp/add?mode=confirm&is_bm=1&title=%TITLE%&url=%PERMALINK%','socialink','width=550,height=600,resizable=1,scrollbars=1');})();"),
@@ -157,8 +159,8 @@ class Socialink extends Plugin
             $url= str_replace('%PERMALINK%', urlencode($post->permalink), $url);
             $url= str_replace('%TITLE%', urlencode($site_title . ' - ' . $post->title_out), $url);
             $target= '';
-            if ( substr( $url, 0, 10 ) == 'javascript' ) {
-                $target=' target="_blank"';
+            if ( substr( $url, 0, 11 ) != 'javascript:' ) {
+                $target= ' target="_blank"';
             }
             $link.= '<a href="' . $url .'"' . $target . ' title="Post to ' . $this->services[$k]['name'] . '" rel="nofollow"><img src="' . $this->get_url() .'/img/icon/' . $k . '.png" width="16" height="16" alt="Post to ' . $this->services[$k]['name'] . '" /></a>';
         }
