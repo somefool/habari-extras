@@ -75,7 +75,10 @@ class Lipsum extends Plugin
 			$time = time() - 160;
 			
 			$num_posts= Options::get(strtolower(get_class($this)) . ':num_posts' );
-			$num_posts= ( $num_posts ? $num_post : 20 );
+			if ( ! $num_posts ) {
+				Options::set( strtolower(get_class($this)) . ':num_posts', 20);
+				$num_posts= 20;
+			}
 
 			for($z = 0; $z < $num_posts; $z++) {
 				$this->make_post( $user, $time );
