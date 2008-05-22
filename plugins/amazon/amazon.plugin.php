@@ -1,7 +1,7 @@
 <?php
 /*
 
-  Amazon Links for Habari
+  Amazon
 
   Revision: $Id$
   Head URL: $URL$
@@ -172,11 +172,11 @@ class Amazon extends Plugin
         return array(
             'name' => 'Amazon',
             'version' => '0.02',
-            'url' => 'http://ayu.commun.jp/',
+            'url' => 'http://ayu.commun.jp/habari-amazon',
             'author' => 'ayunyan',
             'authorurl' => 'http://ayu.commun.jp/',
             'license' => 'Apache License 2.0',
-            'description' => 'Amazon Link Plugin',
+            'description' => 'easily/quickly insert Amazon Products into your posts.',
             );
     }
 
