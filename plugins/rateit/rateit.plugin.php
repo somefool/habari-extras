@@ -25,7 +25,7 @@ class RateIt extends Plugin
         return array(
             'name' => 'Rate It!',
             'version' => '0.01',
-            'url' => 'http://ayu.commun.jp/',
+            'url' => 'http://ayu.commun.jp/habari-rateit',
             'author' => 'ayunyan',
             'authorurl' => 'http://ayu.commun.jp/',
             'license' => 'Apache License 2.0',
@@ -116,10 +116,10 @@ class RateIt extends Plugin
      */
     public function action_template_header()
     {
-        Stack::add( 'template_header_javascript', Site::get_url('scripts', TRUE) . 'jquery.js' );
+        Stack::add( 'template_header_javascript', Site::get_url( 'scripts', true ) . 'jquery.js' );
         Stack::add( 'template_header_javascript', $this->get_url() . '/js/rateit.js' );
         Stack::add( 'template_stylesheet', array($this->get_url() . '/css/rateit.css', 'all') );
-        echo '<script type="text/javascript">var rateit_habari_url = \'' . Site::get_url('habari') . '\';var rateit_url = \'' . $this->get_url() . '\';</script>';
+        echo '<script type="text/javascript">var rateit_habari_url = \'' . Site::get_url( 'habari' ) . '\';var rateit_url = \'' . $this->get_url() . '\';</script>';
     }
 
     /**
@@ -163,6 +163,8 @@ class RateIt extends Plugin
      * filter: post_content_out
      *
      * @access public
+     * @param string $content
+     * @param object $post
      * @return string
      */
     public function filter_post_content_out($content, $post)
@@ -180,16 +182,16 @@ class RateIt extends Plugin
     private function create_rating($post)
     {
         if ( !isset( $post->info->rateit_total ) || !isset( $post->info->rateit_count ) ) {
-            $total = 0;
-            $count = 0;
-            $rating = 0.00;
+            $total= 0;
+            $count= 0;
+            $rating= 0.00;
         } else {
-            $total = $post->info->rateit_total;
-            $count = $post->info->rateit_count;
-            $rating = sprintf("%.2f", $post->info->rateit_total / $post->info->rateit_count);
+            $total= $post->info->rateit_total;
+            $count= $post->info->rateit_count;
+            $rating= sprintf( "%.2f", $post->info->rateit_total / $post->info->rateit_count );
         }
-        $stars = round($rating);
-        $stars_classes = array(
+        $stars= round( $rating );
+        $stars_classes= array(
             0 => 'nostar',
             1 => 'onestar',
             2 => 'twostar',
@@ -198,7 +200,7 @@ class RateIt extends Plugin
             5 => 'fivestar'
         );
 
-        if ( $this->check_rated($post->id) ) {
+        if ( $this->check_rated( $post->id ) ) {
             $html= '
 <div class="rateit" id="rateit-' . $post->id . '">
 Rate It! (Average ' . $rating . ', ' . $count . ' votes)
@@ -270,7 +272,7 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
         $post= Posts::get( array( 'id' => $post_id, 'status' => Post::status( 'published' ), 'fetch_fn' => 'get_row' ) );
         if ( !$post ) return false;
 
-        $log = new RateItLog( array( 'post_id' => $post_id, 'rating' => $rating, 'ip' => $_SERVER['REMOTE_ADDR'] ) );
+        $log= new RateItLog( array( 'post_id' => $post_id, 'rating' => $rating, 'ip' => $_SERVER['REMOTE_ADDR'] ) );
         if ( !$log->insert() ) return false;
 
         $post->info->rateit_total+= $rating;
