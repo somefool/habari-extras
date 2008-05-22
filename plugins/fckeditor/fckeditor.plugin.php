@@ -18,13 +18,14 @@ class FCKeditor extends Plugin
     public function info()
     {
         return array(
-          'name' => 'FCKeditor',
-          'version' => '0.01',
-          'url' => 'http://ayu.commun.jp/',
-          'author' => 'ayunyan',
-          'authorurl' => 'http://ayu.commun.jp/',
-          'description' => 'FCKeditor for Habari',
-        );
+            'name' => 'FCKeditor',
+            'version' => '0.01',
+            'url' => 'http://ayu.commun.jp/habari-fckeditor',
+            'author' => 'ayunyan',
+            'authorurl' => 'http://ayu.commun.jp/',
+            'license' => 'Apache License 2.0',
+            'description' => 'FCKeditor for Habari',
+            );
     }
 
     /**
@@ -63,9 +64,7 @@ class FCKeditor extends Plugin
         if ( $theme->admin_page != 'publish' ) return;
 ?>
 <script type="text/javascript">
-if ($('#content').filter('.islabeled').size() > 0) {
-	$('#content').filter('.islabeled').removeClass('islabeled');
-}
+$('[@for=content]').removeAttr('for');
 FCKeditor = new FCKeditor('content');
 FCKeditor.BasePath = '<?php echo $this->get_url(); ?>/fckeditor/';
 FCKeditor.Height = 300;
