@@ -4,7 +4,7 @@
 		<?php include 'searchform.php'; ?>
 	</div>
 	<div class="block" id="desc">
-		<p><?php Options::out('about'); ?></p>
+		<p><?php if (Plugins::is_loaded('Colophon')) { echo $colophon; } else { ?>You need the <a href="http://github.com/stan/habari-plugins/tree/master/colophon">colophon plugin</a><?php } ?></p>
 	</div>
 	<div class="block" id="menu">
 		<h3>Pages</h3>
@@ -20,6 +20,11 @@
 			    <li><a href="<?php Site::out_url( 'admin' ); ?>" title="Admin area">Admin</a></li>
 			<?php } ?>
 		</ul>
+	</div>
+	<div class="block" id="flickr">
+		<div class="images clearfix">
+		<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=10&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=35634769@N00"></script>
+		</div>
 	</div>
 	<?php $theme->switcher(); ?>
 	<div class="block" id="recent_comments">
