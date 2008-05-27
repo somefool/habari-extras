@@ -4,7 +4,7 @@
 		<?php include 'searchform.php'; ?>
 	</div>
 	<div class="block" id="desc">
-		<p><?php if (Plugins::is_loaded('Colophon')) { echo $colophon; } else { ?>You need the <a href="http://github.com/stan/habari-plugins/tree/master/colophon">colophon plugin</a><?php } ?></p>
+		<p><?php if (Plugins::is_loaded('Colophon')) { echo nl2br(htmlspecialchars(Options::get( 'colophon:colophon_text' ))); } else { ?>You need the <a href="http://github.com/stan/habari-plugins/tree/master/colophon">colophon plugin</a><?php } ?></p>
 	</div>
 	<div class="block" id="menu">
 		<h3>Pages</h3>
