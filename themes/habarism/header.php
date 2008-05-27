@@ -1,4 +1,3 @@
-<!-- header -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,7 +24,7 @@
 			<div class="block" id="main">
 				<h1 id="title"><a href="<?php Site::out_url( 'habari' ); ?>"><?php Options::out( 'title' ); ?></a></h1>
 				<h2 id="subtitle"><?php Options::out( 'tagline' ); ?></h2>
-				<p id="description"><?php Options::out('about'); ?></p>
+				<p id="description"><?php if (Plugins::is_loaded('Colophon')) { echo $colophon; } else { ?>You need the <a href="http://github.com/stan/habari-plugins/tree/master/colophon">colophon plugin</a><?php } ?></p>
 			</div>
 			<div class="block" id="menu">
 				<ul>
@@ -41,4 +40,3 @@
 					<?php } ?>
 				</ul>
 			</div>	
-<!-- /header -->

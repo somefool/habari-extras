@@ -1,4 +1,3 @@
-<!-- sidebar -->
 		<?php Plugins::act( 'theme_sidebar_top' ); ?>
 		<div class="block" id="search">
 			<h3>Search</h3>
@@ -39,4 +38,3 @@
 		</div>
 		<?php Plugins::act( 'theme_sidebar_bottom' ); ?>
 	</div>    
-<!-- /sidebar -->
