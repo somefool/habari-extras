@@ -44,7 +44,7 @@ class RateIt extends Plugin
 	{
 		if ( Plugins::id_from_file( $file ) != Plugins::id_from_file( __FILE__ ) ) return;
 
-		$db_version= Options::get('rateit_db_version');
+		$db_version= Options::get('rateit:db_version');
 		if ( empty( $db_version ) ) {
 			if ( $this->install_db() ) {
 				Options::set( 'rateit:db_version', self::DB_VERSION );
