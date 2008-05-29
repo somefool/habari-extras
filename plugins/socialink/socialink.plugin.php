@@ -162,7 +162,7 @@ class Socialink extends Plugin
             if ( substr( $url, 0, 11 ) != 'javascript:' ) {
                 $target= ' target="_blank"';
             }
-            $link.= '<a href="' . $url .'"' . $target . ' title="Post to ' . $this->services[$k]['name'] . '" rel="nofollow"><img src="' . $this->get_url() .'/img/icon/' . $k . '.png" width="16" height="16" alt="Post to ' . $this->services[$k]['name'] . '" /></a>';
+            $link.= '<a href="' . $url .'"' . $target . ' title="Post to ' . $this->services[$k]['name'] . '" rel="nofollow"><img src="' . $this->get_url() .'/img/icon/' . $k . '.png" width="16" height="16" alt="Post to ' . $this->services[$k]['name'] . '" style="padding:0 3px;" /></a>';
         }
         $link.= '</div>';
         return $link;
