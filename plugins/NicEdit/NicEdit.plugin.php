@@ -47,6 +47,48 @@ class NicEditor extends Plugin {
         case 'Configure' :
           $ui = new FormUI( strtolower( get_class( $this ) ) );
           // Add configurable options here
+          $ui->add('label', 'label', 'If you don\'t check anything, all controls will be included.');
+          $first_controls= array();
+          $first_buttons= array('undo' => 'undo',
+                                'redo' => 'redo',
+                                'bold' => 'bold',
+                                'italic' => 'italic',
+                                'underline' => 'underline',
+                                'left' => 'left align',
+                                'center' => 'center',
+                                'right' => 'right align');
+          foreach ($first_buttons as $name => $label) {
+            $first_controls[]= $ui->add('checkbox', $name, $label, false);
+          }
+          $first_col= $ui->add('fieldset', 'first', $first_controls);
+          $first_col->class= 'column';
+          $second_controls= array();
+          $second_buttons= array('ol' => 'ordered list',
+                                 'ul' => 'unordered list',
+                                 'fontSize' => 'font size',
+                                 'fontFamily' => 'font family',
+                                 'fontFormat' => 'font format',
+                                 'subscript' => 'subscript',
+                                 'superscript' => 'superscript',
+                                 'strikethrough' => 'strike through');
+          foreach ($second_buttons as $name => $label) {
+            $second_controls[]= $ui->add('checkbox', $name, $label, false);
+          }
+          $second_col= $ui->add('fieldset', 'second', $second_controls);
+          $second_col->class= 'column';
+          $third_controls= array();
+          $third_buttons= array('indent' => 'indent',
+                                'outdent' => 'outdent',
+                                'hr' => 'hr',
+                                'color' => 'color',
+                                'image' => 'image',
+          //this is an extension  'html' => 'html',
+                                'link' => 'link',);
+          foreach ($third_buttons as $name => $label) {
+            $third_controls[]= $ui->add('checkbox', $name, $label, false);
+          }
+          $third_col= $ui->add('fieldset', 'third', $third_controls);
+          $third_col->class= 'column';
           $ui->on_success( array( $this, 'updated_config' ) );
           $ui->out();
           break;
@@ -62,10 +104,23 @@ class NicEditor extends Plugin {
   public function updated_config( $ui )
   {
     $options= array();
+    $buttons= array();
     // Get the configurable options from the UI with $ui->controls['name_of_control_set_in_ui']->value and add them to the $options array
-    $options[]= 'fullPanel : true';
+    foreach ($ui->controls as $fieldset) {
+      if ($fieldset instanceOf FormControlFieldset) {
+        foreach ($fieldset->controls as $control) {
+          if ($control instanceOf FormControlCheckbox && $control->value) {
+            $buttons[]= "'{$control->name}'";
+          }
+        }
+      }
+    }
+    if (!empty($buttons)) {
+      $options[]= 'buttonList : [' . implode($buttons, ',') . ']';
+    }
     // Save configurable options for this user
-    Options::set(strtolower(get_class($this)) . ':options_' . User::identify()->id, '{' . implode($options, ',') . '}');
+    Options::set(strtolower(get_class($this)) . ':options_' . User::identify()->id, serialize($options));
+    //Options::set(strtolower(get_class($this)) . ':options_' . User::identify()->id, '{' . implode($options, ',') . '}');
     // No need to save input values
     return false;
   }
@@ -87,6 +142,16 @@ class NicEditor extends Plugin {
   public function action_admin_footer($theme) {
     if ( $theme->admin_page == 'publish' ) {
       $options= Options::get(strtolower(get_class($this) . ':options_' . User::identify()->id));
+      // If no options are set, use the full panel
+      if ($options == null) {
+        $options= array();
+        $options[]= 'fullPanel : true';
+      }
+      else {
+        $options= unserialize($options);
+      }
+      $options[]= 'iconsPath : \'' . $this->get_url() . '/nicEditor/nicEditorIcons.gif\'';
+      $options= '{' . implode($options, ',') . '}';
       echo <<<NICEDIT
       <script type="text/javascript">
       new nicEditor({$options}).panelInstance('content');
