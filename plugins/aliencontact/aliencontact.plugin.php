@@ -41,7 +41,7 @@ class AlienContact extends Plugin {
 				'id' => 'url',
 				'type' => 'text',
 				'label' => 'Website',
-				'regex' => '/(http|https):\/\/(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/',
+				'regex' => '/([http]?|[https]?)([:\/\/]?)(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/',
 				'required' => FALSE
 			),
 			'message' => array(

@@ -104,7 +104,7 @@ $(document).ready( function() {
 				$.ajax({
 				  url: "<?php echo URL::get('ajax', array('context'=>'submit_form')); ?>",
 				  cache: false,
-				  data: {<?php $elements = AlienContact::elements(); foreach($elements as $element) { echo $element['id']; ?>: $("#contactForm_<?php echo $element['id']; ?>").val()<?php if(next($elements)) {?>, <?php } } ?>},
+				  data: {<?php $elements = AlienContact::elements(); $i = 0; foreach($elements as $element) { $i++; echo $element['id']; ?>: $("#contactForm_<?php echo $element['id']; ?>").val()<?php if($i != count($elements)) { ?>, <?php } } ?>},
 				  type: "POST",
 				  success: function(html){
 					
