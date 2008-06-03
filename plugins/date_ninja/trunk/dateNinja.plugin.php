@@ -13,11 +13,11 @@ class dateNinja extends Plugin
 			'copyright' => '2008',
 			);
 	}
-	
+
 	public function action_init() {
 		// add some js to the admin header
-		Stack::add( 'admin_header_javascript', '/user/plugins/date_ninja/date_ninja.js', 'dateninja' );
-		Stack::add( 'admin_header_javascript', '/user/plugins/date_ninja/date.js', 'datejs' );
+		Stack::add( 'admin_header_javascript', $this->get_url() . '/date_ninja.js', 'dateninja' );
+		Stack::add( 'admin_header_javascript', $this->get_url() . '/date.js', 'datejs' );
 	}
 }
 ?>
