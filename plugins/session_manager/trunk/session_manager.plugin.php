@@ -54,7 +54,8 @@ class SessionManager extends Plugin
 			switch ($action){
 				case 'Configure' :
 					$ui = new FormUI(strtolower(get_class($this)));
-					$spiders = $ui->add('textarea', 'spiders', 'List spiders to ignore, one per line:');
+					$spiders = $ui->append('textarea', 'spiders', 'session_manager__spiders', 'List spiders to ignore, one per line:');
+					$ui->append( 'submit', 'save', _t('Save') );
 					$ui->out();
 					break;
 			}
