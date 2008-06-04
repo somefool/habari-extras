@@ -15,7 +15,7 @@ Class RecentComments extends Plugin
 	{
 		return array(
 		'name'=>'Recent Comments',
-		'version'=>'1.2',
+		'version'=>'1.3',
 		'url'=>'http://habariproject.org/',
 		'author'=>'Habari Community',
 		'authorurl'=>'http://habariproject.org/',
@@ -31,7 +31,27 @@ Class RecentComments extends Plugin
   	{
     	Update::add( 'RecentComments', '6d49a362-db63-11dc-95ff-0800200c9a66',  $this->info->version );
   	}
-		
+	
+  	/**
+  	 * Set default values for unset option
+  	 *
+  	 * @param unknown_type $file
+  	 */
+	public function action_plugin_activation( $file )
+	{	
+		$default_options= array (
+			'title' => 'Recent Comments',
+			'format' => '[[user]] on [[post]]',
+			'dateformat' => 'Mj n:ia',
+			'count' => '5'
+			);
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
+			foreach ( $default_options as $name => $value ) {
+				$current_value= Options::get( 'recentcomments__' . $name );
+				if ( !isset( $current_value) ) Options::set( 'recentcomments__' . $name, $value );
+			}
+		}
+	}
 	/**
 	 * Adds a Configure action to the plugin
 	 * 
@@ -55,29 +75,17 @@ Class RecentComments extends Plugin
 	 */
 	public function action_plugin_ui( $plugin_id, $action )
 	{
-		if ( $this->plugin_id()==$plugin_id && $action=='Configure' )
-			{
+		if ( $this->plugin_id()==$plugin_id && $action=='Configure' ) {
 			$form= new FormUI( strtolower(get_class( $this ) ) );
-			$title= $form->add( 'text', 'title', 'Title:', 'Recent Comments');
-			$format= $form->add( 'text','format','List item format (use [[user]], [[post]] and/or [[date]]):','[[user]] on [[post]]' );
-			$format->add_validator( 'validate_required' );
-			$dateformat= $form->add( 'text','dateformat','Date fomrat <i>(if [[date]] is used)</i>:','Mj n:ia' );
-			$count= $form->add( 'text','count','Number of comments to display:','5' );
-			$count->add_validator( 'validate_required' );
-			$form->on_success( array( $this, 'saved_config' ) );
+			$form->append( 'text', 'title', 'option:recentcomments__title', 'Title: ' );
+			$form->append( 'text','format', 'option:recentcomments__format','List item format (use [[user]], [[post]] and/or [[date]]): ' );
+			$form->format->add_validator( 'validate_required' );
+			$form->append( 'text','dateformat', 'option:recentcomments__dateformat','Date fomrat <i>(if [[date]] is used)</i>: ' );
+			$form->append( 'text','count', 'option:recentcomments__count','Number of comments to display:' );
+			$form->count->add_validator( 'validate_required' );
+			$form->append( 'submit', 'save', 'Save' );
 			$form->out();
-			}
-	}
-	
-	/**
-	 * Invoked when the before the plugin configurations are saved
-	 *
-	 * @param FormUI $form The configuration form being saved
-	 * @return true
-	 */
-	public function saved_config( $form )
-	{   
-		return true;
+		}
 	}
 	
 	/**
@@ -87,10 +95,10 @@ Class RecentComments extends Plugin
 	 */
 	public function theme_show_recentcomments( $theme ){
 		//Get the plugin options
-		$limit= Options::get(strtolower(get_class($this)) . ':count' );
-		$format= Options::get( strtolower(get_class( $this ) ) . ':format' );
-		$dateformat=Options::get(strtolower(get_class($this)) . ':dateformat' );
-		$theme->recentcomments_title= Options::get(strtolower(get_class($this)) . ':title' );
+		$limit= Options::get(strtolower(get_class($this)) . '__count' );
+		$format= Options::get( strtolower(get_class( $this ) ) . '__format' );
+		$dateformat=Options::get(strtolower(get_class($this)) . '__dateformat' );
+		$theme->recentcomments_title= Options::get(strtolower(get_class($this)) . '__title' );
 		//Assign default values if options not set
 		if (empty($limit)) $limit='5';
 		if (empty($format)) $format='[[user]] on [[post]]';
