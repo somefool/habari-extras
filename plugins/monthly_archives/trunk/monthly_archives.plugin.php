@@ -2,208 +2,319 @@
 
 /*
  * Monthly Archives Plugin
- * Usage: <?php echo $theme->monthly_archives(); ?>
+ * Usage: <?php $theme->monthly_archives(); ?>
  * 
  * Modified / fixed from the original by Raman Ng (a.k.a. tinyau): http://blog.tinyau.net
- * 		http://blog.tinyau.net/archives/2007/09/22/habari-rn-monthly-archives-plugin
+ * 				http://blog.tinyau.net/archives/2007/09/22/habari-rn-monthly-archives-plugin
  */
-class MonthlyArchives extends Plugin
+
+class Monthly_Archives extends Plugin
 {
-	const VERSION= '0.8.1';
-
-	private $config= array();
-	private $monthly_archives= ''; // string stored archives to be displayed
-
-	public function info()
-	{
+	
+	const VERSION= '0.9';
+	
+	private $monthly_archives= '';			// stores the actual archives list
+	private $config= array();				// stores our config options
+	
+	private $cache_expirey= 604800;			// one week, in seconds: 60 * 60 * 24 * 7
+	
+	
+	public function info ( ) {
+		
 		return array(
 			'name' => 'Monthly Archives',
-			'url' => 'http://habariproject.org/',
+			'url' => 'http://habariproject.org',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org',
 			'version' => self::VERSION,
 			'description' => 'Shows archives grouped by month.',
 			'license' => 'Apache License 2.0'
 		);
+		
 	}
 	
-	public function action_plugin_deactivation ( $file='' ) {
+	public function action_update_check ( ) {
 		
-		if ( $file == $this->get_file() ) {
+		Update::add( 'MonthlyArchives', '726F35A4-16C2-11DD-AF4E-A64656D89593', self::VERSION );
+		
+	}
+	
+	public function action_plugin_deactivation ( $file = '' ) {
+		
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
+		
+			$class_name= strtolower( get_class( $this ) );
 			
-			$class_name = strtolower( get_class( $this ) );
-			
-			// clean up all our options - we're being deactivated!
-			// @todo Uncomment when we finally get Options::delete() available!
-			/*
-			Options::delete( $class_name . ':num_month' );
-			Options::delete( $class_name . ':display_month' );
-			Options::delete( $class_name . ':show_count' );
-			Options::delete( $class_name . ':detail_view' );
-			Options::delete( $class_name . ':delimiter' );
-			*/
+			// dump our cached list
+			Cache::expire( $class_name . ':list' );
 			
 		}
 		
 	}
-
-	public function action_init()
-	{
+	
+	public function action_init ( ) {
+		
 		$class_name= strtolower( get_class( $this ) );
-		$this->config['num_month']= Options::get( $class_name . ':num_month' );
-		$this->config['display_month']= Options::get( $class_name . ':display_month' );
-		$this->config['show_count']= Options::get( $class_name . ':show_count' );
-		$this->config['detail_view']= Options::get( $class_name . ':detail_view' );
-		$this->config['delimiter']= Options::get( $class_name . ':delimiter' );
+		
+		$this->config[ 'num_month' ]= Options::get( $class_name . ':num_month' );
+		$this->config[ 'display_month' ]= Options::get( $class_name . ':display_month' );
+		$this->config[ 'show_count' ]= Options::get( $class_name . ':show_count' );
+		$this->config[ 'detail_view' ]= Options::get( $class_name . ':detail_view' );
+		$this->config[ 'delimiter' ]= Options::get( $class_name . ':delimiter' );
+		
 	}
 	
-	public function filter_plugin_config( $actions, $plugin_id )
-	{
+	public function filter_plugin_config ( $actions, $plugin_id ) {
+		
 		if ( $plugin_id == $this->plugin_id() ) {
 			$actions[]= _t( 'Configure' );
 		}
+		
 		return $actions;
+		
 	}
 	
-	public function action_plugin_ui( $plugin_id, $action )
-	{
-		if ( $plugin_id == $this->plugin_id() ) {
-			switch ( $action ) {
-				case _t( 'Configure' ):
-					$class_name= strtolower( get_class( $this ) );
-					$ui= new FormUI( $class_name );
-					$num_month= $ui->add( 'text', 'num_month', _t( 'Number of most recent months to be shown (Blank for show all)' ) );
-
-					$display_month= $ui->add( 'select', 'display_month', _t( 'Month displayed as' ) );
-
-					$display_month->options= array( '' => '', 'F' => 'Full name', 'A' => 'Abbreviation', 'N' => 'Number' );
-
-					$show_count= $ui->add( 'select', 'show_count', _t( 'Show Monthly Entries Count?' ) );
-					$show_count->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
-					$show_count->add_validator( 'validate_required' );
-
-					$detail_view= $ui->add( 'select', 'detail_view', _t( 'Detail View?' ) );
-					$detail_view->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
-					$detail_view->add_validator( 'validate_detail_view' );
-
-					$delimiter= $ui->add( 'text', 'delimiter', _t( 'Delimiter to separate day and post title in detail view (optional)' ) );
-					$delimiter->add_validator( 'validate_delimiter' );
-
-					$ui->on_success( array( $this, 'updated_config' ) );
-					$ui->out();
-					break;
-			}
+	/*
+	 * Rebuilds the archives structure when a post is updated.
+	 * @todo Perhaps this should be a cron. With lots of posts, it could take longer than we'd like to wait.
+	 */
+	public function action_post_update_after ( ) {
+		
+		$this->update_cache();
+		
+	}
+	
+	/*
+	 * Rebuilds the archives structure when a post is published.
+	 * @todo Perhaps this should be a cron. With lots of posts, it could take longer than we'd like to wait.
+	 */
+	public function action_post_insert_after ( ) {
+		
+		$this->update_cache();
+		
+	}
+	
+	private function update_cache ( ) {
+		
+		$archives= $this->get_monthly_archives();
+		
+		$class_name= strtolower( get_class( $this ) );
+		
+		Cache::set( $class_name . ':list', $archives, $this->cache_expirey );
+		
+		$this->monthly_archives= $archives;
+		
+	}
+	
+	public function theme_get_monthly_archives ( ) {
+		
+		return $this->get_monthly_archives();
+		
+	}
+	
+	protected function get_monthly_archives ( ) {
+		
+		set_time_limit( ( 5 * 60 ) );
+		
+		if ( !empty( $this->config[ 'num_month' ] ) ) {
+			$limit= 'LIMIT 0, ' . $this->config[ 'num_month' ];
 		}
+		else {
+			$limit= '';
+		}
+		
+		$q= 'SELECT YEAR( p.pubdate ) AS year, MONTH( p.pubdate ) AS month, COUNT( p.id ) AS cnt 
+				FROM ' . DB::table( 'posts' ) . ' p 
+				WHERE p.content_type = ? AND p.status = ? 
+				GROUP BY year, month 
+				ORDER BY p.pubdate DESC ' . $limit;
+		$p[]= Post::type( 'entry' );
+		$p[]= Post::status( 'published' );
+		
+		$results= DB::get_results( $q, $p );
+				
+		if ( empty( $results ) ) {
+			$archives[]= '<ul id="monthly_archives">';
+			$archives[]= '  <li>No Archives Found</li>';
+			$archives[]= '</ul>';
+		}
+		else {
+			
+			$archives[]= '<ul id="monthly_archives">';
+			
+			foreach ( $results as $result ) {
+				
+				// make sure the month has a 0 on the front, if it doesn't
+				$result->month= str_pad( $result->month, 2, 0, STR_PAD_LEFT );
+				
+				$result->month_ts= mktime( 0, 0, 0, $result->month );
+				
+				// what format do we want to show the month in?
+				switch ( $this->config[ 'display_month' ] ) {
+					
+					// Full name
+					case 'F':
+						$result->display_month= date( 'F', $result->month_ts );
+						break;
+						
+					// Abbreviation
+					case 'A':
+						$result->display_month= date( 'M', $result->month_ts );
+						break;
+						
+					// Number
+					case 'N':
+					default:
+						$result->display_month= $result->month;
+						break;
+					
+				}
+				
+				// do we want to show the count of posts?
+				if ( $this->config[ 'show_count' ] == 'Y' ) {
+					$result->the_count= ' (' . $result->cnt . ')';
+				}
+				else {
+					$result->the_count= '';
+				}
+				
+				$archives[]= '  <li>';
+				$archives[]= '    <a href="' . URL::get( 'display_entries_by_date', array( 'year' => $result->year, 'month' => $result->month ) ) . '" title="View entries in ' . $result->display_month . '/' . $result->year . '">' . $result->display_month . ' ' . $result->year . '</a>' . $result->the_count;
+				
+				// do we want to show all the posts as well?
+				if ( $this->config[ 'detail_view' ] == 'Y' ) {
+					
+					$posts= Posts::get( 
+										array( 
+												'content_type' => Post::type( 'entry' ), 
+												'status' => Post::type( 'published' ), 
+												'year' => $result->year, 
+												'month' => $result->month_ts, 
+												'nolimit' => true 
+										) 
+					);
+					
+					if ( $posts ) {
+						
+						$archives[]= '    <ul class="archive_entry">';
+						
+						foreach ( $posts as $post ) {
+							
+							$day= date( 'd', strtotime( $post->pubdate ) );
+							
+							if ( empty( $this->config[ 'delimiter' ] ) ) {
+								$delimiter= '&nbsp;&nbsp;';
+							}
+							else {
+								$delimiter= $this->config[ 'delimiter' ];
+							}
+							
+							$archives[]= '      <li>';
+							$archives[]= '        ' . $day . $delimiter . '<a href="' . $post->permalink . '" title="View ' . $post->title . '">' . $post->title . '</a>';
+							$archives[]= '      </li>';
+							
+						}
+						
+						$archives[]= '    </ul>';
+						
+					}
+					
+				}
+				
+				$archives[]= '  </li>';
+								
+			}
+			
+			$archives[]= '</ul>';
+			
+		}
+
+		
+		return implode( "\n", $archives );
+		
 	}
 	
-	public function updated_config( $ui )
-	{
-		return true;  
+	public function action_plugin_ui ( $plugin_id, $action ) {
+		
+		if ( $plugin_id == $this->plugin_id() ) {
+			
+			if ( $action == _t( 'Configure' ) ) {
+				
+				$class_name= strtolower( get_class( $this ) );
+				
+				$ui= new FormUI( $class_name );
+				
+				$num_month= $ui->add( 'text', 'num_month', _t( 'Number of most recent months to be shown (Blank for show all)' ) );
+				
+				$display_month= $ui->add( 'select', 'display_month', _t( 'Month displayed as' ) );
+				$display_month->options= array( '' => '', 'F' => 'Full name', 'A' => 'Abbreviation', 'N' => 'Number' );
+				
+				$show_count= $ui->add( 'select', 'show_count', _t( 'Show Monthly Entries Count?' ) );
+				$show_count->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
+				$show_count->add_validator( 'validate_required' );
+				
+				$detail_view= $ui->add( 'select', 'detail_view', _t( 'Detail View?' ) );
+				$detail_view->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
+				$detail_view->add_validator( 'validate_detail_view' );
+				
+				$delimiter= $ui->add( 'text', 'delimiter', _t( 'Delimiter to separate day and post title in detail view (optional)' ) );
+				$delimiter->add_validator( 'validate_delimiter' );
+				
+				$ui->on_success( array( $this, 'updated_config' ) );
+				$ui->out();
+				
+			}
+			
+		}
+		
+	}
+	
+	public function updated_config ( $ui ) {
+		
+		// when the config has been updated, we need to update our cache - things could have changed
+		$this->update_cache();
+		
+		return true;
+		
+	}
+	
+	public function filter_validate_detail_view ( $valid, $value ) {
+		
+		if ( empty( $value ) || $value == '' ) {
+			
+			return array( _t( 'A value for this field is required. ' ) );
+			
+		}
+		
+		$this->config[ 'detail_view' ]= $value;
+		
+		return array();
+		
 	}
 	
 	public function theme_monthly_archives ( $theme ) {
 		
-		if ( !empty( $this->config['display_month'] ) && !empty( $this->config['show_count'] ) && !empty( $this->config['detail_view'] ) ) {
-			
-			$this->get_monthly_archives();
-			
-		}
+		$class_name= strtolower( get_class( $this ) );
 		
-		if ( !empty( $this->monthly_archives ) ) {
-			$theme->monthly_archives= $this->monthly_archives;
+		// first, see if we have the list already cached
+		if ( Cache::has( $class_name . ':list' ) ) {
+			
+			$this->monthly_archives= Cache::get( $class_name . ':list' );
+			
+			return $this->monthly_archives;
+			
 		}
 		else {
-			$theme->monthly_archives= '<ul><li>Plugin not yet configured</li></ul>';
+			
+			// update the cache
+			$this->update_cache();
+			
+			return $this->monthly_archives;
+			
 		}
 		
-		return $theme->monthly_archives;
-		
 	}
-
-	public function filter_validate_detail_view( $valid, $value )
-	{
-		if ( empty( $value ) || $value == '' ) {
-			return array( _t( 'A value for this field is required.' ) );
-		}
-		$this->config['detail_view']= $value;
-		return array();
-	}
-
-	public function filter_validate_delimiter( $valid, $value )
-	{
-		if ( 'N' == $this->config['detail_view'] ) {
-			if ( !empty( $value ) ) {
-				return array( _t( 'No value should be provided for summary view.' ) );
-			}
-		}
-		return array();
-	}
-
-	private function get_monthly_archives()
-	{
-		$post_type= Post::type( 'entry' );
-		$post_status= Post::status( 'published' );
-		$now= date( 'Y-m-d H:i:s' );
-
-		$limit= ( empty( $this->config['num_month'] ) ? '' : "LIMIT {$this->config['num_month']}" );
-		$sql= "
-			SELECT YEAR(p.pubdate) AS year, MONTH(p.pubdate) AS month,
-			COUNT(p.id) AS cnt
-			FROM " . DB::table( 'posts' ) . " p
-			WHERE p.content_type = {$post_type}
-			AND p.status = {$post_status}
-			AND p.pubdate < '{$now}'
-			GROUP by year, month
-			ORDER BY p.pubdate DESC
-			{$limit}";
-		$yr_mths= DB::get_results( $sql );
-
-		$this->monthly_archives.= "<ul class=\"archive-month\">\n";
-		foreach ( $yr_mths as $yr_mth ) {
-			$month= substr( '0' . $yr_mth->month, -2, 2 );
-			switch ( $this->config['display_month'] ) {
-				case 'F': // Full name
-					$display_month= date( 'F', mktime( 0, 0, 0, $yr_mth->month ) );
-					break;
-				case 'A': // Abbreviation
-					$display_month= date( 'M', mktime( 0, 0, 0, $yr_mth->month ) );
-					break;
-				case 'N': // Number
-					$display_month= $month;
-					break;
-			}
-			$this->monthly_archives.= '<li><a href="' . URL::get( 'display_entries_by_date', array( 'year' => $yr_mth->year, 'month' => $month ) ) . '" title="View entries in ' . "{$display_month} {$yr_mth->year}". '">' . "{$display_month} {$yr_mth->year}</a>";
-			if ( 'Y' == $this->config['show_count'] ) {
-				$this->monthly_archives.= " ({$yr_mth->cnt})";
-			}
-
-			if ( 'N' == $this->config['detail_view'] ) {
-				$this->monthly_archives.= "</li>\n";
-			}
-			elseif ( 'Y' == $this->config['detail_view'] ) {
-				// Show post title as well
-				$posts= Posts::get( array(
-					'content_type' => $post_type,
-					'status' => $post_status,
-					'year' => $yr_mth->year,
-					'month' => $yr_mth->month,
-					'nolimit' => 1,
-					) );
-				if ( $posts ) {
-					$this->monthly_archives.= "\n<ul class=\"archive-entry\">\n";
-					foreach ( $posts as $post ) {
-						$day= date( 'd', strtotime( $post->pubdate ) );
-
-						$this->monthly_archives.= "<li>{$day}";
-						$this->monthly_archives.= ( empty( $this->config['delimiter'] ) ? "&nbsp;&nbsp;" : htmlspecialchars( $this->config['delimiter'] ) );
-						$this->monthly_archives.= "<a href=\"{$post->permalink}\">{$post->title}</a></li>\n";
-					}
-					$this->monthly_archives.= "</ul>\n";
-				}
-				$this->monthly_archives.= "</li>\n";
-			}
-		}
-		$this->monthly_archives.= "</ul>\n";
-	}
+	
 }
+
 ?>
