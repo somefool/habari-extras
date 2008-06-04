@@ -52,8 +52,9 @@ class Lipsum extends Plugin
 		if ( $this->plugin_id()==$plugin_id && $action=='Configure' )
 			{
 			$form= new FormUI( strtolower(get_class( $this ) ) );
-			$num_posts= $form->add( 'text', 'num_posts', 'Number of posts to create:', '20');
-			$num_posts->add_validator( 'validate_required' );
+			$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:'), '20');
+			$form->num_posts->add_validator( 'validate_required' );
+			$form->append( 'submit', 'save', _t( 'Save' ) );
 			$form->on_success( array( $this, 'update_num_posts' ) );
 			$form->out();
 			}
@@ -74,9 +75,9 @@ class Lipsum extends Plugin
 
 			$time = time() - 160;
 			
-			$num_posts= Options::get(strtolower(get_class($this)) . ':num_posts' );
+			$num_posts= Options::get( 'lipsum__num_posts' );
 			if ( ! $num_posts ) {
-				Options::set( strtolower(get_class($this)) . ':num_posts', 20);
+				Options::set( 'lipsum__num_posts', 20);
 				$num_posts= 20;
 			}
 
@@ -110,7 +111,7 @@ class Lipsum extends Plugin
 		$current_count= (int) Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) );
 
 		if ( $num_posts == $current_count ) {
-			return true;
+			return $form->get( false );
 		}
 		// remove some posts if the $num_posts is less than the current count
 		if ( $num_posts < $current_count ) {
@@ -135,8 +136,8 @@ class Lipsum extends Plugin
 			Session::notice( "Created {$count} sample posts with random comments.");
 		}
 
-		// return true to save num_posts in the options table
-		return true;
+		// return the form to redisplay it
+		return $form->get( false );
 	}
 	
 	/**
