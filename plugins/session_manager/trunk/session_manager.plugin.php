@@ -64,7 +64,7 @@ class SessionManager extends Plugin
 
 	public function filter_session_write($dowrite, $sessionid, $data)
 	{
-		$spiders = Options::get(strtolower(get_class($this)) . ':spiders');
+		$spiders = Options::get( 'session_manager__spiders' );
 		$spiders = explode("\n", preg_quote($spiders, '%'));
 		$spiders = array_map('trim', $spiders);
 		$spiders = array_filter($spiders);
