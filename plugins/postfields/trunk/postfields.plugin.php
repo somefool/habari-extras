@@ -49,23 +49,13 @@ class postfields extends Plugin
 		if ($plugin_id == $this->plugin_id()){
 			switch ($action){
 				case 'Configure' :
-					$ui = new FormUI(strtolower(get_class($this)));
-					$fields = $ui->add('textmulti', 'fields', 'Additional Fields:');
-					$ui->on_success(array($this, 'updated_config'));
+					$ui = new FormUI('postfields');
+					$ui->append('textmulti', 'fields', 'postfields__fields', 'Additional Fields:');
+					$ui->append('submit', 'submit', 'Submit');
 					$ui->out();
 					break;
 			}
 		}
-	}
-
-	/**
-	* Returns true if plugin config form values defined in action_plugin_ui should be stored in options by Habari
-	*
-	* @return boolean True if options should be stored
-	*/
-	public function updated_config($ui)
-	{
-		return true;
 	}
 
 	/**
@@ -77,7 +67,7 @@ class postfields extends Plugin
 	**/
 	public function filter_publish_controls($controls, $post)
 	{
-		$fields = Options::get('postfields:fields');
+		$fields = Options::get('postfields__fields');
 		$output = '';
 		$control_id = 0;
 		foreach($fields as $field) {
@@ -103,7 +93,7 @@ FIELD_OUT;
 	public function action_post_update_before($post)
 	{
 		if(isset($_POST['postfield'])) {
-			$fields = Options::get('postfields:fields');
+			$fields = Options::get('postfields__fields');
 			foreach($fields as $field) {
 				$post->info->{$field} = isset($_POST['postfield'][$field]) ? $_POST['postfield'][$field] : '';
 			}
