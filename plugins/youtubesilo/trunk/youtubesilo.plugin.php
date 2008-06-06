@@ -1,6 +1,5 @@
 <?php
 
-
 /**
 * YouTube Silo
 */
@@ -17,7 +16,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	public function info()
 	{
 		return array('name' => 'YouTube Media Silo',
-			'version' => '0.1',
+			'version' => '0.1.1',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -25,13 +24,6 @@ class YouTubeSilo extends Plugin implements MediaSilo
 			'description' => 'Implements basic YouTube integration',
 			'copyright' => '2008',
 			);
-	}
-
-	/**
-	* Initialize some internal values when plugin initializes
-	*/
-	public function action_init()
-	{
 	}
 
 	/**
@@ -57,13 +49,14 @@ class YouTubeSilo extends Plugin implements MediaSilo
 		$youtube = new Zend_Gdata_YouTube();
 		$props = array();
 		$props['filetype']= 'youtube';
+		$username = User::identify()->info->youtube__username;
 
 		$results = array();
 		$section = strtok($path, '/');
 		// TODO remove redundant code - possibly put the calls in a YouTube class?
 		switch($section) {
 			case 'videos':
-				$videoFeed = $youtube->getUserUploads(Options::get(strtolower(get_class($this)) . ':username_' . User::identify()->id));
+				$videoFeed = $youtube->getUserUploads($username);
 				foreach ($videoFeed as $videoEntry) {
 
 					$props['url']= $this->findFlashUrl($videoEntry);
@@ -79,7 +72,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 				}
 				break;
 			case 'tags':
-				$videoFeed = $youtube->getSubscriptionFeed(Options::get(strtolower(get_class($this)) . ':username_' . User::identify()->id));
+				$videoFeed = $youtube->getSubscriptionFeed($username);
 				foreach ($videoFeed as $videoEntry) {
 
 					$props['url']= $this->findFlashUrl($videoEntry);
@@ -95,7 +88,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 				}
 				break;
 			case 'favorites':
-				$videoFeed = $youtube->getUserFavorites(Options::get(strtolower(get_class($this)) . ':username_' . User::identify()->id));
+				$videoFeed = $youtube->getUserFavorites($username);
 				foreach ($videoFeed as $videoEntry) {
 
 					$props['url']= $this->findFlashUrl($videoEntry);
@@ -204,16 +197,6 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	}
 
 	/**
-		* Returns true if plugin config form values defined in action_plugin_ui should be stored in options by Habari
-		* @return boolean True if options should be stored
-		**/
-	public function updated_config($ui)
-	{
-		// Save the submitted values
-		return true;
-	}
-
-	/**
 	* Add actions to the plugin page for this plugin
 	* The authorization should probably be done per-user.
 	*
@@ -224,9 +207,8 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	public function filter_plugin_config($actions, $plugin_id)
 	{
 		if ($plugin_id == $this->plugin_id()){
-			$actions[] = 'Configure';
+			$actions[] = _t('Configure');
 		}
-
 		return $actions;
 	}
 
@@ -238,13 +220,13 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	*/
 	public function action_plugin_ui($plugin_id, $action)
 	{
-		if ($plugin_id == $this->plugin_id()){
+		if ( $plugin_id == $this->plugin_id() ) {
 			switch ($action){
-				case 'Configure':
-					$ui= new FormUI( strtolower( get_class( $this ) ) );
-					$username= $ui->add('text', 'username_' . User::identify()->id, 'YouTube Username:');
-					$ui->on_success( array( $this, 'updated_config' ) );
-					$ui->out();
+				case _t('Configure'):
+					$form= new FormUI( strtolower( get_class( $this ) ) );
+					$form->append('text', 'username', 'user:youtube__username', 'YouTube Username:');
+					$form->append('submit', 'save', 'Save');
+					$form->out();
 					break;
 			}
 		}
@@ -256,9 +238,9 @@ class YouTubeSilo extends Plugin implements MediaSilo
 		if ( $theme->admin_page == 'publish' ) {
 			echo <<< YOUTUBE
 			<script type="text/javascript">
-				habari.media.output.youtube = function(fileindex, fileobj) {
+				habari.media.output.youtube = {display: function(fileindex, fileobj) {
 					habari.editor.insertSelection('<object width="425" height="355"><param name="movie" value="' + fileobj.url + '"></param><param name="wmode" value="transparent"></param><embed src="' + fileobj.url + '" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>');
-				}
+				}}
 				habari.media.preview.youtube = function(fileindex, fileobj) {
 					var stats = '';
 					return '<div class="mediatitle">' + fileobj.title + '</div><img src="' + fileobj.thumbnail_url + '"><div class="mediastats"> ' + stats + '</div>';
@@ -274,7 +256,7 @@ YOUTUBE;
 	* @param Zend_Gdata_YouTube_VideoEntry $entry The video entry
 	* @return (string|null) The URL or null, if the URL is not found
 	*/
-	function findFlashUrl($entry) 
+	function findFlashUrl($entry)
 	{
 		foreach ($entry->mediaGroup->content as $content) {
 			if ($content->type === 'application/x-shockwave-flash') {
@@ -282,6 +264,14 @@ YOUTUBE;
 			}
 		}
 		return null;
+	}
+
+	/**
+	* Enable update notices to be sent using the Habari beacon
+	*/
+	public function action_update_check()
+	{
+		Update::add( 'YouTubeSilo', '59423325-783e-4d76-84aa-292e3dbf42c8',  $this->info->version );
 	}
 
 }
