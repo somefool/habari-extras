@@ -45,7 +45,7 @@ class Socialink extends Plugin
     {
         return array(
             'name' => 'Socialink',
-            'version' => '0.01',
+            'version' => '0.1',
             'url' => 'http://ayu.commun.jp/habari-socialink',
             'author' => 'ayunyan',
             'authorurl' => 'http://ayu.commun.jp/',
@@ -54,7 +54,7 @@ class Socialink extends Plugin
             );
     }
 
-    /**
+  /*
      * action: plugin_activation
      *
      * @access public
@@ -65,11 +65,11 @@ class Socialink extends Plugin
     {
         if ( $file != $this->get_file() ) return;
 
-        Options::set( 'socialink:link_pos',  'top' );
-        Options::set( 'socialink:services', serialize( array( 'digg', 'delicious', 'technorati', 'google', 'yahoo', 'furl', 'reddit', 'magnolia' ) ) );
+        Options::set( 'socialink__link_pos',  'top' );
+        Options::set( 'socialink__services', serialize( array( 'digg', 'delicious', 'technorati', 'google', 'yahoo', 'furl', 'reddit', 'magnolia' ) ) );
     }
 
-    /**
+  /*
      * action: update_check
      *
      * @access public
@@ -80,7 +80,7 @@ class Socialink extends Plugin
         Update::add( 'Socialink', '58c939f3-26ae-11dd-b5d6-001b210f913f', $this->info->version );
     }
 
-    /**
+  /*
      * action: plugin_ui
      *
      * @access public
@@ -97,26 +97,15 @@ class Socialink extends Plugin
                 $ui_services[$k] = $service['name'];
             }
             $ui= new FormUI( strtolower( get_class( $this ) ) );
-            $link_pos = $ui->add( 'radio', 'link_pos', _t( 'Link Position: ' ), array('top' => 'Top', 'bottom' => 'Bottom'), Options::get( 'socialink:link_pos' ) );
-            $services= $ui->add( 'select', 'services', _t( 'Services: ' ), $ui_services, Options::get( 'socialink:services' ));
+            $link_pos = $ui->append( 'radio', 'link_pos', 'socialink__link_pos', _t( 'Link Position: ' ), array('top' => 'Top', 'bottom' => 'Bottom'), Options::get( 'socialink__link_pos' ) );
+            $services= $ui->append( 'select', 'services', 'socialink__services', _t( 'Services: ' ), $ui_services, Options::get( 'socialink__services' ));
             $services->multiple = true;
-            $ui->on_success( array( $this, 'updated_config' ) );
+			$ui->append( 'submit', 'save', _t( 'Save' ) );
             $ui->out();
         }
     }
 
-    /**
-     * FormUI callback
-     *
-     * @access public
-     * @return boolean
-     */
-    public function updated_config($ui)
-    {
-        return true;
-    }
-
-    /**
+  /*
      * filter: plugin_config
      *
      * @access public
@@ -130,7 +119,7 @@ class Socialink extends Plugin
         return $actions;
     }
 
-    /**
+  /*
      * filter: post_content_out
      *
      * @access public
@@ -138,7 +127,7 @@ class Socialink extends Plugin
      */
     public function filter_post_content_out($content, $post)
     {
-       $link_pos= Options::get( 'socialink:link_pos' );
+       $link_pos= Options::get( 'socialink__link_pos' );
        if ( $link_pos == 'top' ) {
            $content= $this->create_link($post) . $content;
        }
@@ -152,7 +141,7 @@ class Socialink extends Plugin
     {
         $link = '<div class="socialink">';
         $site_title= Options::get( 'title' );
-        $s_services= Options::get( 'socialink:services' );
+        $s_services= Options::get( 'socialink__services' );
         @reset($s_services);
         while (list(, $k) = @each($s_services)) {
             if ( !isset( $this->services[$k] ) ) continue;
