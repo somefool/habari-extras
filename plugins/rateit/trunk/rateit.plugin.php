@@ -44,10 +44,12 @@ class RateIt extends Plugin
 	{
 		if ( Plugins::id_from_file( $file ) != Plugins::id_from_file( __FILE__ ) ) return;
 
-		$db_version= Options::get('rateit:db_version');
+		$db_version= Options::get( 'rateit__db_version' );
+        if ( empty( $db_version ) ) $db_version= Options::get( 'rateit:db_version' );
+
 		if ( empty( $db_version ) ) {
 			if ( $this->install_db() ) {
-				Options::set( 'rateit:db_version', self::DB_VERSION );
+				Options::set( 'rateit__db_version', self::DB_VERSION );
 			}
 			else {
 				Session::error( _t('Rate It!: can\'t create table.') );
@@ -57,7 +59,7 @@ class RateIt extends Plugin
 			// TODO: upgrade_db
 		}
 
-		Options::set( 'rateit:post_pos', 'bottom' );
+		Options::set( 'rateit__post_pos', 'bottom' );
 	}
 
 	/**
@@ -96,25 +98,12 @@ class RateIt extends Plugin
 	{
 		if ( $plugin_id != $this->plugin_id() ) return;
 		if ( $action == _t( 'Configure' ) ) {
-			$ui= new FormUI( strtolower( get_class( $this ) ) );
-			$post_pos = $ui->add( 'radio', 'post_pos', _t( 'Position: ' ), array('top' => 'Top', 'bottom' => 'Bottom'), Options::get( 'rateit:post_pos' ) );
-
-			$ui->on_success( array( $this, 'updated_config' ) );
-			$ui->out();
+			$form= new FormUI( strtolower( get_class( $this ) ) );
+			$form->append( 'radio', 'post_pos', 'rateit__post_pos', _t( 'Position: ' ), array( 'top' => 'Top', 'bottom' => 'Bottom' ) );
+            $form->append( 'submit', 'save', _t( 'Save' ) );
+			$form->out();
 		}
 	}
-
-	/**
-	 * FormUI callback
-	 *
-	 * @access public
-	 * @return boolean
-	 */
-	public function updated_config($ui)
-	{
-		return true;
-	}
-
 
 	/**
 	 * action: template_header
@@ -178,7 +167,7 @@ class RateIt extends Plugin
 	 */
 	public function filter_post_content_out( $content, $post )
 	{
-	   $post_pos= Options::get( 'rateit:post_pos' );
+	   $post_pos= Options::get( 'rateit__post_pos' );
 	   if ( $post_pos == 'top' ) {
 		   $content=  $this->create_rating($post) . $content;
 	   }
