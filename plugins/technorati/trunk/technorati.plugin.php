@@ -12,7 +12,7 @@ class Technorati extends Plugin
 	public function info() {
 		return array(
 			'name' => 'Technorati',
-			'version' => '0.3',
+			'version' => '0.4',
 			'url' => 'http://habariproject.org/',
 			'author' =>     'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -20,6 +20,23 @@ class Technorati extends Plugin
 			'description' => 'Technorati plugin for Habari',
 			'copyright' => '2007'
 		);
+	}
+
+	public function action_plugin_activation( $file )
+	{
+		if ( realpath( $file ) == __FILE__ ) {
+			Modules::register( 'Technorati' );
+			Modules::add( 'Technorati' );
+			Session::notice( _t( 'Please set your Technorati API Key in the configuration.' ) );
+			Options::set( 'technorati__apikey', '' );
+		}
+	}
+
+	public function action_plugin_deactivation( $file )
+	{
+		if ( realpath( $file ) == __FILE__ ) {
+			Modules::unregister( 'Technorati' );
+		}
 	}
 
 	public function filter_plugin_config( $actions, $plugin_id )
@@ -37,28 +54,23 @@ class Technorati extends Plugin
 			switch ( $action ) {
 				case _t( 'Configure' ):
 					$ui= new FormUI( strtolower( get_class( $this ) ) );
-					$technorati_apikey= $ui->add( 'text', 'apikey', _t( 'Technorati API Key (Get it from ' ) . '<a href="http://www.technorati.com/developers/apikey.html">' . _t( 'Developer Center' ) . '</a>)' );
+					$technorati_apikey= $ui->append( 'text', 'apikey', 'option:technorati__apikey', _t( 'Technorati API Key (Get it from ' ) . '<a href="http://www.technorati.com/developers/apikey.html">' . _t( 'Developer Center' ) . '</a>)' );
 					$technorati_apikey->add_validator( 'validate_required' );
-					$ui->on_success( array( $this, 'updated_config' ) );
+					$ui->append( 'submit', 'save', _t( 'Save' ) );
+					$ui->set_option( 'success_message', _t( 'Configuration saved' ) );
 					$ui->out();
-				break;
+					break;
 			}
 		}
 	}
 
-	public function updated_config( $ui )
+	public function filter_dash_module_technorati( $module_id )
 	{
-		Session::notice( _t( 'Configuration saved' ) );
-		return true;
-	}
+		$theme= Themes::create( 'technorai', 'RawPHPEngine', dirname( __FILE__ ) . '/' );
 
-	public function filter_admin_modules( $modules )
-	{
-		$modules['technorati']= '<div class="modulecore">
-			<h2>Technorati Stats</h2><div class="handle">&nbsp;</div>' . "\n" .
-			$this->theme_technorati_stats() .
-			'</div>';
-		return $modules;
+		$theme->stats= $this->theme_technorati_stats();
+
+		return $theme->fetch( 'dash_technorati' );
 	}
 
 	public function theme_technorati_stats()
@@ -71,22 +83,13 @@ class Technorati extends Plugin
 			Cache::set( 'technorati_stats', $stats );
 		}
 
-		$stats_table= '<ul class="items">'. "\n";
-		foreach ( $stats as $key => $count ) {
-			$stats_table.= '<li class="item clear">' . "\n";
-			$stats_table.= '<span class="pct90">' . "{$key}</span>\n";
-			$stats_table.= '<span class="comments pct10">' . "{$count}</span>\n";
-			$stats_table.= "</li>\n";
-		}
-		$stats_table.= "</ul>\n";
-
-		return $stats_table;
+		return $stats;
 	}
 
 	public function get_technorati_stats()
 	{
 		$technorati_stats= array();
-		$technorati_url= 'http://api.technorati.com/bloginfo?key=' . Options::get( 'technorati:apikey' ) . '&url='. Site::get_url('habari');
+		$technorati_url= 'http://api.technorati.com/bloginfo?key=' . Options::get( 'technorati__apikey' ) . '&url='. Site::get_url('habari');
 
 		$response= RemoteRequest::get_contents( $technorati_url );
 		$xml= new SimpleXMLElement( $response );
