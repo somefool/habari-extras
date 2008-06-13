@@ -25,7 +25,6 @@ class Technorati extends Plugin
 	public function action_plugin_activation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
-			Modules::register( 'Technorati' );
 			Modules::add( 'Technorati' );
 			Session::notice( _t( 'Please set your Technorati API Key in the configuration.' ) );
 			Options::set( 'technorati__apikey', '' );
@@ -35,8 +34,15 @@ class Technorati extends Plugin
 	public function action_plugin_deactivation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
-			Modules::unregister( 'Technorati' );
+			Modules::remove_by_name( 'Technorati' );
 		}
+	}
+
+	public function filter_dash_modules( $modules )
+	{
+		$modules[]= 'Technorati';
+		$this->add_template( 'dash_technorati', dirname( __FILE__ ) . '/dash_technorati.php' );
+		return $modules;
 	}
 
 	public function filter_plugin_config( $actions, $plugin_id )
@@ -64,13 +70,12 @@ class Technorati extends Plugin
 		}
 	}
 
-	public function filter_dash_module_technorati( $module_id )
+	public function filter_dash_module_technorati( $module, $module_id, $theme )
 	{
-		$theme= Themes::create( 'technorai', 'RawPHPEngine', dirname( __FILE__ ) . '/' );
+		$theme->technorati_stats= $this->theme_technorati_stats();
 
-		$theme->stats= $this->theme_technorati_stats();
-
-		return $theme->fetch( 'dash_technorati' );
+		$module['content']= $theme->fetch( 'dash_technorati' );
+		return $module;
 	}
 
 	public function theme_technorati_stats()
@@ -103,6 +108,14 @@ class Technorati extends Plugin
 		$technorati_stats['Inbound Blogs']= $technorati_inbound_blogs;
 		return $technorati_stats;
 	}
+
+  /**
+   * Add update beacon support
+   **/
+  public function action_update_check()
+  {
+		Update::add( 'Technorati', '24205fa0-38f4-11dd-ae16-0800200c9a66', $this->info->version );
+  }
 
 }
 ?>
