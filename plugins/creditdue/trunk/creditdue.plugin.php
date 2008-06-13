@@ -44,7 +44,15 @@ class CreditDue extends Plugin
 		
 		return $theme->fetch( 'creditdue' );
 	}
-	
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'CreditDue', 'fb0b8460-38f2-11dd-ae16-0800200c9a66', $this->info->version );
+	}
+
 	/**
 	 * On plugin init, add the template included with this plugin to the available templates in the theme
 	 */

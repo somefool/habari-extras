@@ -16,6 +16,14 @@ class comment_notifier extends Plugin
 			'license' => 'Apache License 2.0'
 		);
 	}
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Comment Notifier', '91175a80-38f6-11dd-ae16-0800200c9a66', $this->info->version );
+	}
 	
 	public function action_comment_insert_after( $comment )
 	{
@@ -51,7 +59,7 @@ MESSAGE;
 			$comment->email,
 			$comment->url,
 			$comment->content,
-			URL::get('admin', 'page=moderate')
+			URL::get('admin', 'page=comments')
 		);
 
 		$headers= 'From: ' . $comment->name . ' <' . $comment->email . '>';

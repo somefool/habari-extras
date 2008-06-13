@@ -26,6 +26,14 @@ class Linkoid extends Plugin
 	}
 
 	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Linkoid', '34257e00-3942-11dd-ae16-0800200c9a66', $this->info->version );
+	}
+
+	/**
 	* Add actions to the plugin page for this plugin
 	*
 	* @param array $actions An array of actions that apply to this plugin
@@ -53,17 +61,18 @@ class Linkoid extends Plugin
 			switch ($action){
 				case 'Configure' :
 					$ui = new FormUI(strtolower(get_class($this)));
-					$links = $ui->add('text', 'count', 'Number of items to be shown');
+					$links = $ui->append('text', 'count', 'linkoid__count', 'Number of items to be shown');
 					//required
 					$links->add_validator( 'validate_required' )->add_validator( 'validate_regex', '%^[1-9][0-9]*$%', 'Number of items shown must be a number; 1 or more.' );
-					$tag_control = $ui->add('select', 'show', 'Tag that will be shown via linkoid command');
+					$tag_control = $ui->append('select', 'show', 'linkoid__show', 'Tag that will be shown via linkoid command');
 					$tags = DB::get_results( 'SELECT tag_slug, tag_text FROM {tags} ORDER BY tag_text ASC' );
 					$options = array();
 					foreach($tags as $tag) {
 						$options[$tag->tag_slug] = $tag->tag_text;
 					}
 					$tag_control->options = $options;
-					//$ui->on_success(array($this, 'updated_config'));
+					$ui->append( 'submit', 'save', _t('Save') );
+
 					$ui->out();
 					break;
 			}
@@ -81,9 +90,9 @@ class Linkoid extends Plugin
 	public function theme_linkoid( $theme, $tag = null )
 	{
 		if(!isset($tag)) {
-			$tag = Options::get('linkoid:show');
+			$tag = Options::get( 'linkoid__show' );
 		}
-		$linkoids = Posts::get(array('tag_slug'=>$tag, 'limit'=>Options::get('linkoid:count')));
+		$linkoids = Posts::get(array('tag_slug'=>$tag, 'limit'=>Options::get( 'linkoid__count' ) ) );
 
 		$theme->linkoids = $linkoids;
 		return $theme->fetch( 'linkoid' );
@@ -106,7 +115,7 @@ class Linkoid extends Plugin
 	public function filter_template_where_filters( $where_filters )
 	{
 		if( ! (isset($where_filters['tag']) || isset($where_filters['tag_slug']) || isset($where_filters['slug'])) )  {
-			$where_filters['not:tag'] = Options::get('linkoid:show');
+			$where_filters['not:tag'] = Options::get('linkoid__show');
 		}
 		return $where_filters;
 	}
