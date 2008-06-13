@@ -23,6 +23,7 @@ class Socialink extends Plugin
 		'faves' => array('name' => 'Faves', 'url' => 'http://faves.com/Authoring.aspx?u=%PERMALINK%&t=%TITLE%'),
 		'blinklist' => array('name' => 'blinklist', 'url' => 'http://www.blinklist.com/?Action=Blink/addblink.php&Description=&Url=%PERMALINK%&Title=%TITLE%'),
 		'stumbleupon' => array( 'name' => 'StumbleUpon', 'url'=> 'http://www.stumbleupon.com/submit?url=%PERMALINK%&title=%TITLE%'),
+		'diigo' => array( 'name' => 'Diigo', 'url'=> 'hhttp://www.diigo.com/post?url=%PERMALINK%&title=%TITLE%'),
 
 		// Japan
 		'hatena' => array('name' => 'Hatena Bookmark', 'url' => "javascript:(function(){window.open('http://b.hatena.ne.jp/add?mode=confirm&is_bm=1&title=%TITLE%&url=%PERMALINK%','socialink','width=550,height=600,resizable=1,scrollbars=1');})();"),
@@ -97,8 +98,10 @@ class Socialink extends Plugin
 				$ui_services[$k] = $service['name'];
 			}
 			$ui= new FormUI( strtolower( get_class( $this ) ) );
-			$link_pos = $ui->append( 'radio', 'link_pos', 'socialink__link_pos', _t( 'Link Position: ' ), array('top' => 'Top', 'bottom' => 'Bottom'), Options::get( 'socialink__link_pos' ) );
-			$services= $ui->append( 'select', 'services', 'socialink__services', _t( 'Services: ' ), $ui_services, Options::get( 'socialink__services' ));
+			$link_pos = $ui->append( 'radio', 'link_pos', 'option:socialink__link_pos', _t( 'Link Position: ' ) );
+			$link_pos->options = array('top' => 'Top', 'bottom' => 'Bottom');
+			$services= $ui->append( 'select', 'services', 'option:socialink__services', _t( 'Services: ' ), $ui_services);
+			$services->options = $ui_services;
 			$services->multiple = true;
 			$ui->append( 'submit', 'save', _t( 'Save' ) );
 			$ui->out();
