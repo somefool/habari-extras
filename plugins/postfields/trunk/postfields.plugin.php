@@ -102,7 +102,6 @@ class postfields extends Plugin
    **/
   public function action_update_check()
   {
-  
   }
 
 }
