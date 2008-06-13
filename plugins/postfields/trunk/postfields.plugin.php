@@ -102,6 +102,7 @@ class postfields extends Plugin
    **/
   public function action_update_check()
   {
+		Update::add( 'Postfields', '228D6060-38F0-11DD-AE16-0800200C9A66', $this->info->version );
   }
 
 }
