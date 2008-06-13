@@ -96,5 +96,13 @@ class postfields extends Plugin
 			$post->info->{$field} = $customfield->value;
 		}
 	}
+	
+  /**
+   * Add update beacon support
+   **/
+  public function action_update_check()
+  {
+  }
+
 }
 ?>
