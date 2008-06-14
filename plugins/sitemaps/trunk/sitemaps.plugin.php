@@ -31,6 +31,14 @@ class Sitemaps extends Plugin {
 		$db_rules[]= RewriteRule::create_url_rule( '"sitemap.xml"', 'Sitemaps', 'Sitemap' );
 		return $db_rules;
 	}
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Sitemaps', 'E239C570-39B3-11DD-8EFD-31AC56D89593', $this->info->version );
+	}
 	
 	/**
 	 * Act function called by the `Controller` class.
