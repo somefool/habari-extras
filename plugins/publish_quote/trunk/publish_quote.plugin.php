@@ -67,7 +67,7 @@ class PublishQuote extends Plugin
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ($action) {
-				case 'Create Bookmarklet' :
+				case 'Configure' :
 					echo $this->get_bookmarklet();
 					$form = new FormUI(strtolower(get_class($this)));
 					$form->append( 'static', 'instructions', '<strong><small>(Substitute {$quote}, {$title}, and {$url} in templates as desired)</small></strong>' );
