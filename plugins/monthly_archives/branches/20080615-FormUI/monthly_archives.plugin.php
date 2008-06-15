@@ -185,9 +185,9 @@ class Monthly_Archives extends Plugin
 					$psts= Posts::get(
 										array(
 												'content_type' => Post::type( 'entry' ),
-												'status' => Post::type( 'published' ),
+												'status' => Post::status( 'published' ),
 												'year' => $result->year,
-												'month' => $result->month_ts,
+												'month' => $result->month,
 												'nolimit' => true
 										)
 					);
@@ -198,7 +198,7 @@ class Monthly_Archives extends Plugin
 
 						foreach ( $psts as $pst ) {
 
-							$day= date( 'd', strtotime( $post->pubdate ) );
+							$day= date( 'd', strtotime( $pst->pubdate ) );
 
 							if ( empty( $this->config[ 'delimiter' ] ) ) {
 								$delimiter= '&nbsp;&nbsp;';
@@ -295,7 +295,7 @@ class Monthly_Archives extends Plugin
 		$class_name= strtolower( get_class( $this ) );
 
 		// first, see if we have the list already cached
-		if ( Cache::has( $class_name . ':list' ) ) {
+		if ( false && Cache::has( $class_name . ':list' ) ) {
 
 			$this->monthly_archives= Cache::get( $class_name . ':list' );
 
