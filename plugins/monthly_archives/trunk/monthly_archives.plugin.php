@@ -5,7 +5,7 @@
  * Usage: <?php $theme->monthly_archives(); ?>
  *
  * Modified / fixed from the original by Raman Ng (a.k.a. tinyau): http://blog.tinyau.net
- * 		http://blog.tinyau.net/archives/2007/09/22/habari-rn-monthly-archives-plugin
+ * http://blog.tinyau.net/archives/2007/09/22/habari-rn-monthly-archives-plugin
  */
 
 class Monthly_Archives extends Plugin
@@ -13,10 +13,10 @@ class Monthly_Archives extends Plugin
 
 	const VERSION= '0.9';
 
-	private $monthly_archives= '';			// stores the actual archives list
-	private $config= array();				// stores our config options
+	private $monthly_archives= ''; // stores the actual archives list
+	private $config= array(); // stores our config options
 
-	private $cache_expirey= 604800;			// one week, in seconds: 60 * 60 * 24 * 7
+	private $cache_expirey= 604800; // one week, in seconds: 60 * 60 * 24 * 7
 
 
 	public function info ( ) {
@@ -54,13 +54,11 @@ class Monthly_Archives extends Plugin
 
 	public function action_init ( ) {
 
-		$class_name= strtolower( get_class( $this ) );
-
-		$this->config[ 'num_month' ]= Options::get( $class_name . ':num_month' );
-		$this->config[ 'display_month' ]= Options::get( $class_name . ':display_month' );
-		$this->config[ 'show_count' ]= Options::get( $class_name . ':show_count' );
-		$this->config[ 'detail_view' ]= Options::get( $class_name . ':detail_view' );
-		$this->config[ 'delimiter' ]= Options::get( $class_name . ':delimiter' );
+		$this->config[ 'num_month' ]= Options::get( 'archives__num__month' );
+		$this->config[ 'display_month' ]= Options::get( 'archives__display__month' );
+		$this->config[ 'show_count' ]= Options::get( 'archives__show__count' );
+		$this->config[ 'detail_view' ]= Options::get( 'archives__detail__view' );
+		$this->config[ 'delimiter' ]= Options::get( 'archives__delimiter' );
 
 	}
 
@@ -184,23 +182,23 @@ class Monthly_Archives extends Plugin
 				// do we want to show all the posts as well?
 				if ( $this->config[ 'detail_view' ] == 'Y' ) {
 
-					$posts= Posts::get(
+					$psts= Posts::get(
 										array(
 												'content_type' => Post::type( 'entry' ),
-												'status' => Post::type( 'published' ),
+												'status' => Post::status( 'published' ),
 												'year' => $result->year,
-												'month' => $result->month_ts,
+												'month' => $result->month,
 												'nolimit' => true
 										)
 					);
 
-					if ( $posts ) {
+					if ( $psts ) {
 
 						$archives[]= '    <ul class="archive_entry">';
 
-						foreach ( $posts as $post ) {
+						foreach ( $psts as $pst ) {
 
-							$day= date( 'd', strtotime( $post->pubdate ) );
+							$day= date( 'd', strtotime( $pst->pubdate ) );
 
 							if ( empty( $this->config[ 'delimiter' ] ) ) {
 								$delimiter= '&nbsp;&nbsp;';
@@ -210,7 +208,7 @@ class Monthly_Archives extends Plugin
 							}
 
 							$archives[]= '      <li>';
-							$archives[]= '        ' . $day . $delimiter . '<a href="' . $post->permalink . '" title="View ' . $post->title . '">' . $post->title . '</a>';
+							$archives[]= '        ' . $day . $delimiter . '<a href="' . $pst->permalink . '" title="View ' . $pst->title . '">' . $pst->title . '</a>';
 							$archives[]= '      </li>';
 
 						}
@@ -229,7 +227,6 @@ class Monthly_Archives extends Plugin
 
 		}
 
-
 		return implode( "\n", $archives );
 
 	}
@@ -242,26 +239,28 @@ class Monthly_Archives extends Plugin
 
 				$class_name= strtolower( get_class( $this ) );
 
-				$ui= new FormUI( $class_name );
+				$form= new FormUI( $class_name );
 
-				$num_month= $ui->add( 'text', 'num_month', _t( 'Number of most recent months to be shown (Blank for show all)' ) );
+				$form->append( 'text', 'num_month', 'archives__num__month', _t( 'Number of most recent months to be shown (Blank for show all)' ) );
 
-				$display_month= $ui->add( 'select', 'display_month', _t( 'Month displayed as' ) );
-				$display_month->options= array( '' => '', 'F' => 'Full name', 'A' => 'Abbreviation', 'N' => 'Number' );
+				$form->append( 'select', 'display_month', 'archives__display__month', _t( 'Month displayed as' ) );
+				$form->display_month->options= array( '' => '', 'F' => 'Full name', 'A' => 'Abbreviation', 'N' => 'Number' );
 
-				$show_count= $ui->add( 'select', 'show_count', _t( 'Show Monthly Entries Count?' ) );
-				$show_count->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
-				$show_count->add_validator( 'validate_required' );
+				$form->append( 'select', 'show_count', 'archives__show__count', _t( 'Show Monthly Entries Count?' ) );
+				$form->show_count->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
+				$form->show_count->add_validator( 'validate_required' );
 
-				$detail_view= $ui->add( 'select', 'detail_view', _t( 'Detail View?' ) );
-				$detail_view->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
-				$detail_view->add_validator( 'validate_detail_view' );
+				$form->append( 'select', 'detail_view', 'archives__detail__view', _t( 'Detail View?' ) );
+				$form->detail_view->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
+				$form->detail_view->add_validator( 'validate_detail_view' );
 
-				$delimiter= $ui->add( 'text', 'delimiter', _t( 'Delimiter to separate day and post title in detail view (optional)' ) );
-				$delimiter->add_validator( 'validate_delimiter' );
+				$form->append( 'text', 'delimiter', 'archives__delimiter', _t( 'Delimiter to separate day and post title in detail view (optional)' ) );
+				$form->delimiter->add_validator( 'validate_delimiter' );
 
-				$ui->on_success( array( $this, 'updated_config' ) );
-				$ui->out();
+				$form->append( 'submit', 'save', _t( 'Save' ) );
+
+				$form->on_success( array( $this, 'updated_config' ) );
+				$form->out();
 
 			}
 
@@ -269,12 +268,11 @@ class Monthly_Archives extends Plugin
 
 	}
 
-	public function updated_config ( $ui ) {
+	public function updated_config ( $form ) {
 
 		// when the config has been updated, we need to update our cache - things could have changed
 		$this->update_cache();
-
-		return true;
+		$form->save();
 
 	}
 
