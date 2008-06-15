@@ -295,7 +295,7 @@ class Monthly_Archives extends Plugin
 		$class_name= strtolower( get_class( $this ) );
 
 		// first, see if we have the list already cached
-		if ( false && Cache::has( $class_name . ':list' ) ) {
+		if ( Cache::has( $class_name . ':list' ) ) {
 
 			$this->monthly_archives= Cache::get( $class_name . ':list' );
 
