@@ -18,6 +18,14 @@ class MagicTags extends Plugin
 			'license' => 'Apache License 2.0',
 		);
 	}
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'MagicTags', '1455ba80-3bcd-11dd-ae16-0800200c9a66', $this->info->version );
+	}
 	
 	/**
 	 * filters display of tags for posts to hide any that begin with "@" from display
