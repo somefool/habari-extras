@@ -26,6 +26,14 @@ class Gravatar extends Plugin {
 			'copyright' => '2007'
 		);
 	}
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Gravatar', 'c33ba010-3b9a-11dd-ae16-0800200c9a66', $this->info->version );
+	}
 	
 	/**
 	 * Return a URL to the author's Gravatar based on his e-mail address.
