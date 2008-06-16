@@ -5,12 +5,16 @@
  * @package AlienContact
  * @todo Add documentation
  * @todo Add interface to database
+ *
+ * to use: insert <!--contactForm--> in a page or entry
  */
 
-class AlienContact extends Plugin {
+class AlienContact extends Plugin 
+{
 	private $theme= null;
 	
-	function info() {
+	function info() 
+	{
 		return array(
 			'name' => 'AlienContact',
 			'version' => '1.0',
@@ -21,7 +25,17 @@ class AlienContact extends Plugin {
 			'description' => 'AlienContact generates a form for visitors to contact you',
 		);
 	}
-	function elements() {
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'AlienContact', 'a22354d0-3ba5-11dd-ae16-0800200c9a66', $this->info->version );
+	}
+
+	function elements() 
+	{
 		return array(
 			'name' => array(
 				'id' => 'name',
@@ -60,8 +74,10 @@ class AlienContact extends Plugin {
 			)
 		);
 	}
-	public function filter_rewrite_rules( $rules ) {
-		$rules[] = new RewriteRule(array(
+	
+	public function filter_rewrite_rules( $rules ) 
+	{
+		$rules[]= new RewriteRule( array(
 			'name' => 'aliencontact',
 			'parse_regex' => '%scripts/aliencontact.js$%i',
 			'build_str' =>  'scripts/aliencontact.js',
@@ -69,72 +85,79 @@ class AlienContact extends Plugin {
 			'action' => 'display_js',
 			'priority' => 6,
 			'is_active' => 1,
-		));
+		) );
 		
 		return $rules;
 	}
-	public function filter_post_content ($content) {
-		$url = Site::get_url('host') . Controller::get_full_url();
-		$input = 'post';
-		
-		$form = self::get_form($url, $input);
-		
-		$content = str_replace('<!--contactForm-->', $form, $content);
-		
+
+	public function filter_post_content( $content ) 
+	{
+		$url= Site::get_url( 'host' ) . Controller::get_full_url();
+		$input= 'post';
+
+		$form= self::get_form( $url, $input );
+
+		$content= str_replace( '<!--contactForm-->', $form, $content );
+
 		return $content;
 	}
-	public function action_handler_display_js($handler_vars) {
+
+	public function action_handler_display_js( $handler_vars ) 
+	{
+		$url= URL::get( 'ajax', array( 'context'=>'submit_form' ) );
 		
-		
-		$url = URL::get('ajax', array('context'=>'submit_form'));
-		
-		include('aliencontact.js.php');
+		include( 'aliencontact.js.php' );
 		
 		exit;
 	}
-	public function action_ajax_submit_form( $handler ) {
-		
-		echo self::get_form('', $_POST);
-		
+
+	public function action_ajax_submit_form( $handler ) 
+	{
+		echo self::get_form( '', $_POST );
 	}
-	public function filter_plugin_config( $actions, $plugin_id ) {
+	
+	public function filter_plugin_config( $actions, $plugin_id ) 
+	{
 		if ( $plugin_id == $this->plugin_id() ) {
 			$actions[]= _t('Configure');
 		}
 		return $actions;
 	}
-	public function action_plugin_ui( $plugin_id, $action ) {
+
+	public function action_plugin_ui( $plugin_id, $action ) 
+	{
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ( $action ) {
 				case _t('Configure') :
-					$ui = new FormUI( strtolower( get_class( $this ) ) );
-					$email= $ui->add( 'text', 'email', _t('Email:') );
-					$subject= $ui->add( 'text', 'subject', _t('Email Subject:') );
-					$database= $ui->add( 'checkbox', 'database', _t('Use Database') );
-					$ui->on_success( array( $this, 'updated_config' ) );
+					$ui= new FormUI( strtolower( get_class( $this ) ) );
+					$email= $ui->append( 'text', 'email', 'aliencontact__email', _t('Email:') );
+					$subject= $ui->append( 'text', 'subject', 'aliencontact__subject', _t('Email Subject:') );
+					$database= $ui->append( 'checkbox', 'database', 'aliencontact__database', _t('Use Database') );
+					$ui->append( 'submit', 'save', _t('Save') );
 					$ui->out();
 				break;
 			}
 		}
 	}
-	public function updated_config ( $ui ) {
-		return TRUE;
-	}
+
 	public function action_init_theme() {
-		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
-		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/aliencontact.js', 'aliencontact' );
+		Stack::add( 'template_header_javascript', Site::get_url( 'scripts' ) . '/jquery.js', 'jquery' );
+		Stack::add( 'template_header_javascript', Site::get_url( 'scripts' ) . '/aliencontact.js', 'aliencontact' );
 		Stack::add( 'template_stylesheet', array( URL::get_from_filesystem(__FILE__) . '/aliencontact.css', 'screen' ), 'aliencontactcss' );
 	}
+
 	/**
 	 * Prints the form
 	 *
 	 */
-	function form() {
-		$url = Site::get_url('host') . Controller::get_full_url();
-		$input = 'post';
+	function form()
+	{
+		$url= Site::get_url( 'host' ) . Controller::get_full_url();
+		$input= 'post';
 		
-		echo self::get_form($url, $input);
+		echo self::get_form( $url, $input );
 	}
+
 	/**
 	 * Fetch the form
 	 *
@@ -142,52 +165,53 @@ class AlienContact extends Plugin {
 	 * @param string $input where input is coming from (only 'post' works now)
 	 * @return string the form
 	 */
-	public function get_form($action = '', $input = 'post') {
+	public function get_form( $action = '', $input = 'post' )
+	{
 		
 		$elements = self::elements();
 		
-		$output = '';
-		$values = array();
-		$errors = array();
+		$output= '';
+		$values= array();
+		$errors= array();
 		
-		if($input == 'post') {
-			foreach($elements as $key => $field) {
-				if(isset($_POST['contactForm_' . $key])) {
+		if( $input == 'post' ) {
+			foreach( $elements as $key => $field ) {
+				if( isset( $_POST[ 'contactForm_' . $key ] ) ) {
 					$value = $_POST['contactForm_' . $key];
-					if(AlienContact::check_input($value, $key) != '') {
-						$errors[$key] = AlienContact::check_input($value, $key);
-						$values[$key] = $value;
+					if( AlienContact::check_input( $value, $key ) != '' ) {
+						$errors[$key]= AlienContact::check_input( $value, $key );
+						$values[$key]= $value;
 					} else {
-						$values[$key] = $value;
+						$values[$key]= $value;
 					}
 				}
 			}
 		} else {
-			foreach($elements as $key => $field) {
-				if(isset($input[$key])) {
+			foreach( $elements as $key => $field ) {
+				if( isset( $input[ $key ] ) ) {
 					$value = $input[$key];
-					if(AlienContact::check_input($value, $key) != '') {
-						$errors[$key] = AlienContact::check_input($value, $key);
-						$values[$key] = $value;
+					if( AlienContact::check_input( $value, $key ) != '') {
+						$errors[$key]= AlienContact::check_input($value, $key);
+						$values[$key]= $value;
 					} else {
-						$values[$key] = $value;
+						$values[$key]= $value;
 					}
 				}
 			}
 		}
 		
-		if(count($errors) != 0) {
+		if( count( $errors ) != 0 ) {
 			$output .= '<div class="errors">';
 			$output .= '<h3>Errors</h3>';
 			$output .= '<ol>';
-			foreach($errors as $id => $error) {
+			foreach( $errors as $id => $error ) {
 				$output .= '<li id="contactForm_'.$id.'_error"><a href="#contactForm_'.$id.'_div" title="Fix the error">'.$error.'</a>.</li>';
 			}
 			$output .= '</ol>';
 			$output .= '</div>';
-			$output .= self::make_form($action, $values, $errors);
-		} elseif(count($values) > 0) {
-			if(self::submit($values)) {
+			$output .= self::make_form( $action, $values, $errors );
+		} elseif( count( $values ) > 0 ) {
+			if( self::submit( $values ) ) {
 				$output .= '<div class="success">';
 				$output .= '<h3>Success</h3>';
 				$output .= '<p>Your message has successfully been delivered.</p>';
@@ -197,18 +221,20 @@ class AlienContact extends Plugin {
 				$output .= '<h3>Error</h3>';
 				$output .= '<p>Uh-oh... looks like I made a mistake. What can you expect? I am only a web server after all. Sorry... 1,000 times sorry. Please, give me another chance! I&apos;m begging you! Will you ever talk to me again?';
 				$output .= '</div>';
-				$output .= self::make_form($action, $values, $errors);
+				$output .= self::make_form( $action, $values, $errors );
 			}
 		} else {
-			$output .= self::make_form($action, $values, $errors);
+			$output .= self::make_form( $action, $values, $errors );
 		}
-		
+
 		return $output;
 	}
-	public function check_input($value, $key) {
+
+	public function check_input( $value, $key ) 
+	{
 		$elements = self::elements();
 		
-		$value = trim($value);
+		$value = trim( $value );
 		
 		if( ($elements[$key]['required'] and preg_match($elements[$key]['regex'], $value)) or (($elements[$key]['required'] == FALSE) && (strlen($value) != 0) && ($elements[$key]['regex'] != '') && (preg_match($elements[$key]['regex'], $value))) or (($elements[$key]['required'] == FALSE) && ($elements[$key]['regex'] == '')) ) {
 			$error = '';
@@ -222,9 +248,11 @@ class AlienContact extends Plugin {
 		
 		return $error;
 	}
-	function install() {
-		if(Options::get('aliencontact:database')) {
-			DB::register_table('aliencontact');
+
+	function install() 
+	{
+		if( Options::get( 'aliencontact__database' ) ) {
+			DB::register_table( 'aliencontact' );
 
 			$sql = "CREATE TABLE " . DB::table('aliencontact') . " (
 				id int(9) NOT NULL AUTO_INCREMENT,
@@ -235,7 +263,7 @@ class AlienContact extends Plugin {
 				UNIQUE KEY id (id)
 			);";
 
-			$sql = DB::dbdelta($sql);
+			$sql = DB::dbdelta( $sql );
 			
 			return TRUE;
 		} else {
@@ -243,35 +271,38 @@ class AlienContact extends Plugin {
 		}
 
 	}
-	function insert($input) {
+
+	function insert( $input )
+	{
+		$insert= array();
+		$insert['time']= time();
+		$insert['updated']= time();
+		$insert['ip']= $_SERVER['REMOTE_ADDR'];
+		$insert['val']= serialize($input);
 		
-		$insert = array();
-		$insert['time'] = time();
-		$insert['updated'] = time();
-		$insert['ip'] = $_SERVER['REMOTE_ADDR'];
-		$insert['val'] = serialize($input);
-		
-		return DB::insert(DB::table('aliencontact'), $insert);
+		return DB::insert( DB::table( 'aliencontact' ), $insert );
 		
 	}
-	function submit($input) {
+
+	function submit( $input )
+	{
 		
-		$elements = self::elements();
+		$elements= self::elements();
 		
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$headers= 'MIME-Version: 1.0' . "\r\n";
+		$headers.= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
-		$message = 'You have recieved a submission through your online form. The message follows.<br />';
+		$message= 'You have recieved a submission through your online form. The message follows.<br />';
 		
 		foreach($input as $field => $value) {
-			$message .= $elements[$field]['label'] . ': ';
-			$message .= $value;
-			$message .= '<br />';
+			$message.= $elements[$field]['label'] . ': ';
+			$message.= $value;
+			$message.= '<br />';
 		}
 		
-		if(mail(Options::get('aliencontact:email'), Options::get('aliencontact:subject'), $message) == TRUE) {
-			if(self::install()) {
-				if(self::insert($input)) {
+		if( mail( Options::get( 'aliencontact__email' ), Options::get( 'aliencontact__subject' ), $message ) == TRUE ) {
+			if( self::install() ) {
+				if( self::insert( $input ) ) {
 					return TRUE;
 				} else {
 					return FALSE;
@@ -283,18 +314,19 @@ class AlienContact extends Plugin {
 			return FALSE;
 		}
 	}
-	function make_form($action = '', $input = NULL, $errors = NULL) {
-		
-		$elements = self::elements();
-		
-		if($errors == NULL) {
-			unset($errors);
+
+	function make_form( $action = '', $input = NULL, $errors = NULL )
+	{		
+		$elements= self::elements();
+
+		if( $errors == NULL ) {
+			unset( $errors );
 		}
+
+		$output= '<form id="contactForm" name="contactForm" action="' . $action . '" method="post" class=""';
+		$output.= '>';
 		
-		$output = '<form id="contactForm" name="contactForm" action="' . $action . '" method="post" class=""';
-		$output .= '>';
-		
-		foreach($elements as $key => $element) {
+		foreach( $elements as $key => $element ) {
 				$output .= '<div id="contactForm_'.$key.'_div" class="container field '.$element['type'] . ' ' . $key;
 				$output .= ($element['required']) ? ' required' : '';
 				if(isset($errors) && isset($errors[$key]) && $errors[$key] != '') {
@@ -336,10 +368,10 @@ class AlienContact extends Plugin {
 					$output .= '<a href="#contactForm_'.$key.'_error" title="' . $errors[$key] . '" class="error" class="error">Error</a>';
 				}
 				
-				$output .= "</div>\n";
+				$output.= "</div>\n";
 		}
 		
-		$output .= "</form>";
+		$output.= "</form>";
 		
 		return $output;
 	}
