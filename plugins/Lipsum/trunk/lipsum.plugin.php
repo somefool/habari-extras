@@ -36,7 +36,7 @@ class Lipsum extends Plugin
 	public function filter_plugin_config( $actions, $plugin_id )
 	{
 		if ( $this->plugin_id() == $plugin_id ){
-			$actions[]= 'Configure';		
+			$actions= array( 'Configure','Delete All Posts');		
 		}
 		return $actions;
 	}
@@ -49,16 +49,28 @@ class Lipsum extends Plugin
 	 */
 	public function action_plugin_ui( $plugin_id, $action )
 	{
-		if ( $this->plugin_id()==$plugin_id && $action=='Configure' )
-			{
-			$form= new FormUI( strtolower(get_class( $this ) ) );
-			$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:'), '20');
-			$form->num_posts->add_validator( 'validate_required' );
-			$form->append( 'submit', 'save', _t( 'Save' ) );
-			$form->on_success( array( $this, 'update_num_posts' ) );
-			$form->out();
+		if ( $this->plugin_id()==$plugin_id  )
+		{
+			switch ($action){
+				case 'Configure':
+					$form= new FormUI( strtolower(get_class( $this ) ) );
+					$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to add: ') );
+					//$form->num_posts->add_validator( 'validate_required' );
+					$form->append( 'text', 'duration', 'option:lipsum__duration', _t('Duration between posts (in seconds): ') );
+					//$form->duration->add_validator( 'validate_required' );
+					$form->append( 'text', 'min_tags', 'option:lipsum__min_tags', _t('Minimum tags per post: ') );
+					$form->append( 'text', 'max_tags', 'option:lipsum__max_tags', _t('Maximum tags per post: ') );
+					$form->append( 'submit', 'add', _t( 'Add Posts' ) );
+					$form->on_success( array( $this, 'update_num_posts' ) );
+					$form->out();
+					break;
+
+				case 'Delete All Posts':
+					$this->delete_all();
+					break;					
+				}
 			}
-	}
+		}
 
 	function action_plugin_activation( $file )
 	{
@@ -80,9 +92,16 @@ class Lipsum extends Plugin
 				Options::set( 'lipsum__num_posts', 20);
 				$num_posts= 20;
 			}
-
+			
+			$duration= Options::get( 'lipsum__duration' );
+			if ( ! $duration ) {
+				Options::set( 'lipsum__duration', 3600);
+				$duration= 3600;
+			}
+			
 			for($z = 0; $z < $num_posts; $z++) {
-				$this->make_post( $user, $time );
+				$time = $time - $duration;
+				$this->make_post( $user, $time, $tags );
 			}
 
 			Session::notice('Created 20 sample posts with random comments.');
@@ -107,7 +126,14 @@ class Lipsum extends Plugin
 	{
 		$num_posts= $form->num_posts->value;
 		$num_posts= is_numeric($num_posts) ? (int) $num_posts : 20;
-
+		$duration= $form->duration->value;
+		$duration= is_numeric($duration) ? (int) $duration : 3600;
+		$min_tags= $form->min_tags->value;
+		$min_tags= is_numeric($min_tags) ? (int) $min_tags : 1;
+		$min_tags= $form->min_tags->value;
+		$max_tags= is_numeric($max_tags) ? (int) $max_tags : 5;
+		
+	/*
 		$current_count= (int) Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) );
 
 		if ( $num_posts == $current_count ) {
@@ -126,15 +152,17 @@ class Lipsum extends Plugin
 		}
 		// otherwise, we need to add some posts
 		else {
+	*/
 			$user= User::get_by_name( 'lipsum' );
 			$time = time() - 160;
 			$count= 0;
 			for ( $i= $current_count + 1; $i <= $num_posts; $i++ ) {
+				$time = $time - $duration;
 				$this->make_post( $user, $time );
 				$count++;
 			}
 			Session::notice( "Created {$count} sample posts with random comments.");
-		}
+		//}
 
 		// return the form to redisplay it
 		return $form->get( false );
@@ -147,7 +175,7 @@ class Lipsum extends Plugin
 	 * @param object $user The Lipsum user
 	 * @param timestamp $time The published timestamp of the new posts
 	 */
-	private function make_post( $user, $time )
+	private function make_post( $user, $time, $tags )
 	{
 		$post = Post::create(array(
 			'title' => $this->get_title(),
@@ -196,6 +224,13 @@ class Lipsum extends Plugin
 		return $ipsum_text;
 	}
 
+	private function random_tags($min, $max)
+	{
+		$thetags = array('lipsum','met','erat','ipsum','non','dignissim','egestas','metus','quis','iaculis','porttitor','malesuada','vel');
+		
+	}
+	
+	
 	private function num2word($i)
 	{
 		$word = '';
@@ -293,7 +328,17 @@ class Lipsum extends Plugin
 		return $lipsum_text;
 	}
 
-
+	private function delete_all()
+	{
+		set_time_limit(0);
+		$posts = Posts::get(array('info'=>array('lipsum' => true), 'nolimit'=>true));
+		$count = 0;
+		foreach($posts as $post) {
+			$post->delete();
+			$count++;
+		}
+		Session::notice("Removed {$count} sample posts and their comments.");
+	}
 
 }
 
