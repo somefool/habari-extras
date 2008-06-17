@@ -32,6 +32,14 @@ class HabminBar extends Plugin
 			'license' => 'Apache License 2.0',
 		);
 	}
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Habmin Bar', '1db4ce60-3ca2-11dd-ae16-0800200c9a66', $this->info->version );
+	}
 	
 	/**
 	 * Adds the admin bar stylesheet to the template_stylesheet Stack if the user is logged in.
@@ -70,19 +78,20 @@ class HabminBar extends Plugin
 			$bar.= '<ul>';
 			
 			$menu= array();
-			$menu['dashboard']= array( 'Dasboard', URL::get( 'admin', 'page=dashboard' ) );
-			$menu['write']= array( 'Write', URL::get( 'admin', 'page=publish' ) );
-			$menu['option']= array( 'Options', URL::get( 'admin', 'page=options' ) );
-			$menu['comment']= array( 'Moderate', URL::get( 'admin', 'page=moderate' ) );
-			$menu['user']= array( 'Users', URL::get( 'admin', 'page=users' ) );
-			$menu['plugin']= array( 'Plugins', URL::get( 'admin', 'page=plugins' ) );
-			$menu['theme']= array( 'Themes', URL::get( 'admin', 'page=themes' ) );
+			$menu['dashboard']= array( 'Dashboard', URL::get( 'admin', 'page=dashboard' ), "view the admin dashboard" );
+			$menu['write']= array( 'Write', URL::get( 'admin', 'page=publish' ), "create a new entry" );
+			$menu['option']= array( 'Options', URL::get( 'admin', 'page=options' ), "configure site options" );
+			$menu['comment']= array( 'Moderate', URL::get( 'admin', 'page=comments' ),"moderate comments" );
+			$menu['user']= array( 'Users', URL::get( 'admin', 'page=users' ), "administer users" );
+			$menu['plugin']= array( 'Plugins', URL::get( 'admin', 'page=plugins' ), "activate and configure plugins" );
+			$menu['theme']= array( 'Themes', URL::get( 'admin', 'page=themes' ), "select a theme" );
 			
 			$menu= Plugins::filter( 'habminbar', $menu );
 			
 			foreach ( $menu as $name => $item ) {
-				list( $label, $url )= $item;
-				$bar.= "\n\t<li><a href=\"$url\" class=\"$name\">$label</a></li>";
+				list( $label, $url, $tooltip )= array_pad( $item, 3, "" );
+				$bar.= "\n\t<li><a href=\"$url\" class=\"$name\"" .
+				( ( $tooltip ) ? " title=\"$tooltip\"" : "" ) .">$label</a></li>";
 			}
 			$bar.= '</ul><br style="clear:both;" /></div></div>';
 			
