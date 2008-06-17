@@ -16,7 +16,7 @@ class Monthly_Archives extends Plugin
 	private $monthly_archives= ''; // stores the actual archives list
 	private $config= array(); // stores our config options
 
-	private $cache_expirey= 604800; // one week, in seconds: 60 * 60 * 24 * 7
+	private $cache_expiry= 604800; // one week, in seconds: 60 * 60 * 24 * 7
 
 
 	public function info ( ) {
@@ -52,13 +52,17 @@ class Monthly_Archives extends Plugin
 
 	}
 
-	public function action_init ( ) {
+	public function __get( $name ) {
 
-		$this->config[ 'num_month' ]= Options::get( 'archives__num__month' );
-		$this->config[ 'display_month' ]= Options::get( 'archives__display__month' );
-		$this->config[ 'show_count' ]= Options::get( 'archives__show__count' );
-		$this->config[ 'detail_view' ]= Options::get( 'archives__detail__view' );
-		$this->config[ 'delimiter' ]= Options::get( 'archives__delimiter' );
+		$options= array(
+			'num_month' => 'archives__num__month',
+			'display_month' => 'archives__display__month',
+			'show_count' => 'archives__show__count',
+			'detail_view' => 'archives__detail__view',
+			'delimiter' => 'archives__delimiter'
+		);
+
+		return Options::get( $options[$name] );
 
 	}
 
@@ -98,7 +102,7 @@ class Monthly_Archives extends Plugin
 
 		$class_name= strtolower( get_class( $this ) );
 
-		Cache::set( $class_name . ':list', $archives, $this->cache_expirey );
+		Cache::set( $class_name . ':list', $archives, $this->cache_expiry );
 
 		$this->monthly_archives= $archives;
 
@@ -114,8 +118,8 @@ class Monthly_Archives extends Plugin
 
 		set_time_limit( ( 5 * 60 ) );
 
-		if ( !empty( $this->config[ 'num_month' ] ) ) {
-			$limit= 'LIMIT 0, ' . $this->config[ 'num_month' ];
+		if ( !empty( $this->num_month ) ) {
+			$limit= 'LIMIT 0, ' . $this->num_month;
 		}
 		else {
 			$limit= '';
@@ -148,7 +152,7 @@ class Monthly_Archives extends Plugin
 				$result->month_ts= mktime( 0, 0, 0, $result->month );
 
 				// what format do we want to show the month in?
-				switch ( $this->config[ 'display_month' ] ) {
+				switch ( $this->display_month ) {
 
 					// Full name
 					case 'F':
@@ -169,7 +173,7 @@ class Monthly_Archives extends Plugin
 				}
 
 				// do we want to show the count of posts?
-				if ( $this->config[ 'show_count' ] == 'Y' ) {
+				if ( $this->show_count == 'Y' ) {
 					$result->the_count= ' (' . $result->cnt . ')';
 				}
 				else {
@@ -180,7 +184,7 @@ class Monthly_Archives extends Plugin
 				$archives[]= '    <a href="' . URL::get( 'display_entries_by_date', array( 'year' => $result->year, 'month' => $result->month ) ) . '" title="View entries in ' . $result->display_month . '/' . $result->year . '">' . $result->display_month . ' ' . $result->year . '</a>' . $result->the_count;
 
 				// do we want to show all the posts as well?
-				if ( $this->config[ 'detail_view' ] == 'Y' ) {
+				if ( $this->detail_view == 'Y' ) {
 
 					$psts= Posts::get(
 										array(
@@ -200,11 +204,11 @@ class Monthly_Archives extends Plugin
 
 							$day= date( 'd', strtotime( $pst->pubdate ) );
 
-							if ( empty( $this->config[ 'delimiter' ] ) ) {
+							if ( empty( $this->delimiter ) ) {
 								$delimiter= '&nbsp;&nbsp;';
 							}
 							else {
-								$delimiter= $this->config[ 'delimiter' ];
+								$delimiter= $this->delimiter;
 							}
 
 							$archives[]= '      <li>';
@@ -270,9 +274,10 @@ class Monthly_Archives extends Plugin
 
 	public function updated_config ( $form ) {
 
+		// Save the form data so it's used in the cached data we're about to generate
+		$form->save();
 		// when the config has been updated, we need to update our cache - things could have changed
 		$this->update_cache();
-		$form->save();
 
 	}
 
@@ -284,7 +289,7 @@ class Monthly_Archives extends Plugin
 
 		}
 
-		$this->config[ 'detail_view' ]= $value;
+		Options::set('archives__detail__view', $value);
 
 		return array();
 
