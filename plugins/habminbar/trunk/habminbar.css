@@ -5,7 +5,7 @@ body { padding-top:27px !important; background-position:0 27px; }
 #habminbar div { border-bottom:1px solid #000; background:transparent url(images/habminbar.png) no-repeat 10px 50%; }
 
 #habminbar ul { margin:0; padding:0; list-style-type:none; float:right; }
-#habminbar li { margin:0; padding:0; float:left; }
+#habminbar li { margin:0; padding:0; float:left; line-height: 1.7em;}
 
 #habminbar a { background:transparent url(images/dashboard.png) no-repeat 10px 50%; float:left; border-right:1px solid #000; border-left:1px solid #555; height:20px; color:#fff; display:block; padding:3px 20px 2px 30px; margin:0; text-decoration:none; }
 #habminbar a:hover { color:#fbb; background-color:#444; }
