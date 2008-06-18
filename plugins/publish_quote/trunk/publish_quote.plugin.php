@@ -75,6 +75,8 @@ class PublishQuote extends Plugin
 					if ( !$form->title__template->value ) {
 						$form->title__template->value= self::$default_title_template;
 					}
+					$form->append( 'static', 'slug_info', '<small>If there\'s HTML in your title, you should set the slug to something without HTML. Like {title}.</small>' );
+					$form->append( 'text', 'slug__template', 'user:slug__template', 'Leave blank for the default slug:<br> ' );
 					$form->append( 'textarea', 'content__template', 'user:content__template', 'This is how the incoming quote will be inserted into the form:' );
 					if ( !$form->content__template->value ) {
 						$form->content__template->value= self::$default_content_template;
@@ -108,6 +110,13 @@ class PublishQuote extends Plugin
 			}
 			// Filter the quote title using the title template
 			$form->title->value= preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $title);
+
+			// Only change the slug if the template is set. For example, you might have HTML in the title.
+			$slug= $user->info->slug__template;
+			if ( $slug ) {
+				// Filter the quote title using the title template
+				$form->newslug->value= preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $slug);
+			}
 
 			$content= $user->info->content__template;
 			if ( !$content ) {
