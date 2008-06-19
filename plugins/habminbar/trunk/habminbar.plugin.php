@@ -88,6 +88,8 @@ class HabminBar extends Plugin
 			
 			$menu= Plugins::filter( 'habminbar', $menu );
 			
+			$menu['logout']= array( 'Logout', URL::get( 'user', 'page=logout' ), "logout" );
+			
 			foreach ( $menu as $name => $item ) {
 				list( $label, $url, $tooltip )= array_pad( $item, 3, "" );
 				$bar.= "\n\t<li><a href=\"$url\" class=\"$name\"" .

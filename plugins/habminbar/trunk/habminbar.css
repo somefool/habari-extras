@@ -21,3 +21,4 @@ body { padding-top:27px !important; background-position:0 27px; }
 #habminbar a.user { background-image:url(images/user.png); }
 #habminbar a.option { background-image:url(images/option.png); }
 #habminbar a.comment { background-image:url(images/comment.png); }
+#habminbar a.logout { background-image:url(images/logout.png); }
