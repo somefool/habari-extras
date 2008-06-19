@@ -33,6 +33,14 @@ class FeedList extends Plugin
 			'license' => 'ASL',
 		);
 	}
+
+	/**
+	* Add update beacon support
+	**/
+	public function action_update_check()
+	{
+		Update::add( 'Feed List', '9a75f180-3da2-11dd-ae16-0800200c9a66', $this->info->version );
+	}
 	
 	/**
 	 * Plugin init action, executed when plugins are initialized.
@@ -58,7 +66,7 @@ class FeedList extends Plugin
 			// Create the database table, or upgrade it
 			DB::dbdelta( '
 				CREATE TABLE ' . DB::table('feedlist') . ' (
-					id INT NOT NULL AUTO_INCREMENT,
+					id INT NOT NULL AUTOINCREMENT,
 					feed_id INT NOT NULL DEFAULT 0,
 					guid VARCHAR(255) NOT NULL,
 					title VARCHAR(255) NOT NULL,
@@ -109,7 +117,7 @@ class FeedList extends Plugin
 		// Is this plugin the one specified?
 		if($plugin_id == $this->plugin_id()) {
 			// Add a 'configure' action in the admin's list of plugins
-			$actions[]= 'configure';
+			$actions[]= 'Configure';
 		}
 		return $actions;
 	}
@@ -128,11 +136,11 @@ class FeedList extends Plugin
 			// Depending on the action specified, do different things
 			switch($action) {
 			// For the action 'configure':
-			case 'configure':
+			case 'Configure':
 				// Create a new Form called 'feedlist'
 				$ui = new FormUI( 'feedlist' );
 				// Add a text control for the feed URL
-				$feedurl= $ui->add('textmulti', 'feedurl', 'Feed URL');
+				$feedurl= $ui->append('textmulti', 'feedurl', 'feedlist__feedurl', 'Feed URL');
 				// Mark the field as required
 				$feedurl->add_validator('validate_required');
 				// Mark the field as requiring a valid URL
@@ -140,6 +148,7 @@ class FeedList extends Plugin
 				// When the form is successfully completed, call $this->updated_config()
 				$ui->on_success(array($this, 'updated_config'));
 				// Display the form
+				$ui->append( 'submit', 'save', _t( 'Save' ) );
 				$ui->out();
 				break;
 			}
@@ -173,7 +182,7 @@ class FeedList extends Plugin
 	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		// Get the most recent ten items from each feed
-		$feedurls= Options::get('feedlist:feedurl');
+		$feedurls= Options::get('feedlist__feedurl');
 		$feeds= array();
 		$feeditems= array();
 		foreach($feedurls as $index=>$feedurl) {
@@ -200,6 +209,7 @@ class FeedList extends Plugin
 			$feeditems = array_merge($feeditems, $items);
 		}
 		// Assign the output to the template variable $feedlist
+
 		/*  <? echo $feedlist[0];  ? >  */// This will output the first feed list in the template 
 		$theme->assign( 'feedlist', $feeds );
 		$theme->assign( 'feeditems', $feeditems ); 
@@ -212,7 +222,7 @@ class FeedList extends Plugin
 	 */ 	
 	public function filter_load_feeds( $result )
 	{
-		$feedurls = Options::get('feedlist:feedurl');
+		$feedurls = Options::get('feedlist__feedurl');
 		foreach($feedurls as $feed_id=>$feedurl) {
 
 			// Fetch the feed from remote into an XML object
