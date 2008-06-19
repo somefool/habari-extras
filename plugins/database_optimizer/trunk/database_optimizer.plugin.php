@@ -28,7 +28,7 @@
 		
 		public function action_plugin_activation ( $file='' ) {
 			
-			if ( $file == $this->get_file() ) {
+			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
 				// add our cronjob to kick off weekly henceforth
 				CronTab::add_weekly_cron( 'optimize database tables', 'optimize_database', 'Optimizes database tables automagically.' );
@@ -40,7 +40,7 @@
 		
 		public function action_plugin_deactivation ( $file='' ) {
 			
-			if ( $file == $this->get_file() ) {
+			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
 				CronTab::delete_cronjob( 'optimize database tables' );
 				
