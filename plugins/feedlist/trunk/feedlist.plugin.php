@@ -12,11 +12,8 @@
 
 class FeedList extends Plugin
 { 
-	// Define the feed to load.  Will eventually be done via Plugins Admin interface.
-	const FEEDLIST_FEED= 'http://del.icio.us/rss/ringmaster/';
-
 	// Version info
-	const VERSION= '0.1';
+	const VERSION= '0.2';
 	
 	/**
 	 * Required plugin info() implementation provides info to Habari about this plugin.
@@ -50,39 +47,56 @@ class FeedList extends Plugin
 		// Register the name of a new database table.
 		DB::register_table('feedlist');
 	}
-	
+
 	/**
 	 * Plugin plugin_activation action, executed when any plugin is activated
 	 * @param string $file The filename of the plugin that was activated.
 	 */ 
-	public function action_plugin_activation( $file )
+	public function action_plugin_activation( $file='' )
 	{
 		// Was this plugin activated?
-		if(realpath($file) == __FILE__) {
-			// Register a default event log type for this plugin
-			EventLog::register_type();  // Defaults to ( "default", __CLASS__ )
-			// Register the name of a new database table
-			DB::register_table('feedlist');  // 'plugin_activation' hook is called without first calling 'init'
-			// Create the database table, or upgrade it
-			DB::dbdelta( '
-				CREATE TABLE ' . DB::table('feedlist') . ' (
-					id INT NOT NULL AUTOINCREMENT,
-					feed_id INT NOT NULL DEFAULT 0,
-					guid VARCHAR(255) NOT NULL,
-					title VARCHAR(255) NOT NULL,
-					link VARCHAR(255) NOT NULL,
-					updated DATETIME NOT NULL,
-					description TEXT,
-					PRIMARY KEY (id),
-					UNIQUE KEY guid (guid)
-				);'
-			);
-			// Log a table creation event
-			EventLog::log('Installed feedlist cache table.');
-			// Add a periodical execution event to be triggered hourly
-			CronTab::add_hourly_cron( 'feedlist', 'load_feeds', 'Load feeds for feedlist plugin.' );
-			// Log the cron creation event
-			EventLog::log('Added hourly cron for feed updates.');			
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) { 
+		// Register a default event log type for this plugin
+		EventLog::register_type( "default", "FeedList" );
+		// Register the name of a new database table
+		DB::register_table('feedlist');// 'plugin_activation' hook is called without first calling 'init'
+		// Create the database table, or upgrade it
+		
+		switch ( DB::get_driver_name() ) {
+			case 'mysql':
+				$schema = 'CREATE TABLE {feedlist} (
+				id INT UNSIGNED AUTO_INCREMENT,
+				feed_id INT NOT NULL DEFAULT 0,
+				guid VARCHAR(255) NOT NULL,
+				title VARCHAR(255) NOT NULL,
+				link VARCHAR(255) NOT NULL,
+				updated DATETIME NOT NULL,
+				description TEXT,
+				PRIMARY KEY (id),
+				UNIQUE KEY guid (guid)
+				);';
+				break;
+			case 'sqlite':
+				$schema = 'CREATE TABLE {feedlist} (
+				id INTEGER PRIMARY KEY AUTOINCREMENT, 
+				feed_id INT NOT NULL DEFAULT 0,
+				guid VARCHAR(255) NOT NULL,
+				title VARCHAR(255) NOT NULL,
+				link VARCHAR(255) NOT NULL,
+				updated DATETIME NOT NULL,
+				description TEXT
+				);';
+				break;
+
+		}
+		DB::dbdelta( $schema );
+
+		// Log a table creation event
+		EventLog::log('Installed feedlist cache table.');
+		// Add a periodical execution event to be triggered hourly
+		CronTab::add_hourly_cron( 'feedlist', 'load_feeds', 'Load feeds for feedlist plugin.' );
+		// Log the cron creation event
+		EventLog::log('Added hourly cron for feed updates.');
 		}
 	}
 
@@ -90,21 +104,22 @@ class FeedList extends Plugin
 	 * Plugin plugin_deactivation action, executes when any plugin is deactivated.
 	 * @param string $plugin_id The filename of the plguin that was deactivated.
 	 */
+
 	public function action_plugin_deactivation( $file )
 	{
 		// Was this plugin deactivated?
-		if(realpath($file) == md5(__FILE__)) {
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 			// Drop the database table
-			DB::query( 'DROP TABLE IF EXISTS ' . DB::table('feedlist') . ';');
+			DB::query( 'DROP TABLE IF EXISTS {feedlist};');
 			// Log a dropped table event
 			EventLog::log('Removed feedlist cache table.');
 			// Remove the periodical execution event
 			CronTab::delete_cronjob( 'feedlist' );
 			// Log the cron deletion event.
-			EventLog::log('Deleted cron for feed updates.');			
+			EventLog::log('Deleted cron for feed updates.');
 		}
 	}
-	
+
 	/**
 	 * Executes when the admin plugins page wants to know if plugins have configuration links to display.
 	 * 
@@ -142,11 +157,12 @@ class FeedList extends Plugin
 				// Add a text control for the feed URL
 				$feedurl= $ui->append('textmulti', 'feedurl', 'feedlist__feedurl', 'Feed URL');
 				// Mark the field as required
-				$feedurl->add_validator('validate_required');
+//				$feedurl->add_validator( 'validate_required' );
 				// Mark the field as requiring a valid URL
-				$feedurl->add_validator('validate_url');
+				$feedurl->add_validator( 'validate_url' );
 				// When the form is successfully completed, call $this->updated_config()
-				$ui->on_success(array($this, 'updated_config'));
+				$ui->on_success( 'updated_config' );
+				$ui->set_option( 'success_message', _t( 'Configuration updated' ) );
 				// Display the form
 				$ui->append( 'submit', 'save', _t( 'Save' ) );
 				$ui->out();
@@ -163,14 +179,16 @@ class FeedList extends Plugin
 	 */
 	public function updated_config( $ui )
 	{
+		$ui->save();
+
 		// Delete the cached feed data
-		DB::query('TRUNCATE ' . DB::table('feedlist'));
+		DB::query( 'TRUNCATE {feedlist}' );
 		
 		// Reset the cronjob so that it runs immediately with the change
 		CronTab::delete_cronjob( 'feedlist' );
 		CronTab::add_hourly_cron( 'feedlist', 'load_feeds', 'Load feeds for feedlist plugin.' );
-		// Return true to allow default form processing to save form details to the options table
-		return true;  
+		
+		return false;
 	} 
 	
 	/**
@@ -178,15 +196,15 @@ class FeedList extends Plugin
 	 * Note that $theme and $handler_vars are passed by reference, and so you can add things to them.
 	 * @param Theme $theme The theme object that is displaying the template.
 	 * @param array $handler_vars Variables passed in the URL to the action handler.
-	 */   
+	 */ 
 	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		// Get the most recent ten items from each feed
-		$feedurls= Options::get('feedlist__feedurl');
+/*		$feedurls= Options::get('feedlist__feedurl');
 		$feeds= array();
 		$feeditems= array();
 		foreach($feedurls as $index=>$feedurl) {
-			$items = DB::get_results('SELECT * FROM ' . DB::table('feedlist') . ' WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index));
+			$items = DB::get_results('SELECT * FROM {feedlist} WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index));
 			
 			// If there are items to display, produce output
 			if(count($items)) {
@@ -210,10 +228,10 @@ class FeedList extends Plugin
 		}
 		// Assign the output to the template variable $feedlist
 
-		/*  <? echo $feedlist[0];  ? >  */// This will output the first feed list in the template 
+		//<? echo $feedlist[0];? >// This will output the first feed list in the template 
 		$theme->assign( 'feedlist', $feeds );
 		$theme->assign( 'feeditems', $feeditems ); 
-	}
+*/	}
 
 	/**
 	 * Plugin load_feeds filter, executes for the cron job defined in action_plugin_activation()
@@ -242,8 +260,8 @@ class FeedList extends Plugin
 							$guid = md5($item->asXML());
 						}
 						DB::query('
-							INSERT IGNORE INTO ' . DB::table('feedlist') . ' (feed_id, guid, title, link, updated, description) 
-							VALUES (?, ?, ?, ?, NOW(), ?);',
+							REPLACE INTO {feedlist} (feed_id, guid, title, link, updated, description) 
+							VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, ?);',
 							array(
 								$feed_id,
 								$guid,
@@ -261,13 +279,14 @@ class FeedList extends Plugin
 		$olddate = DB::get_value('SELECT updated FROM ' . DB::table('feedlist') . ' ORDER BY updated DESC LIMIT 10, 1');
 		DB::query('DELETE FROM ' . DB::table('feedlist') . ' WHERE updated < ?', array($olddate));
 		
-		return $result;  // Only change a cron result to false when it fails.
+		return $result;// Only change a cron result to false when it fails.
 	}
 	
 	public function xmlrpc_system__testme($input)
 	{
 		return $input[0];
 	}
+
 }	
 
 ?>
