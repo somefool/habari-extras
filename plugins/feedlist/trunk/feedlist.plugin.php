@@ -201,36 +201,40 @@ class FeedList extends Plugin
 	{
 		// Get the most recent ten items from each feed
 		$feedurls= Options::get('feedlist__feedurl');
-		$feeds= array();
-		$feeditems= array();
-		foreach($feedurls as $index=>$feedurl) {
-			$items = DB::get_results('SELECT * FROM {feedlist} WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index));
+		if ( $feedurls ) {
+			$feeds= array();
+			$feeditems= array();
+			foreach($feedurls as $index=>$feedurl) {
+				$items = DB::get_results('SELECT * FROM {feedlist} WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index));
 			
-			// If there are items to display, produce output
-			if(count($items)) {
-				$feed= "<ul>\n";
+				// If there are items to display, produce output
+				if(count($items)) {
+					$feed= "<ul>\n";
 				
-				foreach ( $items as $item ) {
-					$feed.= sprintf( 
-						"\t" . '<li><a href="%1$s">%2$s</a></li>' . "\n", 
-						$item->link, 
-						$item->title
-					);
+					foreach ( $items as $item ) {
+						$feed.= sprintf( 
+							"\t" . '<li><a href="%1$s">%2$s</a></li>' . "\n", 
+							$item->link, 
+							$item->title
+						);
+					}
+				
+					$feed.= "</ul>\n";
 				}
-				
-				$feed.= "</ul>\n";
+				else {
+					$feed= '<p>Sorry, no items to display.</p>';
+				}
+				$feeds[] = $feed;	
+				$feeditems = array_merge($feeditems, $items);
 			}
-			else {
-				$feed= '<p>Sorry, no items to display.</p>';
-			}
-			$feeds[] = $feed;	
-			$feeditems = array_merge($feeditems, $items);
-		}
-		// Assign the output to the template variable $feedlist
+			// Assign the output to the template variable $feedlist
 
-		//<? echo $feedlist[0];? >// This will output the first feed list in the template 
-		$theme->assign( 'feedlist', $feeds );
-		$theme->assign( 'feeditems', $feeditems ); 
+			//<? echo $feedlist[0];? >// This will output the first feed list in the template 
+			$theme->assign( 'feedlist', $feeds );
+			$theme->assign( 'feeditems', $feeditems ); 
+		} else {
+			$theme->assign( 'feedlist', "Feedlist needs to be configured." );	
+		}
 	}
 
 	/**
