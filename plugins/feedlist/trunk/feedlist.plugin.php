@@ -157,11 +157,11 @@ class FeedList extends Plugin
 				// Add a text control for the feed URL
 				$feedurl= $ui->append('textmulti', 'feedurl', 'feedlist__feedurl', 'Feed URL');
 				// Mark the field as required
-//				$feedurl->add_validator( 'validate_required' );
+				$feedurl->add_validator( 'validate_required' );
 				// Mark the field as requiring a valid URL
-				$feedurl->add_validator( 'validate_url' );
+//				$feedurl->add_validator( 'validate_url' );
 				// When the form is successfully completed, call $this->updated_config()
-				$ui->on_success( 'updated_config' );
+				$ui->on_success( array( $this, 'updated_config') );
 				$ui->set_option( 'success_message', _t( 'Configuration updated' ) );
 				// Display the form
 				$ui->append( 'submit', 'save', _t( 'Save' ) );
@@ -200,7 +200,7 @@ class FeedList extends Plugin
 	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		// Get the most recent ten items from each feed
-/*		$feedurls= Options::get('feedlist__feedurl');
+		$feedurls= Options::get('feedlist__feedurl');
 		$feeds= array();
 		$feeditems= array();
 		foreach($feedurls as $index=>$feedurl) {
@@ -231,7 +231,7 @@ class FeedList extends Plugin
 		//<? echo $feedlist[0];? >// This will output the first feed list in the template 
 		$theme->assign( 'feedlist', $feeds );
 		$theme->assign( 'feeditems', $feeditems ); 
-*/	}
+	}
 
 	/**
 	 * Plugin load_feeds filter, executes for the cron job defined in action_plugin_activation()
