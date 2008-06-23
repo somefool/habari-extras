@@ -1,0 +1,16 @@
+CREATE TABLE {scratchpads} (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  user_id INTEGER NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) NOT NULL,
+  template TEXT
+);
+
+CREATE TABLE {scratchpad_entries} (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  scratchpad_id INTEGER NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  content TEXT
+);
