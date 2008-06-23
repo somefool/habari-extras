@@ -26,7 +26,7 @@ class FeedList extends Plugin
 			'author' => 'Owen Winkler',
 			'authorurl' => 'http://asymptomatic.net/',
 			'version' => self::VERSION,
-			'description' => 'Outputs a feed as an unordered list.',
+			'description' => 'Outputs an RSS feed as an unordered list.',
 			'license' => 'ASL',
 		);
 	}
@@ -38,7 +38,7 @@ class FeedList extends Plugin
 	{
 		Update::add( 'Feed List', '9a75f180-3da2-11dd-ae16-0800200c9a66', $this->info->version );
 	}
-	
+
 	/**
 	 * Plugin init action, executed when plugins are initialized.
 	 */ 
@@ -79,8 +79,8 @@ class FeedList extends Plugin
 			case 'sqlite':
 				$schema = 'CREATE TABLE {feedlist} (
 				id INTEGER PRIMARY KEY AUTOINCREMENT, 
-				feed_id INT NOT NULL DEFAULT 0,
-				guid VARCHAR(255) NOT NULL,
+				feed_id INTEGER NOT NULL DEFAULT 0,
+				guid VARCHAR(255) UNIQUE NOT NULL,
 				title VARCHAR(255) NOT NULL,
 				link VARCHAR(255) NOT NULL,
 				updated DATETIME NOT NULL,
@@ -187,7 +187,7 @@ class FeedList extends Plugin
 		// Reset the cronjob so that it runs immediately with the change
 		CronTab::delete_cronjob( 'feedlist' );
 		CronTab::add_hourly_cron( 'feedlist', 'load_feeds', 'Load feeds for feedlist plugin.' );
-		
+
 		return false;
 	} 
 	
@@ -200,13 +200,13 @@ class FeedList extends Plugin
 	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		// Get the most recent ten items from each feed
-		$feedurls= Options::get('feedlist__feedurl');
+		$feedurls= Options::get( 'feedlist__feedurl' );
 		if ( $feedurls ) {
 			$feeds= array();
 			$feeditems= array();
-			foreach($feedurls as $index=>$feedurl) {
-				$items = DB::get_results('SELECT * FROM {feedlist} WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index));
-			
+			foreach( $feedurls as $index=>$feedurl ) {
+				$items= DB::get_results( 'SELECT * FROM {feedlist} WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index) );
+
 				// If there are items to display, produce output
 				if(count($items)) {
 					$feed= "<ul>\n";
@@ -244,24 +244,26 @@ class FeedList extends Plugin
 	 */ 	
 	public function filter_load_feeds( $result )
 	{
-		$feedurls = Options::get('feedlist__feedurl');
-		foreach($feedurls as $feed_id=>$feedurl) {
+		$feedurls = Options::get( 'feedlist__feedurl' );
+
+		foreach( $feedurls as $feed_id=>$feedurl ) {
 
 			// Fetch the feed from remote into an XML object
 			if($feedurl == '') {
-				EventLog::log("Could not update feed {$feedurl}", 'warning');
-			}
-			else {
+				echo "Could not update feed";
+			} else {
+
 				$xml = simplexml_load_string( RemoteRequest::get_contents( $feedurl ) );
 				$channel = $xml->channel;
+
 				// If there are feed items, cache them to the feedlist table
-				if ( isset( $channel->item ) ) {
-					foreach($channel->item as $item) {
-						if(isset($item->guid)) {
-							$guid = $item->guid;
-						}
-						else {
-							$guid = md5($item->asXML());
+				if ( ( $channel->item ) ) {
+					foreach( $channel->item as $item ) {
+						if( isset( $item->guid ) ) {
+							// doesn't work when guid is an array.
+							$guid= $item->guid;
+						} else {
+							$guid= md5( $item->asXML() );
 						}
 						DB::query('
 							REPLACE INTO {feedlist} (feed_id, guid, title, link, updated, description) 
@@ -275,11 +277,35 @@ class FeedList extends Plugin
 							) 
 						);
 					}
+
+				} else if ( ( $xml->item ) ) {
+					foreach( $xml->item as $item ) {
+						if( isset( $item->guid ) ) {
+							$guid= $item->guid;
+						} else {
+							$guid= md5( $item->asXML() );
+						}
+						DB::query('
+							REPLACE INTO {feedlist} (feed_id, guid, title, link, updated, description) 
+							VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, ?);',
+							array(
+								$feed_id,
+								$guid,
+								$item->title,
+								$item->link,
+								$item->description
+							) 
+						);
+}
+
+				} else {
+					// feed isn't currently readable.
 				}
 				// Log an event that the feed was updated
 				EventLog::log("Updated feed {$feedurl}");
-			}
+			}	
 		}
+
 		$olddate = DB::get_value('SELECT updated FROM ' . DB::table('feedlist') . ' ORDER BY updated DESC LIMIT 10, 1');
 		DB::query('DELETE FROM ' . DB::table('feedlist') . ' WHERE updated < ?', array($olddate));
 		
