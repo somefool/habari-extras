@@ -1,0 +1,41 @@
+<?php
+
+class Suggestr extends Plugin
+{
+	var $rules;
+	
+	public function info()
+	{
+		return array(
+			'name' => 'Suggestr',
+			'author' => 'Habari Community',
+			'description' => 'Provides tag suggestions for posts',
+			'url' => 'http://habariproject.org',
+			'version' => '0.1',
+			'license' => 'Apache License 2.0'
+		);
+	}
+	
+	public function action_admin_header() {
+		Stack::add( 'admin_header_javascript', URL::get_from_filesystem(__FILE__) . '/suggestr.js', 'suggestr' );
+		Stack::add( 'admin_stylesheet', array(URL::get_from_filesystem(__FILE__) . '/suggestr.css', 'screen'), 'suggestr' );
+	}
+	
+	public function action_ajax_tag_suggest( $handler ) {
+		$count= 10;
+		$text= $handler->handler_vars['text'];
+		$tags= array('lol', 'cool', 'lorem', 'ipsum', 'mipsum', 'ripwik', 'tiktk', 'likarick', 'dialect',);
+		$message= _t('No tag suggestions could be found');
+		
+		$tags = serialize($tags);
+		$tags = Plugins::filter('tag_suggestions', $tags, $text);
+		$tags = unserialize($tags);
+		
+		$message= sprintf( '%d tag ' . _n( _t( 'suggestion'), _t( 'suggestions' ), $count ) . ' could be found.', $count );
+		
+		echo json_encode(array('count' => $count, 'tags' => $tags, 'message' => $message)); 	
+	}
+	
+}
+
+?>
