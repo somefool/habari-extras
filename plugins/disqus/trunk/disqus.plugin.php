@@ -9,7 +9,7 @@ class Disqus extends Plugin
 	{
 		return array(
 			'name' => 'Disqus',
-			'version' => '0.1',
+			'version' => '0.2',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -36,8 +36,7 @@ class Disqus extends Plugin
 
 	public function filter_plugin_config($actions, $plugin_id)
 	{
-		if ($plugin_id == $this->plugin_id())
-		{
+		if ($plugin_id == $this->plugin_id()) {
 			$actions[] = _t('Configure');
 		}
 		return $actions;
@@ -48,23 +47,18 @@ class Disqus extends Plugin
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ($action) {
 				case _t('Configure'):
-					$ui = new FormUI(strtolower(get_class($this)));
-					$ui->add('text', 'username', 'Disqus Username:');
-					$ui->on_success(array($this, 'updated_config'));
-					$ui->out();
+					$form = new FormUI(strtolower(get_class($this)));
+					$form->append('text', 'username', 'disqus__username', _t('Disqus Username:'));
+					$form->append('submit', 'save', 'Save');
+					$form->out();
 				break;
 			}
 		}
 	}
 
-	public function updated_config($ui)
-	{
-		return true;
-	}
-
 	public function theme_comments( $theme, $post )
 	{
-		$disqus_username= Options::get( strtolower(get_class($this)) . ':username' );
+		$disqus_username= Options::get( 'disqus__username' );
 		if ( !$post->info->comment_disabled && $post->comments->count == 0 && $disqus_username ) {
 			$theme->disqus_username= $disqus_username;
 			$theme->display( 'disqus_comments' );
