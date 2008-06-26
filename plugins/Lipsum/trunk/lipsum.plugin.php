@@ -52,7 +52,7 @@ class Lipsum extends Plugin
 		if ( $this->plugin_id()==$plugin_id && $action=='Configure' )
 			{
 			$form= new FormUI( strtolower(get_class( $this ) ) );
-			$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:'), '20');
+			$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:'));
 			$form->num_posts->add_validator( 'validate_required' );
 			$form->append( 'submit', 'save', _t( 'Save' ) );
 			$form->on_success( array( $this, 'update_num_posts' ) );
