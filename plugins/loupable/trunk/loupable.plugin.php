@@ -29,7 +29,7 @@ class Loupable extends Plugin
 	
 	public function action_add_template_vars($theme, $handler_vars) {
 		$items = array();
-		if($theme->request->display_home) {
+		if(isset($theme->request->display_home) && $theme->request->display_home) {
 			$posts = Posts::get(array('content_type' => Post::type('entry'), 'status' => Post::status('published'), 'nolimit' => true, 'orderby' => 'pubdate ASC'));
 			foreach($posts as $post) {
 				$item = array();
