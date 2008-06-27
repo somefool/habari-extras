@@ -22,18 +22,49 @@ class Suggestr extends Plugin
 	}
 	
 	public function action_ajax_tag_suggest( $handler ) {
-		$count= 10;
 		$text= $handler->handler_vars['text'];
-		$tags= array('lol', 'cool', 'lorem', 'ipsum', 'mipsum', 'ripwik', 'tiktk', 'likarick', 'dialect',);
-		$message= _t('No tag suggestions could be found');
+		$tags= array();
+		
+		$tags = $this->fetch_yahoo_tags($text);
 		
 		$tags = serialize($tags);
 		$tags = Plugins::filter('tag_suggestions', $tags, $text);
 		$tags = unserialize($tags);
 		
-		$message= sprintf( '%d tag ' . _n( _t( 'suggestion'), _t( 'suggestions' ), $count ) . ' could be found.', $count );
+		$count = count($tags);
+		
+		if($count == 0) {
+			$message= _t('No tag suggestions could be found');
+		} else {
+			$message= sprintf( '%d tag ' . _n( _t( 'suggestion'), _t( 'suggestions' ), $count ) . ' could be found.', $count );
+		}
 		
 		echo json_encode(array('count' => $count, 'tags' => $tags, 'message' => $message)); 	
+	}
+	
+	public function fetch_yahoo_tags( $text ) {
+		$appID = 'UZuNQnrV34En.c9itu77sQrdjp.FQU81t8azZeE5YmWjRkP9wVlPg.CPIc8eLZT68GI-';
+		$context = $text;
+		
+		$request = new RemoteRequest('http://search.yahooapis.com/ContentAnalysisService/V1/termExtraction', 'POST');
+		$request->set_params(array(
+			'appid' => $appID,
+			'context' => $context
+		));
+		$request->execute();
+		
+		$response = $request->get_response_body();
+		
+		$xml = new SimpleXMLElement($response);
+		
+		$tags= array();
+		
+		foreach($xml->Result as $tag) {
+			$tags[] = strval($tag);
+		}
+		
+		return $tags;
+		
 	}
 	
 }
