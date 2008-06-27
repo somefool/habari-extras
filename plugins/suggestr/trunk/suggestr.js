@@ -57,6 +57,13 @@ var tagSuggest = {
 		});
 	},
 	clickable: function() {
+		$('#tagsuggestions li').each(function() {
+			var searchstr = '\\s*"?' + $( this ).text() + '"?\\s*';
+			
+			if($('#tags').val().search(searchstr) != -1) {
+				$(this).addClass('clicked');
+			}
+		});
 		$('#tagsuggestions li').click(function() {
 			// here we set the current text of #tags to current for later examination
 			var current = $('#tags').val();
