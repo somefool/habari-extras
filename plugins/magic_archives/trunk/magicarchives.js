@@ -12,9 +12,14 @@ var magicArchives = {
 		magicArchives.tag = $('#archiveControls .tags ol', magicArchives.archives);
 		magicArchives.content_type = $('#archiveControls .type ol', magicArchives.archives);
 		magicArchives.posts = $('ol#archiveItems li:not(.headings)', magicArchives.archives);
+		magicArchives.search = $('#archiveSearch', magicArchives.archives);
 		
 		magicArchives.posts.each(function() {
 			$(this).addClass('searched').addClass('filtered');
+		});
+		
+		magicArchives.search.keyup(function() {
+			magicArchives.filter();
 		});
 		
 		magicArchives.createFilters();
@@ -56,6 +61,8 @@ var magicArchives = {
 		
 		magicArchives.posts.show();
 		
+		var i = 0;
+		
 		magicArchives.posts.each(function() {
 			if(month.hasClass('allofthestuff') == false) {
 				if(month.text() != $('.month', $(this)).text()) {
@@ -86,7 +93,23 @@ var magicArchives = {
 					$(this).hide();
 				}
 			}
+			
+			var score = 0;
+			
+			$('.tags .tag', $(this)).each(function() {
+				score = score + $(this).text().score(magicArchives.search.val());
+			});
+			
+			score = score + $('.month', $(this)).text().toLowerCase().score(magicArchives.search.val());
+			score = score + $('.title', $(this)).text().toLowerCase().score(magicArchives.search.val());
+			score = score + $('.year', $(this)).text().toLowerCase().score(magicArchives.search.val());
+						
+			if(score == 0) {
+				$(this).hide();
+			}
 		});
+		
+		
 	}
 };
 

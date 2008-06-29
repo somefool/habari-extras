@@ -30,6 +30,7 @@ class MagicArchives extends Plugin
 		Stack::add( 'template_stylesheet', array( URL::get_from_filesystem(__FILE__) . '/magicarchives.css', 'screen' ), 'magicarchives' );
 
 		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
+		Stack::add( 'template_header_javascript', URL::get_from_filesystem(__FILE__) . '/stringranker.js', 'stringranker' );
 		Stack::add( 'template_header_javascript', URL::get_from_filesystem(__FILE__) . '/magicarchives.js', 'magicarchives' );
 	}
 }
