@@ -1,8 +1,8 @@
 <div id="magicArchives">
+	<div class="search">
+		<input type="text" name="archiveSearch" value="" id="archiveSearch">
+	</div>
 	<div id="archiveControls">
-		<div class="search">
-			<input type="text" name="archiveSearch" value="" id="archiveSearch">
-		</div>
 		<div class="control month">
 			<h4><?php echo _t('Month'); ?></h4>
 			<ol>
