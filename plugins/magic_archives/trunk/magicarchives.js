@@ -57,8 +57,7 @@ var magicArchives = {
 	},
 	doSearch: function() {
 		var scores = [];
-
-		
+	
 		magicArchives.posts.filter('.unfiltered').each(function() {
 			
 			$(this).show();
@@ -82,9 +81,6 @@ var magicArchives = {
 		});
 		
 		$(scores).each(function() {
-			if($(this[1]).is(':visible')) {
-				console.log(this);
-			}
 			$(this[1]).appendTo($('#archiveItems'));
 		});
 		
