@@ -19,8 +19,10 @@ var magicArchives = {
 		});
 		
 		magicArchives.search.keyup(function() {
-			magicArchives.filter();
+			magicArchives.doSearch();
 		});
+		
+		magicArchives.posts.addClass('unfiltered');
 		
 		magicArchives.createFilters();
 	},
@@ -53,30 +55,64 @@ var magicArchives = {
 			magicArchives.filter();
 		});
 	},
+	doSearch: function() {
+		var scores = [];
+
+		
+		magicArchives.posts.filter('.unfiltered').each(function() {
+			
+			$(this).show();
+			
+			var score = 0;
+
+			score = $(this).text().toLowerCase().score( magicArchives.search.val() );
+
+			if(score == 0) {
+				$(this).hide();
+			}
+			
+			scores.push([score, $(this)]);
+			
+		});
+		
+		magicArchives.posts.remove();
+		
+		scores = scores.sort(function(a, b) {
+			return b[0] - a[0];
+		});
+		
+		$(scores).each(function() {
+			if($(this[1]).is(':visible')) {
+				console.log(this);
+			}
+			$(this[1]).appendTo($('#archiveItems'));
+		});
+		
+	},
 	filter: function() {
 		var month = $('.active', magicArchives.month);
 		var year = $('.active', magicArchives.year);
 		var type = $('.active', magicArchives.content_type);
 		var tag = $('.active', magicArchives.tag);
 		
-		magicArchives.posts.show();
+		magicArchives.posts.show().addClass('unfiltered');
 		
 		var i = 0;
 		
 		magicArchives.posts.each(function() {
 			if(month.hasClass('allofthestuff') == false) {
 				if(month.text() != $('.month', $(this)).text()) {
-					$(this).hide();
+					$(this).hide().removeClass('unfiltered');
 				}
 			}
 			if(year.hasClass('allofthestuff') == false) {
 				if(year.text() != $('.year', $(this)).text()) {
-					$(this).hide();
+					$(this).hide().removeClass('unfiltered');
 				}
 			}
 			if(type.hasClass('allofthestuff') == false) {
 				if(type.text() != $('.type', $(this)).text()) {
-					$(this).hide();
+					$(this).hide().removeClass('unfiltered');
 				}
 			}
 			
@@ -90,26 +126,14 @@ var magicArchives = {
 				});
 				
 				if(hide) {
-					$(this).hide();
+					$(this).hide().removeClass('visible');
 				}
 			}
-			
-			var score = 0;
-			
-			$('.tags .tag', $(this)).each(function() {
-				score = score + $(this).text().score(magicArchives.search.val());
-			});
-			
-			score = score + $('.month', $(this)).text().toLowerCase().score(magicArchives.search.val());
-			score = score + $('.title', $(this)).text().toLowerCase().score(magicArchives.search.val());
-			score = score + $('.year', $(this)).text().toLowerCase().score(magicArchives.search.val());
-						
-			if(score == 0) {
-				$(this).hide();
-			}
+
 		});
 		
-		
+		magicArchives.doSearch();
+			
 	}
 };
 

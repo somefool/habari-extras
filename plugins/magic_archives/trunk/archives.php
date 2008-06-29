@@ -64,7 +64,7 @@
 			<span class="date section"><?php echo _t('Date'); ?></span>
 			<span class="tags section"><?php echo _t('Tags'); ?></span>
 		</div></li>
-	<?php foreach($magic_archives as $post) { ?>
+	<?php foreach(MagicArchives::get_magic_archives() as $post) { ?>
 		<li id="post-<?php echo $post->id; ?>" class="<?php echo Post::type_name($post->content_type); ?> <?php echo Post::status_name($post->status); ?>">
 			<a href="<?php echo $post->permalink; ?>" title="<?php echo sprintf( _t('Read %s'), $post->title ); ?>">
 				<span class="comments section"><strong><?php echo $post->comments->approved->count; ?></strong> <span class="unit"><?php echo _n( 'comment', 'comments', $post->comments->approved->count ); ?></span></span>

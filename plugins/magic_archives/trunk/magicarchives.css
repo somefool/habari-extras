@@ -65,8 +65,8 @@ ol#archiveItems li a:hover, ol#archiveItems li a:focus {
 	color:#FFFFFF;
 }
 ol#archiveItems li span.comments {
-	margin-left:5px;
-	width:15px;
+	width:5%;
+	text-align:center;
 }
 ol#archiveItems li span.comments strong {
 	font-weight:normal;
@@ -82,6 +82,9 @@ ol#archiveItems li span.date {
 }
 ol#archiveItems li span.type {
 	display:none;
+}
+ol#archiveItems li span.tags {
+	width:30%;
 }
 ol#archiveItems li.headings {
 	background:#DEDCDE;

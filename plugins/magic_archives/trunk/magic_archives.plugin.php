@@ -20,10 +20,19 @@ class MagicArchives extends Plugin
 		$this->add_template('magicarchives', dirname(__FILE__) . '/archives.php');
 	}
 	
-	public function action_add_template_vars($theme, $handler_vars) {
-		$archives = Posts::get(array('nolimit' => true));
+	public function get_magic_archives() {
+		$cache = 'magicarchives__posts';
 		
-		$theme->magic_archives = $archives;
+		if(Cache::has($cache)) {
+			$archives = Cache::get($cache);
+
+		} else {
+			$archives = Posts::get(array('nolimit' => true));
+			Cache::set( $cache, $archives, 4000);
+	
+		}
+		
+		return $archives;
 	}
 	
 	public function action_init_theme() {
