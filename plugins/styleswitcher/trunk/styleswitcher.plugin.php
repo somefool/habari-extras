@@ -28,7 +28,7 @@ class StyleSwitcher extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'StyleSwitcher',
-			'version' => '0.1',
+			'version' => '0.1.1',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -44,8 +44,8 @@ class StyleSwitcher extends Plugin {
 	public function action_add_template_vars() {
 		$jq_js_file= Site::get_url('scripts', TRUE) . 'jquery.js';
 		$ss_js_file= Site::get_url('user', TRUE) . 'plugins/' . basename(dirname(__FILE__)) . '/styleswitcher.js';
-		Stack::add( 'template_header_javascript', $jq_js_file );
-		Stack::add( 'template_header_javascript', $ss_js_file );
+		Stack::add( 'template_header_javascript', $jq_js_file, 'jquery' );
+		Stack::add( 'template_header_javascript', $ss_js_file, 'styleswitcher' );
 	}
 	
 	public function theme_header() {
