@@ -7,7 +7,7 @@ class Thickbox extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'Thickbox',
-			'version' => '0.1',
+			'version' => '3.1',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
