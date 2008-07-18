@@ -19,7 +19,7 @@ class FCKeditor extends Plugin
     {
         return array(
             'name' => 'FCKeditor',
-            'version' => '0.01',
+            'version' => '0.02',
             'url' => 'http://ayu.commun.jp/habari-fckeditor',
             'author' => 'ayunyan',
             'authorurl' => 'http://ayu.commun.jp/',
@@ -48,7 +48,7 @@ class FCKeditor extends Plugin
      */
     public function action_admin_header($theme)
     {
-        if ( $theme->admin_page != 'publish' ) return;
+        if ( $theme->page != 'publish' ) return;
         Stack::add( 'admin_header_javascript', $this->get_url() . '/fckeditor/fckeditor.js' );
     }
 
@@ -61,7 +61,7 @@ class FCKeditor extends Plugin
      */
     public function action_admin_footer($theme)
     {
-        if ( $theme->admin_page != 'publish' ) return;
+        if ( $theme->page != 'publish' ) return;
 ?>
 <script type="text/javascript">
 $('[@for=content]').removeAttr('for');

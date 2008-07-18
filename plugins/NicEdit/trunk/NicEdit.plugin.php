@@ -89,6 +89,7 @@ class NicEditor extends Plugin {
       $options= Options::get(strtolower(get_class($this) . ':options_' . User::identify()->id));
       echo <<<NICEDIT
       <script type="text/javascript">
+      $('[@for=content]').removeAttr('for');
       new nicEditor({$options}).panelInstance('content');
       habari.editor = {
         insertSelection: function(value) {
