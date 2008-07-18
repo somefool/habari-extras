@@ -12,21 +12,21 @@ class JWYSIWYG extends Plugin {
       'url' => 'http://habariproject.org/',
       'author' => 'Habari Community',
       'authorurl' => 'http://habariproject.org/',
-      'version' => '0.1',
+      'version' => '0.2',
       'description' => 'Publish posts using the JWYSIWYG editor.',
       'copyright' => '2008'
     );
   }
 
   public function action_admin_header($theme) {
-    if ( $theme->admin_page == 'publish' ) {
+    if ( $theme->page == 'publish' ) {
       Stack::add('admin_header_javascript', $this->get_url() . '/jwysiwyg/jquery.wysiwyg.js');
       Stack::add('admin_stylesheet', array($this->get_url() . '/jwysiwyg/jquery.wysiwyg.css', 'screen'));
     }
   }
 
   public function action_admin_footer($theme) {
-    if ( $theme->admin_page == 'publish' ) {
+    if ( $theme->page == 'publish' ) {
       echo <<<JWYSIWYG
       <script type="text/javascript">
       $(function()
