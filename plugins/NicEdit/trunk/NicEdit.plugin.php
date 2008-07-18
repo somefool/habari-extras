@@ -10,7 +10,7 @@ class NicEditor extends Plugin {
   public function info() {
     return array(
       'name' => 'NicEditor',
-      'version' => '0.2',
+      'version' => '0.2.5',
       'url' => 'http://habariproject.org/',
       'author' => 'Habari Community',
       'authorurl' => 'http://habariproject.org/',
@@ -76,7 +76,7 @@ class NicEditor extends Plugin {
    */
   public function action_admin_header($theme)
   {
-    if ( $theme->admin_page == 'publish' ) {
+    if ( $theme->page == 'publish' ) {
       Stack::add( 'admin_header_javascript', $this->get_url() . '/nicEditor/nicEdit.js', 'niceditor' );
     }
   }
@@ -85,7 +85,7 @@ class NicEditor extends Plugin {
    * Instantiate the NicEdit editor and enable media silos
    */
   public function action_admin_footer($theme) {
-    if ( $theme->admin_page == 'publish' ) {
+    if ( $theme->page == 'publish' ) {
       $options= Options::get(strtolower(get_class($this) . ':options_' . User::identify()->id));
       echo <<<NICEDIT
       <script type="text/javascript">
