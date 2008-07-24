@@ -143,6 +143,14 @@ class OpenID extends Plugin
 		}
 	}
 
+	function action_admin_header( $theme )
+	{
+		// Add the css if this is the default login page
+		if ( $theme->admin_page == 'login' ) {
+			Stack::add( 'admin_stylesheet', array( $this->get_url() . '/openid.css', 'screen' ), 'openid_style' );
+		}
+	}
+
 	function getOpenIDURL()
 	{
 		if ( empty( $_POST['openid_url'] ) ) {
