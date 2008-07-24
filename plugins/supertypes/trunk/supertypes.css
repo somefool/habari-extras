@@ -1,0 +1,22 @@
+#page .create {
+	position:relative;
+	top:-38px;
+}
+#page .create #type_selector {
+	text-align:center;
+	margin-bottom:50px;
+}
+#page .create #type_selector a, #page .create #type_selector a:link, #page .create #type_selector a:visited {
+	padding:5px 10px;
+	background:#D5D5D5;
+	margin:0 5px;
+	border:1px solid #D5D5D5;
+}
+#page .create #type_selector a:hover, #page .create #type_selector a:focus {
+	background:#555;
+	color:#FFF;
+}
+#page .create #type_selector a.active {
+	background:#181818;
+	color:#FFF;
+}
