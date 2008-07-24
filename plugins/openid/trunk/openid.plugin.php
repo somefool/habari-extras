@@ -77,8 +77,8 @@ class OpenID extends Plugin
 		if ( session_id() == '' ) {
 			session_start();
 		}
-		ini_set( 'include_path', Site::get_dir( 'user' ).'/plugins/openid/' );
-		Stack::add( 'template_stylesheet', array( Site::get_url('user').'/plugins/openid/openid.css', 'screen' ), 'openid_style' );
+		ini_set( 'include_path', dirname( __FILE__ ) );
+		Stack::add( 'template_stylesheet', array( $this->get_url() . '/openid.css', 'screen' ), 'openid_style' );
 	}
 
 	public function action_theme_loginform_before()
