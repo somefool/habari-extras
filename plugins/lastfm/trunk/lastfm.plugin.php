@@ -38,6 +38,37 @@ class lastfmAPI
 		return $this->fetch('user.getTopTags', array('user' => User::identify()->info->lastfm__username));
 	}
 	
+	/* this SHOULD fetch all tracks from a user's library. except it is recursive and insanely processor intensive. use at your own risk */
+	
+	function tracks($page) {
+			
+		$tracks= $this->fetch('library.getTracks', array('user' => User::identify()->info->lastfm__username, 'page' => $page));
+		
+		$results = array();
+		
+		foreach($tracks->tracks->track as $track) {
+			$props = array();
+			$props['title'] = (string)$track->name;
+			$props['url'] = (string)$track->url;
+			$props['icon'] = (string)$track->image[1];
+			$props['thumbnail_url'] = (string)$track->image[1];
+			$props['image_url'] = (string)$track->image[2];
+			$props['filetype'] = 'lastfm';
+
+			$results[] = new MediaAsset(
+				lastfmSilo::SILO_NAME . '/songs/'. (string)$track->title,
+				false,
+				$props
+			);						
+		}
+		
+		if($tracks->tracks['page'] != $tracks->tracks['totalPages']) {
+			$results = array_merge($results, $this->tracks($page + 1));
+		}
+		
+		return $results;
+	}
+	
 }
 /**
 * last.fm Silo
@@ -65,6 +96,12 @@ class lastfmSilo extends Plugin implements MediaSilo
 			'description' => 'Allows data from last.fm to be inserted into posts',
 			'copyright' => '2008',
 			);
+	}
+
+	public function action_admin_footer() {
+		echo '<script type="text/javascript">';
+		require('lastfm.js');
+		echo '</script>';		
 	}
 
 	/**
@@ -144,23 +181,43 @@ class lastfmSilo extends Plugin implements MediaSilo
 				$selected = strtok('/');
 				if($selected) {
 					if($artist = strtok('/')) {
-						if(strtok('/')) {
-							$albums= $this->api->fetch('artist.getTopAlbums', array('artist' => $artist));
+						if($level = strtok('/')) {
+							if($level == 'albums') {
+								$albums= $this->api->fetch('artist.getTopAlbums', array('artist' => $artist));
 
-							foreach($albums->topalbums->album as $album) {
-								$props = array();
-								$props['title'] = (string)$album->name;
-								$props['url'] = (string)$album->url;
-								$props['icon'] = (string)$album->image[0];
-								$props['thumbnail_url'] = (string)$album->image[0];
-								$props['image_url'] = (string)$album->image[3];
-								$props['filetype'] = 'album';
+								foreach($albums->topalbums->album as $album) {
+									$props = array();
+									$props['title'] = (string)$album->name;
+									$props['url'] = (string)$album->url;
+									$props['icon'] = (string)$album->image[1];
+									$props['thumbnail_url'] = (string)$album->image[1];
+									$props['image_url'] = (string)$album->image[2];
+									$props['filetype'] = 'lastfm';
+
+									$results[] = new MediaAsset(
+										self::SILO_NAME . '/tags/' . $selected . '/' . $artist . '/' . (string)$album->mbid,
+										false,
+										$props
+									);						
+								}
+							} elseif($level == 'songs') {
+								$tracks= $this->api->fetch('artist.getTopTracks', array('artist' => $artist));
 																
-								$results[] = new MediaAsset(
-									self::SILO_NAME . '/tags/' . $selected . '/' . $artist . '/' . (string)$album->mbid,
-									false,
-									$props
-								);						
+								foreach($tracks->toptracks->track as $track) {
+									$props = array();
+									$props['title'] = (string)$track->name;
+									$props['url'] = (string)$track->url;
+									$props['icon'] = (string)$track->image[1];
+									$props['thumbnail_url'] = (string)$track->image[1];
+									$props['image_url'] = (string)$track->image[2];
+									$props['filetype'] = 'lastfm';
+
+									$results[] = new MediaAsset(
+										self::SILO_NAME . '/tags/' . $selected . '/' . $artist . '/' . (string)$track->name,
+										false,
+										$props
+									);						
+								}
 							}
 						} else {
 							$results[] = new MediaAsset(
@@ -198,6 +255,156 @@ class lastfmSilo extends Plugin implements MediaSilo
 				}
 
 				break;
+				
+			case 'artists':
+				if($artist = strtok('/')) {
+					if($level = strtok('/')) {
+						if($level == 'albums') {
+							$albums= $this->api->fetch('artist.getTopAlbums', array('artist' => $artist));
+
+							foreach($albums->topalbums->album as $album) {
+								$props = array();
+								$props['title'] = (string)$album->name;
+								$props['url'] = (string)$album->url;
+								$props['icon'] = (string)$album->image[1];
+								$props['thumbnail_url'] = (string)$album->image[1];
+								$props['image_url'] = (string)$album->image[2];
+								$props['filetype'] = 'lastfm';
+
+								$results[] = new MediaAsset(
+									self::SILO_NAME . '/artists/' . $artist . '/' . (string)$album->mbid,
+									false,
+									$props
+								);						
+							}
+						} elseif($level == 'songs') {
+							$tracks= $this->api->fetch('artist.getTopTracks', array('artist' => $artist));
+															
+							foreach($tracks->toptracks->track as $track) {
+								$props = array();
+								$props['title'] = (string)$track->name;
+								$props['url'] = (string)$track->url;
+								$props['icon'] = (string)$track->image[1];
+								$props['thumbnail_url'] = (string)$track->image[1];
+								$props['image_url'] = (string)$track->image[2];
+								$props['filetype'] = 'lastfm';
+
+								$results[] = new MediaAsset(
+									self::SILO_NAME . '/artists/' . $artist . '/' . (string)$track->name,
+									false,
+									$props
+								);						
+							}
+						}
+					} else {
+						$results[] = new MediaAsset(
+							self::SILO_NAME . '/artists/' . $artist . '/albums',
+							true,
+							array('title' => 'Albums')
+						);
+						$results[] = new MediaAsset(
+							self::SILO_NAME . '/artists/' . $artist . '/songs',
+							true,
+							array('title' => 'Songs')
+						);
+					}
+				} else {
+					$artists= $this->api->fetch('user.getTopArtists', array('user' => User::identify()->info->lastfm__username));
+
+					foreach($artists->topartists->artist as $artist) {
+						$results[] = new MediaAsset(
+							self::SILO_NAME . '/artists/' . (string)$artist->name,
+							true,
+							array('title' => (string)$artist->name)
+						);
+					}			
+				}
+				break;
+				
+			case 'albums':
+				$albums= $this->api->fetch('library.getAlbums', array('user' => User::identify()->info->lastfm__username));
+								
+				foreach($albums->albums->album as $album) {
+					$props = array();
+					$props['title'] = (string)$album->name;
+					$props['url'] = (string)$album->url;
+					$props['icon'] = (string)$album->image[1];
+					$props['thumbnail_url'] = (string)$album->image[1];
+					$props['image_url'] = (string)$album->image[2];
+					$props['filetype'] = 'lastfm';
+
+					$results[] = new MediaAsset(
+						self::SILO_NAME . '/albums/'. (string)$album->mbid,
+						false,
+						$props
+					);						
+				}
+				
+				break;
+				
+			case 'songs':
+				$tracks= $this->api->fetch('user.getTopTracks', array('user' => User::identify()->info->lastfm__username));
+									
+				foreach($tracks->toptracks->track as $track) {
+					$props = array();
+					$props['title'] = (string)$track->name;
+					$props['url'] = (string)$track->url;
+					$props['icon'] = (string)$track->image[1];
+					$props['thumbnail_url'] = (string)$track->image[1];
+					$props['image_url'] = (string)$track->image[2];
+					$props['filetype'] = 'lastfm';
+
+					$results[] = new MediaAsset(
+						self::SILO_NAME . '/songs/'. (string)$track->url,
+						false,
+						$props
+					);						
+				}
+				
+				break;
+				
+			case 'recent':
+				$tracks= $this->api->fetch('user.getRecentTracks', array('user' => User::identify()->info->lastfm__username));
+
+				foreach($tracks->recenttracks->track as $track) {
+					$props = array();
+					$props['title'] = (string)$track->name;
+					$props['url'] = (string)$track->url;
+					$props['icon'] = (string)$track->image[1];
+					$props['thumbnail_url'] = (string)$track->image[1];
+					$props['image_url'] = (string)$track->image[2];
+					$props['filetype'] = 'lastfm';
+
+					$results[] = new MediaAsset(
+						self::SILO_NAME . '/recent/'. (string)$track->url,
+						false,
+						$props
+					);						
+				}
+
+				break;
+				
+			case 'favorites':
+				$tracks= $this->api->fetch('user.getLovedTracks', array('user' => User::identify()->info->lastfm__username));
+
+				foreach($tracks->lovedtracks->track as $track) {
+					$props = array();
+					$props['title'] = (string)$track->name;
+					$props['url'] = (string)$track->url;
+					$props['icon'] = (string)$track->image[1];
+					$props['thumbnail_url'] = (string)$track->image[1];
+					$props['image_url'] = (string)$track->image[2];
+					$props['filetype'] = 'lastfm';
+
+					$results[] = new MediaAsset(
+						self::SILO_NAME . '/favorites/'. (string)$track->url,
+						false,
+						$props
+					);						
+				}
+
+				break;
+				
 			case '':
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/tags',
@@ -224,9 +431,34 @@ class lastfmSilo extends Plugin implements MediaSilo
 					true,
 					array('title' => 'Recent Songs')
 				);
+				$results[] = new MediaAsset(
+					self::SILO_NAME . '/favorites',
+					true,
+					array('title' => 'Favorites')
+				);
 				break;
 		}
 		return $results;
+	}
+
+	/**
+	 * Provide controls for the media control bar
+	 *
+	 * @param array $controls Incoming controls from other plugins
+	 * @param MediaSilo $silo An instance of a MediaSilo
+	 * @param string $path The path to get controls for
+	 * @param string $panelname The name of the requested panel, if none then emptystring
+	 * @return array The altered $controls array with new (or removed) controls
+	 *
+	 * @todo This should really use FormUI, but FormUI needs a way to submit forms via ajax
+	 */
+	public function filter_media_controls( $controls, $silo, $path, $panelname )
+	{
+		$controls = array();
+		return $controls;
+	}
+
+	public function silo_upload_form() {
 	}
 
 	/**
@@ -249,8 +481,6 @@ class lastfmSilo extends Plugin implements MediaSilo
 	*/
 	public function silo_url($path, $qualities = null)
 	{
-		$url = 'cool';
-		return $url;
 	}
 
 	/**
