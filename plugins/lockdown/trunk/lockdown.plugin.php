@@ -33,8 +33,7 @@ class LockdownPlugin extends Plugin
 	 */
 	function filter_user_delete_allow( $allow, $user )
 	{
-		// Don't allow the update of user #1.
-		if($user->id == 1) {
+		if($user->username == 'demo') {
 			Session::notice('To maintain the integrity of the demo, the demo user account can\'t be deleted.', 'lockdown_user_delete');
 			return false;
 		}
@@ -50,8 +49,7 @@ class LockdownPlugin extends Plugin
 	 */
 	function filter_user_update_allow( $allow, $user )
 	{
-		// Don't allow the update of user #1.
-		if($user->id == 1) {
+		if($user->username == 'demo') {
 			Session::notice('To maintain the integrity of the demo, the demo user account can\'t be updated.', 'lockdown_user_update');
 			return false;
 		}
