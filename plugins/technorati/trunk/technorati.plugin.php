@@ -12,7 +12,7 @@ class Technorati extends Plugin
 	public function info() {
 		return array(
 			'name' => 'Technorati',
-			'version' => '0.4',
+			'version' => '0.5',
 			'url' => 'http://habariproject.org/',
 			'author' =>     'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -80,14 +80,18 @@ class Technorati extends Plugin
 
 	public function theme_technorati_stats()
 	{
-		if ( Cache::has( 'technorati_stats' ) ) {
-			$stats= Cache::get( 'technorati_stats' );
+		if ( Cache::has( array( Site::get_url( 'habari' ), 'technorati_stats' ) ) ) {
+			$stats = Cache::get( array( Site::get_url( 'habari' ), 'technorati_stats' ) );
 		}
 		else {
-			$stats= $this->get_technorati_stats();
-			Cache::set( 'technorati_stats', $stats );
+			$stats = $this->get_technorati_stats();
+			if ( count( $stats ) ) {
+				Cache::set( array( Site::get_url( 'habari' ), 'technorati_stats' ), $stats );
+			}
+			else {
+				$stats['Technorati is not available at this time'] = '';
+			}
 		}
-
 		return $stats;
 	}
 
@@ -97,15 +101,18 @@ class Technorati extends Plugin
 		$technorati_url= 'http://api.technorati.com/bloginfo?key=' . Options::get( 'technorati__apikey' ) . '&url='. Site::get_url('habari');
 
 		$response= RemoteRequest::get_contents( $technorati_url );
-		$xml= new SimpleXMLElement( $response );
+		if( $response !== FALSE ) {
+			$xml= new SimpleXMLElement( $response );
+			if( ! isset( $xml->document->result->error ) ) {
+				$technorati_inbound_blogs = (int)$xml->document->result->weblog[0]->inboundblogs;
+				$technorati_inbound_links = (int)$xml->document->result->weblog[0]->inboundlinks;
+				$technorati_rank = (int)$xml->document->result->weblog[0]->rank;
 
-		$technorati_inbound_blogs= ( $xml->document->result->weblog->inboundblogs[0] );
-		$technorati_inbound_links= ( $xml->document->result->weblog->inboundlinks[0] );
-		$technorati_rank= ( $xml->document->result->weblog->rank[0] );
-
-		$technorati_stats['Rank']= $technorati_rank;
-		$technorati_stats['Inbound Links']= $technorati_inbound_links;
-		$technorati_stats['Inbound Blogs']= $technorati_inbound_blogs;
+				$technorati_stats['Rank'] = $technorati_rank;
+				$technorati_stats['Inbound Links'] = $technorati_inbound_links;
+				$technorati_stats['Inbound Blogs'] = $technorati_inbound_blogs;
+			}
+		}
 		return $technorati_stats;
 	}
 
