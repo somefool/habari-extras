@@ -103,7 +103,7 @@ class Technorati extends Plugin
 		$response= RemoteRequest::get_contents( $technorati_url );
 		if( $response !== FALSE ) {
 			$xml= new SimpleXMLElement( $response );
-			if( ! isset( $xml->document->result->error ) ) {
+			if( isset( $xml->document->result->weblog ) ) {
 				$technorati_inbound_blogs = (int)$xml->document->result->weblog[0]->inboundblogs;
 				$technorati_inbound_links = (int)$xml->document->result->weblog[0]->inboundlinks;
 				$technorati_rank = (int)$xml->document->result->weblog[0]->rank;
