@@ -19,13 +19,6 @@ Format::apply( 'autop', 'comment_content_out' );
 // Apply Format::tag_and_list() to post tags...
 Format::apply( 'tag_and_list', 'post_tags_out' );
 
-// Make sure one of the date styles is commented out
-// @todo Update Habari's theme configurability code so this can be configured in the admin
-// Apply Format::nice_date() to post date - European style
-Format::apply( 'nice_date', 'post_pubdate_out', 'g:ia d/m/Y' );
-// Apply Format::nice_date() to post date - US style
-//Format::apply( 'nice_date', 'post_pubdate_out', 'g:ia m/d/Y' );
-
 // Limit post length to 1 paragraph or 100 characters. This theme only works with excerpts.
 Format::apply_with_hook_params( 'more', 'post_content_excerpt', '<span class="read-on">read on</span>', 100, 1 );
 
@@ -37,7 +30,6 @@ define( 'THEME_CLASS', 'Blossom' );
 */
 class Blossom extends Theme
 {
-
 	/**
 		* Add additional template variables to the template output.
 		*
@@ -48,9 +40,6 @@ class Blossom extends Theme
 		*
 		*  You could use this area to provide "recent comments" data to the template,
 		*  for instance.
-		*
-		*  Note that the variables added here should possibly *always* be added,
-		*  especially 'user'.
 		*
 		*  Also, this function gets executed *after* regular data is assigned to the
 		*  template.  So the values here, unless checked, will overwrite any existing
@@ -70,11 +59,56 @@ class Blossom extends Theme
 		if ( !$this->page ) {
 			$this->page = isset( $page ) ? $page : 1;
 		}
-		// del.icio.us username. Eventually this won't be required and it will be powered by plugins.
-		// @todo This should be configurable as well. Or better yet, there should be a delicious plugin.
-		$this->assign('delicious', 'michael_c_harris' );
+
+		// Use the configured data format
+		$date_format = Options::get('blossom_date_format');
+		if ( $date_format == 'american' ) {
+			// Apply Format::nice_date() to post date - US style
+			Format::apply( 'nice_date', 'post_pubdate_out', 'g:ia m/d/Y' );
+		}
+		else {
+			// Apply Format::nice_date() to post date - European style
+			Format::apply( 'nice_date', 'post_pubdate_out', 'g:ia d/m/Y' );
+		}
+
+		// del.icio.us username.
+		$delicious_username = Options::get('blossom_delicious_username');
+		if ( $delicious_username == '' ) {
+			$delicious_username = 'michael_c_harris';
+		}
+		$this->delicious = $delicious_username;
 
 		parent::add_template_vars();
+	}
+
+	/**
+	* Make this theme configurable
+	*
+	* @param boolean $configurable Whether the theme is configurable
+	* @param string $name The theme name
+	* @return boolean Whether the theme is configurable
+	*/
+
+	public function filter_theme_config($configurable)
+	{
+		$configurable = true;
+		return $configurable;
+	}
+
+	/**
+	* Respond to the user selecting 'configure' on the themes page
+	*
+	*/
+	public function action_theme_ui()
+	{
+		$form = new FormUI( 'blossom_theme' );
+		$form->append('text', 'delicious_username', 'blossom_delicious_username', _t('Delicious Username:'));
+		$form->append( 'select', 'date_format', 'blossom_date_format', 'Date format:' );
+		$form->date_format->options = array('european' => 'European', 'american' => 'American');
+		$form->append( 'submit', 'save', _t( 'Save' ) );
+
+		$form->set_option( 'success_message', _t( 'Configuration saved' ) );
+		$form->out();
 	}
 
 }
