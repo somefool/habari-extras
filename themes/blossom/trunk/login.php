@@ -11,18 +11,18 @@
 				if ( !$logged_in ):
 					Plugins::act( 'theme_loginform_before' ); ?>
 					<form method="post" action="<?php URL::out( 'user', array( 'page' => 'login' ) ); ?>" id="loginform">
-					<p>
 						<label for="habari_username">Name:</label>
 						<input type="text" size="25" name="habari_username" id="habari_username">
-					</p>
-					<p>
+						<br class="clear_left" />
+
 						<label for="habari_password">Password:</label>
 						<input type="password" size="25" name="habari_password" id="habari_password">
-					</p>
-					<?php Plugins::act( 'theme_loginform_controls' ); ?>
-					<p>
-						<input type="submit" value="Sign in">
-					</p>
+						<br class="clear_left" />
+
+						<?php Plugins::act( 'theme_loginform_controls' ); ?>
+						<label for="habari_submit">&nbsp;</label>
+						<input type="submit" value="Sign in" id="habari_submit">
+						<br class="clear_left" />
 					</form>
 					<?php
 					Plugins::act( 'theme_loginform_after' );

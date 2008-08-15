@@ -94,6 +94,23 @@ code {
 	white-space: pre;
 }
 
+#loginform label, #loginform input {
+	display: block;
+	width: 150px;
+	float: left;
+	margin: 0 0 1em 0;
+}
+
+#loginform label {
+	text-align: right;
+	width: 75px;
+	padding-right: 15px;
+}
+
+.clear_left {
+	clear: left;
+}
+
 input.textfield, textarea {
 	background-color: #F8F8F8;
 	border: 1px solid #868686;
