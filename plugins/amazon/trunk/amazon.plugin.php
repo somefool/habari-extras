@@ -258,7 +258,7 @@ class Amazon extends Plugin
 	public function action_admin_header( $theme )
 	{
 		$handler_vars = Controller::get_handler_vars();
-		if ( $handler_vars['page'] != 'publish' ) return;
+		if (!isset($handler_vars['page']) || $handler_vars['page'] != 'publish' ) return;
 		Stack::add( 'admin_header_javascript', $this->get_url() . '/js/amazon.js' );
 		Stack::add( 'admin_stylesheet', array($this->get_url() . '/css/amazon.css', 'screen') );
 	}
