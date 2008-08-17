@@ -1,12 +1,10 @@
 <?php
-/*
-
-  Amazon
-
-  Revision: $Id$
-  Head URL: $URL$
-
-*/
+/**
+ * Amazon
+ *
+ * @version $Id$
+ * @author ayunyan
+ */
 class Amazon extends Plugin
 {
 	var $countries = array(
@@ -197,6 +195,17 @@ class Amazon extends Plugin
 	}
 
 	/**
+	 * action: init
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function action_init()
+	{
+		$this->load_text_domain('amazon');
+	}
+
+	/**
 	 * action: update_check
 	 *
 	 * @access public
@@ -248,7 +257,8 @@ class Amazon extends Plugin
 	 */
 	public function action_admin_header( $theme )
 	{
-		if ( $theme->admin_page != 'publish' ) return;
+		$handler_vars = Controller::get_handler_vars();
+		if ( $handler_vars['page'] != 'publish' ) return;
 		Stack::add( 'admin_header_javascript', $this->get_url() . '/js/amazon.js' );
 		Stack::add( 'admin_stylesheet', array($this->get_url() . '/css/amazon.css', 'screen') );
 	}
@@ -355,33 +365,18 @@ class Amazon extends Plugin
 	}
 
 	/**
-	 * filter: publish_controls
+	 * action: form_publish
 	 *
 	 * @access public
-	 * @param array
-	 * @return array
+	 * @param object $form
+	 * @return void
 	 */
-	public function filter_publish_controls( $controls )
+	public function action_form_publish($form)
 	{
-		ob_start();
-?>
-<div class="container">
-<?php
-		$search_index = $this->search_indexes[ Options::get( 'amazon__country' ) ];
-		echo Utils::html_select( 'amazon-search-index', array_combine( $search_index, $search_index ), null);
-?>
-<input type="text" id="amazon-keywords" name="amazon-keywords" />
-<input type="button" id="amazon-search" value="<?php echo _t( 'Search' ); ?>" />
-<div id="amazon-spinner"></div>
-</div>
-<a name="amazon-result" />
-<div id="amazon-result">
-</div>
-<?php
-		$controls[ _t( 'Amazon' ) ] = ob_get_contents();
-		ob_end_clean();
-
-		return $controls;
+		$amazon = $form->publish_controls->append('fieldset', 'amazon', _t('Amazon'));
+        $amazon_container = $amazon->append('amazon');
+        $search_index = $this->search_indexes[Options::get('amazon__country')];
+        $amazon_container->search_index = array_combine($search_index, $search_index);
 	}
 
 	/**
@@ -448,6 +443,64 @@ class Amazon extends Plugin
 		$rating = sprintf( "%.1f", $rating );
 		$rating_str = str_replace( '.', '-', $rating );
 		return '<img src="' . $this->star_image_url . $rating_str . '.gif" alt="' . $rating . '" />';
+	}
+}
+
+/**
+ * FormControlAmazon
+ */
+class FormControlAmazon
+{
+	public $name;
+	public $search_index;
+
+	/**
+	 * constructer
+	 *
+	 * @access public
+	 * @param string $name
+	 * @retrun void
+	 */
+    public function __construct()
+	{
+		$args = func_get_args();
+		list($name) = array_merge($args, array_fill(0, 1, null));
+
+		$this->name= $name;
+	}
+
+	/**
+	 * get
+	 * @access public
+	 * @return string
+	 */
+	public function get()
+	{
+		ob_start();
+?>
+<div class="container">
+<?php echo Utils::html_select('amazon-search-index', $this->search_index, null); ?>
+<input type="text" id="amazon-keywords" name="amazon-keywords" />
+<input type="button" id="amazon-search" value="<?php echo _t( 'Search' ); ?>" />
+<div id="amazon-spinner"></div>
+</div>
+<a name="amazon-result" />
+<div id="amazon-result">
+</div>
+<?php
+		$contents = ob_get_contents();
+		ob_end_clean();
+		return $contents;
+	}
+
+	/**
+	 * pre_out
+	 * @access public
+	 * @return string
+	 */
+	public function pre_out()
+	{
+		return '';
 	}
 }
 ?>
