@@ -8,16 +8,30 @@
 		</div>
 
 		<div class="story">
-			<h3>Here are some other things to try.</h3>
-			<h4>Tags</h4>
-			<?php foreach ( $tags as $tag ): ?>
-				<a href="<?php Site::out_url( 'habari' ); ?>/tag/<?php echo $tag->tag_slug; ?>/"><?php echo $tag->tag_text; ?></a>
-			<?php endforeach; ?>
-			<h4>Pages</h4>
-			<?php foreach ( $pages as $page ): ?>
-				<a href="<?php Site::out_url( 'habari' ); ?>/<?php echo $page->slug; ?>/"><?php echo $page->title; ?></a>
-			<?php endforeach; ?>
-			</div>
+			<?php
+				$has_tags = ( count($tags) > 0 );
+				$has_pages = ( count($pages) > 0 );
+			?>
+			<?php if ( $has_tags || $has_pages ): ?>
+				<h3>Here are some other things to try.</h3>
+				<?php if ( $has_tags ): ?>
+					<h4>Tags</h4>
+					<?php
+						foreach ( $tags as $tag ) {
+							echo "<a href=\"{$habari}/tag/{$tag->slug}/\">{$tag->tag}</a> ";
+						}
+					?>
+				<?php endif; ?>
+				<?php if ( $has_pages ): ?>
+					<h4>Pages</h4>
+					<?php
+						foreach ( $pages as $page ) {
+							echo "<a href=\"{$habari}/{$page->slug}/\">{$page->title}</a>";
+						}
+					?>
+				<?php endif; ?>
+			<?php endif; ?>
+		</div>
 		<div class="clear"></div>
 
 	</div>

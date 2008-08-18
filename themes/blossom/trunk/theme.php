@@ -47,6 +47,7 @@ class Blossom extends Theme
 		*/
 	public function add_template_vars()
 	{
+		$this->habari = Site::out_url( 'habari' );
 		if ( !$this->posts ) {
 			$this->posts = Posts::get( array( 'content_type' => 'entry', 'status' => Post::status('published') ) );
 		}
@@ -58,6 +59,12 @@ class Blossom extends Theme
 		}
 		if ( !$this->page ) {
 			$this->page = isset( $page ) ? $page : 1;
+		}
+		if ( !$this->tags ) {
+			$this->tags = Tags::get();
+		}
+		if ( !$this->pages ) {
+			$this->pages = Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published') ) );
 		}
 
 		// Use the configured data format
