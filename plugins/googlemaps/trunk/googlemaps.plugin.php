@@ -1,9 +1,13 @@
 <?php
 /**
- * GoogleMaps - quickly insert Google Maps into your posts.
+ * GoogleMaps
+ * easily/quickly insert Google Maps into your posts.
  *
+ * @package googlemaps
  * @version $Id$
- * @author ayunyan
+ * @author ayunyan <ayu@commun.jp>
+ * @license http://opensource.org/licenses/apache2.0.php Apache License 2.0
+ * @link http://ayu.commun.jp/habari-googlemaps
  */
 class GoogleMaps extends Plugin
 {
@@ -122,6 +126,8 @@ class GoogleMaps extends Plugin
 	 * filter: plugin_config
 	 *
 	 * @access public
+	 * @param array $actions
+	 * @param integer $plugin_id
 	 * @return array
 	 */
 	public function filter_plugin_config($actions, $plugin_id)
@@ -167,13 +173,14 @@ class FormControlGoogleMaps
 		ob_start();
 ?>
 <div id="googlemaps" class="container" style="width: 600px;">
-<div id="googlemaps_canvas"></div>
 <p>
 <input type="text" id="googlemaps_address" name="googlemaps_address" />
 <input type="button" id="googlemaps_search" value="<?php echo _t('Search'); ?>" />
+<input type="button" id="googlemaps_streetview_toggle" value="<?php echo _t('StreetView', 'googlemaps'); ?>" />
 <input type="button" id="googlemaps_insert" value="<?php echo _t('Insert Map', 'googlemaps'); ?>" />
-
 </p>
+<div id="googlemaps_canvas"></div>
+<div id="googlemaps_streetview_canvas" style="width: 600px; height: 300px;"></div>
 </div>
 <?php
 		$contents = ob_get_contents();
