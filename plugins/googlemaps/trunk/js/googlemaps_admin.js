@@ -5,9 +5,11 @@ var googleMaps = {
 	init: function() {
         if (GBrowserIsCompatible()) {
             googleMaps.map = new google.maps.Map2($('#googlemaps_canvas').get(0), {size: new GSize(600, 300)});
-            googleMaps.map.setCenter(new GLatLng(42.366662,-71.106262), 11);
             googleMaps.map.addControl(new google.maps.MapTypeControl());
             googleMaps.map.addControl(new google.maps.LargeMapControl());
+            googleMaps.map.enableScrollWheelZoom();
+            googleMaps.map.enableContinuousZoom();
+            googleMaps.map.setCenter(new GLatLng(42.366662,-71.106262), 11);
 
             $('#googlemaps_search').click(function () {
                 googleMaps.search();

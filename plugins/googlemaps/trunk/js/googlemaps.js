@@ -26,13 +26,13 @@ google.setOnLoadCallback(function() {
                 t = 'm';
             }
 
-            console.log("Lat=" + lat + ",Lng=" + lng + ",Zoom=" + z);
-
             canvas = $('<div class="googlemaps-canvas"></div>');
             $(this).replaceWith(canvas);
             map = new google.maps.Map2(canvas.get(0), {size: new GSize(600, 300)});
             map.addControl(new google.maps.MapTypeControl());
             map.addControl(new google.maps.LargeMapControl());
+            map.enableScrollWheelZoom();
+            map.enableContinuousZoom();
             map.setCenter(new GLatLng(lat, lng), parseInt(z));
         });
 	}
