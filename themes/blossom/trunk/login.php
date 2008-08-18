@@ -3,6 +3,7 @@
 	<div id="primary" class="single-post">
 		<div class="inside">
 			<div class="primary">
+        <div id="loginform_div">
 				<?php if ( isset( $error ) ): ?>
 					<p>That login is incorrect.</p>
 				<?php
@@ -13,20 +14,19 @@
 					<form method="post" action="<?php URL::out( 'user', array( 'page' => 'login' ) ); ?>" id="loginform">
 						<label for="habari_username">Name:</label>
 						<input type="text" size="25" name="habari_username" id="habari_username">
-						<br class="clear_left" />
+						<br />
 
 						<label for="habari_password">Password:</label>
 						<input type="password" size="25" name="habari_password" id="habari_password">
-						<br class="clear_left" />
+						<br />
 
 						<?php Plugins::act( 'theme_loginform_controls' ); ?>
-						<label for="habari_submit">&nbsp;</label>
-						<input type="submit" value="Sign in" id="habari_submit">
-						<br class="clear_left" />
+						<input type="submit" value="Sign in">
 					</form>
 					<?php
 					Plugins::act( 'theme_loginform_after' );
 				endif; ?>
+          </div>
 				<!-- /loginform -->
 				<?php Plugins::act( 'theme_login' ); ?>
 			</div>

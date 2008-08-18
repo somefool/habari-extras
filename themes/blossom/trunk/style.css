@@ -94,20 +94,24 @@ code {
 	white-space: pre;
 }
 
-#loginform label, #loginform input {
+#loginform_div label, #loginform_div input {
 	display: block;
 	width: 150px;
 	float: left;
 	margin: 0 0 1em 0;
 }
 
-#loginform label {
+#loginform_div label {
 	text-align: right;
-	width: 75px;
+	width: 100px;
 	padding-right: 15px;
 }
 
-.clear_left {
+#loginform_div input[type=submit] {
+  margin-left: 115px;
+}
+
+#loginform_div br, #loginform_div p {
 	clear: left;
 }
 
