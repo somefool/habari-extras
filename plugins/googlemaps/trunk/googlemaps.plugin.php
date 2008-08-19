@@ -86,6 +86,7 @@ class GoogleMaps extends Plugin
 		if ($action == _t('Configure')) {
 			$form= new FormUI( strtolower(get_class($this)));
 			$form->append('text', 'api_key', 'googlemaps__api_key', _t('API Key: ', 'googlemaps'));
+            $form->append('static', 'static1', 'don\'t have API Key? <a href="http://code.google.com/apis/maps/signup.html" target="_blank">Signup!</a>');
 			$form->append('submit', 'save', _t('Save'));
 			$form->out();
 		}
@@ -117,8 +118,22 @@ class GoogleMaps extends Plugin
 	 */
 	public function action_form_publish($form)
 	{
-		$googlemaps = $form->publish_controls->append('fieldset', 'googlemaps', _t('Google Maps'));
-		$googlemaps_container = $googlemaps->append('googlemaps');
+		$container = $form->publish_controls->append('fieldset', 'googlemaps', _t('Google Maps'));
+		ob_start();
+?>
+<div id="googlemaps" class="container" style="width: 600px;">
+<p>
+<input type="text" id="googlemaps_address" name="googlemaps_address" />
+<input type="button" id="googlemaps_search" value="<?php echo _t('Search'); ?>" />
+<input type="button" id="googlemaps_streetview_toggle" value="<?php echo _t('Street View', 'googlemaps'); ?>" />
+<input type="button" id="googlemaps_insert" value="<?php echo _t('Insert Map', 'googlemaps'); ?>" />
+</p>
+<div id="googlemaps_canvas"></div>
+<div id="googlemaps_streetview_canvas" style="width: 600px; height: 300px;"></div>
+</div>
+<?php
+		$container->append('static', 'static1', ob_get_contents());
+		ob_end_clean();
 	}
 
 	/**
@@ -135,95 +150,6 @@ class GoogleMaps extends Plugin
 			$actions[] = _t('Configure');
 		}
 		return $actions;
-	}
-
-
-}
-
-/**
- * FormControlGoogleMaps
- */
-class FormControlGoogleMaps
-{
-	public $name;
-
-	/**
-	 * constructer
-	 *
-	 * @access public
-	 * @param string $name
-	 * @retrun void
-	 */
-	public function __construct()
-	{
-		$args = func_get_args();
-		list($name) = array_merge($args, array_fill(0, 1, null));
-
-		$this->name= $name;
-	}
-
-	/**
-	 * get
-	 * @access public
-	 * @return string
-	 */
-	public function get()
-	{
-		ob_start();
-?>
-<div id="googlemaps" class="container" style="width: 600px;">
-<p>
-<input type="text" id="googlemaps_address" name="googlemaps_address" />
-<input type="button" id="googlemaps_search" value="<?php echo _t('Search'); ?>" />
-<input type="button" id="googlemaps_streetview_toggle" value="<?php echo _t('Street View', 'googlemaps'); ?>" />
-<input type="button" id="googlemaps_insert" value="<?php echo _t('Insert Map', 'googlemaps'); ?>" />
-</p>
-<div id="googlemaps_canvas"></div>
-<div id="googlemaps_streetview_canvas" style="width: 600px; height: 300px;"></div>
-</div>
-<?php
-		$contents = ob_get_contents();
-		ob_end_clean();
-		return $contents;
-	}
-
-	/**
-	 * pre_out
-	 * @access public
-	 * @return string
-	 */
-	public function pre_out()
-	{
-		return '';
-	}
-
-	/**
-	 * validate
-	 * @access public
-	 * @return array
-	 */
-	public function validate()
-	{
-		return array();
-	}
-
-	/**
-	 * save
-	 * @access public
-	 * @return void
-	 */
-	public function save()
-	{
-	}
-
-	/**
-	 * has_user_options
-	 * @access public
-	 * @return boolean
-	 */
-	function has_user_options()
-	{
-		return false;
 	}
 }
 ?>
