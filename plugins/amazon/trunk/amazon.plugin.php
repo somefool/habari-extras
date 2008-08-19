@@ -1,9 +1,13 @@
 <?php
 /**
  * Amazon
+ * easily/quickly insert Amazon Products into your posts.
  *
+ * @package amazon
  * @version $Id$
- * @author ayunyan
+ * @author ayunyan <ayu@commun.jp>
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link http://ayu.commun.jp/habari-amazon
  */
 class Amazon extends Plugin
 {
@@ -240,9 +244,9 @@ class Amazon extends Plugin
 			}
 
 			$form= new FormUI( strtolower( get_class( $this ) ) );
-			$form->append( 'select', 'country', 'amazon__country', _t( 'Country: ' ), $this->countries);
-			$form->append( 'text', 'associate_tag', 'amazon__associate_tag', _t( 'Associate Tag: ' ) );
-			$form->append( 'select', 'template', 'amazon__template', _t( 'Template: ' ), $templates);
+			$form->append( 'select', 'country', 'amazon__country', _t('Country: ', 'amazon'), $this->countries);
+			$form->append( 'text', 'associate_tag', 'amazon__associate_tag', _t('Associate Tag: ', 'amazon') );
+			$form->append( 'select', 'template', 'amazon__template', _t('Template: ', 'amazon'), $templates);
             $form->append( 'submit', 'save', _t( 'Save' ) );
 			$form->out();
 		}
@@ -297,12 +301,12 @@ class Amazon extends Plugin
 			$xml = simplexml_load_string( $result );
 
 			if ( (string)$xml->Items->Request->IsValid != 'True' ) {
-				echo json_encode( array( 'errorMessage' => _t( 'following error reply existed from the server: ' ) . (string)$xml->Items->Request->Errors->Error->Message ) );
+				echo json_encode(array('errorMessage' => _t('following error reply existed from the server: ', 'amazon') . (string)$xml->Items->Request->Errors->Error->Message));
 				die();
 			}
 
 			if ( (int)$xml->Items->TotalResults == 0) {
-				echo json_encode( array( 'errorMessage' => _t( 'did not match any items.' ) ) );
+				echo json_encode(array('errorMessage' => _t('did not match any items.', 'amazon')));
 				die();
 			}
 
@@ -334,8 +338,8 @@ class Amazon extends Plugin
 			echo json_encode( $output );
 			die();
 		case 'amazon_insert':
-			if ( empty( $handler_vars['asin'] ) ) {
-				echo json_encode( array( 'errorMessage' => _t( 'please specify ASIN.' ) ) );
+			if (empty($handler_vars['asin'])) {
+				echo json_encode(array('errorMessage' => _t('please specify ASIN.', 'amazon')));
 				die();
 			}
 
@@ -344,8 +348,8 @@ class Amazon extends Plugin
 			$result = $this->item_lookup( $asin );
 			$xml = simplexml_load_string( $result );
 
-			if ( (string)$xml->Items->Request->IsValid != 'True' ) {
-				echo json_encode( array( 'errorMessage' => _t( 'following error reply existed from the server: ' ) . (string)$xml->Items->Request->Errors->Error->Message ) );
+			if ((string)$xml->Items->Request->IsValid != 'True') {
+				echo json_encode(array('errorMessage' => _t( 'following error reply existed from the server: ', 'amazon') . (string)$xml->Items->Request->Errors->Error->Message ));
 				die();
 			}
 
@@ -373,10 +377,23 @@ class Amazon extends Plugin
 	 */
 	public function action_form_publish($form)
 	{
-		$amazon = $form->publish_controls->append('fieldset', 'amazon', _t('Amazon'));
-        $amazon_container = $amazon->append('amazon');
+		$container = $form->publish_controls->append('fieldset', 'amazon', _t('Amazon'));
         $search_index = $this->search_indexes[Options::get('amazon__country')];
-        $amazon_container->search_index = array_combine($search_index, $search_index);
+        $search_index = array_combine($search_index, $search_index);
+		ob_start();
+?>
+<div class="container">
+<?php echo Utils::html_select('amazon-search-index', $search_index, null); ?>
+<input type="text" id="amazon-keywords" name="amazon-keywords" />
+<input type="button" id="amazon-search" value="<?php echo _t('Search'); ?>" />
+<div id="amazon-spinner"></div>
+</div>
+<a name="amazon-result" />
+<div id="amazon-result">
+</div>
+<?php
+        $container->append('static', 'static_amazon', ob_get_contents());
+		ob_end_clean();
 	}
 
 	/**
@@ -443,64 +460,6 @@ class Amazon extends Plugin
 		$rating = sprintf( "%.1f", $rating );
 		$rating_str = str_replace( '.', '-', $rating );
 		return '<img src="' . $this->star_image_url . $rating_str . '.gif" alt="' . $rating . '" />';
-	}
-}
-
-/**
- * FormControlAmazon
- */
-class FormControlAmazon
-{
-	public $name;
-	public $search_index;
-
-	/**
-	 * constructer
-	 *
-	 * @access public
-	 * @param string $name
-	 * @retrun void
-	 */
-    public function __construct()
-	{
-		$args = func_get_args();
-		list($name) = array_merge($args, array_fill(0, 1, null));
-
-		$this->name= $name;
-	}
-
-	/**
-	 * get
-	 * @access public
-	 * @return string
-	 */
-	public function get()
-	{
-		ob_start();
-?>
-<div class="container">
-<?php echo Utils::html_select('amazon-search-index', $this->search_index, null); ?>
-<input type="text" id="amazon-keywords" name="amazon-keywords" />
-<input type="button" id="amazon-search" value="<?php echo _t( 'Search' ); ?>" />
-<div id="amazon-spinner"></div>
-</div>
-<a name="amazon-result" />
-<div id="amazon-result">
-</div>
-<?php
-		$contents = ob_get_contents();
-		ob_end_clean();
-		return $contents;
-	}
-
-	/**
-	 * pre_out
-	 * @access public
-	 * @return string
-	 */
-	public function pre_out()
-	{
-		return '';
 	}
 }
 ?>
