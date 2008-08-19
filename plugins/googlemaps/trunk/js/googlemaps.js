@@ -64,6 +64,13 @@ google.setOnLoadCallback(function() {
                 map.enableScrollWheelZoom();
                 map.enableContinuousZoom();
                 map.setCenter(new google.maps.LatLng(lat, lng), parseInt(zoom));
+				if (type == 'k') {
+					map.setMapType(G_SATELLITE_MAP);
+				} else if (type == 'h') {
+					map.setMapType(G_HYBRID_MAP);
+				} else {
+					map.setMapType(G_NORMAL_MAP);
+				}
             }
         });
 	}
