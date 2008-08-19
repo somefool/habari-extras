@@ -6,7 +6,7 @@
  * @package googlemaps
  * @version $Id$
  * @author ayunyan <ayu@commun.jp>
- * @license http://opensource.org/licenses/apache2.0.php Apache License 2.0
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link http://ayu.commun.jp/habari-googlemaps
  */
 class GoogleMaps extends Plugin
@@ -26,7 +26,7 @@ class GoogleMaps extends Plugin
 			'author' => 'ayunyan',
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',
-			'description' => 'quickly insert Google Maps into your posts.',
+			'description' => 'easily/quickly insert Google Maps into your posts.',
 			);
 	}
 
@@ -56,7 +56,6 @@ class GoogleMaps extends Plugin
 
 		$api_key = Options::get('googlemaps__api_key');
 		if (empty($api_key)) return;
-//		Stack::add('template_header_javascript', 'http://maps.google.com/maps?file=api&amp;v=2&amp;key=' . $api_key);
 		Stack::add('template_header_javascript', 'http://www.google.com/jsapi?key=' . $api_key);
         Stack::add('template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery');
 		Stack::add('template_header_javascript', $this->get_url() . '/js/googlemaps.js');
@@ -176,7 +175,7 @@ class FormControlGoogleMaps
 <p>
 <input type="text" id="googlemaps_address" name="googlemaps_address" />
 <input type="button" id="googlemaps_search" value="<?php echo _t('Search'); ?>" />
-<input type="button" id="googlemaps_streetview_toggle" value="<?php echo _t('StreetView', 'googlemaps'); ?>" />
+<input type="button" id="googlemaps_streetview_toggle" value="<?php echo _t('Street View', 'googlemaps'); ?>" />
 <input type="button" id="googlemaps_insert" value="<?php echo _t('Insert Map', 'googlemaps'); ?>" />
 </p>
 <div id="googlemaps_canvas"></div>
@@ -198,76 +197,33 @@ class FormControlGoogleMaps
 		return '';
 	}
 
+	/**
+	 * validate
+	 * @access public
+	 * @return array
+	 */
 	public function validate()
 	{
 		return array();
 	}
 
+	/**
+	 * save
+	 * @access public
+	 * @return void
+	 */
 	public function save()
 	{
 	}
 
+	/**
+	 * has_user_options
+	 * @access public
+	 * @return boolean
+	 */
 	function has_user_options()
 	{
 		return false;
 	}
-}
-
-/**
- * Google Maps Format
- */
-class GoogleMapsFormat extends Format
-{
-	public static function googlemaps($content)
-	{
-		$api_key = Options::get('googlemaps__api_key');
-
-		preg_match_all("/\[googlemaps(\s(.*?))?\](.*?)\[\/googlemaps\]/", $content, $match);
-		for ($i = 0; $i < count($match[1]); $i++) {
-			$value = $match[3][$i];
-			$attrs = GoogleMapsFormat::parseAttr($match[2][$i]);
-
-			if (!isset($attrs['lat']) || !isset($attrs['lng'])) continue;
-			if (!isset($attrs['zoom'])) $attrs['zoom'] = 5;
-
-			$attrs['maptype'] = strtoupper($attrs['maptype']);
-			if ($attrs['maptype'] == 'SATELLITE') {
-				$maptype_arg = 'k';
-			} elseif ($attrs['maptype'] == 'HYBRID') {
-				$maptype_arg = 'h';
-			} else {
-				$maptype_arg = 'm';
-			}
-
-			$html = '<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;ll=' . $attrs['lat'] . ',' . $attrs['lng'] . '&amp;t=' . $maptype_arg . '&amp;z=' . $attrs['zoom'] . '&amp;output=embed&amp;key=' . $api_key . '"></iframe>';
-
-			$content = str_replace($match[0][$i], $html, $content);
-		}
-
-		return $content;
-	}
-
-	/**
-	 * parse attributes
-	 *
-	 * @param string $text
-	 * @return array
-	 * @access public
-	 */
-	public static function parseAttr($text)
-	{
-		$attrs = array();
-		preg_match_all("/([A-Za-z0-9]+)=(\"|\'|&#8221;)([^\]\"\']+)(\"|\'|&#8243;)/", $text, $match);
-		for ($i = 0; $i < count($match[1]); $i++) {
-			$attrs[$match[1][$i]] = $match[3][$i];
-		}
-		preg_match_all("/([A-Za-z0-9]+)=([^\"\'\s\]]+)/", $text, $match);
-		for ($i = 0; $i < count($match[1]); $i++) {
-			if (isset($attrs[$match[1][$i]])) continue;
-			$attrs[$match[1][$i]] = $match[2][$i];
-		}
-		return $attrs;
-	}
-
 }
 ?>

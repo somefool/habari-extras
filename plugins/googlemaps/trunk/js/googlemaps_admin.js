@@ -92,15 +92,7 @@ google.setOnLoadCallback(function() {
         insert: function() {
             var maptype;
             var maptype_arg = googleMaps.map.getCurrentMapType().getUrlArg();
-            if (maptype_arg == 'm') {
-                maptype = 'NORMAL';
-            } else if (maptype_arg == 'k') {
-                maptype = 'SATELLITE';
-            } else if (maptype_arg == 'h') {
-                maptype = 'HYBRID';
-            } else {
-                maptype = 'NORMAL';
-            }
+
             var center = googleMaps.map.getCenter();
             var link = 'http://maps.google.com/?ie=UTF8&amp;ll=' + center.lat() + ',' + center.lng() + '&amp;z=' + googleMaps.map.getZoom() + '&amp;t=' + maptype_arg;
             if (googleMaps.pano) {
