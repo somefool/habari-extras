@@ -13,7 +13,7 @@ class JWYSIWYG extends Plugin {
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.2',
+			'version' => '0.3',
 			'description' => 'Publish posts using the JWYSIWYG editor.',
 			'copyright' => '2008'
 		);
