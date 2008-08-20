@@ -85,6 +85,10 @@ class Blossom extends Theme
 		}
 		$this->delicious = $delicious_username;
 
+		// Default to hidden
+		$this->show_interests = (bool) Options::get('show_interests');
+		$this->show_other_news = (bool) Options::get('show_other_news');
+
 		parent::add_template_vars();
 	}
 
@@ -112,6 +116,12 @@ class Blossom extends Theme
 		$form->append('text', 'delicious_username', 'blossom_delicious_username', _t('Delicious Username:'));
 		$form->append( 'select', 'date_format', 'blossom_date_format', 'Date format:' );
 		$form->date_format->options = array('european' => 'European', 'american' => 'American');
+
+		$form->append('fieldset', 'show_interests_fs', 'Show "Interests"?');
+		$form->show_interests_fs->append('radio', 'show_interests', 'option:show_interests', 'Show "Interests"?', array("1" => "Yes", "0" => "No"));
+		$form->append('fieldset', 'show_other_news_fs', 'Show "Other News"?');
+		$form->show_other_news_fs->append('radio', 'show_other_news', 'option:show_other_news', 'Show "Other News"?', array("1" => "Yes", "0" => "No"));
+
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 
 		$form->set_option( 'success_message', _t( 'Configuration saved' ) );

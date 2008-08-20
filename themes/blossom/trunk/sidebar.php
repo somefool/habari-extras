@@ -15,6 +15,7 @@
 			<?php endif; ?>
 		</div>
 
+		<?php if ( $show_interests ): ?>
 		<div class="block" id="interests">
 			<!-- Will eventually be powered by the delicious plugin -->
 			<h3>Interests</h3>
@@ -22,13 +23,17 @@
 								src="http://del.icio.us/feeds/js/tags/<?php echo $delicious ?>?sort=freq;count=26;size=12-20;color=808080-ff91bc;">
 				</script>
 		</div>
+		<?php endif; ?>
 
+		<?php if ( $show_other_news ): ?>
 		<div class="block">
 			<!-- Will eventually be powered by the lifestream plugin -->
 			<h3>In Other News</h3>
 			<ul class="counts">
 				<script type="text/javascript" src="http://del.icio.us/feeds/js/<?php echo $delicious ?>?extended;count=1"></script>
 		</div>
+		<?php endif; ?>
+
 		<div class="clear"></div>
 	</div>
 </div>
