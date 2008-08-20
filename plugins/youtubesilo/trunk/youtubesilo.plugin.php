@@ -25,6 +25,16 @@ class YouTubeSilo extends Plugin implements MediaSilo
 			'copyright' => '2008',
 			);
 	}
+	
+	public function action_plugin_activation($file)
+	{
+		if (Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)){
+			$user = User::identify();
+			$user->info->youtube__width = '425';
+			$user->info->youtube__height = '355';
+			$user->info->commit();
+		}
+	}
 
 	/**
 	* Return basic information about this silo
@@ -32,7 +42,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	*/
 	public function silo_info()
 	{
-		return array('name' => self::SILO_NAME);
+		return array('name' => self::SILO_NAME, 'icon' => URL::get_from_filesystem(__FILE__) . '/icon.png');
 	}
 
 	/**
@@ -225,7 +235,10 @@ class YouTubeSilo extends Plugin implements MediaSilo
 				case _t('Configure'):
 					$form= new FormUI( strtolower( get_class( $this ) ) );
 					$form->append('text', 'username', 'user:youtube__username', 'YouTube Username:');
+					$form->append('text', 'width', 'user:youtube__width', 'Video Width:');
+					$form->append('text', 'height', 'user:youtube__height', 'Video Height:');
 					$form->append('submit', 'save', 'Save');
+					$form->set_option('success_message', _t('Options saved'));
 					$form->out();
 					break;
 			}
@@ -234,12 +247,14 @@ class YouTubeSilo extends Plugin implements MediaSilo
 
 	public function action_admin_footer( $theme ) {
 		// Add the media type 'youtube' if this is the publish page
-		// TODO test media addition
-		if ( $theme->admin_page == 'publish' ) {
+		if ( Controller::get_var('page') == 'publish' ) {
+			//TODO Use cache for the dimensions variables
+			$width = User::identify()->info->youtube__width;
+			$height = User::identify()->info->youtube__height;
 			echo <<< YOUTUBE
 			<script type="text/javascript">
-				habari.media.output.youtube = {display: function(fileindex, fileobj) {
-					habari.editor.insertSelection('<object width="425" height="355"><param name="movie" value="' + fileobj.url + '"></param><param name="wmode" value="transparent"></param><embed src="' + fileobj.url + '" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>');
+				habari.media.output.youtube = {insert: function(fileindex, fileobj) {
+					habari.editor.insertSelection('<object width="{$width}" height="{$height}"><param name="movie" value="' + fileobj.url + '"></param><param name="wmode" value="transparent"></param><embed src="' + fileobj.url + '" type="application/x-shockwave-flash" wmode="transparent" width="{$width}" height="{$height}"></embed></object>');
 				}}
 				habari.media.preview.youtube = function(fileindex, fileobj) {
 					var stats = '';
@@ -272,8 +287,7 @@ YOUTUBE;
 	public function action_update_check()
 	{
 		Update::add( 'YouTubeSilo', '59423325-783e-4d76-84aa-292e3dbf42c8',  $this->info->version );
-	}
-
+	}	
 }
 
 ?>
