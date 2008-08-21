@@ -15,7 +15,7 @@ Class RecentComments extends Plugin
 	{
 		return array(
 		'name'=>'Recent Comments',
-		'version'=>'1.3',
+		'version'=>'1.4-alpha',
 		'url'=>'http://habariproject.org/',
 		'author'=>'Habari Community',
 		'authorurl'=>'http://habariproject.org/',
