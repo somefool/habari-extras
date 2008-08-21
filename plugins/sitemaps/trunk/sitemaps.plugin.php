@@ -7,7 +7,7 @@ class Sitemaps extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'Sitemaps',
-			'version' => '0.6',
+			'version' => '0.7-alpha',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
