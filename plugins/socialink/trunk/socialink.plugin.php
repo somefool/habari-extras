@@ -47,7 +47,7 @@ class Socialink extends Plugin
 	{
 		return array(
 			'name' => 'Socialink',
-			'version' => '0.1',
+			'version' => '0.2-alpha',
 			'url' => 'http://ayu.commun.jp/habari-socialink',
 			'author' => 'ayunyan',
 			'authorurl' => 'http://ayu.commun.jp/',
