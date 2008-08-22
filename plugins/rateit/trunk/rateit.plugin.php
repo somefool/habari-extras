@@ -1,12 +1,14 @@
 <?php
-/*
-
-  Rate It!
-
-  Revision: $Id$
-  Head URL: $URL$
-
-*/
+/**
+ * Rate It!
+ * adding Star Rating to your posts.
+ *
+ * @package rateit
+ * @version $Id$
+ * @author ayunyan <ayu@commun.jp>
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link http://ayu.commun.jp/habari-rateit
+ */
 require_once('rateitlog.php');
 require_once('rateitlogs.php');
 
@@ -99,7 +101,7 @@ class RateIt extends Plugin
 		if ( $plugin_id != $this->plugin_id() ) return;
 		if ( $action == _t( 'Configure' ) ) {
 			$form= new FormUI( strtolower( get_class( $this ) ) );
-			$form->append( 'radio', 'post_pos', 'rateit__post_pos', _t('Auto Insert: ', 'rateit'), array( 'none' => 'None', 'top' => 'Top', 'bottom' => 'Bottom' ) );
+			$form->append( 'radio', 'post_pos', 'rateit__post_pos', _t('Auto Insert: ', 'rateit'), array( 'none' => _t('None', 'rateit'), 'top' => _t('Top', 'rateit'), 'bottom' => _t('Bottom', 'rateit') ) );
             $form->append( 'submit', 'save', _t( 'Save' ) );
 			$form->out();
 		}
@@ -222,7 +224,7 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 		else {
 			$html= '
 <div class="rateit" id="rateit-' . $post->id . '">
-Rate It! (Average ' . $rating . ', ' . $count . ' votes)
+' . sprintf(_t('Rate It! (Average %.2f, %d votes)', 'rateit'), $rating, $count) . '
 <div class="rateit-stars rateit-' . $stars_classes[$stars] . '">
 <ul id="rateit-list-' . $post->id . '">
   <li class="rateit-one"><a href="#" title="Poor">1</a></li>
