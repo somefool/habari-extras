@@ -47,7 +47,7 @@ class Blossom extends Theme
 		*/
 	public function add_template_vars()
 	{
-		$this->habari = Site::out_url( 'habari' );
+		$this->habari = Site::get_url( 'habari' );
 		if ( !$this->posts ) {
 			$this->posts = Posts::get( array( 'content_type' => 'entry', 'status' => Post::status('published') ) );
 		}
