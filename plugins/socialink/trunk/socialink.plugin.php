@@ -99,8 +99,8 @@ class Socialink extends Plugin
 				$ui_services[$k] = $service['name'];
 			}
 			$ui= new FormUI( strtolower( get_class( $this ) ) );
-			$link_pos = $ui->append( 'radio', 'link_pos', 'option:socialink__link_pos', _t( 'Link Position: ' ) );
-			$link_pos->options = array('top' => 'Top', 'bottom' => 'Bottom');
+			$link_pos = $ui->append( 'radio', 'link_pos', 'option:socialink__link_pos', _t( 'Auto Insert: ' ) );
+			$link_pos->options = array('none' => 'None', 'top' => 'Top', 'bottom' => 'Bottom');
 			$services= $ui->append( 'select', 'services', 'option:socialink__services', _t( 'Services: ' ), $ui_services);
 			$services->options = $ui_services;
 			$services->multiple = true;
@@ -129,19 +129,31 @@ class Socialink extends Plugin
 	 * @access public
 	 * @return string
 	 */
-	public function filter_post_content_out( $content, $post )
+	public function filter_post_content_out($content, $post)
 	{
-	   $link_pos= Options::get( 'socialink__link_pos' );
-	   if ( $link_pos == 'top' ) {
-		   $content= $this->create_link( $post ) . $content;
-	   }
-	   else {
-		   $content= $content . $this->create_link( $post );
-	   }
-	   return $content;
+		$link_pos = Options::get('socialink__link_pos');
+		if ($link_pos == 'top') {
+			$content = $this->create_link($post) . $content;
+		} elseif ($link_pos == 'bottom') {
+			$content = $content . $this->create_link($post);
+		}
+		return $content;
 	}
 
-	private function create_link( $post )
+	/**
+	 * theme: show_socialink
+	 *
+	 * @access public
+	 * @param object $theme
+	 * @param object $post
+	 * @return string
+	 */
+	public function theme_show_socialink($theme, $post)
+	{
+		return $this->create_link($post);
+	}
+
+	private function create_link($post)
 	{
 		$link = '<div class="socialink">';
 		$site_title= Options::get( 'title' );
