@@ -70,9 +70,9 @@ class RateIt extends Plugin
 	 */
 	public function action_init()
 	{
-		$this->load_text_domain( 'rateit' );
+		$this->load_text_domain('rateit');
 
-		DB::register_table( 'rateit_log' );
+		DB::register_table('rateit_log');
 	}
 
 	/**
@@ -99,7 +99,7 @@ class RateIt extends Plugin
 		if ( $plugin_id != $this->plugin_id() ) return;
 		if ( $action == _t( 'Configure' ) ) {
 			$form= new FormUI( strtolower( get_class( $this ) ) );
-			$form->append( 'radio', 'post_pos', 'rateit__post_pos', _t( 'Position: ' ), array( 'top' => 'Top', 'bottom' => 'Bottom' ) );
+			$form->append( 'radio', 'post_pos', 'rateit__post_pos', _t('Auto Insert: ', 'rateit'), array( 'none' => 'None', 'top' => 'Top', 'bottom' => 'Bottom' ) );
             $form->append( 'submit', 'save', _t( 'Save' ) );
 			$form->out();
 		}
@@ -165,16 +165,28 @@ class RateIt extends Plugin
 	 * @param object $post
 	 * @return string
 	 */
-	public function filter_post_content_out( $content, $post )
+	public function filter_post_content_out($content, $post)
 	{
-	   $post_pos= Options::get( 'rateit__post_pos' );
-	   if ( $post_pos == 'top' ) {
-		   $content=  $this->create_rating($post) . $content;
-	   }
-	   else {
-		   $content= $content .  $this->create_rating($post);
+	   $post_pos = Options::get('rateit__post_pos');
+	   if ($post_pos == 'top') {
+		   $content = $this->create_rating($post) . $content;
+	   } elseif ($post_pos == 'bottom') {
+		   $content = $content . $this->create_rating($post);
 	   }
 	   return $content;
+	}
+
+	/**
+	 * theme: show_rateit
+	 *
+	 * @access public
+	 * @param object $theme
+	 * @param object $post
+	 * @return string
+	 */
+	public function theme_show_rateit($theme, $post)
+	{
+		return $this->create_rating($post);
 	}
 
 	private function create_rating( $post )
@@ -238,27 +250,27 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 		switch ( $action ) {
 		case 'rating':
 			if ( !isset( $this->handler_vars['post_id'] ) || !ctype_digit( $this->handler_vars['post_id'] ) ) {
-				echo json_encode( array( 'error' => 1, 'message' => _t( 'Missing parameter: ' ) . 'post_id' ) );
+				echo json_encode( array( 'error' => 1, 'message' => _t('Missing parameter: ', 'rateit') . 'post_id' ) );
 				break;
 			}
 
 			if ( !isset( $this->handler_vars['rating'] ) || !ctype_digit( $this->handler_vars['rating'] ) ) {
-				echo json_encode( array( 'error' => 1, 'message' => _t( 'Missing parameter: ' ) . 'rating' ) );
+				echo json_encode( array( 'error' => 1, 'message' => _t('Missing parameter: ', 'rateit') . 'rating' ) );
 				break;
 			}
 
 
 			if ( $this->check_rated( $this->handler_vars['post_id'] ) ) {
-				echo json_encode( array( 'error' => 1, 'message' => _t( 'You have already rated this post' ) ) );
+				echo json_encode( array( 'error' => 1, 'message' => _t('You have already rated this post', 'rateit') ) );
 				break;
 			}
 
 			if ( ( $post = $this->add_rating( $this->handler_vars['post_id'], $this->handler_vars['rating'] ) ) === false ) {
-				echo json_encode( array( 'error' => 1, 'message' => _t( 'cannot rating this post' ) ) );
+				echo json_encode( array( 'error' => 1, 'message' => _t('cannot rating this post', 'rateit') ) );
 				break;
 			}
 
-			echo json_encode( array( 'error' => 0, 'message' => _t( 'Thank you for Rating' ), 'html' => $this->create_rating($post) ) );
+			echo json_encode( array( 'error' => 0, 'message' => _t('Thank you for Rating', 'rateit'), 'html' => $this->create_rating($post) ) );
 			break;
 		default:
 			break;
