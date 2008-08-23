@@ -1,11 +1,15 @@
 <?php
 /**
  * Socialink
+ * adding Social Bookmark Links to your posts.
  *
+ * @package socialink
  * @version $Id$
- * @author ayunyan
+ * @author ayunyan <ayu@commun.jp>
  * @author rickc (@535)
  * @author dmondark (@582)
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link http://ayu.commun.jp/habari-rateit
  */
 class Socialink extends Plugin
 {
@@ -13,7 +17,7 @@ class Socialink extends Plugin
 		// Global
 		'email' => array('name' => 'Email', 'url' => 'mailto:?subject=%TITLE%&body=%PERMALINK%'),
 		'digg' => array('name' => 'Digg', 'url' => 'http://digg.com/submit?phase=2&url=%PERMALINK%'),
-		'delicious' => array('name' => 'del.icio.us', 'url' => 'http://del.icio.us/post?url=%PERMALINK%'),
+		'delicious' => array('name' => 'delicious', 'url' => 'http://delicious.com/save?url=%PERMALINK%&title=%TITLE%&v=5&jump=yes'),
 		'technorati' => array('name' => 'Technorati', 'url' => 'http://technorati.com/faves?add=%PERMALINK%'),
 		'google' => array('name' => 'Google', 'url' => "javascript:(function(){var a=window,b=document,c=encodeURIComponent,d=a.open('http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=%PERMALINK%&amp;title=%TITLE%','bkmk_popup','left='+((a.screenX||a.screenLeft)+10)+',top='+((a.screenY||a.screenTop)+10)+',height=420px,width=550px,resizable=1,alwaysRaised=1');a.setTimeout(function(){d.focus()},300)})();"),
 		'yahoo' => array('name' => 'Yahoo! My Web 2.0', 'url' => 'http://myweb2.search.yahoo.com/myresults/bookmarklet?u=%PERMALINK%&amp;t=%TITLE%'),
