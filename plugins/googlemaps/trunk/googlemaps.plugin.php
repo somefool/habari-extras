@@ -42,6 +42,10 @@ class GoogleMaps extends Plugin
 		if (Plugins::id_from_file($file) != Plugins::id_from_file(__FILE__)) return;
 
 		Options::set('googlemaps__api_key', '');
+		Options::set('googlemaps__map_width', 500);
+		Options::set('googlemaps__map_height', 300);
+		Options::set('googlemaps__streetview_width', 500);
+		Options::set('googlemaps__streetview_height', 200);
 	}
 
 	/**
@@ -87,6 +91,14 @@ class GoogleMaps extends Plugin
 			$form= new FormUI( strtolower(get_class($this)));
 			$form->append('text', 'api_key', 'googlemaps__api_key', _t('API Key: ', 'googlemaps'));
             $form->append('static', 'static1', 'don\'t have API Key? <a href="http://code.google.com/apis/maps/signup.html" target="_blank">Signup!</a>');
+			$map_width = $form->append('text', 'map_width', 'googlemaps__map_width', _t('Map Width: ', 'googlemaps'));
+			$map_width->add_validator('validate_regex', '/^[0-9]+$/');
+			$map_height = $form->append('text', 'map_height', 'googlemaps__map_height', _t('Map Height: ', 'googlemaps'));
+			$map_height->add_validator('validate_regex', '/^[0-9]+$/');
+			$streetview_width = $form->append('text', 'streetview_width', 'googlemaps__streetview_width', _t('Streetview Width: ', 'googlemaps'));
+			$streetview_width->add_validator('validate_regex', '/^[0-9]+$/');
+			$streetview_height = $form->append('text', 'streetview_height', 'googlemaps__streetview_height', _t('Streetview Height: ', 'googlemaps'));
+			$streetview_height->add_validator('validate_regex', '/^[0-9]+$/');
 			$form->append('submit', 'save', _t('Save'));
 			$form->out();
 		}
@@ -107,6 +119,27 @@ class GoogleMaps extends Plugin
 		if (empty($api_key)) return;
 		Stack::add('admin_header_javascript', 'http://www.google.com/jsapi?key=' . $api_key);
 		Stack::add('admin_header_javascript', $this->get_url() . '/js/googlemaps_admin.js');
+	}
+
+	/**
+	 * action: template_header
+	 *
+	 * @access public
+	 * @param object $theme
+	 * @return void
+	 */
+	public function action_template_header($theme)
+	{
+?>
+<script type="text/javascript">
+var habari_googlemaps = {
+	map_width: <?php Options::out('googlemaps__map_width'); ?>,
+	map_height: <?php Options::out('googlemaps__map_height'); ?>,
+	streetview_width: <?php Options::out('googlemaps__streetview_width'); ?>,
+	streetview_height: <?php Options::out('googlemaps__streetview_height'); ?>
+};
+</script>
+<?php
 	}
 
 	/**
