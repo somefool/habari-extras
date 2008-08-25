@@ -1,0 +1,458 @@
+@import '/3rdparty/blueprint/lib/reset.css';
+@import '/3rdparty/blueprint/lib/typography.css';
+@import '/3rdparty/blueprint/lib/grid.css';
+@import '/3rdparty/blueprint/plugins/buttons/buttons.css';
+
+a
+{
+	text-decoration: none;
+}
+
+body
+{
+	background: #fff url( 'images/background.jpg' ) repeat;
+	background-attachment: fixed;
+	min-width: 1150px;
+	margin-top: -10px !important;
+	margin-bottom: -10px !important;
+	padding-bottom: 0px !important;
+}
+
+h1, h2, h3, h4
+{
+	font-family: Constantia, "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif;
+}
+
+blockquote
+{
+	color: #5f2b06;
+	font-size: 1.3em;
+	font-style: normal;
+	font-family: Times;
+}
+
+#book img
+{
+	padding-top: 20px;
+	background: none;
+}
+
+#content
+{
+	height: auto;
+}
+
+pre
+{
+	margin-left: 30px;
+}
+
+.center
+{
+	background: #ffe;
+	border-left: #000 solid 3px;
+	border-right: #000 solid 3px;
+	min-height: 50px;
+}
+
+.center p a, .center li a
+{
+	color: #1b0702;
+	background: #E3CFBF;
+	padding: 2px 3px;
+}
+
+.center p a:hover, .center li a:hover
+{
+	background: #b47a4a;
+	color: #fff;
+}
+
+.center h2
+{
+	color: #1b0702;
+	padding: 13px 20px 0px 20px;
+	margin-bottom: 0em;
+}
+
+.center p
+{
+	padding: 0px 20px;
+	font-size: 14px;
+}
+
+.center ul
+{
+	margin-left: 40px;
+}
+
+.center ul li
+{
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+.center p img
+{
+	margin-top: 5px;
+}
+
+.commentauthor
+{
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+.commentauthor a
+{
+	margin-bottom: -17px;
+	display: block;
+}
+
+.commentcontent
+{
+	width: 100%;
+	margin-top: 30px;
+	clear: both;
+}
+
+.comments ol
+{
+	list-style: none;
+	padding: 25px 15px 20px 15px;
+}
+
+.comments ol li
+{
+	margin-bottom: 50px;
+}
+
+.comments ol li p
+{
+	padding-top: 0px !important;
+	padding-left: 0px !important;
+}
+
+.comments ol li a
+{
+	color: #1b0702;
+	padding: 2px;
+}
+
+.comments ol li a:hover
+{
+	color: #fff;
+	background-color: #1b0702;
+}
+
+.credits
+{
+	margin-left: 223px !important;
+}
+
+.credits .navigation li
+{
+	padding-top: 0px !important;
+}
+
+.entry
+{
+	padding: 10px 20px;
+	float: left;
+	margin-bottom: -1.5em;
+}
+
+.gravatar
+{
+	position: relative;
+	z-index: 2;
+	float: left;
+	border: 1px solid #000;
+	padding: 2px;
+	margin-right: 5px;
+	clear: both;
+	background: #fff;
+}
+
+.header
+{
+	margin-left: 240px;
+	margin-bottom: -8px;
+	background: #ffe;
+	background: none;
+	height: 60px;
+}
+
+.lastblock
+{
+}
+
+.left, .right
+{
+	color: #fff;
+	text-align: left;
+	margin-right: 0px;
+	margin-left: -10px !important;
+}
+
+.right h2 img
+{
+	float: right;
+	margin: 0px;
+	padding-top: 2px;
+}
+
+.left a, .right a
+{
+	color: #fff;
+}
+
+.left h2 a, .right h2 a
+{
+	background-color: #1b0702;
+    white-space: nowrap;
+    font: normal 20px Helvetica, sans-serif;
+    letter-spacing: -1px;
+    color: #fff;
+    display: inline;
+	float: left;
+    padding: 5px 5px 3px 5px;
+   	line-height: 20px;
+	margin-top: 15px;
+	width: 68%;
+}
+
+.left .comments a, .right .comments a
+{
+	float: left;
+	clear: both;
+	width: 68%;
+	display: inline;
+	background-color: #1b0702;
+    white-space: nowrap;
+    font: normal 14px Helvetica, sans-serif;
+    letter-spacing: -1px;
+    color: #fff;
+	padding: 5px 5px 5px 5px;
+	margin-top: 0.15em;
+}
+
+.left h2 a:hover, .right h2 a:hover,
+.left .comments a:hover, .right .comments a:hover
+{
+	background-color: #ccc;
+	color: #000;
+}
+
+.navigation
+{
+	float: left;
+	margin: 25px 10px 10px 15px;
+}
+
+.navigation li
+{
+	display: inline;
+	padding: 26px;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.navigation li a
+{
+	color: #b47a4a;
+}
+
+.navigation li a:hover
+{
+	color: #fff;
+}
+
+.photos
+{
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 12px;
+	padding-right: 0px !important;
+	width: 498px !important;
+}
+
+.photos img
+{
+	border: 1px solid #000;
+	padding: 2px;
+	margin: 8px;
+}
+
+#recent-comments li
+{
+	margin-bottom: 10px;
+}
+
+.search
+{
+	font-size: 1.0em;
+	color: #aaa;
+	width: 270px;
+	padding: 2px;
+	opacity:0.40;
+	filter:alpha(opacity=40);
+}
+
+.search:hover
+{
+	opacity: 1;
+	filter:alpha(opacity=100);	
+}
+
+#searchform
+{
+	padding: 5px;
+	margin-top: 2px;
+}
+
+.searchfield
+{
+	position: fixed;
+	top: 5px;
+	left: 29px;
+}
+
+#sidesofme
+{
+	float: left;
+	margin-left: 20px;
+	margin-top: -5px;
+	margin-bottom: 15px;
+	border: 3px solid #000;
+	height: 345px;
+	width: 461px;
+}
+
+#sidesofme img
+{
+	width: 461px;
+}
+
+.sponsor
+{
+	margin-top: 40px;
+}
+
+.sponsor a
+{
+	color: #b47a4a;
+}
+
+.travel h2
+{
+	padding-left: 15px !important;
+	padding-top: 15px !important;
+	margin-bottom: -10px !important;
+}
+
+.travel h4
+{
+	margin-bottom: 0px;
+}
+
+.travel ul
+{
+	margin-top: 20px;
+}
+
+.travel ul li
+{
+	list-style: none;
+	margin-left: -10px !important;
+}
+
+.travel li p
+{
+	padding-left: 0px !important;
+	font-size: 12px !important;
+}
+
+.rank
+{
+	position: relative;
+	float: right;
+	padding-top: 2px;
+	padding-left: 5px;
+	z-index: 3;
+}
+
+.quickie
+{
+	background: #fff !important;
+}
+
+/* Courtesy of Clint Fisher, who is the man */   
+.header {
+    margin-bottom: -9px;
+    margin-left: 243px;
+    height: auto !important;
+	border-bottom: 5px solid #5f2b06;
+    border-right: 1px solid #5f2b06;
+}
+  
+.header .navigation {
+    margin-left: 0;
+    margin: 0;
+    padding: 0;
+/*    border-bottom: 5px solid #5f2b06;*/
+}  
+  
+.navigation li {
+    padding: 0;
+	padding-top: 10px;
+    border-left: 1px solid #5f2b06;
+    float: left;
+    display: inline;
+}    
+
+#center {
+/*    border-top: 5px solid #eee;*/
+ 
+}
+
+.navigation li.last {
+    border-right: 1px solid #5f2b06;
+}
+
+.navigation li a {display: block;    padding: 15px;}
+
+.navigation li a:hover {
+/*    background: #3e1e0a;
+    color: #602e0b;*/
+    /*background: #000;*/
+	background: transparent url( 'images/hover.png' ) bottom repeat-x;
+    color: #ffffee;
+}
+
+/* end contribution from Clint Fisher */
+
+/* Styles for Authentic jobs affiliate program */
+#authenticjobs 
+{
+	position: fixed;
+	top: 400px;
+	left: 70px;
+	width: 200px; 
+	margin: 1em 0; 
+	padding: 5px 10px; 
+	font: 11px normal Arial, sans-serif; 
+	line-height: 120%; 
+	background: #ffe;
+}
+  #authenticjobs a img {float: left; padding: 8px 10px 5px 0; border: 0;}
+  #authenticjobs ul {clear: left; margin: 0; padding: 0 0 0 20px;}
+  #authenticjobs ul li {padding: 2px 0;}
+
+.authentic
+{
+	padding-top: 5px;
+	height: 75px;
+}
