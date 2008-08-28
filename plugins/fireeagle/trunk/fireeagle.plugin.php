@@ -83,7 +83,7 @@ class FireEagle extends Plugin
 		if ($plugin_id != $this->plugin_id()) return;
 		if ($action == _t('Configure')) {
 			$form = new FormUI(strtolower(get_class($this)));
-            $form->on_success('on_success');
+            $form->on_success(array($this, 'on_success'));
 			$refresh_interval = $form->append('text', 'refresh_interval', 'fireeagle__refresh_interval', _t('Refresh Interval (sec): ', 'fireeagle'));
             $refresh_interval->add_validator('validate_regex', '/^[0-9]+$/');
             $form->append('submit', 'save', _t('Save'));
@@ -132,10 +132,8 @@ class FireEagle extends Plugin
 
     public function on_success($form)
     {
-		$form->save();
-
 		$params = array(
-			'name' => 'fire eagle refresh',
+			'name' => 'fireeagle:refresh',
 			'callback' => 'fireeagle_refresh',
 			'increment' => Options::get('fireeagle__refresh_interval'),
 			'description' => 'Refreshing Fire Eagle Location'
@@ -178,13 +176,15 @@ class FireEagle extends Plugin
 	{
 		$users = Users::get_all();
 		foreach ($users as $user) {
-			$location = Plugins::filter('fireeagle_user', $user->id);
+			$location = Plugins::filter('fireeagle_user', (int)$user->id);
 			if (!$location) continue;
 
-			$user->info->fireeagle_longitude = $loation->longitude;
-			$user->info->fireeagle_latitude = $loation->latitude;
+			$user->info->fireeagle_longitude = $location->longitude;
+			$user->info->fireeagle_latitude = $location->latitude;
 			$user->info->commit();
 		}
+		$result = true;
+
 		return $result;
 	}
 
