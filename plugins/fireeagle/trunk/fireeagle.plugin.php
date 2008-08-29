@@ -12,8 +12,8 @@
 require('lib/fireeagle.php');
 class FireEagle extends Plugin
 {
-    private $consumer_key = 'GKDcUJOEuDvX';
-    private $consumer_secret = 'r4MCmNPKhXbf7tRlsXu7dbsgislL6uns';
+	private $consumer_key = 'GKDcUJOEuDvX';
+	private $consumer_secret = 'r4MCmNPKhXbf7tRlsXu7dbsgislL6uns';
 	private $level_zoom_map = array(
 				0 => 16,	// exact
 				1 => 14,	// postal
@@ -95,15 +95,15 @@ class FireEagle extends Plugin
 		if ($plugin_id != $this->plugin_id()) return;
 		if ($action == _t('Configure')) {
 			$form = new FormUI(strtolower(get_class($this)));
-            $form->on_success(array($this, 'on_success'));
+			$form->on_success(array($this, 'on_success'));
 			$refresh_interval = $form->append('text', 'refresh_interval', 'fireeagle__refresh_interval', _t('Refresh Interval (sec): ', 'fireeagle'));
-            $refresh_interval->add_validator('validate_regex', '/^[0-9]+$/');
-            $form->append('submit', 'save', _t('Save'));
+			$refresh_interval->add_validator('validate_regex', '/^[0-9]+$/');
+			$form->append('submit', 'save', _t('Save'));
 			$form->out();
 		} elseif ($action == _t('Authorize', 'fireeagle')) {
 			// get request token
-            $fireeagle = new FireEagleAPI($this->consumer_key, $this->consumer_secret);
-            $token = $fireeagle->getRequestToken();
+			$fireeagle = new FireEagleAPI($this->consumer_key, $this->consumer_secret);
+			$token = $fireeagle->getRequestToken();
 
 			if (!$token || empty($token['oauth_token'])) {
 				echo 'Invalid Response';
@@ -114,17 +114,17 @@ class FireEagle extends Plugin
 			$_SESSION['fireeagle']['req_token_secret'] = $token['oauth_token_secret'];
 			$_SESSION['fireeagle']['state'] = 1;
 
-            $oauth_callback = URL::get('admin', array('page' => 'plugins', 'configure' => $plugin_id, 'configaction' => '_callback')) . '#plugin_' . $plugin_id;
-            ob_end_clean();
+			$oauth_callback = URL::get('admin', array('page' => 'plugins', 'configure' => $plugin_id, 'configaction' => '_callback')) . '#plugin_' . $plugin_id;
+			ob_end_clean();
 			header('Location: ' . $fireeagle->getAuthorizeURL($token) . '&oauth_callback=' . urlencode($oauth_callback));
-            exit;
+			exit;
 		} elseif ($action == _t('De-Authorize', 'fireeagle')) {
 			Options::set('fireeagle__access_token_' . User::identify()->id, '');
 			Options::set('fireeagle__access_token_secret_' . User::identify()->id, '');
 
 			echo 'Fire Eagle De-authorization successfully.';
 		} elseif ($action == '_callback') {
-            if (empty($_GET['oauth_token']) || $_GET['oauth_token'] != $_SESSION['fireeagle']['req_token']) {
+			if (empty($_GET['oauth_token']) || $_GET['oauth_token'] != $_SESSION['fireeagle']['req_token']) {
 				echo 'Invalid Token';
 				return;
 			}
@@ -142,12 +142,12 @@ class FireEagle extends Plugin
 			Options::set('fireeagle__access_token_secret_' . User::identify()->id, $token['oauth_token_secret']);
 
 			echo 'Fire Eagle Authorization successfully.';
-        }
+		}
 	}
 
-    public function on_success($form)
-    {
-        $form->save();
+	public function on_success($form)
+	{
+		$form->save();
 
 		$params = array(
 			'name' => 'fireeagle:refresh',
@@ -155,11 +155,11 @@ class FireEagle extends Plugin
 			'increment' => Options::get('fireeagle__refresh_interval'),
 			'description' => 'Refreshing Fire Eagle Location'
 		);
-        CronTab::delete_cronjob($params['name']);
-        CronTab::add_cron($params);
+		CronTab::delete_cronjob($params['name']);
+		CronTab::add_cron($params);
 
 		return false;
-    }
+	}
 
 	/**
 	 * action: admin_header
@@ -237,9 +237,9 @@ class FireEagle extends Plugin
 			$access_token = Options::get('fireeagle__access_token_' . User::identify()->id);
 			$access_token_secret = Options::get('fireeagle__access_token_secret_' . User::identify()->id);
 			if (empty($access_token) || empty($access_token_secret)) {
-	            $actions[] = _t('Authorize', 'fireeagle');
+				$actions[] = _t('Authorize', 'fireeagle');
 			} else {
-	            $actions[] = _t('De-Authorize', 'fireeagle');
+				$actions[] = _t('De-Authorize', 'fireeagle');
 			}
 		}
 		return $actions;
@@ -372,6 +372,6 @@ class FireEagle extends Plugin
 		Plugins::act('fireeagle_after_update', $user);
 
 		return true;
-    }
+	}
 }
 ?>
