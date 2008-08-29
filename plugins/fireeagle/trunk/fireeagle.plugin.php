@@ -33,12 +33,12 @@ class FireEagle extends Plugin
 	{
 		return array(
 			'name' => 'Fire Eagle',
-			'version' => '0.01-alpha',
+			'version' => '0.01-beta',
 			'url' => 'http://ayu.commun.jp/habari-fireeagle',
 			'author' => 'ayunyan',
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Fire Eagle for Habari',
+			'description' => 'Displays current location on your blog.',
 			'guid' => '84708e24-6de5-11dd-b14a-001b210f913f'
 			);
 	}
