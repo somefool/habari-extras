@@ -111,11 +111,16 @@ class Maintenance extends Plugin
 
 	public function filter_theme_act_display_maintenance( $handled, $theme )
 	{
+
+		header("HTTP/1.1 503 Service Unavailable");
+		header('Retry-After: 900');
+
 		if ($theme->template_exists('maintenance')) {
 			$theme->maintenance_text = Options::get( self::OPTION_NAME . '__text' );
 			$theme->display( 'maintenance' );
 		}
 		else {
+			header("HTTP/1.1 503 Service Unavailable");
 			$theme->display('header');
 			echo '<h1>' . htmlspecialchars( Options::get( self::OPTION_NAME . '__text' ), ENT_COMPAT, 'UTF-8' ) . '</h1>';
 			$theme->display('footer');
