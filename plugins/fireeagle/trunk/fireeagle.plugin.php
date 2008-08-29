@@ -170,7 +170,7 @@ class FireEagle extends Plugin
 	 */
 	public function action_admin_header($theme)
 	{
-		if ($theme->page != 1) return;
+		if ($theme->page != 1) return; // why dashboard is 1?
 		Stack::add('admin_header_javascript', $this->get_url() . '/js/admin.js');
 		Stack::add('admin_stylesheet', array($this->get_url() . '/css/admin.css', 'screen'));
 	}
@@ -270,7 +270,7 @@ class FireEagle extends Plugin
 	 */
 	public function filter_dash_module_fire_eagle($module, $module_id, $theme)
 	{
-		$module['title'] = _t('Fire Eagle', 'fireeagle');
+		$module['title'] = _t('Fire Eagle', 'fireeagle') . '<img src="' . $this->get_url() . '/img/fireeagle.png" alt= "Fire Eagle" />';
 
 		$form = new FormUI('dash_fireeagle');
 		$form->append('text', 'location', 'null:unused', _t('Location: ', 'fireeagle'));

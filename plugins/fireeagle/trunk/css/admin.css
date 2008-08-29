@@ -2,6 +2,11 @@
 	height: 25px;
 }
 
+.dashboard .module.fire-eagle-module h2 img {
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
 .dashboard .module.fire-eagle-module form {
 	padding: 0 3%;
 }
@@ -11,7 +16,7 @@
 }
 
 .dashboard .module.fire-eagle-module input[type=text] {
-	width: 280px;
+	width: 250px;
 }
 .dashboard .module.fire-eagle-module .formcontrol {
 	display: inline;
