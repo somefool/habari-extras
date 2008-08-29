@@ -24,7 +24,7 @@ Usage
 
 To configure Maintenance Mode, click on it's configure button on the admin plugins page. You will see two options.
 
-1. The text readers will see if they come to your site while it is maintenance mode. You can change this to anything you like. If you would prefer, you can also create a page named maintenance.php in your theme directory containing anything you like. If such a page is found, Maintenance Mode will display that page rather than using the text entered in the configuration options.
+1. The text readers will see if they come to your site while it is maintenance mode. You can change this to anything you like. If you would prefer, you can also create a page named maintenance.php in your theme directory containing anything you like. If such a page is found, Maintenance Mode will display that page rather than using the text entered in the configuration options. That text is also accessible from the template should you want to use it, just use echo $theme->maintenance_text within maintenance.php.
 
 2. A checkbox to put the site into maintenance mode and to take it out of maintenance mode.
 

@@ -112,6 +112,7 @@ class Maintenance extends Plugin
 	public function filter_theme_act_display_maintenance( $handled, $theme )
 	{
 		if ($theme->template_exists('maintenance')) {
+			$theme->maintenance_text = Options::get( self::OPTION_NAME . '__text' );
 			$theme->display( 'maintenance' );
 		}
 		else {
