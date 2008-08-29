@@ -46,6 +46,7 @@ class FireEagle extends Plugin
 		if (Plugins::id_from_file($file) != Plugins::id_from_file(__FILE__)) return;
 
 		Options::set('fireeagle__refresh_interval', 600);
+		Modules::add(_t('Fire Eagle', 'fireeagle'));
 	}
 
 	/**
@@ -89,6 +90,7 @@ class FireEagle extends Plugin
             $form->append('submit', 'save', _t('Save'));
 			$form->out();
 		} elseif ($action == _t('Authorize', 'fireeagle')) {
+			// get request token
             $fireeagle = new FireEagleAPI($this->consumer_key, $this->consumer_secret);
             $token = $fireeagle->getRequestToken();
 
@@ -115,6 +117,8 @@ class FireEagle extends Plugin
 				echo 'Invalid Token';
 				return;
 			}
+
+			// get access token
 			$fireeagle = new FireEagleAPI($this->consumer_key, $this->consumer_secret,
 				$_SESSION['fireeagle']['req_token'], $_SESSION['fireeagle']['req_token_secret']);
 			$token = $fireeagle->getAccessToken();
@@ -132,6 +136,8 @@ class FireEagle extends Plugin
 
     public function on_success($form)
     {
+        $form->save();
+
 		$params = array(
 			'name' => 'fireeagle:refresh',
 			'callback' => 'fireeagle_refresh',
@@ -143,6 +149,69 @@ class FireEagle extends Plugin
 
 		return false;
     }
+
+	/**
+	 * action: admin_header
+	 *
+	 * @access public
+	 * @param object $theme
+	 * @return void
+	 */
+	public function action_admin_header($theme)
+	{
+		if ($theme->page != 1) return;
+		Stack::add('admin_header_javascript', $this->get_url() . '/js/admin.js');
+		Stack::add('admin_stylesheet', array($this->get_url() . '/css/admin.css', 'screen'));
+	}
+
+	/**
+	 * action: before_act_admin_ajax
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function action_before_act_admin_ajax()
+	{
+		$handler_vars = Controller::get_handler_vars();
+		switch ($handler_vars['context']) {
+		case 'fireeagle_update':
+			$user = User::identify();
+			$access_token = Options::get('fireeagle__access_token_' . $user->id);
+			$access_token_secret = Options::get('fireeagle__access_token_secret_' . $user->id);
+			if (empty($access_token) || empty($access_token_secret)) {
+				echo json_encode(array('errorMessage' => _t('Authorize is not done!', 'fireeagle')));
+				die();
+			}
+
+			$fireeagle = new FireEagleAPI($this->consumer_key, $this->consumer_secret, $access_token, $access_token_secret);
+			try {
+				$result = $fireeagle->update(array('address' => $handler_vars['location']));
+			} catch (FireEagleException $e) {
+				echo json_encode(array('errorMessage' => $e->getMessage()));
+				die();
+			}
+			if (!is_object($result) || $result->stat != 'ok') {
+				echo json_encode(array('errorMessage' => _t('Update failed.', 'fireeagle')));
+				die();
+			}
+
+			// refresh location
+			if (!$this->update((int)$user->id)) {
+				echo json_encode(array('errorMessage' => _t('Update failed.', 'fireeagle')));
+				die();
+			}
+
+			$location = '';
+			if (isset($user->info->fireeagle_location)) {
+				$location = $user->info->fireeagle_location;
+			}
+
+			echo json_encode(array('location' => $location, 'message' => sprintf(_t('Your present place was updated to "%s".', 'fireeagle'), $location)));
+			die();
+		default:
+			break;
+		}
+	}
 
 	/**
 	 * filter: plugin_config
@@ -166,6 +235,47 @@ class FireEagle extends Plugin
 	}
 
 	/**
+	 * filter: dash_modules
+	 *
+	 * @access public
+	 * @param array $modules
+	 * @return array
+	 */
+	public function filter_dash_modules($modules)
+	{
+		$modules[] = _t('Fire Eagle', 'fireeagle');
+		$this->add_template('dash_fireeagle', dirname(__FILE__) . '/dash_fireeagle.php');
+		return $modules;
+	}
+
+	/**
+	 * filter: dash_module_fire_eagle
+	 *
+	 * @access public
+	 * @param array $module
+	 * @param string $module_id
+	 * @param object $theme
+	 * @return array
+	 */
+	public function filter_dash_module_fire_eagle($module, $module_id, $theme)
+	{
+		$module['title'] = _t('Fire Eagle', 'fireeagle');
+
+		$form = new FormUI('dash_fireeagle');
+		$form->append('text', 'location', 'null:unused', _t('Location: ', 'fireeagle'));
+		$user = User::identify();
+		if (isset($user->info->fireeagle_location)) {
+			$form->location->value = $user->info->fireeagle_location;
+		}
+		$form->append('submit', 'submit', _t('Update', 'fireeagle'));
+		$form->properties['onsubmit'] = 'fireeagle.update(); return false;';
+		$theme->fireeagle_form = $form->get();
+
+		$module['content'] = $theme->fetch('dash_fireeagle');
+		return $module;
+	}
+
+	/**
 	 * filter: fireeagle_refresh
 	 *
 	 * @access public
@@ -176,12 +286,8 @@ class FireEagle extends Plugin
 	{
 		$users = Users::get_all();
 		foreach ($users as $user) {
-			$location = Plugins::filter('fireeagle_user', (int)$user->id);
+			$location = $this->update((int)$user->id);
 			if (!$location) continue;
-
-			$user->info->fireeagle_longitude = $location->longitude;
-			$user->info->fireeagle_latitude = $location->latitude;
-			$user->info->commit();
 		}
 		$result = true;
 
@@ -189,13 +295,13 @@ class FireEagle extends Plugin
 	}
 
 	/**
-	 * filter: fireeagle_user
+	 * refresh location
 	 *
-	 * @access public
+	 * @access private
 	 * @param mixed $who user ID, username, or e-mail address
-	 * @return mixed
+	 * @return boolean
 	 */
-	public function filter_fireeagle_user($who)
+	private function update($who)
 	{
 		$user = User::get($who);
 		if (!$user) return false;
@@ -207,10 +313,24 @@ class FireEagle extends Plugin
 		$fireeagle = new FireEagleAPI($this->consumer_key, $this->consumer_secret, $access_token, $access_token_secret);
 		try {
 			$result = $fireeagle->user();
-			return $result->user->best_guess;
 		} catch (FireEagleException $e) {
 			return false;
 		}
+
+		if (!isset($result->user->best_guess)) return false;
+		$location = $result->user->best_guess;
+
+		$user->info->fireeagle_longitude = $location->longitude;
+		$user->info->fireeagle_latitude = $location->latitude;
+		if (isset($location->name)) {
+			$user->info->fireeagle_location = $location->name;
+		} else {
+			$user->info->fireeagle_location = '';
+		}
+		$user->info->commit();
+		Plugins::act('fireeagle_after_update', $location);
+
+		return true;
     }
 }
 ?>
