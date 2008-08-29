@@ -27,6 +27,7 @@ class GoogleMaps extends Plugin
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',
 			'description' => 'easily/quickly insert Google Maps into your posts.',
+			'guid' => '14c8414f-6cdf-11dd-b14a-001b210f913f'
 			);
 	}
 
@@ -73,7 +74,7 @@ class GoogleMaps extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add('Google Maps', '14c8414f-6cdf-11dd-b14a-001b210f913f', $this->info->version);
+		Update::add('Google Maps', $this->info->guid, $this->info->version);
 	}
 
 	/**

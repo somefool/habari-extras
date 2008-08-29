@@ -44,12 +44,39 @@ google.setOnLoadCallback(function() {
                 cblng = cbll_r[3];
             }
 
+			var width = 0;
+			var height = 0;
+			var _size_r = query.match(/(\?|&amp;|&)_size=(\d+)x(\d+)/);
+			if (_size_r) {
+				width = _size_r[2];
+				height = _size_r[3];
+			}
+
+			var controls = '';
+			var _controls_r = query.match(/(\?|&amp;|&)_controls=(none)/);
+            if (_controls_r) {
+                controls = _controls_r[2];
+            }
+
+			var markers = [];
+			var _markers_r = query.match(/(\?|&amp;|&)_markers=([\d\-\.\,\|]+)/);
+			if (_markers_r) {
+				$.each(_markers_r[2].split('|'), function(k, marker) {
+					marker = marker.split(',');
+					markers.push(new google.maps.LatLng(marker[0], marker[1]));
+				});
+			}
+
             canvas = $('<div class="googlemaps-canvas"></div>');
             $(this).replaceWith(canvas);
 
             if (layer == 'c') {
-				canvas.width(habari_googlemaps.streetview_width);
-				canvas.height(habari_googlemaps.streetview_height);
+				if (width == 0 || height == 0) {
+					width = habari_googlemaps.streetview_width;
+					height = habari_googlemaps.streetview_height;
+				}
+				canvas.width(width);
+				canvas.height(height);
                 var pov = { yaw: cbp[1], pitch: cbp[4], zoom: cbp[3] };
                 options = { latlng: new google.maps.LatLng(cblat, cblng), pov: pov };
                 pano = new google.maps.StreetviewPanorama(canvas.get(0), options);
@@ -60,9 +87,15 @@ google.setOnLoadCallback(function() {
                     }
                 });
             } else {
-                map = new google.maps.Map2(canvas.get(0), {size: new GSize(habari_googlemaps.map_width, habari_googlemaps.map_height)});
-                map.addControl(new google.maps.MapTypeControl());
-                map.addControl(new google.maps.LargeMapControl());
+				if (width == 0 || height == 0) {
+					width = habari_googlemaps.map_width;
+					height = habari_googlemaps.map_height;
+				}
+                map = new google.maps.Map2(canvas.get(0), {size: new GSize(width, height)});
+                if (controls != 'none') {
+	                map.addControl(new google.maps.MapTypeControl());
+                    map.addControl(new google.maps.LargeMapControl());
+                }
                 map.enableScrollWheelZoom();
                 map.enableContinuousZoom();
                 map.setCenter(new google.maps.LatLng(lat, lng), parseInt(zoom));
@@ -73,6 +106,10 @@ google.setOnLoadCallback(function() {
 				} else {
 					map.setMapType(G_NORMAL_MAP);
 				}
+
+				$.each(markers, function(k, marker) {
+					map.addOverlay(new google.maps.Marker(marker));
+				});
             }
         });
 	}
