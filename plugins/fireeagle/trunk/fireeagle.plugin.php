@@ -14,6 +14,14 @@ class FireEagle extends Plugin
 {
     private $consumer_key = 'GKDcUJOEuDvX';
     private $consumer_secret = 'r4MCmNPKhXbf7tRlsXu7dbsgislL6uns';
+	private $level_zoom_map = array(
+				0 => 16,	// exact
+				1 => 14,	// postal
+				3 => 11,	// city
+				4 => 8, 	// region
+				5 => 5, 	// state
+				6 => 2, 	// country
+	);
 
 	/**
 	 * plugin information
@@ -31,6 +39,7 @@ class FireEagle extends Plugin
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',
 			'description' => 'Fire Eagle for Habari',
+			'guid' => '84708e24-6de5-11dd-b14a-001b210f913f'
 			);
 	}
 
@@ -45,7 +54,7 @@ class FireEagle extends Plugin
 	{
 		if (Plugins::id_from_file($file) != Plugins::id_from_file(__FILE__)) return;
 
-		Options::set('fireeagle__refresh_interval', 600);
+		Options::set('fireeagle__refresh_interval', 3600);
 		Modules::add(_t('Fire Eagle', 'fireeagle'));
 	}
 
@@ -58,6 +67,8 @@ class FireEagle extends Plugin
 	public function action_init()
 	{
 		$this->load_text_domain('fireeagle');
+
+		$this->add_template('fireeagle', dirname(__FILE__) . '/templates/fireeagle.php');
 	}
 
 	/**
@@ -68,7 +79,7 @@ class FireEagle extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add('Fire Eagle', '84708e24-6de5-11dd-b14a-001b210f913f', $this->info->version);
+		Update::add('Fire Eagle', $this->info->guid, $this->info->version);
 	}
 
 	/**
@@ -295,6 +306,35 @@ class FireEagle extends Plugin
 	}
 
 	/**
+	 * theme: show_fireeagle
+	 *
+	 * @access public
+	 * @param object $theme
+	 * @param mixed $who user ID, username, or e-mail address
+	 * @return string
+	 */
+	public function theme_show_fireeagle($theme, $who)
+	{
+		$user = User::get($who);
+		if (!$user) return '';
+
+		$theme->fireeagle_longitude = $user->info->fireeagle_longitude;
+		$theme->fireeagle_latitude = $user->info->fireeagle_latitude;
+		$theme->fireeagle_level = $user->info->fireeagle_level;
+
+		if (isset($user->info->fireeagle_location)) {
+			$theme->fireeagle_location = $user->info->fireeagle_location;
+		}
+
+		$theme->zoom = 1;
+		if (isset($this->level_zoom_map[$user->info->fireeagle_level])) {
+			$theme->zoom = $this->level_zoom_map[$user->info->fireeagle_level];
+		}
+
+		return $theme->fetch('fireeagle');
+	}
+
+	/**
 	 * refresh location
 	 *
 	 * @access private
@@ -322,13 +362,14 @@ class FireEagle extends Plugin
 
 		$user->info->fireeagle_longitude = $location->longitude;
 		$user->info->fireeagle_latitude = $location->latitude;
+		$user->info->fireeagle_level = $location->level;
 		if (isset($location->name)) {
 			$user->info->fireeagle_location = $location->name;
 		} else {
 			$user->info->fireeagle_location = '';
 		}
 		$user->info->commit();
-		Plugins::act('fireeagle_after_update', $location);
+		Plugins::act('fireeagle_after_update', $user);
 
 		return true;
     }
