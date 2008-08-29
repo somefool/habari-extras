@@ -120,7 +120,6 @@ class Maintenance extends Plugin
 			$theme->display( 'maintenance' );
 		}
 		else {
-			header("HTTP/1.1 503 Service Unavailable");
 			$theme->display('header');
 			echo '<h1>' . htmlspecialchars( Options::get( self::OPTION_NAME . '__text' ), ENT_COMPAT, 'UTF-8' ) . '</h1>';
 			$theme->display('footer');
