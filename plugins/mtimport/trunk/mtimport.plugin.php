@@ -59,7 +59,17 @@ class MTImport extends Plugin implements Importer
 	public function filter_import_names($import_names)
 	{
 		return array_merge($import_names, $this->supported_importers);
+	}
 
+	/**
+	 * action: update_check
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function action_update_check()
+	{
+		Update::add('Movable Type Importer', $this->info->guid, $this->info->version);
 	}
 
 	/**
