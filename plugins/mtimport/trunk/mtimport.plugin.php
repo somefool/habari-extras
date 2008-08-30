@@ -455,7 +455,7 @@ $('#import_progress').load(
 
 		$commentcount= $mtdb->get_value("SELECT count(comment_id) FROM {$db_prefix}comment WHERE comment_blog_id = '{$blog_id}';");
 		$min = $commentindex * MT_IMPORT_BATCH + 1;
-		$max = min( ( $commentindex + 1 ) * MT_IMPORT_BATCH, $commentcount );
+		$max = min(($commentindex + 1) * MT_IMPORT_BATCH, $commentcount);
 
 		echo sprintf(_t('<p>Importing comments %d-%d of %d.</p>'), $min, $max, $commentcount);
 
@@ -474,28 +474,35 @@ $('#import_progress').load(
 			comment_created_on AS date,
 			comment_visible AS status,
 			comment_entry_id AS mt_post_id,
+			comment_id,
 			comment_junk_status
 			FROM {$db_prefix}comment
 			WHERE comment_blog_id = '{$blog_id}'
 			LIMIT {$min}," . MT_IMPORT_BATCH, array(), 'Comment');
 
+		$comment_map = DB::get_column("SELECT value FROM " . DB::table('commentinfo') . " WHERE name='mt_comment_id';");
+
 		@reset($comments);
 		while (list(, $comment) = @each($comments)) {
-			$comment->type= Comment::COMMENT;
+			// already exists skipped
+			if(in_array($comment->comment_id, $comment_map)) continue;
+
+			$comment->type = Comment::COMMENT;
 
 			$carray = $comment->to_array();
 			if ($carray['ip'] == '') {
-				$carray['ip']= 0;
+				$carray['ip'] = 0;
 			}
 
 			if ($carray['status'] == 1) {
-				$carray['status']= Comment::STATUS_APPROVED;
+				$carray['status'] = Comment::STATUS_APPROVED;
 			} elseif ($carray['comment_junk_status'] != 0) {
-				$carray['status']= Comment::STATUS_SPAM;
+				$carray['status'] = Comment::STATUS_SPAM;
 			} else {
-				$carray['status']= Comment::STATUS_UNAPPROVED;
+				$carray['status'] = Comment::STATUS_UNAPPROVED;
 			}
 			unset($carray['comment_junk_status']);
+
 
 			if (!isset($post_map[$carray['mt_post_id']] ) ) {
 				Utils::debug( $carray );
@@ -503,8 +510,11 @@ $('#import_progress').load(
 				$carray['post_id']= $post_map[$carray['mt_post_id']];
 				unset( $carray['mt_post_id'] );
 
-				$c= new Comment( $carray );
-				//Utils::debug( $c );
+				$comment_id = $carray['comment_id'];
+				unset($carray['comment_id']);
+
+				$c = new Comment( $carray );
+				$c->info->mt_comment_id = $comment_id;
 				try{
 					$c->insert();
 				} catch( Exception $e ) {
@@ -579,13 +589,19 @@ $( '#import_progress' ).load(
 			trackback_description AS content,
 			trackback_created_on AS date,
 			trackback_entry_id AS mt_post_id,
+			trackback_id,
 			trackback_is_disabled
 			FROM {$db_prefix}trackback
 			WHERE trackback_blog_id = '{$blog_id}'
 			LIMIT {$min}," . MT_IMPORT_BATCH, array(), 'Comment');
 
+		$comment_map = DB::get_column("SELECT value FROM " . DB::table('commentinfo') . " WHERE name='mt_trackback_id';");
+
 		@reset($trackbacks);
 		while (list(, $trackback) = @each($trackback)) {
+			// already exists skipped
+			if(in_array($trackback->trackback_id, $comment_map)) continue;
+
 			$trackback->type= Comment::TRACKBACK;
 
 			$carray = $trackback->to_array();
@@ -604,8 +620,11 @@ $( '#import_progress' ).load(
 				$carray['post_id']= $post_map[$carray['wp_post_id']];
 				unset( $carray['mt_post_id'] );
 
-				$c= new Comment( $carray );
-				//Utils::debug( $c );
+				$trackback_id = $carray['trackback_id'];
+				unset($carray['trackback_id']);
+
+				$c = new Comment( $carray );
+				$c->info->mt_trackback_id = $trackback_id;
 				try{
 					$c->insert();
 				} catch( Exception $e ) {
