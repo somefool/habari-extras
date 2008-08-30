@@ -625,7 +625,7 @@ $( '#import_progress' ).load(
 ?>
 <script type="text/javascript">
 $( '#import_progress' ).load(
-	"{$ajax_url}",
+	"<?php echo $ajax_url; ?>",
 	{
 	db_host: "<?php echo htmlspecialchars($db_host); ?>",
 	db_name: "<?php echo htmlspecialchars($db_name); ?>",
