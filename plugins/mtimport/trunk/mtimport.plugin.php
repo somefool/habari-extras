@@ -441,7 +441,7 @@ $('#import_progress').load(
 			return;
 		}
 
-		$commentcount= $mtdb->get_value("SELECT count(comment_id) FROM {$db_prefix}comments WHERE comment_blog_id = '{$blog_id}';");
+		$commentcount= $mtdb->get_value("SELECT count(comment_id) FROM {$db_prefix}comment WHERE comment_blog_id = '{$blog_id}';");
 		$min = $commentindex * MT_IMPORT_BATCH + 1;
 		$max = min( ( $commentindex + 1 ) * MT_IMPORT_BATCH, $commentcount );
 
@@ -548,7 +548,7 @@ $( '#import_progress' ).load(
 			return;
 		}
 
-		$tackbackcount= $mtdb->get_value("SELECT count(tackback_id) FROM {$db_prefix}tackbacks WHERE tackback_blog_id = '{$blog_id}';");
+		$tackbackcount= $mtdb->get_value("SELECT count(tackback_id) FROM {$db_prefix}tackback WHERE tackback_blog_id = '{$blog_id}';");
 		$min = $tackbackindex * MT_IMPORT_BATCH + 1;
 		$max = min( ( $tackbackindex + 1 ) * MT_IMPORT_BATCH, $tackbackcount );
 
