@@ -1,12 +1,15 @@
 <?php
 /**
- * MovableType Importer
+ * Movable Type Importer
+ * Import Movable Type Database
  *
  * @package mtimport
  * @version $Id$
  * @author ayunyan <ayu@commun.jp>
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link http://habariproject.org/
+ *
+ * Tested with Movable Type Ver 4.12 (MySQL)
  */
 define('MT_IMPORT_BATCH', 100);
 class MTImport extends Plugin implements Importer
@@ -22,7 +25,7 @@ class MTImport extends Plugin implements Importer
 	public function info()
 	{
 		return array(
-			'name' => 'MovableType Importer',
+			'name' => 'Movable Type Importer',
 			'version' => '0.01-alpha',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
@@ -62,6 +65,7 @@ class MTImport extends Plugin implements Importer
 	/**
 	 * Plugin filter that supplies the UI for the MT importer
 	 *
+	 * @access public
 	 * @param string $stageoutput The output stage UI
 	 * @param string $import_name The name of the selected importer
 	 * @param string $stage The stage of the import in progress
@@ -102,9 +106,7 @@ class MTImport extends Plugin implements Importer
 			'db_user' => '',
 			'db_pass' => '',
 			'db_prefix' => 'mt_',
-			'warning' => '',
-			'category_import' => 1,
-			'utw_import' => 0,
+			'warning' => ''
 		 );
 		$inputs= array_merge( $default_values, $inputs );
 		extract( $inputs );
@@ -140,7 +142,7 @@ class MTImport extends Plugin implements Importer
 	 */
 	private function stage_2($inputs)
 	{
-		$valid_fields= array( 'db_name','db_host','db_user','db_pass','db_prefix', 'category_import', 'utw_import' );
+		$valid_fields= array('db_name','db_host','db_user','db_pass','db_prefix');
 		$inputs= array_intersect_key($_POST, array_flip($valid_fields));
 		extract($inputs);
 
@@ -155,12 +157,12 @@ class MTImport extends Plugin implements Importer
 <p><?php echo _t('Please specify Blog which imports:', 'mtimport'); ?></p>
 <table>
 	<tr><td><?php echo _t('Import Blog', 'mtimport'); ?></td><td>
-    <select name="blog_id" size="1">
-    <?php while (list(, $blog) = @each($blogs)): ?>
-      <option value="<?php echo $blog->blog_id; ?>"><?php echo htmlspecialchars($blog->blog_name); ?></option>
-    <?php endwhile; ?>
-    </select>
-    </td></tr>
+	<select name="blog_id" size="1">
+	<?php while (list(, $blog) = @each($blogs)): ?>
+	  <option value="<?php echo $blog->blog_id; ?>"><?php echo htmlspecialchars($blog->blog_name); ?></option>
+	<?php endwhile; ?>
+	</select>
+	</td></tr>
 </table>
 <input type="hidden" name="stage" value="3">
 <?php while (list($key, $value) = @each($inputs)): ?>
@@ -340,7 +342,7 @@ $( document ).ready( function(){
 			FROM {$db_prefix}entry
 			LEFT JOIN {$db_prefix}category ON entry_category_id = category_id
 			WHERE entry_blog_id = '{$blog_id}'
-            ORDER BY id DESC LIMIT {$min}," . MT_IMPORT_BATCH . ';',
+			ORDER BY id DESC LIMIT {$min}," . MT_IMPORT_BATCH . ';',
 			array(), 'Post');
 
 		$post_map = DB::get_column("SELECT value FROM " . DB::table('postinfo') . " WHERE name='mt_id';");
@@ -447,7 +449,7 @@ $('#import_progress').load(
 
 		echo sprintf(_t('<p>Importing comments %d-%d of %d.</p>'), $min, $max, $commentcount);
 
-		$post_info= DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mp_id';");
+		$post_info= DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mt_id';");
 		@reset($post_info);
 		while (list(, $info) = @each($post_info)) {
 			$post_map[$info->value]= $info->post_id;
@@ -483,6 +485,7 @@ $('#import_progress').load(
 			} else {
 				$carray['status']= Comment::STATUS_UNAPPROVED;
 			}
+			unset($carray['comment_junk_status']);
 
 			if (!isset($post_map[$carray['mt_post_id']] ) ) {
 				Utils::debug( $carray );
@@ -554,7 +557,7 @@ $( '#import_progress' ).load(
 
 		echo sprintf(_t('<p>Importing trackbacks %d-%d of %d.</p>'), $min, $max, $trackbackcount);
 
-		$post_info= DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mp_id';");
+		$post_info= DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mt_id';");
 		@reset($post_info);
 		while (list(, $info) = @each($post_info)) {
 			$post_map[$info->value]= $info->post_id;
@@ -583,6 +586,7 @@ $( '#import_progress' ).load(
 			} else {
 				$carray['status']= Comment::STATUS_UNAPPROVED;
 			}
+			unset($carray['trackback_is_disabled']);
 
 			if (!isset($post_map[$carray['mt_post_id']] ) ) {
 				Utils::debug( $carray );
