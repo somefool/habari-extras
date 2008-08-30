@@ -530,15 +530,15 @@ $( '#import_progress' ).load(
 	}
 
 	/**
-	 * The plugin sink for the auth_ajax_mt_import_tackbacks hook.
+	 * The plugin sink for the auth_ajax_mt_import_trackbacks hook.
 	 * Responds via authenticated ajax to requests for comment importing.
 	 *
 	 * @access public
 	 * @param AjaxHandler $handler The handler that handled the request, contains $_POST info
 	 */
-	public function action_auth_ajax_mt_import_tackbacks($handler)
+	public function action_auth_ajax_mt_import_trackbacks($handler)
 	{
-		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'tackbackindex');
+		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'trackbackindex');
 		$inputs= array_intersect_key( $_POST, array_flip( $valid_fields ) );
 		extract( $inputs );
 		$mtdb= $this->mt_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
@@ -548,11 +548,11 @@ $( '#import_progress' ).load(
 			return;
 		}
 
-		$tackbackcount= $mtdb->get_value("SELECT count(tackback_id) FROM {$db_prefix}tackback WHERE tackback_blog_id = '{$blog_id}';");
-		$min = $tackbackindex * MT_IMPORT_BATCH + 1;
-		$max = min( ( $tackbackindex + 1 ) * MT_IMPORT_BATCH, $tackbackcount );
+		$trackbackcount= $mtdb->get_value("SELECT count(trackback_id) FROM {$db_prefix}trackback WHERE trackback_blog_id = '{$blog_id}';");
+		$min = $trackbackindex * MT_IMPORT_BATCH + 1;
+		$max = min( ( $trackbackindex + 1 ) * MT_IMPORT_BATCH, $trackbackcount );
 
-		echo sprintf(_t('<p>Importing tackbacks %d-%d of %d.</p>'), $min, $max, $tackbackcount);
+		echo sprintf(_t('<p>Importing trackbacks %d-%d of %d.</p>'), $min, $max, $trackbackcount);
 
 		$post_info= DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mp_id';");
 		@reset($post_info);
@@ -560,7 +560,7 @@ $( '#import_progress' ).load(
 			$post_map[$info->value]= $info->post_id;
 		}
 
-		$tackbacks = $mtdb->get_results("SELECT
+		$trackbacks = $mtdb->get_results("SELECT
 			trackback_title AS name,
 			trackback_url AS url,
 			trackback_description AS content,
@@ -619,6 +619,7 @@ $( '#import_progress' ).load(
 				}
 				echo '</ul>';
 			}
+			return;
 		}
 
 ?>
