@@ -20,13 +20,14 @@ class PhotozouSilo extends Plugin implements MediaSilo
 	function info()
 	{
 		return array(
-		  'name' => 'Photozou Silo',
-		  'version' => '0.02-alpha',
-		  'url' => 'http://ayu.commun.jp/',
-		  'author' => 'ayunyan',
-		  'authorurl' => 'http://ayu.commun.jp/',
-		  'license' => 'Apache License 2.0',
-		  'description' => 'Photozou silo (http://photozou.jp/)',
+			'name' => 'Photozou Silo',
+			'version' => '0.02-alpha',
+			'url' => 'http://ayu.commun.jp/',
+			'author' => 'ayunyan',
+			'authorurl' => 'http://ayu.commun.jp/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Photozou silo (http://photozou.jp/)',
+			'guid' => 'a290a808-1fc2-11dd-b5d6-001b210f913f'
 		);
 	}
 
@@ -52,7 +53,7 @@ class PhotozouSilo extends Plugin implements MediaSilo
 	 */
 	public function action_update_check()
 	{
-		Update::add('Photozou Silo', 'a290a808-1fc2-11dd-b5d6-001b210f913f', $this->info->version);
+		Update::add('Photozou Silo', $this->info->guid, $this->info->version);
 	}
 
 	/**
@@ -121,7 +122,8 @@ habari.media.output.photozou = {
 		$photozou = new PhotozouAPI(Options::get('photozousilo__username'), Options::get('photozousilo__password'));
 		if ( $photozou->nop() ) {
 			return array(
-				'name' => self::SILO_NAME
+				'name' => self::SILO_NAME,
+				'icon' => $this->get_url() . '/img/icon.png'
 				);
 		} else {
 			Session::error(_t('Photozou Silo: Authencation Error', 'photozousilo'));
