@@ -104,6 +104,28 @@ class LockdownPlugin extends Plugin
 		Session::notice('To maintain the integrity of the demo, plugins can\'t be deactivated.', 'lockdown_plugin');
 		return false;
 	}
+	
+	/**
+	 * Prevent certain published content from causing problems.
+	 **/	  		
+	function filter_post_content( $content )
+	{
+		$newcontent = InputFilter::filter($content);
+		if($content != $newcontent) {
+			Session::notice('Certain content is filtered from posts to maintain the integrity of the demo.', 'lockdown_plugin');
+		}
+		return $newcontent;
+	}
+	
+	/**
+	 * Filter title, slug, and tags fields for HTML content
+	 **/	 	
+	function action_publish_post( $post, $form )
+	{
+		$post->title = htmlentities($post->title);
+		$post->slug = urlencode($post->slug);
+		$post->tags = htmlentities($form->tags);
+	}
 
 }
 
