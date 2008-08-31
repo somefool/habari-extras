@@ -67,6 +67,8 @@ class LockdownPlugin extends Plugin
 	function filter_option_set_value( $value, $name, $oldvalue )
 	{
 		switch($name) {
+			case 'theme_dir':
+			case 'theme_name':
 			case 'cron_running':
 				return $value;
 				break;
