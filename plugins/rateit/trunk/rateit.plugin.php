@@ -32,6 +32,7 @@ class RateIt extends Plugin
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',
 			'description' => 'adding Star Rating to your posts.',
+			'guid' => '5ffe55ac-2773-11dd-b5d6-001b210f913f'
 			);
 	}
 
@@ -61,7 +62,8 @@ class RateIt extends Plugin
 			// TODO: upgrade_db
 		}
 
-		Options::set( 'rateit__post_pos', 'bottom' );
+		Options::set('rateit__post_pos', 'bottom');
+		Modules::add(_t('Highest Rated Entries', 'rateit'));
 	}
 
 	/**
@@ -85,7 +87,7 @@ class RateIt extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add( 'Rate It!', '5ffe55ac-2773-11dd-b5d6-001b210f913f', $this->info->version );
+		Update::add('Rate It!', $this->info->guid, $this->info->version);
 	}
 
 	/**
@@ -133,6 +135,39 @@ class RateIt extends Plugin
 			$actions[]= _t( 'Configure' );
 		}
 		return $actions;
+	}
+
+	/**
+	 * filter: dash_modules
+	 *
+	 * @access public
+	 * @param array $modules
+	 * @return array
+	 */
+	public function filter_dash_modules($modules)
+	{
+		$modules[] = _t('Highest Rated Entries', 'rateit');
+		$this->add_template('dash_highest_rated_entries', dirname(__FILE__) . '/dash_highest_rated_entries.php');
+		return $modules;
+	}
+
+	/**
+	 * filter: dash_module_highest_rated_entries
+	 *
+	 * @access public
+	 * @param array $module
+	 * @param string $module_id
+	 * @param object $theme
+	 * @return array
+	 */
+	public function filter_dash_module_highest_rated_entries($module, $module_id, $theme)
+	{
+		$module['title'] = _t('Highest Rated Entries', 'rateit');
+
+        $theme->highest_rated_posts = DB::get_results('SELECT * FROM {posts} LEFT JOIN {postinfo} ON {posts}.id = {postinfo}.post_id WHERE {postinfo}.name = \'rateit_rating\' ORDER BY {postinfo}.value DESC LIMIT 0,5;', array(), 'Post');
+
+		$module['content'] = $theme->fetch('dash_highest_rated_entries');
+		return $module;
 	}
 
 	/**
@@ -287,8 +322,9 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 		$log= new RateItLog( array( 'post_id' => $post_id, 'rating' => $rating, 'ip' => $_SERVER['REMOTE_ADDR'] ) );
 		if ( !$log->insert() ) return false;
 
-		$post->info->rateit_total+= $rating;
-		$post->info->rateit_count+= 1;
+		$post->info->rateit_total += $rating;
+		$post->info->rateit_count += 1;
+		$post->info->rateit_rating = $post->info->rateit_total / $post->info->rateit_count;
 		$post->info->commit();
 
 		return $post;
@@ -304,6 +340,12 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 		return true;
 	}
 
+	/**
+	 * create table
+	 *
+	 * @access private
+	 * @return boolean
+	 */
 	private function install_db()
 	{
 		DB::register_table( 'rateit_log' );
