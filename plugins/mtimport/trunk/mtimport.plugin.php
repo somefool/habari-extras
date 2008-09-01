@@ -11,10 +11,10 @@
  *
  * Tested with Movable Type Ver 4.12 (MySQL)
  */
-define('MT_IMPORT_BATCH', 100);
 class MTImport extends Plugin implements Importer
 {
-	private $supported_importers = array();
+	private $supported_importers;
+	private $import_batch = 100;
 
 	/**
 	 * plugin information
@@ -46,7 +46,10 @@ class MTImport extends Plugin implements Importer
 	{
 		$this->load_text_domain('mtimport');
 
-		$this->supported_importers = array(_t('Movable Type Database' ));
+		$this->supported_importers = array();
+		$this->supported_importers['mysql'] = _t('Movable Type Database (MySQL)', 'mtimport');
+		$this->supported_importers['backup'] = _t('Movable Type Backup File', 'mtimport');
+		$this->supported_importers['export'] = _t('Movable Type Export File', 'mtimport');
 	}
 
 	/**
@@ -84,31 +87,30 @@ class MTImport extends Plugin implements Importer
 	 */
 	public function filter_import_stage($stageoutput, $import_name, $stage, $step)
 	{
-		// Only act on this filter if the import_name is one we handle...
-		if( !in_array( $import_name, $this->supported_importers ) ) {
-			// Must return $stageoutput as it may contain the stage HTML of another importer
+		if (($importer = array_search($import_name, $this->supported_importers)) === false) {
 			return $stageoutput;
 		}
 
-		$inputs = array();
 
-		$stage_method = 'stage_' . $stage;
+		if (empty($stage)) $stage = 1;
+
+		$stage_method = $importer . '_stage_' . $stage;
 		if (!method_exists($this, $stage_method)) {
-			$stage_method = 'stage_1';
+			return sprintf(_t('Unknown Stage: %s', 'mtimport'), $stage);
 		}
 
-		$output = $this->$stage_method($inputs);
+		$output = $this->$stage_method(array());
 
 		return $output;
 	}
 
 	/**
-	 * Create the UI for first stage of the MT import process
+	 * first stage of Movable Type (MySQL) import process
 	 *
 	 * @access private
 	 * @return string The UI for the first stage of the import process
 	 */
-	private function stage_1($inputs)
+	private function mysql_stage_1($inputs)
 	{
 		$default_values= array(
 			'db_name' => '',
@@ -120,14 +122,13 @@ class MTImport extends Plugin implements Importer
 		 );
 		$inputs= array_merge( $default_values, $inputs );
 		extract( $inputs );
-		if( $warning != '' ) {
-			$warning= "<p class=\"warning\">{$warning}</p>";
-		}
 
 		ob_start();
 ?>
 <p><?php echo _t('Habari will attempt to import from a Movable Type Database.', 'mtimport'); ?></p>
-<?php echo $warning; ?>
+<?php if (!empty($warning)): ?>
+<p class="warning"><?php echo htmlspecialchars($warning); ?></p>
+<?php endif; ?>
 <p><?php echo _t('Please provide the connection details for an existing Movable Type database:', 'mtimport'); ?></p>
 <table>
 	<tr><td><?php echo _t('Database Name', 'mtimport'); ?></td><td><input type="text" name="db_name" value="<?php echo htmlspecialchars($db_name); ?>"></td></tr>
@@ -145,12 +146,12 @@ class MTImport extends Plugin implements Importer
 	}
 
 	/**
-	 * Create the UI for second stage of the MT import process
+	 * second stage of Movable Type (MySQL) import process
 	 *
 	 * @access private
 	 * @return string The UI for the first stage of the import process
 	 */
-	private function stage_2($inputs)
+	private function mysql_stage_2($inputs)
 	{
 		$valid_fields= array('db_name','db_host','db_user','db_pass','db_prefix');
 		$inputs= array_intersect_key($_POST, array_flip($valid_fields));
@@ -186,12 +187,12 @@ class MTImport extends Plugin implements Importer
 	}
 
 	/**
-	 * Create the UI for third stage of the MT import process
+	 * third stage of Movable Type (MySQL) import process
 	 *
 	 * @access private
 	 * @return string The UI for the first stage of the import process
 	 */
-	private function stage_3($inputs)
+	private function mysql_stage_3($inputs)
 	{
 		$valid_fields= array('db_name','db_host','db_user','db_pass','db_prefix', 'blog_id');
 		$inputs= array_intersect_key($_POST, array_flip($valid_fields));
@@ -202,7 +203,7 @@ class MTImport extends Plugin implements Importer
 			return $this->stage_1($inputs);
 		}
 
-		$ajax_url= URL::get('auth_ajax', array('context' => 'mt_import_users'));
+		$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_users'));
 		EventLog::log(sprintf(_t('Starting import from "%s"'), $db_name));
 		Options::set('import_errors', array());
 
@@ -241,7 +242,7 @@ $(document).ready(function(){
 	 * @param mixed $handler
 	 * @return
 	 */
-	public function action_auth_ajax_mt_import_users($handler)
+	public function action_auth_ajax_mt_mysql_import_users($handler)
 	{
 		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix','userindex', 'blog_id');
 		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields));
@@ -280,7 +281,7 @@ $(document).ready(function(){
 			}
 		}
 
-		$ajax_url= URL::get('auth_ajax', array('context' => 'mt_import_posts'));
+		$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_posts'));
 ?>
 <script type="text/javascript">
 // A lot of ajax stuff goes here.
@@ -309,7 +310,7 @@ $( document ).ready( function(){
 	 * @access public
 	 * @param AjaxHandler $handler The handler that handled the request, contains $_POST info
 	 */
-	public function action_auth_ajax_mt_import_posts($handler)
+	public function action_auth_ajax_mt_mysql_import_posts($handler)
 	{
 		$valid_fields= array('db_name','db_host','db_user','db_pass','db_prefix','postindex', 'blog_id');
 		$inputs= array_intersect_key( $_POST, array_flip( $valid_fields ) );
@@ -323,8 +324,8 @@ $( document ).ready( function(){
 		}
 
 		$postcount = $mtdb->get_value("SELECT count(entry_id) FROM {$db_prefix}entry WHERE entry_blog_id = '{$blog_id}';");
-		$min= $postindex * MT_IMPORT_BATCH + ($postindex == 0 ? 0 : 1);
-		$max= min( ( $postindex + 1 ) * MT_IMPORT_BATCH, $postcount );
+		$min= $postindex * $this->import_batch + ($postindex == 0 ? 0 : 1);
+		$max= min( ( $postindex + 1 ) * $this->import_batch, $postcount );
 
 		$user_map = array();
 		$userinfo= DB::get_results('SELECT user_id, value FROM ' . DB::table('userinfo') . ' WHERE name = "mt_id";');
@@ -352,7 +353,7 @@ $( document ).ready( function(){
 			FROM {$db_prefix}entry
 			LEFT JOIN {$db_prefix}category ON entry_category_id = category_id
 			WHERE entry_blog_id = '{$blog_id}'
-			ORDER BY id DESC LIMIT {$min}," . MT_IMPORT_BATCH . ';',
+			ORDER BY id DESC LIMIT {$min}," . $this->import_batch . ';',
 			array(), 'Post');
 
 		$post_map = DB::get_column("SELECT value FROM " . DB::table('postinfo') . " WHERE name='mt_id';");
@@ -410,10 +411,10 @@ $( document ).ready( function(){
 		}
 
 		if($max < $postcount) {
-			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_import_posts'));
+			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_posts'));
 			$postindex++;
 		} else {
-			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_import_comments'));
+			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_comments'));
 		}
 ?>
 <script type="text/javascript">
@@ -441,7 +442,7 @@ $('#import_progress').load(
 	 * @access public
 	 * @param AjaxHandler $handler The handler that handled the request, contains $_POST info
 	 */
-	public function action_auth_ajax_mt_import_comments($handler)
+	public function action_auth_ajax_mt_mysql_import_comments($handler)
 	{
 		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'commentindex');
 		$inputs= array_intersect_key( $_POST, array_flip( $valid_fields ) );
@@ -454,8 +455,8 @@ $('#import_progress').load(
 		}
 
 		$commentcount= $mtdb->get_value("SELECT count(comment_id) FROM {$db_prefix}comment WHERE comment_blog_id = '{$blog_id}';");
-		$min = $commentindex * MT_IMPORT_BATCH + 1;
-		$max = min(($commentindex + 1) * MT_IMPORT_BATCH, $commentcount);
+		$min = $commentindex * $this->import_batch + 1;
+		$max = min(($commentindex + 1) * $this->import_batch, $commentcount);
 
 		echo sprintf(_t('<p>Importing comments %d-%d of %d.</p>'), $min, $max, $commentcount);
 
@@ -478,7 +479,7 @@ $('#import_progress').load(
 			comment_junk_status
 			FROM {$db_prefix}comment
 			WHERE comment_blog_id = '{$blog_id}'
-			LIMIT {$min}," . MT_IMPORT_BATCH, array(), 'Comment');
+			LIMIT {$min}," . $this->import_batch, array(), 'Comment');
 
 		$comment_map = DB::get_column("SELECT value FROM " . DB::table('commentinfo') . " WHERE name='mt_comment_id';");
 
@@ -527,10 +528,10 @@ $('#import_progress').load(
 		}
 
 		if( $max < $commentcount ) {
-			$ajax_url= URL::get('auth_ajax', array( 'context' => 'mt_import_comments'));
+			$ajax_url= URL::get('auth_ajax', array( 'context' => 'mt_mysql_import_comments'));
 			$commentindex++;
 		} else {
-			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_import_trackbacks'));
+			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_trackbacks'));
 		}
 
 ?>
@@ -559,7 +560,7 @@ $( '#import_progress' ).load(
 	 * @access public
 	 * @param AjaxHandler $handler The handler that handled the request, contains $_POST info
 	 */
-	public function action_auth_ajax_mt_import_trackbacks($handler)
+	public function action_auth_ajax_mt_mysql_import_trackbacks($handler)
 	{
 		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'trackbackindex');
 		$inputs= array_intersect_key( $_POST, array_flip( $valid_fields ) );
@@ -572,8 +573,8 @@ $( '#import_progress' ).load(
 		}
 
 		$trackbackcount= $mtdb->get_value("SELECT count(trackback_id) FROM {$db_prefix}trackback WHERE trackback_blog_id = '{$blog_id}';");
-		$min = $trackbackindex * MT_IMPORT_BATCH + 1;
-		$max = min( ( $trackbackindex + 1 ) * MT_IMPORT_BATCH, $trackbackcount );
+		$min = $trackbackindex * $this->import_batch + 1;
+		$max = min( ( $trackbackindex + 1 ) * $this->import_batch, $trackbackcount );
 
 		echo sprintf(_t('<p>Importing trackbacks %d-%d of %d.</p>'), $min, $max, $trackbackcount);
 
@@ -593,7 +594,7 @@ $( '#import_progress' ).load(
 			trackback_is_disabled
 			FROM {$db_prefix}trackback
 			WHERE trackback_blog_id = '{$blog_id}'
-			LIMIT {$min}," . MT_IMPORT_BATCH, array(), 'Comment');
+			LIMIT {$min}," . $this->import_batch, array(), 'Comment');
 
 		$comment_map = DB::get_column("SELECT value FROM " . DB::table('commentinfo') . " WHERE name='mt_trackback_id';");
 
@@ -637,7 +638,7 @@ $( '#import_progress' ).load(
 		}
 
 		if($max < $trackbackcount) {
-			$ajax_url= URL::get('auth_ajax', array( 'context' => 'mt_import_trackbacks'));
+			$ajax_url= URL::get('auth_ajax', array( 'context' => 'mt_mysql_import_trackbacks'));
 			$trackbackindex++;
 		} else {
 			EventLog::log('Import complete from "'. $db_name .'"');
@@ -671,6 +672,43 @@ $( '#import_progress' ).load(
 );
 </script>
 <?php
+	}
+
+	/**
+	 * first stage of Movable Type Backup File import process
+	 *
+	 * @access private
+	 * @return string The UI for the first stage of the import process
+	 */
+	private function backup_stage_1($inputs)
+	{
+		$default_values= array(
+			'db_name' => '',
+			'db_host' => 'localhost',
+			'db_user' => '',
+			'db_pass' => '',
+			'db_prefix' => 'mt_',
+			'warning' => ''
+		 );
+		$inputs= array_merge( $default_values, $inputs );
+		extract($inputs);
+
+		ob_start();
+?>
+<p><?php echo _t('Habari will attempt to import from a Movable Type Backup File.', 'mtimport'); ?></p>
+<?php if (!empty($warning)): ?>
+<p class="warning"><?php echo htmlspecialchars($warning); ?></p>
+<?php endif; ?>
+<p><?php echo _t('Please provide the connection details for an existing Movable Type database:', 'mtimport'); ?></p>
+<table>
+	<tr><td><?php echo _t('Backup File', 'mtimport'); ?></td><td><input type="text" name="db_name" value="<?php echo htmlspecialchars($db_name); ?>"></td></tr>
+</table>
+<input type="hidden" name="stage" value="2">
+<p class="submit"><input type="submit" name="import" value="<?php echo _t('Next', 'mtimport'); ?>" /></p>
+<?php
+		$output = ob_get_contents();
+		ob_end_clean();
+		return $output;
 	}
 
 	/**
