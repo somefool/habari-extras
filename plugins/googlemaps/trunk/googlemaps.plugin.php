@@ -114,8 +114,7 @@ class GoogleMaps extends Plugin
 	 */
 	public function action_admin_header( $theme )
 	{
-		$handler_vars = Controller::get_handler_vars();
-		if (!isset($handler_vars['page']) || $handler_vars['page'] != 'publish') return;
+		if ($theme->page != 'publish') return;
 		$api_key = Options::get('googlemaps__api_key');
 		if (empty($api_key)) return;
 		Stack::add('admin_header_javascript', 'http://www.google.com/jsapi?key=' . $api_key);
