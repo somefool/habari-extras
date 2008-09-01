@@ -9,7 +9,7 @@
  * @author rickc (@535)
  * @author dmondark (@582)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
- * @link http://ayu.commun.jp/habari-rateit
+ * @link http://ayu.commun.jp/habari-socialink
  */
 class Socialink extends Plugin
 {
