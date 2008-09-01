@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: rateit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 03:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: rateit/rateit.plugin.php:58
+msgid "Rate It!: can't create table."
+msgstr ""
+
+#: rateit/rateit.plugin.php:66 rateit/rateit.plugin.php:149
+#: rateit/rateit.plugin.php:165
+msgid "Highest Rated Entries"
+msgstr ""
+
+#: rateit/rateit.plugin.php:104 rateit/rateit.plugin.php:135
+msgid "Configure"
+msgstr ""
+
+#: rateit/rateit.plugin.php:106
+msgid "Auto Insert: "
+msgstr ""
+
+#: rateit/rateit.plugin.php:106
+msgid "None"
+msgstr ""
+
+#: rateit/rateit.plugin.php:106
+msgid "Top"
+msgstr ""
+
+#: rateit/rateit.plugin.php:106
+msgid "Bottom"
+msgstr ""
+
+#: rateit/rateit.plugin.php:107
+msgid "Save"
+msgstr ""
+
+#: rateit/rateit.plugin.php:262
+#, php-format
+msgid "Rate It! (Average %.2f, %d votes)"
+msgstr ""
+
+#: rateit/rateit.plugin.php:290 rateit/rateit.plugin.php:295
+msgid "Missing parameter: "
+msgstr ""
+
+#: rateit/rateit.plugin.php:301
+msgid "You have already rated this post"
+msgstr ""
+
+#: rateit/rateit.plugin.php:306
+msgid "cannot rating this post"
+msgstr ""
+
+#: rateit/rateit.plugin.php:310
+msgid "Thank you for Rating"
+msgstr ""
+
+#: rateit/dash_highest_rated_entries.php:4
+#, php-format
+msgid "Posted at %1$s"
+msgstr ""
+
+#: rateit/dash_highest_rated_entries.php:5
+msgid "by"
+msgstr ""
