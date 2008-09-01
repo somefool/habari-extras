@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: fireeagle\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 03:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: fireeagle/fireeagle.plugin.php:58 fireeagle/fireeagle.plugin.php:257
+#: fireeagle/fireeagle.plugin.php:273
+msgid "Fire Eagle"
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:96 fireeagle/fireeagle.plugin.php:236
+msgid "Configure"
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:99
+msgid "Refresh Interval (sec): "
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:101
+msgid "Save"
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:103 fireeagle/fireeagle.plugin.php:240
+msgid "Authorize"
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:121 fireeagle/fireeagle.plugin.php:242
+msgid "De-Authorize"
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:193
+msgid "Authorize is not done!"
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:205 fireeagle/fireeagle.plugin.php:211
+msgid "Update failed."
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:220
+#, php-format
+msgid "Your present place was updated to \"%s\"."
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:276
+msgid "Location: "
+msgstr ""
+
+#: fireeagle/fireeagle.plugin.php:281
+msgid "Update"
+msgstr ""
+
+#: fireeagle/templates/fireeagle.php:3
+msgid "Location"
+msgstr ""
+
+#: fireeagle/templates/fireeagle.php:4
+#, php-format
+msgid "I'm at %s."
+msgstr ""
