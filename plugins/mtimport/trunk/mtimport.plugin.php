@@ -48,8 +48,6 @@ class MTImport extends Plugin implements Importer
 
 		$this->supported_importers = array();
 		$this->supported_importers['mysql'] = _t('Movable Type Database (MySQL)', 'mtimport');
-		$this->supported_importers['backup'] = _t('Movable Type Backup File', 'mtimport');
-		$this->supported_importers['export'] = _t('Movable Type Export File', 'mtimport');
 	}
 
 	/**
@@ -672,43 +670,6 @@ $( '#import_progress' ).load(
 );
 </script>
 <?php
-	}
-
-	/**
-	 * first stage of Movable Type Backup File import process
-	 *
-	 * @access private
-	 * @return string The UI for the first stage of the import process
-	 */
-	private function backup_stage_1($inputs)
-	{
-		$default_values= array(
-			'db_name' => '',
-			'db_host' => 'localhost',
-			'db_user' => '',
-			'db_pass' => '',
-			'db_prefix' => 'mt_',
-			'warning' => ''
-		 );
-		$inputs= array_merge( $default_values, $inputs );
-		extract($inputs);
-
-		ob_start();
-?>
-<p><?php echo _t('Habari will attempt to import from a Movable Type Backup File.', 'mtimport'); ?></p>
-<?php if (!empty($warning)): ?>
-<p class="warning"><?php echo htmlspecialchars($warning); ?></p>
-<?php endif; ?>
-<p><?php echo _t('Please provide the connection details for an existing Movable Type database:', 'mtimport'); ?></p>
-<table>
-	<tr><td><?php echo _t('Backup File', 'mtimport'); ?></td><td><input type="text" name="db_name" value="<?php echo htmlspecialchars($db_name); ?>"></td></tr>
-</table>
-<input type="hidden" name="stage" value="2">
-<p class="submit"><input type="submit" name="import" value="<?php echo _t('Next', 'mtimport'); ?>" /></p>
-<?php
-		$output = ob_get_contents();
-		ob_end_clean();
-		return $output;
 	}
 
 	/**
