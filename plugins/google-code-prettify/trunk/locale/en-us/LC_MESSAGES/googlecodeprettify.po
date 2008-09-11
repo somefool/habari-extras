@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 07:35+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\google-code-prettify\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\google-code-prettify/google-code-prettify.plugin.php:73
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\google-code-prettify/google-code-prettify.plugin.php:88
+msgid "Configure"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\google-code-prettify/google-code-prettify.plugin.php:90
+msgid "Color Scheme"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\google-code-prettify/google-code-prettify.plugin.php:92
+msgid "Save"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\google-code-prettify/google-code-prettify.plugin.php:93
+msgid "Options saved"
+msgstr ""
+
