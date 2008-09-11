@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 07:35+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\freshcomments\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.php:8
+#, php-format
+msgid "%1$d comment"
+msgid_plural "%1$d comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.php:11
+#, php-format
+msgid "Posted at %1$s"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:60
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:75
+msgid "Configure"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:78
+msgid "General"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:80
+msgid "&#8470; of Posts"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:84
+msgid "&#8470; of Comments"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:88
+msgid "Show Trackbacks"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:90
+msgid "Show Pingbacks"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:92
+msgid "Fade-out"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:94
+msgid "Fade-out Older Comment"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:96
+msgid "Fading Speed (bigger is slower)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:100
+msgid "Newest Color"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:104
+msgid "Oldest Color"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:108
+msgid "Save"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:109
+msgid "Options saved"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:119
+msgid "This field must be positive integer."
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:127
+msgid "This field must be an HTML color hex code."
+msgstr ""
+
