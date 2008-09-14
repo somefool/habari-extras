@@ -156,12 +156,12 @@ class Lipsum extends Plugin
 			'status' => Post::status('published'),
 			'content_type' => Post::type('entry'),
 			'tags' => 'lipsum',
-			'pubdate' => date('Y-m-d H:i:s', $time++),
+			'pubdate' => HabariDateTime::date_create( $time++ ),
 		));
 		$post->info->lipsum = true;
 		$post->info->commit();
 
-		$addcomments = rand(0,6);
+		$addcomments = mt_rand(0,6);
 		for($q = 0; $q < $addcomments; $q++) {
 			$comment = Comment::create(array(
 				'post_id' => $post->id,
@@ -170,7 +170,7 @@ class Lipsum extends Plugin
 				'content' => $this->get_content(1, 2, 'none', array(), 'cat'),
 				'status' => Comment::STATUS_APPROVED,
 				'type' => Comment::COMMENT,
-				'date' => date('Y-m-d H:i:s', $time++),
+				'date' => HabariDateTime::date_create( $time++ ),
 			));
 			$comment->info->lipsum = true;
 			$comment->info->commit();
