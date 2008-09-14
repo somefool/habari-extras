@@ -24,7 +24,7 @@ class Jaiku extends Plugin
 	{
 		return array(
 			'name' => 'Jaiku',
-			'version' => '0.4',
+			'version' => '0.5-pre',
 			'url' => 'http://blog.bcse.info/jaiku-plugin-for-habari',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',

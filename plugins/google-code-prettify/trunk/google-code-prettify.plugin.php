@@ -17,7 +17,7 @@ class GoogleCodePrettify extends Plugin
 	{
 		return array(
 			'name' => 'Google Code Prettify',
-			'version' => '0.2',
+			'version' => '0.3-pre',
 			'url' => 'http://blog.bcse.info/',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',

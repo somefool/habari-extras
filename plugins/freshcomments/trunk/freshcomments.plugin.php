@@ -30,7 +30,7 @@ class FreshComments extends Plugin
 	{
 		return array(
 			'name' => 'Fresh Comments',
-			'version' => '0.1',
+			'version' => '0.2-pre',
 			'url' => 'http://blog.bcse.info/freshcomments-plugin-for-habari',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',

@@ -45,7 +45,7 @@
 <?php 			} ?>
 						<?php _e('on', 'demorgan'); ?>
 						<a class="comment-permalink" href="<?php echo $post->permalink; ?>#comment-<?php echo $comment->id; ?>" title="<?php _e('Permanent Link to this comment', 'demorgan'); ?>" rel="bookmark">
-							<abbr class="comment-date published" title="<?php echo $comment->date_iso; ?>"><?php echo $comment->date_out; ?><?php if ($comment->status === Comment::STATUS_UNAPPROVED) { ?> <em><?php _e('In moderation', 'demorgan'); ?></em><?php } ?></abbr>
+							<abbr class="comment-date published" title="<?php echo $comment->date->out(HabariDateTime::ISO8601); ?>"><?php echo $comment->date->out('F j, Y ‒ g:i a'); ?><?php if ($comment->status === Comment::STATUS_UNAPPROVED) { ?> <em><?php _e('In moderation', 'demorgan'); ?></em><?php } ?></abbr>
 						</a>
 					</div>
 				</li>

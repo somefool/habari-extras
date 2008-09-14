@@ -25,7 +25,7 @@ class FlickrFeed extends Plugin
 	{
 		return array(
 			'name' => 'FlickrFeed',
-			'version' => '0.3',
+			'version' => '0.4-pre',
 			'url' => 'http://blog.bcse.info/flickrfeed-plugin-for-habari',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',

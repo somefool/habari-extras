@@ -11,7 +11,7 @@ class AtomThreading extends Plugin
 	{
 		return array(
 			'name' => 'Atom Threading Extensions',
-			'version' => '0.1',
+			'version' => '0.2-pre',
 			'url' => 'http://blog.bcse.info/',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
@@ -43,7 +43,7 @@ class AtomThreading extends Plugin
 		$link->addAttribute('href', URL::get('atom_feed_entry_comments', array('slug' => $post->slug)));
 		$link->addAttribute('thr:count', $post->comments->approved->count, 'http://purl.org/syndication/thread/1.0');
 		if ($post->comments->approved->count > 0)
-			$link->addAttribute('thr:updated', date('c', strtotime(end($post->comments->approved)->date)), 'http://purl.org/syndication/thread/1.0');
+			$link->addAttribute('thr:updated', HabariDateTime::date_create(end($post->comments->approved)->date)->get(HabariDateTime::ATOM), 'http://purl.org/syndication/thread/1.0');
 		$xml->addChild('thr:total', $post->comments->approved->count, 'http://purl.org/syndication/thread/1.0');
 	}
 

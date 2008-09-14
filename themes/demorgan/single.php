@@ -3,7 +3,7 @@
 	<div id="content" class="hfeed">
 		<div id="entry-<?php echo $post->slug; ?>" class="hentry entry <?php echo $post->statusname , ' ' , $post->tags_class; ?>">
 			<div class="entry-head">
-				<div class="entry-date"><abbr class="published" title="<?php echo $post->pubdate_iso; ?>"><?php echo $post->pubdate_out; ?></abbr></div>
+				<div class="entry-date"><abbr class="published" title="<?php echo $post->pubdate->out(HabariDateTime::ISO8601); ?>"><?php echo $post->pubdate->out('Y • m • d'); ?></abbr></div>
 				<br class="clear" />
 				<h1 class="entry-title"><a href="<?php echo $post->permalink; ?>" title="<?php echo strip_tags($post->title); ?>" rel="bookmark"><?php echo $post->title_out; ?></a></h1>
 				<br class="clear" />

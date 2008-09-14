@@ -5,8 +5,8 @@
 			<div class="entry-head">
 				<h1 class="entry-title"><a href="<?php echo $post->permalink; ?>" title="<?php echo strip_tags($post->title); ?>" rel="bookmark"><?php echo $post->title_out; ?></a></h1>
 				<ul class="entry-meta">
-					<li class="entry-date"><abbr class="published" title="<?php echo $post->pubdate_iso; ?>"><?php echo $post->pubdate_out; ?></abbr></li>
-					<li class="entry-time"><abbr class="published" title="<?php echo $post->pubdate_iso; ?>"><?php echo $post->pubdate_time; ?></abbr></li>
+					<li class="entry-date"><abbr class="published" title="<?php echo $post->pubdate->out(HabariDateTime::ISO8601); ?>"><?php echo $post->pubdate->out('F j, Y'); ?></abbr></li>
+					<li class="entry-time"><abbr class="published" title="<?php echo $post->pubdate->out(HabariDateTime::ISO8601); ?>"><?php echo $post->pubdate->out('g:i a'); ?></abbr></li>
 					<li class="comments-link"><a href="<?php echo $post->permalink; ?>#comments" title="<?php _e('Comments to this post', 'binadamu') ?>"><?php printf(_n('%1$d Comment', '%1$d Comments', $post->comments->approved->count, 'binadamu'), $post->comments->approved->count); ?></a></li>
 <?php if (is_array($post->tags)) { ?>
 					<li class="entry-tags"><?php echo $post->tags_out; ?></li>
