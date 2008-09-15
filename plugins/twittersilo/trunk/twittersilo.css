@@ -1,0 +1,12 @@
+.twitter-tweet {
+    width: 60%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tweet-text {
+    border: 1px dotted black;
+}
+.tweet-author {
+    text-align: right;
+}
