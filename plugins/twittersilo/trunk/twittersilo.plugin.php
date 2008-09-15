@@ -117,14 +117,13 @@ class TwitterSilo extends Plugin implements MediaSilo
 	public function action_admin_footer( $theme ) {
 
 		if ( Controller::get_var( 'page' ) == 'publish' ) {
-			?>
-			<script type="text/javascript">
-				function inject_tweet(text, url, user) {
-					habari.editor.insertSelection('<!-- TWEET --><div class="twitter-tweet"><div class="tweet-text">' + text + '</div><div class="tweet-author"><a href="' + url + '">' + user + '</a></div></div><!-- /TWEET -->');
+			?><script type="text/javascript">
+				function inject_tweet(text, url, user, img) {
+					habari.editor.insertSelection('<!-- TWEET --><div class="twitter-tweet"><div class="tweet-text"><a href="' + url + '"><img src="' + img + '" class="tweet-image" /></a>' + text + '</div><div class="tweet-author"><a href="' + url + '">' + user + '</a></div></div><!-- /TWEET -->');
 				}
-				$('.media_controls').css('display', 'none');
+				//$('.media_controls').css('display', 'none');
 				habari.media.output.twittertweet = {'Insert': function(fileindex, fileobj) {
-					inject_tweet(fileobj.tweet_text, fileobj.url, fileobj.tweet_user);
+					inject_tweet(fileobj.tweet_text, fileobj.url, fileobj.tweet_user, fileobj.tweet_user_img);
 				}}
 				habari.media.preview.twittertweet = function(fileindex, fileobj) {
 					return '<div class="mediatitle"><a href="' + fileobj.url + '" target="_new" class="medialink">media</a>' + fileobj.tweet_user_screen_name + '</div>' + fileobj.tweet_text_short;
@@ -132,15 +131,14 @@ class TwitterSilo extends Plugin implements MediaSilo
 				habari.media.output.twittertweetcustom = {'Insert': function(fileindex, fileobj) {
 					$.get("/auth_ajax/tweetcustom?tweet=" + escape($('#tweetcustom').val()), function( data ){
 						if (data) {
-							inject_tweet(data.text, 'http://twitter.com/statuses/' + escape(data.user.screen_name) + '/' + escape(data.id), data.user.screen_name);
+							inject_tweet(data.text, 'http://twitter.com/statuses/' + escape(data.user.screen_name) + '/' + escape(data.id), data.user.screen_name, data.user.profile_image_url);
 						}
 					}, {}, 'json' );
 				}}
 				habari.media.preview.twittertweetcustom = function(fileindex, fileobj) {
 					return '<div class="mediatitle">CUSTOM</div>Tweet ID/URL: <input id="tweetcustom" type="text" />';
 				}
-			</script>
-			<?php
+			</script><?php
 		}
 	}
 	
@@ -188,6 +186,7 @@ class TwitterSilo extends Plugin implements MediaSilo
 					'tweet_id' => $obj->id,
 					'url' => 'http://twitter.com/' . $obj->user->screen_name . '/statuses/' . $obj->id,
 					'tweet_user' => (string) $obj->user->name,
+					'tweet_user_img' => (string) $obj->user->profile_image_url,
 					'tweet_user_screen_name' => (string) $obj->user->screen_name,
 					'tweet_text_short' => substr( $obj->text, 0, 20 ) . ( strlen( $obj->text ) > 20 ? '...' : '' ),
 					'tweet_text' => (string) $obj->text,
