@@ -131,7 +131,7 @@ class TwitterSilo extends Plugin implements MediaSilo
 				habari.media.output.twittertweetcustom = {'Insert': function(fileindex, fileobj) {
 					$.get("/auth_ajax/tweetcustom?tweet=" + escape($('#tweetcustom').val()), function( data ){
 						if (data) {
-							inject_tweet(data.text, 'http://twitter.com/statuses/' + escape(data.user.screen_name) + '/' + escape(data.id), data.user.screen_name, data.user.profile_image_url);
+							inject_tweet(data.text, 'http://twitter.com/' + escape(data.user.screen_name) + '/statuses/' + escape(data.id), data.user.screen_name, data.user.profile_image_url);
 						}
 					}, {}, 'json' );
 				}}
