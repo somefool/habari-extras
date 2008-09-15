@@ -10,14 +10,15 @@
 /**
  * All plugins must extend the Plugin class to be recognized.
  */
-class Gravatar extends Plugin {
-
+class Gravatar extends Plugin
+{
 	/**
 	 * Required method for all plugins.
 	 *
 	 * @return array Various informations about this plugin.
 	 */
-	public function info() {
+	public function info()
+	{
 		return array(
 			'name' => 'Gravatar',
 			'version' => '0.5-1.3',
@@ -44,7 +45,8 @@ class Gravatar extends Plugin {
 	 * @param object $comment The Comment object to build a Gravatar URL from.
 	 * @return string URL to the author's Gravatar.
 	 */
-	public function theme_gravatar( $theme, $comment ) {
+	public function theme_gravatar( $theme, $comment )
+	{
 		// The Gravar ID is an hexadecimal md5 hash of the author's e-mail address.
 		$query_arguments = array( 'gravatar_id' => md5( $comment->email ) );
 		// Retrieve the Gravatar options.
@@ -73,7 +75,8 @@ class Gravatar extends Plugin {
 	 * @param string $plugin_id A unique plugin ID, it needs to match ours.
 	 * @return array Original array with our added menu.
 	 */
-	public function filter_plugin_config( $actions, $plugin_id ) {
+	public function filter_plugin_config( $actions, $plugin_id )
+	{
 		if ( $plugin_id == $this->plugin_id ) {
 			$actions[] = 'Configure';
 		}
@@ -88,7 +91,8 @@ class Gravatar extends Plugin {
 	 * @param string $plugin_id A unique plugin ID, it needs to match ours.
 	 * @param string $action The menu item the user clicked.
 	 */
-	public function action_plugin_ui( $plugin_id, $action ) {
+	public function action_plugin_ui( $plugin_id, $action )
+	{
 		if ( $plugin_id == $this->plugin_id ) {
 			switch ( $action ) {
 				case 'Configure':
