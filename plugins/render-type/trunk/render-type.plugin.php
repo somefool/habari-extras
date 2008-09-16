@@ -1,15 +1,15 @@
 <?php
- 
+
   /**
    * RenderType Plugin Class
-   * 
+   *
    * This plugin adds a formatter called 'render_type' which templates can use
    * to render text, such as titles, as images in a chosen font using the data:
    * URI scheme. It requires ImageMagick and the PHP Imagick library. (It will
    * not work with GD.)
    *
    * Here is a minimal example of how you might use Render Type in
-   * action_init_theme in your theme.php (see the documentation for 
+   * action_init_theme in your theme.php (see the documentation for
    * filter_render_type below for more details):
    *
    * Format::apply( 'render_type', 'post_title_out', '/path/to/font.ttf', 28, 'black' );
@@ -41,7 +41,7 @@
    **/
 
 require_once 'render-type-formatter.php';
- 
+
 class RenderTypePlugin extends Plugin
 {
   const VERSION='0.5';
@@ -87,45 +87,60 @@ class RenderTypePlugin extends Plugin
    **/
 
   public function filter_render_type ( $content,
-				       $font_file, 
+				       $font_file,
 				       $font_size = 28,
 				       $font_color = 'black',
-				       $background_color = 'transparent',
+				       $background_color = '#00000000',
 				       $output_format = 'png' )
   {
-    
+
     $cache_group = strtolower( get_class( $this ) );
     $cache_key = $font_file
       . $font_size
       . $font_color
       . $background_color
-      . $output_format 
+      . $output_format
       . $content;
 
-    if ( Cache::has( array ( $cache_group, $cache_key ) ) ) {
-      $html_out = Cache::get( array ( $cache_group, $cache_key ) );
-    } else {     
+//    if ( Cache::has( array ( $cache_group, $cache_key ) ) ) {
+//      $html_out = Cache::get( array ( $cache_group, $cache_key ) );
+//    } else {
       $draw = new ImagickDraw();
-      $draw->setFont ($font_file);
-      $draw->setFontSize ($font_size);
-      $draw->setFillColor($font_color);
-      $draw->annotation (0, 50, $content);
+      $draw->setFont($font_file);
+      $draw->setFontSize($font_size);
+      $draw->setFillColor(new ImagickPixel($font_color));
+      $draw->setTextEncoding('UTF-8');
+      $draw->annotation(0, $font_size * 2, $content);
       $canvas = new Imagick();
-      $canvas->newImage (1000, $font_size * 2, $background_color, $output_format);
-      $canvas->drawImage ($draw);
+      $canvas->newImage(1000, $font_size * 5, new ImagickPixel($background_color));
+      $canvas->setImageFormat($output_format);
+      $canvas->drawImage($draw);
       $canvas->trimImage(0);
-      
+
       $html_out = '
 <!--[if IE]>' . $content . '<![endif]-->
 <!--[if !IE]>--><img src="data:image/png;base64,' . base64_encode ($canvas) . '" title="' . $content . '" alt="' . $content . '"><!--<![endif]-->';
 
-      Cache::set( array ( $cache_group, $cache_key ), $html_out );
-    }
+//      Cache::set( array ( $cache_group, $cache_key ), $html_out );
+//    }
 
     return $html_out;
 
   }
 
-} 
+  public function filter_rewrite_rules ( $rules )
+  {
+    $rules[] = new RewriteRule(array(
+      'name' => 'display_pageless',
+      'parse_regex' => '%^pageless/(?P<slug>[a-zA-Z0-9-]+)(?:/(?P<type>tag|date|search)/(?P<param>.+))?/?$%i',
+	  'build_str' => 'pageless/{$slug}(/{$type}/{$param})',
+      'handler' => 'PagelessHandler',
+      'action' => 'display_pageless',
+      'rule_class' => RewriteRule::RULE_PLUGIN,
+      'is_active' => 1,
+      'description' => 'display_pageless'
+    ));
+  }
+}
 
 ?>
