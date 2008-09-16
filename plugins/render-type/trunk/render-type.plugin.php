@@ -27,12 +27,6 @@
    * expired -- not even if you deactivate the plugin. This may be
    * addressed in the future.
    *
-   * (If you are dead set on providing rendered text to IE users, it would
-   * probably not be too difficult to modify this plugin to write the images
-   * out to disk and return an img element with the appropriate http: URI;
-   * since I find the data: URI approach much cleaner, and since it degrades
-   * gracefully, such modification is not a priority for me.)
-   *
    * Nota bene: This plugin is not suitable for hiding email addresses from
    * harvesters -- the original text appears in the formatter's output in the
    * IE conditional comments and in the alt and title attributes of the img element.
@@ -86,14 +80,8 @@ class RenderTypePlugin extends Plugin
    * @return string HTML markup containing the rendered image
    **/
 
-  public function filter_render_type ( $content,
-				       $font_file,
-				       $font_size = 28,
-				       $font_color = 'black',
-				       $background_color = '#00000000',
-				       $output_format = 'png' )
+  public function filter_render_type ( $content, $font_file, $font_size, $font_color, $background_color, $output_format)
   {
-
     $cache_group = strtolower( get_class( $this ) );
     $cache_key = $font_file
       . $font_size
@@ -102,8 +90,8 @@ class RenderTypePlugin extends Plugin
       . $output_format
       . $content;
 
-    if ( Cache::has( array ( $cache_group, $cache_key ) ) ) {
-      $html_out = Cache::get( array ( $cache_group, $cache_key ) );
+    if ( Cache::has( array ( $cache_group, md5($cache_key) ) ) ) {
+      return '<img src="' . URL::get('display_rendertype', array('hash' => md5($cache_key), 'format' => $output_format)) . '" title="' . $content . '" alt="' . $content . '" />';
     } else {
       $draw = new ImagickDraw();
       $draw->setFont($font_file);
@@ -116,16 +104,36 @@ class RenderTypePlugin extends Plugin
       $canvas->setImageFormat($output_format);
       $canvas->drawImage($draw);
       $canvas->trimImage(0);
+      Cache::set( array ( $cache_group, md5($cache_key) ), $canvas->getImageBlob() );
 
-      $html_out = '
-<!--[if IE]>' . $content . '<![endif]-->
-<!--[if !IE]>--><img src="data:image/png;base64,' . base64_encode ($canvas) . '" title="' . $content . '" alt="' . $content . '"><!--<![endif]-->';
-
-      Cache::set( array ( $cache_group, $cache_key ), $html_out );
+      return '<img src="' . URL::get('display_rendertype', array('hash' => md5($cache_key), 'format' => $output_format)) . '" title="' . $content . '" alt="' . $content . '" />';
     }
+  }
 
-    return $html_out;
+  public function filter_rewrite_rules ( $rules )
+  {
+    $rules[] = new RewriteRule(array(
+      'name' => 'display_rendertype',
+      'parse_regex' => '%^rendertype/(?P<hash>[0-9a-f]{32}).(?P<format>png)$%i',
+	  'build_str' => 'rendertype/{$hash}.{$format}',
+      'handler' => 'UserThemeHandler',
+      'action' => 'display_rendertype',
+      'rule_class' => RewriteRule::RULE_PLUGIN,
+      'is_active' => 1,
+      'description' => 'display_rendertype'
+    ));
+    return $rules;
+  }
 
+  public function action_handler_display_rendertype ( $handler_vars )
+  {
+    $cache_group = strtolower( get_class( $this ) );
+    if ( Cache::has( array ( $cache_group, $handler_vars['hash'] ) ) ) {
+      header('Content-type: image/' . $handler_vars['format']);
+      echo Cache::get( array ( $cache_group, $handler_vars['hash'] ) );
+    } else {
+      echo 'Cache not found';
+    }
   }
 }
 
