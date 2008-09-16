@@ -1,7 +1,7 @@
 <?php
  
   /**
-   * Render_Type Plugin Class
+   * RenderType Plugin Class
    * 
    * This plugin adds a formatter called 'render_type' which templates can use
    * to render text, such as titles, as images in a chosen font using the data:
