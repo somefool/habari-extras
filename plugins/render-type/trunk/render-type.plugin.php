@@ -102,9 +102,9 @@ class RenderTypePlugin extends Plugin
       . $output_format
       . $content;
 
-//    if ( Cache::has( array ( $cache_group, $cache_key ) ) ) {
-//      $html_out = Cache::get( array ( $cache_group, $cache_key ) );
-//    } else {
+    if ( Cache::has( array ( $cache_group, $cache_key ) ) ) {
+      $html_out = Cache::get( array ( $cache_group, $cache_key ) );
+    } else {
       $draw = new ImagickDraw();
       $draw->setFont($font_file);
       $draw->setFontSize($font_size);
@@ -121,25 +121,11 @@ class RenderTypePlugin extends Plugin
 <!--[if IE]>' . $content . '<![endif]-->
 <!--[if !IE]>--><img src="data:image/png;base64,' . base64_encode ($canvas) . '" title="' . $content . '" alt="' . $content . '"><!--<![endif]-->';
 
-//      Cache::set( array ( $cache_group, $cache_key ), $html_out );
-//    }
+      Cache::set( array ( $cache_group, $cache_key ), $html_out );
+    }
 
     return $html_out;
 
-  }
-
-  public function filter_rewrite_rules ( $rules )
-  {
-    $rules[] = new RewriteRule(array(
-      'name' => 'display_pageless',
-      'parse_regex' => '%^pageless/(?P<slug>[a-zA-Z0-9-]+)(?:/(?P<type>tag|date|search)/(?P<param>.+))?/?$%i',
-	  'build_str' => 'pageless/{$slug}(/{$type}/{$param})',
-      'handler' => 'PagelessHandler',
-      'action' => 'display_pageless',
-      'rule_class' => RewriteRule::RULE_PLUGIN,
-      'is_active' => 1,
-      'description' => 'display_pageless'
-    ));
   }
 }
 
