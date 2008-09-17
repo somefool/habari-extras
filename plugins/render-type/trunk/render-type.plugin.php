@@ -95,14 +95,16 @@ class RenderTypePlugin extends Plugin
 			$content;
 
 		if ( ! Cache::has( array( $cache_group, md5( $cache_key ) ) ) ) {
+			$font_color = new ImagickPixel( $font_color );
+			$background_color = new ImagickPixel( $background_color );
 			$draw = new ImagickDraw();
 			$draw->setFont( $font_file );
 			$draw->setFontSize( $font_size );
-			$draw->setFillColor( new ImagickPixel( $font_color ) );
+			$draw->setFillColor( $font_color );
 			$draw->setTextEncoding( 'UTF-8' );
 			$draw->annotation(0, $font_size * 2, $content);
 			$canvas = new Imagick();
-			$canvas->newImage( 1000, $font_size * 5, new ImagickPixel( $background_color ) );
+			$canvas->newImage( 1000, $font_size * 5, $background_color );
 			$canvas->setImageFormat( $output_format );
 			$canvas->drawImage( $draw );
 			// The following line ensures that the background color is set in the PNG
