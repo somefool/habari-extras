@@ -41,9 +41,13 @@ class HighlightPlugin extends Plugin {
 		Format::apply( 'do_highlight', 'post_content_out' );
 		Format::apply( 'do_highlight', 'comment_content_out' );
 	}
-
-	public function theme_header() {
-		return GeshiHighlighterFormatPlugin::get_header();
+	
+	public function action_init_theme() {
+		Stack::add(
+			'template_stylesheet',
+			array( Site::get_url( 'habari' ) . '/3rdparty/geshi/geshi.css', 'screen' ),
+			'highlighter'
+		);
 	}
 
 	public static function _autoload( $class_name ) {
@@ -55,12 +59,6 @@ class HighlightPlugin extends Plugin {
 
 class GeshiHighlighterFormatPlugin extends Format
 {
-	public static function get_header()
-	{
-		// add Geshi CSS:
-		return '<link rel="stylesheet" type="text/css" media="screen" href="'
-				. Site::get_url('habari') . '/3rdparty/geshi/geshi.css" />';
-	}
 
 	public static function do_highlight( $in )
 	{
