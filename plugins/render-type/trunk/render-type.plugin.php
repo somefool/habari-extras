@@ -43,10 +43,10 @@ class RenderTypePlugin extends Plugin
 		return array(
 			'name' => 'Render Type',
 			'url' => 'http://svn.habariproject.org/habari-extras/plugins/render-type/',
-			'author' => 'Eli Naeher',
-			'authorurl' => 'http://flyoverblues.com',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org',
 			'version' => self::VERSION,
-			'description' => 'A plugin for rendering text inline as data: PNGs.',
+			'description' => 'A plugin for rendering text as images.',
 			'license' => 'Public Domain.',
 			);
 	}
@@ -95,6 +95,12 @@ class RenderTypePlugin extends Plugin
 			$canvas->newImage( 1000, $font_size * 5, new ImagickPixel( $background_color ) );
 			$canvas->setImageFormat( $output_format );
 			$canvas->drawImage( $draw );
+			// The following line ensures that the background color is set in the PNG
+			// metadata, when using that format. This allows you, by specifying an RGBa
+			// background color (e.g. #ffffff00) to create PNGs with a transparent background
+			// for browsers that support it but with a "fallback" background color (the RGB
+			// part of the RGBa color) for IE6, which does not support alpha in PNGs.
+			$canvas->setImageBackgroundColor( $background_color );
 			$canvas->trimImage( 0 );
 			Cache::set( array( $cache_group, md5( $cache_key ) ), $canvas->getImageBlob() );
 		}
@@ -121,6 +127,9 @@ class RenderTypePlugin extends Plugin
 		$cache_group = strtolower( get_class( $this ) );
 		if( Cache::has( array( $cache_group, $handler_vars['hash'] ) ) ) {
 			header( 'Content-type: image/' . $handler_vars['format'] );
+			header( 'Pragma: ');
+			header( 'Cache-Control: public' );
+			header( 'Expires: ' . gmdate("D, d M Y H:i:s", strtotime("+10 years")) . ' GMT' );
 			echo Cache::get( array( $cache_group, $handler_vars['hash'] ) );
 		} else {
 			echo 'Cache not found';
