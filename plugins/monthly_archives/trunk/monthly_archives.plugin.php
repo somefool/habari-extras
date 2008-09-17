@@ -11,7 +11,7 @@
 class Monthly_Archives extends Plugin
 {
 
-	const VERSION= '0.9';
+	const VERSION= '0.9.1';
 
 	private $monthly_archives= ''; // stores the actual archives list
 	private $config= array(); // stores our config options
@@ -114,8 +114,8 @@ class Monthly_Archives extends Plugin
 
 	}
 
-	protected function get_monthly_archives ( ) {
-
+	protected function get_monthly_archives ( ) 
+	{
 		set_time_limit( ( 5 * 60 ) );
 
 		if ( !empty( $this->num_month ) ) {
@@ -125,14 +125,13 @@ class Monthly_Archives extends Plugin
 			$limit= '';
 		}
 
-		$q= 'SELECT YEAR( p.pubdate ) AS year, MONTH( p.pubdate ) AS month, COUNT( p.id ) AS cnt
-				FROM ' . DB::table( 'posts' ) . ' p
-				WHERE p.content_type = ? AND p.status = ?
+		$q= "SELECT YEAR( FROM_UNIXTIME(pubdate) ) AS year, MONTH(  FROM_UNIXTIME(pubdate)  ) AS month, COUNT( id ) AS cnt
+				FROM  {posts}
+				WHERE content_type = ? AND status = ?
 				GROUP BY year, month
-				ORDER BY p.pubdate DESC ' . $limit;
+				ORDER BY pubdate DESC {$limit}";
 		$p[]= Post::type( 'entry' );
 		$p[]= Post::status( 'published' );
-
 		$results= DB::get_results( $q, $p );
 
 		if ( empty( $results ) ) {
@@ -187,13 +186,13 @@ class Monthly_Archives extends Plugin
 				if ( $this->detail_view == 'Y' ) {
 
 					$psts= Posts::get(
-										array(
-												'content_type' => Post::type( 'entry' ),
-												'status' => Post::status( 'published' ),
-												'year' => $result->year,
-												'month' => $result->month,
-												'nolimit' => true
-										)
+						array(
+							'content_type' => Post::type( 'entry' ),
+							'status' => Post::status( 'published' ),
+							'year' => $result->year,
+							'month' => $result->month,
+							'nolimit' => true
+						)
 					);
 
 					if ( $psts ) {
@@ -202,7 +201,7 @@ class Monthly_Archives extends Plugin
 
 						foreach ( $psts as $pst ) {
 
-							$day= date( 'd', strtotime( $pst->pubdate ) );
+							$day= $pst->pubdate->format('d');
 
 							if ( empty( $this->delimiter ) ) {
 								$delimiter= '&nbsp;&nbsp;';
