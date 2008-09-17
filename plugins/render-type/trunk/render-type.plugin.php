@@ -62,6 +62,16 @@ class RenderTypePlugin extends Plugin
 	}
 
 	/**
+	 * function theme_header
+	 * Add CSS to our theme header.
+	 **/
+
+	public function theme_header( $theme )
+	{
+	  Stack::add ( 'template_stylesheet', array( $this->get_url() . '/render-type.css', 'screen' ), 'render-type' );		
+	}
+
+	/**
 	 * function filter_render_type
 	 * Returns HTML markup containing an image with a data: URI
 	 * @param string $content The text to be rendered
@@ -104,7 +114,10 @@ class RenderTypePlugin extends Plugin
 			$canvas->trimImage( 0 );
 			Cache::set( array( $cache_group, md5( $cache_key ) ), $canvas->getImageBlob() );
 		}
-		return '<img src="' . URL::get( 'display_rendertype', array( 'hash' => md5( $cache_key ), 'format' => $output_format ) ) . '" title="' . $content . '" alt="' . $content . '" />';
+
+		return '<span class="rendered-type" style="background-image: url(\''
+		        . URL::get( 'display_rendertype', array( 'hash' => md5( $cache_key ), 'format' => $output_format ) )
+		        . '\');">' . $content . '</span>';
 	}
 
 	public function filter_rewrite_rules( $rules )
