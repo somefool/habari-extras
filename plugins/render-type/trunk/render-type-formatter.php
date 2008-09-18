@@ -8,7 +8,8 @@ class RenderTypeFormat extends Format
 		$font_size = 28,
 		$font_color = '#000000FF',
 		$background_color = '#00000000',
-		$output_format = 'png' )
+		$output_format = 'png',
+		$width = NULL )
 	{
 		return Plugins::filter(
 			'render_type',
@@ -17,7 +18,8 @@ class RenderTypeFormat extends Format
 			$font_size,
 			$font_color,
 			$background_color,
-			$output_format );
+			$output_format,
+			$width );
 	}
 }
 

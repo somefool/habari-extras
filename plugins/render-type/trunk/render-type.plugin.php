@@ -47,7 +47,7 @@ class RenderTypePlugin extends Plugin
 			'authorurl' => 'http://habariproject.org',
 			'version' => self::VERSION,
 			'description' => 'A plugin for rendering text as images.',
-			'license' => 'Public Domain.',
+			'license' => 'Public Domain',
 			);
 	}
 
@@ -83,12 +83,16 @@ class RenderTypePlugin extends Plugin
 	 * @return string HTML markup containing the rendered image
 	 **/
 
-	public function filter_render_type( $content, $font_file, $font_size, $font_color, $background_color, $output_format)
+	public function filter_render_type( $content, $font_file, $font_size, $font_color, $background_color, $output_format, $width)
 	{
 		// Preprocessing $content
 		// 1. Strip HTML tags. It would be better to support them, but we just strip them for now.
 		// 2. Decode HTML entities to UTF-8 charaaters.
 		$content = html_entity_decode( strip_tags( $content ), ENT_QUOTES, 'UTF-8' );
+		// 3. Do word wrap when $width is specified. Not work for double-width characters.
+		if ( is_int( $width ) ) {
+			$content = wordwrap( $content, floor( $width / ( 0.3 * $font_size ) ) );
+		}
 
 		$cache_group = strtolower( get_class( $this ) );
 		$cache_key =
@@ -97,7 +101,8 @@ class RenderTypePlugin extends Plugin
 			$font_color .
 			$background_color .
 			$output_format .
-			$content;
+			$content .
+			$width;
 
 		if ( ! Cache::has( array( $cache_group, md5( $cache_key ) ) ) ) {
 			$font_color = new ImagickPixel( $font_color );
