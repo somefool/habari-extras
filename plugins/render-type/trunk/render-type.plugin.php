@@ -68,7 +68,7 @@ class RenderTypePlugin extends Plugin
 
 	public function theme_header( $theme )
 	{
-	  Stack::add ( 'template_stylesheet', array( $this->get_url() . '/render-type.css', 'screen' ), 'render-type' );		
+		Stack::add ( 'template_stylesheet', array( $this->get_url() . '/render-type.css', 'screen' ), 'render-type' );
 	}
 
 	/**
@@ -76,15 +76,20 @@ class RenderTypePlugin extends Plugin
 	 * Returns HTML markup containing an image with a data: URI
 	 * @param string $content The text to be rendered
 	 * @param string $font_file The path to a font file in a format ImageMagick can handle
-   * @param integer $font_size The font size, in pixels (defaults to 28)
-   * @param string $font_color The font color (defaults to 'black')
-   * @param string $background_color The background color (defaults to 'transparent')
-   * @param string $output_format The image format to use (defaults to 'png')
+	 * @param integer $font_size The font size, in pixels (defaults to 28)
+	 * @param string $font_color The font color (defaults to 'black')
+	 * @param string $background_color The background color (defaults to 'transparent')
+	 * @param string $output_format The image format to use (defaults to 'png')
 	 * @return string HTML markup containing the rendered image
 	 **/
 
 	public function filter_render_type( $content, $font_file, $font_size, $font_color, $background_color, $output_format)
 	{
+		// Preprocessing $content
+		// 1. Strip HTML tags. It would be better to support them, but we just strip them for now.
+		// 2. Decode HTML entities to UTF-8 charaaters.
+		$content = html_entity_decode( strip_tags( $content ), ENT_QUOTES, 'UTF-8' );
+
 		$cache_group = strtolower( get_class( $this ) );
 		$cache_key =
 			$font_file .
@@ -118,8 +123,8 @@ class RenderTypePlugin extends Plugin
 		}
 
 		return '<span class="rendered-type" style="background-image: url(\''
-		        . URL::get( 'display_rendertype', array( 'hash' => md5( $cache_key ), 'format' => $output_format ) )
-		        . '\');">' . $content . '</span>';
+				. URL::get( 'display_rendertype', array( 'hash' => md5( $cache_key ), 'format' => $output_format ) )
+				. '\');">' . $content . '</span>';
 	}
 
 	public function filter_rewrite_rules( $rules )
