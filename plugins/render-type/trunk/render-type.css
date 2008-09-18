@@ -2,4 +2,5 @@ span.rendered-type {
   overflow: hidden;
   background-repeat: no-repeat;
   text-indent: -1000%;
+  display: block;
 }
