@@ -222,7 +222,7 @@ class TwitterSilo extends Plugin implements MediaSilo
 		if ($plugin_id == $this->plugin_id()){
 			switch ($action){
 				case 'Configure':
-					$ui= new FormUI( strtolower( get_class( $this ) ) );
+					$ui = new FormUI( strtolower( get_class( $this ) ) );
 					$ui->append( 'text', 'twitter_user', 'option:twittersilo__user', _t( 'Twitter Username:' ) );
 					$ui->append( 'password', 'twitter_pass', 'option:twittersilo__pass', _t( 'Twitter Password:' ) );
 					$ui->append('submit', 'save', _t( 'Save' ) );
