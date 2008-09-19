@@ -110,7 +110,7 @@ class MTImport extends Plugin implements Importer
 	 */
 	private function mysql_stage_1($inputs)
 	{
-		$default_values= array(
+		$default_values = array(
 			'db_name' => '',
 			'db_host' => 'localhost',
 			'db_user' => '',
@@ -118,7 +118,7 @@ class MTImport extends Plugin implements Importer
 			'db_prefix' => 'mt_',
 			'warning' => ''
 		 );
-		$inputs= array_merge( $default_values, $inputs );
+		$inputs = array_merge( $default_values, $inputs );
 		extract( $inputs );
 
 		ob_start();
@@ -151,8 +151,8 @@ class MTImport extends Plugin implements Importer
 	 */
 	private function mysql_stage_2($inputs)
 	{
-		$valid_fields= array('db_name','db_host','db_user','db_pass','db_prefix');
-		$inputs= array_intersect_key($_POST, array_flip($valid_fields));
+		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix');
+		$inputs = array_intersect_key($_POST, array_flip($valid_fields));
 		extract($inputs);
 
 		if(($mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix)) === false) {
@@ -192,8 +192,8 @@ class MTImport extends Plugin implements Importer
 	 */
 	private function mysql_stage_3($inputs)
 	{
-		$valid_fields= array('db_name','db_host','db_user','db_pass','db_prefix', 'blog_id');
-		$inputs= array_intersect_key($_POST, array_flip($valid_fields));
+		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix', 'blog_id');
+		$inputs = array_intersect_key($_POST, array_flip($valid_fields));
 		extract($inputs);
 
 		if(($mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix)) === false) {
@@ -201,7 +201,7 @@ class MTImport extends Plugin implements Importer
 			return $this->stage_1($inputs);
 		}
 
-		$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_users'));
+		$ajax_url = URL::get('auth_ajax', array('context' => 'mt_mysql_import_users'));
 		EventLog::log(sprintf(_t('Starting import from "%s"'), $db_name));
 		Options::set('import_errors', array());
 
@@ -279,7 +279,7 @@ $(document).ready(function(){
 			}
 		}
 
-		$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_posts'));
+		$ajax_url = URL::get('auth_ajax', array('context' => 'mt_mysql_import_posts'));
 ?>
 <script type="text/javascript">
 // A lot of ajax stuff goes here.
@@ -310,11 +310,11 @@ $( document ).ready( function(){
 	 */
 	public function action_auth_ajax_mt_mysql_import_posts($handler)
 	{
-		$valid_fields= array('db_name','db_host','db_user','db_pass','db_prefix','postindex', 'blog_id');
-		$inputs= array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix','postindex', 'blog_id');
+		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 		extract($inputs);
 
-		$mtdb= $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix);
+		$mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix);
 		if(!$mtdb) {
 			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
 			echo '<p>'._t( 'The database connection details have failed to connect.' ).'</p>';
@@ -322,11 +322,11 @@ $( document ).ready( function(){
 		}
 
 		$postcount = $mtdb->get_value("SELECT count(entry_id) FROM {$db_prefix}entry WHERE entry_blog_id = '{$blog_id}';");
-		$min= $postindex * $this->import_batch + ($postindex == 0 ? 0 : 1);
-		$max= min( ( $postindex + 1 ) * $this->import_batch, $postcount );
+		$min = $postindex * $this->import_batch + ($postindex == 0 ? 0 : 1);
+		$max = min( ( $postindex + 1 ) * $this->import_batch, $postcount );
 
 		$user_map = array();
-		$userinfo= DB::get_results('SELECT user_id, value FROM ' . DB::table('userinfo') . ' WHERE name = "mt_id";');
+		$userinfo = DB::get_results('SELECT user_id, value FROM ' . DB::table('userinfo') . ' WHERE name = "mt_id";');
 		@reset($userinfo);
 		while (list(, $info) = @each($userinfo)) {
 			$user_map[$info->value] = $info->user_id;
@@ -365,7 +365,7 @@ $( document ).ready( function(){
 				LEFT JOIN {$db_prefix}tag ON objecttag_tag_id = tag_id
 				WHERE objecttag_object_datasource = 'entry' AND objecttag_object_id = {$post->id};");
 
-			$post_array= $post->to_array();
+			$post_array = $post->to_array();
 			$tags[] = $post_array['category_label'];
 			unset($post_array['category_label']);
 			$tags = implode(',', $tags);
@@ -391,12 +391,12 @@ $( document ).ready( function(){
 			unset($post_array['entry_text']);
 			unset($post_array['entry_text_more']);
 
-			$p= new Post($post_array);
+			$p = new Post($post_array);
 			$p->slug = $post->slug;
 			$p->user_id = $user_map[$p->user_id];
 			$p->guid = $p->guid; // Looks fishy, but actually causes the guid to be set.
 			$p->tags = $tags;
-			$p->info->mt_id= $post_array['id'];  // Store the MT post id in the post_info table for later
+			$p->info->mt_id = $post_array['id'];  // Store the MT post id in the post_info table for later
 
 			try {
 				$p->insert();
@@ -409,10 +409,10 @@ $( document ).ready( function(){
 		}
 
 		if($max < $postcount) {
-			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_posts'));
+			$ajax_url = URL::get('auth_ajax', array('context' => 'mt_mysql_import_posts'));
 			$postindex++;
 		} else {
-			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_comments'));
+			$ajax_url = URL::get('auth_ajax', array('context' => 'mt_mysql_import_comments'));
 		}
 ?>
 <script type="text/javascript">
@@ -443,22 +443,22 @@ $('#import_progress').load(
 	public function action_auth_ajax_mt_mysql_import_comments($handler)
 	{
 		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'commentindex');
-		$inputs= array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 		extract( $inputs );
-		$mtdb= $this->mt_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
+		$mtdb = $this->mt_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
 		if(!$mtdb) {
 			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
 			echo '<p>'._t( 'Failed to connect using the given database connection details.' ).'</p>';
 			return;
 		}
 
-		$commentcount= $mtdb->get_value("SELECT count(comment_id) FROM {$db_prefix}comment WHERE comment_blog_id = '{$blog_id}';");
+		$commentcount = $mtdb->get_value("SELECT count(comment_id) FROM {$db_prefix}comment WHERE comment_blog_id = '{$blog_id}';");
 		$min = $commentindex * $this->import_batch + 1;
 		$max = min(($commentindex + 1) * $this->import_batch, $commentcount);
 
 		echo sprintf(_t('<p>Importing comments %d-%d of %d.</p>'), $min, $max, $commentcount);
 
-		$post_info= DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mt_id';");
+		$post_info = DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mt_id';");
 		@reset($post_info);
 		while (list(, $info) = @each($post_info)) {
 			$post_map[$info->value]= $info->post_id;
@@ -526,10 +526,10 @@ $('#import_progress').load(
 		}
 
 		if( $max < $commentcount ) {
-			$ajax_url= URL::get('auth_ajax', array( 'context' => 'mt_mysql_import_comments'));
+			$ajax_url = URL::get('auth_ajax', array( 'context' => 'mt_mysql_import_comments'));
 			$commentindex++;
 		} else {
-			$ajax_url= URL::get('auth_ajax', array('context' => 'mt_mysql_import_trackbacks'));
+			$ajax_url = URL::get('auth_ajax', array('context' => 'mt_mysql_import_trackbacks'));
 		}
 
 ?>
@@ -561,22 +561,22 @@ $( '#import_progress' ).load(
 	public function action_auth_ajax_mt_mysql_import_trackbacks($handler)
 	{
 		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'trackbackindex');
-		$inputs= array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 		extract( $inputs );
-		$mtdb= $this->mt_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
+		$mtdb = $this->mt_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
 		if(!$mtdb) {
 			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
 			echo '<p>'._t( 'Failed to connect using the given database connection details.' ).'</p>';
 			return;
 		}
 
-		$trackbackcount= $mtdb->get_value("SELECT count(trackback_id) FROM {$db_prefix}trackback WHERE trackback_blog_id = '{$blog_id}';");
+		$trackbackcount = $mtdb->get_value("SELECT count(trackback_id) FROM {$db_prefix}trackback WHERE trackback_blog_id = '{$blog_id}';");
 		$min = $trackbackindex * $this->import_batch + 1;
 		$max = min( ( $trackbackindex + 1 ) * $this->import_batch, $trackbackcount );
 
 		echo sprintf(_t('<p>Importing trackbacks %d-%d of %d.</p>'), $min, $max, $trackbackcount);
 
-		$post_info= DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mt_id';");
+		$post_info = DB::get_results("SELECT post_id, value FROM " . DB::table('postinfo') . " WHERE name= 'mt_id';");
 		@reset($post_info);
 		while (list(, $info) = @each($post_info)) {
 			$post_map[$info->value]= $info->post_id;
@@ -601,7 +601,7 @@ $( '#import_progress' ).load(
 			// already exists skipped
 			if(in_array($trackback->trackback_id, $comment_map)) continue;
 
-			$trackback->type= Comment::TRACKBACK;
+			$trackback->type = Comment::TRACKBACK;
 
 			$carray = $trackback->to_array();
 			$carray['ip']= 0;
@@ -636,7 +636,7 @@ $( '#import_progress' ).load(
 		}
 
 		if($max < $trackbackcount) {
-			$ajax_url= URL::get('auth_ajax', array( 'context' => 'mt_mysql_import_trackbacks'));
+			$ajax_url = URL::get('auth_ajax', array( 'context' => 'mt_mysql_import_trackbacks'));
 			$trackbackindex++;
 		} else {
 			EventLog::log('Import complete from "'. $db_name .'"');
@@ -687,7 +687,7 @@ $( '#import_progress' ).load(
 	{
 		// Connect to the database or return false
 		try {
-			$mtdb= new DatabaseConnection();
+			$mtdb = new DatabaseConnection();
 			$mtdb->connect( "mysql:host={$db_host};dbname={$db_name}", $db_user, $db_pass, $db_prefix );
 			return $mtdb;
 		}
