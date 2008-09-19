@@ -13,7 +13,7 @@
  */
 class Socialink extends Plugin
 {
-	var $services= array(
+	var $services = array(
 		// Global
 		'email' => array('name' => 'Email', 'url' => 'mailto:?subject=%TITLE%&body=%PERMALINK%'),
 		'digg' => array('name' => 'Digg', 'url' => 'http://digg.com/submit?phase=2&url=%PERMALINK%'),
@@ -98,14 +98,14 @@ class Socialink extends Plugin
 	{
 		if ( $plugin_id != $this->plugin_id() ) return;
 		if ( $action == _t( 'Configure' ) ) {
-			$ui_services= array();
+			$ui_services = array();
 			foreach ($this->services as $k => $service) {
 				$ui_services[$k] = $service['name'];
 			}
-			$ui= new FormUI( strtolower( get_class( $this ) ) );
+			$ui = new FormUI( strtolower( get_class( $this ) ) );
 			$link_pos = $ui->append( 'radio', 'link_pos', 'option:socialink__link_pos', _t( 'Auto Insert: ' ) );
 			$link_pos->options = array('none' => 'None', 'top' => 'Top', 'bottom' => 'Bottom');
-			$services= $ui->append( 'select', 'services', 'option:socialink__services', _t( 'Services: ' ), $ui_services);
+			$services = $ui->append( 'select', 'services', 'option:socialink__services', _t( 'Services: ' ), $ui_services);
 			$services->options = $ui_services;
 			$services->multiple = true;
 			$ui->append( 'submit', 'save', _t( 'Save' ) );
@@ -160,17 +160,17 @@ class Socialink extends Plugin
 	private function create_link($post)
 	{
 		$link = '<div class="socialink">';
-		$site_title= Options::get( 'title' );
-		$s_services= Options::get( 'socialink__services' );
+		$site_title = Options::get( 'title' );
+		$s_services = Options::get( 'socialink__services' );
 		@reset( $s_services );
 		while ( list( , $k ) = @each( $s_services ) ) {
 			if ( !isset( $this->services[$k] ) ) continue;
-			$url= $this->services[$k]['url'];
-			$url= str_replace( '%PERMALINK%', urlencode( $post->permalink ), $url );
-			$url= str_replace( '%TITLE%', urlencode( $site_title . ' - ' . $post->title_out ), $url );
-			$target= '';
+			$url = $this->services[$k]['url'];
+			$url = str_replace( '%PERMALINK%', urlencode( $post->permalink ), $url );
+			$url = str_replace( '%TITLE%', urlencode( $site_title . ' - ' . $post->title_out ), $url );
+			$target = '';
 			if ( substr( $url, 0, 11 ) != 'javascript:' ) {
-				$target= ' target="_blank"';
+				$target = ' target="_blank"';
 			}
 			$link.= '<a href="' . $url .'"' . $target . ' title="Post to ' . $this->services[$k]['name'] . '" rel="nofollow"><img src="' . $this->get_url() .'/img/icon/' . $k . '.png" width="16" height="16" alt="Post to ' . $this->services[$k]['name'] . '" style="padding:0 3px;" /></a>';
 		}
