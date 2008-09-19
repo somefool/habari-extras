@@ -232,18 +232,18 @@ class Amazon extends Plugin
 	{
 		if ( $plugin_id != $this->plugin_id() ) return;
 		if ( $action == _t( 'Configure' ) ) {
-			$template_dir= dirname( $this->get_file() ) . DIRECTORY_SEPARATOR . 'templates';
-			$templates= array();
-			if ( $dh= opendir( $template_dir ) ) {
-				while ( ( $file= readdir( $dh ) ) !== false ) {
+			$template_dir = dirname( $this->get_file() ) . DIRECTORY_SEPARATOR . 'templates';
+			$templates = array();
+			if ( $dh = opendir( $template_dir ) ) {
+				while ( ( $file = readdir( $dh ) ) !== false ) {
 					if ( substr( $file, -4 ) == '.php' ) {
-						$template= substr( $file, 0, strlen( $file ) - 4 );
+						$template = substr( $file, 0, strlen( $file ) - 4 );
 						$templates[$template]= $template;
 					}
 				}
 			}
 
-			$form= new FormUI( strtolower( get_class( $this ) ) );
+			$form = new FormUI( strtolower( get_class( $this ) ) );
 			$form->append( 'select', 'country', 'amazon__country', _t('Country: ', 'amazon'), $this->countries);
 			$form->append( 'text', 'associate_tag', 'amazon__associate_tag', _t('Associate Tag: ', 'amazon') );
 			$form->append( 'select', 'template', 'amazon__template', _t('Template: ', 'amazon'), $templates);
