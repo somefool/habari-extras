@@ -11,12 +11,12 @@
 class Monthly_Archives extends Plugin
 {
 
-	const VERSION= '0.9.1';
+	const VERSION = '0.9.1';
 
-	private $monthly_archives= ''; // stores the actual archives list
-	private $config= array(); // stores our config options
+	private $monthly_archives = ''; // stores the actual archives list
+	private $config = array(); // stores our config options
 
-	private $cache_expiry= 604800; // one week, in seconds: 60 * 60 * 24 * 7
+	private $cache_expiry = 604800; // one week, in seconds: 60 * 60 * 24 * 7
 
 
 	public function info ( ) {
@@ -43,7 +43,7 @@ class Monthly_Archives extends Plugin
 
 		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 
-			$class_name= strtolower( get_class( $this ) );
+			$class_name = strtolower( get_class( $this ) );
 
 			// dump our cached list
 			Cache::expire( $class_name . ':list' );
@@ -54,7 +54,7 @@ class Monthly_Archives extends Plugin
 
 	public function __get( $name ) {
 
-		$options= array(
+		$options = array(
 			'num_month' => 'archives__num__month',
 			'display_month' => 'archives__display__month',
 			'show_count' => 'archives__show__count',
@@ -98,13 +98,13 @@ class Monthly_Archives extends Plugin
 
 	private function update_cache ( ) {
 
-		$archives= $this->get_monthly_archives();
+		$archives = $this->get_monthly_archives();
 
-		$class_name= strtolower( get_class( $this ) );
+		$class_name = strtolower( get_class( $this ) );
 
 		Cache::set( $class_name . ':list', $archives, $this->cache_expiry );
 
-		$this->monthly_archives= $archives;
+		$this->monthly_archives = $archives;
 
 	}
 
@@ -119,20 +119,20 @@ class Monthly_Archives extends Plugin
 		set_time_limit( ( 5 * 60 ) );
 
 		if ( !empty( $this->num_month ) ) {
-			$limit= 'LIMIT 0, ' . $this->num_month;
+			$limit = 'LIMIT 0, ' . $this->num_month;
 		}
 		else {
-			$limit= '';
+			$limit = '';
 		}
 
-		$q= "SELECT YEAR( FROM_UNIXTIME(pubdate) ) AS year, MONTH(  FROM_UNIXTIME(pubdate)  ) AS month, COUNT( id ) AS cnt
+		$q = "SELECT YEAR( FROM_UNIXTIME(pubdate) ) AS year, MONTH(  FROM_UNIXTIME(pubdate)  ) AS month, COUNT( id ) AS cnt
 				FROM  {posts}
 				WHERE content_type = ? AND status = ?
 				GROUP BY year, month
 				ORDER BY pubdate DESC {$limit}";
 		$p[]= Post::type( 'entry' );
 		$p[]= Post::status( 'published' );
-		$results= DB::get_results( $q, $p );
+		$results = DB::get_results( $q, $p );
 
 		if ( empty( $results ) ) {
 			$archives[]= '<ul id="monthly_archives">';
@@ -146,37 +146,37 @@ class Monthly_Archives extends Plugin
 			foreach ( $results as $result ) {
 
 				// make sure the month has a 0 on the front, if it doesn't
-				$result->month= str_pad( $result->month, 2, 0, STR_PAD_LEFT );
+				$result->month = str_pad( $result->month, 2, 0, STR_PAD_LEFT );
 
-				$result->month_ts= mktime( 0, 0, 0, $result->month );
+				$result->month_ts = mktime( 0, 0, 0, $result->month );
 
 				// what format do we want to show the month in?
 				switch ( $this->display_month ) {
 
 					// Full name
 					case 'F':
-						$result->display_month= date( 'F', $result->month_ts );
+						$result->display_month = date( 'F', $result->month_ts );
 						break;
 
 					// Abbreviation
 					case 'A':
-						$result->display_month= date( 'M', $result->month_ts );
+						$result->display_month = date( 'M', $result->month_ts );
 						break;
 
 					// Number
 					case 'N':
 					default:
-						$result->display_month= $result->month;
+						$result->display_month = $result->month;
 						break;
 
 				}
 
 				// do we want to show the count of posts?
 				if ( $this->show_count == 'Y' ) {
-					$result->the_count= ' (' . $result->cnt . ')';
+					$result->the_count = ' (' . $result->cnt . ')';
 				}
 				else {
-					$result->the_count= '';
+					$result->the_count = '';
 				}
 
 				$archives[]= '  <li>';
@@ -185,7 +185,7 @@ class Monthly_Archives extends Plugin
 				// do we want to show all the posts as well?
 				if ( $this->detail_view == 'Y' ) {
 
-					$psts= Posts::get(
+					$psts = Posts::get(
 						array(
 							'content_type' => Post::type( 'entry' ),
 							'status' => Post::status( 'published' ),
@@ -201,13 +201,13 @@ class Monthly_Archives extends Plugin
 
 						foreach ( $psts as $pst ) {
 
-							$day= $pst->pubdate->format('d');
+							$day = $pst->pubdate->format('d');
 
 							if ( empty( $this->delimiter ) ) {
-								$delimiter= '&nbsp;&nbsp;';
+								$delimiter = '&nbsp;&nbsp;';
 							}
 							else {
-								$delimiter= $this->delimiter;
+								$delimiter = $this->delimiter;
 							}
 
 							$archives[]= '      <li>';
@@ -240,21 +240,21 @@ class Monthly_Archives extends Plugin
 
 			if ( $action == _t( 'Configure' ) ) {
 
-				$class_name= strtolower( get_class( $this ) );
+				$class_name = strtolower( get_class( $this ) );
 
-				$form= new FormUI( $class_name );
+				$form = new FormUI( $class_name );
 
 				$form->append( 'text', 'num_month', 'archives__num__month', _t( 'Number of most recent months to be shown (Blank for show all)' ) );
 
 				$form->append( 'select', 'display_month', 'archives__display__month', _t( 'Month displayed as' ) );
-				$form->display_month->options= array( '' => '', 'F' => 'Full name', 'A' => 'Abbreviation', 'N' => 'Number' );
+				$form->display_month->options = array( '' => '', 'F' => 'Full name', 'A' => 'Abbreviation', 'N' => 'Number' );
 
 				$form->append( 'select', 'show_count', 'archives__show__count', _t( 'Show Monthly Entries Count?' ) );
-				$form->show_count->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
+				$form->show_count->options = array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
 				$form->show_count->add_validator( 'validate_required' );
 
 				$form->append( 'select', 'detail_view', 'archives__detail__view', _t( 'Detail View?' ) );
-				$form->detail_view->options= array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
+				$form->detail_view->options = array( '' => '', 'Y' => 'Yes', 'N' => 'No' );
 				$form->detail_view->add_validator( 'validate_detail_view' );
 
 				$form->append( 'text', 'delimiter', 'archives__delimiter', _t( 'Delimiter to separate day and post title in detail view (optional)' ) );
@@ -296,12 +296,12 @@ class Monthly_Archives extends Plugin
 
 	public function theme_monthly_archives ( $theme ) {
 
-		$class_name= strtolower( get_class( $this ) );
+		$class_name = strtolower( get_class( $this ) );
 
 		// first, see if we have the list already cached
 		if ( Cache::has( $class_name . ':list' ) ) {
 
-			$this->monthly_archives= Cache::get( $class_name . ':list' );
+			$this->monthly_archives = Cache::get( $class_name . ':list' );
 
 			return $this->monthly_archives;
 
