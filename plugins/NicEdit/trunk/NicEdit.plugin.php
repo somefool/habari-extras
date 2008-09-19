@@ -61,7 +61,7 @@ class NicEditor extends Plugin {
     **/
   public function updated_config( $ui )
   {
-    $options= array();
+    $options = array();
     // Get the configurable options from the UI with $ui->controls['name_of_control_set_in_ui']->value and add them to the $options array
     $options[]= 'fullPanel : true';
     // Save configurable options for this user
@@ -86,7 +86,7 @@ class NicEditor extends Plugin {
    */
   public function action_admin_footer($theme) {
     if ( $theme->page == 'publish' ) {
-      $options= Options::get(strtolower(get_class($this) . ':options_' . User::identify()->id));
+      $options = Options::get(strtolower(get_class($this) . ':options_' . User::identify()->id));
       echo <<<NICEDIT
       <script type="text/javascript">
       $('[@for=content]').removeAttr('for');
