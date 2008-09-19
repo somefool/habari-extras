@@ -2,7 +2,7 @@
 
 class ViewBlog extends Plugin
 {
-	const VERSION= '1.0';
+	const VERSION = '1.0';
 	
 	/**
 	 * Required plugin info() implementation provides info to Habari about this plugin.
