@@ -211,7 +211,7 @@ class Auth_Yadis_Service {
  * @param $default The value to use as the expiration if no expiration
  * was specified in the XRD.
  */
-function Auth_Yadis_getXRDExpiration($xrd_element, $default=null)
+function Auth_Yadis_getXRDExpiration($xrd_element, $default =null)
 {
     $expires_element = $xrd_element->$parser->evalXPath('/xrd:Expires');
     if ($expires_element === null) {

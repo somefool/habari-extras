@@ -309,7 +309,7 @@ class Auth_OpenID_Consumer {
      * extension arguments to the request, using its 'addExtensionArg'
      * method.
      */
-    function begin($user_url, $anonymous=false)
+    function begin($user_url, $anonymous =false)
     {
         $openid_url = $user_url;
 
@@ -369,7 +369,7 @@ class Auth_OpenID_Consumer {
      * @return Auth_OpenID_AuthRequest $auth_request An OpenID
      * authentication request object.
      */
-    function &beginWithoutDiscovery($endpoint, $anonymous=false)
+    function &beginWithoutDiscovery($endpoint, $anonymous =false)
     {
         $loader = new Auth_OpenID_ServiceEndpointLoader();
         $auth_req = $this->consumer->begin($endpoint);
@@ -399,7 +399,7 @@ class Auth_OpenID_Consumer {
      * indicated by the status attribute, which will be one of
      * SUCCESS, CANCEL, FAILURE, or SETUP_NEEDED.
      */
-    function complete($return_to, $query=null)
+    function complete($return_to, $query =null)
     {
         if ($return_to && !is_string($return_to)) {
             // This is ugly, but we need to complain loudly when
@@ -952,7 +952,7 @@ class Auth_OpenID_GenericConsumer {
     /**
      * @access private
      */
-    function _verifyDiscoveryResults($message, $endpoint=null)
+    function _verifyDiscoveryResults($message, $endpoint =null)
     {
         if ($message->getOpenIDNamespace() == Auth_OpenID_OPENID2_NS) {
             return $this->_verifyDiscoveryResultsOpenID2($message,
@@ -1829,7 +1829,7 @@ class Auth_OpenID_AuthRequest {
      * default case, as the user may need to provide credentials or
      * approve the request before a positive response can be sent.
      */
-    function getMessage($realm, $return_to=null, $immediate=false)
+    function getMessage($realm, $return_to =null, $immediate =false)
     {
         if ($return_to) {
             $return_to = Auth_OpenID::appendArgs($return_to,
@@ -1922,8 +1922,8 @@ class Auth_OpenID_AuthRequest {
      * overridden. If a value is supplied for 'action' or 'method', it
      * will be replaced.
      */
-    function formMarkup($realm, $return_to=null, $immediate=false,
-                        $form_tag_attrs=null)
+    function formMarkup($realm, $return_to =null, $immediate =false,
+                        $form_tag_attrs =null)
     {
         $message = $this->getMessage($realm, $return_to, $immediate);
 
@@ -1989,7 +1989,7 @@ class Auth_OpenID_SuccessResponse extends Auth_OpenID_ConsumerResponse {
     /**
      * @access private
      */
-    function Auth_OpenID_SuccessResponse($endpoint, $message, $signed_args=null)
+    function Auth_OpenID_SuccessResponse($endpoint, $message, $signed_args =null)
     {
         $this->endpoint = $endpoint;
         $this->identity_url = $endpoint->claimed_id;

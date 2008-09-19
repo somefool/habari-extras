@@ -35,8 +35,8 @@ class Auth_OpenID_PAPE_Request extends Auth_OpenID_Extension {
     var $ns_alias = 'pape';
     var $ns_uri = Auth_OpenID_PAPE_NS_URI;
 
-    function Auth_OpenID_PAPE_Request($preferred_auth_policies=null,
-                                      $max_auth_age=null)
+    function Auth_OpenID_PAPE_Request($preferred_auth_policies =null,
+                                      $max_auth_age =null)
     {
         if ($preferred_auth_policies === null) {
             $preferred_auth_policies = array();
@@ -159,8 +159,8 @@ class Auth_OpenID_PAPE_Response extends Auth_OpenID_Extension {
     var $ns_alias = 'pape';
     var $ns_uri = Auth_OpenID_PAPE_NS_URI;
 
-    function Auth_OpenID_PAPE_Response($auth_policies=null, $auth_age=null,
-                                       $nist_auth_level=null)
+    function Auth_OpenID_PAPE_Response($auth_policies =null, $auth_age =null,
+                                       $nist_auth_level =null)
     {
         if ($auth_policies) {
             $this->auth_policies = $auth_policies;
@@ -232,7 +232,7 @@ class Auth_OpenID_PAPE_Response extends Auth_OpenID_Extension {
      * @return null The data is parsed into the internal fields of
      * this object.
     */
-    function parseExtensionArgs($args, $strict=false)
+    function parseExtensionArgs($args, $strict =false)
     {
         $policies_str = Auth_OpenID::arrayGet($args, 'auth_policies');
         if ($policies_str) {

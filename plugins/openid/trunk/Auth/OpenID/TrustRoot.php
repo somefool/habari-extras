@@ -348,7 +348,7 @@ function Auth_OpenID_returnToMatches($allowed_return_to_urls, $return_to)
  * URLs.
  */
 function Auth_OpenID_getAllowedReturnURLs($relying_party_url, &$fetcher,
-              $discover_function=null)
+              $discover_function =null)
 {
     if ($discover_function === null) {
         $discover_function = array('Auth_Yadis_Yadis', 'discover');
@@ -384,7 +384,7 @@ function Auth_OpenID_getAllowedReturnURLs($relying_party_url, &$fetcher,
  * @return true if the return_to URL is valid for the realm
  */
 function Auth_OpenID_verifyReturnTo($realm_str, $return_to, &$fetcher,
-              $_vrfy='Auth_OpenID_getAllowedReturnURLs')
+              $_vrfy ='Auth_OpenID_getAllowedReturnURLs')
 {
     $disco_url = Auth_OpenID_TrustRoot::buildDiscoveryURL($realm_str);
 

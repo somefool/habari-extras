@@ -26,7 +26,7 @@ class Auth_OpenID_KVForm {
      * @static
      * @access private
      */
-    function toArray($kvs, $strict=false)
+    function toArray($kvs, $strict =false)
     {
         $lines = explode("\n", $kvs);
 

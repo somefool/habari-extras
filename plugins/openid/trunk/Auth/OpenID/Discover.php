@@ -403,8 +403,8 @@ function Auth_OpenID_makeOpenIDEndpoints($uri, $yadis_services)
 }
 
 function Auth_OpenID_discoverWithYadis($uri, &$fetcher,
-              $endpoint_filter='Auth_OpenID_getOPOrUserServices',
-              $discover_function=null)
+              $endpoint_filter ='Auth_OpenID_getOPOrUserServices',
+              $discover_function =null)
 {
     // Discover OpenID services for a URI. Tries Yadis and falls back
     // on old-style <link rel='...'> discovery if Yadis fails.

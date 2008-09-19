@@ -359,7 +359,7 @@ class Auth_OpenID_CheckAuthRequest extends Auth_OpenID_Request {
         $this->message = null;
     }
 
-    function fromMessage($message, $server=null)
+    function fromMessage($message, $server =null)
     {
         $required_keys = array('assoc_handle', 'sig', 'signed');
 
@@ -591,7 +591,7 @@ class Auth_OpenID_AssociateRequest extends Auth_OpenID_Request {
         $this->assoc_type = $assoc_type;
     }
 
-    function fromMessage($message, $server=null)
+    function fromMessage($message, $server =null)
     {
         if ($message->isOpenID1()) {
             $session_type = $message->getArg(Auth_OpenID_OPENID1_NS,
@@ -665,8 +665,8 @@ class Auth_OpenID_AssociateRequest extends Auth_OpenID_Request {
     }
 
     function answerUnsupported($text_message,
-                               $preferred_association_type=null,
-                               $preferred_session_type=null)
+                               $preferred_association_type =null,
+                               $preferred_session_type =null)
     {
         if ($this->message->isOpenID1()) {
             return new Auth_OpenID_ServerError($this->message);
@@ -1360,7 +1360,7 @@ class Auth_OpenID_Signatory {
      * Given an association handle, get the association from the
      * store, or return a ServerError or null if something goes wrong.
      */
-    function getAssociation($assoc_handle, $dumb, $check_expiration=true)
+    function getAssociation($assoc_handle, $dumb, $check_expiration =true)
     {
         if ($assoc_handle === null) {
             return new Auth_OpenID_ServerError(null,
@@ -1612,7 +1612,7 @@ class Auth_OpenID_UntrustedReturnURL extends Auth_OpenID_ServerError {
  * @package OpenID
  */
 class Auth_OpenID_Server {
-    function Auth_OpenID_Server(&$store, $op_endpoint=null)
+    function Auth_OpenID_Server(&$store, $op_endpoint =null)
     {
         $this->store =& $store;
         $this->signatory =& new Auth_OpenID_Signatory($this->store);
@@ -1685,7 +1685,7 @@ class Auth_OpenID_Server {
      * Decodes a query args array into the appropriate
      * {@link Auth_OpenID_Request} object.
      */
-    function decodeRequest($query=null)
+    function decodeRequest($query =null)
     {
         if ($query === null) {
             $query = Auth_OpenID::getQuery();

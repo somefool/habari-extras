@@ -135,7 +135,7 @@ class Auth_OpenID {
      *
      * @access private
      */
-    function getQuery($query_str=null)
+    function getQuery($query_str =null)
     {
         $data = array();
 
