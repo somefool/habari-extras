@@ -9,7 +9,7 @@
  */
 class PhotozouSilo extends Plugin implements MediaSilo
 {
-	const SILO_NAME= 'Photozou';
+	const SILO_NAME = 'Photozou';
 
 	/**
 	 * info
