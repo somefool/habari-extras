@@ -10,7 +10,7 @@ class lastfmAPI
 	}
 	
 	function fetch($method, $params = array(), $tokenize = false, $debug = false) {
-		$url= $this->endpoint;
+		$url = $this->endpoint;
 		$url.= '?method=' . strtolower($method);
 				
 		foreach($params as $key => $val) {
@@ -42,7 +42,7 @@ class lastfmAPI
 	
 	function tracks($page) {
 			
-		$tracks= $this->fetch('library.getTracks', array('user' => User::identify()->info->lastfm__username, 'page' => $page));
+		$tracks = $this->fetch('library.getTracks', array('user' => User::identify()->info->lastfm__username, 'page' => $page));
 		
 		$results = array();
 		
@@ -154,7 +154,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 		if ($plugin_id == $this->plugin_id()){
 			switch ($action){
 				case _t('Configure') :
-					$ui= new FormUI( strtolower( get_class( $this ) ) );
+					$ui = new FormUI( strtolower( get_class( $this ) ) );
 					$ui->append( 'text', 'username', 'user:lastfm__username', _t('User:') );
 					$ui->append('submit', 'save', _t( 'Save' ) );
 					$ui->set_option('success_message', _t('Options saved'));
@@ -183,7 +183,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 					if($artist = strtok('/')) {
 						if($level = strtok('/')) {
 							if($level == 'albums') {
-								$albums= $this->api->fetch('artist.getTopAlbums', array('artist' => $artist));
+								$albums = $this->api->fetch('artist.getTopAlbums', array('artist' => $artist));
 
 								foreach($albums->topalbums->album as $album) {
 									$props = array();
@@ -201,7 +201,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 									);						
 								}
 							} elseif($level == 'songs') {
-								$tracks= $this->api->fetch('artist.getTopTracks', array('artist' => $artist));
+								$tracks = $this->api->fetch('artist.getTopTracks', array('artist' => $artist));
 																
 								foreach($tracks->toptracks->track as $track) {
 									$props = array();
@@ -232,7 +232,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 							);
 						}
 					} else {
-						$artists= $this->api->fetch('tag.getTopArtists', array('tag' => $selected));
+						$artists = $this->api->fetch('tag.getTopArtists', array('tag' => $selected));
 
 						foreach($artists->topartists->artist as $artist) {
 							$results[] = new MediaAsset(
@@ -243,7 +243,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 						}			
 					}
 				} else {
-					$tags= $this->api->tags();
+					$tags = $this->api->tags();
 
 					foreach($tags->toptags->tag as $tag) {					
 						$results[] = new MediaAsset(
@@ -260,7 +260,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 				if($artist = strtok('/')) {
 					if($level = strtok('/')) {
 						if($level == 'albums') {
-							$albums= $this->api->fetch('artist.getTopAlbums', array('artist' => $artist));
+							$albums = $this->api->fetch('artist.getTopAlbums', array('artist' => $artist));
 
 							foreach($albums->topalbums->album as $album) {
 								$props = array();
@@ -278,7 +278,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 								);						
 							}
 						} elseif($level == 'songs') {
-							$tracks= $this->api->fetch('artist.getTopTracks', array('artist' => $artist));
+							$tracks = $this->api->fetch('artist.getTopTracks', array('artist' => $artist));
 															
 							foreach($tracks->toptracks->track as $track) {
 								$props = array();
@@ -309,7 +309,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 						);
 					}
 				} else {
-					$artists= $this->api->fetch('user.getTopArtists', array('user' => User::identify()->info->lastfm__username));
+					$artists = $this->api->fetch('user.getTopArtists', array('user' => User::identify()->info->lastfm__username));
 
 					foreach($artists->topartists->artist as $artist) {
 						$results[] = new MediaAsset(
@@ -322,7 +322,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 				break;
 				
 			case 'albums':
-				$albums= $this->api->fetch('library.getAlbums', array('user' => User::identify()->info->lastfm__username));
+				$albums = $this->api->fetch('library.getAlbums', array('user' => User::identify()->info->lastfm__username));
 								
 				foreach($albums->albums->album as $album) {
 					$props = array();
@@ -343,7 +343,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 				break;
 				
 			case 'songs':
-				$tracks= $this->api->fetch('user.getTopTracks', array('user' => User::identify()->info->lastfm__username));
+				$tracks = $this->api->fetch('user.getTopTracks', array('user' => User::identify()->info->lastfm__username));
 									
 				foreach($tracks->toptracks->track as $track) {
 					$props = array();
@@ -364,7 +364,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 				break;
 				
 			case 'recent':
-				$tracks= $this->api->fetch('user.getRecentTracks', array('user' => User::identify()->info->lastfm__username));
+				$tracks = $this->api->fetch('user.getRecentTracks', array('user' => User::identify()->info->lastfm__username));
 
 				foreach($tracks->recenttracks->track as $track) {
 					$props = array();
@@ -385,7 +385,7 @@ class lastfmSilo extends Plugin implements MediaSilo
 				break;
 				
 			case 'favorites':
-				$tracks= $this->api->fetch('user.getLovedTracks', array('user' => User::identify()->info->lastfm__username));
+				$tracks = $this->api->fetch('user.getLovedTracks', array('user' => User::identify()->info->lastfm__username));
 
 				foreach($tracks->lovedtracks->track as $track) {
 					$props = array();
