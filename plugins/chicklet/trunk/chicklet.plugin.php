@@ -27,8 +27,8 @@ class Chicklet extends Plugin
 			switch ( $action ) {
 				case _t('Configure') :
 					$ui = new FormUI( strtolower( get_class( $this ) ) );
-					$customvalue= $ui->append( 'text', 'feedname', 'chicklet__feedname', _t('Feed Address:') );
-					$customvalue= $ui->append( 'submit', 'submit', _t('Save') );
+					$customvalue = $ui->append( 'text', 'feedname', 'chicklet__feedname', _t('Feed Address:') );
+					$customvalue = $ui->append( 'submit', 'submit', _t('Save') );
 					$ui->out();
 					break;
 			}
