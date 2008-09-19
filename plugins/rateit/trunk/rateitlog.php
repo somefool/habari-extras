@@ -17,14 +17,14 @@ class RateItLog extends QueryRecord
      *
      * @access public
      */
-    public function __construct( $paramarray= array() )
+    public function __construct( $paramarray = array() )
     {
         if ( isset( $paramarray['ip']  ) ) {
             $paramarray['ip']= sprintf( '%u', ip2long( $paramarray['ip'] ) );
         }
 
         // Defaults
-        $this->fields= array_merge( self::default_fields(), $this->fields );
+        $this->fields = array_merge( self::default_fields(), $this->fields );
         parent::__construct( $paramarray );
         $this->exclude_fields( 'id' );
     }
@@ -49,7 +49,7 @@ class RateItLog extends QueryRecord
     {
         switch( $name ) {
         case 'ip':
-            $this->ip= sprintf( '%u', ip2long( $value ) );
+            $this->ip = sprintf( '%u', ip2long( $value ) );
             break;
         }
         return parent::__set( $name, $value );

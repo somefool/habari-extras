@@ -47,8 +47,8 @@ class RateIt extends Plugin
 	{
 		if ( Plugins::id_from_file( $file ) != Plugins::id_from_file( __FILE__ ) ) return;
 
-		$db_version= Options::get( 'rateit__db_version' );
-        if ( empty( $db_version ) ) $db_version= Options::get( 'rateit:db_version' );
+		$db_version = Options::get( 'rateit__db_version' );
+        if ( empty( $db_version ) ) $db_version = Options::get( 'rateit:db_version' );
 
 		if ( empty( $db_version ) ) {
 			if ( $this->install_db() ) {
@@ -102,7 +102,7 @@ class RateIt extends Plugin
 	{
 		if ( $plugin_id != $this->plugin_id() ) return;
 		if ( $action == _t( 'Configure' ) ) {
-			$form= new FormUI( strtolower( get_class( $this ) ) );
+			$form = new FormUI( strtolower( get_class( $this ) ) );
 			$form->append( 'radio', 'post_pos', 'rateit__post_pos', _t('Auto Insert: ', 'rateit'), array( 'none' => _t('None', 'rateit'), 'top' => _t('Top', 'rateit'), 'bottom' => _t('Bottom', 'rateit') ) );
             $form->append( 'submit', 'save', _t( 'Save' ) );
 			$form->out();
@@ -229,16 +229,16 @@ class RateIt extends Plugin
 	private function create_rating( $post )
 	{
 		if ( !isset( $post->info->rateit_total ) || !isset( $post->info->rateit_count ) ) {
-			$total= 0;
-			$count= 0;
-			$rating= 0.00;
+			$total = 0;
+			$count = 0;
+			$rating = 0.00;
 		} else {
-			$total= $post->info->rateit_total;
-			$count= $post->info->rateit_count;
-			$rating= sprintf( "%.2f", $post->info->rateit_total / $post->info->rateit_count );
+			$total = $post->info->rateit_total;
+			$count = $post->info->rateit_count;
+			$rating = sprintf( "%.2f", $post->info->rateit_total / $post->info->rateit_count );
 		}
-		$stars= round( $rating );
-		$stars_classes= array(
+		$stars = round( $rating );
+		$stars_classes = array(
 			0 => 'nostar',
 			1 => 'onestar',
 			2 => 'twostar',
@@ -248,7 +248,7 @@ class RateIt extends Plugin
 		);
 
 		if ( $this->check_rated( $post->id ) ) {
-			$html= '
+			$html = '
 <div class="rateit" id="rateit-' . $post->id . '">
 Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 <div class="rateit-stars rateit-' . $stars_classes[$stars] . '">
@@ -257,7 +257,7 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 </div>';
 		}
 		else {
-			$html= '
+			$html = '
 <div class="rateit" id="rateit-' . $post->id . '">
 ' . sprintf(_t('Rate It! (Average %.2f, %d votes)', 'rateit'), $rating, $count) . '
 <div class="rateit-stars rateit-' . $stars_classes[$stars] . '">
@@ -316,10 +316,10 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 
 	private function add_rating( $post_id, $rating )
 	{
-		$post= Posts::get( array( 'id' => $post_id, 'status' => Post::status( 'published' ), 'fetch_fn' => 'get_row' ) );
+		$post = Posts::get( array( 'id' => $post_id, 'status' => Post::status( 'published' ), 'fetch_fn' => 'get_row' ) );
 		if ( !$post ) return false;
 
-		$log= new RateItLog( array( 'post_id' => $post_id, 'rating' => $rating, 'ip' => $_SERVER['REMOTE_ADDR'] ) );
+		$log = new RateItLog( array( 'post_id' => $post_id, 'rating' => $rating, 'ip' => $_SERVER['REMOTE_ADDR'] ) );
 		if ( !$log->insert() ) return false;
 
 		$post->info->rateit_total += $rating;
@@ -332,10 +332,10 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 
 	private function check_rated( $post_id, $ip = null )
 	{
-		if ( !isset( $ip ) ) $ip= $_SERVER['REMOTE_ADDR'];
-		$ip= sprintf( '%u', ip2long( $ip ) );
+		if ( !isset( $ip ) ) $ip = $_SERVER['REMOTE_ADDR'];
+		$ip = sprintf( '%u', ip2long( $ip ) );
 		if ( $ip === false ) return true;
-		$result= DB::get_row( 'SELECT COUNT(*) AS count FROM ' . DB::table( 'rateit_log' ) . ' WHERE post_id = :post_id AND ip = :ip', array( ':post_id' => $post_id, ':ip' => $ip ) );
+		$result = DB::get_row( 'SELECT COUNT(*) AS count FROM ' . DB::table( 'rateit_log' ) . ' WHERE post_id = :post_id AND ip = :ip', array( ':post_id' => $post_id, ':ip' => $ip ) );
 		if ( $result !== false && $result->count == 0 ) return false;
 		return true;
 	}
@@ -350,7 +350,7 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 	{
 		DB::register_table( 'rateit_log' );
 
-		$query= 'CREATE TABLE `' . DB::table( 'rateit_log' ) . '` (
+		$query = 'CREATE TABLE `' . DB::table( 'rateit_log' ) . '` (
 			`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 			`post_id` INT NOT NULL ,
 			`rating` TINYINT NOT NULL ,
