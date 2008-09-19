@@ -33,14 +33,14 @@ class CreditDue extends Plugin
 	 */
 	public function theme_show_credits( $theme ) {
 
-		$theme_credits= Themes::get_active();
-		$plugin_credits= Plugins::get_active();
+		$theme_credits = Themes::get_active();
+		$plugin_credits = Plugins::get_active();
 
 		#Utils::debug($theme_credits);
 		#Utils::debug($plugin_credits);
 		
-		$theme->theme_credits= $theme_credits;
-		$theme->plugin_credits= $plugin_credits;
+		$theme->theme_credits = $theme_credits;
+		$theme->plugin_credits = $plugin_credits;
 		
 		return $theme->fetch( 'creditdue' );
 	}
