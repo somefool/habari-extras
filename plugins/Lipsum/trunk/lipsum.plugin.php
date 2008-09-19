@@ -51,7 +51,7 @@ class Lipsum extends Plugin
 	{
 		if ( $this->plugin_id()==$plugin_id && $action=='Configure' )
 			{
-			$form= new FormUI( strtolower(get_class( $this ) ) );
+			$form = new FormUI( strtolower(get_class( $this ) ) );
 			$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:'));
 			$form->num_posts->add_validator( 'validate_required' );
 			$form->append( 'submit', 'save', _t( 'Save' ) );
@@ -64,7 +64,7 @@ class Lipsum extends Plugin
 	{
 		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
 			set_time_limit(0);
-			$user= User::get_by_name( 'lipsum' );
+			$user = User::get_by_name( 'lipsum' );
 			if ( !$user ) {
 				$user = User::create(array (
 					'username'=>'lipsum',
@@ -75,10 +75,10 @@ class Lipsum extends Plugin
 
 			$time = time() - 160;
 			
-			$num_posts= Options::get( 'lipsum__num_posts' );
+			$num_posts = Options::get( 'lipsum__num_posts' );
 			if ( ! $num_posts ) {
 				Options::set( 'lipsum__num_posts', 20);
-				$num_posts= 20;
+				$num_posts = 20;
 			}
 
 			for($z = 0; $z < $num_posts; $z++) {
@@ -105,19 +105,19 @@ class Lipsum extends Plugin
 	
 	function update_num_posts( $form )
 	{
-		$num_posts= $form->num_posts->value;
-		$num_posts= is_numeric($num_posts) ? (int) $num_posts : 20;
+		$num_posts = $form->num_posts->value;
+		$num_posts = is_numeric($num_posts) ? (int) $num_posts : 20;
 
-		$current_count= (int) Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) );
+		$current_count = (int) Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) );
 
 		if ( $num_posts == $current_count ) {
 			return $form->get( false );
 		}
 		// remove some posts if the $num_posts is less than the current count
 		if ( $num_posts < $current_count ) {
-			$limit= $current_count - $num_posts;
-			$posts= Posts::get( array( 'info' => array('lipsum' => true), 'limit' => $limit ) );
-			$count= 0;
+			$limit = $current_count - $num_posts;
+			$posts = Posts::get( array( 'info' => array('lipsum' => true), 'limit' => $limit ) );
+			$count = 0;
 			foreach( $posts as $post) {
 				$post->delete();
 				$count++;
@@ -126,10 +126,10 @@ class Lipsum extends Plugin
 		}
 		// otherwise, we need to add some posts
 		else {
-			$user= User::get_by_name( 'lipsum' );
+			$user = User::get_by_name( 'lipsum' );
 			$time = time() - 160;
-			$count= 0;
-			for ( $i= $current_count + 1; $i <= $num_posts; $i++ ) {
+			$count = 0;
+			for ( $i = $current_count + 1; $i <= $num_posts; $i++ ) {
 				$this->make_post( $user, $time );
 				$count++;
 			}
