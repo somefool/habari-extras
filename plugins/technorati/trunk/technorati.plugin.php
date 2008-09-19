@@ -59,8 +59,8 @@ class Technorati extends Plugin
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ( $action ) {
 				case _t( 'Configure' ):
-					$ui= new FormUI( strtolower( get_class( $this ) ) );
-					$technorati_apikey= $ui->append( 'text', 'apikey', 'option:technorati__apikey', _t( 'Technorati API Key (Get it from ' ) . '<a href="http://www.technorati.com/developers/apikey.html">' . _t( 'Developer Center' ) . '</a>)' );
+					$ui = new FormUI( strtolower( get_class( $this ) ) );
+					$technorati_apikey = $ui->append( 'text', 'apikey', 'option:technorati__apikey', _t( 'Technorati API Key (Get it from ' ) . '<a href="http://www.technorati.com/developers/apikey.html">' . _t( 'Developer Center' ) . '</a>)' );
 					$technorati_apikey->add_validator( 'validate_required' );
 					$ui->append( 'submit', 'save', _t( 'Save' ) );
 					$ui->set_option( 'success_message', _t( 'Configuration saved' ) );
@@ -72,7 +72,7 @@ class Technorati extends Plugin
 
 	public function filter_dash_module_technorati( $module, $module_id, $theme )
 	{
-		$theme->technorati_stats= $this->theme_technorati_stats();
+		$theme->technorati_stats = $this->theme_technorati_stats();
 
 		$module['content']= $theme->fetch( 'dash_technorati' );
 		return $module;
@@ -97,12 +97,12 @@ class Technorati extends Plugin
 
 	public function get_technorati_stats()
 	{
-		$technorati_stats= array();
-		$technorati_url= 'http://api.technorati.com/bloginfo?key=' . Options::get( 'technorati__apikey' ) . '&url='. Site::get_url('habari');
+		$technorati_stats = array();
+		$technorati_url = 'http://api.technorati.com/bloginfo?key=' . Options::get( 'technorati__apikey' ) . '&url='. Site::get_url('habari');
 
-		$response= RemoteRequest::get_contents( $technorati_url );
+		$response = RemoteRequest::get_contents( $technorati_url );
 		if( $response !== FALSE ) {
-			$xml= new SimpleXMLElement( $response );
+			$xml = new SimpleXMLElement( $response );
 			if( isset( $xml->document->result->weblog ) ) {
 				$technorati_inbound_blogs = (int)$xml->document->result->weblog[0]->inboundblogs;
 				$technorati_inbound_links = (int)$xml->document->result->weblog[0]->inboundlinks;
