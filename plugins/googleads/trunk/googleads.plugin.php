@@ -34,11 +34,11 @@ class GoogleAds extends Plugin
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ( $action ) {	
 				case _t( 'Configure' ):
-					$ui= new FormUI( strtolower( get_class( $this ) ) );
-					$clientcode= $ui->append( 'text', 'clientcode', 'googleads__clientcode', _t( 'Ad Client Code' ) );
-					$adslot= $ui->append( 'text', 'adslot', 'googleads__adslot', _t( 'Ad Slot ID' ) );
-					$adwidth= $ui->append( 'text', 'adwidth', 'googleads__adwidth', _t( 'Ad Width' ) );
-					$adheight= $ui->append( 'text', 'adheight', 'googleads__adheight', _t( 'Ad Height' ) );
+					$ui = new FormUI( strtolower( get_class( $this ) ) );
+					$clientcode = $ui->append( 'text', 'clientcode', 'googleads__clientcode', _t( 'Ad Client Code' ) );
+					$adslot = $ui->append( 'text', 'adslot', 'googleads__adslot', _t( 'Ad Slot ID' ) );
+					$adwidth = $ui->append( 'text', 'adwidth', 'googleads__adwidth', _t( 'Ad Width' ) );
+					$adheight = $ui->append( 'text', 'adheight', 'googleads__adheight', _t( 'Ad Height' ) );
 
 					$ui->append( 'submit', 'save', _t('Save') );
 					$ui->out();
@@ -76,7 +76,7 @@ ENDAD;
 			'ADSLOT'	=> self::getvar( 'adslot' ),
 			'ADWIDTH' 	=> self::getvar( 'adwidth' ),
 			'ADHEIGHT'	=> self::getvar( 'adheight' ) );
-		$code= str_replace( array_keys( $replace ), array_values( $replace ), $code );
+		$code = str_replace( array_keys( $replace ), array_values( $replace ), $code );
 		echo $code;
 	}
 }
