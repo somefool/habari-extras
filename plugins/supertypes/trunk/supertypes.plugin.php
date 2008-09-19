@@ -31,8 +31,8 @@ class SuperTypes extends Plugin
 	}
 	
 	public function action_form_publish($form, $post) {
-		$selector= $form->append('wrapper', 'type_selector');
-		$selector->class= 'container';
+		$selector = $form->append('wrapper', 'type_selector');
+		$selector->class = 'container';
 		
 
 		if(Controller::get_var('to_type') != NULL && $post->content_type != Controller::get_var('to_type')) { /* set type */
