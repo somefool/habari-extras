@@ -1,17 +1,56 @@
 #!/bin/bash
 
-for d in `ls`;
+# setup tmp files from tar.gz's
+mkdir tmp
+for d in `ls launchpad-export*.tar.gz`;
 do
-	if [ -d $d/LC_MESSAGES ]
+	mv $d tmp/$d
+	cd tmp
+	tar zxf $d
+	cd ..
+done
+
+# check for .mo
+for d in `ls tmp`;
+do
+	if [ -f tmp/$d/LC_MESSAGES/habari.mo ]
 	then
+		if [ ! -d $d ]
+		then
+			mkdir $d/trunk
+			mkdir $d/trunk/LC_MESSAGES
+			mkdir $d/trunk/dist
+			mkdir $d/tags
+			mkdir $d/braches
+		fi
 		echo "moving $d.mo"
-		mv $d/LC_MESSAGES $d/trunk/LC_MESSAGES
-	fi
-	if [[ $d =~ habari-(.*).po ]]
-	then
-			echo "moving $d.po"
-			mv habari-${BASH_REMATCH[1]}.po ${BASH_REMATCH[1]}/trunk/${BASH_REMATCH[1]}.po
+		mv tmp/$d/LC_MESSAGES/habari.mo $d/trunk/LC_MESSAGES/habari.mo
+		svn add -q $d $d/trunk/LC_MESSAGES/habari.mo
 	fi
 done
+
+# check fo .po
+for d in `ls tmp/habari-*.po`;
+do
+	if [[ $d =~ habari-(.*).po ]]
+	then
+		if [ ! -d ${BASH_REMATCH[1]} ]
+		then
+			mkdir ${BASH_REMATCH[1]}/trunk
+			mkdir ${BASH_REMATCH[1]}/trunk/LC_MESSAGES
+			mkdir ${BASH_REMATCH[1]}/trunk/dist
+			mkdir ${BASH_REMATCH[1]}/tags
+			mkdir ${BASH_REMATCH[1]}/braches
+		fi
+		echo "moving  ${BASH_REMATCH[1]}.po"
+		mv tmp/habari-${BASH_REMATCH[1]}.po ${BASH_REMATCH[1]}/trunk/LC_MESSAGES/habari.po
+		svn add -q ${BASH_REMATCH[1]} ${BASH_REMATCH[1]}/trunk/LC_MESSAGES/habari.po
+	fi
+done
+
+# remove tmp files
+rm -rf tmp
+
+svn ci -m"launchpad sync"
 
 echo "done!"
