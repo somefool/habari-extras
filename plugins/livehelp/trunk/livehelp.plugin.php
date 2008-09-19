@@ -48,9 +48,9 @@ class LiveHelp extends Plugin
 	public function action_add_template_vars( $theme )
 	{
 		if ($theme->admin_page == 'livehelp') {
-			$user= User::identify();
-			$nick= $user->username;
-			$nick= $nick == 'admin' ? substr($user->email, 0, strpos($user->email, '@')) : $nick;
+			$user = User::identify();
+			$nick = $user->username;
+			$nick = $nick == 'admin' ? substr($user->email, 0, strpos($user->email, '@')) : $nick;
 			$theme->assign('nick', $nick);
 		}
 	}
