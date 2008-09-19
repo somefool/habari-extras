@@ -8,10 +8,10 @@
 class Gallr extends Plugin
 { 
 	// Version info
-	const VERSION= '0.1';
+	const VERSION = '0.1';
 	
 	// API key
-	const KEY= '22595035de2c10ab4903b2c2633a2ba4';
+	const KEY = '22595035de2c10ab4903b2c2633a2ba4';
 	
 	/**
 	 * Required plugin info() implementation provides info to Habari about this plugin.
