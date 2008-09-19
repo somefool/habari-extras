@@ -2,7 +2,7 @@
 
 class CustomQuery extends Plugin
 {
-	const VERSION= '0.2';
+	const VERSION = '0.2';
 	
 	public function info()
 	{
