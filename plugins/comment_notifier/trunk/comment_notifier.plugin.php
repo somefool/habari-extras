@@ -34,11 +34,11 @@ class comment_notifier extends Plugin
 			return;
 		}
 
-		$post= Post::get( array('id' => $comment->post_id ) );
-		$author= User::get_by_id( $post->user_id );
+		$post = Post::get( array('id' => $comment->post_id ) );
+		$author = User::get_by_id( $post->user_id );
 		$status = $comment->status == Comment::STATUS_UNAPPROVED ? ' UNAPPROVED' : ' approved';
-		$title= sprintf(_t('[%1$s] New%3$s comment on: %2$s'), Options::get('title'), $post->title, $status);
-		$message= <<< MESSAGE
+		$title = sprintf(_t('[%1$s] New%3$s comment on: %2$s'), Options::get('title'), $post->title, $status);
+		$message = <<< MESSAGE
 The following comment was added to the post "%1\$s".
 %2\$s
 
@@ -50,8 +50,8 @@ URL: %5\$s
 -----
 Moderate comments: %7\$s
 MESSAGE;
-		$message= _t($message);
-		$message= sprintf(
+		$message = _t($message);
+		$message = sprintf(
 			$message,
 			$post->title,
 			$post->permalink,
@@ -62,7 +62,7 @@ MESSAGE;
 			URL::get('admin', 'page=comments')
 		);
 
-		$headers= 'From: ' . $comment->name . ' <' . $comment->email . '>';
+		$headers = 'From: ' . $comment->name . ' <' . $comment->email . '>';
 		mail ($author->email, $title, $message, $headers);
 	}
 }
