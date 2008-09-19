@@ -204,7 +204,7 @@ class ScratchPad extends Plugin implements MediaSilo
 
 	public function action_handler_scratchpad($handler_vars)
 	{
-		$user= User::identify();
+		$user = User::identify();
 		if ( !$user ) {
 			// TODO We should allow the user to log in somehow
 			$response = "User not logged in.";
@@ -261,7 +261,7 @@ class ScratchPad extends Plugin implements MediaSilo
 	public function insert_scratchpad($form)
 	{
 		$response = '';
-		$user= User::identify();
+		$user = User::identify();
 		if ( !$user ) {
 			// TODO should we allow the user to log in here ? They're sending data directly to where they shouldn't be. Maybe their session timed out ?
 			$response = "User not logged in.";
