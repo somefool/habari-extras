@@ -3,7 +3,7 @@
 	class DatabaseOptimizer extends Plugin
 	{
 		
-		const VERSION= '0.3.1';
+		const VERSION = '0.3.1';
 		
 		public function info ( ) {
 			
@@ -26,7 +26,7 @@
 		
 		}
 		
-		public function action_plugin_activation ( $file='' ) {
+		public function action_plugin_activation ( $file ='' ) {
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
@@ -38,7 +38,7 @@
 			
 		}
 		
-		public function action_plugin_deactivation ( $file='' ) {
+		public function action_plugin_deactivation ( $file ='' ) {
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
@@ -57,15 +57,15 @@
 				
 				case 'mysql':
 					
-					$q= 'SHOW TABLE STATUS WHERE data_free > 0';
+					$q = 'SHOW TABLE STATUS WHERE data_free > 0';
 					
-					$tables= DB::get_results( $q );
+					$tables = DB::get_results( $q );
 					
 					if ( count( $tables ) > 0 ) {
 						
 						foreach ( $tables as $table ) {
 							
-							$q2= 'OPTIMIZE TABLE ' . $table->Name;
+							$q2 = 'OPTIMIZE TABLE ' . $table->Name;
 							
 							if ( DB::query( $q2 ) ) {
 								$space_saved += $table->Data_free;
@@ -78,24 +78,24 @@
 						
 					}
 					
-					$result= true;
+					$result = true;
 					break;
 					
 				case 'sqlite':
 					
 					if ( DB::query( 'VACUUM' ) ) {
-						$result= true;
+						$result = true;
 						
 						EventLog::log( 'SQLite database VACUUM\'ed successfully.' );
 					}
 					else {
-						$result= false;
+						$result = false;
 					}
 					
 					break;
 					
 				default:
-					$result= false;
+					$result = false;
 					break;
 					
 				return $result;
