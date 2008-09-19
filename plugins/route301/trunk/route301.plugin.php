@@ -6,7 +6,7 @@ class Route301 extends Plugin {
 	 * You have to use the value `Route301` as the handler for your redirecting rules.
 	 * You have to use the key of your $redirect_rules as the action for your redirecting rules.
 	 */
-	var $custom_rules= array(
+	var $custom_rules = array(
 		'display_posts_by_date_and_slug' => array( // Wordpress Permalink: 2007/09/17/<slug>
 			'name' => 'display_posts_by_date_and_slug',
 			'parse_regex' => '%^(?P<year>[1,2]{1}\d{3})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[^/]+)(?:/page/(?P<page>\d+)/?)?$%i',
@@ -33,7 +33,7 @@ class Route301 extends Plugin {
 	/* Custom callback functions.
 	 * Functions called to add handler_vars values needed by custom rules.
 	 */
-	var $callback_functions= array(
+	var $callback_functions = array(
 		'get_date', // Extracts the year, month and day from a post
 		'feed_index',
 		);
@@ -58,7 +58,7 @@ class Route301 extends Plugin {
 	 */
 	public function filter_rewrite_rules( $db_rules )
 	{	
-		$defaults= array(
+		$defaults = array(
 			'priority' => 1,
 			'is_active' => 1,
 			'rule_class' => RewriteRule::RULE_CUSTOM,
@@ -66,7 +66,7 @@ class Route301 extends Plugin {
 			);
 
 		foreach ( $this->custom_rules as $paramarray ) {
-			$paramarray= array_merge( $paramarray, $defaults );
+			$paramarray = array_merge( $paramarray, $defaults );
 			$db_rules[]= new RewriteRule( $paramarray );
 		}
 		return $db_rules;
@@ -77,19 +77,19 @@ class Route301 extends Plugin {
 	 */
 	public function act( $action )
 	{
-		$handler_vars= Controller::get_handler()->handler_vars;
-		$callback_vars= array();
+		$handler_vars = Controller::get_handler()->handler_vars;
+		$callback_vars = array();
 		foreach( $this->callback_functions as $callback ) {
-			$callback_vars= array_merge( $callback_vars, $this->$callback($handler_vars) );
+			$callback_vars = array_merge( $callback_vars, $this->$callback($handler_vars) );
 		}
-		$handler_vars= array_merge( $handler_vars, $callback_vars );
-		$url= URL::get( $action, $handler_vars, false );
+		$handler_vars = array_merge( $handler_vars, $callback_vars );
+		$url = URL::get( $action, $handler_vars, false );
 
 		if ( empty( $url ) && method_exists( $this, $action ) ) {
-			$url= $this->$action( $handler_vars );
+			$url = $this->$action( $handler_vars );
 		}
 		if ( empty( $url ) ) {
-			$url= URL::get( 'display_entry', $handler_vars, false );
+			$url = URL::get( 'display_entry', $handler_vars, false );
 		}
 
 		header("HTTP/1.1 301 Moved Permanently");
@@ -102,16 +102,16 @@ class Route301 extends Plugin {
 	 */
 	public function get_date( $handler_vars )
 	{
-		$posts= Posts::get( $handler_vars );
+		$posts = Posts::get( $handler_vars );
 		if ( isset( $posts[0] ) ) {
-			$pubdate= strtotime( $posts[0]->pubdate );
-			$paramarray= array(
+			$pubdate = strtotime( $posts[0]->pubdate );
+			$paramarray = array(
 				'year' => date( 'Y', $pubdate ),
 				'month' => date( 'm', $pubdate ),
 				'day' => date( 'd', $pubdate ),
 				);
 			
-			$handler_vars= array_merge( $paramarray, $handler_vars );
+			$handler_vars = array_merge( $paramarray, $handler_vars );
 			return $handler_vars;
 		}
 		else {
