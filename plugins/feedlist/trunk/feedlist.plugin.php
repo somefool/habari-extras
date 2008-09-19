@@ -13,7 +13,7 @@
 class FeedList extends Plugin
 { 
 	// Version info
-	const VERSION= '0.2';
+	const VERSION = '0.2';
 	
 	/**
 	 * Required plugin info() implementation provides info to Habari about this plugin.
@@ -52,7 +52,7 @@ class FeedList extends Plugin
 	 * Plugin plugin_activation action, executed when any plugin is activated
 	 * @param string $file The filename of the plugin that was activated.
 	 */ 
-	public function action_plugin_activation( $file='' )
+	public function action_plugin_activation( $file ='' )
 	{
 		// Was this plugin activated?
 		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) { 
@@ -155,7 +155,7 @@ class FeedList extends Plugin
 				// Create a new Form called 'feedlist'
 				$ui = new FormUI( 'feedlist' );
 				// Add a text control for the feed URL
-				$feedurl= $ui->append('textmulti', 'feedurl', 'feedlist__feedurl', 'Feed URL');
+				$feedurl = $ui->append('textmulti', 'feedurl', 'feedlist__feedurl', 'Feed URL');
 				// Mark the field as required
 				$feedurl->add_validator( 'validate_required' );
 				// Mark the field as requiring a valid URL
@@ -200,16 +200,16 @@ class FeedList extends Plugin
 	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		// Get the most recent ten items from each feed
-		$feedurls= Options::get( 'feedlist__feedurl' );
+		$feedurls = Options::get( 'feedlist__feedurl' );
 		if ( $feedurls ) {
-			$feeds= array();
-			$feeditems= array();
+			$feeds = array();
+			$feeditems = array();
 			foreach( $feedurls as $index=>$feedurl ) {
-				$items= DB::get_results( 'SELECT * FROM {feedlist} WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index) );
+				$items = DB::get_results( 'SELECT * FROM {feedlist} WHERE feed_id = ? ORDER BY updated DESC LIMIT 10', array($index) );
 
 				// If there are items to display, produce output
 				if(count($items)) {
-					$feed= "<ul>\n";
+					$feed = "<ul>\n";
 				
 					foreach ( $items as $item ) {
 						$feed.= sprintf( 
@@ -222,7 +222,7 @@ class FeedList extends Plugin
 					$feed.= "</ul>\n";
 				}
 				else {
-					$feed= '<p>Sorry, no items to display.</p>';
+					$feed = '<p>Sorry, no items to display.</p>';
 				}
 				$feeds[] = $feed;	
 				$feeditems = array_merge($feeditems, $items);
@@ -261,9 +261,9 @@ class FeedList extends Plugin
 					foreach( $channel->item as $item ) {
 						if( isset( $item->guid ) ) {
 							// doesn't work when guid is an array.
-							$guid= $item->guid;
+							$guid = $item->guid;
 						} else {
-							$guid= md5( $item->asXML() );
+							$guid = md5( $item->asXML() );
 						}
 						DB::query('
 							REPLACE INTO {feedlist} (feed_id, guid, title, link, updated, description) 
@@ -281,9 +281,9 @@ class FeedList extends Plugin
 				} else if ( ( $xml->item ) ) {
 					foreach( $xml->item as $item ) {
 						if( isset( $item->guid ) ) {
-							$guid= $item->guid;
+							$guid = $item->guid;
 						} else {
-							$guid= md5( $item->asXML() );
+							$guid = md5( $item->asXML() );
 						}
 						DB::query('
 							REPLACE INTO {feedlist} (feed_id, guid, title, link, updated, description) 
