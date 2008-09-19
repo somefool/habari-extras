@@ -22,7 +22,7 @@ class Rewriter extends Plugin
 	}
 	
 	public function filter_default_rewrite_rules( $rules ) {
-		$this->rules= $rules;
+		$this->rules = $rules;
 		
 		return $rules;
 	}
@@ -47,7 +47,7 @@ class Rewriter extends Plugin
 	function action_add_template_vars( $theme ) {
 		$theme->simple = Options::get('rewriter:simpleEntry');
 		
-		$theme->rules= self::get_rules();	
+		$theme->rules = self::get_rules();	
 	}
 	
 	function action_admin_theme_get_rules( $handler, $theme )
@@ -91,11 +91,11 @@ class Rewriter extends Plugin
 	
 	function get_rules() {
 		
-		$rules= $this->rules;
+		$rules = $this->rules;
 		
-		$rules= RewriteRules::sort_rules( RewriteRules::get_active());
+		$rules = RewriteRules::sort_rules( RewriteRules::get_active());
 		
-		$this->rules= $rules;
+		$this->rules = $rules;
 		
 		return $rules;
 	}
