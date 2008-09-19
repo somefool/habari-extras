@@ -81,12 +81,12 @@ class Revision extends Plugin
 		if ( $post->content_type == Post::type( 'revision' ) ) return;
 
 		$revision = 1;
-		$rev_post= clone $post;
-		$rev_post->id= null;
-		$rev_post->slug= 'revision-' . $revision . ':' . $rev_post->slug;
-		$rev_post->content_type= Post::type( 'revision' );
-		$rev_post->info->revision= $revision;
-		$rev_post->info->revision_post_id= $post->id;
+		$rev_post = clone $post;
+		$rev_post->id = null;
+		$rev_post->slug = 'revision-' . $revision . ':' . $rev_post->slug;
+		$rev_post->content_type = Post::type( 'revision' );
+		$rev_post->info->revision = $revision;
+		$rev_post->info->revision_post_id = $post->id;
 
 		DB::insert( DB::table( 'posts' ), array_diff_key( $rev_post->to_array(), $rev_post->list_excluded_fields() ) );
 		$rev_post->info->commit( DB::last_insert_id() );
@@ -103,15 +103,15 @@ class Revision extends Plugin
 	{
 		if ( $post->content_type == Post::type( 'revision' ) ) return;
 
-		$rev_count= DB::get_row( 'SELECT COUNT(*) AS count FROM {posts} LEFT JOIN {postinfo} ON {posts}.id = {postinfo}.post_id WHERE {postinfo}.name = \'revision_post_id\' AND {postinfo}.value = :post_id', array( 'post_id' => $post->id ) );
+		$rev_count = DB::get_row( 'SELECT COUNT(*) AS count FROM {posts} LEFT JOIN {postinfo} ON {posts}.id = {postinfo}.post_id WHERE {postinfo}.name = \'revision_post_id\' AND {postinfo}.value = :post_id', array( 'post_id' => $post->id ) );
 
 		$revision = $rev_count->count + 1;
-		$rev_post= clone $post;
-		$rev_post->id= null;
-		$rev_post->slug= 'revision-' . $revision . ':' . $rev_post->slug;
-		$rev_post->content_type= Post::type( 'revision' );
-		$rev_post->info->revision= $revision;
-		$rev_post->info->revision_post_id= $post->id;
+		$rev_post = clone $post;
+		$rev_post->id = null;
+		$rev_post->slug = 'revision-' . $revision . ':' . $rev_post->slug;
+		$rev_post->content_type = Post::type( 'revision' );
+		$rev_post->info->revision = $revision;
+		$rev_post->info->revision_post_id = $post->id;
 
 		DB::insert( DB::table( 'posts' ), array_diff_key( $rev_post->to_array(), $rev_post->list_excluded_fields() ) );
 		$rev_post->info->commit( DB::last_insert_id() );
@@ -138,7 +138,7 @@ class Revision extends Plugin
 			return;
 		}
 
-		$post= Posts::get( array( 'id' => $handler->handler_vars['revision_id'], 'fetch_fn' => 'get_row' ) );
+		$post = Posts::get( array( 'id' => $handler->handler_vars['revision_id'], 'fetch_fn' => 'get_row' ) );
 		$theme->assign( 'post', $post );
 
 		$theme->assign( 'revisions', Posts::get( array( 'info' => array( 'revision_post_id' => $post->info->revision_post_id ), 'orderby' => 'updated DESC' ) ) );
@@ -163,7 +163,7 @@ class Revision extends Plugin
 			return;
 		}
 
-		$revision= Posts::get( array( 'id' => $handler->handler_vars['revision_id'], 'fetch_fn' => 'get_row' ) );
+		$revision = Posts::get( array( 'id' => $handler->handler_vars['revision_id'], 'fetch_fn' => 'get_row' ) );
 
 		if ( !$revision ) {
 			Session::notice( _t( 'specify revision not found.' ) );
@@ -171,10 +171,10 @@ class Revision extends Plugin
 			return;
 		}
 
-		$post= Posts::get( array( 'id' => $revision->info->revision_post_id, 'fetch_fn' => 'get_row' ) );
+		$post = Posts::get( array( 'id' => $revision->info->revision_post_id, 'fetch_fn' => 'get_row' ) );
 
-		$post->title= $revision->title;
-		$post->content= $revision->content;
+		$post->title = $revision->title;
+		$post->content = $revision->content;
 		$post->update();
 
 		Utils::redirect( URL::get( 'admin', 'page=publish&slug=' . $post->slug ) );
@@ -196,12 +196,12 @@ class Revision extends Plugin
 			return;
 		}
 
-		$old_post= Posts::get( array( 'id' => $handler->handler_vars['old_revision_id'], 'fetch_fn' => 'get_row' ) );
-		$new_post= Posts::get( array( 'id' => $handler->handler_vars['new_revision_id'], 'fetch_fn' => 'get_row' ) );
+		$old_post = Posts::get( array( 'id' => $handler->handler_vars['old_revision_id'], 'fetch_fn' => 'get_row' ) );
+		$new_post = Posts::get( array( 'id' => $handler->handler_vars['new_revision_id'], 'fetch_fn' => 'get_row' ) );
 		$theme->assign( 'old_post', $old_post );
 		$theme->assign( 'new_post', $new_post );
 
-		$content_diff= RevisionDiff::format_diff( $old_post->content, $new_post->content );
+		$content_diff = RevisionDiff::format_diff( $old_post->content, $new_post->content );
         $theme->assign( 'content_diff', $content_diff );
 
 		$theme->assign( 'revisions', Posts::get( array( 'info' => array( 'revision_post_id' => $old_post->info->revision_post_id ), 'orderby' => 'updated DESC' ) ) );
@@ -235,7 +235,7 @@ class Revision extends Plugin
 	{
 		if ( empty( $post->id ) ) return $controls;
 
-		$rev_posts= Posts::get( array( 'info' => array( 'revision_post_id' => $post->id ), 'orderby' => 'updated DESC' ) );
+		$rev_posts = Posts::get( array( 'info' => array( 'revision_post_id' => $post->id ), 'orderby' => 'updated DESC' ) );
 		ob_start();
 ?>
 <div class="container">
