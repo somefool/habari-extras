@@ -89,7 +89,7 @@ class GoogleMaps extends Plugin
 	{
 		if ($plugin_id != $this->plugin_id()) return;
 		if ($action == _t('Configure')) {
-			$form= new FormUI( strtolower(get_class($this)));
+			$form = new FormUI( strtolower(get_class($this)));
 			$form->append('text', 'api_key', 'googlemaps__api_key', _t('API Key: ', 'googlemaps'));
             $form->append('static', 'static1', 'don\'t have API Key? <a href="http://code.google.com/apis/maps/signup.html" target="_blank">Signup!</a>');
 			$map_width = $form->append('text', 'map_width', 'googlemaps__map_width', _t('Map Width: ', 'googlemaps'));
