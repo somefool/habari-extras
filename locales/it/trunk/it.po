@@ -1,0 +1,3115 @@
+# Italian translation for habari
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the habari package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: habari\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-07-11 15:21-0500\n"
+"PO-Revision-Date: 2008-09-13 14:48+0000\n"
+"Last-Translator: Massimiliano <Unknown>\n"
+"Language-Team: Italian <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2008-09-19 20:00+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: system/admin/user.php:15
+msgid "No such user!"
+msgstr "Questo utente non esiste!"
+
+#: system/admin/user.php:33
+#: system/admin/options.php:7
+msgid "All options"
+msgstr "Tutte le opzioni"
+
+#: system/admin/user.php:38
+#: system/admin/tags.php:23
+#: system/admin/options.php:14
+#: system/admin/users.php:26
+msgid "or"
+msgstr "oppure"
+
+#: system/admin/user.php:41
+#: system/admin/users.php:29
+msgid "search users"
+msgstr "ricerca gli utenti"
+
+#: system/admin/user.php:55
+#: system/admin/users_items.php:28
+msgid " post"
+msgstr " post"
+
+#: system/admin/user.php:55
+#: system/admin/users_items.php:28
+msgid " posts"
+msgstr " post"
+
+#: system/admin/user.php:68
+msgid "User Information"
+msgstr "Informazioni utente"
+
+#: system/admin/user.php:74
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#: system/admin/user.php:83
+msgid "User Name"
+msgstr "Nome utente"
+
+#: system/admin/user.php:92
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: system/admin/user.php:101
+msgid "Portrait URL"
+msgstr "URL del ritratto"
+
+#: system/admin/user.php:112
+msgid "Change Password"
+msgstr "Cambia password"
+
+#: system/admin/user.php:116
+#: system/admin/login.php:47
+#: system/installer/db_setup.php:72
+#: system/installer/db_setup.php:122
+#: system/installer/db_setup.php:205
+msgid "Password"
+msgstr "Password"
+
+#: system/admin/user.php:125
+msgid "Password Again"
+msgstr "Reinserisci la password"
+
+#: system/admin/user.php:135
+msgid "Additional User Information"
+msgstr "Informazioni aggiuntive sull'utente"
+
+#. #-#-#-#-#  poeditA2QcZo (PACKAGE VERSION)  #-#-#-#-#
+#. @todo: filter for additional options from plugins
+#. * We could either use existing config forms and simply extract
+#. * the form controls, or we could create something different
+#. 
+#: system/admin/user.php:143
+#: system/classes/adminhandler.php:249
+msgid "Apply"
+msgstr "Applica"
+
+#: system/admin/user.php:146
+#: system/admin/user.php:196
+#: system/admin/users.php:51
+#, php-format
+msgid "Reassign posts to: %s"
+msgstr "Riassegna i post a: %s"
+
+#: system/admin/user.php:149
+#: system/themes/k2/footer.php:11
+msgid "and"
+msgstr "e"
+
+#: system/admin/user.php:152
+#: system/admin/posts_items.php:16
+#: system/admin/publish.php:23
+#: system/admin/comments_items.php:27
+#: system/admin/logs.php:82
+#: system/admin/comments.php:50
+#: system/admin/comments.php:70
+#: system/admin/groups.php:18
+msgid "Delete"
+msgstr "Elimina"
+
+#: system/admin/user.php:161
+msgid " five most recent published posts:"
+msgstr " i cinque post pubblicati più recentemente:"
+
+#: system/admin/user.php:172
+msgid "No published posts."
+msgstr "Nessun post pubblicato."
+
+#: system/admin/user.php:175
+msgid " five most recent draft posts:"
+msgstr " le cinque bozze più recenti:"
+
+#: system/admin/user.php:190
+msgid "Delete posts"
+msgstr "Elimina i post"
+
+#: system/admin/user.php:198
+msgid "DELETE USER"
+msgstr "ELIMINA L'UTENTE"
+
+#: system/admin/posts_items.php:7
+#: system/admin/posts_items.php:15
+msgid "Edit '"
+msgstr "Modifica '"
+
+#: system/admin/posts_items.php:9
+msgid "Search for other "
+msgstr "Cerca un altro "
+
+#: system/admin/posts_items.php:10
+#: system/admin/themes.php:8
+#: system/admin/themes.php:45
+#: system/plugins/coredashmodules/dash_latestentries.php:6
+#: system/themes/k2/home.php:12
+#: system/themes/k2/tag.php:12
+msgid "by"
+msgstr "di"
+
+#: system/admin/posts_items.php:10
+msgid "Search for other items by "
+msgstr "Cerca altri post di "
+
+#: system/admin/posts_items.php:11
+#: system/admin/comments_items.php:14
+#: system/themes/mzingi/sidebar.php:44
+#: system/themes/mzingi/commentform.php:48
+msgid "on"
+msgstr "su"
+
+#: system/admin/posts_items.php:11
+msgid "Search for other items from "
+msgstr "Cerca altri post da "
+
+#: system/admin/posts_items.php:12
+#: system/admin/comments_items.php:15
+msgid "at"
+msgstr "alle"
+
+#: system/admin/posts_items.php:15
+#: system/admin/comments_items.php:30
+#: system/admin/groups.php:19
+#: system/themes/k2/page.single.php:14
+#: system/themes/k2/search.php:17
+#: system/themes/k2/home.php:16
+#: system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16
+#: system/themes/k2/entry.single.php:25
+#: system/themes/charcoal/page.single.php:21
+#: system/themes/charcoal/home.php:32
+#: system/themes/charcoal/entry.single.php:39
+#: system/themes/mzingi/page.single.php:20
+#: system/themes/mzingi/search.php:23
+#: system/themes/mzingi/home.php:25
+#: system/themes/mzingi/tag.php:23
+#: system/themes/mzingi/entry.multiple.php:23
+#: system/themes/mzingi/entry.single.php:30
+msgid "Edit"
+msgstr "Modifica"
+
+#: system/admin/posts_items.php:16
+msgid "Delete this item"
+msgstr "Elimina questo post"
+
+#: system/admin/tags.php:4
+msgid "Type and wait to search tags"
+msgstr "Per cercare tag, digita ed attendi"
+
+#: system/admin/tags.php:15
+#: system/admin/logs.php:76
+#: system/admin/users.php:44
+#: system/admin/comments.php:44
+#: system/admin/comments.php:64
+#: system/admin/posts.php:51
+msgid "None selected"
+msgstr "Nessuno selezionato"
+
+#: system/admin/tags.php:20
+msgid "Rename"
+msgstr "Rinomina"
+
+#: system/admin/tags.php:25
+#: system/admin/users.php:53
+#: system/admin/posts.php:53
+msgid "Delete Selected"
+msgstr "Elimina i selezionati"
+
+#: system/admin/tags.php:38
+msgid "You need to select some tags before you can delete them."
+msgstr "Devi selezionare una tag prima di poter eliminarla."
+
+#: system/admin/tags.php:81
+msgid "You need to select some tags before you can rename them."
+msgstr "Devi selezionare una tag prima di rinominarla."
+
+#: system/admin/tags.php:85
+msgid "You need to enter a new tag to rename tags."
+msgstr "Devi inserire una nuova tag per rinominarne un'altra."
+
+#: system/admin/import.php:5
+#: system/classes/adminhandler.php:2068
+msgid "Import"
+msgstr "Importa"
+
+#: system/admin/import.php:13
+msgid "You do not currently have any import plugins installed."
+msgstr "Attualmente non hai alcun plugin di importazione installato."
+
+#: system/admin/import.php:14
+msgid "Please "
+msgstr "Si prega di "
+
+#: system/admin/import.php:14
+msgid "activate an import plugin</a> to enable importing."
+msgstr "Attiva il plugin necessario</a> ad abilitare l'importazione."
+
+#: system/admin/import.php:16
+msgid "Please choose the type of import to perform:"
+msgstr "Scegli il tipo di importazione da effettuare:"
+
+#: system/admin/import.php:25
+msgid "Select"
+msgstr "Seleziona"
+
+#: system/admin/options.php:17
+msgid "search settings"
+msgstr "le impostazioni di ricerca"
+
+#: system/admin/login.php:4
+msgid "Login to "
+msgstr "Accedi a "
+
+#: system/admin/login.php:37
+#: system/admin/header.php:64
+msgid "Go to Site"
+msgstr "Vai al sito"
+
+#: system/admin/login.php:44
+#: system/themes/k2/commentform.php:17
+#: system/themes/charcoal/commentform.php:11
+msgid "Name"
+msgstr "Nome"
+
+#: system/admin/login.php:51
+msgid "Remember Me"
+msgstr "Ricordami"
+
+#: system/admin/login.php:52
+#: system/themes/charcoal/header.php:50
+msgid "Login"
+msgstr "Accesso"
+
+#: system/admin/plugins.php:7
+msgid "Active Plugins"
+msgstr "Plugin attivi"
+
+#: system/admin/plugins.php:12
+#: system/admin/plugins.php:81
+msgid "The plugin file "
+msgstr "Il file di plugin "
+
+#: system/admin/plugins.php:12
+#: system/admin/plugins.php:81
+msgid " had syntax errors and could not load."
+msgstr " aveva errori di sintassi e non si è potuto caricarlo."
+
+#: system/admin/plugins.php:15
+#: system/admin/plugins.php:84
+msgid "Show Error"
+msgstr "Mostra l'errore"
+
+#: system/admin/plugins.php:50
+#: system/admin/plugins.php:100
+msgid "v1.1 Update Available Now"
+msgstr "L'aggiornamento alla versione 1.1 è ora disponibile"
+
+#: system/admin/plugins.php:61
+msgid "close"
+msgstr "chiudi"
+
+#: system/admin/plugins.php:76
+msgid "Inactive Plugins"
+msgstr "Plugin inattivi"
+
+#: system/admin/plugins.php:116
+msgid "Upload Plugin Package"
+msgstr "Carica il pacchetto del plugin"
+
+#: system/admin/plugins.php:119
+#: system/admin/formcontrols/formcontrol_silos.php:16
+msgid "Upload"
+msgstr "Carica"
+
+#: system/admin/users_items.php:13
+#, php-format
+msgid "Open %s's user page"
+msgstr "Apri la pagina utente di %s"
+
+#: system/admin/users_items.php:18
+msgid "was not logged in yet."
+msgstr "non aveva ancora effettuato l'accesso."
+
+#: system/admin/users_items.php:34
+#, php-format
+msgid "was last seen %1$s at %2$s and currently has %3$s"
+msgstr "ha effettuato l'ultimo accesso %1$s alle %2$s e attualmente ha %3$s"
+
+#: system/admin/publish.php:10
+msgid "View Post"
+msgstr "Visualizza il post"
+
+#: system/admin/publish.php:31
+msgid "Publish"
+msgstr "Pubblica"
+
+#: system/admin/footer.php:3
+msgid "Go to the Habari site"
+msgstr "Vai al sito di Habari"
+
+#: system/admin/footer.php:4
+msgid "Logged in as"
+msgstr "Autenticato come"
+
+#: system/admin/footer.php:4
+msgid "Go to your user page"
+msgstr "Vai alla tua pagina utente"
+
+#: system/admin/footer.php:5
+msgid "Open the Habari manual in a new window"
+msgstr "Apri il manuale di Habari in una nuova finestra"
+
+#: system/admin/footer.php:5
+#: system/installer/db_setup.php:19
+msgid "Manual"
+msgstr "Manuale"
+
+#: system/admin/comments_items.php:13
+msgid "in"
+msgstr "in"
+
+#: system/admin/comments_items.php:13
+msgid "Go to '"
+msgstr "Vai a '"
+
+#: system/admin/comments_items.php:14
+msgid "Search for other comments from "
+msgstr "Cerca altri commenti da "
+
+#: system/admin/comments_items.php:19
+msgid "Approve this comment"
+msgstr "Segna questo commento come approvato"
+
+#: system/admin/comments_items.php:19
+#: system/admin/comments.php:47
+#: system/admin/comments.php:67
+msgid "Approve"
+msgstr "Approva"
+
+#: system/admin/comments_items.php:22
+msgid "Unapprove this comment"
+msgstr "Segna questo commento come non approvato"
+
+#: system/admin/comments_items.php:22
+#: system/admin/comments.php:48
+#: system/admin/comments.php:68
+msgid "Unapprove"
+msgstr "Non approvare"
+
+#: system/admin/comments_items.php:25
+msgid "Spam this comment"
+msgstr "Segna questo commento come spam"
+
+#: system/admin/comments_items.php:25
+#: system/admin/comments.php:49
+#: system/admin/comments.php:69
+msgid "Spam"
+msgstr "Spam"
+
+#: system/admin/comments_items.php:27
+msgid "Delete this Comment"
+msgstr "Elimina questo commento"
+
+#: system/admin/comments_items.php:28
+msgid "Submit changes"
+msgstr "Applica le modifiche"
+
+#: system/admin/comments_items.php:28
+msgid "Update"
+msgstr "Aggiorna"
+
+#: system/admin/comments_items.php:29
+msgid "Cancel changes"
+msgstr "Cancella le modifiche"
+
+#: system/admin/comments_items.php:29
+msgid "Cancel"
+msgstr "Cancella"
+
+#: system/admin/logs.php:8
+#: system/admin/comments.php:4
+#: system/admin/posts.php:5
+msgid "Older"
+msgstr "Più vecchi"
+
+#: system/admin/logs.php:9
+#: system/admin/posts.php:6
+msgid "0-0 of 0"
+msgstr "0-0 di 0"
+
+#: system/admin/logs.php:10
+msgid "Type and wait to search any log entry component"
+msgstr "Per cercare nei log, digita ed attendi"
+
+#: system/admin/logs.php:12
+#: system/admin/comments.php:10
+#: system/admin/posts.php:11
+msgid "Newer"
+msgstr "Più nuovi"
+
+#: system/admin/logs.php:36
+msgid "Date &amp; Time"
+msgstr "Data &amp; Ora"
+
+#: system/admin/logs.php:37
+#: system/themes/k2/sidebar.php:15
+msgid "User"
+msgstr "Utente"
+
+#: system/admin/logs.php:38
+msgid "IP"
+msgstr "IP"
+
+#: system/admin/logs.php:39
+msgid "Module"
+msgstr "Modulo"
+
+#: system/admin/logs.php:40
+msgid "Type"
+msgstr "Tipo"
+
+#: system/admin/logs.php:41
+msgid "Severity"
+msgstr "Importanza"
+
+#: system/admin/logs.php:42
+msgid "Message"
+msgstr "Messaggio"
+
+#: system/admin/logs.php:56
+msgid "Filter"
+msgstr "Filtro"
+
+#: system/admin/logs.php:64
+msgid "There are no logs to be displayed at this time."
+msgstr "Attualmente non ci sono log da visualizzare."
+
+#: system/admin/dashboard.php:8
+msgid "year"
+msgstr "anno"
+
+#: system/admin/dashboard.php:8
+msgid "years"
+msgstr "anni"
+
+#: system/admin/dashboard.php:8
+#: system/admin/dashboard.php:12
+#: system/admin/dashboard.php:16
+#, php-format
+msgid "%1$d "
+msgid_plural "%1$d "
+msgstr[0] "%1$d "
+msgstr[1] "%1$d "
+
+#: system/admin/dashboard.php:12
+msgid "month"
+msgstr "mese"
+
+#: system/admin/dashboard.php:12
+msgid "months"
+msgstr "mesi"
+
+#: system/admin/dashboard.php:16
+#: system/admin/dashboard.php:21
+msgid "day"
+msgstr "giorno"
+
+#: system/admin/dashboard.php:16
+msgid "days"
+msgstr "giorni"
+
+#: system/admin/dashboard.php:20
+msgid " has been active for "
+msgstr " è stato attivo per "
+
+#: system/admin/dashboard.php:29
+msgid "page"
+msgstr "pagina"
+
+#: system/admin/dashboard.php:29
+msgid "pages"
+msgstr "pagine"
+
+#: system/admin/dashboard.php:29
+#: system/admin/dashboard.php:35
+#: system/admin/dashboard.php:43
+#: system/admin/dashboard.php:49
+#: system/admin/dashboard.php:70
+#: system/admin/dashboard.php:76
+#: system/admin/dashboard.php:82
+#: system/admin/dashboard.php:88
+#, php-format
+msgid "%d "
+msgid_plural "%d "
+msgstr[0] "%d "
+msgstr[1] "%d "
+
+#: system/admin/dashboard.php:35
+msgid "entry"
+msgstr "post"
+
+#: system/admin/dashboard.php:35
+msgid "entries"
+msgstr "post"
+
+#: system/admin/dashboard.php:43
+msgid "comment"
+msgstr "commento"
+
+#: system/admin/dashboard.php:43
+msgid "comments"
+msgstr "commenti"
+
+#: system/admin/dashboard.php:49
+msgid "tag"
+msgstr "tag"
+
+#: system/admin/dashboard.php:49
+msgid "tags"
+msgstr "tag"
+
+#: system/admin/dashboard.php:56
+msgid "You"
+msgstr "Tu"
+
+#: system/admin/dashboard.php:56
+msgid "The"
+msgstr "Il"
+
+#: system/admin/dashboard.php:56
+msgid "authors"
+msgstr "autori"
+
+#: system/admin/dashboard.php:56
+#, php-format
+msgid "<a href=\"%2$s\">"
+msgid_plural " <a href=\"%2$s\">%1$d "
+msgstr[0] "<a href=\"%2$s\">"
+msgstr[1] "<a href=\"%2$s\">%1$d"
+
+#: system/admin/dashboard.php:57
+msgid " have published "
+msgstr " hanno pubblicato "
+
+#: system/admin/dashboard.php:61
+msgid " with "
+msgstr " con "
+
+#: system/admin/dashboard.php:70
+msgid "entry draft"
+msgstr "bozza"
+
+#: system/admin/dashboard.php:70
+msgid "entry drafts"
+msgstr "bozze"
+
+#: system/admin/dashboard.php:76
+msgid "scheduled post"
+msgstr "post programmato"
+
+#: system/admin/dashboard.php:76
+msgid "scheduled posts"
+msgstr "post programmati"
+
+#: system/admin/dashboard.php:82
+msgid "page draft"
+msgstr "bozza di pagina"
+
+#: system/admin/dashboard.php:82
+msgid "page drafts"
+msgstr "bozze di pagina"
+
+#: system/admin/dashboard.php:88
+msgid "comment awaiting approval"
+msgstr "commento in attesa di approvazione"
+
+#: system/admin/dashboard.php:88
+msgid "comments awaiting approval"
+msgstr "commenti in attesa di approvazione"
+
+#: system/admin/dashboard.php:94
+msgid "You have "
+msgstr "Tu hai "
+
+#: system/admin/dashboard.php:107
+#, php-format
+msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
+msgstr "<a href=\"%1s\">%2s %3s</a> è un aggiornamento critico."
+
+#: system/admin/dashboard.php:110
+#, php-format
+msgid ""
+"<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+msgstr ""
+"<a href=\"%1s\">%2s %3s</a> contiene correzioni del codice e nuove "
+"funzionalità."
+
+#: system/admin/dashboard.php:113
+#, php-format
+msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
+msgstr "<a href=\"%1s\">%2s %3s</a> contiene correzioni del codice."
+
+#: system/admin/dashboard.php:116
+#, php-format
+msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
+msgstr "<a href=\"%1s\">%2s %3s</a> contiene nuove funzionalità."
+
+#. 
+#. foreach ( Users::get_all() as $user ) {
+#. if ( $user->username == $currentuser->username ) {
+#. $url = Url::get( 'admin', 'page=user' );
+#. }
+#. else {
+#. $url = Url::get( 'user_profile', array( 'page' => 'user', 'user' => $user->username ) );
+#. }
+#. echo '<option id="' . $user->id . '" value="' . $url . '">' . $user->displayname . '</option>';
+#. }
+#: system/admin/users.php:21
+msgid "Complete User List"
+msgstr "Lista completa degli utenti"
+
+#: system/admin/users.php:61
+msgid "Add New User"
+msgstr "Aggiungi un nuovo utente"
+
+#: system/admin/users.php:84
+msgid "Add User"
+msgstr "Aggiungi l'utente"
+
+#: system/admin/comments.php:5
+msgid "0 of 0"
+msgstr "0 di 0"
+
+#: system/admin/comments.php:7
+#: system/admin/posts.php:8
+msgid "Type and wait to search for any entry component"
+msgstr "Per cercare un post, digita ed attendi"
+
+#: system/admin/db_profiling.php:39
+#: system/themes/k2/db_profiling.php:31
+msgid "DB Profiling"
+msgstr "DB Profiling"
+
+#: system/admin/db_profiling.php:47
+#: system/themes/k2/db_profiling.php:42
+msgid "Time to Execute:"
+msgstr "Time to Execute:"
+
+#: system/admin/db_profiling.php:49
+msgid "BACKTRACE:"
+msgstr "BACKTRACE:"
+
+#: system/admin/db_profiling.php:56
+#: system/themes/k2/db_profiling.php:56
+msgid "Total Time Executing Queries:"
+msgstr "Total Time Executing Queries:"
+
+#: system/admin/groups.php:7
+msgid "Group Management"
+msgstr "Gestione dei gruppi"
+
+#: system/admin/groups.php:9
+msgid "Groups"
+msgstr "Gruppi"
+
+#: system/admin/groups.php:12
+msgid "Add"
+msgstr "Aggiungi"
+
+#: system/admin/groups.php:27
+msgid "Members"
+msgstr "Membri"
+
+#: system/admin/groups.php:31
+msgid "Editing members of "
+msgstr "Modifica dei membri di "
+
+#: system/admin/groups.php:41
+#: system/admin/groups.php:75
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:98
+#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:370
+#: system/themes/k2/commentform.php:34
+#: system/themes/charcoal/commentform.php:28
+#: system/themes/mzingi/commentform.php:94
+msgid "Submit"
+msgstr "Invia"
+
+#: system/admin/groups.php:43
+msgid "No members."
+msgstr "Nessun membro."
+
+#: system/admin/groups.php:49
+msgid "Permissions"
+msgstr "Permessi"
+
+#: system/admin/groups.php:53
+msgid "Editing Permissions of "
+msgstr "Modifica dei permessi di "
+
+#: system/admin/groups.php:56
+msgid "Granted"
+msgstr "Accordato"
+
+#: system/admin/groups.php:56
+msgid "Permission"
+msgstr "Permesso"
+
+#: system/admin/groups.php:56
+msgid "Denied"
+msgstr "Negato"
+
+#: system/admin/groups.php:78
+msgid "No permissions."
+msgstr "Nessun permesso."
+
+#: system/admin/header.php:55
+msgid "Submenu"
+msgstr "Sottomenù"
+
+#: system/admin/themes.php:5
+msgid "Current Theme"
+msgstr "Tema corrente"
+
+#: system/admin/themes.php:12
+#: system/classes/adminhandler.php:486
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: system/admin/themes.php:18
+msgid "v"
+msgstr "versione"
+
+#: system/admin/themes.php:18
+msgid "Update Available"
+msgstr "Aggiornamento disponibile"
+
+#: system/admin/themes.php:28
+#: system/admin/themes.php:57
+msgid "is licensed under the"
+msgstr "è distribuito sotto licenza"
+
+#: system/admin/themes.php:39
+msgid "Available Themes"
+msgstr "Temi disponibili"
+
+#: system/admin/themes.php:48
+#: system/classes/adminhandler.php:1179
+msgid "Activate"
+msgstr "Attiva"
+
+#: system/admin/formcontrols/formcontrol_silos.php:12
+msgid "Search descriptions, names and tags"
+msgstr "Cerca descrizioni, nomi e tag"
+
+#: system/admin/formcontrols/formcontrol_silos.php:14
+msgid "Root"
+msgstr "Root"
+
+#: system/admin/formcontrols/formcontrol_textmulti.php:12
+#: system/classes/formui.php:1268
+msgid "remove"
+msgstr "rimuovi"
+
+#: system/admin/formcontrols/formcontrol_textmulti.php:16
+msgid "add"
+msgstr "aggiungi"
+
+#: system/plugins/coredashmodules/dash_latestcomments.php:6
+#, php-format
+msgid "%1$d comment"
+msgid_plural "%1$d comments"
+msgstr[0] "%1$d commento"
+msgstr[1] "%1$d commenti"
+
+#: system/plugins/coredashmodules/dash_latestcomments.php:14
+#: system/plugins/coredashmodules/dash_latestentries.php:5
+#, php-format
+msgid "Posted at %1$s"
+msgstr "Pubblicato alle %1$s"
+
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:97
+msgid "Number of items"
+msgstr "Numero di elementi"
+
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:101
+msgid "Latest Log Activity"
+msgstr "Log più recenti"
+
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:117
+msgid "Latest Entries"
+msgstr "Post più recenti"
+
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:144
+msgid "Latest Comments"
+msgstr "Commenti più recenti"
+
+#: system/plugins/wpimport/wpimport.plugin.php:20
+msgid "WordPress Database"
+msgstr "Database WordPress"
+
+#: system/plugins/wpimport/wpimport.plugin.php:81
+msgid ""
+"Could not connect to the WordPress database using the values supplied. "
+"Please correct them and try again."
+msgstr ""
+"Non è stato possibile connettersi al database WordPress usando i valori "
+"immessi. Si prega di correggerli e riprovare."
+
+#: system/plugins/wpimport/wpimport.plugin.php:168
+#, php-format
+msgid "Starting import from \"%s\""
+msgstr "Ha avuto inizio l'importazione da \"%s\""
+
+#: system/plugins/wpimport/wpimport.plugin.php:419
+#: system/plugins/wpimport/wpimport.plugin.php:507
+#: system/plugins/wpimport/wpimport.plugin.php:638
+#, php-format
+msgid "Failed to import from \"%s\""
+msgstr "L'importazione da \"%s\" è fallita"
+
+#: system/plugins/wpimport/wpimport.plugin.php:420
+msgid "The database connection details have failed to connect."
+msgstr "I dettagli di connessione al database hanno fallito la connessione."
+
+#: system/plugins/wpimport/wpimport.plugin.php:454
+msgid "<p>Importing users...</p>"
+msgstr "<p>È in corso l'importazione degli utenti...</p>"
+
+#: system/plugins/wpimport/wpimport.plugin.php:508
+#: system/plugins/wpimport/wpimport.plugin.php:639
+msgid "Failed to connect using the given database connection details."
+msgstr "La connessione con i dettagli del database forniti è fallita."
+
+#: system/plugins/wpimport/wpimport.plugin.php:622
+msgid "Import is complete."
+msgstr "L'importazione è completata."
+
+#: system/plugins/wpimport/wpimport.plugin.php:626
+msgid "There were errors during import:"
+msgstr "Ci sono stati degli errori durante l'importazione:"
+
+#: system/plugins/s9yimport/s9yimport.plugin.php:32
+msgid "Serendipity Database"
+msgstr "Database Serendipity"
+
+#: system/plugins/s9yimport/s9yimport.plugin.php:890
+msgid "succeeded"
+msgstr "ha avuto successo"
+
+#: system/plugins/s9yimport/s9yimport.plugin.php:894
+msgid "failed"
+msgstr "non ha avuto successo"
+
+#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:364
+msgid "Parent Directory:"
+msgstr "Cartella superiore:"
+
+#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:368
+msgid "Enter the name of the new directory to create here"
+msgstr "Inserisci qui il nome della nuova cartella da creare"
+
+#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:477
+msgid "Directory Created:"
+msgstr "Cartella creata:"
+
+#: system/plugins/themehelper/themehelper.plugin.php:45
+msgid "Read Comments"
+msgstr "Leggi i commenti"
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:736
+msgid "This photo has no title"
+msgstr "Questa foto non ha titolo"
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:822
+msgid "Default size for images in Posts:"
+msgstr "Grandezza di default delle immagini nei post:"
+
+#. #-#-#-#-#  poeditA2QcZo (PACKAGE VERSION)  #-#-#-#-#
+#. Create the Save button
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
+#: system/classes/adminhandler.php:508
+msgid "Save"
+msgstr "Salva"
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
+msgid "Options saved"
+msgstr "Opzioni salvate"
+
+#: system/plugins/viddlersilo/viddlersilo.plugin.php:870
+msgid "The username and password you supplied failed to log in to Viddler."
+msgstr ""
+"Il nome utente e la password che hai fornito non sono riusciti ad accedere a "
+"Viddler."
+
+#: system/plugins/viddlersilo/viddlersilo.plugin.php:876
+msgid "You have logged in to Viddler."
+msgstr "Hai avuto accesso a Viddler."
+
+#: system/plugins/undelete/undelete.plugin.php:100
+#: system/plugins/undelete/undelete.plugin.php:109
+msgid "Configure"
+msgstr "Configura"
+
+#: system/plugins/undelete/undelete.plugin.php:111
+msgid "Style declaration for deleted content:"
+msgstr "Dichiarazione dello stile per il contenuto eliminato:"
+
+#: system/plugins/pingback/pingback.plugin.php:272
+#, php-format
+msgid "Sent pingbacks for \"%1$s\", target: %2$s"
+msgstr "Inviati pingback per \"%1$s\", diretti a: %2$s"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:58
+msgid "Commenters with numeric names are spammy."
+msgstr "Commentatori con nomi numerici sono spam."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:67
+msgid "Comments that are only numeric are spammy."
+msgstr "Commenti che sono soltanto numerici sono spam."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:73
+msgid "Comments that are only \"array\" are spammy."
+msgstr "Commenti che sono soltanto \"array\" sono spam."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:79
+msgid "Comments that consist of only the commenters name are spammy."
+msgstr ""
+"Commenti che consistono soltanto del nome del commentatore sono spam."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:86
+msgid "Comments that start with strong text are spammy."
+msgstr "Commenti che cominciano con testo in grassetto sono spam."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:92
+msgid "There is a 3 URL limit in comments."
+msgstr "C'è un limite di 3 URL nei commenti."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:98
+msgid "There is a 3 URL-encoded character limit in comments."
+msgstr "C'è un limite di 3 caratteri URL-encoded nei commenti."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:112
+msgid "We do not accept BBCode here."
+msgstr "Non accettiamo BBCode qui."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:120
+msgid "Too much text that is a link compared to that which is not."
+msgstr "Troppo testo in forma di link rispetto al resto."
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:129
+#, php-format
+msgid "Too many existing spams from this IP: %s"
+msgstr "Troppo spam da questo IP: %s"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:209
+#: system/plugins/spamchecker/spamchecker.plugin.php:214
+msgid "The selected action is forbidden."
+msgstr "L'azione selezionata è proibita."
+
+#: system/classes/adminhandler.php:21
+msgid "Your session expired."
+msgstr "La tua sessione è scaduta."
+
+#: system/classes/adminhandler.php:29
+#: system/classes/adminhandler.php:33
+msgid ""
+"We saved the last form you posted. Log back in to continue its submission."
+msgstr ""
+"L'ultimo campo che hai compilato è stato salvato. Accedi nuovamente per "
+"continuare."
+
+#: system/classes/adminhandler.php:40
+msgid "Permission denied."
+msgstr "Permesso negato."
+
+#: system/classes/adminhandler.php:90
+#, php-format
+msgid "%1$s->%2$s() does not exist."
+msgstr "%1$s->%2$s() non esiste."
+
+#: system/classes/adminhandler.php:111
+msgid "Whooops!"
+msgstr "Oops!"
+
+#: system/classes/adminhandler.php:148
+msgid "Name & Tagline"
+msgstr "Nome & Tagline"
+
+#: system/classes/adminhandler.php:150
+#: system/installer/db_setup.php:184
+msgid "Site Name"
+msgstr "Nome del sito"
+
+#: system/classes/adminhandler.php:155
+msgid "Site Tagline"
+msgstr "Tagline del sito"
+
+#: system/classes/adminhandler.php:161
+msgid "Publishing"
+msgstr "Pubblicazione"
+
+#: system/classes/adminhandler.php:163
+msgid "Items per Page"
+msgstr "Elementi per pagina"
+
+#: system/classes/adminhandler.php:168
+msgid "Send Pingbacks to Links"
+msgstr "Invia pingback ai link"
+
+#: system/classes/adminhandler.php:173
+msgid "Require Comment Author Info"
+msgstr "Richiedi informazioni sull'autore del commento"
+
+#: system/classes/adminhandler.php:250
+msgid "Successfully updated options"
+msgstr "Opzioni aggiornate con successo"
+
+#: system/classes/adminhandler.php:403
+#, php-format
+msgid "The post %1$s has been saved as %2$s."
+msgstr "Il post %1$s è stato salvato come %2$s."
+
+#. Create the Title field
+#: system/classes/adminhandler.php:438
+msgid "Title"
+msgstr "Titolo"
+
+#: system/classes/adminhandler.php:442
+#, php-format
+msgid "Publish %s"
+msgstr "Pubblica %s"
+
+#. Create the Content field
+#: system/classes/adminhandler.php:448
+msgid "Content"
+msgstr "Contenuto"
+
+#. Create the tags field
+#: system/classes/adminhandler.php:454
+msgid "Tags, separated by, commas"
+msgstr "Tag, separati da, virgole"
+
+#. Create the tags selector
+#: system/classes/adminhandler.php:462
+#: system/classes/adminhandler.php:2063
+msgid "Tags"
+msgstr "Tag"
+
+#: system/classes/adminhandler.php:466
+msgid "Clear"
+msgstr "Cancella"
+
+#: system/classes/adminhandler.php:488
+msgid "Content State"
+msgstr "Stato del post"
+
+#: system/classes/adminhandler.php:491
+msgid "Comments Allowed"
+msgstr "Commenti consentiti"
+
+#: system/classes/adminhandler.php:494
+msgid "Publication Time"
+msgstr "Ora della pubblicazione"
+
+#: system/classes/adminhandler.php:497
+msgid "Content Address"
+msgstr "Indirizzo del post"
+
+#: system/classes/adminhandler.php:544
+#, php-format
+msgid "Deleted the %1$s titled \"%2$s\"."
+msgstr "Il %1$s intitolato \"%2$s\" è stato eliminato."
+
+#: system/classes/adminhandler.php:552
+#: system/classes/adminhandler.php:769
+msgid "nobody"
+msgstr "nessuno"
+
+#: system/classes/adminhandler.php:606
+#, php-format
+msgid "%s has been deleted"
+msgstr "%s è stato eliminato"
+
+#: system/classes/adminhandler.php:616
+msgid "That username is already in use!"
+msgstr "Questo nome utente è già in uso!"
+
+#: system/classes/adminhandler.php:621
+#, php-format
+msgid "%1$s has been renamed to %2$s."
+msgstr "%1$s è stato rinominato come %2$s."
+
+#: system/classes/adminhandler.php:629
+#, php-format
+msgid "%1$s email has been changed to %2$s"
+msgstr "L'email %1$s è stata cambiata in %2$s"
+
+#: system/classes/adminhandler.php:640
+msgid "Password changed successfully."
+msgstr "Password cambiata con successo."
+
+#: system/classes/adminhandler.php:644
+msgid "The passwords did not match, and were not changed."
+msgstr "Le password non combaciavano, e non sono state cambiate."
+
+#: system/classes/adminhandler.php:651
+msgid "Userinfo updated!"
+msgstr "Informazioni sull'utente aggiornate!"
+
+#: system/classes/adminhandler.php:683
+#: system/classes/adminhandler.php:1457
+#: system/classes/adminhandler.php:1496
+#: system/classes/adminhandler.php:1527
+#: system/classes/adminhandler.php:1564
+#: system/classes/adminhandler.php:1962
+msgid "WSSE authentication failed."
+msgstr "WSSE authentication failed."
+
+#: system/classes/adminhandler.php:710
+msgid "No users deleted."
+msgstr "Nessun utente eliminato."
+
+#: system/classes/adminhandler.php:735
+msgid "You cannot delete yourself."
+msgstr "Non puoi eliminare te stesso."
+
+#: system/classes/adminhandler.php:742
+#, php-format
+msgid "Deleted %d users."
+msgstr "Eliminati %d utenti."
+
+#: system/classes/adminhandler.php:793
+msgid "Password is required."
+msgstr "È richiesta la password."
+
+#: system/classes/adminhandler.php:796
+#: system/classes/installhandler.php:130
+msgid "Password mis-match."
+msgstr "Le password non combaciano."
+
+#: system/classes/adminhandler.php:799
+msgid "Please supply a valid email address."
+msgstr "Si prega di fornire un indirizzo email valido."
+
+#: system/classes/adminhandler.php:802
+msgid "Please supply a user name."
+msgstr "Si prega di fornire un nome utente."
+
+#: system/classes/adminhandler.php:807
+msgid "That username is already assigned."
+msgstr "Questo nome utente è già assegnato."
+
+#: system/classes/adminhandler.php:812
+#, php-format
+msgid "Added user '%s'"
+msgstr "Aggiunto l'utente '%s'"
+
+#: system/classes/adminhandler.php:850
+#, php-format
+msgid "Activated plugin '%s'"
+msgstr "Attivato il plugin '%s'"
+
+#: system/classes/adminhandler.php:854
+#, php-format
+msgid "Deactivated plugin '%s'"
+msgstr "Disattivato il plugin '%s'"
+
+#: system/classes/adminhandler.php:912
+#, php-format
+msgid "Activated theme '%s'"
+msgstr "Attivato il tema '%s'"
+
+#: system/classes/adminhandler.php:998
+msgid "Deleted all spam comments"
+msgstr "Eliminati tutti i commenti spam"
+
+#: system/classes/adminhandler.php:1005
+msgid "Deleted all unapproved comments"
+msgstr "Eliminati tutti i commenti non approvati"
+
+#: system/classes/adminhandler.php:1166
+msgid "Deactivate"
+msgstr "Disattiva"
+
+#: system/classes/adminhandler.php:1354
+#: system/classes/adminhandler.php:1355
+msgid "Manage Posts"
+msgstr "Gestisci i post"
+
+#: system/classes/adminhandler.php:1484
+msgid "Updated 1 comment."
+msgstr "1 commento aggiornato."
+
+#: system/classes/adminhandler.php:1513
+#, php-format
+msgid "Deleted %d entries."
+msgstr "%d post eliminati."
+
+#: system/classes/adminhandler.php:1555
+#, php-format
+msgid "Deleted %d logs."
+msgstr "%d log eliminati."
+
+#: system/classes/adminhandler.php:1580
+msgid "No comments selected."
+msgstr "Nessun commento selezionato."
+
+#: system/classes/adminhandler.php:1586
+msgid "Unknown action"
+msgstr "Azione sconosciuta"
+
+#: system/classes/adminhandler.php:1592
+#, php-format
+msgid "Deleted %d comment"
+msgid_plural "Deleted %d comments"
+msgstr[0] "%d commento eliminato"
+msgstr[1] "%d commenti eliminati"
+
+#: system/classes/adminhandler.php:1597
+#, php-format
+msgid "Marked %d comment as spam"
+msgid_plural "Marked %d comments as spam"
+msgstr[0] "%d commento segnato come spam"
+msgstr[1] "%d commenti segnati come spam"
+
+#: system/classes/adminhandler.php:1602
+#, php-format
+msgid "Approved %d comment"
+msgid_plural "Approved %d comments"
+msgstr[0] "%d commento approvato"
+msgstr[1] "%d commenti approvati"
+
+#: system/classes/adminhandler.php:1607
+#, php-format
+msgid "Unapproved %d comment"
+msgid_plural "Unapproved %d comments"
+msgstr[0] "%d commento non approvato"
+msgstr[1] "%d commenti non approvati"
+
+#: system/classes/adminhandler.php:1816
+#, php-format
+msgid "The group %s already exists"
+msgstr "Il gruppo %s esiste già"
+
+#: system/classes/adminhandler.php:1823
+#, php-format
+msgid "Added group %s"
+msgstr "È stato aggiunto il gruppo %s"
+
+#: system/classes/adminhandler.php:1832
+#: system/classes/adminhandler.php:1846
+#: system/classes/adminhandler.php:1862
+#: system/classes/adminhandler.php:1896
+#, php-format
+msgid "The group %s does not exist"
+msgstr "Il gruppo %s non esiste"
+
+#: system/classes/adminhandler.php:1837
+#, php-format
+msgid "Removed group %s"
+msgstr "È stato rimosso il gruppo %s"
+
+#: system/classes/adminhandler.php:1887
+#, php-format
+msgid "Modified membership of group %s"
+msgstr "È stata modificata l'appartenenza al gruppo %s"
+
+#: system/classes/adminhandler.php:1936
+#, php-format
+msgid "Granted the permission to group %s"
+msgstr "È stato accordato il permesso al gruppo %s"
+
+#: system/classes/adminhandler.php:1981
+#, php-format
+msgid "Tag %s has been deleted."
+msgid_plural "Tags %s have been deleted."
+msgstr[0] "Il tag %s è stato eliminato."
+msgstr[1] "I tag %s sono stati eliminati."
+
+#: system/classes/adminhandler.php:2005
+#: system/classes/tags.php:132
+#, php-format
+msgid "Tag %s has been renamed to %s."
+msgid_plural "Tags %s have been renamed to %s."
+msgstr[0] "Il tag %s è stato rinominato %s."
+msgstr[1] "I tag %s sono stati rinominati %s."
+
+#: system/classes/adminhandler.php:2035
+#, php-format
+msgid "Create a new %s"
+msgstr "Crea un nuovo %s"
+
+#: system/classes/adminhandler.php:2035
+#, php-format
+msgid "Create %s"
+msgstr "Crea %s"
+
+#: system/classes/adminhandler.php:2036
+#, php-format
+msgid "Manage %s"
+msgstr "Gestisci %s"
+
+#. 'create' => array( 'url' => URL::get( 'admin', 'page=comments' ), 'title' => _t('Content'), 'text' => _t('Comments'), 'submenu' => array($createmenu) ),
+#: system/classes/adminhandler.php:2062
+msgid "Manage blog comments"
+msgstr "Gestisci i commenti del blog"
+
+#: system/classes/adminhandler.php:2062
+msgid "Comments"
+msgstr "Commenti"
+
+#: system/classes/adminhandler.php:2063
+msgid "Manage blog tags"
+msgstr "Gestisci i tag del blog"
+
+#: system/classes/adminhandler.php:2064
+msgid "View your user dashboard"
+msgstr "Visualizza la tua bacheca"
+
+#: system/classes/adminhandler.php:2064
+msgid "Dashboard"
+msgstr "Bacheca"
+
+#: system/classes/adminhandler.php:2065
+msgid "View and configure blog options"
+msgstr "Visualizza e configura le opzioni del blog"
+
+#: system/classes/adminhandler.php:2065
+msgid "Options"
+msgstr "Opzioni"
+
+#: system/classes/adminhandler.php:2066
+msgid "Preview and activate themes"
+msgstr "Visualizza in anteprima ed attiva i temi"
+
+#: system/classes/adminhandler.php:2066
+msgid "Themes"
+msgstr "Temi"
+
+#: system/classes/adminhandler.php:2067
+msgid "Activate, deactivate, and configure plugins"
+msgstr "Attiva, disattiva, e configura i plugin"
+
+#: system/classes/adminhandler.php:2067
+msgid "Plugins"
+msgstr "Plugin"
+
+#: system/classes/adminhandler.php:2068
+msgid "Import content from another blog"
+msgstr "Importa il contenuto da un altro blog"
+
+#: system/classes/adminhandler.php:2069
+msgid "View and manage users"
+msgstr "Visualizza e gestisci gli utenti"
+
+#: system/classes/adminhandler.php:2069
+msgid "Users"
+msgstr "Utenti"
+
+#: system/classes/adminhandler.php:2070
+msgid "View system log messages"
+msgstr "Visualizza i log di sistema"
+
+#: system/classes/adminhandler.php:2070
+msgid "Logs"
+msgstr "Log"
+
+#: system/classes/adminhandler.php:2071
+msgid "Log out of the administration interface"
+msgstr "Esci dall'interfaccia di amministrazione"
+
+#: system/classes/adminhandler.php:2071
+msgid "Logout"
+msgstr "Uscita"
+
+#: system/classes/adminhandler.php:2173
+msgid "+"
+msgstr "+"
+
+#: system/classes/atomhandler.php:117
+msgid "First Page"
+msgstr "Prima pagina"
+
+#: system/classes/atomhandler.php:125
+msgid "Previous Page"
+msgstr "Pagina precedente"
+
+#: system/classes/atomhandler.php:134
+msgid "Next Page"
+msgstr "Pagina successiva"
+
+#: system/classes/atomhandler.php:142
+msgid "Last Page"
+msgstr "Ultima pagina"
+
+#: system/classes/atomhandler.php:213
+#, php-format
+msgid "%1$s on \"%2$s\""
+msgstr "%1$s su \"%2$s\""
+
+#: system/classes/atomhandler.php:214
+msgid "Comment on "
+msgstr "Commento a "
+
+#: system/classes/atomhandler.php:214
+msgid " by "
+msgstr " di "
+
+#: system/classes/user.php:120
+#, php-format
+msgid "New user created: %s"
+msgstr "Creato nuovo utente: %s"
+
+#: system/classes/user.php:157
+#, php-format
+msgid "User deleted: %s"
+msgstr "Eliminato utente: %s"
+
+#: system/classes/user.php:214
+#: system/classes/user.php:244
+#, php-format
+msgid "Successful login for %s"
+msgstr "Accesso riuscito per %s"
+
+#: system/classes/user.php:220
+#, php-format
+msgid "Login attempt (via authentication plugin) for non-existant user %s"
+msgstr ""
+"Tentativo di accesso (attraverso un plugin) per l'utente inesistente %s"
+
+#. No such user.
+#: system/classes/user.php:235
+#, php-format
+msgid "Login attempt for non-existant user %s"
+msgstr "Tentativo di accesso per l'utente inesistente %s"
+
+#. Wrong password.
+#: system/classes/user.php:251
+#, php-format
+msgid "Wrong password for user %s"
+msgstr "Password sbagliata per l'utente %s"
+
+#: system/classes/htmltokenizer.php:74
+#, php-format
+msgid "Invalid state %d in %s->parse()"
+msgstr "Invalid state %d in %s->parse()"
+
+#: system/classes/locale.php:73
+#, php-format
+msgid "No translations found for locale %s, domain %s!"
+msgstr "Non è stata trovata una traduzione per la lingua %s, dominio %s!"
+
+#: system/classes/locale.php:77
+#, php-format
+msgid "Invalid .MO file for locale %s, domain %s!"
+msgstr "File .MO non valido per la lingua %s, dominio %s!"
+
+#: system/classes/locale.php:97
+#, php-format
+msgid "Invalid magic number 0x%08x in %s!"
+msgstr "Invalid magic number 0x%08x in %s!"
+
+#: system/classes/locale.php:103
+#, php-format
+msgid "Unknown revision number %d in %s!"
+msgstr "Numero di revisione %d sconosciuto in %s!"
+
+#: system/classes/locale.php:114
+#, php-format
+msgid "Message count (%d) out of bounds in %s!"
+msgstr "Numero di messaggio (%d) fuori limite in %s!"
+
+#: system/classes/usergroup.php:94
+#, php-format
+msgid "New group created: %s"
+msgstr "Creato nuovo gruppo: %s"
+
+#: system/classes/usergroup.php:114
+#, php-format
+msgid "User Group updated: %s"
+msgstr "Aggiornato gruppo utenti: %s"
+
+#: system/classes/error.php:71
+#, php-format
+msgid "%1$s in %2$s line %3$s on request of \"%4$s\""
+msgstr "%1$s in %2$s linea %3$s in richiesta di \"%4$s\""
+
+#: system/classes/error.php:163
+#, php-format
+msgid " ...%d arg... "
+msgid_plural " ...%d args... "
+msgstr[0] " ...%d arg... "
+msgstr[1] " ...%d args... "
+
+#: system/classes/error.php:167
+#, php-format
+msgid ""
+"%s line %d:\n"
+"  %s(%s)\n"
+msgstr ""
+"%s linea %d:\n"
+"  %s(%s)\n"
+
+#: system/classes/logentry.php:156
+#: system/classes/logentry.php:238
+#: system/classes/logentry.php:250
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+#: system/classes/tags.php:46
+#, php-format
+msgid "Tag deleted: %s"
+msgstr "Eliminato il tag: %s"
+
+#: system/classes/url.php:199
+#, php-format
+msgid ""
+"Could not find a rule matching the following names: %s. File: %s (line %s)"
+msgstr ""
+"Non è stato possibile trovare un'istruzione combaciante con i seguenti nomi: "
+"%s. File: %s (linea %s)"
+
+#: system/classes/socketrequestprocessor.php:58
+#, php-format
+msgid "%s: Error %d: %s while connecting to %s:%d"
+msgstr "%s: Errore %d: %s in connessione a %s:%d"
+
+#: system/classes/socketrequestprocessor.php:96
+msgid "Error writing to socket."
+msgstr "Errore in scrittura sul socket."
+
+#: system/classes/socketrequestprocessor.php:128
+msgid "Maximum number of redirections exceeded."
+msgstr "Maximum number of redirections exceeded."
+
+#: system/classes/socketrequestprocessor.php:134
+msgid "Redirection response without Location: header."
+msgstr "Redirection response without Location: header."
+
+#: system/classes/socketrequestprocessor.php:170
+#: system/classes/socketrequestprocessor.php:179
+#: system/classes/curlrequestprocessor.php:94
+#: system/classes/curlrequestprocessor.php:103
+msgid "Request did not yet execute."
+msgstr "Request did not yet execute."
+
+#. Die gracefully before the segfault occurs
+#: system/classes/databaseconnection.php:248
+msgid "Attempt to fetch in class mode with a non-included class"
+msgstr "Attempt to fetch in class mode with a non-included class"
+
+#: system/classes/databaseconnection.php:322
+#, php-format
+msgid "not yet supported on %s"
+msgstr "non ancora supportato su %s"
+
+#: system/classes/rpcclient.php:21
+msgid "xmlrpc extension not found"
+msgstr "Estensione xmlrpc non trovata"
+
+#: system/classes/inputfilter.php:383
+#, php-format
+msgid "Unkown attribute type \"%s\" in %s"
+msgstr "Tipo di attributo \"%s\" sconosciuto in %s"
+
+#: system/classes/inputfilter.php:493
+#, php-format
+msgid "Undead token \"%s\" (%d) in %s"
+msgstr "Undead token \"%s\" (%d) in %s"
+
+#: system/classes/site.php:56
+msgid "Could not determine script name."
+msgstr "Could not determine script name."
+
+#: system/classes/remoterequest.php:109
+msgid "Trying to add a request body to a non-POST request"
+msgstr "Trying to add a request body to a non-POST request"
+
+#: system/classes/remoterequest.php:192
+msgid "Trying to fetch response headers for a pending request."
+msgstr "Trying to fetch response headers for a pending request."
+
+#: system/classes/remoterequest.php:203
+msgid "Trying to fetch response body for a pending request."
+msgstr "Trying to fetch response body for a pending request."
+
+#: system/classes/userhandler.php:67
+msgid "Bad credentials"
+msgstr "Credenziali di accesso non corrette"
+
+#: system/classes/plugins.php:453
+#, php-format
+msgid ""
+"Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
+"<div class=\"reveal\">%s</div>"
+msgstr ""
+"Si è tentato di caricare il file di plugin \"%s\", ma è fallito con errori "
+"di sintassi. <div class=\"reveal\">%s</div>"
+
+#: system/classes/bitmask.php:18
+msgid ""
+"Bitmask constructor expects either no arguments or an array as a first "
+"argument"
+msgstr ""
+"Bitmask constructor expects either no arguments or an array as a first "
+"argument"
+
+#: system/classes/formui.php:621
+msgid "Value must be a valid URL."
+msgstr "Il valore dev'essere un URL valido."
+
+#: system/classes/formui.php:637
+msgid "Value must be a valid Email Address."
+msgstr "Il valore dev'essere un indirizzo email valido."
+
+#: system/classes/formui.php:651
+msgid "A value for this field is required."
+msgstr "Un valore per questo campo è richiesto."
+
+#: system/classes/formui.php:673
+msgid "The value does not meet submission requirements"
+msgstr "Il valore non è conforme ai requisiti di immissione"
+
+#: system/classes/formui.php:1272
+msgid "Remove this item?"
+msgstr "Rimuovere questo elemento?"
+
+#: system/classes/tag.php:151
+#, php-format
+msgid "New tag %1$s (%2$s);  Slug: %3$s"
+msgstr "Nuova tag %1$s (%2$s); Slug: %3$s"
+
+#: system/classes/tag.php:213
+#, php-format
+msgid "Tag %1$s (%2$s) deleted."
+msgstr "Tag %1$s (%2$s) eliminata."
+
+#: system/classes/xmlrpcexception.php:33
+msgid "parse error. not well formed"
+msgstr "parse error. not well formed"
+
+#: system/classes/xmlrpcexception.php:35
+msgid "parse error. unsupported encoding"
+msgstr "parse error. unsupported encoding"
+
+#: system/classes/xmlrpcexception.php:37
+msgid "parse error. invalid character for encoding"
+msgstr "parse error. invalid character for encoding"
+
+#: system/classes/xmlrpcexception.php:39
+msgid "server error. invalid xml-rpc. not conforming to spec."
+msgstr "server error. invalid xml-rpc. not conforming to spec."
+
+#: system/classes/xmlrpcexception.php:41
+msgid "server error. requested method not found"
+msgstr "server error. requested method not found"
+
+#: system/classes/xmlrpcexception.php:43
+msgid "server error. invalid method parameters"
+msgstr "server error. invalid method parameters"
+
+#: system/classes/xmlrpcexception.php:45
+msgid "server error. internal xml-rpc error"
+msgstr "server error. internal xml-rpc error"
+
+#: system/classes/xmlrpcexception.php:47
+msgid "application error"
+msgstr "application error"
+
+#: system/classes/xmlrpcexception.php:49
+msgid "system error"
+msgstr "system error"
+
+#: system/classes/xmlrpcexception.php:51
+msgid "transport error"
+msgstr "transport error"
+
+#: system/classes/xmlrpcexception.php:55
+msgid "The source URI does not exist."
+msgstr "The source URI does not exist."
+
+#: system/classes/xmlrpcexception.php:57
+msgid ""
+"The source URI does not contain a link to the target URI, and so cannot be "
+"used as a source."
+msgstr ""
+"The source URI does not contain a link to the target URI, and so cannot be "
+"used as a source."
+
+#: system/classes/xmlrpcexception.php:59
+msgid "The specified target URI does not exist."
+msgstr "The specified target URI does not exist."
+
+#: system/classes/xmlrpcexception.php:61
+msgid "The specified target URI cannot be used as a target."
+msgstr "The specified target URI cannot be used as a target."
+
+#: system/classes/xmlrpcexception.php:63
+msgid "The pingback has already been registered."
+msgstr "Il pingback è già stato registrato."
+
+#: system/classes/xmlrpcexception.php:65
+msgid "Access denied."
+msgstr "Accesso negato."
+
+#: system/classes/xmlrpcexception.php:67
+msgid ""
+"The server could not communicate with an upstream server, or received an "
+"error from an upstream server, and therefore could not complete the request."
+msgstr ""
+"The server could not communicate with an upstream server, or received an "
+"error from an upstream server, and therefore could not complete the request."
+
+#: system/classes/xmlrpcexception.php:71
+msgid "This XMLRPC server only accepts POST requests."
+msgstr "This XMLRPC server only accepts POST requests."
+
+#: system/classes/xmlrpcexception.php:74
+msgid "Unknown XMLRPC Exception"
+msgstr "Unknown XMLRPC Exception"
+
+#: system/classes/colorutils.php:31
+msgid "Not a valid hex color."
+msgstr "Non è un colore esadecimale valido."
+
+#: system/classes/colorutils.php:53
+msgid "Not a valid color format."
+msgstr "Non è un formato di colore valido."
+
+#: system/classes/colorutils.php:104
+msgid "Something went terribly wrong here."
+msgstr "Qualcosa qui è andato terribilmente storto."
+
+#. do some error handling here. The connect string does not have a corresponding DB connection object
+#: system/classes/db.php:61
+msgid ""
+"Panic! No database connection class appears to be found for the connection "
+"string specified. Please check config.php"
+msgstr ""
+"Panico! Nessuna classe di connessione al database sembra essere trovata per "
+"la stringa di connessione specificata. Si prega di controllare config.php"
+
+#: system/classes/apccache.php:20
+#: system/classes/apccache.php:21
+msgid "The APC Cache PHP module is not loaded - the cache is disabled."
+msgstr "Il modulo APC Cache di PHP non è caricato - la cache è disabilitata."
+
+#: system/classes/theme.php:211
+msgid ""
+"Whoops! 404. The page you were trying to access is not really there. Please "
+"try again."
+msgstr ""
+"Oops! 404. La pagina a cui tentavi di accedere non si trova qui. Riprova."
+
+#: system/classes/theme.php:728
+msgid "Previous"
+msgstr "Precedente"
+
+#: system/classes/theme.php:751
+msgid "Next"
+msgstr "Successivo"
+
+#: system/classes/installhandler.php:136
+msgid "Could not write config.php file..."
+msgstr "Non è stato possibile scrivere il file config.php..."
+
+#: system/classes/installhandler.php:177
+msgid "Habari successfully installed."
+msgstr "Habari è stato installato con successo."
+
+#: system/classes/installhandler.php:311
+msgid "User is required."
+msgstr "È richiesto un utente."
+
+#: system/classes/installhandler.php:315
+msgid "Name for database is required."
+msgstr "È richiesto un nome per il database"
+
+#: system/classes/installhandler.php:319
+msgid "Host is required."
+msgstr "È richiesto un server."
+
+#: system/classes/installhandler.php:333
+msgid "Problem connecting to supplied database credentials"
+msgstr ""
+"C'è stato un problema di connessione al database con le credenziali fornite"
+
+#: system/classes/installhandler.php:349
+#, php-format
+msgid "Could not create schema tables... %s"
+msgstr "Non si è potuto creare le tabelle... %s"
+
+#: system/classes/installhandler.php:358
+msgid "Problem creating default options"
+msgstr "C'è stato un problema nella creazione delle opzioni di default"
+
+#: system/classes/installhandler.php:369
+msgid "Problem creating admin user."
+msgstr "C'è stato un problema nella creazione dell'utente amministratore"
+
+#: system/classes/installhandler.php:378
+msgid "Problem creating first post."
+msgstr "C'è stato un problema nella creazione del primo post"
+
+#: system/classes/installhandler.php:412
+#: system/classes/installhandler.php:1135
+msgid "The SQLite data file is not writable by the web server."
+msgstr "Il file di dati SQLite non è inscrivibile dal web server."
+
+#: system/classes/installhandler.php:416
+#: system/classes/installhandler.php:1129
+msgid ""
+"SQLite requires that the directory that holds the DB file be writable by the "
+"web server."
+msgstr ""
+"SQLite richiede che la cartella che contiene il file database sia "
+"inscrivibile dal web server."
+
+#: system/classes/installhandler.php:425
+msgid ""
+"The SQLite data file does not exist, and it cannot be created in the "
+"specified directory.  SQLite requires that the directory containing the "
+"database file be writable by the web server."
+msgstr ""
+"Il file di dati SQLite non esiste, e non può essere creato nella cartella "
+"specificata. SQLite richiede che la cartella contenente il file database sia "
+"inscrivibile dal web server."
+
+#. Add the cronjob to truncate the log so that it doesn't get too big
+#: system/classes/installhandler.php:518
+#: system/classes/installhandler.php:958
+msgid "Truncate the log table"
+msgstr "Interrompi la tabella dei log"
+
+#: system/classes/installhandler.php:543
+msgid ""
+"This site is running <a href=\"http://habariproject.org/\">Habari</a>, a "
+"state-of-the-art publishing platform!  Habari is a community-driven project "
+"created and supported by people from all over the world.  Please visit <a "
+"href=\"http://habariproject.org/\">http://habariproject.org/</a> to find out "
+"more!"
+msgstr ""
+"Questo sito funziona con <a href=\"http://habariproject.org/\">Habari</a>, "
+"lo stato dell'arte dei software di pubblicazione! Habari è un progetto "
+"orientato alla comunità, creato e supportato da gente di tutto il mondo. "
+"Visita <a href=\"http://habariproject.org/\">http://habariproject.org/</a> "
+"per scoprire tutto!"
+
+#: system/classes/installhandler.php:606
+msgid "currently unsupported."
+msgstr "attualmente non supportato."
+
+#: system/classes/installhandler.php:993
+#: system/classes/installhandler.php:1057
+msgid "The database host field was left empty."
+msgstr "Il campo del server del database è stato lasciato vuoto."
+
+#: system/classes/installhandler.php:999
+#: system/classes/installhandler.php:1063
+msgid "The database name field was left empty."
+msgstr "Il campo del nome del database è stato lasciato vuoto."
+
+#: system/classes/installhandler.php:1005
+#: system/classes/installhandler.php:1069
+msgid "The database user field was left empty."
+msgstr "Il campo dell'utente del database è stato lasciato vuoto."
+
+#: system/classes/installhandler.php:1020
+#: system/classes/installhandler.php:1084
+msgid "Access denied. Make sure these credentials are valid."
+msgstr "Accesso negato. Accertati che quelle credenziali siano valide."
+
+#: system/classes/installhandler.php:1024
+#: system/classes/installhandler.php:1088
+msgid "That database does not exist."
+msgstr "Il database non esiste."
+
+#: system/classes/installhandler.php:1028
+#: system/classes/installhandler.php:1092
+msgid "Could not connect to host."
+msgstr "Non si è potuto connettersi al server."
+
+#: system/classes/installhandler.php:1122
+msgid "The database file was left empty."
+msgstr "Il file database è stato lasciato vuoto."
+
+#: system/classes/post.php:606
+#, php-format
+msgid "New post %1$s (%2$s);  Type: %3$s; Status: %4$s"
+msgstr "Nuovo post %1$s (%2$s); Tipo: %3$s; Status: %4$s"
+
+#: system/classes/post.php:692
+#, php-format
+msgid "Post %1$s (%2$s) deleted."
+msgstr "Post %1$s (%2$s) eliminato."
+
+#: system/classes/post.php:727
+#, php-format
+msgid "Scheduled Post %1$s (%2$s) published at %3$s."
+msgstr "Post programmato %1$s (%2$s) pubblicato alle %3$s."
+
+#: system/classes/post.php:730
+#, php-format
+msgid "Post %1$s (%2$s) published."
+msgstr "Post %1$s (%2$s) pubblicato."
+
+#: system/classes/comments.php:268
+#: system/classes/comments.php:280
+#: system/classes/comments.php:512
+#, php-format
+msgid "Comment %1$s deleted from %2$s"
+msgstr "Commento %1$s cancellato da %2$s"
+
+#: system/classes/comments.php:309
+#, php-format
+msgid "Comment %1$s moderated from %2$s"
+msgstr "Commento %1$s moderato in %2$s"
+
+#: system/classes/comments.php:316
+#, php-format
+msgid "Comment Moderated on %s"
+msgstr "Commento moderated in %s"
+
+#. 
+#. * It is important to note that subclasses MUST override this
+#. * method, as get_class will ALWAYS return 'Singleton' when
+#. * subclasses call this method through inheritance
+#. * return self::getInstanceOf( get_class() );
+#. 
+#: system/classes/singleton.php:25
+msgid "Not implemented: instance"
+msgstr "Not implemented: instance"
+
+#: system/classes/acl.php:88
+#, php-format
+msgid "Permission deleted: %s"
+msgstr "Permesso eliminato: %s"
+
+#: system/classes/xmlrpcclient.php:95
+msgid "Invalid XML response."
+msgstr "Invalid XML response."
+
+#: system/classes/filecache.php:39
+#, php-format
+msgid ""
+"The cache directory '%s' is not writable - the cache is disabled. The user, "
+"or group, which your web server is running as, needs to have read, write, "
+"and execute permissions on this directory."
+msgstr ""
+"La cartella di cache '%s' non è inscrivibile - la cache è disabilitata. "
+"L'utente, o gruppo, che ha accesso al web server, necessita dei permessi di "
+"lettura, scrittura ed esecuzione su questa cartella."
+
+#: system/classes/filecache.php:40
+#, php-format
+msgid "The cache directory '%s' is not writable - the cache is disabled."
+msgstr ""
+"La cartella di cache '%s' non è inscrivibile - la cache è disabilitata."
+
+#: system/classes/themes.php:82
+msgid "There is no valid theme currently installed."
+msgstr "Attualmente non è installato un tema valido."
+
+#: system/classes/themes.php:165
+#: system/classes/themes.php:174
+msgid "Theme not installed."
+msgstr "Tema non installato."
+
+#: system/classes/comment.php:196
+msgid "Anonymous"
+msgstr "Anonimo"
+
+#: system/classes/curlrequestprocessor.php:60
+#, php-format
+msgid "%s: CURL Error %d: %s"
+msgstr "%s: CURL Error %d: %s"
+
+#: system/classes/curlrequestprocessor.php:65
+#, php-format
+msgid "Bad return code (%1$d) for: %2$s"
+msgstr "Bad return code (%1$d) for: %2$s"
+
+#: system/classes/utils.php:419
+#, php-format
+msgid "Unsupported digest algorithm \"%s\""
+msgstr "Unsupported digest algorithm \"%s\""
+
+#: system/classes/utils.php:429
+#: system/classes/utils.php:488
+#: system/classes/utils.php:527
+msgid "Invalid hash"
+msgstr "Invalid hash"
+
+#: system/classes/utils.php:713
+msgid "Unbalanced braces."
+msgstr "Unbalanced braces."
+
+#: system/classes/feedbackhandler.php:28
+msgid "Both name and e-mail address must be provided."
+msgstr "Devono essere forniti sia il nome sia l'indirizzo e-mail."
+
+#: system/classes/feedbackhandler.php:32
+msgid "You did not provide any content for your comment!"
+msgstr "Non hai inserito un contenuto per il tuo commento!"
+
+#. comments are disabled, so let's just send
+#. them back to the post's permalink
+#: system/classes/feedbackhandler.php:49
+msgid "Comments on this post are disabled!"
+msgstr "I commenti a questo post sono disabilitati!"
+
+#: system/classes/feedbackhandler.php:87
+msgid "Comment contains only whitespace/empty comment"
+msgstr "Il commento contiene soltanto uno spazio vuoto"
+
+#: system/classes/feedbackhandler.php:126
+msgid "Your comment is pending moderation."
+msgstr "Il tuo commento è in attesa di moderazione."
+
+#: system/classes/feedbackhandler.php:140
+msgid "Setting the cookie."
+msgstr "Configurazione del cookie."
+
+#: system/installer/requirements.php:9
+#: system/installer/sqlite.php:9
+#: system/installer/config.php:9
+#: system/installer/db_setup.php:4
+#: system/installer/db_setup.php:240
+#: system/installer/htaccess.php:9
+msgid "Install Habari"
+msgstr "Installa Habari"
+
+#: system/installer/requirements.php:14
+msgid "Before you install"
+msgstr "Prima dell'installazione"
+
+#: system/installer/requirements.php:18
+msgid "Writable directory needed"
+msgstr "È necessaria una directory inscrivibile."
+
+#: system/installer/requirements.php:21
+msgid ""
+"Before you can install habari, you first need to make the install\n"
+"              directory writable by php, so that the installation script "
+"can\n"
+"              write your configuration information properly. The exact "
+"process of\n"
+"              doing this will vary depending on the configuration of your "
+"web\n"
+"              server and the ownership of the directory."
+msgstr ""
+"Prima che tu possa installare Habari, devi rendere la cartella\n"
+"             di installazione inscrivibile da PHP, così che lo script di "
+"installazione\n"
+"             possa correttamente scrivere le tue informazioni di "
+"configurazione.\n"
+"             L'esatto processo varierà a seconda della configurazione\n"
+"             del tuo web server e della proprietà della cartella."
+
+#: system/installer/requirements.php:28
+msgid ""
+"If your webserver is part of the group which owns the\n"
+"              directory, you'll need to add group write permissions to\n"
+"              the directory. The procedure for this is as follows:"
+msgstr ""
+"Se il tuo web server è parte del gruppo che possiede\n"
+"              la cartella, dovrai aggiungere i permessi di scrittura di "
+"gruppo\n"
+"              alla cartella. La procedura è la seguente:"
+
+#: system/installer/requirements.php:34
+msgid ""
+"Open a terminal window, and then change to the installation directory:"
+msgstr ""
+"Apri una finestra del terminale, e quindi cambiala alla cartella di "
+"installazione:"
+
+#: system/installer/requirements.php:38
+msgid "Change the <em>mode</em> (permissions) of the current directory:"
+msgstr "Cambia il <em>mode</em> (permessi) della cartella corrente:"
+
+#: system/installer/requirements.php:42
+msgid "Note"
+msgstr "Nota"
+
+#: system/installer/requirements.php:42
+msgid "You may need to use"
+msgstr "Potresti aver bisogno di usare"
+
+#: system/installer/requirements.php:42
+msgid ""
+"and enter\n"
+"                  an administrator password if you do not own the directory."
+msgstr ""
+"ed immetti\n"
+"                  una password di amministratore se non possiedi la cartella."
+
+#: system/installer/requirements.php:48
+msgid ""
+"If the webserver is not part of the group which owns the\n"
+"              directory, you will need to <strong>temporarily</strong>\n"
+"              grant world write permissions to the directory:"
+msgstr ""
+"Se il webserver non è parte del gruppo che possiede\n"
+"              la cartella, avrai bisogno di garantire\n"
+"              <strong>temporaneamente</strong> i permessi globali di "
+"scrittura alla cartella:"
+
+#: system/installer/requirements.php:59
+msgid ""
+"Be sure to remove the write permissions on the directory\n"
+"              as soon as the installation is completed."
+msgstr ""
+"Fa' attenzione a rimuovere i permessi di scrittura alla cartella\n"
+"              appena l'installazione sarà completata."
+
+#: system/installer/requirements.php:67
+msgid "PHP Upgrade needed..."
+msgstr "È necessario un aggiornamento di PHP..."
+
+#: system/installer/requirements.php:69
+msgid "requires PHP 5.2 or newer. Your current PHP version is"
+msgstr "richiede PHP 5.2 o superiore. La tua versione di PHP corrente è"
+
+#: system/installer/requirements.php:79
+msgid "Missing Extensions"
+msgstr "Estensioni mancanti"
+
+#: system/installer/requirements.php:81
+msgid "requires that the following PHP extensions to be installed:"
+msgstr "richiede che le seguenti estensioni di PHP siano installate:"
+
+#: system/installer/requirements.php:81
+msgid ""
+"Please contact your web hosting provider if you do not have access to your "
+"server."
+msgstr "Contatta il tuo hosting provider se non hai accesso al tuo server."
+
+#: system/installer/requirements.php:85
+msgid "No PDO drivers enabled"
+msgstr "Nessun driver PDO abilitato"
+
+#: system/installer/requirements.php:86
+msgid ""
+"requires that at least one <a href=\"http://www.php.net/pdo\">PDO driver</a> "
+"be installed. Please ask your hosting provider to enable one of the PDO "
+"drivers supported by Habari."
+msgstr ""
+"richiede che almeno un <a href=\"http://www.php.net/pdo\">driver PDO</a> sia "
+"installato. Chiedi al tuo hosting provider di abilitare uno dei driver PDO "
+"supportati da Habari."
+
+#: system/installer/sqlite.php:29
+#: system/installer/config.php:29
+#: system/installer/htaccess.php:29
+msgid "Developer Review"
+msgstr "Developer Review"
+
+#: system/installer/sqlite.php:32
+#: system/installer/config.php:32
+#: system/installer/db_setup.php:180
+#: system/installer/htaccess.php:32
+msgid "help"
+msgstr "aiuto"
+
+#: system/installer/sqlite.php:35
+msgid ""
+"Your <strong>.htaccess</strong> file is not writable. In order to secure "
+"your SQLite database, please paste the following into"
+msgstr ""
+"Il tuo file <strong>.htaccess</strong> non è inscrivibile. Per rendere "
+"sicuro il tuo database SQLite, incolla le righe seguenti in"
+
+#: system/installer/sqlite.php:38
+msgid ""
+"Your SQLite database is a file on your server like\n"
+"\t\t\t\tany other file. You can enhance it's security by including a "
+"section\n"
+"\t\t\t\tin your .htaccess file that disallows access to it by readers on the "
+"web.\n"
+"\t\t\t\tHabari is not able to write this section in your .htaccess file\n"
+"\t\t\t\tautomatically, so you must add this section yourself to gain the "
+"enhanced\n"
+"\t\t\t\tsecurity it offers you."
+msgstr ""
+"Il tuo database SQLite è un file sul tuo server come\n"
+"\t\t\t\togni altro file. Puoi migliorare la sua sicurezza includendo una "
+"sezione\n"
+"\t\t\t\tnel tuo file .htaccess che impedisce l'accesso ad esso da lettori "
+"sul web.\n"
+"\t\t\t\tHabari non è in grado di scrivere automaticamente questa sezione\n"
+"\t\t\t\tnel tuo file .htaccess, perciò devi aggiungerla personalmente per "
+"acquisire\n"
+"\t\t\t\tla sicurezza ulteriore che ti offre."
+
+#: system/installer/sqlite.php:43
+#: system/installer/config.php:41
+#: system/installer/db_setup.php:39
+#: system/installer/db_setup.php:56
+#: system/installer/db_setup.php:67
+#: system/installer/db_setup.php:78
+#: system/installer/db_setup.php:89
+#: system/installer/db_setup.php:106
+#: system/installer/db_setup.php:117
+#: system/installer/db_setup.php:128
+#: system/installer/db_setup.php:139
+#: system/installer/db_setup.php:152
+#: system/installer/db_setup.php:168
+#: system/installer/db_setup.php:190
+#: system/installer/db_setup.php:200
+#: system/installer/db_setup.php:212
+#: system/installer/db_setup.php:223
+#: system/installer/htaccess.php:42
+msgid "Learn More..."
+msgstr "Per saperne di più..."
+
+#: system/installer/sqlite.php:54
+#: system/installer/config.php:52
+#: system/installer/db_setup.php:235
+#: system/installer/htaccess.php:53
+msgid "Install"
+msgstr "Installazione"
+
+#: system/installer/sqlite.php:58
+#: system/installer/htaccess.php:57
+msgid ""
+"When you have successfully placed the .htaccess file, run the installer "
+"again."
+msgstr ""
+"Quando hai collocato con successo il file .htaccess, lancia nuovamente "
+"l'installazione."
+
+#: system/installer/sqlite.php:59
+#: system/installer/config.php:57
+#: system/installer/htaccess.php:58
+msgid "Restart Installer"
+msgstr "Ricomincia l'installazione"
+
+#: system/installer/config.php:35
+msgid ""
+"Your <strong>config.php</strong> file is not writable. In order to "
+"successfully install Habari, please paste the following into"
+msgstr ""
+"Il tuo file <strong>config.php</strong> non è inscrivibile. Per installare "
+"Habari con successo, incolla le righe seguenti in"
+
+#: system/installer/config.php:38
+msgid ""
+"<strong>config.php</strong> is a file that tells Habari how to connect\n"
+"\t\t\t\tto your database. Habari is not able to write this file to your "
+"server\n"
+"\t\t\t\tautomatically, so you must create this file yourself to continute\n"
+"\t\t\t\tthe installation."
+msgstr ""
+"<strong>config.php</strong> è un file che dice ad Habari come connettersi\n"
+"\t\t\t\tal tuo database. Habari non è in grado di scrivere automaticamente "
+"questo file\n"
+"\t\t\t\tsul tuo server, perciò devi creare questo file personalmente per "
+"continuare\n"
+"\t\t\t\tl'installazione."
+
+#: system/installer/config.php:56
+msgid ""
+"When you have successfully placed the config file, run the installer again."
+msgstr ""
+"Quando hai collocato con successo il file config, lancia nuovamente "
+"l'installazione."
+
+#: system/installer/db_setup.php:19
+msgid "Read the user manual"
+msgstr "Leggi il manuale utente"
+
+#: system/installer/db_setup.php:20
+msgid "Read the Habari wiki"
+msgstr "Leggi la wiki di Habari"
+
+#: system/installer/db_setup.php:21
+msgid "Ask the community"
+msgstr "Chiedi alla comunità"
+
+#: system/installer/db_setup.php:21
+msgid "Mailing List"
+msgstr "Mailing list"
+
+#: system/installer/db_setup.php:28
+msgid "Database Setup"
+msgstr "Impostazione del database"
+
+#: system/installer/db_setup.php:29
+msgid "Help"
+msgstr "Aiuto"
+
+#: system/installer/db_setup.php:33
+msgid "Database Type"
+msgstr "Tipo di database"
+
+#: system/installer/db_setup.php:36
+msgid ""
+"<strong>Database Type</strong> specifies the type of database to which\n"
+"\t\t\t\t\t\tHabari will connect.  Changing this setting may affect the other "
+"fields\n"
+"\t\t\t\t\t\tthat are available here.  If the database engine that you wanted "
+"to use\n"
+"\t\t\t\t\t\tis not in this list, you may need to install a PDO driver to "
+"enable it."
+msgstr ""
+"<strong>Tipo di database</strong> specifica il tipo di database a cui\n"
+"\t\t\t\t\t\tHabari si connetterà. Il cambiamento di questa impostazione "
+"potrebbe influire sugli altri campi\n"
+"\t\t\t\t\t\tche sono qui disponibili. Se il tipo di database che vuoi usare "
+"non è\n"
+"\t\t\t\t\t\tin questa lista, potresti aver bisogno di installare un driver "
+"PDO per abilitarlo."
+
+#: system/installer/db_setup.php:43
+msgid "MySQL Settings"
+msgstr "Impostazioni MySQL"
+
+#: system/installer/db_setup.php:44
+msgid ""
+"Use the settings below only if you have selected MySQL as your database "
+"engine."
+msgstr ""
+"Utilizza le impostazioni qui sotto soltanto se hai selezionato MySQL come "
+"tuo database."
+
+#: system/installer/db_setup.php:47
+#: system/installer/db_setup.php:97
+msgid "Database Host"
+msgstr "Server del database"
+
+#: system/installer/db_setup.php:52
+msgid ""
+"<strong>Database Host</strong> is the host (domain) name or server IP\n"
+"\t\t\t\t\t\taddress of the server that runs the MySQL database to\n"
+"\t\t\t\t\t\twhich Habari will connect.  If MySQL is running on your web "
+"server,\n"
+"\t\t\t\t\t\tand most of the time it is, \"localhost\" is usually a good "
+"value\n"
+"\t\t\t\t\t\tfor this field."
+msgstr ""
+"<strong>Server del database</strong> è il nome di dominio o indirizzo IP del "
+"server\n"
+"\t\t\t\t\t\tche ospita il database MySQL a cui Habari si connetterà.\n"
+"\t\t\t\t\t\tSe MySQL gira sul tuo web server, come spesso accade,\n"
+"\t\t\t\t\t\t\"localhost\" è solitamente un buon valore da immettere\n"
+"\t\t\t\t\t\tin questo campo."
+
+#: system/installer/db_setup.php:61
+#: system/installer/db_setup.php:111
+#: system/installer/db_setup.php:195
+msgid "Username"
+msgstr "Nome utente"
+
+#: system/installer/db_setup.php:66
+msgid ""
+"<strong>Database User</strong> is the username used to connect Habari\n"
+"\t\t\t\t\t\tto the MySQL database."
+msgstr ""
+"<strong>Utente del database</strong> è il nome utente usato per connettere "
+"Habari\n"
+"\t\t\t\t\t\tal database MySQL."
+
+#. echo $db_pass;
+#: system/installer/db_setup.php:77
+msgid ""
+"<strong>Database Password</strong> is the password used to connect\n"
+"\t\t\t\t\t\tthe specified user to the MySQL database."
+msgstr ""
+"<strong>Password del database</strong> è la password usata per connettere\n"
+"\t\t\t\t\t\tlo specifico utente al database MySQL."
+
+#: system/installer/db_setup.php:83
+#: system/installer/db_setup.php:133
+msgid "Database Name"
+msgstr "Nome del database"
+
+#: system/installer/db_setup.php:88
+msgid ""
+"<strong>Database Name</strong> is the name of the MySQL database to\n"
+"\t\t\t\t\t\twhich Habari will connect."
+msgstr ""
+"<strong>Nome del database</strong> è il nome del database MySQL\n"
+"\t\t\t\t\t\ta cui Habari si connetterà."
+
+#: system/installer/db_setup.php:93
+msgid "PostgreSQL Settings"
+msgstr "Impostazioni PostgreSQL"
+
+#: system/installer/db_setup.php:94
+msgid ""
+"Use the settings below only if you have selected PostgreSQL as your database "
+"engine."
+msgstr ""
+"Utilizza le impostazioni qui sotto soltanto se hai selezionato PostgreSQL "
+"come tuo database."
+
+#: system/installer/db_setup.php:102
+msgid ""
+"<strong>Database Host</strong> is the host (domain) name or server IP\n"
+"\t\t\t\t\t\taddress of the server that runs the PostgreSQL database to\n"
+"\t\t\t\t\t\twhich Habari will connect.  If PostgreSQL is running on your web "
+"server,\n"
+"\t\t\t\t\t\tand most of the time it is, \"localhost\" is usually a good "
+"value\n"
+"\t\t\t\t\t\tfor this field."
+msgstr ""
+"<strong>Server del database</strong> è il nome di dominio o indirizzo IP del "
+"server\n"
+"\t\t\t\t\t\tche ospita il database PostgreSQL a cui Habari si connetterà.\n"
+"\t\t\t\t\t\tSe PostgreSQL gira sul tuo web server, come spesso accade,\n"
+"\t\t\t\t\t\t\"localhost\" è solitamente un buon valore da immettere\n"
+"\t\t\t\t\t\tin questo campo."
+
+#: system/installer/db_setup.php:116
+msgid ""
+"<strong>Database User</strong> is the username used to connect Habari\n"
+"\t\t\t\t\t\tto the PostgreSQL database."
+msgstr ""
+"<strong>Utente del database</strong> è il nome utente usato per connettere "
+"Habari\n"
+"\t\t\t\t\t\tal database PostgreSQL."
+
+#. echo $db_pass;
+#: system/installer/db_setup.php:127
+msgid ""
+"<strong>Database Password</strong> is the password used to connect\n"
+"\t\t\t\t\t\tthe specified user to the PostgreSQL database."
+msgstr ""
+"<strong>Password del database</strong> è la password usata per connettere\n"
+"\t\t\t\t\t\tlo specifico utente al database PostgreSQL."
+
+#: system/installer/db_setup.php:138
+msgid ""
+"<strong>Database Name</strong> is the name of the PostgreSQL database to\n"
+"\t\t\t\t\t\twhich Habari will connect."
+msgstr ""
+"<strong>Nome del database</strong> è il nome del database PostgreSQL\n"
+"\t\t\t\t\t\ta cui Habari si connetterà."
+
+#: system/installer/db_setup.php:143
+msgid "SQLite Settings"
+msgstr "Impostazioni SQLite"
+
+#: system/installer/db_setup.php:144
+msgid ""
+"Use the settings below only if you have selected SQLite as your database "
+"engine."
+msgstr ""
+"Utilizza le impostazioni qui sotto soltanto se hai selezionato SQLite come "
+"tuo database."
+
+#: system/installer/db_setup.php:147
+msgid "Data file"
+msgstr "File di dati"
+
+#: system/installer/db_setup.php:152
+msgid ""
+"<strong>Data file</strong> is the SQLite file that will store your Habari "
+"data.  This should be the complete path to where your data file resides."
+msgstr ""
+"<strong>File di dati</strong> è il file SQLite che conterrà i tuoi dati di "
+"Habari. Questo dovrebbe essere il percorso completo a dove si trova il tuo "
+"file di dati."
+
+#: system/installer/db_setup.php:161
+msgid "Table Prefix"
+msgstr "Prefisso della tabella"
+
+#: system/installer/db_setup.php:165
+msgid ""
+"<strong>Table Prefix</strong> is a prefix that will be appended to\n"
+"\t\t\t\t\t\teach table that Habari creates in the database, making it easy "
+"to\n"
+"\t\t\t\t\t\tdistinguish thode tables in the database from those of other\n"
+"\t\t\t\t\t\tinstallations."
+msgstr ""
+"<strong>Prefisso della tabella</strong> è il prefisso che sarà apposto a "
+"ciascuna\n"
+"\t\t\t\t\t\ttabella che Habari crea nel database, rendendo facile\n"
+"\t\t\t\t\t\tnel database la distinzione di quelle tabelle da quelle\n"
+"\t\t\t\t\t\tdi altre installazioni."
+
+#: system/installer/db_setup.php:180
+msgid "Site Configuration"
+msgstr "Configurazione del sito"
+
+#: system/installer/db_setup.php:189
+msgid ""
+"<strong>Site Name</strong> is the name of your site as it will appear\n"
+"\t\t\t\t\t\tto your visitors."
+msgstr ""
+"<strong>Nome del sito</strong> è il nome del tuo sito, così come apparirà\n"
+"\t\t\t\t\t\tai tuoi visitatori."
+
+#: system/installer/db_setup.php:200
+msgid ""
+"<strong>Username</strong> is the username of the initial user in Habari."
+msgstr ""
+"<strong>Nome utente</strong> è il nome utente dell'utente iniziale di Habari."
+
+#: system/installer/db_setup.php:207
+msgid "Password (again)"
+msgstr "Password (ripeti)"
+
+#: system/installer/db_setup.php:212
+msgid ""
+"<strong>Password</strong> is the password of the initial user in Habari."
+msgstr ""
+"<strong>Password</strong> è la password dell'utente iniziale di Habari."
+
+#: system/installer/db_setup.php:217
+msgid "Admin Email"
+msgstr "E-mail dell'amministratore"
+
+#: system/installer/db_setup.php:222
+msgid ""
+"<strong>Admin Email</strong> is the email address of the first user\n"
+"\t\t\t\t\t\taccount."
+msgstr ""
+"<strong>E-mail dell'amministratore</strong> è l'indirizzo e-mail "
+"dell'account\n"
+"\t\t\t\t\t\tdel primo utente."
+
+#: system/installer/db_setup.php:239
+msgid ""
+"Habari now has all of the information needed to install itself on your "
+"server."
+msgstr ""
+"Ora Habari ha tutte le informazioni necessarie ad installarsi sul tuo server."
+
+#: system/installer/htaccess.php:35
+msgid ""
+"Your <strong>.htaccess</strong> file is not writable. In order to "
+"successfully install Habari, please paste the following into"
+msgstr ""
+"Il tuo file <strong>.htaccess</strong> non è inscrivibile. Per installare "
+"Habari con successo, incolla le righe seguenti in"
+
+#: system/installer/htaccess.php:38
+msgid ""
+"is a file that tells your Apache web server\n"
+"\t\t\t\tto send requests to Habari for handling.\n"
+"\t\t\t\tHabari is not able to write this file to your server\n"
+"\t\t\t\tautomatically, so you must create this file yourself to continue\n"
+"\t\t\t\tthe installation."
+msgstr ""
+"è un file che dice al tuo web server Apache\n"
+"\t\t\t\tdi inviare richieste perché se ne occupi Habari.\n"
+"\t\t\t\tHabari non è in grado di scrivere automaticamente questo file\n"
+"\t\t\t\tsul tuo server, perciò devi creare questo file personalmente per "
+"continuare\n"
+"\t\t\t\tl'installazione."
+
+#: system/themes/k2/sidebar.php:5
+#: system/themes/mzingi/searchform.php:4
+msgid "Search"
+msgstr "Cerca"
+
+#: system/themes/k2/sidebar.php:10
+msgid "About"
+msgstr "Informazioni su..."
+
+#: system/themes/k2/404.php:8
+msgid "Error!"
+msgstr "Errore!"
+
+#: system/themes/k2/404.php:12
+msgid "The requested post was not found."
+msgstr "Il post richiesto non è stato trovato."
+
+#: system/themes/k2/page.single.php:8
+msgid "Page:"
+msgstr "Pagina:"
+
+#: system/themes/k2/page.single.php:11
+#: system/themes/k2/search.php:14
+#: system/themes/k2/home.php:13
+#: system/themes/k2/tag.php:13
+#: system/themes/k2/entry.multiple.php:13
+#: system/themes/k2/entry.single.php:22
+msgid "Comments to this post"
+msgstr "Commenti a questo post"
+
+#: system/themes/k2/page.single.php:12
+#: system/themes/k2/search.php:15
+#: system/themes/k2/home.php:14
+#: system/themes/k2/tag.php:14
+#: system/themes/k2/entry.multiple.php:14
+#: system/themes/k2/entry.single.php:23
+#: system/themes/mzingi/search.php:20
+#: system/themes/mzingi/home.php:22
+#: system/themes/mzingi/tag.php:20
+#: system/themes/mzingi/entry.multiple.php:20
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Commento"
+msgstr[1] "Commenti"
+
+#: system/themes/k2/page.single.php:14
+#: system/themes/k2/search.php:17
+#: system/themes/k2/home.php:16
+#: system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16
+#: system/themes/k2/entry.single.php:25
+#: system/themes/charcoal/page.single.php:21
+#: system/themes/charcoal/home.php:32
+#: system/themes/charcoal/entry.single.php:39
+#: system/themes/mzingi/page.single.php:20
+#: system/themes/mzingi/search.php:23
+#: system/themes/mzingi/home.php:25
+#: system/themes/mzingi/tag.php:23
+#: system/themes/mzingi/entry.multiple.php:23
+#: system/themes/mzingi/entry.single.php:30
+msgid "Edit post"
+msgstr "Modifica post"
+
+#: system/themes/k2/search.php:6
+msgid "Search results for"
+msgstr "Cerca risultati per"
+
+#: system/themes/k2/loginform.php:5
+#: system/themes/mzingi/loginform.php:4
+msgid "That login is incorrect."
+msgstr "Quelle credenziali non sono corrette."
+
+#: system/themes/k2/loginform.php:11
+#: system/themes/mzingi/loginform.php:9
+msgid "You are logged in as"
+msgstr "Hai avuto accesso come"
+
+#: system/themes/k2/loginform.php:11
+msgid "Edit Your Profile"
+msgstr "Modifica il tuo profilo"
+
+#: system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:10
+msgid "Want to"
+msgstr "Vuoi"
+
+#: system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:10
+msgid "log out"
+msgstr "uscire"
+
+#: system/themes/k2/loginform.php:20
+#: system/themes/mzingi/loginform.php:17
+#: system/themes/mzingi/commentform.php:70
+msgid "Name:"
+msgstr "Nome:"
+
+#: system/themes/k2/loginform.php:24
+#: system/themes/mzingi/loginform.php:21
+msgid "Password:"
+msgstr "Password:"
+
+#: system/themes/k2/loginform.php:29
+msgid "Sign in"
+msgstr "Accedi"
+
+#: system/themes/k2/footer.php:9
+msgid " is powered by"
+msgstr " is powered by"
+
+#: system/themes/k2/footer.php:9
+msgid "and a huge amount of"
+msgstr "e una grande quantità di"
+
+#: system/themes/k2/footer.php:10
+msgid "Caffeine"
+msgstr "Caffeina"
+
+#: system/themes/k2/footer.php:11
+msgid "Atom Entries"
+msgstr "Feed dei post"
+
+#: system/themes/k2/footer.php:11
+#: system/themes/charcoal/footer.php:10
+msgid "Atom Comments"
+msgstr "Feed dei commenti"
+
+#. #-#-#-#-#  poeditWbsJXR (PACKAGE VERSION)  #-#-#-#-#
+#. Do not delete these lines
+#. #-#-#-#-#  poeditB5kK2r (PACKAGE VERSION)  #-#-#-#-#
+#. Do not delete these lines
+#. #-#-#-#-#  poeditiDjfe2 (PACKAGE VERSION)  #-#-#-#-#
+#. Do not delete these lines
+#: system/themes/k2/commentform.php:3
+#: system/themes/k2/comments.php:3
+#: system/themes/charcoal/commentform.php:2
+#: system/themes/charcoal/comments.php:2
+#: system/themes/mzingi/commentform.php:2
+msgid "Please do not load this page directly. Thanks!"
+msgstr "Si prega di non caricare questa pagina direttamente. Grazie!"
+
+#: system/themes/k2/commentform.php:6
+msgid "Leave a Reply"
+msgstr "Scrivi un commento"
+
+#: system/themes/k2/commentform.php:17
+#: system/themes/k2/commentform.php:21
+#: system/themes/mzingi/commentform.php:70
+#: system/themes/mzingi/commentform.php:75
+#: system/themes/mzingi/commentform.php:89
+msgid "Required"
+msgstr "Richiesto"
+
+#: system/themes/k2/commentform.php:21
+#: system/themes/charcoal/commentform.php:15
+msgid "Mail"
+msgstr "Mail"
+
+#: system/themes/k2/commentform.php:21
+msgid "will not be published"
+msgstr "non sarà pubblicata"
+
+#: system/themes/k2/commentform.php:25
+#: system/themes/charcoal/commentform.php:19
+msgid "Website"
+msgstr "Sito web"
+
+#: system/themes/k2/comments.php:8
+msgid "Responses to"
+msgstr "Commenti a"
+
+#: system/themes/k2/comments.php:10
+#: system/themes/mzingi/commentform.php:10
+msgid "Feed for this Entry"
+msgstr "Feed per questo post"
+
+#: system/themes/k2/comments.php:20
+#: system/themes/mzingi/commentform.php:46
+msgid "Permanent Link to this Comment"
+msgstr "Link permanente a questo commento"
+
+#: system/themes/k2/comments.php:22
+msgid "Time of this Comment"
+msgstr "Ora di questo commento"
+
+#: system/themes/k2/comments.php:22
+#: system/themes/mzingi/commentform.php:48
+msgid "In moderation"
+msgstr "In moderazione"
+
+#: system/themes/k2/comments.php:34
+#: system/themes/mzingi/commentform.php:58
+msgid "There are currently no comments."
+msgstr "Attualmente non ci sono commenti."
+
+#: system/themes/k2/searchform.php:4
+#: system/themes/mzingi/searchform.php:4
+msgid "Go!"
+msgstr "Invia!"
+
+#: system/themes/k2/header.php:34
+#: system/themes/charcoal/header.php:48
+msgid "Admin area"
+msgstr "Area di amministrazione"
+
+#: system/themes/k2/header.php:34
+#: system/themes/charcoal/header.php:48
+msgid "Admin"
+msgstr "Amministratore"
+
+#: system/themes/charcoal/sidebar.php:6
+msgid "{blog entries}"
+msgstr "{post del blog}"
+
+#: system/themes/charcoal/sidebar.php:7
+msgid "{comments}"
+msgstr "{commenti}"
+
+#: system/themes/charcoal/sidebar.php:11
+msgid "Powered by Habari"
+msgstr "Powered by Habari"
+
+#: system/themes/charcoal/404.php:6
+msgid "Whoops! 404"
+msgstr "Oops! 404"
+
+#: system/themes/charcoal/404.php:9
+msgid ""
+"The page you were trying to access is not really there. Please try again."
+msgstr "La pagina a cui tentavi di accedere non si trova qui. Riprova."
+
+#: system/themes/charcoal/search.php:21
+#: system/themes/charcoal/home.php:22
+#: system/themes/charcoal/tag.php:20
+#: system/themes/charcoal/multiple.php:19
+#: system/themes/charcoal/entry.single.php:29
+#: system/themes/mzingi/search.php:20
+#: system/themes/mzingi/home.php:22
+#: system/themes/mzingi/tag.php:20
+#: system/themes/mzingi/entry.multiple.php:20
+msgid "Comments on this post"
+msgstr "Commenti a questo post"
+
+#: system/themes/charcoal/search.php:21
+#: system/themes/charcoal/home.php:22
+#: system/themes/charcoal/tag.php:20
+#: system/themes/charcoal/multiple.php:19
+#: system/themes/charcoal/entry.single.php:29
+msgid "No Comments"
+msgstr "Nessun commento"
+
+#: system/themes/charcoal/search.php:21
+#: system/themes/charcoal/home.php:22
+#: system/themes/charcoal/tag.php:20
+#: system/themes/charcoal/multiple.php:19
+#: system/themes/charcoal/entry.single.php:29
+#, php-format
+msgid "%s Comment"
+msgstr "%s commento"
+
+#: system/themes/charcoal/search.php:21
+#: system/themes/charcoal/home.php:22
+#: system/themes/charcoal/tag.php:20
+#: system/themes/charcoal/multiple.php:19
+#: system/themes/charcoal/entry.single.php:29
+#, php-format
+msgid "%s Comments"
+msgstr "%s commenti"
+
+#: system/themes/charcoal/search.php:47
+#: system/themes/charcoal/home.php:69
+#: system/themes/charcoal/tag.php:39
+#: system/themes/charcoal/multiple.php:40
+#: system/themes/mzingi/home.php:33
+#: system/themes/mzingi/entry.multiple.php:29
+msgid "Newer Posts"
+msgstr "Post più recenti"
+
+#: system/themes/charcoal/search.php:48
+#: system/themes/charcoal/home.php:70
+#: system/themes/charcoal/tag.php:40
+#: system/themes/charcoal/multiple.php:41
+#: system/themes/mzingi/home.php:33
+#: system/themes/mzingi/entry.multiple.php:29
+msgid "Older Posts"
+msgstr "Post meno recenti"
+
+#: system/themes/charcoal/home.php:38
+msgid "No posts published, yet."
+msgstr "Nessun post ancora pubblicato."
+
+#: system/themes/charcoal/home.php:62
+#, php-format
+msgid "Continue reading %s"
+msgstr "Continua a leggere %s"
+
+#: system/themes/charcoal/home.php:62
+msgid "more"
+msgstr "altro"
+
+#: system/themes/charcoal/footer.php:7
+#, php-format
+msgid "%1$s is powered by %2$s"
+msgstr "%1$s is powered by %2$s"
+
+#: system/themes/charcoal/footer.php:9
+msgid "AtomEntries"
+msgstr "Feed Atom dei post"
+
+#: system/themes/charcoal/footer.php:9
+msgid " and "
+msgstr " e "
+
+#: system/themes/charcoal/tag.php:4
+#, php-format
+msgid "Displaying posts tagged: %s"
+msgstr "Visualizzati i post con tag: %s"
+
+#: system/themes/charcoal/commentform.php:11
+msgid "(Required)"
+msgstr "(Richiesto)"
+
+#: system/themes/charcoal/commentform.php:15
+msgid "(will not be published - Required)"
+msgstr "(non sarà pubblicata - Richiesta)"
+
+#: system/themes/charcoal/commentform.php:35
+msgid "Comments are closed for this post"
+msgstr "I commenti a questo post non sono consentiti"
+
+#: system/themes/charcoal/theme.php:121
+msgid "Search for "
+msgstr "Cerca "
+
+#: system/themes/charcoal/theme.php:126
+#: system/themes/charcoal/theme.php:132
+#, php-format
+msgid "Search results for '%s'"
+msgstr "Risultati della ricerca per '%s'"
+
+#: system/themes/charcoal/theme.php:129
+#, php-format
+msgid "No results found for your search '%1$s'"
+msgstr "Nessun risultato per la ricerca '%1$s'"
+
+#: system/themes/charcoal/theme.php:129
+#, php-format
+msgid "You can try searching for '%2$s'"
+msgstr "Puoi provare a cercare '%2$s'"
+
+#: system/themes/charcoal/theme.php:135
+#, php-format
+msgid "No results found for your search '%s'"
+msgstr "Nessun risultato per la ricerca '%s'"
+
+#: system/themes/charcoal/comments.php:20
+msgid "Your comment is awaiting moderation"
+msgstr "Il tuo commento è in attesa di moderazione"
+
+#: system/themes/charcoal/comments.php:26
+msgid "Be the first to write a comment!"
+msgstr "Sii il primo a scrivere un commento!"
+
+#: system/themes/charcoal/searchform.php:2
+#, php-format
+msgid "Search %s"
+msgstr "Cerca %s"
+
+#: system/themes/charcoal/searchform.php:3
+msgid "Go"
+msgstr "Invia"
+
+#: system/themes/mzingi/sidebar.php:4
+msgid "Subscribe to Feed"
+msgstr "Abbonati al feed"
+
+#: system/themes/mzingi/sidebar.php:5
+msgid "Navigation"
+msgstr "Navigazione"
+
+#: system/themes/mzingi/sidebar.php:7
+msgid "Home"
+msgstr "Home"
+
+#: system/themes/mzingi/sidebar.php:16
+msgid "Asides"
+msgstr "A parte"
+
+#: system/themes/mzingi/sidebar.php:29
+msgid "More Posts"
+msgstr "Altri post"
+
+#: system/themes/mzingi/sidebar.php:40
+msgid "Recent Comments"
+msgstr "Commenti recenti"
+
+#: system/themes/mzingi/sidebar.php:47
+msgid "User Login"
+msgstr "Accesso utente"
+
+#: system/themes/mzingi/404.php:7
+msgid "It seems you couldn't find what you are looking for."
+msgstr "Sembra che tu non abbia trovato ciò che stavi cercando."
+
+#: system/themes/mzingi/404.php:7
+msgid "Perhaps you can try searching."
+msgstr "Forse puoi provare con una ricerca."
+
+#: system/themes/mzingi/search.php:7
+msgid "Results for search of"
+msgstr "Risultati della ricerca per"
+
+#: system/themes/mzingi/search.php:18
+#: system/themes/mzingi/home.php:20
+#: system/themes/mzingi/tag.php:18
+#: system/themes/mzingi/entry.multiple.php:18
+#: system/themes/mzingi/entry.single.php:26
+msgid "Tagged:"
+msgstr "Con tag:"
+
+#: system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:29
+msgid "Newer Results"
+msgstr "Risultati più recenti"
+
+#: system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:29
+msgid "Older Results"
+msgstr "Risultati meno recenti"
+
+#: system/themes/mzingi/search.php:31
+msgid "No results for"
+msgstr "Nessun risultato per"
+
+#: system/themes/mzingi/loginform.php:25
+msgid "GO!"
+msgstr "Invia!"
+
+#: system/themes/mzingi/footer.php:3
+msgid "is powered by"
+msgstr "is powered by"
+
+#: system/themes/mzingi/tag.php:8
+msgid "Posts Tagged with"
+msgstr "Post con tag"
+
+#: system/themes/mzingi/commentform.php:13
+msgid "Pingback"
+msgid_plural "Pingbacks"
+msgstr[0] "Pingback"
+msgstr[1] "Pingback"
+
+#: system/themes/mzingi/commentform.php:13
+#: system/themes/mzingi/commentform.php:29
+msgid "to"
+msgstr "a"
+
+#: system/themes/mzingi/commentform.php:29
+msgid "Response"
+msgid_plural "Responses"
+msgstr[0] "Commento"
+msgstr[1] "Commenti"
+
+#: system/themes/mzingi/commentform.php:47
+msgid "Comment by"
+msgstr "Commento di"
+
+#: system/themes/mzingi/commentform.php:48
+msgid "Time of this comment"
+msgstr "Ora di questo commento"
+
+#: system/themes/mzingi/commentform.php:68
+msgid "About You"
+msgstr "A proposito di te"
+
+#: system/themes/mzingi/commentform.php:75
+msgid "Email Address:"
+msgstr "Indirizzo e-mail:"
+
+#: system/themes/mzingi/commentform.php:80
+msgid "Web Address:"
+msgstr "Sito web:"
+
+#: system/themes/mzingi/commentform.php:83
+msgid "Email address is not published"
+msgstr "L'indirizzo e-mail non sarà pubblicato"
+
+#: system/themes/mzingi/commentform.php:87
+msgid "Add to the Discussion"
+msgstr "Aggiungi alla discussione"
+
+#: system/themes/mzingi/commentform.php:89
+msgid "Message:"
+msgstr "Messaggio:"
+
+#: system/schema/pgsql/connection.php:322
+#: system/schema/mysql/connection.php:244
+msgid "No Upgrades"
+msgstr "Nessun aggiornamento"

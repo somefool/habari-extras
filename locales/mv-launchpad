@@ -1,0 +1,17 @@
+#!/bin/bash
+
+for d in `ls`;
+do
+	if [[ $d =~ LC_MESSAGES(.*) ]]
+	then
+		echo "moving $d.mo"
+		mv $d/LC_MESSAGES $d/trunk/LC_MESSAGES
+	fi
+	if [[ $d =~ habari-(.*).po ]]
+	then
+			echo "moving $d.po"
+			mv habari-${BASH_REMATCH[1]}.po ${BASH_REMATCH[1]}/trunk/${BASH_REMATCH[1]}.po
+	fi
+done
+
+echo "done!"
