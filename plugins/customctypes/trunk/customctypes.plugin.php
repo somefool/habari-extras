@@ -124,7 +124,7 @@ class CustomCTypes extends Plugin
 		$handled = Options::get('cctypes_types');
 
 		if ( isset( $handler->handler_vars['slug'] ) ) {
-			$post= Post::get( array( 'slug' => $handler->handler_vars['slug'], 'status' => Post::status( 'any' ) ) );
+			$post = Post::get( array( 'slug' => $handler->handler_vars['slug'], 'status' => Post::status( 'any' ) ) );
 			$ctype = Post::type_name($post->content_type);
 		}
 		else if ( isset( $handler->handler_vars['content_type'] ) ) {
@@ -138,22 +138,22 @@ class CustomCTypes extends Plugin
 			}
 			else {
 				if ( isset( $post ) ) {
-					$this->theme->newpost= false;
+					$this->theme->newpost = false;
 				}
 				else {
 					$post = new Post();
 					$theme->newpost = true;
 				}
-				$theme->content_type= Post::type( $ctype );
+				$theme->content_type = Post::type( $ctype );
 				$theme->post = $post;
 
-				$statuses= Post::list_post_statuses( false );
+				$statuses = Post::list_post_statuses( false );
 				unset( $statuses[array_search( 'any', $statuses )] );
-				$statuses= Plugins::filter( 'admin_publish_list_post_statuses', $statuses );
-				$theme->statuses= $statuses;
-				$theme->wsse= Utils::WSSE();
+				$statuses = Plugins::filter( 'admin_publish_list_post_statuses', $statuses );
+				$theme->statuses = $statuses;
+				$theme->wsse = Utils::WSSE();
 
-				$controls= array(
+				$controls = array(
 					'Settings' => $theme->fetch( 'publish_settings' ),
 				);
 				$theme->controls = Plugins::filter( 'publish_controls', $controls, $post );
@@ -174,7 +174,7 @@ class CustomCTypes extends Plugin
 		$handled = Options::get('cctypes_types');
 
 		if ( isset( $handler->handler_vars['slug'] ) ) {
-			$post= Post::get( array( 'slug' => $handler->handler_vars['slug'], 'status' => Post::status( 'any' ) ) );
+			$post = Post::get( array( 'slug' => $handler->handler_vars['slug'], 'status' => Post::status( 'any' ) ) );
 			$ctype = Post::type_name($post->content_type);
 		}
 		else if ( isset( $handler->handler_vars['content_type'] ) ) {
