@@ -64,31 +64,31 @@ class Sitemaps extends Plugin {
 	{
 		//return cached sitemap if exsist
 		if ( Cache::has( 'sitemap' ) ){
-			$xml= Cache::get( 'sitemap' );
+			$xml = Cache::get( 'sitemap' );
 		}
 		else {
 			//..or generate a new one
-			$xml= '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
+			$xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
 	
-			$xml= new SimpleXMLElement( $xml );
+			$xml = new SimpleXMLElement( $xml );
 					
 			// Retreive all published posts and pages from the database
 			$content['posts']= Posts::get( array( 'content_type' => 'entry', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
 			$content['pages']= Posts::get( array( 'content_type' => 'page', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
 			
 			// Add the index page first
-			$url= $xml->addChild( 'url' );
-			$url_loc= $url->addChild( 'loc', Site::get_url( 'habari' ) );
+			$url = $xml->addChild( 'url' );
+			$url_loc = $url->addChild( 'loc', Site::get_url( 'habari' ) );
 			
 			// Generate the `<url>`, `<loc>`, `<lastmod>` markup for each post and page.
 			foreach ( $content as $entries ) {
 				foreach ( $entries as $entry ) {
-					$url= $xml->addChild( 'url' );
-					$url_loc= $url->addChild( 'loc', $entry->permalink );
-					$url_lastmod= $url->addChild( 'lastmod', Utils::atomtime( $entry->updated ) );
+					$url = $xml->addChild( 'url' );
+					$url_loc = $url->addChild( 'loc', $entry->permalink );
+					$url_lastmod = $url->addChild( 'lastmod', Utils::atomtime( $entry->updated ) );
 				}
 			}
-			$xml= $xml->asXML();
+			$xml = $xml->asXML();
 			Cache::set('sitemap', $xml);
 		}
 		
