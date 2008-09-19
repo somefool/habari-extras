@@ -126,7 +126,7 @@ class Zend_Gdata_App
      * @param string $className The class which is used as the return type
      * @return Zend_Gdata_App_Feed
      */
-    public function getFeed($uri, $className='Zend_Gdata_App_Feed')
+    public function getFeed($uri, $className ='Zend_Gdata_App_Feed')
     {
         return $this->import($uri, $this->_httpClient, $className);
     }
@@ -138,7 +138,7 @@ class Zend_Gdata_App
      * @param string $className The class which is used as the return type
      * @return Zend_Gdata_App_Entry
      */
-    public function getEntry($uri, $className='Zend_Gdata_App_Entry')
+    public function getEntry($uri, $className ='Zend_Gdata_App_Entry')
     {
         return $this->import($uri, $this->_httpClient, $className);
     }
@@ -273,7 +273,7 @@ class Zend_Gdata_App
      * @throws Zend_Gdata_App_Exception
      * @return Zend_Gdata_App_Feed
      */
-    public static function import($uri, $client = null, $className='Zend_Gdata_App_Feed')
+    public static function import($uri, $client = null, $className ='Zend_Gdata_App_Feed')
     {
         $client->resetParameters();
         $client->setHeaders('x-http-method-override', null);
@@ -305,7 +305,7 @@ class Zend_Gdata_App
      * @throws Zend_Gdata_App_Exception
      * @return Zend_Gdata_App_Feed
      */
-    public static function importString($string, $className='Zend_Gdata_App_Feed')
+    public static function importString($string, $className ='Zend_Gdata_App_Feed')
     {
         // Load the feed as an XML DOMDocument object
         @ini_set('track_errors', 1);
@@ -333,7 +333,7 @@ class Zend_Gdata_App
      * @return Zend_Gdata_Feed
      */
     public static function importFile($filename,
-            $className='Zend_Gdata_App_Feed', $useIncludePath = false)
+            $className ='Zend_Gdata_App_Feed', $useIncludePath = false)
     {
         @ini_set('track_errors', 1);
         $feed = @file_get_contents($filename, $useIncludePath);
@@ -657,7 +657,7 @@ class Zend_Gdata_App
      * @param string $className The class of entry to be returned.
      * @return Zend_Gdata_App_Entry The entry returned by the service after insertion.
      */
-    public function insertEntry($data, $uri, $className='Zend_Gdata_App_Entry')
+    public function insertEntry($data, $uri, $className ='Zend_Gdata_App_Entry')
     {
         $response = $this->post($data, $uri);
 

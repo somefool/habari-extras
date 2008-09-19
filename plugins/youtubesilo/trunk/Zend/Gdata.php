@@ -94,7 +94,7 @@ class Zend_Gdata extends Zend_Gdata_App
      * @param string $className The class type to use for returning the feed
      * @return Zend_Gdata_Feed
      */
-    public function getFeed($location, $className='Zend_Gdata_Feed')
+    public function getFeed($location, $className ='Zend_Gdata_Feed')
     {
         if (is_string($location)) {
             $uri = $location;
@@ -115,7 +115,7 @@ class Zend_Gdata extends Zend_Gdata_App
      * @param mixed $location The location as string or Zend_Gdata_Query
      * @return Zend_Gdata_Feed
      */
-    public function getEntry($location, $className='Zend_Gdata_Entry')
+    public function getEntry($location, $className ='Zend_Gdata_Entry')
     {
         if (is_string($location)) {
             $uri = $location;

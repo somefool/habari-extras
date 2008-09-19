@@ -71,7 +71,7 @@ class Zend_Gdata_AuthSub
       * @param int $session (optional) Boolean flag indicating whether the one-time-use
       *  token may be exchanged for a session token (1) or not (0).
       */
-     public static function getAuthSubTokenUri($next, $scope, $secure=0, $session=0)
+     public static function getAuthSubTokenUri($next, $scope, $secure =0, $session =0)
      {
          $querystring = '?next=' . urlencode($next)
              . '&scope=' . urldecode($scope)

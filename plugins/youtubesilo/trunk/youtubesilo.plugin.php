@@ -233,7 +233,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ($action){
 				case _t('Configure'):
-					$form= new FormUI( strtolower( get_class( $this ) ) );
+					$form = new FormUI( strtolower( get_class( $this ) ) );
 					$form->append('text', 'username', 'user:youtube__username', 'YouTube Username:');
 					$form->append('text', 'width', 'user:youtube__width', 'Video Width:');
 					$form->append('text', 'height', 'user:youtube__height', 'Video Height:');

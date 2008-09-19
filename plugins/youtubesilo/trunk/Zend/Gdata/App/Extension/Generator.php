@@ -66,7 +66,7 @@ class Zend_Gdata_App_Extension_Generator extends Zend_Gdata_App_Extension
             $this->_uri = $attribute->nodeValue;
             break;
         case 'version':
-            $this->_version= $attribute->nodeValue;
+            $this->_version = $attribute->nodeValue;
             break;
         default:
             parent::takeAttributeFromDOM($attribute);
