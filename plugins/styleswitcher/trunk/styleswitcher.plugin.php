@@ -42,21 +42,21 @@ class StyleSwitcher extends Plugin {
 	 * Add the Javascript file needed by this plugin to the theme's header.
 	 */
 	public function action_add_template_vars() {
-		$jq_js_file= Site::get_url('scripts', TRUE) . 'jquery.js';
-		$ss_js_file= Site::get_url('user', TRUE) . 'plugins/' . basename(dirname(__FILE__)) . '/styleswitcher.js';
+		$jq_js_file = Site::get_url('scripts', TRUE) . 'jquery.js';
+		$ss_js_file = Site::get_url('user', TRUE) . 'plugins/' . basename(dirname(__FILE__)) . '/styleswitcher.js';
 		Stack::add( 'template_header_javascript', $jq_js_file, 'jquery' );
 		Stack::add( 'template_header_javascript', $ss_js_file, 'styleswitcher' );
 	}
 	
 	public function theme_header() {
-		$link= '<link rel="stylesheet" type="text/css" href="' . Site::get_url('theme', true) . '%s" media="%s" title="%s">';
-		$output= Stack::get( 'template_stylesheet_with_title', $link."\r\n" );
+		$link = '<link rel="stylesheet" type="text/css" href="' . Site::get_url('theme', true) . '%s" media="%s" title="%s">';
+		$output = Stack::get( 'template_stylesheet_with_title', $link."\r\n" );
 		return $output;
 	}
 		
 	public function theme_styleswitcher() {
-		$output= array( '<select id="styleswitcher">' );
-		$stacks= Stack::get_named_stack( 'template_stylesheet_with_title' );
+		$output = array( '<select id="styleswitcher">' );
+		$stacks = Stack::get_named_stack( 'template_stylesheet_with_title' );
 		foreach( $stacks as $stack ) {
 			$output[]= '<option value="' . $stack[2] . '">' . $stack[2] . '</option>';
 		}
