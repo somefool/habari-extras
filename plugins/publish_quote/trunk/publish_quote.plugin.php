@@ -73,13 +73,13 @@ class PublishQuote extends Plugin
 					$form->append( 'static', 'instructions', '<strong><small>(Substitute {$quote}, {$title}, and {$url} in templates as desired)</small></strong>' );
 					$form->append( 'text', 'title__template', 'user:title__template', 'The title defaults to the title of the page being quoted:<br> ' );
 					if ( !$form->title__template->value ) {
-						$form->title__template->value= self::$default_title_template;
+						$form->title__template->value = self::$default_title_template;
 					}
 					$form->append( 'static', 'slug_info', '<small>If there\'s HTML in your title, you should set the slug to something without HTML. Like {title}.</small>' );
 					$form->append( 'text', 'slug__template', 'user:slug__template', 'Leave blank for the default slug:<br> ' );
 					$form->append( 'textarea', 'content__template', 'user:content__template', 'This is how the incoming quote will be inserted into the form:' );
 					if ( !$form->content__template->value ) {
-						$form->content__template->value= self::$default_content_template;
+						$form->content__template->value = self::$default_content_template;
 					}
 					$form->append( 'text', 'quote__tags', 'user:quote__tags', 'Tags to attach to quote posts, comma separated: ' );
 					$form->append( 'submit', 'save', _t( 'Save' ) );
@@ -100,35 +100,35 @@ class PublishQuote extends Plugin
 		// If quote has been sent in the URL, insert the quote data in the post
 		$this->handler_vars = Controller::get_handler_vars();
 		if ( array_key_exists('quote', $this->handler_vars) ) {
-			$form->title->value= $this->handler_vars['title'];
+			$form->title->value = $this->handler_vars['title'];
 			// Get the user so that we can grab the saved templates and tags
-			$user= User::identify();
+			$user = User::identify();
 
-			$title= $user->info->title__template;
+			$title = $user->info->title__template;
 			if ( !$title ) {
-				$title= self::$default_title_template;
+				$title = self::$default_title_template;
 			}
 			// Filter the quote title using the title template
-			$form->title->value= preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $title);
+			$form->title->value = preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $title);
 
 			// Only change the slug if the template is set. For example, you might have HTML in the title.
-			$slug= $user->info->slug__template;
+			$slug = $user->info->slug__template;
 			if ( $slug ) {
 				// Filter the quote title using the title template
-				$form->newslug->value= preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $slug);
+				$form->newslug->value = preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $slug);
 			}
 
-			$content= $user->info->content__template;
+			$content = $user->info->content__template;
 			if ( !$content ) {
-				$content= self::$default_content_template;
+				$content = self::$default_content_template;
 			}
 			// Filter the quote content using the content template
-			$form->content->value= preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $content);
+			$form->content->value = preg_replace_callback('%\{\$(.+?)\}%', array(&$this, 'replace_parts'), $content);
 
 			// Add tags for quotes
-			$tags= $user->info->quote__tags;
+			$tags = $user->info->quote__tags;
 			if ( $tags ) {
-				$form->tags->value= $tags;
+				$form->tags->value = $tags;
 			}
 		}
 	}
