@@ -92,7 +92,7 @@ class FireEagleException extends Exception {
 
   public $response; // for REMOTE_ERROR codes, this is the response from FireEagle (useful: $response->code and $response->message)
 
-  function __construct($msg, $code, $response=null) {
+  function __construct($msg, $code, $response =null) {
     parent::__construct($msg, $code);
     $this->response = $response;
   }
@@ -130,7 +130,7 @@ class FireEagleAPI {
   }
 
   // read consumer key and secret, and optionally fireeagle auth and api urls, from a .fireeaglerc file
-  public static function from_fireeaglerc($fn, $token=null, $secret=null) {
+  public static function from_fireeaglerc($fn, $token =null, $secret =null) {
     $text = @file_get_contents($fn);
     if ($text === false) throw new FireEagleException("Could not read $fn", FireEagleException::CONFIG_READ_ERROR);
     $info = array();
@@ -196,7 +196,7 @@ class FireEagleAPI {
    * @returns array("oauth_token" => the access token,
    *                "oauth_token_secret" => the access secret)
    */
-  public function getAccessToken($token=NULL) {
+  public function getAccessToken($token =NULL) {
     $this->requireToken();
     $r = $this->oAuthRequest($this->accessTokenURL());
     $token = $this->oAuthParseResponse($r);
@@ -216,7 +216,7 @@ class FireEagleAPI {
    *     or $fe->update(array("q" => "new york, new york"))
    */
 
-  public function call($method, $params=array(), $request_method=NULL) {
+  public function call($method, $params =array(), $request_method =NULL) {
     $this->requireToken();
     $r = $this->oAuthRequest($this->methodURL($method), $params, $request_method);
     return $this->parseJSON($r);
@@ -264,7 +264,7 @@ class FireEagleAPI {
   /**
    * Wrapper for 'update' API method, to set a user's location.
    */
-  public function update($args=array()) {
+  public function update($args =array()) {
     if (empty($args)) throw new FireEagleException("FireEagle::update() needs a location", FireEagleException::LOCATION_REQUIRED);
     return $this->call("update", $args);
   }
@@ -275,7 +275,7 @@ class FireEagleAPI {
    * possibilities that match a user-supplied query -- not to be used
    * as a generic geocoder).
    */
-  public function lookup($args=array()) {
+  public function lookup($args =array()) {
     if (!is_array($args)) throw new FireEagleException("\$args parameter to FireEagle::lookup() should be an array", FireEagleException::LOCATION_REQUIRED);
     if (empty($args)) throw new FireEagleException("FireEagle::lookup() needs a location", FireEagleException::LOCATION_REQUIRED);
     return $this->call("lookup", $args, "GET");
@@ -284,7 +284,7 @@ class FireEagleAPI {
   /**
    * Wrapper for 'recent' API method
    */
-  public function recent($since=NULL, $per_page=NULL, $page=NULL) {
+  public function recent($since =NULL, $per_page =NULL, $page =NULL) {
     $params = array(
 		    "per_page" => ($per_page === NULL) ? 10 : $per_page,
 		    "page" => ($page === NULL) ? 1 : $page,
@@ -297,7 +297,7 @@ class FireEagleAPI {
   /**
    * Wrapper for 'within' API method
    */
-  public function within($params=array()) {
+  public function within($params =array()) {
     return $this->call("within", $params, "GET");
   }
 
@@ -330,7 +330,7 @@ class FireEagleAPI {
   }
 
   // Format and sign an OAuth / API request
-  function oAuthRequest($url, $args=array(), $method=NULL) {
+  function oAuthRequest($url, $args =array(), $method =NULL) {
     if (empty($method)) $method = empty($args) ? "GET" : "POST";
     $req = OAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $url, $args);
     $req->sign_request($this->sha1_method, $this->consumer, $this->token);
@@ -351,7 +351,7 @@ class FireEagleAPI {
   }
 
   // Make an HTTP request, throwing an exception if we get anything other than a 200 response
-  public function http($url, $postData=null) {
+  public function http($url, $postData =null) {
     if (self::$FE_DEBUG) {
       echo "[FE HTTP request: url: ".htmlspecialchars($url).", post data: ".htmlspecialchars(var_export($postData, TRUE))."]";
     }

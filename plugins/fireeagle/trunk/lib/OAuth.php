@@ -18,7 +18,7 @@ class OAuthConsumer {/*{{{*/
   public $key;
   public $secret;
 
-  function __construct($key, $secret, $callback_url=NULL) {/*{{{*/
+  function __construct($key, $secret, $callback_url =NULL) {/*{{{*/
     $this->key = $key;
     $this->secret = $secret;
     $this->callback_url = $callback_url;
@@ -116,7 +116,7 @@ class OAuthRequest {/*{{{*/
   public $base_string;
   public static $version = '1.0';
 
-  function __construct($http_method, $http_url, $parameters=NULL) {/*{{{*/
+  function __construct($http_method, $http_url, $parameters =NULL) {/*{{{*/
     @$parameters or $parameters = array();
     $this->parameters = $parameters;
     $this->http_method = $http_method;
@@ -127,7 +127,7 @@ class OAuthRequest {/*{{{*/
   /**
    * attempt to build up a request from what was passed to the server
    */
-  public static function from_request($http_method=NULL, $http_url=NULL, $parameters=NULL) {/*{{{*/
+  public static function from_request($http_method =NULL, $http_url =NULL, $parameters =NULL) {/*{{{*/
     @$http_url or $http_url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     @$http_method or $http_method = $_SERVER['REQUEST_METHOD'];
     
@@ -165,7 +165,7 @@ class OAuthRequest {/*{{{*/
   /**
    * pretty much a helper function to set up the request
    */
-  public static function from_consumer_and_token($consumer, $token, $http_method, $http_url, $parameters=NULL) {/*{{{*/
+  public static function from_consumer_and_token($consumer, $token, $http_method, $http_url, $parameters =NULL) {/*{{{*/
     @$parameters or $parameters = array();
     $defaults = array("oauth_version" => OAuthRequest::$version,
                       "oauth_nonce" => OAuthRequest::generate_nonce(),
@@ -467,7 +467,7 @@ class OAuthServer {/*{{{*/
   /**
    * try to find the token for the provided request's token key
    */
-  private function get_token(&$request, $consumer, $token_type="access") {/*{{{*/
+  private function get_token(&$request, $consumer, $token_type ="access") {/*{{{*/
     $token_field = @$request->get_parameter('oauth_token');
     $token = $this->data_store->lookup_token(
       $consumer, $token_type, $token_field
@@ -596,7 +596,7 @@ class SimpleOAuthDataStore extends OAuthDataStore {/*{{{*/
     return dba_exists("nonce_$nonce", $this->dbh);
   }/*}}}*/
 
-  function new_token($consumer, $type="request") {/*{{{*/
+  function new_token($consumer, $type ="request") {/*{{{*/
     $key = md5(time());
     $secret = time() + time();
     $token = new OAuthToken($key, md5(md5($secret)));
