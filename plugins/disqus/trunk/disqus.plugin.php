@@ -58,9 +58,9 @@ class Disqus extends Plugin
 
 	public function theme_comments( $theme, $post )
 	{
-		$disqus_username= Options::get( 'disqus__username' );
+		$disqus_username = Options::get( 'disqus__username' );
 		if ( !$post->info->comment_disabled && $post->comments->count == 0 && $disqus_username ) {
-			$theme->disqus_username= $disqus_username;
+			$theme->disqus_username = $disqus_username;
 			$theme->display( 'disqus_comments' );
 		}
 		else {
