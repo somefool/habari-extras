@@ -2,7 +2,7 @@
 
 for d in `ls`;
 do
-	if [[ $d =~ LC_MESSAGES(.*) ]]
+	if [ -d $d/LC_MESSAGES ]
 	then
 		echo "moving $d.mo"
 		mv $d/LC_MESSAGES $d/trunk/LC_MESSAGES
