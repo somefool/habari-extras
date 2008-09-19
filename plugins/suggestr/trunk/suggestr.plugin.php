@@ -22,8 +22,8 @@ class Suggestr extends Plugin
 	}
 	
 	public function action_ajax_tag_suggest( $handler ) {
-		$text= $handler->handler_vars['text'];
-		$tags= array();
+		$text = $handler->handler_vars['text'];
+		$tags = array();
 		
 		$tags = $this->fetch_yahoo_tags($text);
 		
@@ -34,9 +34,9 @@ class Suggestr extends Plugin
 		$count = count($tags);
 		
 		if($count == 0) {
-			$message= _t('No tag suggestions could be found');
+			$message = _t('No tag suggestions could be found');
 		} else {
-			$message= sprintf( '%d tag ' . _n( _t( 'suggestion'), _t( 'suggestions' ), $count ) . ' could be found.', $count );
+			$message = sprintf( '%d tag ' . _n( _t( 'suggestion'), _t( 'suggestions' ), $count ) . ' could be found.', $count );
 		}
 		
 		echo json_encode(array('count' => $count, 'tags' => $tags, 'message' => $message)); 	
@@ -57,7 +57,7 @@ class Suggestr extends Plugin
 		
 		$xml = new SimpleXMLElement($response);
 		
-		$tags= array();
+		$tags = array();
 		
 		foreach($xml->Result as $tag) {
 			$tags[] = strval($tag);
