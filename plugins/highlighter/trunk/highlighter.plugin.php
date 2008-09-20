@@ -27,7 +27,7 @@ class HighlightPlugin extends Plugin {
 	public function info() {
 		return array (
 			'name' => 'Highlighter',
-			'url' => 'http://seancoates.com/TODO',
+			'url' => 'http://seancoates.com/habari',
 			'author' => 'Sean Coates',
 			'authorurl' => 'http://seancoates.com/',
 			'version' => '0.1',

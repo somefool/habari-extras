@@ -15,7 +15,7 @@ class TwitterSilo extends Plugin implements MediaSilo
 		return array(
 			'name' => 'Twitter Tweet Silo',
 			'version' => '1.0',
-			'url' => 'http://seancoates.com/TODO',
+			'url' => 'http://seancoates.com/habari',
 			'author' => 'Sean Coates',
 			'authorurl' => 'http://seancoates.com/',
 			'license' => 'Apache License 2.0',
