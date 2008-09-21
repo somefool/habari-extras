@@ -31,6 +31,10 @@ class SpamHoneyPot extends Plugin
 		$tokenizer = new HTMLTokenizer( $out );
 		$tokens = $tokenizer->parse();
 		$slices = $tokens->slice( 'textarea', array( 'id' => 'content' ) );
+		// no comment form...
+		if (!$slices) {
+			return $out;
+		}
 		// should only be one:
 		$slice = $slices[0];
 		$sliceValue = trim( (string)$slice );
