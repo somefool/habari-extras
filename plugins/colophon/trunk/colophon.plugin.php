@@ -7,15 +7,15 @@
 * Example usage in PHP template:
 *
 * <?php if (Plugins::is_loaded('Colophon')) { ?>
-* 	<h2><?php echo $colophon_title; ?></h2>
-* 	<?php echo $colophon; ?>
+* 	<h2><?php $theme->colophon_title; ?></h2>
+* 	<?php $theme->colophon; ?>
 * <?php } ?>
 *
 */
 
 class Colophon extends Plugin
 {
-	const VERSION = '0.3';
+	const VERSION = '0.5-0.4';
 
 	/**
 	* Required plugin information
@@ -26,7 +26,7 @@ class Colophon extends Plugin
 		return array(
 			'name'		=>	'Colophon Plugin',
 			'version'	=>	self::VERSION,
-			'url'		=>	'http://github.com/stan/habari-plugins/tree/master',
+			'url'		=>	'http://habariproject.org/dist/plugins',
 			'author'	=>	'stanislas mazurek',
 			'authorurl'	=>	'http://stanbar.jp',
 			'licence'	=>	'Apache licence 2.0',
@@ -49,6 +49,14 @@ class Colophon extends Plugin
 	}
 
 	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Colophon', 'c3eaec26-0bde-44db-b1f6-baaa8aedefea', $this->info->version );
+	}
+
+	/**
 	* Method that responds to the user selecting an action on the plugin page
 	* @param string $plugin_id String containning the id of the plugin
 	* @param string $action The action string suplied via the filter_plugin_config hook
@@ -59,8 +67,8 @@ class Colophon extends Plugin
 			switch( $action ) {
 				case _t('Configure'):
 					$ui	=	new FormUI ( strtolower( get_class( $this ) ) );
-					$ui->append('text','colophon_title','colophon_title',_t('Enter your Title:'));
-					$ui->append('textarea','colophon_text','colophon_text',_t('Enter your Text:'));
+					$ui->append( 'text', 'title', 'colophon__title', _t('Enter your Title:') );
+					$ui->append( 'textarea', 'text', 'colophon__text', _t('Enter your Text:') );
 					$ui->append( 'submit', 'save', _t( 'Save' ) );
 					$ui->out();
 				break;
@@ -75,8 +83,8 @@ class Colophon extends Plugin
 	*/
 	function action_add_template_vars( $theme )
 	{
-		$theme->colophon = Format::autop(Options::get( 'colophon_text' ));
-		$theme->colophon_title = Options::get( 'colophon_title' );
+		$theme->colophon = Format::autop( Options::get( 'colophon__text' ) );
+		$theme->colophon_title = Options::get( 'colophon__title' );
 	}
 
 }
