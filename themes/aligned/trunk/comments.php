@@ -14,7 +14,7 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 					$class.= '"';
 					?>
      						<li id="comment-<?php echo $comment->id; ?>" <?php echo $class; ?>>
-								<h2 class="comment_author"><span><a class="date" href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php echo $comment->date; ?></a> | <a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a></span></h2>
+								<h2 class="comment_author"><span><a class="date" href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php echo $comment->date_out; ?></a> | <a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a></span></h2>
       							<div class="comment_content">
        								<?php echo $comment->content_out; ?>
 								</div>
