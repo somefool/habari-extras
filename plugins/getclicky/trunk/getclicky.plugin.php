@@ -5,7 +5,7 @@ class GetClicky extends Plugin
 	{
     		return array(
       			'name' => 'GetClicky Analytics',
-      			'version' => '1.0',
+      			'version' => '1.1',
       			'url' => 'http://digitalspaghetti.me.uk/',
       			'author' => 'Tane Piper',
       			'authorurl' => 'http://digitalapghetti.me.uk',
@@ -26,17 +26,18 @@ class GetClicky extends Plugin
 	public function action_plugin_ui( $plugin_id, $action )
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
-    			switch ( $action ) {
-    				case _t('Configure') :
-      					$ui = new FormUI( strtolower( get_class( $this ) ) );
-      					$ui->append( 'text', 'siteid', 'getclicky__siteid', _t('SiteID:') );
-					$ui->append( 'text', 'sitedb', 'getclicky__sitedb', _t('SiteDB:') );
+    		switch ( $action ) {
+    			case _t('Configure') :
+      				$ui = new FormUI( strtolower( get_class( $this ) ) );
+      				$ui->append( 'text', 'siteid', 'getclicky__siteid', _t('Site ID:') );
+					$ui->append( 'text', 'sitekey', 'getclicky__sitekey', _t('Site Key:') );
+					$ui->append( 'text', 'sitedb', 'getclicky__sitedb', _t('Site DB:') );
 					$ui->append( 'checkbox', 'loggedin', 'getclicky__loggedin', _t('Don\'t track this user?:') );
 					$ui->append('submit', 'save', _t( 'Save' ) );
-                                        $ui->set_option('success_message', _t('GetClicky Settings Saved'));
-      					$ui->out();
-      				break;
-    			}
+                    $ui->set_option('success_message', _t('GetClicky Settings Saved'));
+      				$ui->out();
+      			break;
+    		}
   		}
 	}
 
@@ -44,6 +45,23 @@ class GetClicky extends Plugin
 	{
 		Update::add( 'GetClicky Analytics', '5F271634-89B7-11DD-BE47-289255D89593', $this->info->version ); 
 	}
+
+	public function filter_dash_modules( $modules )
+    {
+    	$modules[]= 'GetClicky';
+        $this->add_template( 'dash_getclicky', dirname( __FILE__ ) . '/dash_getclicky.php' );
+        return $modules;
+    }
+
+    public function filter_dash_module_feedburner( $module, $module_id, $theme )
+    {
+        $theme->current_visitors = $this->fetchSingleStat('visitors-online');
+		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique');
+		$theme->todays_actions = $this->fetchSingleStat('actions');
+        $module['content']= $theme->fetch( 'dash_getclicky' );
+        return $module;
+        
+    }
 
 	function theme_footer()
 	{
@@ -71,6 +89,21 @@ class GetClicky extends Plugin
 </noscript>
 ENDAD;
 	}
+	
+	function fetchSingleStat($type) {
+		$siteid = Options::get('getclicky__siteid');
+        $sitekey = Options::get('getclicky__sitekey');
+		$url = 'http://api.getclicky.com/stats/api3?site_id='.$siteid.'&sitekey='.$sitekey.'&type='.$type.'&output=json';
+		
+		$request = new RemoteRequest($url);
 
+		if (!$request->execute()) {
+			throw new XMLRPCException( 16 );
+		}
+		$data = json_decode($request->get_response_body());
+		$value = $data[0]->dates[0]->items[0]->value;
+		
+		return $value;
+	}
 }
 ?>
