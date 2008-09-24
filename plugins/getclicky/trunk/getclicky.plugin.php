@@ -5,7 +5,7 @@ class GetClicky extends Plugin
 	{
     		return array(
       			'name' => 'GetClicky Analytics',
-      			'version' => '1.1',
+      			'version' => '1.1.1',
       			'url' => 'http://digitalspaghetti.me.uk/',
       			'author' => 'Tane Piper',
       			'authorurl' => 'http://digitalapghetti.me.uk',
@@ -40,6 +40,20 @@ class GetClicky extends Plugin
     		}
   		}
 	}
+	
+	public function action_plugin_activation( $file )
+	{
+		if ( realpath( $file ) == __FILE__ ) {
+			Modules::add( 'GetClicky' );
+		}
+	}
+	
+	public function action_plugin_deactivation( $file )
+	{
+		if ( realpath( $file ) == __FILE__ ) {
+			Modules::remove_by_name( 'GetClicky' );
+		}
+	}
 
 	function action_update_check() 
 	{
@@ -53,14 +67,13 @@ class GetClicky extends Plugin
         return $modules;
     }
 
-    public function filter_dash_module_feedburner( $module, $module_id, $theme )
+    public function filter_dash_module_getclicky( $module, $module_id, $theme )
     {
-        $theme->current_visitors = $this->fetchSingleStat('visitors-online');
+		$theme->current_visitors = $this->fetchSingleStat('visitors-online');
 		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique');
 		$theme->todays_actions = $this->fetchSingleStat('actions');
-        $module['content']= $theme->fetch( 'dash_getclicky' );
-        return $module;
-        
+		$module['content']= $theme->fetch( 'dash_getclicky' );
+		return $module;
     }
 
 	function theme_footer()
