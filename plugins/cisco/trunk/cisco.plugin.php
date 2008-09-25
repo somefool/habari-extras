@@ -24,7 +24,7 @@ class Cisco extends Plugin
 			'url' => 'http://habariproject.org',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org',
-			'version' => "0.1"
+			'version' => "0.1",
 			'description' => 'Pays homage to the 2008-09-25 cisco hack.',
 			'license' => 'Apache License 2.0'
 		);
