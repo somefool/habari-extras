@@ -30,7 +30,7 @@ class Cisco extends Plugin
 		);
 	}
 	
-	public function filter_final_output( $bugger )
+	public function filter_final_output( $buffer )
 	{
 		return str_replace( 't', '', $buffer );
 	}
