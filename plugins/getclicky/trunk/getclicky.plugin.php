@@ -33,6 +33,7 @@ class GetClicky extends Plugin
 					$ui->append( 'text', 'sitekey', 'getclicky__sitekey', _t('Site Key:') );
 					$ui->append( 'text', 'sitedb', 'getclicky__sitedb', _t('Site DB:') );
 					$ui->append( 'checkbox', 'loggedin', 'getclicky__loggedin', _t('Don\'t track this user?:') );
+					$ui->append( 'text', 'cachetime', 'getclicky__cachetime', _t('Cache Dashboard statistics for (seconds):') );
 					$ui->append('submit', 'save', _t( 'Save' ) );
                     $ui->set_option('success_message', _t('GetClicky Settings Saved'));
       				$ui->out();
@@ -45,6 +46,7 @@ class GetClicky extends Plugin
 	{
 		if ( realpath( $file ) == __FILE__ ) {
 			Modules::add( 'GetClicky' );
+			Options::set( 'getclicky__cachetime', '3600' );
 		}
 	}
 	
@@ -71,10 +73,11 @@ class GetClicky extends Plugin
     {
     	$siteid = Options::get('getclicky__siteid');
         $sitekey = Options::get('getclicky__sitekey');
+        $cachetime = Options::get('getclicky__cachetime');
     	
-		$theme->current_visitors = $this->fetchSingleStat('visitors-online', $siteid, $sitekey);
-		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique', $siteid, $sitekey);
-		$theme->todays_actions = $this->fetchSingleStat('actions', $siteid, $sitekey);
+		$theme->current_visitors = $this->fetchSingleStat('visitors-online', $siteid, $sitekey, $cachetime);
+		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique', $siteid, $sitekey, $cachetime);
+		$theme->todays_actions = $this->fetchSingleStat('actions', $siteid, $sitekey, $cachetime);
 		$module['content']= $theme->fetch( 'dash_getclicky' );
 		return $module;
     }
@@ -106,7 +109,7 @@ class GetClicky extends Plugin
 ENDAD;
 	}
 	
-	function fetchSingleStat($type, $siteid, $sitekey) {
+	function fetchSingleStat($type, $siteid, $sitekey, $cachetime) {
 		
 		$value = "N/A";
 		
@@ -122,7 +125,7 @@ ENDAD;
 			if (isset($data[0]->dates[0]->items[0]->value)) {
 				$value = $data[0]->dates[0]->items[0]->value;	
 			}
-			Cache::set( 'feedburner_stat_'.$type, $value, 3600 );
+			Cache::set( 'feedburner_stat_'.$type, $value, $cachetime );
 		}	
 		return $value;
 	}
