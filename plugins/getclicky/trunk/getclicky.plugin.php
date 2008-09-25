@@ -5,7 +5,7 @@ class GetClicky extends Plugin
 	{
     		return array(
       			'name' => 'GetClicky Analytics',
-      			'version' => '1.2',
+      			'version' => '1.3',
       			'url' => 'http://digitalspaghetti.me.uk/',
       			'author' => 'Tane Piper',
       			'authorurl' => 'http://digitalapghetti.me.uk',
@@ -13,8 +13,28 @@ class GetClicky extends Plugin
       			'description' => 'Add\'s GetClicky analytics integration to your site',
     		);
 	}
+	
+	public function action_plugin_activation( $file )
+	{
+		if ( realpath( $file ) == __FILE__ ) {
+			Modules::add( 'GetClicky' );
+			Options::set( 'getclicky__cachetime', '3600' );
+		}
+	}
+	
+	public function action_plugin_deactivation( $file )
+	{
+		if ( realpath( $file ) == __FILE__ ) {
+			Modules::remove_by_name( 'GetClicky' );
+		}
+	}
 
-	/* Admin Options*/
+	function action_update_check() 
+	{
+		Update::add( 'GetClicky Analytics', '5F271634-89B7-11DD-BE47-289255D89593', $this->info->version ); 
+	}
+
+	
 	public function filter_plugin_config( $actions, $plugin_id )
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
@@ -42,26 +62,6 @@ class GetClicky extends Plugin
   		}
 	}
 	
-	public function action_plugin_activation( $file )
-	{
-		if ( realpath( $file ) == __FILE__ ) {
-			Modules::add( 'GetClicky' );
-			Options::set( 'getclicky__cachetime', '3600' );
-		}
-	}
-	
-	public function action_plugin_deactivation( $file )
-	{
-		if ( realpath( $file ) == __FILE__ ) {
-			Modules::remove_by_name( 'GetClicky' );
-		}
-	}
-
-	function action_update_check() 
-	{
-		Update::add( 'GetClicky Analytics', '5F271634-89B7-11DD-BE47-289255D89593', $this->info->version ); 
-	}
-
 	public function filter_dash_modules( $modules )
     {
     	$modules[]= 'GetClicky';
@@ -75,9 +75,14 @@ class GetClicky extends Plugin
         $sitekey = Options::get('getclicky__sitekey');
         $cachetime = Options::get('getclicky__cachetime');
     	
-		$theme->current_visitors = $this->fetchSingleStat('visitors-online', $siteid, $sitekey, $cachetime);
+		$theme->site_rank = $this->fetchSingleStat('site-rank', $siteid, $sitekey, $cachetime);
+        $theme->current_visitors = $this->fetchSingleStat('visitors-online', $siteid, $sitekey, $cachetime);
 		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique', $siteid, $sitekey, $cachetime);
 		$theme->todays_actions = $this->fetchSingleStat('actions', $siteid, $sitekey, $cachetime);
+		$theme->actions_average = $this->fetchSingleStat('actions-average', $siteid, $sitekey, $cachetime);
+		$theme->time_total = $this->fetchSingleStat('time-total-pretty', $siteid, $sitekey, $cachetime);
+		$theme->time_average = $this->fetchSingleStat('time-average-pretty', $siteid, $sitekey, $cachetime);
+
 		$module['content']= $theme->fetch( 'dash_getclicky' );
 		return $module;
     }
