@@ -5,7 +5,7 @@ class GetClicky extends Plugin
 	{
     		return array(
       			'name' => 'GetClicky Analytics',
-      			'version' => '1.1.1',
+      			'version' => '1.2',
       			'url' => 'http://digitalspaghetti.me.uk/',
       			'author' => 'Tane Piper',
       			'authorurl' => 'http://digitalapghetti.me.uk',
@@ -69,9 +69,12 @@ class GetClicky extends Plugin
 
     public function filter_dash_module_getclicky( $module, $module_id, $theme )
     {
-		$theme->current_visitors = $this->fetchSingleStat('visitors-online');
-		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique');
-		$theme->todays_actions = $this->fetchSingleStat('actions');
+    	$siteid = Options::get('getclicky__siteid');
+        $sitekey = Options::get('getclicky__sitekey');
+    	
+		$theme->current_visitors = $this->fetchSingleStat('visitors-online', $siteid, $sitekey);
+		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique', $siteid, $sitekey);
+		$theme->todays_actions = $this->fetchSingleStat('actions', $siteid, $sitekey);
 		$module['content']= $theme->fetch( 'dash_getclicky' );
 		return $module;
     }
@@ -103,19 +106,24 @@ class GetClicky extends Plugin
 ENDAD;
 	}
 	
-	function fetchSingleStat($type) {
-		$siteid = Options::get('getclicky__siteid');
-        $sitekey = Options::get('getclicky__sitekey');
-		$url = 'http://api.getclicky.com/stats/api3?site_id='.$siteid.'&sitekey='.$sitekey.'&type='.$type.'&output=json';
+	function fetchSingleStat($type, $siteid, $sitekey) {
 		
-		$request = new RemoteRequest($url);
-
-		if (!$request->execute()) {
-			throw new XMLRPCException( 16 );
-		}
-		$data = json_decode($request->get_response_body());
-		$value = $data[0]->dates[0]->items[0]->value;
+		$value = "N/A";
 		
+		if ( Cache::has( 'feedburner_stat_'.$type ) ) {
+			$value = Cache::get( 'feedburner_stat_'.$type );
+		} else {
+			$url = 'http://api.getclicky.com/stats/api3?site_id='.$siteid.'&sitekey='.$sitekey.'&type='.$type.'&output=json';
+			$request = new RemoteRequest($url);
+			if (!$request->execute()) {
+				throw new XMLRPCException( 16 );
+			}
+			$data = json_decode($request->get_response_body());
+			if (isset($data[0]->dates[0]->items[0]->value)) {
+				$value = $data[0]->dates[0]->items[0]->value;	
+			}
+			Cache::set( 'feedburner_stat_'.$type, $value, 3600 );
+		}	
 		return $value;
 	}
 }
