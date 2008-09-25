@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-class Footnotes extends Plugin
+class Cisco extends Plugin
 {
 	public function info()
 	{
