@@ -85,7 +85,7 @@ class Sitemaps extends Plugin {
 				foreach ( $entries as $entry ) {
 					$url = $xml->addChild( 'url' );
 					$url_loc = $url->addChild( 'loc', $entry->permalink );
-					$url_lastmod = $url->addChild( 'lastmod', Utils::atomtime( $entry->updated ) );
+					$url_lastmod = $url->addChild( 'lastmod', Utils::atomtime( $entry->updated->int ) );
 				}
 			}
 			$xml = $xml->asXML();
