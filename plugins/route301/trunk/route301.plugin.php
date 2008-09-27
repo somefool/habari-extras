@@ -28,6 +28,13 @@ class Route301 extends Plugin {
 			'handler' => 'Route301',
 			'action' => 'atom_feed_tag',
 			),
+		'reroute_categories' => array( // Wordpress Category Permalink: <category>/<slug>
+			'name' => 'reroute_categories',
+			'parse_regex' => '%^(?P<category>[^/]+)/(?P<slug>[^/]+)$%i',
+			'build_str' => '{$category}/{$slug}',
+			'handler' => 'Route301',
+			'action' => 'display_entry'
+			),
 		);
 		
 	/* Custom callback functions.
@@ -43,7 +50,7 @@ class Route301 extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'Route 301',
-			'version' => '0.5',
+			'version' => '0.5.1',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
