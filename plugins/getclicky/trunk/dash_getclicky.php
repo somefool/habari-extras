@@ -30,5 +30,5 @@
             </li>
         </ul>
         <p>
-        	For more statistics for your site visit <a href="http://getclicky.com">GetClicky</a>
+        	For more statistics for your site visit <a href="http://getclicky.com/stats/home?site_id=<?php print $siteid;?>">GetClicky</a>
         </p>

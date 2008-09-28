@@ -5,7 +5,7 @@ class GetClicky extends Plugin
 	{
     		return array(
       			'name' => 'GetClicky Analytics',
-      			'version' => '1.3',
+      			'version' => '1.3.1',
       			'url' => 'http://digitalspaghetti.me.uk/',
       			'author' => 'Tane Piper',
       			'authorurl' => 'http://digitalapghetti.me.uk',
@@ -18,13 +18,28 @@ class GetClicky extends Plugin
 	{
 		if ( realpath( $file ) == __FILE__ ) {
 			Modules::add( 'GetClicky' );
-			Options::set( 'getclicky__cachetime', '3600' );
+			Options::set( 'getclicky__cachetime', '300' );
+			Options::set( 'getclicky__loggedin', 1 );
 		}
 	}
 	
 	public function action_plugin_deactivation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
+			Options::delete('getclicky__siteid');
+			Options::delete('getclicky__sitekey');
+			Options::delete('getclicky__sitedb');
+			Options::delete('getclicky__loggedin');
+			Options::delete('getclicky__cachetime');
+
+			Cache::expire('site-rank');
+			Cache::expire('visitors-online');
+			Cache::expire('visitors-unique');
+			Cache::expire('actions');
+			Cache::expire('actions-average');
+			Cache::expire('time-total-pretty');
+			Cache::expire('time-average-pretty');
+
 			Modules::remove_by_name( 'GetClicky' );
 		}
 	}
@@ -50,11 +65,11 @@ class GetClicky extends Plugin
     			case _t('Configure') :
       				$ui = new FormUI( strtolower( get_class( $this ) ) );
       				$ui->append( 'text', 'siteid', 'getclicky__siteid', _t('Site ID:') );
-					$ui->append( 'text', 'sitekey', 'getclicky__sitekey', _t('Site Key:') );
-					$ui->append( 'text', 'sitedb', 'getclicky__sitedb', _t('Site DB:') );
-					$ui->append( 'checkbox', 'loggedin', 'getclicky__loggedin', _t('Don\'t track this user?:') );
-					$ui->append( 'text', 'cachetime', 'getclicky__cachetime', _t('Cache Dashboard statistics for (seconds):') );
-					$ui->append('submit', 'save', _t( 'Save' ) );
+				$ui->append( 'text', 'sitekey', 'getclicky__sitekey', _t('Site Key:') );
+				$ui->append( 'text', 'sitedb', 'getclicky__sitedb', _t('Site DB:') );
+				$ui->append( 'checkbox', 'loggedin', 'getclicky__loggedin', _t('Don\'t track this user?:') );
+				$ui->append( 'text', 'cachetime', 'getclicky__cachetime', _t('Cache Dashboard statistics for (seconds):') );
+				$ui->append('submit', 'save', _t( 'Save' ) );
                     $ui->set_option('success_message', _t('GetClicky Settings Saved'));
       				$ui->out();
       			break;
@@ -75,13 +90,14 @@ class GetClicky extends Plugin
         $sitekey = Options::get('getclicky__sitekey');
         $cachetime = Options::get('getclicky__cachetime');
     	
-		$theme->site_rank = $this->fetchSingleStat('site-rank', $siteid, $sitekey, $cachetime);
+	$theme->site_rank = $this->fetchSingleStat('site-rank', $siteid, $sitekey, $cachetime);
         $theme->current_visitors = $this->fetchSingleStat('visitors-online', $siteid, $sitekey, $cachetime);
-		$theme->unique_visitors = $this->fetchSingleStat('visitors-unique', $siteid, $sitekey, $cachetime);
-		$theme->todays_actions = $this->fetchSingleStat('actions', $siteid, $sitekey, $cachetime);
-		$theme->actions_average = $this->fetchSingleStat('actions-average', $siteid, $sitekey, $cachetime);
-		$theme->time_total = $this->fetchSingleStat('time-total-pretty', $siteid, $sitekey, $cachetime);
-		$theme->time_average = $this->fetchSingleStat('time-average-pretty', $siteid, $sitekey, $cachetime);
+	$theme->unique_visitors = $this->fetchSingleStat('visitors-unique', $siteid, $sitekey, $cachetime);
+	$theme->todays_actions = $this->fetchSingleStat('actions', $siteid, $sitekey, $cachetime);
+	$theme->actions_average = $this->fetchSingleStat('actions-average', $siteid, $sitekey, $cachetime);
+	$theme->time_total = $this->fetchSingleStat('time-total-pretty', $siteid, $sitekey, $cachetime);
+	$theme->time_average = $this->fetchSingleStat('time-average-pretty', $siteid, $sitekey, $cachetime);
+	$theme->siteid = $siteid;
 
 		$module['content']= $theme->fetch( 'dash_getclicky' );
 		return $module;
@@ -95,7 +111,7 @@ class GetClicky extends Plugin
 		}
 		if ( User::identify() ) {
 			// Only track the logged in user if we were told to
-			if ( Options::get('getclicky__loggedin') ) {
+			if ( !Options::get('getclicky__loggedin') ) {
 				return;
 			}
 		}
