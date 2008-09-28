@@ -59,15 +59,6 @@ class Route301 extends Plugin
 			)
 		);
 
-	/* Custom callback functions.
-	 * Functions called to add handler_vars values needed by custom rules.
-	 */
-	var $callback_functions = array(
-		'get_date', // Extracts the year, month and day from a post
-		'feed_index',
-		);
-
-
 	/* Information function called by the plugin manager. */
 	public function info() {
 		return array(
@@ -107,55 +98,20 @@ class Route301 extends Plugin
 	 */
 	public function act( $action )
 	{
-		$handler_vars = Controller::get_handler()->handler_vars;
-		$callback_vars = array();
-		foreach( $this->callback_functions as $callback ) {
-			$callback_vars = array_merge( $callback_vars, $this->$callback($handler_vars) );
-		}
-		$handler_vars = array_merge( $handler_vars, $callback_vars );
-		$url = URL::get( $action, $handler_vars, false );
-
-		if ( empty( $url ) && method_exists( $this, $action ) ) {
-			$url = $this->$action( $handler_vars );
-		}
-		if ( empty( $url ) ) {
-			$url = URL::get( 'display_entry', $handler_vars, false );
-		}
-
-		header("HTTP/1.1 301 Moved Permanently");
-		header("Location: $url");
-		header("Connection: close");
-	}
-
-	/* Get_date callback function.
-	 * Extracts the year, month and day from a pubdate and returns it to be added to handler_vars.
-	 */
-	public function get_date( $handler_vars )
-	{
-		$posts = Posts::get( $handler_vars );
-		if ( isset( $posts[0] ) ) {
-			$pubdate = strtotime( $posts[0]->pubdate );
-			$paramarray = array(
-				'year' => date( 'Y', $pubdate ),
-				'month' => date( 'm', $pubdate ),
-				'day' => date( 'd', $pubdate ),
-				);
-
-			$handler_vars = array_merge( $paramarray, $handler_vars );
-			return $handler_vars;
-		}
-		else {
-			return false;
+		if ( $action === 'atom_feed' ) {
+			$url = URL::get( 'atom_feed', array_merge( array( 'index' => 1 ), $this->handler_vars ) );
+		} else
+		if ( $action === 'display_entry' ) {
+			if ( isset( $this->handler_vars['slug'] ) || isset( $this->handler_vars['id'] ) ) {
+				$url = URL::get( 'display_entry', $this->handler_vars );
+			} else {
+				$url = Post::get( $this->handler_vars )->permalink;
 			}
+		} else {
+			$url = URL::get( $action, $this->handler_vars );
 		}
 
-	/* feed_index callback function
-	 * Used to pass the $index variable to atom_feed
-	 */
-	public function feed_index ( $handler_vars )
-	{
-		return array_merge( array( 'index' => 1 ), $handler_vars );
+		header( 'Location: ' . $url, true, 301 );
 	}
-
 }
 ?>
