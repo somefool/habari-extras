@@ -5,7 +5,7 @@ class GetClicky extends Plugin
 	{
     		return array(
       			'name' => 'GetClicky Analytics',
-      			'version' => '1.3.1',
+      			'version' => '1.4',
       			'url' => 'http://digitalspaghetti.me.uk/',
       			'author' => 'Tane Piper',
       			'authorurl' => 'http://digitalapghetti.me.uk',
@@ -32,13 +32,7 @@ class GetClicky extends Plugin
 			Options::delete('getclicky__loggedin');
 			Options::delete('getclicky__cachetime');
 
-			Cache::expire('site-rank');
-			Cache::expire('visitors-online');
-			Cache::expire('visitors-unique');
-			Cache::expire('actions');
-			Cache::expire('actions-average');
-			Cache::expire('time-total-pretty');
-			Cache::expire('time-average-pretty');
+			$this->clearCache();
 
 			Modules::remove_by_name( 'GetClicky' );
 		}
@@ -54,6 +48,7 @@ class GetClicky extends Plugin
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
 			$actions[]= _t('Configure');
+			$actions[]= _t('Clear Cache');
 		}
 		return $actions;
 	}
@@ -73,6 +68,9 @@ class GetClicky extends Plugin
                     $ui->set_option('success_message', _t('GetClicky Settings Saved'));
       				$ui->out();
       			break;
+			case _t('Clear Cache') :
+				$this->clearCache();
+			break;
     		}
   		}
 	}
@@ -99,8 +97,8 @@ class GetClicky extends Plugin
 	$theme->time_average = $this->fetchSingleStat('time-average-pretty', $siteid, $sitekey, $cachetime);
 	$theme->siteid = $siteid;
 
-		$module['content']= $theme->fetch( 'dash_getclicky' );
-		return $module;
+	$module['content']= $theme->fetch( 'dash_getclicky' );
+	return $module;
     }
 
 	function theme_footer()
@@ -149,6 +147,18 @@ ENDAD;
 			Cache::set( 'feedburner_stat_'.$type, $value, $cachetime );
 		}	
 		return $value;
+	}
+
+	function clearCache() {
+		Cache::expire('feedburner_stat_site-rank');
+                Cache::expire('feedburner_stat_visitors-online');
+                Cache::expire('feedburner_stat_visitors-unique');
+                Cache::expire('feedburner_stat_actions');
+                Cache::expire('feedburner_stat_actions-average');
+                Cache::expire('feedburner_stat_time-total-pretty');
+                Cache::expire('feedburner_stat_time-average-pretty');
+		echo '<p>' . _t( 'Cache has been cleared.' ) . '</p>';
+		return true;
 	}
 }
 ?>
