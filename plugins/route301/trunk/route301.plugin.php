@@ -102,7 +102,7 @@ class Route301 extends Plugin
 			$url = URL::get( 'atom_feed', array_merge( array( 'index' => 1 ), $this->handler_vars ) );
 		} else
 		if ( $action === 'display_entry' ) {
-			if ( isset( $this->handler_vars['slug'] ) || isset( $this->handler_vars['id'] ) ) {
+			if ( isset( $this->handler_vars['slug'] ) ) {
 				$url = URL::get( 'display_entry', $this->handler_vars );
 			} else {
 				$url = Post::get( $this->handler_vars )->permalink;
