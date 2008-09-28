@@ -1,7 +1,7 @@
-#openid_url {
-	background-image: url('http://openid.net/login-bg.gif');
-	background-position: left center;
-	background-repeat: no-repeat;
-	padding-left: 1.5em;
-	width: 13.5em;
-}
+#openid_url {background-image: url('http://openid.net/login-bg.gif');background-position:3px center;background-repeat:no-repeat;padding:2px 2px 2px 22px;width:12.9em;}
+
+#admin_openidform {clear:both;margin-top:39px;}
+#admin_openidform label.overcontent {padding-left:25px;}
+#admin_openidform #openid_submit {width:auto;}
+#admin_openidform #openid_url {background-position:5px center;padding-left:25px;width:260px;}
+#admin_openidform #openid_url:focus {padding-left: 25px;}

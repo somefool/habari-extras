@@ -69,7 +69,7 @@ function Auth_OpenID_AX_checkAlias($alias)
  * @package OpenID
  */
 class Auth_OpenID_AX_Error {
-    function Auth_OpenID_AX_Error($message =null)
+    function Auth_OpenID_AX_Error($message=null)
     {
         $this->message = $message;
     }
@@ -191,8 +191,8 @@ class Auth_OpenID_AX_AttrInfo {
      * Construct an attribute information object.  For parameter
      * details, see the constructor.
      */
-    function make($type_uri, $count =1, $required =false,
-                  $alias =null)
+    function make($type_uri, $count=1, $required=false,
+                  $alias=null)
     {
         if ($alias !== null) {
             $result = Auth_OpenID_AX_checkAlias($alias);
@@ -269,7 +269,7 @@ class Auth_OpenID_AX_FetchRequest extends Auth_OpenID_AX_Message {
 
     var $mode = 'fetch_request';
 
-    function Auth_OpenID_AX_FetchRequest($update_url =null)
+    function Auth_OpenID_AX_FetchRequest($update_url=null)
     {
         /**
          * requested_attributes: The attributes that have been
@@ -379,17 +379,18 @@ class Auth_OpenID_AX_FetchRequest extends Auth_OpenID_AX_Message {
     /**
      * Extract a FetchRequest from an OpenID message
      *
-     * @param message: The OpenID message containing the attribute
+     * @param request: The OpenID request containing the attribute
      * fetch request
      *
      * @returns mixed An Auth_OpenID_AX_Error or the
-     * Auth_OpenID_AX_FetchRequest extracted from the message if
+     * Auth_OpenID_AX_FetchRequest extracted from the request message if
      * successful
      */
-    function &fromOpenIDRequest($message)
+    function &fromOpenIDRequest($request)
     {
+        $m = $request->message;
         $obj = new Auth_OpenID_AX_FetchRequest();
-        $ax_args = $message->getArgs($obj->ns_uri);
+        $ax_args = $m->getArgs($obj->ns_uri);
 
         $result = $obj->parseExtensionArgs($ax_args);
 
@@ -400,8 +401,8 @@ class Auth_OpenID_AX_FetchRequest extends Auth_OpenID_AX_Message {
         if ($obj->update_url) {
             // Update URL must match the openid.realm of the
             // underlying OpenID 2 message.
-            $realm = $message->getArg(Auth_OpenID_OPENID_NS, 'realm',
-                        $message->getArg(
+            $realm = $m->getArg(Auth_OpenID_OPENID_NS, 'realm',
+                        $m->getArg(
                                   Auth_OpenID_OPENID_NS,
                                   'return_to'));
 
@@ -718,7 +719,7 @@ class Auth_OpenID_AX_KeyValueMessage extends Auth_OpenID_AX_Message {
      * the attribute in the fetch_response message, or the default
      * supplied
      */
-    function getSingle($type_uri, $default =null)
+    function getSingle($type_uri, $default=null)
     {
         $values = Auth_OpenID::arrayGet($this->data, $type_uri);
         if (!$values) {
@@ -792,7 +793,7 @@ class Auth_OpenID_AX_KeyValueMessage extends Auth_OpenID_AX_Message {
 class Auth_OpenID_AX_FetchResponse extends Auth_OpenID_AX_KeyValueMessage {
     var $mode = 'fetch_response';
 
-    function Auth_OpenID_AX_FetchResponse($update_url =null)
+    function Auth_OpenID_AX_FetchResponse($update_url=null)
     {
         $this->Auth_OpenID_AX_KeyValueMessage();
         $this->update_url = $update_url;
@@ -806,7 +807,7 @@ class Auth_OpenID_AX_FetchResponse extends Auth_OpenID_AX_KeyValueMessage {
      * arguments that represent this fetch_response, or
      * Auth_OpenID_AX_Error on error.
      */
-    function getExtensionArgs($request =null)
+    function getExtensionArgs($request=null)
     {
         $aliases = new Auth_OpenID_NamespaceMap();
 
@@ -921,7 +922,7 @@ class Auth_OpenID_AX_FetchResponse extends Auth_OpenID_AX_KeyValueMessage {
      * @return $response A FetchResponse containing the data from the
      * OpenID message
      */
-    function &fromSuccessResponse($success_response, $signed =true)
+    function fromSuccessResponse($success_response, $signed=true)
     {
         $obj = new Auth_OpenID_AX_FetchResponse();
         if ($signed) {
@@ -929,8 +930,17 @@ class Auth_OpenID_AX_FetchResponse extends Auth_OpenID_AX_KeyValueMessage {
         } else {
             $ax_args = $success_response->message->getArgs($obj->ns_uri);
         }
+        if ($ax_args === null || Auth_OpenID::isFailure($ax_args) ||
+              sizeof($ax_args) == 0) {
+            return null;
+        }
 
-        return $obj->parseExtensionArgs($ax_args);
+        $result = $obj->parseExtensionArgs($ax_args);
+        if (Auth_OpenID_AX::isError($result)) {
+            #XXX log me
+            return null;
+        }
+        return $obj;
     }
 }
 
@@ -946,7 +956,7 @@ class Auth_OpenID_AX_StoreRequest extends Auth_OpenID_AX_KeyValueMessage {
      * @param array $aliases The namespace aliases to use when making
      * this store response. Leave as None to use defaults.
      */
-    function getExtensionArgs($aliases =null)
+    function getExtensionArgs($aliases=null)
     {
         $ax_args = $this->_newArgs();
         $kv_args = $this->_getExtensionKVArgs($aliases);
@@ -970,7 +980,7 @@ class Auth_OpenID_AX_StoreResponse extends Auth_OpenID_AX_Message {
      * Returns Auth_OpenID_AX_Error on error or an
      * Auth_OpenID_AX_StoreResponse object on success.
      */
-    function &make($succeeded =true, $error_message =null)
+    function &make($succeeded=true, $error_message=null)
     {
         if (($succeeded) && ($error_message !== null)) {
             return new Auth_OpenID_AX_Error('An error message may only be '.
@@ -980,7 +990,7 @@ class Auth_OpenID_AX_StoreResponse extends Auth_OpenID_AX_Message {
         return new Auth_OpenID_AX_StoreResponse($succeeded, $error_message);
     }
 
-    function Auth_OpenID_AX_StoreResponse($succeeded =true, $error_message =null)
+    function Auth_OpenID_AX_StoreResponse($succeeded=true, $error_message=null)
     {
         if ($succeeded) {
             $this->mode = $this->SUCCESS_MODE;

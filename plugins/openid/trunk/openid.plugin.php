@@ -5,7 +5,7 @@ class OpenID extends Plugin
 	{
 		return array(
 			'name' => 'OpenID',
-			'version' => '1.1.1',
+			'version' => '1.1.2',
 			'url' => 'http://phpquebec.org/',
 			'author' =>	'PHP Quebec Community',
 			'authorurl' => 'http://phpquebec.org/',
@@ -92,7 +92,20 @@ class OpenID extends Plugin
 	{
 	 // @todo Remove the !isset( $_GET['openid_url'] ) once registration works in Habari.
 		if ( ( Controller::get_action() != 'register' ) && !isset( $_GET['openid_url'] ) ) {
-			echo '
+			if ( Controller::get_action() == 'login' ) {
+				echo '
+				<form method="post" action="'. URL::get( 'openid' ) .'" id="admin_openidform">
+				<p>
+				<label for="openid_url" class="incontent abovecontent">' . _t('OpenID Identifier') . '</label><input type="text" name="openid_url" id="openid_url"' . ( isset($openid_url) ? 'value="'. $openid_url . '"' : '' ) . ' placeholder="' . _t('openid identifier') . '" class="styledformelement">
+				</p>
+				<p>
+				<input id="openid_submit" class="submit" type="submit" value="Sign in using OpenID">
+				</p>
+				</form>
+				';
+			}
+			else {
+				echo '
 				<form method="post" action="'. URL::get( 'openid' ) .'" id="openidform">
 				<p>
 				<label for="openid_url">OpenID Identifier:</label>
@@ -103,6 +116,7 @@ class OpenID extends Plugin
 				</p>
 				</form>
 				';
+			}
 		}
 	}
 
@@ -124,8 +138,18 @@ class OpenID extends Plugin
 	public function action_theme_admin_user( $user )
 	{
 		$openid_url = isset( $user->info->openid_url ) ? $user->info->openid_url : '';
-		echo '<p><label for="openid_url">OpenID Identifier:</label></p>';
-		echo '<p><input type="text" value="'.$openid_url.'" name="habari_openid_url" disabled></p>';
+		echo '
+		<div class="container settings user openid" id="openid">
+				<h2>' . _t('OpenID') . '</h2>
+				<div class="item clear" id="openid_url">
+				<span class="pct20">
+						<label for="habari_openid_url">' . _t('OpenID Identifier') . '</label>
+				</span>
+				<span class="pct80">
+						<input type="text" name="habari_openid_url" id="habari_openid_url" class="border" value="' . $openid_url . '" disabled>
+					</span>
+				</div>
+		</div>';
 	}
 
 	public function action_user_identify()

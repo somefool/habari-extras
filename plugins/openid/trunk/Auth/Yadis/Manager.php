@@ -35,7 +35,7 @@ class Auth_Yadis_PHPSession {
      * @return string $result The key's value in the session or
      * $default if it isn't found.
      */
-    function get($name, $default =null)
+    function get($name, $default=null)
     {
         if (array_key_exists($name, $_SESSION)) {
             return $_SESSION[$name];
@@ -361,7 +361,7 @@ class Auth_Yadis_Manager {
  *
  * High-level usage pattern is to call .getNextService(discover) in
  * order to find the next available service for this user for this
- * session. Once a request completes, call .finish() to clean up the
+ * session. Once a request completes, call .cleanup() to clean up the
  * session state.
  *
  * @package OpenID
@@ -410,7 +410,6 @@ class Auth_Yadis_Discovery {
         $manager = $this->getManager();
         if (!$manager || (!$manager->services)) {
             $this->destroyManager();
-            $http_response = array();
 
             list($yadis_url, $services) = call_user_func($discover_cb,
                                                          $this->url,
@@ -439,7 +438,7 @@ class Auth_Yadis_Discovery {
      * @param $force True if the manager should be deleted regardless
      * of whether it's a manager for $this->url.
      */
-    function cleanup($force =false)
+    function cleanup($force=false)
     {
         $manager = $this->getManager($force);
         if ($manager) {
@@ -467,7 +466,7 @@ class Auth_Yadis_Discovery {
      * @param $force True if the manager should be returned regardless
      * of whether it's a manager for $this->url.
      */
-    function &getManager($force =false)
+    function &getManager($force=false)
     {
         // Extract the YadisServiceManager for this object's URL and
         // suffix from the session.
@@ -518,7 +517,7 @@ class Auth_Yadis_Discovery {
      * @param $force True if the manager should be deleted regardless
      * of whether it's a manager for $this->url.
      */
-    function destroyManager($force =false)
+    function destroyManager($force=false)
     {
         if ($this->getManager($force) !== null) {
             $key = $this->getSessionKey();

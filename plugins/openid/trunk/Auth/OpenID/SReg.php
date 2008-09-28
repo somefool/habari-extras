@@ -173,10 +173,10 @@ class Auth_OpenID_SRegRequest extends Auth_OpenID_SRegBase {
     /**
      * Initialize an empty simple registration request.
      */
-    function build($required =null, $optional =null,
-                   $policy_url =null,
-                   $sreg_ns_uri =Auth_OpenID_SREG_NS_URI,
-                   $cls ='Auth_OpenID_SRegRequest')
+    function build($required=null, $optional=null,
+                   $policy_url=null,
+                   $sreg_ns_uri=Auth_OpenID_SREG_NS_URI,
+                   $cls='Auth_OpenID_SRegRequest')
     {
         $obj = new $cls();
 
@@ -213,7 +213,7 @@ class Auth_OpenID_SRegRequest extends Auth_OpenID_SRegBase {
      *
      * Returns the newly created simple registration request
      */
-    function fromOpenIDRequest($request, $cls ='Auth_OpenID_SRegRequest')
+    function fromOpenIDRequest($request, $cls='Auth_OpenID_SRegRequest')
     {
 
         $obj = call_user_func_array(array($cls, 'build'),
@@ -226,7 +226,7 @@ class Auth_OpenID_SRegRequest extends Auth_OpenID_SRegBase {
         $obj->ns_uri = $obj->_getSRegNS($m);
         $args = $m->getArgs($obj->ns_uri);
 
-        if ($args === null) {
+        if ($args === null || Auth_OpenID::isFailure($args)) {
             return null;
         }
 
@@ -259,7 +259,7 @@ class Auth_OpenID_SRegRequest extends Auth_OpenID_SRegBase {
      * the simple registration specification should be tolerated (and
      * ignored)
      */
-    function parseExtensionArgs($args, $strict =false)
+    function parseExtensionArgs($args, $strict=false)
     {
         foreach (array('required', 'optional') as $list_name) {
             $required = ($list_name == 'required');
@@ -318,7 +318,7 @@ class Auth_OpenID_SRegRequest extends Auth_OpenID_SRegBase {
      * a request more than once
      */
     function requestField($field_name,
-                          $required =false, $strict =false)
+                          $required=false, $strict=false)
     {
         if (!Auth_OpenID_checkFieldName($field_name)) {
             return false;
@@ -363,14 +363,14 @@ class Auth_OpenID_SRegRequest extends Auth_OpenID_SRegBase {
      * strict: whether to raise an exception when a field is added to
      * a request more than once
      */
-    function requestFields($field_names, $required =false, $strict =false)
+    function requestFields($field_names, $required=false, $strict=false)
     {
         if (!is_array($field_names)) {
             return false;
         }
 
         foreach ($field_names as $field_name) {
-            if (!$this->requestField($field_name, $required, $strict =$strict)) {
+            if (!$this->requestField($field_name, $required, $strict=$strict)) {
                 return false;
             }
         }
@@ -418,8 +418,8 @@ class Auth_OpenID_SRegResponse extends Auth_OpenID_SRegBase {
 
     var $ns_alias = 'sreg';
 
-    function Auth_OpenID_SRegResponse($data =null,
-                                      $sreg_ns_uri =Auth_OpenID_SREG_NS_URI)
+    function Auth_OpenID_SRegResponse($data=null,
+                                      $sreg_ns_uri=Auth_OpenID_SREG_NS_URI)
     {
         if ($data === null) {
             $this->data = array();
@@ -471,7 +471,7 @@ class Auth_OpenID_SRegResponse extends Auth_OpenID_SRegBase {
      * Returns a simple registration response containing the data that
      * was supplied with the C{id_res} response.
      */
-    function fromSuccessResponse(&$success_response, $signed_only =true)
+    function fromSuccessResponse(&$success_response, $signed_only=true)
     {
         global $Auth_OpenID_sreg_data_fields;
 
@@ -484,7 +484,7 @@ class Auth_OpenID_SRegResponse extends Auth_OpenID_SRegBase {
             $args = $success_response->message->getArgs($obj->ns_uri);
         }
 
-        if ($args === null) {
+        if ($args === null || Auth_OpenID::isFailure($args)) {
             return null;
         }
 
@@ -503,7 +503,7 @@ class Auth_OpenID_SRegResponse extends Auth_OpenID_SRegBase {
     }
 
     // Read-only dictionary interface
-    function get($field_name, $default =null)
+    function get($field_name, $default=null)
     {
         if (!Auth_OpenID_checkFieldName($field_name)) {
             return null;
