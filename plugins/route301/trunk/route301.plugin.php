@@ -33,7 +33,8 @@ class Route301 extends Plugin {
 			'parse_regex' => '%^(?P<category>[^/]+)/(?P<slug>[^/]+)$%i',
 			'build_str' => '{$category}/{$slug}',
 			'handler' => 'Route301',
-			'action' => 'display_entry'
+			'action' => 'display_entry',
+			'priority' => 10,
 			),
 		);
 		
@@ -50,7 +51,7 @@ class Route301 extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'Route 301',
-			'version' => '0.5.1',
+			'version' => '0.5.2',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -73,7 +74,7 @@ class Route301 extends Plugin {
 			);
 
 		foreach ( $this->custom_rules as $paramarray ) {
-			$paramarray = array_merge( $paramarray, $defaults );
+			$paramarray = array_merge( $defaults, $paramarray );
 			$db_rules[]= new RewriteRule( $paramarray );
 		}
 		return $db_rules;
