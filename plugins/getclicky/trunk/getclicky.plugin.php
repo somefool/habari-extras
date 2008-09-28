@@ -95,7 +95,7 @@ class GetClicky extends Plugin
 		}
 		if ( User::identify() ) {
 			// Only track the logged in user if we were told to
-			if ( !Options::get('getclicky__loggedin') ) {
+			if ( Options::get('getclicky__loggedin') ) {
 				return;
 			}
 		}
