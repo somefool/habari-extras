@@ -1,43 +1,64 @@
 <?php
-class Route301 extends Plugin {
-
+class Route301 extends Plugin
+{
 	/* Add your custom rules here.
 	 *
 	 * You have to use the value `Route301` as the handler for your redirecting rules.
 	 * You have to use the key of your $redirect_rules as the action for your redirecting rules.
 	 */
 	var $custom_rules = array(
-		'display_posts_by_date_and_slug' => array( // Wordpress Permalink: 2007/09/17/<slug>
-			'name' => 'display_posts_by_date_and_slug',
-			'parse_regex' => '%^(?P<year>[1,2]{1}\d{3})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[^/]+)(?:/page/(?P<page>\d+)/?)?$%i',
+		'display_entry_by_date_and_slug' => array( // Wordpress date and slug based permalink: 2007/09/17/<slug>
+			'name' => 'display_entry_by_date_and_slug',
+			'parse_regex' => '%^(?P<year>[1,2]\d{3})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[^/]+)(?:/page/(?P<page>\d+)/?)?$%i',
 			'build_str' => '{$year}/{$month}/{$day}/{$slug}/(page/{$page}/)',
-			'handler' => 'Route301',
-			'action' => 'display_entry'
-			),
-		'reroute_feed' => array( // Wordpress RSS/Atom feed
-			'name' => 'reroute_feed',
-			'parse_regex' => '%^feed/?$%i',
-			'build_str' => 'atom/1',
-			'handler' => 'Route301',
-			'action' => 'atom_feed',
-			),
-		'reroute_tag_feed' => array( // Wordpress tag feed
-			'name' => 'reroute_tag_feed',
-			'parse_regex' => '%^tag/(?P<tag>[^/]+)/feed$%i',
-			'build_str' => 'tag/{$tag}/atom',
-			'handler' => 'Route301',
-			'action' => 'atom_feed_tag',
-			),
-		'reroute_categories' => array( // Wordpress Category Permalink: <category>/<slug>
-			'name' => 'reroute_categories',
-			'parse_regex' => '%^(?P<category>[^/]+)/(?P<slug>[^/]+)$%i',
-			'build_str' => '{$category}/{$slug}',
-			'handler' => 'Route301',
 			'action' => 'display_entry',
-			'priority' => 10,
+			'description' => 'Wordpress date and name based permalink'
 			),
+		'display_entry_by_month_and_slug' => array( // Wordpress month and slug based permalink: 2007/09/<slug>
+			'name' => 'display_entry_by_month_and_slug',
+			'parse_regex' => '%^(?P<year>[1,2]\d{3})/(?P<month>\d{2})/(?P<slug>[^/]+)(?:/page/(?P<page>\d+)/?)?$%i',
+			'build_str' => '{$year}/{$month}/{$slug}/(page/{$page}/)',
+			'action' => 'display_entry',
+			'description' => 'Wordpress month and name based permalink'
+			),
+		'display_entry_by_id' => array( // Wordpress entry id based permalink: archives/<id>
+			'name' => 'display_entry_by_id',
+			'parse_regex' => '%^archives/(?P<id>\d+)(?:/page/(?P<page>\d+))?/?$%i',
+			'build_str' => 'archives/{$id}(/page/{$page})',
+			'action' => 'display_entry',
+			'description' => 'Wordpress entry id based permalink'
+			),
+		'display_entry_by_tag_and_slug' => array( // Wordpress tag and slug based permalink: <tag>/<slug>
+			'name' => 'display_entry_by_tag_and_slug',
+			'parse_regex' => '%^(?P<tag>[^/]+)/(?P<slug>[^/]+)(?:/page/(?P<page>\d+))?/?$%i',
+			'build_str' => '{$tag}/{$slug}(/page/{$page})',
+			'action' => 'display_entry',
+			'description' => 'Wordpress tag and name based permalink',
+			'priority' => 10
+			),
+		'wordpress_feed' => array( // Wordpress RSS/Atom feed
+			'name' => 'wordpress_feed',
+			'parse_regex' => '%^feed/?$%i',
+			'build_str' => 'feed',
+			'action' => 'atom_feed',
+			'description' => 'Wordpress RSS/Atom feed'
+			),
+		'wordpress_tag_feed' => array( // Wordpress tag feed
+			'name' => 'wordpress_tag_feed',
+			'parse_regex' => '%^tag/(?P<tag>[^/]+)/feed/?$%i',
+			'build_str' => 'tag/{$tag}/feed',
+			'action' => 'atom_feed_tag',
+			'description' => 'Wordpress tag feed'
+			),
+		'wordpress_comments_feed' => array( // Wordpress comments feed
+			'name' => 'wordpress_comments_feed',
+			'parse_regex' => '%^comments/feed/?$%i',
+			'build_str' => 'comments/feed',
+			'action' => 'atom_feed_comments',
+			'description' => 'Wordpress comments feed'
+			)
 		);
-		
+
 	/* Custom callback functions.
 	 * Functions called to add handler_vars values needed by custom rules.
 	 */
@@ -45,8 +66,8 @@ class Route301 extends Plugin {
 		'get_date', // Extracts the year, month and day from a post
 		'feed_index',
 		);
-	
-	
+
+
 	/* Information function called by the plugin manager. */
 	public function info() {
 		return array(
@@ -60,13 +81,14 @@ class Route301 extends Plugin {
 			'copyright' => '2007'
 			);
 	}
-	
+
 	/* Filter function called by the plugin hook `rewrite_rules`
 	 * Add a new rewrite rule to the database's rules.
 	 */
 	public function filter_rewrite_rules( $db_rules )
-	{	
+	{
 		$defaults = array(
+			'handler' => 'Route301',
 			'priority' => 1,
 			'is_active' => 1,
 			'rule_class' => RewriteRule::RULE_CUSTOM,
@@ -75,7 +97,7 @@ class Route301 extends Plugin {
 
 		foreach ( $this->custom_rules as $paramarray ) {
 			$paramarray = array_merge( $defaults, $paramarray );
-			$db_rules[]= new RewriteRule( $paramarray );
+			$db_rules[] = new RewriteRule( $paramarray );
 		}
 		return $db_rules;
 	}
@@ -118,14 +140,14 @@ class Route301 extends Plugin {
 				'month' => date( 'm', $pubdate ),
 				'day' => date( 'd', $pubdate ),
 				);
-			
+
 			$handler_vars = array_merge( $paramarray, $handler_vars );
 			return $handler_vars;
 		}
 		else {
 			return false;
+			}
 		}
-	}
 
 	/* feed_index callback function
 	 * Used to pass the $index variable to atom_feed
@@ -134,6 +156,6 @@ class Route301 extends Plugin {
 	{
 		return array_merge( array( 'index' => 1 ), $handler_vars );
 	}
-	
+
 }
 ?>
