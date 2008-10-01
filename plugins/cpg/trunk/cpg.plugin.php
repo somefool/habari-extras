@@ -12,7 +12,7 @@ class Cpg extends Plugin
     return array(
       'name' => 'Copperleaf Photo Gallery Plugin',
       'version' => self::VERSION,
-      'url' => 'http://www.copperleaf.org/',
+      'url' => 'http://wiki.habariproject.org/en/CPG',
       'author' => 'Bill Smith',
       'authorurl' => 'http://www.copperleaf.org/',
       'license' => 'Apache License 2.0',
