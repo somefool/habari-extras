@@ -155,7 +155,19 @@ class BinadamuTheme extends Theme
 			$body_class[] = 'multiple';
 		}
 		else
-		if ($this->request->display_entry || $this->request->display_page) {
+		if ($this->request->display_entry) {
+			$body_class[] =  'entry-' . $this->posts->slug;
+			$body_class[] =  'entry';
+			$body_class[] = 'single';
+		}
+		else
+		if ($this->request->display_page) {
+			$body_class[] =  'page-' . $this->posts->slug;
+			$body_class[] =  'page';
+			$body_class[] = 'single';
+		}
+		else
+		if ($this->request->display_post) { // Other content-types
 			$post_type_name = Post::type_name($this->posts->content_type);
 			$body_class[] =  $post_type_name . '-' . $this->posts->slug;
 			$body_class[] =  $post_type_name;
@@ -174,7 +186,9 @@ class BinadamuTheme extends Theme
 		//Get unique items
 		$body_class = array_flip(array_flip($body_class));
 
-		return count($body_class) > 0 ? ' class="' . implode(' ', $body_class) . '"' : '';
+		return count($body_class) > 0 ?
+			' class="' . implode(' ', $body_class) . '"' :
+			'';
 	}
 
 	public function theme_title($theme)
@@ -197,8 +211,8 @@ class BinadamuTheme extends Theme
 			$title = sprintf(_t('%1$s &raquo; Taxonomic Archives of %2$s', 'binadamu'), htmlspecialchars($tag), Options::get('title'));
 		}
 		else
-		if (($this->request->display_entry || $this->request->display_page) && isset($this->posts)) {
-			$title = sprintf(_t('%1$s ¶ %2$s', 'binadamu'), strip_tags($this->posts->title), Options::get('title'));
+		if (($this->request->display_entry || $this->request->display_page || $this->request->display_post) && isset($this->posts)) {
+			$title = sprintf(_t('%1$s ¶ %2$s', 'binadamu'), strip_tags($this->posts->title_out), Options::get('title'));
 		}
 		else
 		if ($this->request->display_search && isset($this->handler_vars['criteria'])) {
