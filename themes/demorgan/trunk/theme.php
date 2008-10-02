@@ -150,7 +150,7 @@ class DeMorganTheme extends Theme
 		}
 		else
 		if (($this->request->display_entry || $this->request->display_page) && isset($this->posts)) {
-			$title = sprintf(_t('%1$s ¶ %2$s', 'demorgan'), strip_tags($this->posts->title), Options::get('title'));
+			$title = sprintf(_t('%1$s ¶ %2$s', 'demorgan'), strip_tags($this->posts->title_out), Options::get('title'));
 		}
 		else
 		if ($this->request->display_search && isset($this->handler_vars['criteria'])) {
