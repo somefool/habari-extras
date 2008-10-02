@@ -4,7 +4,7 @@ class MicroID extends Plugin {
   function info() {
     return array(
       'name' => 'MicroID Generator Plugin',
-      'version' => '1.0',
+      'version' => '1.1',
       'url' => 'http://digitalspaghetti.me.uk/',
       'author' => 'Tane Piper',
       'authorurl' => 'http://digitalspaghetti.me.uk/',
@@ -31,7 +31,7 @@ class MicroID extends Plugin {
   }
 
   function theme_header( $theme ) {
-    
+    if ($theme->request->display_404 == false) {
       $count = 0;
       foreach ($theme->posts as $post) {
         $user = User::get_by_id($post->user_id);
@@ -39,13 +39,13 @@ class MicroID extends Plugin {
         echo '<meta name="microid" content="'.$microid.'" />';
         $count++;
       }
-      
+    
       if ($count == 0) {
         $user = User::get_by_id($theme->posts->user_id);
         $microid = $this->generate('mailto:' . $user->email, $this->currentURL(true));
         echo '<meta name="microid" content="'.$microid.'" />';
       }
-      
+    }
   }
 
   function generate($identity, $service, $algorithm = 'sha1') {
@@ -74,9 +74,9 @@ class MicroID extends Plugin {
   }
 
   function currentURL($trim) {
-      $pageURL = 'http';
-      if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-      $pageURL .= "://";
+    $pageURL = 'http';
+    if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    $pageURL .= "://";
     $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
     if ($trim == true) {$pageURL = rtrim($pageURL, '/');}
     return $pageURL;
