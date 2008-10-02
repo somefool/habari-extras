@@ -33,18 +33,28 @@ class MicroID extends Plugin {
   function theme_header( $theme ) {
     if ($theme->request->display_404 == false) {
       $count = 0;
+
+      Stack::create_stack('microid');
+
       foreach ($theme->posts as $post) {
         $user = User::get_by_id($post->user_id);
         $microid = $this->generate('mailto:' . $user->email, $this->currentURL(true));
-        echo '<meta name="microid" content="'.$microid.'" />';
+        Stack::add('microid', $microid);
         $count++;
       }
     
+      // FIXME: This seems to be a bug in Habari, where there is only one post on the page
+      // it isn't picked up by the forloop above.
       if ($count == 0) {
         $user = User::get_by_id($theme->posts->user_id);
         $microid = $this->generate('mailto:' . $user->email, $this->currentURL(true));
-        echo '<meta name="microid" content="'.$microid.'" />';
+        Stack::add('microid', $microid);
+        foreach($theme->posts->comments->moderated as $comment) { 
+          $microidc = $this->generate('mailto:' . $comment->email, $this->currentURL(true));
+          Stack::add('microid', $microidc);
+        }
       }
+      Stack::Out('microid', '<meta name="microid" content="%s" />');
     }
   }
 
