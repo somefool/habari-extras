@@ -7,23 +7,15 @@
 				<ul class="entry-meta">
 					<li class="comments-link"><a href="<?php echo $post->permalink; ?>#comments" title="<?php _e('Comments to this post', 'binadamu') ?>"><?php printf(_n('%1$d Comment', '%1$d Comments', $post->comments->approved->count, 'binadamu'), $post->comments->approved->count); ?></a></li>
 <?php if ($user) { ?>
-					<li class="entry-edit"><a href="<?php URL::out('admin', 'page=publish&slug=' . $post->slug); ?>" title="<?php _e('Edit post', 'binadamu') ?>"><?php _e('Edit', 'binadamu') ?></a></li>
+					<li class="entry-edit"><a href="<?php URL::out('admin', 'page=publish&id=' . $post->id); ?>" title="<?php _e('Edit post', 'binadamu') ?>"><?php _e('Edit', 'binadamu') ?></a></li>
 <?php } ?>
 				</ul>
 			</div>
 			<div class="entry-content">
 				<?php
 					echo $post->content_out;
-					if (Plugins::is_loaded('BreezyArchives')) {
-						$theme->breezyarchives();
-					}
-					else
-					if (Plugins::is_loaded('MonthlyArchives', '1.1') || Plugins::is_loaded('Monthly_Archives')) {
-						$theme->monthly_archives();
-					}
-					else {
-						echo '<p>' . _t('Not implemented yet.', 'binadamu') . '</p>';
-					}
+					$theme->breezyarchives();
+					$theme->monthly_archives();
 				?>
 			</div>
 		</div>

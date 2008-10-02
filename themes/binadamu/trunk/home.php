@@ -13,7 +13,7 @@
 					<li class="entry-tags"><?php echo $post->tags_out; ?></li>
 <?php } ?>
 <?php if ($user) { ?>
-					<li class="entry-edit"><a href="<?php URL::out('admin', 'page=publish&slug=' . $post->slug); ?>" title="<?php _e('Edit post', 'binadamu') ?>"><?php _e('Edit', 'binadamu') ?></a></li>
+					<li class="entry-edit"><a href="<?php URL::out('admin', 'page=publish&id=' . $post->id); ?>" title="<?php _e('Edit post', 'binadamu') ?>"><?php _e('Edit', 'binadamu') ?></a></li>
 <?php } ?>
 				</ul>
 			</div>
