@@ -18,21 +18,21 @@
 <?php } ?>
 			<?php
 				$theme->display('recententries.widget');
-				if (Plugins::is_loaded('FreshComments')) $theme->freshcomments();
-				if (Plugins::is_loaded('RecentComments')) $theme->show_recentcomments();
+				$theme->freshcomments();
+				$theme->show_recentcomments();
 				if (Plugins::is_loaded('TagCloud', '1.3')) $theme->display('tagcloud.widget');
 			?>
 		</ul>
 		<ul id="sidebar-2" class="xoxo">
 			<?php
-				if (Plugins::is_loaded('Jaiku')) $theme->jaiku();
-				if (Plugins::is_loaded('Twitter')) $theme->twitter();
-				if (Plugins::is_loaded('AudioScrobbler')) $theme->audioscrobbler();
-				if (Plugins::is_loaded('FlickrFeed')) $theme->flickrfeed();
+				$theme->jaiku();
+				$theme->twitter();
+				$theme->audioscrobbler();
+				$theme->flickrfeed();
 				if (Plugins::is_loaded('FlickrRSS', '1.3')) $theme->display('flickrrss.widget');
-				if (Plugins::is_loaded('DeliciousFeed')) $theme->deliciousfeed();
+				$theme->deliciousfeed();
 				if (Plugins::is_loaded('FreshSurf')) $theme->display('freshsurf.widget');
-				if (Plugins::is_loaded('Blogroll')) $theme->show_blogroll();
+				$theme->show_blogroll();
 				$theme->display('feedlink.widget');
 				$theme->display('admin.widget');
 			?>

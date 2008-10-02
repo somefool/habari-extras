@@ -31,19 +31,13 @@
 						<?php echo $comment->content_out; ?>
 					</div>
 					<ul class="comment-meta vcard">
-						<li class="comment-author-gravator">
-<?php				if (Plugins::is_loaded('Gravatar', '1.1')) { ?>
-							<img src="<?php echo $comment->gravatar; ?>" class="photo" alt="" />
-<?php 				} else { ?>
-							<img src="<?php Site::out_url('theme'); ?>/images/gravatar.png" class="photo" alt="" />
-<?php 				} ?>
-						</li>
+						<?php $theme->gravatar($comment); ?>
 						<li class="comment-author">
 <?php 			if ($comment->url) { ?>
 							<a class="url" href="<?php echo $comment->url; ?>" rel="external">
 <?php 			} ?>
 								<cite class="fn n"><?php echo $comment->name; ?></cite>
-<?php			 if ($comment->url) { ?>
+<?php			if ($comment->url) { ?>
 							</a>
 <?php 			} ?>
 						</li>
