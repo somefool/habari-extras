@@ -28,7 +28,7 @@ class BreezyArchives extends Plugin
 	{
 		return array(
 			'name' => 'Breezy Archives',
-			'version' => '0.2-pre',
+			'version' => '0.6-0.2-pre',
 			'url' => 'http://blog.bcse.info/breezy-archives-plugin-for-habari',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
@@ -248,16 +248,21 @@ class BreezyArchives extends Plugin
 		Stack::add('template_footer_javascript', Site::get_url('scripts') . '/jquery.spinner.js', 'jquery.spinner');
 		Stack::add('template_footer_javascript', URL::get('display_breezyarchives_js', array('class_name' => $this->class_name, 'config' => md5(serialize($this->config)))), 'jquery.breezyarchives');
 
-		$theme->chronology_title = $this->config['chronology_title'];
-		$theme->taxonomy_title = $this->config['taxonomy_title'];
-
-		return $theme->fetch('breezyarchives');
+		if (Cache::has($this->cache_name)) {
+			return Cache::get($this->cache_name);
+		} else {
+			$theme->chronology_title = $this->config['chronology_title'];
+			$theme->taxonomy_title = $this->config['taxonomy_title'];
+			$ret = $theme->fetch('breezyarchives');
+			Cache::set($this->cache_name, $ret);
+			return $ret;
+		}
 	}
 
 	public function theme_chronology_archives($theme)
 	{
 		$sql =
-		   'SELECT YEAR(pubdate) AS year, MONTH(pubdate) AS month, COUNT(id) AS count
+		   'SELECT YEAR(FROM_UNIXTIME(pubdate)) AS year, MONTH(FROM_UNIXTIME(pubdate)) AS month, COUNT(id) AS count
 			FROM {posts}
 			WHERE content_type = ' . Post::type('entry') . '
 			  AND status = ' . Post::status('published') . '

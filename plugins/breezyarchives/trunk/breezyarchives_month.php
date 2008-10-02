@@ -6,13 +6,13 @@
 			if ($show_comment_count) {
 				printf('<li class="post"><a href="%1$s" rel="bookmark">%2$s</a> <span class="comment-count" title="%3$s">%4$d</span></li>',
 						$post->permalink,
-						$post->title,
+						$post->title_out,
 						sprintf(_n('%1$d Comment', '%1$d Comments', $post->comments->approved->count, $this->class_name), $post->comments->approved->count),
 						$post->comments->approved->count);
 			} else {
 				printf('<li class="post"><a href="%1$s" rel="bookmark">%2$s</a></li>',
 						$post->permalink,
-						$post->title);
+						$post->title_out);
 			}
 		}
 

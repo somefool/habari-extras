@@ -60,20 +60,28 @@ class BreezyArchivesHandler extends ActionHandler
 	public function act_display_month($user_filters = array())
 	{
 		$paramarray = $this->get_params($user_filters);
-		$posts = Posts::get($paramarray);
+		$cache_name = array($this->handler_vars['class_name'], 'month_' . $paramarray['year'] . $paramarray['month'] . '_page_' . $paramarray['page']);
 
-		$this->theme->assign('posts', $posts);
-		$this->theme->assign('page_total', Utils::archive_pages($posts->count_all(), $paramarray['limit']));
-		$this->theme->assign('current_page', $paramarray['page']);
-		$this->theme->assign('prev_page_text', Options::get($this->handler_vars['class_name'] . '__prev_page_text'));
-		$this->theme->assign('prev_page_link', URL::get('display_breezyarchives_by_month', array('class_name' => $this->handler_vars['class_name'], 'year' => $paramarray['year'], 'month' => $paramarray['month'], 'page' => $paramarray['page'] - 1)));
-		$this->theme->assign('next_page_text', Options::get($this->handler_vars['class_name'] . '__next_page_text'));
-		$this->theme->assign('next_page_link', URL::get('display_breezyarchives_by_month', array('class_name' => $this->handler_vars['class_name'], 'year' => $paramarray['year'], 'month' => $paramarray['month'], 'page' => $paramarray['page'] + 1)));
-		$this->theme->assign('show_comment_count', Options::get($this->handler_vars['class_name'] . '__posts_per_page'));
-		$this->theme->assign('year', $paramarray['year']);
-		$this->theme->assign('month', $paramarray['month']);
+		if (Cache::has($cache_name)) {
+			echo Cache::get($cache_name);
+		} else {
+			$posts = Posts::get($paramarray);
 
-		$this->display('breezyarchives_month');
+			$this->theme->assign('posts', $posts);
+			$this->theme->assign('page_total', Utils::archive_pages($posts->count_all(), $paramarray['limit']));
+			$this->theme->assign('current_page', $paramarray['page']);
+			$this->theme->assign('prev_page_text', Options::get($this->handler_vars['class_name'] . '__prev_page_text'));
+			$this->theme->assign('prev_page_link', URL::get('display_breezyarchives_by_month', array('class_name' => $this->handler_vars['class_name'], 'year' => $paramarray['year'], 'month' => $paramarray['month'], 'page' => $paramarray['page'] - 1)));
+			$this->theme->assign('next_page_text', Options::get($this->handler_vars['class_name'] . '__next_page_text'));
+			$this->theme->assign('next_page_link', URL::get('display_breezyarchives_by_month', array('class_name' => $this->handler_vars['class_name'], 'year' => $paramarray['year'], 'month' => $paramarray['month'], 'page' => $paramarray['page'] + 1)));
+			$this->theme->assign('show_comment_count', Options::get($this->handler_vars['class_name'] . '__posts_per_page'));
+			$this->theme->assign('year', $paramarray['year']);
+			$this->theme->assign('month', $paramarray['month']);
+
+			$ret = $this->theme->fetch('breezyarchives_month');
+			Cache::set($cache_name, $ret);
+			echo $ret;
+		}
 	}
 
 	/**
@@ -83,18 +91,26 @@ class BreezyArchivesHandler extends ActionHandler
 	public function act_display_tag($user_filters = array())
 	{
 		$paramarray = $this->get_params($user_filters);
-		$posts = Posts::get($paramarray);
+		$cache_name = array($this->handler_vars['class_name'], 'tag_' . $this->handler_vars['tag_slug'] . '_page_' . $paramarray['page']);
 
-		$this->theme->assign('posts', $posts);
-		$this->theme->assign('page_total', Utils::archive_pages($posts->count_all(), $paramarray['limit']));
-		$this->theme->assign('current_page', $paramarray['page']);
-		$this->theme->assign('prev_page_text', Options::get($this->handler_vars['class_name'] . '__prev_page_text'));
-		$this->theme->assign('prev_page_link', URL::get('display_breezyarchives_by_tag', array('class_name' => $this->handler_vars['class_name'], 'tag_slug' => $this->handler_vars['tag_slug'], 'page' => $paramarray['page'] - 1)));
-		$this->theme->assign('next_page_text', Options::get($this->handler_vars['class_name'] . '__next_page_text'));
-		$this->theme->assign('next_page_link', URL::get('display_breezyarchives_by_tag', array('class_name' => $this->handler_vars['class_name'], 'tag_slug' => $this->handler_vars['tag_slug'], 'page' => $paramarray['page'] + 1)));
-		$this->theme->assign('show_comment_count', Options::get($this->handler_vars['class_name'] . '__posts_per_page'));
+		if (Cache::has($cache_name)) {
+			echo Cache::get($cache_name);
+		} else {
+			$posts = Posts::get($paramarray);
 
-		$this->display('breezyarchives_tag');
+			$this->theme->assign('posts', $posts);
+			$this->theme->assign('page_total', Utils::archive_pages($posts->count_all(), $paramarray['limit']));
+			$this->theme->assign('current_page', $paramarray['page']);
+			$this->theme->assign('prev_page_text', Options::get($this->handler_vars['class_name'] . '__prev_page_text'));
+			$this->theme->assign('prev_page_link', URL::get('display_breezyarchives_by_tag', array('class_name' => $this->handler_vars['class_name'], 'tag_slug' => $this->handler_vars['tag_slug'], 'page' => $paramarray['page'] - 1)));
+			$this->theme->assign('next_page_text', Options::get($this->handler_vars['class_name'] . '__next_page_text'));
+			$this->theme->assign('next_page_link', URL::get('display_breezyarchives_by_tag', array('class_name' => $this->handler_vars['class_name'], 'tag_slug' => $this->handler_vars['tag_slug'], 'page' => $paramarray['page'] + 1)));
+			$this->theme->assign('show_comment_count', Options::get($this->handler_vars['class_name'] . '__posts_per_page'));
+
+			$ret = $this->theme->fetch('breezyarchives_tag');
+			Cache::set($cache_name, $ret);
+			echo $ret;
+		}
 	}
 
 	/**
