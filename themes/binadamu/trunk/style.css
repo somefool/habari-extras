@@ -106,7 +106,8 @@ body.home #header{margin:0 0 0 12em;}
 	ul.comment-meta{float:left;font-size:.875em;padding:0;width:11.4285em;margin:.8em 0;}
 	#comments li.comment-author-gravator img{width:32px;height:32px;border:.2571em solid #fff;background:#fff;margin:0}
 	li.comment-author-gravator{float:left;width:3.3em;}
-	li.comment-author cite{font-style:normal;}
+	li.comment-author cite{font-style:normal;font-weight:700;}
+	li.comment-date a{font-size:.75em;text-transform:uppercase;color:#666;}
 	div.comment-content{width:30.6em;float:right;}
 
 	/* Respond */
