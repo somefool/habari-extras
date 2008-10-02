@@ -7,22 +7,14 @@
 				<br class="clear" />
 				<span class="comments-link"><a href="<?php echo $post->permalink; ?>#comments" title="Comments to this post"> <?php echo $post->comments->approved->count; ?> <?php _ne('Comment', 'Comments', $post->comments->approved->count); ?></a></span>
 <?php if ($user) { ?>
-				<span class="entry-edit"><a href="<?php URL::out('admin', 'page=publish&slug=' . $post->slug); ?>" title="Edit post">Edit</a></span>
+				<span class="entry-edit"><a href="<?php URL::out('admin', 'page=publish&id=' . $post->id); ?>" title="Edit post">Edit</a></span>
 <?php } ?>
 			</div>
 			<div class="entry-content">
 				<?php
 					echo $post->content_out;
-					if (Plugins::is_loaded('BreezyArchives')) {
-						$theme->breezyarchives();
-					}
-					else
-					if (Plugins::is_loaded('MonthlyArchives') || Plugins::is_loaded('Monthly_Archives')) {
-						$theme->monthly_archives();
-					}
-					else {
-						echo '<p>' . _t('Not implemented yet.', 'demorgan') . '</p>';
-					}
+					$theme->breezyarchives();
+					$theme->monthly_archives();
 				?>
 			</div>
 		</div>
