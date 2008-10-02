@@ -5,7 +5,7 @@ class MicroID extends Plugin {
     return array(
       'name' => 'MicroID Generator Plugin',
       'version' => '1.0',
-      'url' => 'http:/digitalspaghetti.me.uk/',
+      'url' => 'http://digitalspaghetti.me.uk/',
       'author' => 'Tane Piper',
       'authorurl' => 'http://digitalspaghetti.me.uk/',
       'license' => 'MIT Licence',
