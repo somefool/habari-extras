@@ -3,7 +3,7 @@
 	<name>De Morgan</name>
 	<author>Joel Lee</author>
 	<url>http://blog.bcse.info/</url>
-	<version>1.0</version>
+	<version>0.6-1.0-pre</version>
 	<template_engine>rawphpengine</template_engine>
 	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
 </theme>
