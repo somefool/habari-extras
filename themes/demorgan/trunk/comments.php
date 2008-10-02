@@ -31,11 +31,7 @@
 						<?php echo $comment->content_out; ?>
 					</div>
 					<div class="comment-author vcard">
-<?php				if (Plugins::is_loaded('Gravatar', '1.1')) { ?>
-						<img src="<?php echo $comment->gravatar; ?>" class="photo" alt="" />
-<?php 				} else { ?>
-						<img src="<?php Site::out_url('theme'); ?>/images/gravatar.png" class="photo" alt="" />
-<?php 				} ?>
+						<?php $theme->gravatar($comment); ?>
 <?php 			if ($comment->url) { ?>
 						<a class="url" href="<?php echo $comment->url; ?>" rel="external">
 <?php 			} ?>

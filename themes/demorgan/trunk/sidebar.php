@@ -12,12 +12,12 @@
 		<ul id="sidebar-1" class="xoxo">
 <?php
 				$theme->display('recententries.widget');
-				if (Plugins::is_loaded('FreshComments')) $theme->freshcomments();
-				if (Plugins::is_loaded('RecentComments')) $theme->show_recentcomments();
-				if (Plugins::is_loaded('FlickrFeed')) $theme->flickrfeed();
+				$theme->freshcomments();
+				$theme->show_recentcomments();
+				$theme->flickrfeed();
 				if (Plugins::is_loaded('FlickrRSS')) $theme->display('flickrrss.widget');
-				if (Plugins::is_loaded('Blogroll')) $theme->show_blogroll();
-				if (Plugins::is_loaded('DeliciousFeed')) $theme->deliciousfeed();
+				$theme->show_blogroll();
+				$theme->deliciousfeed();
 				if (Plugins::is_loaded('FreshSurf')) $theme->display('freshsurf.widget');
 ?>
 		</ul>
@@ -29,10 +29,10 @@
 			</li>
 <?php } ?>
 <?php
-				if (Plugins::is_loaded('TagCloud')) $theme->display('tagcloud.widget');
-				if (Plugins::is_loaded('Jaiku')) $theme->jaiku();
-				if (Plugins::is_loaded('Twitter')) $theme->twitter();
-				if (Plugins::is_loaded('AudioScrobbler')) $theme->audioscrobbler();
+				$theme->display('tagcloud.widget');
+				$theme->jaiku();
+				$theme->twitter();
+				$theme->audioscrobbler();
 				$theme->display('feedlink.widget');
 				$theme->display('admin.widget');
 ?>
