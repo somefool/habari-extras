@@ -5,10 +5,10 @@ class GetClicky extends Plugin
   {
         return array(
             'name' => 'GetClicky Analytics',
-            'version' => '1.4',
+            'version' => '1.4.1',
             'url' => 'http://digitalspaghetti.me.uk/',
             'author' => 'Tane Piper',
-            'authorurl' => 'http://digitalapghetti.me.uk',
+            'authorurl' => 'http://digitalspaghetti.me.uk',
             'license' => 'Apache License 2.0',
             'description' => 'Add\'s GetClicky analytics integration to your site',
         );
