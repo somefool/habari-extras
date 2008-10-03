@@ -6,9 +6,9 @@ class MicroID extends Plugin {
       'name' => 'MicroID Generator Plugin',
       'version' => '1.1',
       'url' => 'http://digitalspaghetti.me.uk/',
-      'author' => 'Tane Piper / Will Norris',
+      'author' => 'Tane Piper (includes code by Will Norris)',
       'authorurl' => 'http://digitalspaghetti.me.uk/',
-      'license' => 'Apache License, Version 2.0',
+      'license' => 'Apache License 2.0',
       'description' => 'Generates a MicroID for services such as ClaimID.  Includes generation code based on Will Norris\'s origional release.',
     );
   }

@@ -9,7 +9,7 @@ class GetClicky extends Plugin
             'url' => 'http://digitalspaghetti.me.uk/',
             'author' => 'Tane Piper',
             'authorurl' => 'http://digitalapghetti.me.uk',
-            'license' => 'MIT Licence',
+            'license' => 'Apache License 2.0',
             'description' => 'Add\'s GetClicky analytics integration to your site',
         );
   }
