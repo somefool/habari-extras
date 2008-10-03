@@ -32,6 +32,11 @@ class LimitAccessPlugin extends Plugin
 		if($user->id == User::identify()->id) {
 			return;
 		}
+		
+		$editor = User::identify();
+		if(isset($editor->info->limitaccess) && $editor->info->limitaccess > 0) {
+			return;
+		}
 
 		echo <<< LIMIT_USER_UI
 <div class="container settings regionalsettings" id="regionalsettings">
@@ -141,6 +146,8 @@ LIMIT_USER_UI;
 			'users' => array( 'url' => 'page=users' , 'text' => _t( 'Users' ), ),
 			'logs' => array( 'url' => 'page=logs', 'text' => _t( 'Logs' ), ) ,
 			'logout' => array( 'url' => 'page=logout' , 'text' => _t( 'Logout' ), ),
+			'user' => array( 'url' => 'page=user&userid=' . User::identify()->id , 'text' => _t( 'User\'s own profile page' ), ),
+			'otheruser' => array( 'url' => 'page=user' , 'text' => _t( 'Other user\'s profile page' ), ),
 		);
 
 		$mainmenus = array_merge( $createmenu, $managemenu, $adminmenu );
@@ -148,13 +155,16 @@ LIMIT_USER_UI;
 		return $mainmenus;
 	}
 	
-	public function action_init()
+	public function action_before_act_admin()
 	{
 		$user = User::identify();
 		
 		if(isset($user->info->limitaccess) && $user->info->limitaccess == 0) {
 			return;
 		}
+
+		Plugins::register(array($this, 'kill_admin_user'), 'action', 'admin_theme_get_user');
+		Plugins::register(array($this, 'kill_admin_user'), 'action', 'admin_theme_post_user');
 
 		$menus = $this->get_menu();
 		
@@ -169,16 +179,29 @@ LIMIT_USER_UI;
 						$kill = false;
 					}
 				}
+				if($page == 'user') {
+					$kill = false;
+				}
 				if ($kill) {
 					Plugins::register(array($this, 'kill_admin'), 'action', 'admin_theme_post_' . $page);
 					Plugins::register(array($this, 'kill_admin'), 'action', 'admin_theme_get_' . $page);
 				}
 			}
 		}
-		
+	}
+
+	public function kill_admin_user($admin) 
+	{
+		// Special cases
+		if(!Options::get('limitaccess__otheruser') && isset($admin->handler_vars['user'])) {
+			die('This menu option is not available to you.');
+		}
+		if(!Options::get('limitaccess__user') && !isset($admin->handler_vars['user'])) {
+			die('This menu option is not available to you.');
+		}
 	}
 	
-	function kill_admin() 
+	protected function kill_admin() 
 	{
 		die('This menu option is not available to you.');
 	}
