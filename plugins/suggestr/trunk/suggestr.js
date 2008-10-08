@@ -15,7 +15,9 @@ var tagSuggest = {
 			}
 		}); 
 		
-		tagSuggest.fetch($('#content').val());
+		if($('#content').val().length > 5 ) {
+			tagSuggest.fetch($('#content').val());
+		}
 		
 	}, 
 	fetch: function(content) {
