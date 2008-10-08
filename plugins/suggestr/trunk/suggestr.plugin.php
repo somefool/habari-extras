@@ -22,7 +22,12 @@ class Suggestr extends Plugin
 	}
 	
 	public function action_ajax_tag_suggest( $handler ) {
-		$text = $handler->handler_vars['text'];
+		
+		if(!isset($handler->handler_vars['text'])) {
+			$text= '';
+		} else {
+			$text= $handler->handler_vars['text'];
+		}
 		$tags = array();
 		
 		$tags = $this->fetch_yahoo_tags($text);
@@ -51,16 +56,19 @@ class Suggestr extends Plugin
 			'appid' => $appID,
 			'context' => $context
 		));
-		$request->execute();
-		
-		$response = $request->get_response_body();
-		
-		$xml = new SimpleXMLElement($response);
 		
 		$tags = array();
 		
-		foreach($xml->Result as $tag) {
-			$tags[] = strval($tag);
+		// Utils::debug($request->execute());
+		
+		if(!is_object($request->execute())) {
+			$response = $request->get_response_body();
+
+			$xml = new SimpleXMLElement($response);
+
+			foreach($xml->Result as $tag) {
+				$tags[] = strval($tag);
+			}
 		}
 		
 		return $tags;

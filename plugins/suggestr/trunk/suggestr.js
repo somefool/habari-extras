@@ -1,21 +1,23 @@
 var tagSuggest = { 
 	suggestBox: null, 
 	init: function() { 
-		if($('.page-publish').length == 0) { 
-		return; 
+		if($('.create').length == 0) {
+			return; 
 		}; 
-
+		
 		tagSuggest.suggestBox= $('<ol id="tagsuggestions"></ol>').insertAfter('#tags'); 
 
 		$('input, textarea').blur(function() {
-			if($('#content').hasClass('islabeled') == false ) {
+			if($('#content').val().length > 5 ) {
 				var content = $('#content').val(); 
 
 				tagSuggest.fetch(content);
 			}
 		}); 
-
-		}, 
+		
+		tagSuggest.fetch($('#content').val());
+		
+	}, 
 	fetch: function(content) {
 
 		spinner.start(); 
@@ -25,35 +27,35 @@ var tagSuggest = {
 		query['view'] = 'json'; 
 
 		$.ajax({ 
-		type: 'POST', 
-		url: habari.url.habari + '/ajax/tag_suggest', 
-		data: query, 
-		dataType: 'json', 
-		success: function(json){ 
-		   spinner.stop(); 
-		   var response = {}; 
-		   if(json.count == 0) { 
-		       tagSuggest.suggestBox.addClass('none'); 
-		       tagSuggest.suggestBox.html(''); 
+			type: 'POST', 
+			url: habari.url.habari + '/ajax/tag_suggest', 
+			data: query, 
+			dataType: 'json', 
+			success: function(json){
+			   spinner.stop(); 
+			   var response = {}; 
+			   if(json.count == 0) { 
+			       tagSuggest.suggestBox.addClass('none'); 
+			       tagSuggest.suggestBox.html(''); 
         
-		       $('<li></li>').text(json.message).prependTo(tagSuggest.suggestBox); 
+			       $('<li></li>').text(json.message).prependTo(tagSuggest.suggestBox); 
         
-		   } else { 
+			   } else { 
         
-		       tagSuggest.suggestBox.html(''); 
-		       tagSuggest.suggestBox.removeClass('none'); 
+			       tagSuggest.suggestBox.html(''); 
+			       tagSuggest.suggestBox.removeClass('none'); 
         
-		       for (var index in json.tags)    { 
-		           tag= json.tags[index]; 
+			       for (var index in json.tags)    { 
+			           tag= json.tags[index]; 
             
-		           $('<li></li>').text(tag).prependTo(tagSuggest.suggestBox); 
+			           $('<li></li>').text(tag).prependTo(tagSuggest.suggestBox); 
             
-		       } 
-		   }
+			       } 
+			   }
 		
-			tagSuggest.clickable();
+				tagSuggest.clickable();
 			
-		} 
+			} 
 		});
 	},
 	clickable: function() {
@@ -108,5 +110,4 @@ var tagSuggest = {
 
 $(document).ready(function(){
 	tagSuggest.init();
-	tagSuggest.fetch($('#content').val());
 });
