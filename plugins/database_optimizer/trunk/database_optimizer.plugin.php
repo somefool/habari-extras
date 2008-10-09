@@ -45,6 +45,7 @@
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
+				CronTabe::delete_cronjob( 'optimize database tables initial' );
 				CronTab::delete_cronjob( 'optimize database tables' );
 				
 			}
