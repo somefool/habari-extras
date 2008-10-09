@@ -30,6 +30,9 @@
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
+				// add a cronjob to kick off next and optimize our db now
+				CronTab::add_single_cron( 'optimize database tables initial', 'optimize_database', 'Optimizes database tables.' );
+				
 				// add our cronjob to kick off weekly henceforth
 				CronTab::add_weekly_cron( 'optimize database tables', 'optimize_database', 'Optimizes database tables automagically.' );
 				EventLog::log( 'CronTab added to optimize database tables weekly.' );
