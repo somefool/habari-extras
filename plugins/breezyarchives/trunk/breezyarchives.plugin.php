@@ -29,11 +29,11 @@ class BreezyArchives extends Plugin
 		return array(
 			'name' => 'Breezy Archives',
 			'version' => '0.6-0.2-pre',
-			'url' => 'http://blog.bcse.info/breezy-archives-plugin-for-habari',
+			'url' => 'http://code.google.com/p/bcse/wiki/BreezyArchives',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Breezy Archives is an archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’.',
+			'description' => 'An archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’.',
 			'copyright' => '2008'
 		);
 	}
@@ -204,7 +204,7 @@ class BreezyArchives extends Plugin
 			'parse_regex' => '%^(?P<class_name>' . $this->class_name . ')/(?P<year>[1,2]{1}[\d]{3})/(?P<month>[\d]{2})(?:/page/(?P<page>\d+))?/?$%i',
 			'build_str' => '{$class_name}/{$year}/{$month}(/page/{$page})',
 			'handler' => 'BreezyArchivesHandler',
-			'action' => 'display_month',
+			'action' => 'display_breezyarchives_by_month',
 			'rule_class' => RewriteRule::RULE_PLUGIN,
 			'is_active' => 1,
 			'description' => 'Displays Breezy Archives for a specific month.'
@@ -214,7 +214,7 @@ class BreezyArchives extends Plugin
 			'parse_regex' => '%^(?P<class_name>' . $this->class_name . ')/tag/(?P<tag_slug>[^/]*)(?:/page/(?P<page>\d+))?/?$%i',
 			'build_str' => '{$class_name}/tag/{$tag_slug}(/page/{$page})',
 			'handler' => 'BreezyArchivesHandler',
-			'action' => 'display_tag',
+			'action' => 'display_breezyarchives_by_tag',
 			'rule_class' => RewriteRule::RULE_PLUGIN,
 			'is_active' => 1,
 			'description' => 'Displays Breezy Archives for a specific tag.'
@@ -224,7 +224,7 @@ class BreezyArchives extends Plugin
 			'parse_regex' => '%^scripts/jquery.(?P<class_name>' . $this->class_name . ')_(?P<config>[0-9a-f]{32}).js$%i',
 			'build_str' =>  'scripts/jquery.{$class_name}_{$config}.js',
 			'handler' => 'BreezyArchivesHandler',
-			'action' => 'display_js',
+			'action' => 'display_breezyarchives_js',
 			'rule_class' => RewriteRule::RULE_PLUGIN,
 			'is_active' => 1,
 			'description' => 'Displays Breezy Archives JavaScript content.'

@@ -57,7 +57,7 @@ class BreezyArchivesHandler extends ActionHandler
 	 * Helper function: Display the posts for a specific date
 	 * @param array $user_filters Additional arguments used to get the page content
 	 */
-	public function act_display_month($user_filters = array())
+	public function act_display_breezyarchives_by_month($user_filters = array())
 	{
 		$paramarray = $this->get_params($user_filters);
 		$cache_name = array($this->handler_vars['class_name'], 'month_' . $paramarray['year'] . $paramarray['month'] . '_page_' . $paramarray['page']);
@@ -88,7 +88,7 @@ class BreezyArchivesHandler extends ActionHandler
 	 * Helper function: Display the posts for a specific tag
 	 * @param array $user_filters Additional arguments used to get the page content
 	 */
-	public function act_display_tag($user_filters = array())
+	public function act_display_breezyarchives_by_tag($user_filters = array())
 	{
 		$paramarray = $this->get_params($user_filters);
 		$cache_name = array($this->handler_vars['class_name'], 'tag_' . $this->handler_vars['tag_slug'] . '_page_' . $paramarray['page']);
@@ -114,9 +114,9 @@ class BreezyArchivesHandler extends ActionHandler
 	}
 
 	/**
-	 * Helper function: Display the CSS for Breezy Archives
+	 * Helper function: Display the JavaScript for Breezy Archives
 	 */
-	public function act_display_js()
+	public function act_display_breezyarchives_js()
 	{
 		ob_clean();
 		header('Content-type: text/javascript');
