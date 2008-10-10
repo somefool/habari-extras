@@ -28,7 +28,7 @@
 				'build_str' => 'archives/{$id}(/page/{$page})',
 				'action' => 'display_entry',
 				'description' => 'Wordpress entry id based permalink',
-				'priority' => 500
+				'priority' => 10
 			),
 			'display_entry_by_tag_and_slug' => array( // Wordpress tag and slug based permalink: <tag>/<slug>
 				'name' => 'display_entry_by_tag_and_slug',
