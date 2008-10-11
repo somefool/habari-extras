@@ -3,7 +3,7 @@
 	class DatabaseOptimizer extends Plugin
 	{
 		
-		const VERSION = '0.3.1';
+		const VERSION = '0.4';
 		
 		public function info ( ) {
 			
@@ -30,14 +30,35 @@
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
+				if ( Options::get( 'database_optimizer__frequency' ) == null ) {
+					Options::set( 'database_optimizer__frequency', 'weekly' );
+				}
+				
 				// add a cronjob to kick off next and optimize our db now
 				CronTab::add_single_cron( 'optimize database tables initial', 'optimize_database', HabariDateTime::date_create( time() ), 'Optimizes database tables.' );
 				
-				// add our cronjob to kick off weekly henceforth
-				CronTab::add_weekly_cron( 'optimize database tables', 'optimize_database', 'Optimizes database tables automagically.' );
-				EventLog::log( 'CronTab added to optimize database tables weekly.' );
+				$this->create_cron();
 				
 			}
+			
+		}
+		
+		public function create_cron ( ) {
+			
+				// delete the existing cronjob
+				CronTab::delete_cronjob( 'optimize database tables' );
+			
+				$frequency = Options::get( 'database_optimizer__frequency' );
+				
+				$function_name = 'add_' . $frequency . '_cron';
+				
+				call_user_func_array( array( 'CronTab', $function_name ), array(
+					'optimize database tables',
+					'optimize_database',
+					'Optimizes database tables automagically ' . $frequency
+				) );
+				
+				EventLog::log( 'CronTab added to optimize database tables ' . $frequency . '.' );
 			
 		}
 		
@@ -47,6 +68,8 @@
 				
 				CronTab::delete_cronjob( 'optimize database tables initial' );
 				CronTab::delete_cronjob( 'optimize database tables' );
+				
+				Options::delete( 'database_optimizer__frequency' );
 				
 			}
 			
@@ -101,10 +124,63 @@
 				default:
 					$result = false;
 					break;
-					
-				return $result;
 				
 			}
+			
+			return $result;
+			
+		}
+		
+		public function filter_plugin_config ( $actions, $plugin_id ) {
+			
+			if ( $plugin_id == $this->plugin_id() ) {
+				$actions[] = _t( 'Optimize' );
+				$actions[] = _t( 'Configure' );
+			}
+			
+			return $actions;
+			
+		}
+		
+		public function action_plugin_ui ( $plugin_id, $action ) {
+			
+			if ( $plugin_id == $this->plugin_id() ) {
+				
+				if ( $action == _t( 'Configure' ) ) {
+
+					$class_name = strtolower( get_class( $this ) );
+					
+					$form = new FormUI( $class_name );
+					$form->append( 'select', 'frequency', 'database_optimizer__frequency', _t( 'Optimization Frequency' ), array( 'hourly' => 'hourly', 'daily' => 'daily', 'weekly' => 'weekly', 'monthly' => 'monthly' ) );
+					$form->append( 'submit', 'save', _t( 'Save' ) );
+					
+					$form->on_success( array( $this, 'updated_config' ) );
+					$form->out();
+					
+				}
+				
+				if ( $action == _t( 'Optimize' ) ) {
+					$result = $this->filter_optimize_database( true, array() );
+					
+					if ( $result ) {
+						echo 'Database Optimized successfully!';
+					}
+					else {
+						echo 'There was an error, or your database platform is not supported!';
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		public function updated_config ( $form ) {
+						
+			$form->save();
+			
+			// create our cronjob
+			$this->create_cron();
 			
 		}
 		
