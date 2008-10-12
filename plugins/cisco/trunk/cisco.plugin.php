@@ -1,6 +1,7 @@
 <?php
 /*
  * Pays homage to the 2008-09-25 cisco hack.
+ * More here: http://h0bbel.p0ggel.org/cisco-and-missing-t-s
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
