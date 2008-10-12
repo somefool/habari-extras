@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>Simpler</name>
+	<author>Randy Walker</author>
+	<url>http://randywalker.net/theme</url>
+	<version>3</version>
+	<template_engine>rawphpengine</template_engine>
+	<description>A simple theme. License: Do what you want with this theme. I'd appreciate a link but you don't have to.</description>
+</theme>

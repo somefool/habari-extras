@@ -1,0 +1,174 @@
+* {
+	font-family: "Lucida Grande", Calibri, Verdana, Helvetica, Arial, sans-serif;
+}
+html {
+	background: #fff;
+	color: #333;
+	font-size: 0.8em;
+}
+body {
+	max-width: 750px;
+	margin: 10px auto;
+	text-align: left;
+}
+a:link, a:visited {
+	color: #07f;
+	text-decoration: none;
+	border-bottom: 1px solid #fff;
+}
+a:hover, a:active {
+	color: #d72;
+	text-decoration: none;
+	border-bottom: 1px solid #d72;
+}
+h1 {
+	font-weight: normal;
+	margin-bottom: 5px;
+	float: left;
+	color: #d72;
+}
+.draft {
+	background-color: #aaa;
+}
+#navigation {
+	text-align: right;
+	float: right;
+	list-style-type: none;
+}
+#navigation li {
+	float: left;
+}
+#navigation li a, #navigation li .current {
+	padding: 5px 10px;
+	text-decoration:none;
+	border: none;
+}
+#navigation li a:hover {
+	background: #d72;
+	color:#fff;
+}
+#content {
+	line-height: 1.5;
+	clear: both;
+}
+
+#bottom {
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+	width: 765px;
+}
+
+#bottom .column {
+	width: 245px;
+	float: left;
+	padding: 0;
+	margin-right: 7.5px;
+	text-align: left;
+}
+
+#bottom .column ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#bottom .column h3 {
+	font-size: 1.2em;
+	border-bottom: 1px solid #999;
+}
+
+#bottom br {
+	clear: both;
+	height: 0;
+	width: 0;
+}
+
+#footer {
+	width: 750px;
+	border-top: 1px solid #d5d5d5;
+	margin-top: 10px;
+	padding-top: 5px;
+	color: #999;
+}
+
+.post .meta, .paging {
+	text-align: right;
+}
+
+h2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h2 a {
+	font-weight: normal;
+}
+
+.post {
+	padding-top: 10px;
+	border-top: 1px solid #d5d5d5;
+	margin-top: 10px;
+	line-height: 1.5em;
+}
+
+.paging {
+	margin-top: 20px;
+	text-align: center;
+}
+
+ol#comments {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.response {
+	margin-left: 20px;
+}
+
+.alt {
+	background-color: #eee;
+}
+
+.alt a:link, .alt a:visited {
+	border-bottom: 1px solid #eee;
+}
+
+.alt a:hover, .alt a:active {
+	border-bottom: 1px solid #d72;
+}
+
+.mycomment {
+	background-color: #fec;
+}
+
+.mycomment a:link, .mycomment a:visited {
+	border-bottom: 1px solid #fec;
+}
+
+.mycomment a:hover, .mycomment a:active {
+	border-bottom: 1px solid #d72;
+}
+
+fieldset {
+	width: 720px;
+	padding: 15px;
+	padding-top: 0;
+	margin-top: 20px;
+}
+
+label {
+	width: 150px;
+	max-width: 150px;
+	display: block;
+	float: left;
+}
+
+input {
+	width: 250px;
+}
+
+textarea {
+	width: 99%;
+}
