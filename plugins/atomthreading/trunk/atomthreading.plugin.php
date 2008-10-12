@@ -11,12 +11,12 @@ class AtomThreading extends Plugin
 	{
 		return array(
 			'name' => 'Atom Threading Extensions',
-			'version' => '0.2-pre',
-			'url' => 'http://blog.bcse.info/',
+			'version' => '0.5-0.2-pre',
+			'url' => 'http://code.google.com/p/bcse/wiki/AtomThreadingExtensions',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Implement Atom threading extensions (RFC4685) on Habari. In other words, this plugin allows you to add Comments Count FeedFlare™ to your feed. '
+			'description' => 'Implement Atom threading extensions (RFC4685) on Habari. In other words, this plugin allows you to add Comments Count !FeedFlare™ to your feed.'
 			);
 	}
 

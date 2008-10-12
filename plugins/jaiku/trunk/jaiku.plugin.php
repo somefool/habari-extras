@@ -24,12 +24,12 @@ class Jaiku extends Plugin
 	{
 		return array(
 			'name' => 'Jaiku',
-			'version' => '0.5-pre',
-			'url' => 'http://blog.bcse.info/jaiku-plugin-for-habari',
+			'version' => '0.5-0.5-pre',
+			'url' => 'http://code.google.com/p/bcse/wiki/Jaiku',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Show your latest presences.',
+			'description' => 'Display your latest presences on your blog.',
 			'copyright' => '2008'
 		);
 	}

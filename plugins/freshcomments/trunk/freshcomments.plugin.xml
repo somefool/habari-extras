@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>Fresh Comments</name>
+	<url>http://code.google.com/p/bcse/wiki/FreshComments</url>
+	<author>Joel Lee</author>
+	<authorurl>http://blog.bcse.info/</authorurl>
+	<version>0.5-0.2-pre</version>
+	<description>Allow you display recent comments just like Brian’s latest Comment.</description>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
+	<copyright>2008</copyright>
+</theme>

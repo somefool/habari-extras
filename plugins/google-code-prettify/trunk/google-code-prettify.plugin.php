@@ -17,12 +17,12 @@ class GoogleCodePrettify extends Plugin
 	{
 		return array(
 			'name' => 'Google Code Prettify',
-			'version' => '0.3-pre',
-			'url' => 'http://blog.bcse.info/',
+			'version' => '0.5-0.3-pre',
+			'url' => 'http://code.google.com/p/bcse/wiki/GoogleCodePrettify',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'A Javascript module and CSS file that allows syntax highlighting of source code snippets in an html page.'
+			'description' => 'Allows syntax highlighting of source code snippets.'
 			);
 	}
 

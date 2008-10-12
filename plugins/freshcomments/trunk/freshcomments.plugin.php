@@ -31,11 +31,11 @@ class FreshComments extends Plugin
 		return array(
 			'name' => 'Fresh Comments',
 			'version' => '0.5-0.2-pre',
-			'url' => 'http://blog.bcse.info/freshcomments-plugin-for-habari',
+			'url' => 'http://code.google.com/p/bcse/wiki/FreshComments',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'For those who really miss Brian’s Latest Comments.',
+			'description' => 'Allow you display recent comments just like Brian’s latest Comment.',
 			'copyright' => '2008'
 		);
 	}

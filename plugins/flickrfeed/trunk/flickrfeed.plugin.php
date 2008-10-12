@@ -25,12 +25,12 @@ class FlickrFeed extends Plugin
 	{
 		return array(
 			'name' => 'FlickrFeed',
-			'version' => '0.4-pre',
-			'url' => 'http://blog.bcse.info/flickrfeed-plugin-for-habari',
+			'version' => '0.5-0.4-pre',
+			'url' => 'http://code.google.com/p/bcse/wiki/FlickrFeed',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Show images from Flickr feeds',
+			'description' => 'Display your latest photos on your blog.',
 			'copyright' => '2008'
 		);
 	}
