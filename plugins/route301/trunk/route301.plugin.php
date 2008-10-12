@@ -65,7 +65,7 @@
 		public function info() {
 			return array(
 				'name' => 'Route 301',
-				'version' => '0.6.1',
+				'version' => '0.6.3',
 				'url' => 'http://habariproject.org/',
 				'author' =>	'Habari Community',
 				'authorurl' => 'http://habariproject.org/',
