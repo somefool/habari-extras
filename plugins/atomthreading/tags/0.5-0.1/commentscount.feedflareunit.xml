@@ -1,0 +1,10 @@
+<FeedFlareUnit>
+<Catalog>
+	<Title>Comments Count (Atom Threading Model)</Title>
+	<Description>Use the Atom threading extension to show number of comments</Description>
+</Catalog>
+<FeedFlare>
+	<Text>${a:link[@rel='replies']/@thr:count} comments</Text>
+	<Link href="${link}#comments"/>
+</FeedFlare>
+</FeedFlareUnit>
