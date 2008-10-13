@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 07:35+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\flickrfeed\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:55
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:70
+msgid "Configure"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:73
+msgid "Photostream Type"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:75
+msgid "Public photos & video"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:76
+msgid "Public photos & video from you"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:77
+msgid "Your friends’ photostream"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:78
+msgid "Public favorites from you"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:79
+msgid "Group pool"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:83
+msgid "Flickr ID (You can get it from <a href=\"http://idgettr.com\">idGettr</a>)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:86
+msgid "&#8470; of Photos"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:90
+msgid "Photo Size"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:93
+msgid "Square"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:94
+msgid "Thumbnail"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:95
+msgid "Small"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:96
+msgid "Medium"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:97
+msgid "Large"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:98
+msgid "Original"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:102
+msgid "Tags (comma separated, no space)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:104
+msgid "Cache Expiry (in seconds)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:109
+msgid "Save"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:110
+msgid "Options saved"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:120
+msgid "This field must be positive integer."
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:128
+msgid "A value for this field is required while type is not ‘Public’."
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:178
+msgid "Unable to contact Flickr."
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:232
+msgid "FlickrFeed Plugin is not configured properly."
+msgstr ""
+
