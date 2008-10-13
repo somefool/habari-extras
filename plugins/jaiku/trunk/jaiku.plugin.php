@@ -24,7 +24,7 @@ class Jaiku extends Plugin
 	{
 		return array(
 			'name' => 'Jaiku',
-			'version' => '0.5-0.5-pre',
+			'version' => '0.6-pre',
 			'url' => 'http://code.google.com/p/bcse/wiki/Jaiku',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',

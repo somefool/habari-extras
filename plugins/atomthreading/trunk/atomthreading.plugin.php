@@ -11,7 +11,7 @@ class AtomThreading extends Plugin
 	{
 		return array(
 			'name' => 'Atom Threading Extensions',
-			'version' => '0.5-0.2-pre',
+			'version' => '0.2-pre',
 			'url' => 'http://code.google.com/p/bcse/wiki/AtomThreadingExtensions',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',

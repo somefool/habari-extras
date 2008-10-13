@@ -30,7 +30,7 @@ class FreshComments extends Plugin
 	{
 		return array(
 			'name' => 'Fresh Comments',
-			'version' => '0.5-0.2-pre',
+			'version' => '0.3-pre',
 			'url' => 'http://code.google.com/p/bcse/wiki/FreshComments',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',

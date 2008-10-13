@@ -25,7 +25,7 @@ class FlickrFeed extends Plugin
 	{
 		return array(
 			'name' => 'FlickrFeed',
-			'version' => '0.5-0.4-pre',
+			'version' => '0.5-pre',
 			'url' => 'http://code.google.com/p/bcse/wiki/FlickrFeed',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
