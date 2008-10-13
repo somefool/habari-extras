@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 09:36+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-Country: TAIWAN\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\freshcomments\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.php:8
+#, fuzzy, php-format
+msgid "%1$d comment"
+msgid_plural "%1$d comments"
+msgstr[0] "%1$d 則迴響"
+msgstr[1] ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.php:11
+#, php-format
+msgid "Posted at %1$s"
+msgstr "發表於 %1$s"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:60
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:75
+#, fuzzy
+msgid "Configure"
+msgstr "設定"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:78
+#, fuzzy
+msgid "General"
+msgstr "一般"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:80
+msgid "&#8470; of Posts"
+msgstr "文章數量"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:84
+msgid "&#8470; of Comments"
+msgstr "迴響數量"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:88
+msgid "Show Trackbacks"
+msgstr "顯示引用 (Trackback)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:90
+msgid "Show Pingbacks"
+msgstr "顯示通告 (Pingback)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:92
+msgid "Fade-out"
+msgstr "淡出"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:94
+msgid "Fade-out Older Comment"
+msgstr "淡化舊的迴響"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:96
+msgid "Fading Speed (bigger is slower)"
+msgstr "淡出速度（數值愈大愈慢）"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:100
+msgid "Newest Color"
+msgstr "最新迴響顏色"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:104
+msgid "Oldest Color"
+msgstr "最舊迴響顏色"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:108
+#, fuzzy
+msgid "Save"
+msgstr "儲存"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:109
+#, fuzzy
+msgid "Options saved"
+msgstr "設定已儲存"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:119
+#, fuzzy
+msgid "This field must be positive integer."
+msgstr "此欄位必須填入正整數。"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\freshcomments/freshcomments.plugin.php:127
+msgid "This field must be an HTML color hex code."
+msgstr "此欄位必須填入16進位色碼。"
+
