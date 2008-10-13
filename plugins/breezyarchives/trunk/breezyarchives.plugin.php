@@ -28,7 +28,7 @@ class BreezyArchives extends Plugin
 	{
 		return array(
 			'name' => 'Breezy Archives',
-			'version' => '0.6-0.2-pre',
+			'version' => '0.3-pre',
 			'url' => 'http://code.google.com/p/bcse/wiki/BreezyArchives',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
