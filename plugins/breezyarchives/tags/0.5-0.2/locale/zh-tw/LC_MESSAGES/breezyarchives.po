@@ -1,0 +1,143 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 23:09+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-Country: TAIWAN\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\breezyarchives\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:93
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:108
+#, fuzzy
+msgid "Configure"
+msgstr "設定"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:111
+msgid "Chronology"
+msgstr "日期彙整"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:113
+msgid "Title for Chronology Archives"
+msgstr "日期彙整的標題"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:120
+msgid "Month Format"
+msgstr "月份格式"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:122
+msgid "Full name (January – December)"
+msgstr "全稱 (January – December)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:123
+#, php-format
+msgid "Full name according to the current locale (%1$s – %2$s)"
+msgstr "本地化的全稱 (%1$s – %2$s)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:124
+msgid "Abbreviation (Jan – Dec)"
+msgstr "縮寫 (Jan – Dec)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:125
+#, php-format
+msgid "Abbreviation according to the current locale (%1$s – %2$s)"
+msgstr "本地化的縮寫 (%1$s – %2$s)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:126
+msgid "Number with leading zero (01 – 12)"
+msgstr "前方補零的數字 (01 – 12)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:127
+msgid "Number without leading zero (1 – 12)"
+msgstr "前方不補零的數字 (1 – 12)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:131
+msgid "Show Monthly Posts Count"
+msgstr "顯示各月份文章總數"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:133
+msgid "Taxonomy"
+msgstr "標籤彙整"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:135
+msgid "Title for Taxonomy Archives"
+msgstr "標籤彙整的標題"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:138
+msgid "Show Tagged Posts Count"
+msgstr "顯示各標籤文章總數"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:140
+msgid "Excluded Tags"
+msgstr "不列出的標籤"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:142
+msgid "Pagination"
+msgstr "分頁"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:144
+msgid "&#8470; of Posts per Page"
+msgstr "每頁文章數量"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:148
+msgid "Next Page Link Text"
+msgstr "下一頁的連結文字"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:151
+msgid "Previous Page Link Text"
+msgstr "上一頁的連結文字"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:154
+msgid "General"
+msgstr "一般"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:156
+msgid "Show Newest First"
+msgstr "新的文章放在前面"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:158
+msgid "Show &#8470; of Comments"
+msgstr "顯示每篇文章的迴響總數"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:175
+#, fuzzy
+msgid "Save"
+msgstr "儲存"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:176
+#, fuzzy
+msgid "Options saved"
+msgstr "設定已儲存"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:186
+#, fuzzy
+msgid "This field must be positive integer."
+msgstr "此欄位必須填入正整數。"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_chrono.php:14
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_chrono.php:19
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_tags.php:10
+#, php-format
+msgid "%1$d Post"
+msgid_plural "%1$d Posts"
+msgstr[0] "%1$d 篇文章"
+msgstr[1] "%1$d 篇文章"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_month.php:10
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_tag.php:10
+#, php-format
+msgid "%1$d Comment"
+msgid_plural "%1$d Comments"
+msgstr[0] "%1$d 則迴響"
+msgstr[1] "%1$d 則迴響"
+

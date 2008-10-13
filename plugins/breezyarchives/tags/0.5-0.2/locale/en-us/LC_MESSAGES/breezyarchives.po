@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 23:09+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\breezyarchives\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:93
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:108
+msgid "Configure"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:111
+msgid "Chronology"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:113
+msgid "Title for Chronology Archives"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:120
+msgid "Month Format"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:122
+msgid "Full name (January – December)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:123
+#, php-format
+msgid "Full name according to the current locale (%1$s – %2$s)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:124
+msgid "Abbreviation (Jan – Dec)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:125
+#, php-format
+msgid "Abbreviation according to the current locale (%1$s – %2$s)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:126
+msgid "Number with leading zero (01 – 12)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:127
+msgid "Number without leading zero (1 – 12)"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:131
+msgid "Show Monthly Posts Count"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:133
+msgid "Taxonomy"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:135
+msgid "Title for Taxonomy Archives"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:138
+msgid "Show Tagged Posts Count"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:140
+msgid "Excluded Tags"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:142
+msgid "Pagination"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:144
+msgid "&#8470; of Posts per Page"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:148
+msgid "Next Page Link Text"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:151
+msgid "Previous Page Link Text"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:154
+msgid "General"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:156
+msgid "Show Newest First"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:158
+msgid "Show &#8470; of Comments"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:175
+msgid "Save"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:176
+msgid "Options saved"
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives.plugin.php:186
+msgid "This field must be positive integer."
+msgstr ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_chrono.php:14
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_chrono.php:19
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_tags.php:10
+#, php-format
+msgid "%1$d Post"
+msgid_plural "%1$d Posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_month.php:10
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\breezyarchives/breezyarchives_tag.php:10
+#, php-format
+msgid "%1$d Comment"
+msgid_plural "%1$d Comments"
+msgstr[0] ""
+msgstr[1] ""
+

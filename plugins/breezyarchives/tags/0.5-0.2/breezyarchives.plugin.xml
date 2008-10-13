@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>Breezy Archives</name>
+	<url>http://code.google.com/p/bcse/wiki/BreezyArchives</url>
+	<author>Joel Lee</author>
+	<authorurl>http://blog.bcse.info/</authorurl>
+	<version>0.5-0.2</version>
+	<description>An archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’.</description>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
+	<copyright>2008</copyright>
+</theme>
