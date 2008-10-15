@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 09:42+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-Country: TAIWAN\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\jaiku\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.php:7
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.php:13
+msgid "Read more…"
+msgstr "更多…"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:54
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:69
+#, fuzzy
+msgid "Configure"
+msgstr "設定"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:72
+msgid "Jaiku Username"
+msgstr "Jaiku 帳號"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:76
+msgid "&#8470; of Presences"
+msgstr "Presence 數量"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:79
+#, fuzzy
+msgid "Cache Expiry (in seconds)"
+msgstr "暫存檔保存期限（秒）"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:82
+#, fuzzy
+msgid "Save"
+msgstr "儲存"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:83
+#, fuzzy
+msgid "Options saved"
+msgstr "設定已儲存"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:93
+msgid "Your Jaiku username is not valid."
+msgstr "您輸入的不是正確的 Jaiku 帳號。"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:101
+#, fuzzy
+msgid "This field must be positive integer."
+msgstr "此欄位必須填入正整數。"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:132
+msgid "Unable to contact Jaiku."
+msgstr "無法連接到 Jaiku 。"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:139
+msgid "Response is not correct, maybe Jaiku server is down or API is changed."
+msgstr "網站回應錯誤，可能是連接不上 Jaiku 伺服器或 API 有更新。"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:161
+msgid "Please set your username in the Jaiku plugin config."
+msgstr "請到 Jaiku 外掛設定中輸入您的帳號。"
+
