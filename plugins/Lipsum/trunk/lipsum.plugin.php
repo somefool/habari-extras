@@ -241,7 +241,7 @@ class Lipsum extends Plugin
 				$this->thumbs[] = "<a href=\"{$flickrurl}\"{$style}><img src=\"{$imgurl}\" alt=\"{$title}\"></a>";
 			}
 		}
-		return $this->thumbs[rand(0,count($this->thumbs)-1)];
+		return (count($this->thumbs) > 0) ? $this->thumbs[rand(0,count($this->thumbs)-1)] : ''; 
 	}
 
 	private function get_content($min, $max, $more, $features, $imgtags)
