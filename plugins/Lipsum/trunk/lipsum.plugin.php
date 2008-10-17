@@ -82,7 +82,7 @@ class Lipsum extends Plugin
 			}
 
 			for($z = 0; $z < $num_posts; $z++) {
-				$this->make_post( $user, $time );
+                $this->make_post( $user, $time = $time - rand(3600, 3600*36) );
 			}
 
 			Session::notice('Created 20 sample posts with random comments.');
@@ -130,7 +130,7 @@ class Lipsum extends Plugin
 			$time = time() - 160;
 			$count = 0;
 			for ( $i = $current_count + 1; $i <= $num_posts; $i++ ) {
-				$this->make_post( $user, $time );
+                $this->make_post( $user,  $time = $time - rand(3600, 3600*36) );
 				$count++;
 			}
 			Session::notice( "Created {$count} sample posts with random comments.");
@@ -162,6 +162,7 @@ class Lipsum extends Plugin
 		$post->info->commit();
 
 		$addcomments = mt_rand(0,6);
+        $comment_time = $time;
 		for($q = 0; $q < $addcomments; $q++) {
 			$comment = Comment::create(array(
 				'post_id' => $post->id,
@@ -170,7 +171,7 @@ class Lipsum extends Plugin
 				'content' => $this->get_content(1, 2, 'none', array(), 'cat'),
 				'status' => Comment::STATUS_APPROVED,
 				'type' => Comment::COMMENT,
-				'date' => HabariDateTime::date_create( $time++ ),
+                'date' => HabariDateTime::date_create( $comment_time = $comment_time + rand(3600, 3600*24) ),
 			));
 			$comment->info->lipsum = true;
 			$comment->info->commit();
