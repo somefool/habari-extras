@@ -1,14 +1,13 @@
+var coords;
+
 jQuery(document).ready(function(){
 	jQuery('#pb_container').hide();
-	
+
+	coords = eval('('+decodeURIComponent(jQuery('#pb_coords').val())+')');
+
 	jQuery('#pb_saveThumb').click(function(){
-		$('#pb_x').val($('#pb_nx').val());
-		$('#pb_y').val($('#pb_ny').val());
-		$('#pb_x2').val($('#pb_nx2').val());
-		$('#pb_y2').val($('#pb_ny2').val());
-		$('#pb_w').val($('#pb_nw').val());
-		$('#pb_h').val($('#pb_nh').val());
-		alert(<?php _t('Position successfully saved') ?>);
+		$('#pb_coords').val(encodeURIComponent(serialize(coords)));
+		alert('<?php _e('Position successfully saved!') ?>');
 	});
 	
 	jQuery('#pb_loadURL').click(function(){
@@ -38,36 +37,83 @@ jQuery(document).ready(function(){
 		xscale = originalImage.width / nw;
 		yscale = originalImage.height / nh;
 		jQuery('#pb_container').width(nw).height(nh);
-
+		
+		selectX = ((coords.x/xscale) <= 0 ) ? (coords.x/xscale) : 0;
+		selectY = ((coords.y/xscale) <= 0 ) ? (coords.y/yscale) : 0;
+		selectX2 = ((coords.x2/xscale) <= 0 ) ? (coords.x2/xscale) : 150;
+		selectY2 = ((coords.y2/xscale) <= 0 ) ? (coords.y2/yscale) : 150;
 		jQuery('#cropbox').Jcrop({
 			onChange: showPreview,
 			onSelect: showPreview,
 			aspectRatio: 1,
 			boxWidth: w,
 			boxHeight: h,
-			setSelect: [0,0,150,150]
+			setSelect: [selectX,selectY,selectX2,selectY2]
 		});
 
 		jQuery('#pb_container').slideDown("slow");
 	});
+	
+	if (jQuery('#photourl').val() != "") {
+		jQuery('#pb_loadURL').click();
+	}
 });
 
-function showPreview(coords)
+function showPreview(c)
 {
-	var rx = 150 / coords.w;
-	var ry = 150 / coords.h;
+	var rx = 150 / c.w;
+	var ry = 150 / c.h;
 
 	jQuery('#preview').css({
 		width: Math.round(rx * originalImage.width) + 'px',
 		height: Math.round(ry * originalImage.height) + 'px',
-		marginLeft: '-' + Math.round(rx * coords.x) + 'px',
-		marginTop: '-' + Math.round(ry * coords.y) + 'px'
+		marginLeft: '-' + Math.round(rx * c.x) + 'px',
+		marginTop: '-' + Math.round(ry * c.y) + 'px'
 	});
 	
-	$('#pb_nx').val(coords.x);
-	$('#pb_ny').val(coords.y);
-	$('#pb_nx2').val(coords.x2);
-	$('#pb_ny2').val(coords.y2);
-	$('#pb_nw').val(coords.w);
-	$('#pb_nh').val(coords.h);
+	coords = c;
+}
+
+function serialize(_obj)
+{
+   // Other browsers must do it the hard way
+   switch (typeof _obj)
+   {
+      // numbers, booleans, and functions are trivial:
+      // just return the object itself since its default .toString()
+      // gives us exactly what we want
+      case 'number':
+      case 'boolean':
+      case 'function':
+         return _obj;
+         break;
+
+      // for JSON format, strings need to be wrapped in quotes
+      case 'string':
+         return '"' + _obj + '"';
+         break;
+
+      case 'object':
+         var str;
+         if (_obj.constructor === Array || typeof _obj.callee !== 'undefined')
+         {
+            str = '[';
+            var i, len = _obj.length;
+            for (i = 0; i < len-1; i++) { str += serialize(_obj[i]) + ','; }
+            str += serialize(_obj[i]) + ']';
+         }
+         else
+         {
+            str = '{';
+            var key;
+            for (key in _obj) { str += '"' + key + '":' + serialize(_obj[key]) + ','; }
+            str = str.replace(/\,$/, '') + '}';
+         }
+         return str;
+         break;
+
+      default:
+         return 'UNKNOWN';
+         break;
+   }
 }
