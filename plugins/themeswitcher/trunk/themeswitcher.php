@@ -1,7 +1,7 @@
 <?php
 $active_theme= Options::get( 'theme_dir' );
 $all_themes= Themes::get_all_data();
-$selected_themes= Options::get( 'themeswitcher:selected_themes' );
+$selected_themes= Options::get( 'themeswitcher__selected_themes' );
 ?>
 	<div class="sb-switcher">
 		<h2>Theme Switcher</h2>

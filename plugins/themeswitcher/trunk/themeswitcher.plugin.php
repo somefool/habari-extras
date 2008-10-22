@@ -119,9 +119,10 @@ HEADER;
 					$themes= array_keys(Themes::get_all_data());
 					$themes= array_combine($themes, $themes);
 					$ui= new FormUI( 'themeswitcher' );
-					$ts_s= $ui->add('select', 'selected_themes', 'Select themes to offer:', $themes, Options::get('themeswitcher:selected_themes'));
+					$ts_s= $ui->append('select', 'selected_themes', 'themeswitcher__selected_themes', 'Select themes to offer:');
 					$ts_s->multiple= true;
-					$ui->on_success( array( $this, 'save_options' ) );
+					$ts_s->options =$themes;
+					$ui->append('submit', 'save', 'Save');
 					$ui->out();
 					break;
 			}
