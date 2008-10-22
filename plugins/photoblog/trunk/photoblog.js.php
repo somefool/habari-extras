@@ -8,7 +8,6 @@ jQuery(document).ready(function(){
 	jQuery('#pb_setThumb').click(function(){
 		$('#pb_coords').val(encodeURIComponent(serialize(coords)));
 		humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved!') ?>');
-		$('#pb_container').slideUp("slow");
 	});
 	
 	jQuery('#pb_loadURL').click(function(){
@@ -55,10 +54,6 @@ jQuery(document).ready(function(){
 
 		jQuery('#pb_container').slideDown("slow");
 	});
-	
-	if (jQuery('#photourl').val() != "") {
-		jQuery('#pb_loadURL').click();
-	}
 });
 
 function showPreview(c)
