@@ -47,9 +47,10 @@ class Photoblog extends Plugin
 	{
 		if ($post->content_type == Post::type('photo')) {
 			Stack::add('admin_stylesheet', array($this->get_url() . '/css/jquery.jcrop.css', 'screen'), 'jcrop');
-			Stack::add('admin_stylesheet', array($this->get_url() .'css/photoblog.css', 'screen'), 'photoblog');
+			Stack::add('admin_stylesheet', array( $this->get_url() . '/css/thickbox.css', 'screen'), 'thickbox-css' );
+			Stack::add('admin_stylesheet', array($this->get_url() .'/css/photoblog.css', 'screen'), 'photoblog');
 			Stack::add('admin_header_javascript', array($this->get_url() . '/js/jquery.jcrop.js'), 'jcrop');
-			Stack::add('admin_header_javascript', array($this->get_url() . '/js/jquery.exif.js'), 'exif');
+			Stack::add('admin_header_javascript', array($this->get_url() . '/js/thickbox.js'), 'thickbox-js' );
 			Stack::add('admin_header_javascript', array(Site::get_url('scripts') . '/photoblog.js'), 'photoblog');
 			
 			$this->add_controls($form);
@@ -118,8 +119,7 @@ class FormControlMarqueeTool extends FormControl
 		<div id="pb_container" style="position:relative;margin-left:auto;margin-right:auto;">
 			<div id="cropbox_container">
 			</div>
-			<div style="position:absolute;bottom:5px;right:5px;z-index:10000;text-align:center;">
-				<p><input type="button" id="pb_setThumb" name="pb_setThumb" value="' . _t('Set Position') . '"></p>
+			<div style="position:absolute;bottom:20px;right:25px;z-index:10000;text-align:center;">
 				<div id="preview_container" style="width:150px;height:150px;overflow:hidden;border:1px solid #FFF;">
 				</div>
 			</div>

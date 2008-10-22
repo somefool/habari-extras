@@ -4,11 +4,6 @@ jQuery(document).ready(function(){
 	jQuery('#pb_container').hide();
 
 	coords = eval('('+decodeURIComponent(jQuery('#pb_coords').val())+')');
-
-	jQuery('#pb_setThumb').click(function(){
-		$('#pb_coords').val(encodeURIComponent(serialize(coords)));
-		humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved!') ?>');
-	});
 	
 	jQuery('#pb_loadURL').click(function(){
 		if ( jQuery('#photourl').val() == "" ) {
@@ -21,8 +16,9 @@ jQuery(document).ready(function(){
 		originalImage.src = jQuery('#photourl').val();
 
 		jQuery('#cropbox,#preview').attr('src', originalImage.src);
-
-		var w = 800, h = 600;
+		
+		windowSize = get_window_size();
+		var w = (windowSize.width - 100), h = (windowSize.height - 100);
 		var nw = originalImage.width, nh = originalImage.height;
 		if ((nw > w) && w > 0)
 		{
@@ -52,7 +48,16 @@ jQuery(document).ready(function(){
 			setSelect: [selectc.x,selectc.y,selectc.x2,selectc.y2]
 		});
 
-		jQuery('#pb_container').slideDown("slow");
+		/* Viva el Thickbox hacking */
+		tb_show( '<?php _e('Thumbnail selection') ?>', '#TB_inline?height=' + nh + '&width=' + nw + '&inlineId=pb_container', false );
+		/* Have to wait for Thickbox to instantiate so jQuery binds to the right DOM objects */
+		jQuery('#pb_loadURL').blur();
+		jQuery('#TB_closeAjaxWindow').replaceWith("<div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='Close'>Close</a> <input type='button' id='pb_setThumb' name='pb_setThumb' value='<?php _e('Set Position') ?>'></div>");
+		jQuery("#TB_closeWindowButton").click(tb_remove);
+		jQuery('#pb_setThumb').click(function(){
+			$('#pb_coords').val(encodeURIComponent(serialize(coords)));
+			humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved!') ?>');
+		});
 	});
 });
 
@@ -113,4 +118,34 @@ function serialize(_obj)
          return 'UNKNOWN';
          break;
    }
+}
+
+function get_window_size()
+{
+	var w = 0;
+	var h = 0;
+
+	//IE
+	if(!window.innerWidth)
+	{
+		//strict mode
+		if(!(document.documentElement.clientWidth == 0))
+		{
+			w = document.documentElement.clientWidth;
+			h = document.documentElement.clientHeight;
+		}
+		//quirks mode
+		else
+		{
+			w = document.body.clientWidth;
+			h = document.body.clientHeight;
+		}
+	}
+	//w3c
+	else
+	{
+		w = window.innerWidth;
+		h = window.innerHeight;
+	}
+	return {width:w,height:h};
 }
