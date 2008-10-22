@@ -92,7 +92,7 @@ class Photoblog extends Plugin
 	public function filter_control_theme_dir( $admin_dir, $control )
 	{
 		if ($control->name == 'pb_wrapper') {
-			$admin_dir = Site::get_dir('user') . '/plugins/photoblog/formcontrols/';
+			$admin_dir = dirname( $this->get_file() ) . '/formcontrols/';
 		}
 		return $admin_dir;
 	}
