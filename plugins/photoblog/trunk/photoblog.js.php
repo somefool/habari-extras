@@ -5,9 +5,10 @@ jQuery(document).ready(function(){
 
 	coords = eval('('+decodeURIComponent(jQuery('#pb_coords').val())+')');
 
-	jQuery('#pb_saveThumb').click(function(){
+	jQuery('#pb_setThumb').click(function(){
 		$('#pb_coords').val(encodeURIComponent(serialize(coords)));
-		alert('<?php _e('Position successfully saved!') ?>');
+		humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved!') ?>');
+		$('#pb_container').slideUp("slow");
 	});
 	
 	jQuery('#pb_loadURL').click(function(){
@@ -38,17 +39,18 @@ jQuery(document).ready(function(){
 		yscale = originalImage.height / nh;
 		jQuery('#pb_container').width(nw).height(nh);
 		
-		selectX = ((coords.x/xscale) <= 0 ) ? (coords.x/xscale) : 0;
-		selectY = ((coords.y/xscale) <= 0 ) ? (coords.y/yscale) : 0;
-		selectX2 = ((coords.x2/xscale) <= 0 ) ? (coords.x2/xscale) : 150;
-		selectY2 = ((coords.y2/xscale) <= 0 ) ? (coords.y2/yscale) : 150;
+		selectc = {	"x" : ((coords.x/xscale > 0) ? (coords.x/xscale) : 0),
+					"y" : ((coords.y/xscale > 0) ? (coords.y/yscale) : 0),
+					"x2" : ((coords.x2/xscale > 0) ? (coords.x2/xscale) : 150),
+					"y2" : ((coords.y2/xscale > 0) ? (coords.y2/yscale) : 150) }
+
 		jQuery('#cropbox').Jcrop({
 			onChange: showPreview,
 			onSelect: showPreview,
 			aspectRatio: 1,
 			boxWidth: w,
 			boxHeight: h,
-			setSelect: [selectX,selectY,selectX2,selectY2]
+			setSelect: [selectc.x,selectc.y,selectc.x2,selectc.y2]
 		});
 
 		jQuery('#pb_container').slideDown("slow");

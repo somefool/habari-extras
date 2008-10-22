@@ -18,9 +18,16 @@ class Photoblog extends Plugin
 		);
 	}
 	
+	public function action_plugin_activation( $plugin_file )
+	{
+		if( Plugins::id_from_file(__FILE__) == Plugins::id_from_file($plugin_file) ) {
+			Post::add_new_type( 'photo' );
+		}
+	}
+	
 	public function action_form_publish($form, $post)
 	{
-		if ($post->content_type == Post::type('entry')) {
+		if ($post->content_type == Post::type('photo')) {
 			Stack::add('admin_stylesheet', array(Site::get_url('user') . '/plugins/photoblog/css/jquery.jcrop.css', 'screen'), 'jcrop');
 			Stack::add('admin_stylesheet', array(Site::get_url('user') . '/plugins/photoblog/css/photoblog.css', 'screen'), 'photoblog');
 			Stack::add('admin_header_javascript', array(Site::get_url('user') . '/plugins/photoblog/js/jquery.jcrop.js'), 'jcrop');
@@ -40,9 +47,9 @@ class Photoblog extends Plugin
 				$photo_url->value = $post->info->photo_url;
 			}
 			
-			$photo = $form->append('marqueetool', 'thumbnail', _t('Thumbnail'));
+			$photo = $form->append('marqueetool', 'thumbnail', 'null:null', _t('Thumbnail'), 'formcontrol_marqueetool');
 			$form->move_after( $photo, $pb_wrapper );
-			if (!isset($post->info->thumbnail_json)) {
+			if (empty($post->info->thumbnail_json)) {
 				$photo->value = json_encode( array('x' => 0, 'y' => 0, 'x2' => 0, 'y2' => 0, 'w' => 0, 'h' => 0) );
 			}
 			else {
@@ -54,8 +61,10 @@ class Photoblog extends Plugin
 	
 	public function action_publish_post( $post, $form )
 	{
-		$post->info->photo_url = $form->photourl->value;
-		$post->info->thumbnail_json = urldecode($form->thumbnail->value);
+		if ($post->content_type == Post::type('photo')) {
+			$post->info->photo_url = $form->photourl->value;
+			$post->info->thumbnail_json = urldecode($form->thumbnail->value);
+		}
 	}
 	
 	public function filter_rewrite_rules( $rules ) 
@@ -99,12 +108,12 @@ class FormControlMarqueeTool extends FormControl
 			<div id="cropbox_container">
 			</div>
 			<div style="position:absolute;bottom:5px;right:5px;z-index:10000;text-align:center;">
-				<input type="button" id="pb_saveThumb" name="pb_saveThumb" value="Save Position">
+				<p><input type="button" id="pb_setThumb" name="pb_setThumb" value="' . _t('Set and close') . '"></p>
 				<div id="preview_container" style="width:150px;height:150px;overflow:hidden;border:1px solid #FFF;">
 				</div>
 			</div>
 		</div>
-		<input type="hidden" id="pb_coords" name="' . $this->field . '" value="' . urlencode($this->value) . '">
+		<p><input type="hidden" id="pb_coords" name="' . $this->field . '" value="' . urlencode($this->value) . '"></p>
 		';
 	}
 }
