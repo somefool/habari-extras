@@ -28,10 +28,10 @@ class Photoblog extends Plugin
 	public function action_form_publish($form, $post)
 	{
 		if ($post->content_type == Post::type('photo')) {
-			Stack::add('admin_stylesheet', array(Site::get_url('user') . '/plugins/photoblog/css/jquery.jcrop.css', 'screen'), 'jcrop');
-			Stack::add('admin_stylesheet', array(Site::get_url('user') . '/plugins/photoblog/css/photoblog.css', 'screen'), 'photoblog');
-			Stack::add('admin_header_javascript', array(Site::get_url('user') . '/plugins/photoblog/js/jquery.jcrop.js'), 'jcrop');
-			Stack::add('admin_header_javascript', array(Site::get_url('user') . '/plugins/photoblog/js/jquery.exif.js'), 'exif');
+			Stack::add('admin_stylesheet', array($this->get_url() . '/css/jquery.jcrop.css', 'screen'), 'jcrop');
+			Stack::add('admin_stylesheet', array($this->get_url() .'css/photoblog.css', 'screen'), 'photoblog');
+			Stack::add('admin_header_javascript', array($this->get_url() . '/js/jquery.jcrop.js'), 'jcrop');
+			Stack::add('admin_header_javascript', array($this->get_url() . '/js/jquery.exif.js'), 'exif');
 			Stack::add('admin_header_javascript', array(Site::get_url('scripts') . '/photoblog.js'), 'photoblog');
 			
 			$desc_tab = $form->publish_controls->insert('tagselector', 'fieldset', 'description', _t('Description'));
