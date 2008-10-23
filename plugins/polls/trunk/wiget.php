@@ -1,13 +1,9 @@
 <?php
-$id = 16;
-Utils::debug(Session::get_set('votes', false));
-
 $post = Post::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
 $form = new FormUi(strtolower( get_class( $this ) ) );
 $array = array();
 $form->append('radio', 'entry', 'null:null', 'poll this');
-?>
-<?php
+
 
 if ( $post->info->entry1 != '') {
 	$array['entry1'] = $post->info->entry1;
@@ -25,26 +21,22 @@ if ( $post->info->entry5 != '') {
 	$array['entry5'] = $post->info->entry5;
 }
 
-?>
-<?php 
-$form->entry->options = $array;
-
+	$form->entry->options = $array;
 ?> 
 
 
 <div id="main_poll">
-<?php if (!Session::get_set('votes', false)) {
-?>
-<div id="vote">
-<?php
 
-$form->out();
+<?php if (!Session::get_set('votes', false)) { ?>
+	<div id="vote">
+<?php
+	$form->out();
 ?>
 
 </div>
  <a id="votesubmitt"> Vote </a>
 <?php } ?>
-<img id="contentLoading" alt="Loading, please wait" src='<?php URL::get_from_filesystem(__FILE__, TRUE); ?>ajax-loader.gif' />
+<img style='display: none' id="contentLoading" alt="Loading, please wait" src='<?php URL::get_from_filesystem(__FILE__, TRUE); ?>ajax-loader.gif' />
 <div id="results" >
 
 </div>
@@ -117,15 +109,18 @@ $("#contentLoading").show();
 
 
 
+ $().ajaxStop(function(r,s){  
+ $("#contentLoading").fadeOut("fast");  
+ });  
+
+
 
 </script>
-<?php if (!Session::get_set('votes', false)) { ?>
+<?php if (Session::get_set('votes', false)) { ?>
 <script type="text/javascript">
 lockdown()
 getresults()
 
 </script>
 <?php } ?>
-<?php
 
-?>

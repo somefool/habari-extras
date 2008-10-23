@@ -95,7 +95,6 @@ class Polls extends Plugin {
 	//displaying the poll by this
 	//WIGET
 	public function theme_poll($theme, $pollid) {
-		echo "wiget.php?id=".$pollid;
 		include 'wiget.php';
 	}
 	
