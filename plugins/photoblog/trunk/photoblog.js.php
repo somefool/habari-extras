@@ -12,6 +12,9 @@ $(document).ready(function() {
 	$('#pb_container').hide();
 
 	thumb = eval('(' + decodeURIComponent($('#pb_coords').val()) + ')');
+	
+	if (thumb.w <= 0) { thumb.w = defaults.w; }
+	if (thumb.h <= 0) { thumb.h = defaults.h; }
 
     $('#pb_loadURL').click(function() {
 		if ($('#photourl').val() == "") {
@@ -83,6 +86,47 @@ $(document).ready(function() {
 			humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved !') ?>');
 		});
 	});
+	
+	<?php if (Plugins::is_loaded('Habari Media Silo')): ?>
+	$.extend(habari.media.output.image_jpeg, {
+		use_as_large_photo: function(fileindex, fileobj) {set_photo(fileindex, fileobj);}
+	});
+	$.extend(habari.media.output.image_png, {
+		use_as_large_photo: function(fileindex, fileobj) {set_photo(fileindex, fileobj);}
+	});
+	$.extend(habari.media.output.image_gif, {
+		use_as_large_photo: function(fileindex, fileobj) {set_photo(fileindex, fileobj);}
+	});
+	function set_photo(fileindex, fileobj) {
+		$('#photourl').val(fileobj.originalsecret);
+	}
+	<?php endif; ?>
+	<?php if (Plugins::is_loaded('Flickr Media Silo')): ?>
+	$.extend(habari.media.output.flickr, {
+		use_small_photo: function(fileindex, fileobj) {set_flickr_photo(fileindex, fileobj, '_m.');},
+		use_medium_photo: function(fileindex, fileobj) {set_flickr_photo(fileindex, fileobj, '_-.');},
+		use_large_photo: function(fileindex, fileobj) {set_flickr_photo(fileindex, fileobj, '_b.');},
+		use_original_photo: function(fileindex, fileobj) {set_flickr_photo(fileindex, fileobj, '_o.');}
+	});
+	function set_flickr_photo(fileindex, fileobj, filesize) {
+		if (filesize == '_o.') {
+			if (fileobj.originalsecret && fileobj.originalformat) {
+				fileobj_secret = fileobj.originalsecret;
+				fileobj_size = '_o.';
+				fileobj_format = fileobj.originalformat;
+			}
+			else {
+				humanMsg.displayMsg('<?php _e('Original photo unavailable, pro account required.') ?>');
+			}
+		}
+		else {
+			fileobj_secret = fileobj.secret;
+			fileobj_size = filesize;
+			fileobj_format = 'jpg';
+		}
+		$('#photourl').val('http://farm' + fileobj.farm + '.static.flickr.com/' + fileobj.server + '/' + fileobj.id + '_' + fileobj_secret + fileobj_size + fileobj_format);
+	}
+	<?php endif; ?>
 });
 
 /* 
