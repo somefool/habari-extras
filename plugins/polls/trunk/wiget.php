@@ -3,7 +3,7 @@ $post = Post::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
 $form = new FormUi(strtolower( get_class( $this ) ) );
 $array = array();
 $form->append('radio', 'entry', 'null:null', 'poll this');
-
+//Utils::debug($post);
 
 if ( $post->info->entry1 != '') {
 	$array['entry1'] = $post->info->entry1;
@@ -26,6 +26,7 @@ if ( $post->info->entry5 != '') {
 
 
 <div id="main_poll">
+<span id="polltitle"><b> <?php echo $post->title; ?> </b></span>
 
 <?php if (!Session::get_set('votes', false)) { ?>
 	<div id="vote">
@@ -34,7 +35,8 @@ if ( $post->info->entry5 != '') {
 ?>
 
 </div>
- <a id="votesubmitt"> Vote </a>
+<a id="votesubmitt"> Vote </a>
+<br />
 <?php } ?>
 <img style='display: none' id="contentLoading" alt="Loading, please wait" src='<?php URL::get_from_filesystem(__FILE__, TRUE); ?>ajax-loader.gif' />
 <div id="results" >
@@ -50,12 +52,13 @@ if ( $post->info->entry5 != '') {
 
 $('#veiw_results').click(function() {
 	if($('#veiw_results').text() == "go back to poll") {
-
+		$('#votesubmitt').show();
 		$('#veiw_results').text("Veiw resutls");
 		$('#vote').css({display: "block"});
 		$('#results').css({display: "none"});
 	} else {
 		//results
+		$('#votesubmitt').hide();
 		$('#veiw_results').text("go back to poll")
 		$('#vote').css({display: "none"});
 		$('#results').css({display: "block"});
