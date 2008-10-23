@@ -8,7 +8,7 @@
 {
 	font-size: 0;
 	position: absolute;
-	background: white url('Jcrop.gif') top left repeat;
+	background: white url('../images/Jcrop.gif') top left repeat;
 	/*
 	opacity: .5;
 	*filter:alpha(opacity=50);

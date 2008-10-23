@@ -96,6 +96,7 @@ class Photoblog extends Plugin
 	
 	public function action_handler_display_photoblog_js( $handler_vars )
 	{
+		$options = Options::get_group('pb');
 		header("content-type: application/x-javascript");
 		include('photoblog.js.php');
 		exit;
@@ -109,6 +110,31 @@ class Photoblog extends Plugin
 		return $admin_dir;
 	}
 	
+	public function filter_plugin_config( $actions, $plugin_id )
+	{
+		if ( $plugin_id == $this->plugin_id() ) {
+			$actions[] = _t('Configure');
+		}
+
+		return $actions;
+	}
+	
+	public function action_plugin_ui( $plugin_id, $action )
+	{
+		if ( $plugin_id == $this->plugin_id() ) {
+			if ( $action == _t( 'Configure' ) ) {
+				
+				$ui = new FormUI( strtolower( get_class( $this ) ) );
+				$ui->append( 'fieldset', 'pb_thumbnail', _t('Thumbnail Size') );
+				$ui->pb_thumbnail->append( 'text', 'pb_thumbnail_w', 'pb__thumbnail_w', _t('Width:') );
+				$ui->pb_thumbnail->append( 'text', 'pb_thumbnail_h', 'pb__thumbnail_h', _t('Height:') );
+				$ui->append( 'submit', 'save', _t('Save') );
+				$ui->out();
+			
+			}
+		}
+	}
+	
 }
 
 class FormControlMarqueeTool extends FormControl
@@ -116,11 +142,11 @@ class FormControlMarqueeTool extends FormControl
 	public function get($forvalidation = true)
 	{
 		return '
-		<div id="pb_container" style="position:relative;margin-left:auto;margin-right:auto;">
+		<div id="pb_container">
 			<div id="cropbox_container">
 			</div>
-			<div style="position:absolute;bottom:20px;right:25px;z-index:10000;text-align:center;">
-				<div id="preview_container" style="width:150px;height:150px;overflow:hidden;border:1px solid #FFF;">
+			<div id="pb_subcontainer">
+				<div id="preview_container">
 				</div>
 			</div>
 		</div>
