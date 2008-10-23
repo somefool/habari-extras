@@ -7,6 +7,7 @@ var windowOffset = { // Lets a gap between the Thickbox and browser borders so u
 	'width': 100,
 	'height': 100
 };
+var tb_pathToImage = '<?php echo $this->get_url() ?>/images/loadingAnimation.gif';
 
 $(document).ready(function() {
 	$('#pb_container').hide();
@@ -27,63 +28,62 @@ $(document).ready(function() {
 
 		originalImage = new Image();
 		originalImage.src = $('#photourl').val();
+		$(originalImage).load(function() {
+			$('#cropbox,#preview').attr('src', originalImage.src);
 
-		$('#cropbox,#preview').attr('src', originalImage.src);
+			windowSize = get_window_size();
+			var w = (windowSize.width - windowOffset.width), h = (windowSize.height - windowOffset.height);
+			var nw = originalImage.width, nh = originalImage.height;
+			if ((nw > w) && w > 0)
+			{
+				nw = w;
+				nh = (w / originalImage.width) * originalImage.height;
+			}
+			if ((nh > h) && h > 0)
+			{
+				nh = h;
+				nw = (h / originalImage.height) * originalImage.width;
+			}
+			xscale = originalImage.width / nw;
+			yscale = originalImage.height / nh;
+			$('#pb_container').width(nw).height(nh);
+			$('#preview_container').width(defaults.w).height(defaults.h);
 
-		windowSize = get_window_size();
-		var w = (windowSize.width - windowOffset.width),
-		h = (windowSize.height - windowOffset.height);
-		var nw = originalImage.width,
-		nh = originalImage.height;
-		if ((nw > w) && w > 0)
-		{
-			nw = w;
-			nh = (w / originalImage.width) * originalImage.height;
-		}
-		if ((nh > h) && h > 0)
-		{
-			nh = h;
-			nw = (h / originalImage.height) * originalImage.width;
-		}
-		xscale = originalImage.width / nw;
-		yscale = originalImage.height / nh;
-		$('#pb_container').width(nw).height(nh);
-		$('#preview_container').width(defaults.w).height(defaults.h);
+			selectc = {
+				"x": ((thumb.x / xscale > 0) ? (thumb.x / xscale) : 0),
+				"y": ((thumb.y / xscale > 0) ? (thumb.y / yscale) : 0),
+				"x2": ((thumb.x2 / xscale > 0) ? (thumb.x2 / xscale) : thumb.w),
+				"y2": ((thumb.y2 / xscale > 0) ? (thumb.y2 / yscale) : thumb.h)
+			}
 
-		selectc = {
-			"x": ((thumb.x / xscale > 0) ? (thumb.x / xscale) : 0),
-			"y": ((thumb.y / xscale > 0) ? (thumb.y / yscale) : 0),
-			"x2": ((thumb.x2 / xscale > 0) ? (thumb.x2 / xscale) : thumb.w),
-			"y2": ((thumb.y2 / xscale > 0) ? (thumb.y2 / yscale) : thumb.h)
-		}
+			$('#cropbox').Jcrop({
+				onChange: showPreview,
+				onSelect: showPreview,
+				aspectRatio: 1,
+				boxWidth: w,
+				boxHeight: h,
+				setSelect: [selectc.x, selectc.y, selectc.x2, selectc.y2]
+	        });
 
-		$('#cropbox').Jcrop({
-			onChange: showPreview,
-			onSelect: showPreview,
-			aspectRatio: 1,
-			boxWidth: w,
-			boxHeight: h,
-			setSelect: [selectc.x, selectc.y, selectc.x2, selectc.y2]
-        });
+			/* Viva el Thickbox hacking */
+			tb_show('<?php _e('Thumbnail selection ') ?>', '#TB_inline?height=' + nh + '&width=' + nw + '&inlineId=pb_container', false);
+			$('#pb_loadURL').blur();
+			$('#TB_closeAjaxWindow').replaceWith("<div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='<?php _e('Close') ?>'><?php _e('Close') ?></a> <input type='button' id='pb_setThumb' name='pb_setThumb' value='<?php _e('Set Position') ?>'></div>");
 
-		/* Viva el Thickbox hacking */
-		tb_show('<?php _e('Thumbnail selection ') ?>', '#TB_inline?height=' + nh + '&width=' + nw + '&inlineId=pb_container', false);
-		$('#pb_loadURL').blur();
-		$('#TB_closeAjaxWindow').replaceWith("<div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='<?php _e('Close') ?>'><?php _e('Close') ?></a> <input type='button' id='pb_setThumb' name='pb_setThumb' value='<?php _e('Set Position') ?>'></div>");
+			/* Have to wait for Thickbox to instantiate so jQuery binds to the right DOM objects */
+			$("#TB_closeWindowButton").click(tb_remove);
+			$('#pb_setThumb').click(function() {
+				/* We need the scales to convert coords to real size */
+				thumb.xscale = xscale;
+				thumb.yscale = yscale;
 
-		/* Have to wait for Thickbox to instantiate so jQuery binds to the right DOM objects */
-		$("#TB_closeWindowButton").click(tb_remove);
-		$('#pb_setThumb').click(function() {
-			/* We need the scales to convert coords to real size */
-			thumb.xscale = xscale;
-			thumb.yscale = yscale;
+				/* In case the thumbnail size changes */
+				thumb.w = defaults.w;
+				thumb.h = defaults.h;
 
-			/* In case the thumbnail size changes */
-			thumb.w = defaults.w;
-			thumb.h = defaults.h;
-
-			$('#pb_coords').val(encodeURIComponent(serialize(thumb)));
-			humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved !') ?>');
+				$('#pb_coords').val(encodeURIComponent(serialize(thumb)));
+				humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved !') ?>');
+			});
 		});
 	});
 	
