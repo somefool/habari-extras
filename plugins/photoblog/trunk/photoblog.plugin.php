@@ -33,7 +33,7 @@ class Photoblog extends Plugin
 		$form->content->tabindex = 4;
 		
 		$pb_wrapper= $form->append('wrapper', 'pb_wrapper');
-		$form->move_after( $pb_wrapper, $form->title );
+		$form->move_after( $pb_wrapper, ($form->silos instanceOf FormControlSilos) ? $form->silos : $form->title );
 		$photo_url = $pb_wrapper->append('text', 'photourl', 'null:null', _t('Photo URL'), 'admincontrol_photourl');
 		$photo_url->tabindex = 2;
 		

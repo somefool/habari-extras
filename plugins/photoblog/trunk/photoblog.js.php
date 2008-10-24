@@ -98,7 +98,7 @@ $(document).ready(function() {
 		use_as_large_photo: function(fileindex, fileobj) {set_photo(fileindex, fileobj);}
 	});
 	function set_photo(fileindex, fileobj) {
-		$('#photourl').val(fileobj.originalsecret);
+		$('#photourl').val(fileobj.originalsecret).focus();
 	}
 	<?php endif; ?>
 	<?php if (Plugins::is_loaded('Flickr Media Silo')): ?>
@@ -124,7 +124,7 @@ $(document).ready(function() {
 			fileobj_size = filesize;
 			fileobj_format = 'jpg';
 		}
-		$('#photourl').val('http://farm' + fileobj.farm + '.static.flickr.com/' + fileobj.server + '/' + fileobj.id + '_' + fileobj_secret + fileobj_size + fileobj_format);
+		$('#photourl').val('http://farm' + fileobj.farm + '.static.flickr.com/' + fileobj.server + '/' + fileobj.id + '_' + fileobj_secret + fileobj_size + fileobj_format).focus();
 	}
 	<?php endif; ?>
 });
