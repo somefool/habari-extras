@@ -13,7 +13,7 @@ class RSS extends Plugin {
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
+			'version' => '1.1',
 			'description' => 'Provides an RSS 2.0 feed for entries and comments.',
 			'license' => 'Apache License 2.0',
 		);
@@ -205,6 +205,49 @@ class RSS extends Plugin {
 		header( 'Content-Type: application/xml' );
 		echo $xml->asXML();
 		exit;
+	}
+	
+	/**
+	 * Returns the appropriate alternate feed based on the currently matched rewrite rule.
+	 *
+	 * @param mixed $return Incoming return value from other plugins
+	 * @param Theme $theme The current theme object
+	 * @return string Link to the appropriate alternate Atom feed
+	 */
+	public function theme_feed_rss_alternate( $theme )
+	{
+		$matched_rule = URL::get_matched_rule();
+		if ( is_object( $matched_rule ) ) {
+			// This is not a 404
+			$rulename = $matched_rule->name;
+		}
+		else {
+			// If this is a 404 and no rewrite rule matched the request
+			$rulename = '';
+		}
+		switch ( $rulename ) {
+			case 'display_entry':
+			case 'display_page':
+				return URL::get( 'rss_entry', array( 'slug' => Controller::get_var( 'slug' ) ) );
+				break;
+			case 'display_entries_by_tag':
+				return URL::get( 'rss_feed_tag', array( 'tag' => Controller::get_var( 'tag' ) ) );
+				break;
+			case 'display_home':
+			default:
+				return URL::get( 'rss_feed', array( 'index' => '1' ) );
+		}
+		return '';
+	}
+	
+	/**
+	 * Returns the permalink for this post's comments RSS feed
+	 * @return string The permalink of this post's comments RSS feed
+	 **/
+	public function filter_post_comment_feed_rss_link( $out, $post )
+	{
+		$content_type = Post::type_name( $post->content_type );
+		return URL::get( array( "rss_feed_{$content_type}_comments" ), $post, false );
 	}
 }
 ?>
