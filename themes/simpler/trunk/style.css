@@ -27,6 +27,13 @@ h1 {
 	float: left;
 	color: #d72;
 }
+
+#tagline {
+	float: left;
+	clear: both;
+	font-style: italic;
+}
+
 .draft {
 	background-color: #aaa;
 }

@@ -28,4 +28,5 @@
 	}
 ?>
 			</ul>
+			<p id="tagline"><?php Options::out( 'tagline' ); ?></p>
 		</div>
