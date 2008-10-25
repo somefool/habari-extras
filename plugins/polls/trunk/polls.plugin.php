@@ -30,7 +30,8 @@ class Polls extends Plugin {
 	}
 	
 	public	function action_ajax_ajaxpoll() {
-		$post = Post::get(array('content_type'=>Post::type('poll')));
+		$pollid = $_GET['pollid'];
+		$post = Post::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
 		$vote = $_GET['result'];
 		
 	
@@ -94,7 +95,8 @@ class Polls extends Plugin {
 	
 	//displaying the poll by this
 	//WIGET
-	public function theme_poll($theme, $pollid) {
+	public function theme_poll($theme, $pollid = null) {
+		
 		include 'wiget.php';
 	}
 	

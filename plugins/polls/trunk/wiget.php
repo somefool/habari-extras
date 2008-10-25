@@ -1,24 +1,31 @@
 <?php
-$post = Post::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
+//Getting result of of theme function
+Utils::debug($pollid);
+if ($pollid == null) { 
+$poll = Posts::Get(array('content_type' => Post::type('poll')));
+} elseif (is_int($pollid) === true) {
+$poll = Posts::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
+}
+
 $form = new FormUi(strtolower( get_class( $this ) ) );
 $array = array();
 $form->append('radio', 'entry', 'null:null', 'poll this');
-//Utils::debug($post);
+//Utils::debug($poll);
 
-if ( $post->info->entry1 != '') {
-	$array['entry1'] = $post->info->entry1;
+if ( $poll[0]->info->entry1 != '') {
+	$array['entry1'] = $poll[0]->info->entry1;
 }
-if ( $post->info->entry2 != '') {
-	$array['entry2'] = $post->info->entry2;
+if ( $poll[0]->info->entry2 != '') {
+	$array['entry2'] = $poll[0]->info->entry2;
 }
-if ( $post->info->entry3 != '') {
-	$array['entry3'] = $post->info->entry3;
+if ( $poll[0]->info->entry3 != '') {
+	$array['entry3'] = $poll[0]->info->entry3;
 }
-if ( $post->info->entry4 != '') {
-	$array['entry4'] = $post->info->entry4;
+if ( $poll[0]->info->entry4 != '') {
+	$array['entry4'] = $poll[0]->info->entry4;
 }
-if ( $post->info->entry5 != '') {
-	$array['entry5'] = $post->info->entry5;
+if ( $poll[0]->info->entry5 != '') {
+	$array['entry5'] = $poll[0]->info->entry5;
 }
 
 	$form->entry->options = $array;
@@ -26,7 +33,7 @@ if ( $post->info->entry5 != '') {
 
 
 <div id="main_poll">
-<span id="polltitle"><b> <?php echo $post->title; ?> </b></span>
+<span id="polltitle"><b> <?php echo $poll[0]->title; ?> </b></span>
 
 <?php if (!Session::get_set('votes', false)) { ?>
 	<div id="vote">
@@ -63,7 +70,7 @@ $('#veiw_results').click(function() {
 		$('#vote').css({display: "none"});
 		$('#results').css({display: "block"});
 		
-		$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null}, function(data) {
+		$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null, pollid: <?php echo $pollid ?>}, function(data) {
 		
 		$('#results').html(data);
 		
@@ -78,7 +85,7 @@ $('#votesubmitt').click(function() {
 	value = value.replace('entry','')
 	value = parseFloat(value);
 
-	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: value }, function(data) {
+	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: value, pollid: <?php echo $pollid ?> }, function(data) {
 		$('#results').html(data);
 		$('#results').show()
 		$('#vote').css({display: "none"});
@@ -96,7 +103,7 @@ $('#vote').hide();
 }
 
 function getresults() {
-	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null}, function(data) {
+	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null, pollid: <?php echo $pollid ?>}, function(data) {
 		
 		$('#results').html(data);
 		
@@ -121,6 +128,7 @@ $("#contentLoading").show();
 </script>
 <?php if (Session::get_set('votes', false)) { ?>
 <script type="text/javascript">
+
 lockdown()
 getresults()
 

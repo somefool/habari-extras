@@ -1,0 +1,8 @@
+Hi, Thank you for trying out my polling pluin.
+
+To call this plugin one should type in the theme:
+ 
+" <?php $theme->poll(arguments); ?> "
+
+So far, one can type the poll id to select individual posts, or leave the arguments blank to get the latest poll.
+
