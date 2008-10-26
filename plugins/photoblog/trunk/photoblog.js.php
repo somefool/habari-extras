@@ -12,24 +12,24 @@ var tb_pathToImage = '<?php echo $this->get_url() ?>/images/loadingAnimation.gif
 $(document).ready(function() {
 	$('#pb_container').hide();
 
-	thumb = eval('(' + decodeURIComponent($('#pb_coords').val()) + ')');
-	
-	if (thumb.w <= 0) { thumb.w = defaults.w; }
-	if (thumb.h <= 0) { thumb.h = defaults.h; }
-
     $('#pb_loadURL').click(function() {
-		if ($('#photourl').val() == "") {
+		if ($('#pb_photo_src').val() == "") {
 		    return false;
 		}
+		
+		thumb = eval('(' + decodeURIComponent($('#pb_coords').val()) + ')');
+
+		if (thumb.w <= 0) { thumb.w = defaults.w; }
+		if (thumb.h <= 0) { thumb.h = defaults.h; }
 
 		/* Cleaning old thumbnail, otherwise jCrop won't be clever */
-		$('#cropbox_container').empty().append('<img id="cropbox">');
-		$('#preview_container').empty().append('<img id="preview">');
+		$('#pb_cropbox_container').empty().append('<img id="pb_cropbox">');
+		$('#pb_preview_container').empty().append('<img id="pb_preview">');
 
 		originalImage = new Image();
-		originalImage.src = $('#photourl').val();
+		originalImage.src = $('#pb_photo_src').val();
 		$(originalImage).load(function() {
-			$('#cropbox,#preview').attr('src', originalImage.src);
+			$('#pb_cropbox,#pb_preview').attr('src', originalImage.src);
 
 			windowSize = get_window_size();
 			var w = (windowSize.width - windowOffset.width), h = (windowSize.height - windowOffset.height);
@@ -47,7 +47,7 @@ $(document).ready(function() {
 			xscale = originalImage.width / nw;
 			yscale = originalImage.height / nh;
 			$('#pb_container').width(nw).height(nh);
-			$('#preview_container').width(defaults.w).height(defaults.h);
+			$('#pb_preview_container').width(defaults.w).height(defaults.h);
 
 			selectc = {
 				"x": ((thumb.x / xscale > 0) ? (thumb.x / xscale) : 0),
@@ -56,7 +56,7 @@ $(document).ready(function() {
 				"y2": ((thumb.y2 / xscale > 0) ? (thumb.y2 / yscale) : thumb.h)
 			}
 
-			$('#cropbox').Jcrop({
+			$('#pb_cropbox').Jcrop({
 				onChange: showPreview,
 				onSelect: showPreview,
 				aspectRatio: 1,
@@ -73,14 +73,6 @@ $(document).ready(function() {
 			/* Have to wait for Thickbox to instantiate so jQuery binds to the right DOM objects */
 			$("#TB_closeWindowButton").click(tb_remove);
 			$('#pb_setThumb').click(function() {
-				/* We need the scales to convert coords to real size */
-				thumb.xscale = xscale;
-				thumb.yscale = yscale;
-
-				/* In case the thumbnail size changes */
-				thumb.w = defaults.w;
-				thumb.h = defaults.h;
-
 				$('#pb_coords').val(encodeURIComponent(serialize(thumb)));
 				humanMsg.displayMsg('<?php _e('Thumbnail position successfully saved !') ?>');
 			});
@@ -98,7 +90,7 @@ $(document).ready(function() {
 		use_as_large_photo: function(fileindex, fileobj) {set_photo(fileindex, fileobj);}
 	});
 	function set_photo(fileindex, fileobj) {
-		$('#photourl').val(fileobj.originalsecret).focus();
+		$('#pb_photo_src').val(fileobj.originalsecret).focus();
 	}
 	<?php endif; ?>
 	<?php if (Plugins::is_loaded('Flickr Media Silo')): ?>
@@ -124,7 +116,7 @@ $(document).ready(function() {
 			fileobj_size = filesize;
 			fileobj_format = 'jpg';
 		}
-		$('#photourl').val('http://farm' + fileobj.farm + '.static.flickr.com/' + fileobj.server + '/' + fileobj.id + '_' + fileobj_secret + fileobj_size + fileobj_format).focus();
+		$('#pb_photo_src').val('http://farm' + fileobj.farm + '.static.flickr.com/' + fileobj.server + '/' + fileobj.id + '_' + fileobj_secret + fileobj_size + fileobj_format).focus();
 	}
 	<?php endif; ?>
 });
@@ -138,7 +130,7 @@ function showPreview(c)
 	var rx = thumb.w / c.w;
 	var ry = thumb.h / c.h;
 
-	$('#preview').css({
+	$('#pb_preview').css({
 		width: Math.round(rx * originalImage.width) + 'px',
 		height: Math.round(ry * originalImage.height) + 'px',
 		marginLeft: '-' + Math.round(rx * c.x) + 'px',
@@ -148,6 +140,10 @@ function showPreview(c)
 	/* Tracking marquee position */
 	thumb.x = c.x;
 	thumb.y = c.y;
+	thumb.x2 = c.x2;
+	thumb.y2 = c.y2;
+	thumb.w2 = c.w;
+	thumb.h2 = c.h;
 }
 
 /*
