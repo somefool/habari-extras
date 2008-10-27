@@ -1,11 +1,11 @@
 Plugin: Woopra
 URL: http://www.awhitebox.com/woopra-plugin-for-habari
-Version: 0.4
+Version: 0.5
 Author: Ali B.
 
 Purpose 
 
-The Woopra plugin allows you to include Woopra's tracking code to the footer of your site without the need of editing footer.php of your template. It also lets you exclude the inclusion of the code for certain user of your site and to tag the visitors of your site if they are logged in.
+The Woopra plugin allows you to enable Woopra's tracking service for your site/blog. It also lets you exclude the inclusion of the code for certain users of your site and to tag visitors if they are logged in.
 
 Requirements 
 
@@ -19,8 +19,7 @@ Installation
 
 Configuration
 
-After activating the plugin, you'll need to specify your Site ID. You can obtain your site id from Woopra member area (http://www.woopra.com/members/).
-You can also specify whether you want to tag memebers of your site when they visit, check the 'Enabled' check box and decide what type of avatar you want Woopra to display for those visitors:
+If you have a woopra account, activating the plugin will enable Woopra tracking. You can also specify whether you want to tag memebers of your site when they visit, check the 'Enabled' check box and decide what type of avatar you want Woopra to display for those visitors:
 	*Disabled: No avatar is displayed
 	*Local user image: Habari has a field to specify the image URL for registered users, this option will set Woopra to display that image.
 	*Gravatar: Based on the registered user email, his/her Gravatar will be displayed in Woopra.
@@ -33,5 +32,6 @@ Uninstallation
 
 Changelog
 
+Version 0.5 - Removed site id from configuration and JS code per last Woopra engine update (http://tinyurl.com/woopra-update).
 Version 0.4 - Updated the configuration to work with the New FormUI. Now compatible with Habari 0.5 and 0.6-alpha (revision 2458).  
 Version 0.3 - Initial release
