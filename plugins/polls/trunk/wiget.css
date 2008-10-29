@@ -24,3 +24,16 @@ font-style: bold;
 margin-bottom: 10px;
 }
 
+ul#singlepoll_results li {
+border: solid #222222 3px;
+height: 30px;
+background: #555555;
+}
+
+#title {
+font-size: 30px;
+margin-left: auto;
+margin-right: auto;
+display: block;
+text-align: center;
+}

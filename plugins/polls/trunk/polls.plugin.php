@@ -8,64 +8,64 @@ class Polls extends Plugin {
 			'url' => 'www.bigsqueak.info',
 			'author' => 'luke',
 			'authorurl' => 'www.bigsqueak.info',
-			'licence' => 'umm....',
+			'licence' => 'Creative Commons Attribution-Share Alike 3.0',
 			'description' => 'A flexible polling plugin for habari'
 		);
 	}
 	
 	//initilization
 	public function action_init() {
-	Post::add_new_type('poll');
-	$this->add_template('wiget', dirname(__FILE__) . '/wiget.php');
-	Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
-	Stack::add( 'template_stylesheet', array(URL::get_from_filesystem(__FILE__) . '/wiget.css', 'screen'), 'pollwigitcss');
-
+		Post::add_new_type('poll');
+		$this->add_template('wiget', dirname(__FILE__) . '/wiget.php');
+		$this->add_template('poll.single', dirname(__FILE__) . '/poll.single.php');
+		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
+		Stack::add( 'template_stylesheet', array(URL::get_from_filesystem(__FILE__) . '/wiget.css', 'screen'), 'pollwigitcss');
+	
 	}
 	
 	//deactivate
 	public function action_plugin_deactivation() {
 		Post::deactivate_post_type('poll');
+		$this->remove_template('wiget', dirname(__FILE__) . '/wiget.php');
 		Stack::remove( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 		Stack::remove( 'template_stylesheet', array(URL::get_from_filesystem(__FILE__) . '/wiget.css', 'screen'), 'pollwigitcss');
+		$this->remove_template('poll.single', dirname(__FILE__) . '/poll.single.php');
 	}
 	
 	public	function action_ajax_ajaxpoll() {
 		$pollid = $_GET['pollid'];
-		$post = Post::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
 		$vote = $_GET['result'];
-		
-	
-		
+		$post = Post::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
+			
 		if ($vote == 1) {
-		$post->info->r1 ++;
+			$post->info->r1 ++;
 		}
 		if ($vote == 2) {
-		$post->info->r2 ++;
+			$post->info->r2 ++;
 		}
 		if ($vote == 3) {
-		$post->info->r3 ++;
+			$post->info->r3 ++;
 		}
 		if ($vote == 4) {
-		$post->info->r4 ++;
+			$post->info->r4 ++;
 		}
 		if ($vote == 5) {
-		$post->info->r5s ++;
+			$post->info->r5s ++;
 		}
 		if ($vote != 'null') {
-		//no vote, just veiw.
 		Session::add_to_set('votes', $post->id);
 		}
+		
 		$post->update();
 		?>
-		
-		<ul id="poll_results">
+	<ul id="poll_results">
 		<?php
 		
 		$votearray = array(1=>$post->info->r1, 2=>$post->info->r2, 3=>$post->info->r3, 4=>$post->info->r4, 5=>$post->info->r5);
 		$max = max($votearray);
 	
 		if ( $post->info->entry1 != '') { ?>
-		<label > <?php echo $post->info->entry1 ."(". $post->info->r1. ")"; ?> <li style='width: <?php echo 175*($post->info->r1/$max); ?>px'>  </li> </label>
+			<label > <?php echo $post->info->entry1 ."(". $post->info->r1. ")"; ?> <li style='width: <?php echo 175*($post->info->r1/$max); ?>px'>  </li> </label>
 		<?php
 		}
 		if ( $post->info->entry2 != '') { ?>
@@ -88,7 +88,7 @@ class Polls extends Plugin {
 		
 	
 		?>
-		</ul>
+	</ul>
 		<?php
 			
 	}
@@ -104,7 +104,6 @@ class Polls extends Plugin {
 	public function action_form_publish($form, $post) {
 	if($post->content_type == Post::type('poll')) {
 		
-		$form->content->remove();
 		$form-> silos->remove();
 		$form-> clearbutton->remove();
 		$form->title->caption = "Poll Name";
@@ -125,27 +124,23 @@ class Polls extends Plugin {
 	
 	public function action_publish_post($post, $form) {
 		if ($post->content_type == Post::type('poll')) {
-		$this->action_form_publish($form, $post);
+			$this->action_form_publish($form, $post);
 		
-		$post->info->entry1 = $form->entry1->value;
-		$post->info->entry2 = $form->entry2->value;
-		$post->info->entry3 = $form->entry3->value;
-		$post->info->entry4 = $form->entry4->value;
-		$post->info->entry5 = $form->entry5->value;
+			$post->info->entry1 = $form->entry1->value;
+			$post->info->entry2 = $form->entry2->value;
+			$post->info->entry3 = $form->entry3->value;
+			$post->info->entry4 = $form->entry4->value;
+			$post->info->entry5 = $form->entry5->value;
 		
-		$post->info->r1 = 0; 
-		$post->info->r2 = 0; 
-		$post->info->r3 = 0; 
-		$post->info->r4 = 0; 
-		$post->info->r5 = 0;
+			$post->info->r1 = 0; 
+			$post->info->r2 = 0; 
+			$post->info->r3 = 0; 
+			$post->info->r4 = 0; 
+			$post->info->r5 = 0;
 						
 		}
 	}
 	
-	public function action_ajax_novote() {
-	
-		Session::add_to_set('votes', $pollname, $key);
-	
-		}
+
 }
 ?>

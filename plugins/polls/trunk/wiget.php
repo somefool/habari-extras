@@ -33,7 +33,7 @@ if ( $poll[0]->info->entry5 != '') {
 
 
 <div id="main_poll">
-<span id="polltitle"><b> <?php echo $poll[0]->title; ?> </b></span>
+<span id="polltitle"> <a href="<?php echo $poll[0]->permalink ?>"> <b> <?php echo $poll[0]->title; ?> </b> </a></span>
 
 <?php if (!Session::get_set('votes', false)) { ?>
 	<div id="vote">

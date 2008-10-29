@@ -6,3 +6,10 @@ To call this plugin one should type in the theme:
 
 So far, one can type the poll id to select individual posts, or leave the arguments blank to get the latest poll.
 
+
+As of now, There is a default poll.single.php
+
+One can create that file in there theme that will override this.
+
+Use the demo in the polls plugin dir.
+
