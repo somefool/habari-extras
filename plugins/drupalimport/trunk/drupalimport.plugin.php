@@ -4,12 +4,10 @@ define( 'DRUPAL_IMPORT_BATCH', 100 );
 
 /**
  * Drupal Importer - Imports data from Drupal into Habari
- *
- * @package Habari
  */
 class DrupalImport extends Plugin implements Importer
 {
-	private $supported_importers = array ();
+	private $supported_importers = array();
 	
 	/**
 	 * Initialize plugin.
@@ -17,7 +15,7 @@ class DrupalImport extends Plugin implements Importer
 	 **/
 	public function action_init()
 	{
-		$this->supported_importers = array (_t( 'Drupal 5.x Database' ) );
+		$this->supported_importers = array( _t( 'Drupal 5.x Database' ) );
 	}
 	
 	/**
@@ -27,16 +25,7 @@ class DrupalImport extends Plugin implements Importer
 	 */
 	public function info()
 	{
-		return array (
-		  'name' => 'Drupal Importer',
-		  'version' => '0.1',
-		  'url' => 'http://habariproject.org/',
-		  'author' => 'Joshua Benner',
-		  'authorurl' => 'http://jbenner.net',
-		  'license' => 'Apache License 2.0',
-		  'description' => 'Import Drupal 5.x content.',
-		  'copyright' => '2008'
-		);
+		return array( 'name' => 'Drupal Importer', 'version' => '0.1', 'url' => 'http://habariproject.org/', 'author' => 'Joshua Benner', 'authorurl' => 'http://jbenner.net', 'license' => 'Apache License 2.0', 'description' => 'Import Drupal 5.x content.', 'copyright' => '2008' );
 	}
 	
 	/**
@@ -66,45 +55,46 @@ class DrupalImport extends Plugin implements Importer
 			return $stageoutput;
 		}
 		
-		$inputs = array ();
+		$inputs = array();
 		
 		// Validate input from various stages...
 		switch ( $stage ) {
-			case 1 :
+			case 1:
 				if ( isset( $_POST ) ) {
-					$valid_fields = array ('db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments' );
+					$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments' );
 					$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 					if ( $drupaldb = $this->drupal_connect( $inputs['db_host'], $inputs['db_name'], $inputs['db_user'], $inputs['db_pass'], $inputs['db_prefix'] ) ) {
 						$has_node_type = count( $drupaldb->get_results( "SHOW TABLES LIKE '{$inputs['db_prefix']}node_type'" ) );
-	          $has_menu = count( $drupaldb->get_results( "SHOW TABLES LIKE '{$inputs['db_prefix']}menu'" ) );
-	          if ($has_node_type && $has_menu) {
-	            $stage = 2;
-	          } else {
-	            $inputs['warning'] = _t( 'Specified database does not appear to be a Drupal 5.x database. Please enter connection values for a Drupal 5.x database.' );
-	          }
+						$has_menu = count( $drupaldb->get_results( "SHOW TABLES LIKE '{$inputs['db_prefix']}menu'" ) );
+						if ( $has_node_type && $has_menu ) {
+							$stage = 2;
+						}
+						else {
+							$inputs['warning'] = _t( 'Specified database does not appear to be a Drupal 5.x database. Please enter connection values for a Drupal 5.x database.' );
+						}
 					}
 					else {
 						$inputs['warning'] = _t( 'Could not connect to the Drupal database using the values supplied. Please correct them and try again.' );
 					}
 				}
 				break;
-			case 2 :
-        if ( isset( $_POST ) ) {
-          $valid_fields = array ('db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'entry_type', 'page_type', 'tag_vocab' );
-          $inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
+			case 2:
+				if ( isset( $_POST ) ) {
+					$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'entry_type', 'page_type', 'tag_vocab' );
+					$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 					// We could re-do the Drupal types/vocab lookup... is that really necessary?
 					$stage = 3;
-        }
+				}
 				break;
 		}
 		
 		// Based on the stage of the import we're on, do different things...
 		switch ( $stage ) {
-			case 1 :
-			default :
+			case 1:
+			default:
 				$output = $this->stage1( $inputs );
 				break;
-			case 2 :
+			case 2:
 				$output = $this->stage2( $inputs );
 				break;
 			case 3:
@@ -122,34 +112,34 @@ class DrupalImport extends Plugin implements Importer
 	 */
 	private function stage1($inputs)
 	{
-		$default_values = array ('db_name' => '', 'db_host' => 'localhost', 'db_user' => '', 'db_pass' => '', 'db_prefix' => '', 'import_comments' => 1, 'warning' => '' );
+		$default_values = array( 'db_name' => '', 'db_host' => 'localhost', 'db_user' => '', 'db_pass' => '', 'db_prefix' => '', 'import_comments' => 1, 'warning' => '' );
 		$inputs = array_merge( $default_values, $inputs );
 		extract( $inputs );
 		if ( $warning != '' ) {
 			$warning = "<p class=\"warning\">{$warning}</p>";
 		}
 		$output = <<< DRUPAL_IMPORT_STAGE1
-      <p>Habari will attempt to import from a Drupal 5.x Database.</p>
-      {$warning}
-      <p>Please provide the connection details for an existing Drupal 5.x database:</p>
-      <table>
-        <tr><td>Database Name</td><td><input type="text" name="db_name" value="{$db_name}"></td></tr>
-        <tr><td>Database Host</td><td><input type="text" name="db_host" value="{$db_host}"></td></tr>
-        <tr><td>Database User</td><td><input type="text" name="db_user" value="{$db_user}"></td></tr>
-        <tr><td>Database Password</td><td><input type="password" name="db_pass" value="{$db_pass}"></td></tr>
-        <tr><td>Table Prefix</td><td><input type="text" name="db_prefix" value="{$db_prefix}"></td></tr>
-      </table>
-      <input type="hidden" name="stage" value="1">
-      <p class="extras" style="border: solid 1px #ccc; padding: 5px;">
-        Extras - additional data from Drupal modules
-        <table>
-        <tr>
-        <td>Import comments</td>
-        <td><input type="checkbox" name="import_comments" value="1"></td>
-        </tr>
-        </table>
-      </p>
-      <p class="submit"><input type="submit" name="import" value="Import" /></p>
+			<p>Habari will attempt to import from a Drupal 5.x Database.</p>
+			{$warning}
+			<p>Please provide the connection details for an existing Drupal 5.x database:</p>
+			<table>
+				<tr><td>Database Name</td><td><input type="text" name="db_name" value="{$db_name}"></td></tr>
+				<tr><td>Database Host</td><td><input type="text" name="db_host" value="{$db_host}"></td></tr>
+				<tr><td>Database User</td><td><input type="text" name="db_user" value="{$db_user}"></td></tr>
+				<tr><td>Database Password</td><td><input type="password" name="db_pass" value="{$db_pass}"></td></tr>
+				<tr><td>Table Prefix</td><td><input type="text" name="db_prefix" value="{$db_prefix}"></td></tr>
+			</table>
+			<input type="hidden" name="stage" value="1">
+			<p class="extras" style="border: solid 1px #ccc; padding: 5px;">
+				Extras - additional data from Drupal modules
+				<table>
+				<tr>
+				<td>Import comments</td>
+				<td><input type="checkbox" name="import_comments" value="1"></td>
+				</tr>
+				</table>
+			</p>
+			<p class="submit"><input type="submit" name="import" value="Import" /></p>
 
 DRUPAL_IMPORT_STAGE1;
 		return $output;
@@ -177,31 +167,31 @@ DRUPAL_IMPORT_STAGE1;
 		$entry_options = $page_options = '<option value="">None</option>';
 		$vocab_options = '<option value="0">Do not import tags</option>';
 		foreach ( $drupal_types as $type ) {
-			$entry_options .= "\n".'<option value="'.$type->type.'"'.($entry_type == $type->type ? ' selected="selected" ' : '').'>'.$type->name.'</option>';
-			$page_options .= "\n".'<option value="'.$type->type.'"'.($page_type == $type->type ? ' selected="selected" ' : '').'>'.$type->name.'</option>';
+			$entry_options .= "\n" . '<option value="' . $type->type . '"' . ($entry_type == $type->type ? ' selected="selected" ' : '') . '>' . $type->name . '</option>';
+			$page_options .= "\n" . '<option value="' . $type->type . '"' . ($page_type == $type->type ? ' selected="selected" ' : '') . '>' . $type->name . '</option>';
 		}
 		foreach ( $drupal_vocabs as $vocab ) {
-			$vocab_options .= "\n".'<option value="'.$vocab->vid.'"'.($tag_vocab == $vocab->vid ? ' selected="selected" ' : '').'>'.$vocab->name.'</option>';
+			$vocab_options .= "\n" . '<option value="' . $vocab->vid . '"' . ($tag_vocab == $vocab->vid ? ' selected="selected" ' : '') . '>' . $vocab->name . '</option>';
 		}
 		$output = <<< DRUPAL_IMPORT_STAGE2
-		  <p>Habari will attempt to import from a Drupal 5.x Database.</p>
-      {$warning}
-      <p>Select the content types to import as entries and pages, and the vocabulary to import as tags:</p>
-      <table>
-        <tr><td>Entry Content Type</td><td><select name="entry_type">{$entry_options}</select></td></tr>
-        <tr><td>Page Content Type</td><td><select name="page_type">{$page_options}</select></td></tr>
-        <tr><td>Tag Vocabulary</td><td><select name="tag_vocab" >{$vocab_options}</td></tr>
-      </table>
-      <input type="hidden" name="stage" value="2">
-      <input type="hidden" name="db_host" value="{$db_host}">
-      <input type="hidden" name="db_name" value="{$db_name}">
-      <input type="hidden" name="db_user" value="{$db_user}">
-      <input type="hidden" name="db_pass" value="{$db_pass}">
-      <input type="hidden" name="db_prefix" value="{$db_prefix}">
-      <input type="hidden" name="import_comments" value="{$import_comments}">
-      <p class="submit"><input type="submit" name="import" value="Import" /></p>
+			<p>Habari will attempt to import from a Drupal 5.x Database.</p>
+			{$warning}
+			<p>Select the content types to import as entries and pages, and the vocabulary to import as tags:</p>
+			<table>
+				<tr><td>Entry Content Type</td><td><select name="entry_type">{$entry_options}</select></td></tr>
+				<tr><td>Page Content Type</td><td><select name="page_type">{$page_options}</select></td></tr>
+				<tr><td>Tag Vocabulary</td><td><select name="tag_vocab" >{$vocab_options}</td></tr>
+			</table>
+			<input type="hidden" name="stage" value="2">
+			<input type="hidden" name="db_host" value="{$db_host}">
+			<input type="hidden" name="db_name" value="{$db_name}">
+			<input type="hidden" name="db_user" value="{$db_user}">
+			<input type="hidden" name="db_pass" value="{$db_pass}">
+			<input type="hidden" name="db_prefix" value="{$db_prefix}">
+			<input type="hidden" name="import_comments" value="{$import_comments}">
+			<p class="submit"><input type="submit" name="import" value="Import" /></p>
 DRUPAL_IMPORT_STAGE2;
-    return $output;
+		return $output;
 	}
 	
 	/**
@@ -215,33 +205,33 @@ DRUPAL_IMPORT_STAGE2;
 	{
 		extract( $inputs );
 		
-		$ajax_url = URL::get( 'auth_ajax', array ('context' => 'drupal_import_users' ) );
+		$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'drupal_import_users' ) );
 		EventLog::log( sprintf( _t( 'Starting import from "%s"' ), $db_name ) );
-		Options::set( 'import_errors', array () );
+		Options::set( 'import_errors', array() );
 		
 		$output = <<< DRUPAL_IMPORT_STAGE3
-      <p>Import In Progress</p>
-      <div id="import_progress">Starting Import...</div>
-      <script type="text/javascript">
-      // A lot of ajax stuff goes here.
-      $( document ).ready( function(){
-        $( '#import_progress' ).load(
-          "{$ajax_url}",
-          {
-            db_host: "{$db_host}",
-            db_name: "{$db_name}",
-            db_user: "{$db_user}",
-            db_pass: "{$db_pass}",
-            db_prefix: "{$db_prefix}",
-            import_comments: "{$import_comments}",
-            entry_type: "{$entry_type}",
-            page_type: "{$page_type}",
-            tag_vocab: "{$tag_vocab}",
-            postindex: 0
-          }
-         );
-      } );
-      </script>
+			<p>Import In Progress</p>
+			<div id="import_progress">Starting Import...</div>
+			<script type="text/javascript">
+			// A lot of ajax stuff goes here.
+			$( document ).ready( function(){
+				$( '#import_progress' ).load(
+					"{$ajax_url}",
+					{
+						db_host: "{$db_host}",
+						db_name: "{$db_name}",
+						db_user: "{$db_user}",
+						db_pass: "{$db_pass}",
+						db_prefix: "{$db_prefix}",
+						import_comments: "{$import_comments}",
+						entry_type: "{$entry_type}",
+						page_type: "{$page_type}",
+						tag_vocab: "{$tag_vocab}",
+						postindex: 0
+					}
+				 );
+			} );
+			</script>
 DRUPAL_IMPORT_STAGE3;
 		return $output;
 	}
@@ -277,7 +267,7 @@ DRUPAL_IMPORT_STAGE3;
 	 */
 	public function action_auth_ajax_drupal_import_posts($handler)
 	{
-		$valid_fields = array ('db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'postindex', 'entry_type', 'page_type', 'tag_vocab' );
+		$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'postindex', 'entry_type', 'page_type', 'tag_vocab' );
 		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 		extract( $inputs );
 		
@@ -287,7 +277,7 @@ DRUPAL_IMPORT_STAGE3;
 			$min = $postindex * DRUPAL_IMPORT_BATCH + ($postindex == 0 ? 0 : 1);
 			$max = min( ($postindex + 1) * DRUPAL_IMPORT_BATCH, $postcount );
 			
-			$user_map = array ();
+			$user_map = array();
 			$userinfo = DB::table( 'userinfo' );
 			$user_info = DB::get_results( "SELECT user_id, value FROM {$userinfo} WHERE name= 'drupal_uid';" );
 			foreach ( $user_info as $info ) {
@@ -297,14 +287,14 @@ DRUPAL_IMPORT_STAGE3;
 			echo "<p>Importing posts {$min}-{$max} of {$postcount}.</p>";
 			$posts = $drupaldb->get_results( "
 				SELECT
-				  n.nid,
-				  nr.body as content,
-				  n.title,
-				  n.uid as user_id,
-				  FROM_UNIXTIME( n.created ) as pubdate,
-				  FROM_UNIXTIME( n.changed ) as updated,
-				  n.status as post_status,
-				  n.type as post_type
+					n.nid,
+					nr.body as content,
+					n.title,
+					n.uid as user_id,
+					FROM_UNIXTIME( n.created ) as pubdate,
+					FROM_UNIXTIME( n.changed ) as updated,
+					n.status as post_status,
+					n.type as post_type
 				FROM {$db_prefix}node AS n
 				INNER JOIN {$db_prefix}node_revisions AS nr ON (nr.vid = n.vid)
 				ORDER BY n.nid DESC
@@ -316,11 +306,11 @@ DRUPAL_IMPORT_STAGE3;
 					continue;
 				}
 				
-				if ($tag_vocab) {
-				  $tags = $drupaldb->get_column( "SELECT DISTINCT td.name
-				    FROM {$db_prefix}term_node AS tn
-				    INNER JOIN {$db_prefix}term_data AS td ON (td.tid = tn.tid AND td.vid = {$tag_vocab})
-				    WHERE tn.nid = {$post->nid}" );
+				if ( $tag_vocab ) {
+					$tags = $drupaldb->get_column( "SELECT DISTINCT td.name
+						FROM {$db_prefix}term_node AS tn
+						INNER JOIN {$db_prefix}term_data AS td ON (td.tid = tn.tid AND td.vid = {$tag_vocab})
+						WHERE tn.nid = {$post->nid}" );
 				}
 				else {
 					$tags = array();
@@ -328,90 +318,90 @@ DRUPAL_IMPORT_STAGE3;
 				
 				$post_array = $post->to_array();
 				switch ( $post_array['post_status'] ) {
-					case '1' :
+					case '1':
 						$post_array['status'] = Post::status( 'published' );
 						break;
-					default :
+					default:
 						$post_array['status'] = Post::status( 'draft' );
 						break;
 				}
 				unset( $post_array['post_status'] );
 				
 				switch ( $post_array['post_type'] ) {
-					case $entry_type :
+					case $entry_type:
 						$post_array['content_type'] = Post::type( 'entry' );
 						break;
-					case $page_type :
+					case $page_type:
 						$post_array['content_type'] = Post::type( 'page' );
 						break;
 				}
 				unset( $post_array['post_type'] );
 				
-				$post_array['content'] = preg_replace('/<!--\s*break\s*-->/', '<!--more-->', $post_array['content']);
+				$post_array['content'] = preg_replace( '/<!--\s*break\s*-->/', '<!--more-->', $post_array['content'] );
 				
 				$p = new Post( $post_array );
 				$p->user_id = $user_map[$p->user_id];
 				$p->tags = $tags;
 				$p->info->drupal_nid = $post_array['nid']; // Store the Drupal post id in the post_info table for later
-				$p->exclude_fields( array('nid') );
-
+				$p->exclude_fields( array( 'nid' ) );
+				
 				try {
 					$p->insert();
 				}
 				catch ( Exception $e ) {
-					EventLog::log( $e->getMessage(), 'err', null, null, print_r( array ($p, $e ), 1 ) );
+					EventLog::log( $e->getMessage(), 'err', null, null, print_r( array( $p, $e ), 1 ) );
 					$errors = Options::get( 'import_errors' );
 					$errors[] = $p->title . ' : ' . $e->getMessage();
 					Options::set( 'import_errors', $errors );
 				}
 			}
 			if ( $max < $postcount ) {
-				$ajax_url = URL::get( 'auth_ajax', array ('context' => 'drupal_import_posts' ) );
+				$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'drupal_import_posts' ) );
 				$postindex ++;
 				
 				echo <<< DRUPAL_IMPORT_AJAX1
-          <script type="text/javascript">
-          $( '#import_progress' ).load(
-            "{$ajax_url}",
-            {
-              db_host: "{$db_host}",
-              db_name: "{$db_name}",
-              db_user: "{$db_user}",
-              db_pass: "{$db_pass}",
-              db_prefix: "{$db_prefix}",
-              import_comments: "{$import_comments}",
-              entry_type: "{$entry_type}",
-              page_type: "{$page_type}",
-              tag_vocab: "{$tag_vocab}",
-              postindex: {$postindex}
-            }
-           );
+					<script type="text/javascript">
+					$( '#import_progress' ).load(
+						"{$ajax_url}",
+						{
+							db_host: "{$db_host}",
+							db_name: "{$db_name}",
+							db_user: "{$db_user}",
+							db_pass: "{$db_pass}",
+							db_prefix: "{$db_prefix}",
+							import_comments: "{$import_comments}",
+							entry_type: "{$entry_type}",
+							page_type: "{$page_type}",
+							tag_vocab: "{$tag_vocab}",
+							postindex: {$postindex}
+						}
+					 );
 
-        </script>
+				</script>
 DRUPAL_IMPORT_AJAX1;
 			}
 			else {
-				$ajax_url = URL::get( 'auth_ajax', array ('context' => 'drupal_import_comments' ) );
+				$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'drupal_import_comments' ) );
 				
 				echo <<< DRUPAL_IMPORT_AJAX2
-          <script type="text/javascript">
-          $( '#import_progress' ).load(
-            "{$ajax_url}",
-            {
-              db_host: "{$db_host}",
-              db_name: "{$db_name}",
-              db_user: "{$db_user}",
-              db_pass: "{$db_pass}",
-              db_prefix: "{$db_prefix}",
-              import_comments: "{$import_comments}",
-              entry_type: "{$entry_type}",
-              page_type: "{$page_type}",
-              tag_vocab: "{$tag_vocab}",
-              commentindex: 0
-            }
-           );
+					<script type="text/javascript">
+					$( '#import_progress' ).load(
+						"{$ajax_url}",
+						{
+							db_host: "{$db_host}",
+							db_name: "{$db_name}",
+							db_user: "{$db_user}",
+							db_pass: "{$db_pass}",
+							db_prefix: "{$db_prefix}",
+							import_comments: "{$import_comments}",
+							entry_type: "{$entry_type}",
+							page_type: "{$page_type}",
+							tag_vocab: "{$tag_vocab}",
+							commentindex: 0
+						}
+					 );
 
-        </script>
+				</script>
 DRUPAL_IMPORT_AJAX2;
 			
 			}
@@ -431,7 +421,7 @@ DRUPAL_IMPORT_AJAX2;
 	 */
 	public function action_auth_ajax_drupal_import_users($handler)
 	{
-		$valid_fields = array ('db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'userindex', 'entry_type', 'page_type', 'tag_vocab' );
+		$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'userindex', 'entry_type', 'page_type', 'tag_vocab' );
 		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 		extract( $inputs );
 		$drupaldb = $this->drupal_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
@@ -460,40 +450,40 @@ DRUPAL_IMPORT_AJAX2;
 						// This should probably remain commented until we implement ACL more,
 						// or any imported user will be able to log in and edit stuff
 						//$user->password = '{MD5}' . $user->password;
-						$user->exclude_fields( array ('uid', 'drupal_uid' ) );
+						$user->exclude_fields( array( 'uid', 'drupal_uid' ) );
 						$user->insert();
 						$usercount ++;
 					}
 					catch ( Exception $e ) {
-						EventLog::log( $e->getMessage(), 'err', null, null, print_r( array ($user, $e ), 1 ) );
+						EventLog::log( $e->getMessage(), 'err', null, null, print_r( array( $user, $e ), 1 ) );
 						$errors = Options::get( 'import_errors' );
 						$errors[] = $user->username . ' : ' . $e->getMessage();
 						Options::set( 'import_errors', $errors );
 					}
 				}
 			}
-			$ajax_url = URL::get( 'auth_ajax', array ('context' => 'drupal_import_posts' ) );
+			$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'drupal_import_posts' ) );
 			echo <<< DRUPAL_IMPORT_USERS1
-      <script type="text/javascript">
-      // A lot of ajax stuff goes here.
-      $( document ).ready( function(){
-        $( '#import_progress' ).load(
-          "{$ajax_url}",
-          {
-            db_host: "{$db_host}",
-            db_name: "{$db_name}",
-            db_user: "{$db_user}",
-            db_pass: "{$db_pass}",
-            db_prefix: "{$db_prefix}",
-            import_comments: "{$import_comments}",
-            entry_type: "{$entry_type}",
-            page_type: "{$page_type}",
-            tag_vocab: "{$tag_vocab}",
-            postindex: 0
-          }
-         );
-      } );
-      </script>
+			<script type="text/javascript">
+			// A lot of ajax stuff goes here.
+			$( document ).ready( function(){
+				$( '#import_progress' ).load(
+					"{$ajax_url}",
+					{
+						db_host: "{$db_host}",
+						db_name: "{$db_name}",
+						db_user: "{$db_user}",
+						db_pass: "{$db_pass}",
+						db_prefix: "{$db_prefix}",
+						import_comments: "{$import_comments}",
+						entry_type: "{$entry_type}",
+						page_type: "{$page_type}",
+						tag_vocab: "{$tag_vocab}",
+						postindex: 0
+					}
+				 );
+			} );
+			</script>
 DRUPAL_IMPORT_USERS1;
 		}
 		else {
@@ -510,7 +500,7 @@ DRUPAL_IMPORT_USERS1;
 	 */
 	public function action_auth_ajax_drupal_import_comments($handler)
 	{
-		$valid_fields = array ('db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'commentindex', 'entry_type', 'page_type', 'tag_vocab' );
+		$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'commentindex', 'entry_type', 'page_type', 'tag_vocab' );
 		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
 		extract( $inputs );
 		$drupaldb = $this->drupal_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
@@ -530,22 +520,23 @@ DRUPAL_IMPORT_USERS1;
 			if ( $import_comments ) {
 				$comments = $drupaldb->get_results( "
 					SELECT
-					  c.nid as drupal_post_nid,
-					  c.comment as content,
-					  c.name,
-					  c.mail as email,
-					  c.homepage as url,
-					  INET_ATON( c.hostname ) as ip,
-					  c.status,
-					  FROM_UNIXTIME( c.timestamp ) as date
+						c.nid as drupal_post_nid,
+						c.comment as content,
+						c.name,
+						c.mail as email,
+						c.homepage as url,
+						INET_ATON( c.hostname ) as ip,
+						c.status,
+						FROM_UNIXTIME( c.timestamp ) as date
 					FROM {$db_prefix}comments AS c
 					INNER JOIN {$db_prefix}node AS n on ( n.nid = c.nid )
-					LIMIT {$min}, " . DRUPAL_IMPORT_BATCH, array (), 'Comment' );
-			} else {
+					LIMIT {$min}, " . DRUPAL_IMPORT_BATCH, array(), 'Comment' );
+			}
+			else {
 				$comments = array();
 			}
-
-      foreach ( $comments as $comment ) {
+			
+			foreach ( $comments as $comment ) {
 				$comment->type = Comment::COMMENT;
 				$comment->status = $comment->status == '0' ? 1 : 0;
 				$carray = $comment->to_array();
@@ -565,7 +556,7 @@ DRUPAL_IMPORT_USERS1;
 						$c->insert();
 					}
 					catch ( Exception $e ) {
-						EventLog::log( $e->getMessage(), 'err', null, null, print_r( array ($c, $e ), 1 ) );
+						EventLog::log( $e->getMessage(), 'err', null, null, print_r( array( $c, $e ), 1 ) );
 						$errors = Options::get( 'import_errors' );
 						$errors[] = $e->getMessage();
 						Options::set( 'import_errors', $errors );
@@ -574,28 +565,28 @@ DRUPAL_IMPORT_USERS1;
 			}
 			
 			if ( $max < $commentcount ) {
-				$ajax_url = URL::get( 'auth_ajax', array ('context' => 'drupal_import_comments' ) );
+				$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'drupal_import_comments' ) );
 				$commentindex ++;
 				
 				echo <<< DRUPAL_IMPORT_AJAX1
-          <script type="text/javascript">
-          $( '#import_progress' ).load(
-            "{$ajax_url}",
-            {
-              db_host: "{$db_host}",
-              db_name: "{$db_name}",
-              db_user: "{$db_user}",
-              db_pass: "{$db_pass}",
-              db_prefix: "{$db_prefix}",
-              import_comments: "{$import_comments}",
-              entry_type: "{$entry_type}",
-              page_type: "{$page_type}",
-              tag_vocab: "{$tag_vocab}",
-              commentindex: {$commentindex}
-            }
-           );
+					<script type="text/javascript">
+					$( '#import_progress' ).load(
+						"{$ajax_url}",
+						{
+							db_host: "{$db_host}",
+							db_name: "{$db_name}",
+							db_user: "{$db_user}",
+							db_pass: "{$db_pass}",
+							db_prefix: "{$db_prefix}",
+							import_comments: "{$import_comments}",
+							entry_type: "{$entry_type}",
+							page_type: "{$page_type}",
+							tag_vocab: "{$tag_vocab}",
+							commentindex: {$commentindex}
+						}
+					 );
 
-        </script>
+				</script>
 DRUPAL_IMPORT_AJAX1;
 			}
 			else {
@@ -622,5 +613,3 @@ DRUPAL_IMPORT_AJAX1;
 	}
 
 }
-
-?>
