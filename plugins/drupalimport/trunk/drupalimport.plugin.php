@@ -118,6 +118,7 @@ class DrupalImport extends Plugin implements Importer
 		if ( $warning != '' ) {
 			$warning = "<p class=\"warning\">{$warning}</p>";
 		}
+		$import_comments_checked = $import_comments ? ' checked="checked"' : '';
 		$output = <<< DRUPAL_IMPORT_STAGE1
 			<p>Habari will attempt to import from a Drupal 5.x Database.</p>
 			{$warning}
@@ -135,7 +136,7 @@ class DrupalImport extends Plugin implements Importer
 				<table>
 				<tr>
 				<td>Import comments</td>
-				<td><input type="checkbox" name="import_comments" value="1"></td>
+				<td><input type="checkbox" name="import_comments" value="1"{$import_comments_checked}></td>
 				</tr>
 				</table>
 			</p>
