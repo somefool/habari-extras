@@ -1,27 +1,53 @@
-$(document).ready(function() {
-	var preview = $('#comment-preview');
-	
-	$('#commentform input[type=text], #commentform textarea').keyup(function() {
-		var data = false;
-		$('#commentform input[type=text], #commentform textarea').each(function() {
-			if($(this).val() != '') {
-				data = true;
-				$('.' + $(this).attr('id') + 'holder').text($(this).val());
-				$('.' + $(this).attr('id') + 'container').show();
+commentPreview= {
+	init: function() {
+		commentPreview.preview= $('#comment-preview');
+		commentPreview.form= $('#commentform');
+		commentPreview.fields= $('input[type=text], #commentform textarea', commentPreview.form);
+		commentPreview.time= 300;
+		
+		if(commentPreview.preview.length == 0) return;
+		
+		commentPreview.fields.keyup(function() {
+			commentPreview.test();
+		});
+		
+		commentPreview.preview.hide();
+		
+	},
+	test: function() {
+		show= false;
 				
-				if($('.' + $(this).attr('id') + 'holder').hasClass('urlholder')) {
-					$('.' + $(this).attr('id') + 'holder').attr('href', $(this).val())
+		commentPreview.fields.each(function() {
+			el= $(this);
+			
+			holder= $('.' + el.attr('id') + 'holder');
+			container= $('.' + el.attr('id') + 'container');
+			
+			if(el.val() != '') {
+				
+				holder.text($(this).val());
+				container.slideDown(commentPreview.time / 2);
+				
+				if(holder.hasClass('urlholder')) {
+					holder.attr('href', $(this).val())
 				}
 				
+				show= true;
 			} else {
-				$('.' + $(this).attr('id') + 'container').hide();
+				container.slideUp(commentPreview.time / 2);
 			}
 		});
 		
-		if(data) {
-			preview.slideDown(300);
+		if(show) {
+			commentPreview.preview.slideDown(commentPreview.time);
 		} else {
-			preview.slideUp(300);
+			commentPreview.preview.slideUp(commentPreview.time);
 		}
-	});
+		
+		return;
+	}
+}
+
+$(document).ready(function() {
+	commentPreview.init();
 });
