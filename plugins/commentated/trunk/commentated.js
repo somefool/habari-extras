@@ -2,7 +2,7 @@ commentPreview= {
 	init: function() {
 		commentPreview.preview= $('#comment-preview');
 		commentPreview.form= $('#commentform');
-		commentPreview.fields= $('input[type=text], #commentform textarea', commentPreview.form);
+		commentPreview.fields= $('input[type=text], textarea', commentPreview.form);
 		commentPreview.time= 300;
 		
 		if(commentPreview.preview.length == 0) return;
