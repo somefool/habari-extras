@@ -22,10 +22,10 @@ commentPreview= {
 			
 			holder= $('.' + el.attr('id') + 'holder');
 			container= $('.' + el.attr('id') + 'container');
-			
+						
 			if(el.val() != '') {
 				
-				holder.text($(this).val());
+				holder.html($(this).val());
 				container.slideDown(commentPreview.time / 2);
 				
 				if(holder.hasClass('urlholder')) {
