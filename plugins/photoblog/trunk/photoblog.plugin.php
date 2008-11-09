@@ -28,6 +28,13 @@ class Photoblog extends Plugin
 		}
 	}
 	
+	function action_plugin_deactivation( $plugin_file )
+	{
+		if( Plugins::id_from_file( __FILE__ ) == Plugins::id_from_file( $plugin_file  ) ) {
+			Post::deactivate_post_type( 'photo' );
+		}
+	}
+
 	public function filter_post_photo( $out, $post )
 	{
 		$photo = new stdClass();
