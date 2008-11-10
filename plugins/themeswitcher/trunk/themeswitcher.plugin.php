@@ -128,9 +128,9 @@ class ThemeSwitcher extends Plugin
 					$ts_s = $ui->append( 'select', 'selected_themes', 'themeswitcher__selected_themes', 'Select themes to offer:' );
 					$ts_s->multiple= true;
 					$ts_s->options =$themes;
-					$twitter_show = $ui->append( 'select', 'show', 'themeswitcher__show', 
+					$ts_y = $ui->append( 'select', 'show', 'themeswitcher__show', 
 						_t('If not showing with $theme->switcher() always show in footer: ') );
-					$twitter_show->options = array( '0' => _t('No'), '1' => _t('Yes') );
+					$ts_y->options = array( '0' => _t('No'), '1' => _t('Yes') );
 					$ui->append( 'submit', 'save', 'Save' );
 					$ui->out();
 					break;
