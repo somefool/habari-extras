@@ -2,6 +2,11 @@
 
 /**
  * ThemeSwitcher - Allows visitors to change the theme of the site.
+ *
+ * Usage: http://domain.com/?theme_dir=themedir or
+ *        add <?php $theme->switcher(); ?> somewere.
+ *
+ *
  */
 
 class ThemeSwitcher extends Plugin
@@ -28,38 +33,37 @@ class ThemeSwitcher extends Plugin
 		);
 	}
 	
-	function theme_header() {
-		echo '<script src="' . Site::get_url('scripts') . '/jquery.js" type="text/javascript"></script>';
-		echo <<< HEADER
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("input[@name='themeswitcher_submit']").hide();
-		$("select[@name='theme_dir']").change( function() {
-			$("form[@name='themeswitcher']").submit();
-		});
-	});
-</script>
-
-HEADER;
-	}
-	
 	function action_init()
 	{
-		if (!empty($_GET['theme_dir']) || !empty($_POST['theme_dir'])) {
-			$new_theme_dir= empty($_GET['theme_dir']) ? $_POST['theme_dir'] : $_GET['theme_dir'];
+		if ( !empty($_GET['theme_dir'] ) || !empty( $_POST['theme_dir'] ) ) {
+			$new_theme_dir= empty( $_GET['theme_dir'] ) ? $_POST['theme_dir'] : $_GET['theme_dir'];
 			$all_themes= Themes::get_all();
-			if ( array_key_exists( $new_theme_dir, $all_themes ) ) {				
-				if (!isset($_COOKIE['theme_dir']) || (isset($_COOKIE['theme_dir']) && ($_COOKIE['theme_dir'] != $new_theme_dir))) {					
-					$_COOKIE['theme_dir']= $new_theme_dir; // Without this, the cookie isn't get in time to change the theme NOW.
+			if ( array_key_exists( $new_theme_dir, $all_themes ) ) {			
+				if ( !isset($_COOKIE['theme_dir'] ) || ( isset($_COOKIE['theme_dir'] ) && ( $_COOKIE['theme_dir'] != $new_theme_dir ) ) ) {				
+					$_COOKIE['theme_dir'] = $new_theme_dir; // Without this, the cookie isn't get in time to change the theme NOW.
 					setcookie( 'theme_dir', $new_theme_dir );
 				}
 			}
 		}
 		
-		$this->add_template('switcher', dirname(__FILE__) . '/themeswitcher.php');
+		$this->add_template( 'switcher', dirname( __FILE__ ) . '/themeswitcher.php' );
 	}
+	
+	
+	/**
+	 * Sets default to always show themeswitcher in footer if not using $theme->swithcer();
+	 **/
 
+	public function action_plugin_activation( $file )
+	{
+		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
+			if ( Options::get( 'themeswitcher__show' ) == null ) {
+				Options::set( 'themeswitcher__show', 1 );
+			}
+			
+		}
+	}
+	
 	/**
 	 * Call $theme->switcher() in your theme to display the template where you want.
 	 */
@@ -72,9 +76,10 @@ HEADER;
 	
 	/**
 	 * Failsafe, if $theme->switcher() was not called, display the template in the footer.
+	 * If you enabled it.
 	 */
 	function theme_footer( $theme ) {
-		if (!$this->shown) {			
+		if (!$this->shown && Options::get( 'themeswitcher__show')) {			
 			$this->shown= true;
 			return $theme->fetch('switcher');
 		}
@@ -89,6 +94,7 @@ HEADER;
 			return $value;
 		}
 	}
+
 	
 	/**
 	 * Add our menu to the FormUI for plugins.
@@ -99,7 +105,7 @@ HEADER;
 	 */
 	public function filter_plugin_config( $actions, $plugin_id ) {
 		if ( $plugin_id == $this->plugin_id ) { 
-			$actions[]= 'Configure';
+			$actions[] = 'Configure';
 		}
 		
 		return $actions;
@@ -116,13 +122,16 @@ HEADER;
 		if ( $plugin_id == $this->plugin_id ) {
 			switch ( $action ) {
 				case 'Configure':
-					$themes= array_keys(Themes::get_all_data());
-					$themes= array_combine($themes, $themes);
-					$ui= new FormUI( 'themeswitcher' );
-					$ts_s= $ui->append('select', 'selected_themes', 'themeswitcher__selected_themes', 'Select themes to offer:');
+					$themes = array_keys( Themes::get_all_data() );
+					$themes = array_combine( $themes, $themes );
+					$ui = new FormUI( 'themeswitcher' );
+					$ts_s = $ui->append( 'select', 'selected_themes', 'themeswitcher__selected_themes', 'Select themes to offer:' );
 					$ts_s->multiple= true;
 					$ts_s->options =$themes;
-					$ui->append('submit', 'save', 'Save');
+					$twitter_show = $ui->append( 'select', 'show', 'themeswitcher__show', 
+						_t('If not showing with $theme->switcher() always show in footer: ') );
+					$twitter_show->options = array( '0' => _t('No'), '1' => _t('Yes') );
+					$ui->append( 'submit', 'save', 'Save' );
 					$ui->out();
 					break;
 			}
