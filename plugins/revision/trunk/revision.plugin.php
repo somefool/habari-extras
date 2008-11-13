@@ -21,7 +21,7 @@ class Revision extends Plugin
 	{
 		return array(
 			'name' => 'Revision',
-			'version' => '0.01',
+			'version' => '0.02',
 			'url' => 'http://ayu.commun.jp/habari-postrevision',
 			'author' => 'ayunyan',
 			'authorurl' => 'http://ayu.commun.jp/',
@@ -141,7 +141,7 @@ class Revision extends Plugin
 		$post = Posts::get( array( 'id' => $handler->handler_vars['revision_id'], 'fetch_fn' => 'get_row' ) );
 		$theme->assign( 'post', $post );
 
-		$theme->assign( 'revisions', Posts::get( array( 'info' => array( 'revision_post_id' => $post->info->revision_post_id ), 'orderby' => 'updated DESC' ) ) );
+		$theme->assign( 'revisions', Posts::get( array( 'info' => array( 'revision_post_id' => $post->info->revision_post_id ), 'orderby' => 'modified DESC', 'nolimit' => true ) ) );
 
 		$theme->display( 'revision' );
 		exit;
@@ -177,7 +177,7 @@ class Revision extends Plugin
 		$post->content = $revision->content;
 		$post->update();
 
-		Utils::redirect( URL::get( 'admin', 'page=publish&slug=' . $post->slug ) );
+		Utils::redirect( URL::get( 'admin', 'page=publish&id=' . $post->id ) );
 	}
 
 	/**
@@ -204,7 +204,7 @@ class Revision extends Plugin
 		$content_diff = RevisionDiff::format_diff( $old_post->content, $new_post->content );
         $theme->assign( 'content_diff', $content_diff );
 
-		$theme->assign( 'revisions', Posts::get( array( 'info' => array( 'revision_post_id' => $old_post->info->revision_post_id ), 'orderby' => 'updated DESC' ) ) );
+		$theme->assign( 'revisions', Posts::get( array( 'info' => array( 'revision_post_id' => $old_post->info->revision_post_id ), 'orderby' => 'modified DESC', 'nolimit' => true ) ) );
 		$theme->display('revision_diff');
 		exit;
 	}
@@ -219,8 +219,8 @@ class Revision extends Plugin
 	public function filter_adminhandler_post_loadplugins_main_menu( $mainmenu )
 	{
 		$post_type_id = Post::type( 'revision' );
-		unset( $mainmenu['create_' . $post_type_id] );
-		unset( $mainmenu['manage_' . $post_type_id] );
+		unset( $mainmenu['create']['submenu']['create_' . $post_type_id] );
+		unset( $mainmenu['manage']['submenu']['manage_' . $post_type_id] );
 		return $mainmenu;
 	}
 
@@ -231,25 +231,27 @@ class Revision extends Plugin
 	 * @param array
 	 * @return array
 	 */
-	public function filter_publish_controls( $controls, $post )
+	public function action_form_publish( $controls, $post )
 	{
 		if ( empty( $post->id ) ) return $controls;
 
-		$rev_posts = Posts::get( array( 'info' => array( 'revision_post_id' => $post->id ), 'orderby' => 'updated DESC' ) );
-		ob_start();
-?>
-<div class="container">
-<ul>
-<?php if ( !empty( $rev_posts ) ) foreach ( $rev_posts as $rev_post ): ?>
-<li><a href="<?php URL::out( 'admin', 'page=revision&revision_id=' . $rev_post->id ); ?>"><?php echo $rev_post->updated; ?> by <?php echo $rev_post->author->username; ?></a></li>
-<?php endforeach; ?>
-</ul>
-</div>
-<?php
-		$controls[ _t( 'Revisions' ) ] = ob_get_contents();
-		ob_end_clean();
+		$rev_posts = Posts::get( array( 'info' => array( 'revision_post_id' => $post->id ), 'orderby' => 'modified DESC', 'nolimit' => true ) );
 
-		return $controls;
+		$contents = '<div class="container">';
+		if ( $rev_posts->count() ) {
+			$contents .= '<ul>';
+			foreach ( $rev_posts as $rev_post ) {
+				$contents .= sprintf('<li><a href="%s">%s by %s</a></li>', URL::get( 'admin', 'page=revision&revision_id=' . $rev_post->id ), $rev_post->modified->format('F jS, Y H:i:s'), $rev_post->author->username );
+			}
+			$contents .= '</ul>';
+		}
+		else {
+			$contents .= '<p>'._t('No revisions available.').'</p>';
+		}
+		$contents .= '</div>';
+
+		$controls->publish_controls->append('fieldset', 'revisions', _t('Revisions'));
+		$controls->publish_controls->revisions->append('static', 'revisions_list', $contents);
 	}
 }
 ?>

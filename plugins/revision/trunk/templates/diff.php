@@ -2,8 +2,8 @@
 <div class="container">
   <div class="item clear">
     <div class="column span-3">&nbsp;</div>
-    <div class="column span-8"><?php echo $old_post->updated; ?></div>
-    <div class="column span-8 last"><?php echo $new_post->updated; ?></div>
+    <div class="column span-8"><?php $old_post->modified->out('F jS, Y H:i:s'); ?></div>
+    <div class="column span-8 last"><?php $new_post->modified->out('F jS, Y H:i:s'); ?></div>
   </div>
 
   <div class="item clear">
@@ -53,7 +53,7 @@
         <input type="radio" name="old_revision_id" value="<?php echo $revision->id; ?>" <?php if ( $revision->id == $old_post->id ) echo 'checked="checked"'; ?>/>
         <?php endif; ?>
         <input type="radio" name="new_revision_id" value="<?php echo $revision->id; ?>" <?php if ( $revision->id == $new_post->id ) echo 'checked="checked"'; ?>/>
-        <span class="title"><a href="<?php URL::out( 'admin', 'page=revision&revision_id=' . $revision->id ); ?>"><?php echo $revision->updated; ?></a> by <?php echo $revision->author->username; ?></span>
+        <span class="title"><a href="<?php URL::out( 'admin', 'page=revision&revision_id=' . $revision->id ); ?>"><?php $revision->modified->out('F jS, Y H:i:s'); ?></a> by <?php echo $revision->author->username; ?></span>
       </span>
       <?php if ( $i != 0 ): ?>
       <ul class="dropbutton">

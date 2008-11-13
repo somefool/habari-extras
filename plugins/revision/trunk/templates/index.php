@@ -2,7 +2,7 @@
 <div class="container">
   <div class="item clear">
     <div class="column span-3">&nbsp;</div>
-    <div class="column span-8 last"><?php echo $post->updated; ?></div>
+    <div class="column span-8 last"><?php $post->updated->out('F jS, Y H:i:s'); ?></div>
   </div>
 
   <div class="item clear">
@@ -46,7 +46,7 @@
         <input type="radio" name="old_revision_id" value="<?php echo $revision->id; ?>" />
         <?php endif; ?>
         <input type="radio" name="new_revision_id" value="<?php echo $revision->id; ?>" />
-        <span class="title"><a href="<?php URL::out( 'admin', 'page=revision&revision_id=' . $revision->id ); ?>"><?php echo $revision->updated; ?></a> by <?php echo $revision->author->username; ?></span>
+        <span class="title"><a href="<?php URL::out( 'admin', 'page=revision&revision_id=' . $revision->id ); ?>"><?php $revision->modified->out('H:i:s, F jS, Y'); ?></a> by <?php echo $revision->author->username; ?></span>
       </span>
       <?php if ( $i != 0 ): ?>
       <ul class="dropbutton">
