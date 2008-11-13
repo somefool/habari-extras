@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+        <name>Fun with Photoblogs</name>
+        <author>Andrew Rickmann</author>
+		<description>This is a description</description>
+        <url>http://www.wp-fun.co.uk</url>
+        <version>1.0</version>
+        <template_engine>rawphpengine</template_engine>
+</theme>
