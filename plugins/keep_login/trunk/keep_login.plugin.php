@@ -29,7 +29,7 @@ class KeepLogin extends Plugin
 	 * Produce output in the admin header
 	 * Adds the necessary javascript to make periodic ajax calls to the admin.
 	 */	 
-	public function action_admin_header( $admintheme )
+	public function action_admin_header_after( $admintheme )
 	{
 		$ajaxurl = URL::get('auth_ajax', array('context'=>'keep_session'));
 		echo <<< HEADER_JS
