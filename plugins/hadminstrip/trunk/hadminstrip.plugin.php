@@ -89,13 +89,13 @@ class HadminStrip extends Plugin
 				<a href="<?php echo ( URL::get( 'admin', 'page=dashboard' )); ?>" title="Visit the Dashboard.."><span id="admin">DASHBOARD</span></a>
 				 &middot; <a href="<?php echo (URL::get( 'user', 'page=logout')); ?>" title="Log out..">Logout</a> 
 				 &middot; <a href="<?php echo (URL::get( 'admin', 'page=publish')); ?>" title="Write an entry..">Write</a> 
-				 &middot; <a href="<?php echo (URL::get( 'admin', 'page=posts'));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a> 
-				&middot; <a href="<?php echo (URL::get( 'admin', 'page=pages'));?>" title="<?php echo($pagecount) ?> pages"> <?php echo($pagecount) ?> pages</a> 
+				 &middot; <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a> 
+				&middot; <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"> <?php echo($pagecount) ?> pages</a> 
 					 &middot; <a href="<?php echo (URL::get( 'admin', 'page=options' )); ?>" title="Update settings..">Options</a> 
 					
 					<?php	if ( $unapprovedcomments!==0) { ?> &middot; <a id="admincomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments">Comments (<?php echo ($unapprovedcomments) ?>)</a><?php } ?>
 				 
-			&middot; 	There are <a href="<?php echo (URL::get( 'admin', 'page=posts'));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a href="<?php echo (URL::get( 'admin', 'page=pages'));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagcount) ?> tags</a></a>
+			&middot; 	There are <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagcount) ?> tags</a></a>
 				
 				 </div>
 				
