@@ -280,3 +280,4 @@ class AutoKeyword extends Plugin
 	}
 
 }
+?>
