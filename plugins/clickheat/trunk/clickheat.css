@@ -1,0 +1,48 @@
+/**
+ * Clickehat by Benjamin Hutchins
+ * @see Plugin info for more information
+ */
+
+/**
+ * This file is used within the admin panel only
+ * It will only be loaded on the Clickheat page
+ */
+#alphaSelector {
+	position:relative;
+	bottom:1px;
+}
+#pngDiv {
+	position:absolute;
+	text-align:center;
+	line-height:0;
+	margin:0;
+	padding:0;
+	z-index:99;
+}
+#overflowDiv {
+	position:relative;
+	margin:0;
+	padding:0;
+	overflow-y:auto;
+}
+#overflowDiv p {
+	padding:0;
+	margin:0;
+}
+#webPageFrame {
+	z-index:1;
+}
+.clickheat-calendar {
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+}
+.clickheat-calendar th, .clickheat-calendar td {
+	text-align:center;
+	border-right:1px solid #eee;
+	border-bottom:1px solid #eee;
+
+}
+.clickheat-calendar-on {
+	background: #eee;
+}
+.nomargin .pct25 { width: 50% !important; }
