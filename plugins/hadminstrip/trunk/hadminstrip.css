@@ -25,7 +25,7 @@
 	-moz-border-radius: 3px;	background-color: #303030;
 	color: #fff;
 	font-weight: bold;
-	padding: 2px 4px;
+	padding: 1px 4px 2px;
 }
 
 #adminstrip #admin:hover {
@@ -46,7 +46,7 @@
 	-moz-border-radius: 3px;	
 		background-color: #f92e2d;
 	color: #fff !important;
-	padding: 2px 4px;
+	padding: 1px 4px 2px;
 	font-weight: bold;
 	text-shadow: #a70000 0 1px 0;
 }
