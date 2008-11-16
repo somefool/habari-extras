@@ -93,7 +93,7 @@ class HadminStrip extends Plugin
 				&middot; <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"> <?php echo($pagecount) ?> pages</a> 
 					 &middot; <a href="<?php echo (URL::get( 'admin', 'page=options' )); ?>" title="Update settings..">Options</a> 
 					
-					<?php	if ( $unapprovedcomments!==0) { ?> &middot; <a id="admincomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments">Comments (<?php echo ($unapprovedcomments) ?>)</a><?php } ?>
+					<?php	if ( $unapprovedcomments!=0) { ?> &middot; <a id="admincomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo ($unapprovedcomments) ?> comments</a><?php } ?>
 				 
 			&middot; 	There are <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagcount) ?> tags</a></a>
 				
