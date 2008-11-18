@@ -50,7 +50,7 @@ Class XSPFMini extends Plugin
 		return $player;
 	}
 
-	public function action_admin_header( $theme ) 
+	public function action_admin_header_after( $theme ) 
 	{
 		echo <<< XSPFMINI
 
