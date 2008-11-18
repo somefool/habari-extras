@@ -77,7 +77,7 @@ class Spamview extends Plugin
 
 		$theme->latestspam_comments = $comments;
 		
-		$module['title'] = '<a href="' . Site::get_url('admin') . '/comments?status=' . Comment::status('unapproved') . '">' . _t('Latest Spam') . '</a>';
+		$module['title'] = '<a href="' . Site::get_url('admin') . '/comments?status=' . Comment::status('spam') . '">' . _t('Latest Spam') . '</a>';
 		$module['content'] = $theme->fetch( 'dash_spam' );
 		return $module;
 	}
