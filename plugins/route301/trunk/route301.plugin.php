@@ -36,7 +36,7 @@
 				'build_str' => '{$tag}/{$slug}(/page/{$page})',
 				'action' => 'display_entry',
 				'description' => 'Wordpress tag and name based permalink',
-				'priority' => 10
+				'priority' => 1000
 			),
 			'wordpress_feed' => array( // Wordpress RSS/Atom feed
 				'name' => 'wordpress_feed',
@@ -118,7 +118,6 @@
 			} else {
 				$url = URL::get( $action, $this->handler_vars, false );
 			}
-
 			header( 'Location: ' . $url, true, 301 );
 		}
 
