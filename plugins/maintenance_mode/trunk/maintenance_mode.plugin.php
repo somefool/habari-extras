@@ -22,7 +22,7 @@ class Maintenance extends Plugin
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.1',
+			'version' => '0.2',
 			'description' => 'Redirects all requests to a maintenance mode page, with two exceptions. 
 			The first is that the login page is available. 
 			The second is that any user who is logged in can see any page on the site.',
@@ -121,7 +121,7 @@ class Maintenance extends Plugin
 		}
 		else {
 			$theme->display('header');
-			echo '<h1>' . htmlspecialchars( Options::get( self::OPTION_NAME . '__text' ), ENT_COMPAT, 'UTF-8' ) . '</h1>';
+			echo '<h2 id="maintenance_text">' . htmlspecialchars( Options::get( self::OPTION_NAME . '__text' ), ENT_COMPAT, 'UTF-8' ) . '</h2>';
 			$theme->display('footer');
 			die();
 		}
