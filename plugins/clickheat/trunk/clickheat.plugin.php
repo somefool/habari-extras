@@ -5,6 +5,9 @@
  * You can also use the javascript and add to external,
  * non-habari pages if you want.
  *
+ * ONLY DO THE BELOW IF YOU DO NOT USE $theme->header()
+ * and $theme->footer()
+ * --
  * Include this file in header:
  * http://path/to/habari/scripts/clickheat.js
  * And put this in the footer:
@@ -479,6 +482,9 @@ class Clickheat extends Plugin
 				// Format href to a directory name
 				$dir= preg_replace("/^http(s)?\:\/\/(www)?(\.)?/", "", strtolower($vars['href'])); // remove http(s)://www.
 				$dir= explode("?", $dir); $dir= $dir[0]; // remove query string
+				$dir= explode("#", $dir); $dir= $dir[0]; // remove URL fragments before grouping, thanks moeffju
+				// TODO: Probably should change these to substrings and not explode.
+
 				$dir= rtrim(preg_replace('/[^a-z_0-9\-]+/', '.', $dir), "."); // remove odd characters
 
 				// Confirm directories
