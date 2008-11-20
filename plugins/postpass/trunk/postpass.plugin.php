@@ -29,12 +29,10 @@ class postPass extends Plugin
 	{
 		if ( $post->info->password ){
 			// if user logged in, show post
-/*
 			$user = User::identify();
 			if ( $user instanceof User ) {
 				return $content;
 			}
-*/
 			
 			$session = Session::get_set('post_passwords', false);
 			$token = Utils::crypt( '42' . $post->info->password . $post->id . Options::get('GUID') );
