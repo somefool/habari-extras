@@ -1,4 +1,4 @@
-Hi, Thank you for trying out my polling pluin.
+Hi, Thank you for trying out my polling plugin.
 
 To call this plugin one should type in the theme:
  

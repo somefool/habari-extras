@@ -1,6 +1,7 @@
+
+
 <?php
 //Getting result of of theme function
-
 if ($pollid == null) { 
 $poll = Posts::Get(array('content_type' => Post::type('poll')));
 } elseif (is_int($pollid) === true) {
@@ -33,27 +34,29 @@ if ( $poll[0]->info->entry5 != '') {
 
 
 <div id="main_poll">
-<span id="polltitle"> <a href="<?php echo $poll[0]->permalink ?>"> <b> <?php echo $poll[0]->title; ?> </b> </a></span>
+	<span id="polltitle"> <a href="<?php echo $poll[0]->permalink ?>"> <b> <?php echo $poll[0]->title; ?> </b> </a></span>
 
-<?php if (!Session::get_set('votes', false)) { ?>
-	<div id="vote">
-<?php
-	$form->out();
-?>
+	<?php if (!Session::get_set('votes', false)) { ?>
+		<div id="vote">
+		<?php
+		$form->out();
+		?>
 
-</div>
-<a id="votesubmitt"> Vote </a>
-<br />
-<?php } ?>
-<img style='display: none' id="contentLoading" alt="Loading, please wait" src='<?php URL::get_from_filesystem(__FILE__, TRUE); ?>ajax-loader.gif' />
-<div id="results" >
+		</div>
+		<a id="votesubmitt"> Vote </a>
+		<br />
+	<?php } ?>
+	<div id="contentLoading" alt="Loading, please wait">
+		Loading...
+	</div>
+	<div id="results" >
 
-</div>
+	</div>
 
-<?php if (!Session::get_set('votes', false)) {
-?>
-<a submitt="<?php if (Session::get_set('votes', false)) { echo 'off'; } ?>"> <span id="veiw_results"> Veiw resutls </span> </a>
-<?php } ?>
+	<?php if (!Session::get_set('votes', false)) { ?>
+		<a submitt="<?php if (Session::get_set('votes', false)) { echo 'off'; } ?>"> <span id="veiw_results"> Veiw resutls </span> </a>
+	<?php } ?>
+
 <script type="text/javascript">
 
 
@@ -127,11 +130,13 @@ $("#contentLoading").show();
 
 </script>
 <?php if (Session::get_set('votes', false)) { ?>
-<script type="text/javascript">
+	
+	<script type="text/javascript">
 
-lockdown()
-getresults()
+	lockdown()
+	getresults()
 
-</script>
+	</script>
 <?php } ?>
 
+</div>

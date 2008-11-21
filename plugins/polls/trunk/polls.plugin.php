@@ -20,11 +20,11 @@ class Polls extends Plugin {
 		$this->add_template('poll.single', dirname(__FILE__) . '/poll.single.php');
 		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 		Stack::add( 'template_stylesheet', array(URL::get_from_filesystem(__FILE__) . '/wiget.css', 'screen'), 'pollwigitcss');
-	
-	}
+		
+	} 	
 	
 	//deactivate
-	public function action_plugin_deactivation() {
+	public function remove_template() {
 		Post::deactivate_post_type('poll');
 		$this->remove_template('wiget', dirname(__FILE__) . '/wiget.php');
 		Stack::remove( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
@@ -103,7 +103,7 @@ class Polls extends Plugin {
 			
 	public function action_form_publish($form, $post) {
 	if($post->content_type == Post::type('poll')) {
-		
+		if ($form->silos)
 		$form-> silos->remove();
 		$form-> clearbutton->remove();
 		$form->title->caption = "Poll Name";

@@ -1,6 +1,21 @@
+/* reset */
+#main_poll {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	text-align: left;
+}
+
+#main_poll ul {
+	list-style: none;
+}
 #main_poll {
 position: static;
-
+padding-left: 4px;
 }
 
 div#entry label {
@@ -36,4 +51,8 @@ margin-left: auto;
 margin-right: auto;
 display: block;
 text-align: center;
+}
+
+img#contentLoading {
+	display: block;
 }
