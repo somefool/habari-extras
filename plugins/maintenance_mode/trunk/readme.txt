@@ -1,12 +1,11 @@
 Plugin: Maintenance Mode
 URL: http://habariproject.org
-Version: 0.1
+Version: 0.2
 Author: Habari Project
 
 Purpose 
 
-The purpose of Maintenance Mode is to block access to your site while it is undergoing changes. When the site is in maintenance mode, anyone who 
-is not a logged in user will see only a message saying the site is undergoing maintenance. There are two exceptions to this:
+The purpose of Maintenance Mode is to block access to your site while it is undergoing changes. When the site is in maintenance mode, anyone who is not a logged in user will see only a message saying the site is undergoing maintenance. There are two exceptions to this:
 
 1. If a user is logged in, they will be able to view any page on the site.
 2. In order to be able to log in, the login page is still accessible.
