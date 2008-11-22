@@ -9,12 +9,7 @@
 				<?php endforeach; ?>
 			</ul>
 		</div>
-		<div class="block" id="flickr">
-			<h3><a href="http://www.flickr.com/photos/theundersigned/">Flickr photostream</a></h3>
-			<div class="images clearfix">
-				<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=35634769@N00"></script>
-			</div>
-		</div>
+		<?php $theme->flickrfeed(); ?>
 		<?php $theme->switcher(); ?>
 		<?php $theme->show_blogroll(); ?>
 		<?php $theme->twitter(); ?>
