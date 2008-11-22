@@ -24,7 +24,7 @@
 			<div class="block" id="main">
 				<h1 id="title"><a href="<?php Site::out_url( 'habari' ); ?>"><?php Options::out( 'title' ); ?></a></h1>
 				<h2 id="subtitle"><?php Options::out( 'tagline' ); ?></h2>
-				<p id="description"><?php if (Plugins::is_loaded('Colophon')) { echo nl2br(htmlspecialchars(Options::get( 'colophon:colophon_text' ))); } else { ?>You need the <a href="http://github.com/stan/habari-plugins/tree/master/colophon">colophon plugin</a><?php } ?></p>
+				<p id="description"><?php $theme->colophon(); ?></p>
 			</div>
 			<div class="block" id="menu">
 				<ul>
