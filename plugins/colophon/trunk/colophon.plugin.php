@@ -58,8 +58,8 @@ class Colophon extends Plugin
 
 	/**
 	* Method that responds to the user selecting an action on the plugin page
-	* @param string $plugin_id String containning the id of the plugin
-	* @param string $action The action string suplied via the filter_plugin_config hook
+	* @param string $plugin_id String containing the id of the plugin
+	* @param string $action The action string supplied via the filter_plugin_config hook
 	**/
 	public function action_plugin_ui( $plugin_id, $action )
 	{
@@ -76,15 +76,25 @@ class Colophon extends Plugin
 		}
 
 	}
+	
+	
 
 	/**
 	* Assigns output code to the template variables
 	* @param Theme $theme The theme that will display the template
 	*/
-	function action_add_template_vars( $theme )
+	function theme_colophon( $theme )
 	{
-		$theme->colophon = Format::autop( Options::get( 'colophon__text' ) );
+		$theme->colophon_text =  Format::autop( Options::get( 'colophon__text' ) );
 		$theme->colophon_title = Options::get( 'colophon__title' );
+		
+		return $theme->fetch( 'colophon' );
+	}
+	
+	public function action_init()
+	{
+		
+		$this->add_template('colophon', dirname(__FILE__) . '/colophon.php');
 	}
 
 }
