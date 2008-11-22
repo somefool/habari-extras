@@ -4,18 +4,15 @@
 * This plugin allows the blog owner to include an about/colophon somewhere on the blog
 * without having to rely on a page or theme rewrite, since the about option got killed
 *
-* Example usage in PHP template:
-*
-* <?php if (Plugins::is_loaded('Colophon Plugin')) { ?>
-* 	<h2><?php $theme->colophon_title; ?></h2>
-* 	<?php $theme->colophon; ?>
-* <?php } ?>
-*
+* Usage:
+* <?php $theme->colophon(); ?>
+* To customize the output, copy colophon.php from the plugin directory to your theme
+* directory and edit that file.
 */
 
 class Colophon extends Plugin
 {
-	const VERSION = '0.4.1';
+	const VERSION = '0.5';
 
 	/**
 	* Required plugin information
@@ -29,7 +26,7 @@ class Colophon extends Plugin
 			'url'		=>	'http://habariproject.org/dist/plugins',
 			'author'	=>	'stanislas mazurek',
 			'authorurl'	=>	'http://stanbar.jp',
-			'licence'	=>	'Apache licence 2.0',
+			'license'	=>	'Apache license 2.0',
 			'description'	=>	'Adds an About / Colophon to your blog'
 		);
 	}
