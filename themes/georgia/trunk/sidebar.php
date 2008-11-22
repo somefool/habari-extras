@@ -4,7 +4,7 @@
 		<?php include 'searchform.php'; ?>
 	</div>
 	<div class="block" id="desc">
-		<p><?php if (Plugins::is_loaded('Colophon')) { echo nl2br(htmlspecialchars(Options::get( 'colophon:colophon_text' ))); } else { ?>You need the <a href="http://github.com/stan/habari-plugins/tree/master/colophon">colophon plugin</a><?php } ?></p>
+		<p><?php $theme->colophon(); ?></p>
 	</div>
 	<div class="block" id="menu">
 		<h3>Pages</h3>
@@ -21,11 +21,7 @@
 			<?php } ?>
 		</ul>
 	</div>
-	<div class="block" id="flickr">
-		<div class="images clearfix">
-		<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=10&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=35634769@N00"></script>
-		</div>
-	</div>
+	<?php $theme->flickrfeed(); ?>
 	<?php $theme->switcher(); ?>
 	<div class="block" id="recent_comments">
 		<h3>Recent comments</h3>
