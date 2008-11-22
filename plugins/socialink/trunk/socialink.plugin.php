@@ -28,6 +28,7 @@ class Socialink extends Plugin
 		'blinklist' => array('name' => 'blinklist', 'url' => 'http://www.blinklist.com/?Action=Blink/addblink.php&amp;Description=&amp;Url=%PERMALINK%&amp;Title=%TITLE%'),
 		'stumbleupon' => array( 'name' => 'StumbleUpon', 'url'=> 'http://www.stumbleupon.com/submit?url=%PERMALINK%&amp;title=%TITLE%'),
 		'diigo' => array( 'name' => 'Diigo', 'url'=> 'hhttp://www.diigo.com/post?url=%PERMALINK%&amp;title=%TITLE%'),
+		'facebook' => array('name' => 'Facebook', 'url' => 'http://www.facebook.com/share.php?u=%PERMALINK%'),
 
 		// Japan
 		'hatena' => array('name' => 'Hatena Bookmark', 'url' => "javascript:(function(){window.open('http://b.hatena.ne.jp/add?mode=confirm&amp;is_bm=1&amp;title=%TITLE%&amp;url=%PERMALINK%','socialink','width=550,height=600,resizable=1,scrollbars=1');})();"),
