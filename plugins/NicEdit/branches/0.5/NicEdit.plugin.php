@@ -76,7 +76,7 @@ class NicEditor extends Plugin {
    */
   public function action_admin_header($theme)
   {
-    if ( $theme->page == 'publish' ) {
+    if ( Controller::get_var('page') == 'publish' ) {
       Stack::add( 'admin_header_javascript', $this->get_url() . '/nicEditor/nicEdit.js', 'niceditor' );
     }
   }
@@ -85,7 +85,7 @@ class NicEditor extends Plugin {
    * Instantiate the NicEdit editor and enable media silos
    */
   public function action_admin_footer($theme) {
-    if ( $theme->page == 'publish' ) {
+    if ( Controller::get_var('page') == 'publish' ) {
       $options = Options::get(strtolower(get_class($this) . ':options_' . User::identify()->id));
       echo <<<NICEDIT
       <script type="text/javascript">
