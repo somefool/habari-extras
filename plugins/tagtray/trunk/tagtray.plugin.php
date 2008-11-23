@@ -16,11 +16,16 @@ class TagTray extends Plugin
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
 			'version' => '1.0',
-			'description' => 'Displays a tray of tags on the publich page to click on and add.',
+			'description' => 'Displays a tray of tags on the publish page to click on and add to the edited post.',
 			'license' => 'Apache License 2.0',
 		);
 	}
 	
+	/**
+	 * Add the tray to the publish form
+	 * @params FormUI $form The publish form object instance
+	 * @params Post $post The post that is being edited
+	 **/	 	 	 	
 	public function action_form_publish($form, $post) 
 	{
 		// Create the tags selector
@@ -43,9 +48,12 @@ class TagTray extends Plugin
 		$tags_list->append('static', 'tagslistend', '</ul>');
 	}
 	
+	/**
+	 * Add the required javascript to the publish page
+	 * @param Theme $theme The admin theme instance
+	 **/	 
 	public function action_admin_header($theme)
 	{
-	Utils::debug('tagtray');
 		Stack::add('admin_header_javascript', $this->get_url(true) . 'tagtray.js', 'tagtray');
 	}
 	
