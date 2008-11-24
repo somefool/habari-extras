@@ -32,6 +32,18 @@ class Polls extends Plugin {
 		$this->remove_template('poll.single', dirname(__FILE__) . '/poll.single.php');
 	}
 	
+
+	public function filter_post_type_display($type, $foruse) 
+	{ 
+		$names = array( 
+			'poll' => array(
+				'singular' => _t('Poll'),
+				'plural' => _t('Polls'),
+			)
+		); 
+ 		return isset($names[$type][$foruse]) ? $names[$type][$foruse] : $type; 
+	}
+	
 	public	function action_ajax_ajaxpoll() {
 		$pollid = $_GET['pollid'];
 		$vote = $_GET['result'];
@@ -105,7 +117,6 @@ class Polls extends Plugin {
 	if($post->content_type == Post::type('poll')) {
 		if ($form->silos)
 		$form-> silos->remove();
-		$form-> clearbutton->remove();
 		$form->title->caption = "Poll Name";
 		
 		$form->append('text','entry1', 'null:null', 'entry 1','admincontrol_text');
