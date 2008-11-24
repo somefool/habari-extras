@@ -44,9 +44,8 @@ if ( $poll[0]->info->entry5 != '') {
 
 		</div>
 		<a id="votesubmitt"> Vote </a>
-		<br />
 	<?php } ?>
-	<div id="contentLoading" alt="Loading, please wait">
+	<div id="contentLoading" style=" display: none;"alt="Loading, please wait">
 		Loading...
 	</div>
 	<div id="results" >

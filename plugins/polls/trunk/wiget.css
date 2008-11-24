@@ -33,10 +33,12 @@ background: #555555;
 
 span#polltitle {
 font-size: 15px;
-padding-left: auto;
-padding-right: auto;
+margin-left: auto;
+margin-right: auto;
+display: block;
 font-style: bold;
 margin-bottom: 10px;
+text-align: center;
 }
 
 ul#singlepoll_results li {
@@ -55,4 +57,16 @@ text-align: center;
 
 img#contentLoading {
 	display: block;
+}
+
+#votesubmitt, #veiw_results {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+/*form stuff */
+
+form#polls div label input {
+	margin: 10px;
 }
