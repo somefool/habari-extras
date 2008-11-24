@@ -35,6 +35,17 @@ class Photoblog extends Plugin
 		}
 	}
 
+	public function filter_post_type_display($type, $foruse) 
+	{ 
+		$names = array( 
+			'photo' => array(
+				'singular' => _t('Photo'),
+				'plural' => _t('Photos'),
+			)
+		); 
+ 		return isset($names[$type][$foruse]) ? $names[$type][$foruse] : $type; 
+	}
+
 	public function filter_post_photo( $out, $post )
 	{
 		$photo = new stdClass();
