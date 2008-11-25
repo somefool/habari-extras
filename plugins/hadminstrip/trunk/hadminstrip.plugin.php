@@ -74,7 +74,7 @@ class HadminStrip extends Plugin
 	 */
 	public function action_template_footer()
 	{
-		if ( User::identify() ) { ?>
+		if ( User::identify()->loggedin ) { ?>
 			
 			<div id="adminstrip">
 				
