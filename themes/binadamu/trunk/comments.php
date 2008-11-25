@@ -34,7 +34,7 @@
 						<?php $theme->gravatar($comment); ?>
 						<li class="comment-author">
 <?php 			if ($comment->url) { ?>
-							<a class="url" href="<?php echo $comment->url; ?>" rel="external">
+							<a class="url" href="<?php echo $comment->url_out; ?>" rel="external">
 <?php 			} ?>
 								<cite class="fn n"><?php echo $comment->name; ?></cite>
 <?php			if ($comment->url) { ?>

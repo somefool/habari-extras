@@ -12,7 +12,7 @@
 				<span class="entry-tags"><?php echo $post->tags_out; ?></span>
 <?php } ?>
 <?php if ($user) { ?>
-				<span class="entry-edit"><a href="<?php URL::out('admin', 'page=publish&id=' . $post->id); ?>" title="<?php _e('Edit post', 'demorgan'); ?>"><?php _e('Edit', 'demorgan'); ?></a></span>
+				<span class="entry-edit"><a href="<?php echo $post->editlink; ?>" title="<?php _e('Edit post', 'demorgan'); ?>"><?php _e('Edit', 'demorgan'); ?></a></span>
 <?php } ?>
 			</div>
 			<div class="entry-content">

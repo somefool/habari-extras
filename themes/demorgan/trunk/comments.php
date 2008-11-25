@@ -33,7 +33,7 @@
 					<div class="comment-author vcard">
 						<?php $theme->gravatar($comment); ?>
 <?php 			if ($comment->url) { ?>
-						<a class="url" href="<?php echo $comment->url; ?>" rel="external">
+						<a class="url" href="<?php echo $comment->url_out; ?>" rel="external">
 <?php 			} ?>
 							<span class="fn n"><?php echo $comment->name; ?></span>
 <?php			 if ($comment->url) { ?>
