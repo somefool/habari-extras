@@ -13,7 +13,7 @@
 <?php if (is_array($post->tags)) { ?>
 					<li class="entry-tags"><?php echo $post->tags_out; ?></li>
 <?php } ?>
-<?php if ($user) { ?>
+<?php if ($user->loggedin) { ?>
 					<li class="entry-edit"><a href="<?php echo $post->editlink; ?>" title="<?php _e('Edit post', 'binadamu') ?>"><?php _e('Edit', 'binadamu') ?></a></li>
 <?php } ?>
 				</ul>

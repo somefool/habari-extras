@@ -6,7 +6,7 @@
 				<h1 class="entry-title"><a href="<?php echo $post->permalink; ?>" title="<?php echo strip_tags($post->title); ?>" rel="bookmark"><?php echo $post->title_out; ?></a></h1>
 				<br class="clear" />
 				<span class="comments-link"><a href="<?php echo $post->permalink; ?>#comments" title="Comments to this post"> <?php echo $post->comments->approved->count; ?> <?php _ne('Comment', 'Comments', $post->comments->approved->count); ?></a></span>
-<?php if ($user) { ?>
+<?php if ($user->loggedin) { ?>
 				<span class="entry-edit"><a href="<?php echo $post->editlink; ?>" title="Edit post">Edit</a></span>
 <?php } ?>
 			</div>
