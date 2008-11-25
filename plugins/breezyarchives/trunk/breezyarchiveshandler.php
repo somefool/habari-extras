@@ -45,8 +45,8 @@ class BreezyArchivesHandler extends ActionHandler
 			'page' => 1,
 			'orderby' => Options::get($this->handler_vars['class_name'] . '__show_newest_first') ? 'pubdate DESC' : 'pubdate ASC'
 		);
-
-		$paramarray = array_merge($default_filters, $user_filters, $this->handler_vars);
+		$paramarray = new SuperGlobal($default_filters);
+		$paramarray = $paramarray->merge($user_filters, $this->handler_vars);
 		unset($paramarray['entire_match']);
 		unset($paramarray['class_name']);
 
