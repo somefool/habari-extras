@@ -15,13 +15,13 @@
 }
 #main_poll {
 position: static;
-padding-left: 4px;
+
 }
 
 div#entry label {
 float:left;
 width:100%;
-line-height:200%;
+line-height:100%;
 
 }
 
@@ -68,5 +68,5 @@ img#contentLoading {
 /*form stuff */
 
 form#polls div label input {
-	margin: 10px;
+	margin: 6px 10px 6px 10px;
 }
