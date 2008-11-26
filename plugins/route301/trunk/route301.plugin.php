@@ -107,7 +107,10 @@
 		public function act( $action )
 		{
 			if ( $action === 'atom_feed' ) {
-				$url = URL::get( 'atom_feed', array_merge( array( 'index' => 1 ), $this->handler_vars ), false );
+				if ( !isset( $this->handler_vars['index'] ) ) {
+					$this->handler_vars['index'] = 1;
+				}
+				$url = URL::get( 'atom_feed', $this->handler_vars, false );
 			} else
 			if ( $action === 'display_entry' ) {
 				if ( isset( $this->handler_vars['slug'] ) ) {
