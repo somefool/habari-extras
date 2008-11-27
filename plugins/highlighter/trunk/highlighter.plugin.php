@@ -20,6 +20,8 @@
  *
  * Note, you'll also need to grab GeSHi from http://qbnz.com/highlighter/ and
  * unpack the archive to: [habari directory]/3rdparty/geshi
+ *
+ * THIS PLUGIN REQUIRES HABARI 0.6-dev! IT WILL NOT WORK ON 0.5.2
  */
 
 class HighlightPlugin extends Plugin {
