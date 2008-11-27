@@ -12,7 +12,7 @@
 
 class HabminBar extends Plugin
 {
-	const VERSION= '1.0';
+	const VERSION = '1.0';
 	
 	/**
 	 * function info
@@ -46,7 +46,7 @@ class HabminBar extends Plugin
 	 */
 	public function action_add_template_vars()
 	{
-		if ( User::identify() ) {
+		if ( User::identify()->loggedin ) {
 			Stack::add( 'template_stylesheet', array($this->get_url() . '/habminbar.css', 'screen'), 'habminbar.css' );
 		}
 	}
@@ -72,12 +72,12 @@ class HabminBar extends Plugin
 	 */
 	public function action_template_footer()
 	{
-		if ( User::identify() ) {
-			$bar= '<div id="habminbar"><div>';
+		if ( User::identify()->loggedin ) {
+			$bar = '<div id="habminbar"><div>';
 			$bar.= '<div id="habminbar-name"><a href="' . Options::get('base_url') . '">' . Options::get('title') . '</a></div>';
 			$bar.= '<ul>';
 			
-			$menu= array();
+			$menu = array();
 			$menu['dashboard']= array( 'Dashboard', URL::get( 'admin', 'page=dashboard' ), "view the admin dashboard" );
 			$menu['write']= array( 'Write', URL::get( 'admin', 'page=publish' ), "create a new entry" );
 			$menu['option']= array( 'Options', URL::get( 'admin', 'page=options' ), "configure site options" );
@@ -86,7 +86,7 @@ class HabminBar extends Plugin
 			$menu['plugin']= array( 'Plugins', URL::get( 'admin', 'page=plugins' ), "activate and configure plugins" );
 			$menu['theme']= array( 'Themes', URL::get( 'admin', 'page=themes' ), "select a theme" );
 			
-			$menu= Plugins::filter( 'habminbar', $menu );
+			$menu = Plugins::filter( 'habminbar', $menu );
 			
 			$menu['logout']= array( 'Logout', URL::get( 'user', 'page=logout' ), "logout" );
 			
