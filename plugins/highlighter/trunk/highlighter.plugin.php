@@ -41,14 +41,6 @@ class HighlightPlugin extends Plugin {
 		Format::apply( 'do_highlight', 'post_content_out' );
 		Format::apply( 'do_highlight', 'comment_content_out' );
 	}
-	
-	public function action_init_theme() {
-		Stack::add(
-			'template_stylesheet',
-			array( Site::get_url( 'habari' ) . '/3rdparty/geshi/geshi.css', 'screen' ),
-			'highlighter'
-		);
-	}
 
 	public static function _autoload( $class_name ) {
 		if ( strtolower( $class_name ) == 'geshi' ) {
