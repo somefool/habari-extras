@@ -36,7 +36,7 @@ class unButtonAdmin extends Plugin
 				',
 				'screen'
 			),
-			'blogroll',
+			'unbuttonadmin',
 			'admin'
 		);
 	}
