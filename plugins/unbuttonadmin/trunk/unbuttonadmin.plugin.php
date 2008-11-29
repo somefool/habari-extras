@@ -34,7 +34,7 @@ class unButtonAdmin extends Plugin
 		Stack::add(
 			'admin_stylesheet',
 			array(
-				$css,
+				preg_replace('@../images/@', Site::get_url('admin_theme') . '/images/', $css),
 				'screen'
 			),
 			'admin',
