@@ -46,6 +46,7 @@ class DropioSilo extends Plugin implements MediaSilo
 
 		Options::set('dropiosilo__api_key', '');
 		Options::set('dropiosilo__drop_name', '');
+		Options::set('dropiosilo__password', '');
 	}
 
 	/**
@@ -86,6 +87,7 @@ class DropioSilo extends Plugin implements MediaSilo
 			$form->append('text', 'api_key', 'dropiosilo__api_key', _t('API Key: ', 'dropiosilo'));
 			$form->append('label', 'api_key_get_label', '<a href="http://api.drop.io/" target="_blank">doesn\'t have API Key?</a>');
 			$form->append('text', 'drop_name', 'dropiosilo__drop_name', _t('Drop Name: ', 'dropiosilo'));
+			$form->append('password', 'password', 'dropiosilo__password', _t('Guest Password (optional): ', 'dropiosilo'));
 			$form->append('submit', 'save', _t('Save'));
 			$form->out();
 		}
@@ -134,14 +136,15 @@ habari.media.output.dropiosilo = {
 	 */
 	public function silo_info()
 	{
-		$dropio = new DropioAPI(Options::get('dropiosilo__api_key'), Options::get('dropiosilo__drop_name'));
-		if ($dropio->check()) {
+		$dropio = new DropioAPI(Options::get('dropiosilo__api_key'), Options::get('dropiosilo__drop_name'), Options::get('dropiosilo__password'));
+		try {
+			$dropio->check();
 			return array(
 				'name' => self::SILO_NAME,
 				'icon' => $this->get_url() . '/img/icon.png'
 				);
-		} else {
-			Session::error(_t('drop.io Silo: Invalid API Key or Drop Name', 'dropiosilo'));
+		} catch (Exception $e) {
+			Session::error(sprintf(_t('drop.io Silo: %s', 'dropiosilo'), $e->getMessage()));
 			return array();
 		}
 	}
@@ -157,8 +160,12 @@ habari.media.output.dropiosilo = {
 		$paths = explode('/', $path);
 		$results = array();
 
-		$dropio = new DropioAPI(Options::get('dropiosilo__api_key'), Options::get('dropiosilo__drop_name'));
-		$assets = $dropio->get_assets();
+		$dropio = new DropioAPI(Options::get('dropiosilo__api_key'), Options::get('dropiosilo__drop_name'), Options::get('dropiosilo__password'));
+		try {
+			$assets = $dropio->get_assets();
+		} catch (Exception $e) {
+			return array();
+		}
 
 		for ($i = 0; $i < count($assets); $i++) {
 			if ($assets[$i]->type != 'image') continue;
@@ -246,6 +253,7 @@ class DropioAPI
 {
 	private $api_key;
 	private $drop_name;
+	private $token;
 	private $base_url = 'http://api.drop.io/drops/';
 
 	/**
@@ -255,10 +263,11 @@ class DropioAPI
 	 * @param string $api_key
 	 * @param string $drop_name
 	 */
-	public function __construct($api_key, $drop_name)
+	public function __construct($api_key, $drop_name, $token = '')
 	{
 		$this->api_key = $api_key;
 		$this->drop_name = $drop_name;
+		$this->token = $token;
 	}
 
 	/**
@@ -268,12 +277,14 @@ class DropioAPI
 	 */
 	public function check()
 	{
-		$request = new RemoteRequest($this->base_url . $this->drop_name . '?api_key=' . $this->api_key . '&version=1.0&format=json', 'GET' );
+		$request = new RemoteRequest($this->base_url . $this->drop_name . '?api_key=' . $this->api_key . '&token=' . $this->token . '&version=1.0&format=json', 'GET');
 		$result = $request->execute();
-		if ($result !== true) return false;
-                $drop = json_decode($request->get_response_body());
-                if (isset($drop->name) && $drop->name == $this->drop_name) return true;
-                return false;
+		if ($result !== true) throw new Exception('Invalid API Key, Drop Name or Password.');
+                $respose = json_decode($request->get_response_body());
+                if (isset($response->result) && $response->result == 'Failure') {
+			throw new Exception($response->message);
+		}
+                return true;
 	}
 
 	/**
@@ -283,11 +294,14 @@ class DropioAPI
 	 */
 	public function get_assets()
 	{
-		$request = new RemoteRequest($this->base_url . $this->drop_name . '/assets?api_key=' . $this->api_key . '&version=1.0&format=json', 'GET' );
+		$request = new RemoteRequest($this->base_url . $this->drop_name . '/assets?api_key=' . $this->api_key . '&token=' . $this->token . '&version=1.0&format=json', 'GET');
 		$result = $request->execute();
-		if ($result !== true) return false;
-                $assets = json_decode($request->get_response_body());
-		return $assets;
+		if ($result !== true) throw new Exception('Invalid API Key, Drop Name or Password.');
+                $response = json_decode($request->get_response_body());
+                if (isset($response->result) && $response->result == 'Failure') {
+			throw new Exception($response->message);
+		}
+		return $response;
 	}
 }
 ?>
