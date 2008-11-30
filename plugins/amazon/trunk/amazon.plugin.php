@@ -179,6 +179,7 @@ class Amazon extends Plugin
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',
 			'description' => 'easily/quickly insert Amazon Products into your posts.',
+			'guid' => '4c91ed13-1fcd-11dd-b5d6-001b210f913f'
 			);
 	}
 
@@ -193,9 +194,9 @@ class Amazon extends Plugin
 	{
 		if ( Plugins::id_from_file( $file ) != Plugins::id_from_file( __FILE__ ) ) return;
 
-		Options::set( 'amazon__country',  'com' );
-		Options::set( 'amazon__associate_tag', '' );
-		Options::set( 'amazon__template', 'reviewsummary' );
+		Options::set('amazon__country',  'com');
+		Options::set('amazon__associate_tag', '');
+		Options::set('amazon__template', 'reviewsummary');
 	}
 
 	/**
@@ -217,7 +218,7 @@ class Amazon extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add( 'Amazon', '4c91ed13-1fcd-11dd-b5d6-001b210f913f', $this->info->version );
+		Update::add($this->info->name, $this->info->guid, $this->info->version);
 	}
 
 	/**
@@ -247,7 +248,7 @@ class Amazon extends Plugin
 			$form->append( 'select', 'country', 'amazon__country', _t('Country: ', 'amazon'), $this->countries);
 			$form->append( 'text', 'associate_tag', 'amazon__associate_tag', _t('Associate Tag: ', 'amazon') );
 			$form->append( 'select', 'template', 'amazon__template', _t('Template: ', 'amazon'), $templates);
-            $form->append( 'submit', 'save', _t( 'Save' ) );
+			$form->append( 'submit', 'save', _t( 'Save' ) );
 			$form->out();
 		}
 	}

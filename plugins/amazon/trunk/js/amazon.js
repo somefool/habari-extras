@@ -46,7 +46,7 @@ var amazonSearch = {
                     nav += '<img src="' + habari.url.habari + '/user/plugins/amazon/img/foward-disabled.png" alt="Next" />';
                 }
                 nav += '</div>';
-                html += '<div class="container">' + nav;
+                html += '<div class="container transparent">' + nav;
 		$( result.Items ).each( function() {
 			html += '<div style="float: left; width: 80px;">';
 			html += "<a href=\"#\" onclick=\"javascript: amazonSearch.insert('" + this.ASIN + "');\">";
@@ -87,7 +87,7 @@ var amazonSearch = {
 		habari.editor.insertSelection(result.html);
 	},
 	startSpinner: function() {
-		$('#amazon-result').html('<div class="container">Searching...</div>');
+		$('#amazon-result').html('<div class="container transparent">Searching...</div>');
 	},
 	stopSpinner: function () {
 		$('#amazon-result').empty();
