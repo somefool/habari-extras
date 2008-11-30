@@ -105,7 +105,7 @@ class DropioSilo extends Plugin implements MediaSilo
 <script type="text/javascript">
 habari.media.output.dropiosilo = {
 	display: function(fileindex, fileobj) {
-		habari.editor.insertSelection('<a href="' + fileobj.dropiosilo_url + '"><img src="' + fileobj.url + '" alt="' + fileobj.title + '" /></a>');
+		habari.editor.insertSelection('<a href="' + fileobj.dropiosilo_url + '"><img src="' + fileobj.thumbnail_url + '" alt="' + fileobj.title + '" /></a>');
 	}
 }
 </script>
@@ -167,6 +167,7 @@ habari.media.output.dropiosilo = {
 			$props['url'] = $assets[$i]->converted;
 			$props['thumbnail_url'] = $assets[$i]->thumbnail;
 			$props['dropiosilo_url'] = $assets[$i]->converted;
+			$props['filetype'] = 'dropiosilo';
 			$results[] = new MediaAsset(self::SILO_NAME . '/' . Options::get('dropiosilo__drop_name') . '/' . $assets[$i]->name, false, $props);
 		}
 		return $results;
