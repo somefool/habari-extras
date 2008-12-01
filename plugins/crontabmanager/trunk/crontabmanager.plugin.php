@@ -242,15 +242,12 @@ class CronTabManager extends Plugin
 	
 	public function filter_adminhandler_post_loadplugins_main_menu( array $menu )
 	{
+		$logout = $menu['logout'];
+		unset($menu['logout']);
 		$menu['crontab'] = array( 'url' => URL::get( 'admin', 'page=crontab'), 'title' => _t( 'Manage the crontab' ), 'text' => _t( 'Crontab' ), 'hotkey' => 'J', 'selected' => false);
 		// push logout link to bottom.
-		uksort($menu, array($this, 'sort_menu'));
+		$menu['logout'] = $logout;
 		return $menu;
-	}
-	
-	public function sort_menu($a, $b)
-	{
-		return $b == 'logout' ? -1 : 1;
 	}
 }
 
