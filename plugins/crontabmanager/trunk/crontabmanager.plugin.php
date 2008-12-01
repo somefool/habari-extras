@@ -25,6 +25,16 @@ class CronTabManager extends Plugin
 		$this->add_template('cronjob', dirname($this->get_file()) . '/cronjob.php');
 	}
 	
+	public function action_admin_theme_post_crontab( AdminHandler $handler, Theme $theme )
+	{
+		// saving is handled by FormUI
+		$this->action_admin_theme_get_crontab($handler, $theme);
+		$theme->display('crontab');
+		
+		// stoopid.
+		exit;
+	}
+	
 	public function action_admin_theme_get_crontab( AdminHandler $handler, Theme $theme )
 	{
 		if( isset($handler->handler_vars['action']) ) {
@@ -46,8 +56,52 @@ class CronTabManager extends Plugin
 						));
 					}
 					break;
+				case 'run':
+					$cron = CronTab::get_cronjob((int) $handler->handler_vars['cron_id']);
+					$cron->next_run = HabariDateTime::date_create('now');
+					$cron->update();
+					Options::set('next_cron', $cron->next_run->int );
+					Session::notice(_t(
+							'Executing Cron Job "%s"',
+							array($cron->name),
+							'crontabmanager'
+						));
+					break;
 			}
 		}
+		
+		$form = new FormUI('crontab-new');
+		$form->set_option( 'form_action', URL::get('admin', 'page=crontab' ) );
+		$form->class[] = 'form comment';
+		$tabs = $form->append('tabs', 'publish_controls');
+		$new = $tabs->append('fieldset', 'settings', _t('Add Cronjob', 'crontabmanage'));
+		
+		$name = $new->append('text', 'cron_name', 'null:null', _t('Name', 'crontabmanager'), 'tabcontrol_text');
+		
+		$callback = $new->append('text', 'callback', 'null:null', _t('Callback', 'crontabmanager'), 'tabcontrol_text');
+		
+		$increment = $new->append('text', 'increment', 'null:null', _t('Iterval', 'crontabmanager'), 'tabcontrol_text');
+		
+		$start_time = $new->append('text', 'start_time', 'null:null', _t('Start Time', 'crontabmanager'), 'tabcontrol_text');
+		
+		$end_time = $new->append('text', 'end_time', 'null:null', _t('End Time', 'crontabmanager'), 'tabcontrol_text');
+		
+		$description = $new->append('text', 'description', 'null:null', _t('Description', 'crontabmanager'), 'tabcontrol_text');
+		
+		$cron_class = $new->append('select', 'cron_class', 'null:null', _t('Cron Class', 'crontabmanager'), 'tabcontrol_select');
+		$cron_class->value = CronJob::CRON_CUSTOM;
+		$cron_class->options = array(
+			CronJob::CRON_SYSTEM => _t('System', 'crontabmanager'),
+			CronJob::CRON_THEME => _t('Theme', 'crontabmanager'),
+			CronJob::CRON_PLUGIN => _t('Plugin', 'crontabmanager'),
+			CronJob::CRON_CUSTOM => _t('Custom', 'crontabmanager'),
+		);
+		
+		$new->append( 'submit', 'save', _t('Save', 'crontabmanager') );
+		$form->on_success( array($this, 'formui_submit') );
+		$theme->form = $form->get();
+		
+		
 		$crons = DB::get_results(
 			'SELECT * FROM {crontab}',
 			array(),
@@ -147,24 +201,42 @@ class CronTabManager extends Plugin
 	
 	public function formui_submit( FormUI $form )
 	{
-		$cron = CronTab::get_cronjob((int) $form->cron_id->value);
+		if( isset($form->cron_id) ) {
+			$cron = CronTab::get_cronjob((int) $form->cron_id->value);
+		}
+		else {
+			$required = array('cron_name', 'callback', 'description');
+			foreach( $required as $req ) {
+				if( !$form->{$req}->value ) {
+					Session::error(_t('%s is a required feild.', array(ucwords($req)), 'crontabmanager'));
+					return;
+				}
+			}
+			$cron = new CronJob;
+			//$cron->insert();
+		}
+		
 		$cron->name =  $form->cron_name->value;
 		$cron->callback =
 			(strpos($form->callback->value, 'a:') === 0 || strpos($form->callback->value, 'O:') === 0) 
 			? unserialize($form->callback->value) 
 			: $form->callback->value;
-		$cron->increment = $form->increment->value;
-		$cron->next_run =  HabariDateTime::date_create($form->next_run->value);
-		$cron->start_time =  HabariDateTime::date_create($form->start_time->value);
-		$cron->end_time =  $form->end_time->value ? HabariDateTime::date_create($form->end_time->value) : null;
-		$cron->description =  $form->description->value;
-		$cron->cron_class =  $form->cron_class->value;
+		$cron->increment = $form->increment->value ? $form->increment->value : 86400;
+		$cron->next_run = HabariDateTime::date_create((isset($form->next_run) && $form->next_run->value) ? $form->next_run->value : HabariDateTime::date_create());
+		$cron->start_time = HabariDateTime::date_create($form->start_time->value ? $form->start_time->value : HabariDateTime::date_create());
+		$cron->end_time = $form->end_time->value ? HabariDateTime::date_create($form->end_time->value) : null;
+		$cron->description = $form->description->value;
+		$cron->cron_class = $form->cron_class->value;
+		
+		if ( intval( Options::get('next_cron') ) > $cron->next_run->int ){
+			Options::set( 'next_cron', $cron->next_run->int );
+		}
 		
 		if( $cron->update() ) {
 			Session::notice( _t('Cron Job saved.', 'crontabmanager') );
 		}
 		else {
-			Session::error( _t('Coul not save Cron Job.', 'crontabmanager') );
+			Session::error( _t('Could not save Cron Job.', 'crontabmanager') );
 		}
 	}
 	

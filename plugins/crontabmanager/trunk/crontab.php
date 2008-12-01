@@ -1,7 +1,13 @@
 <?php $theme->display('header');?>
 
+<div class="create">
+	
+	<?php echo $form; ?>
+
+</div>
 
 <div id="crontab" class="container settings">
+	<div style="float:right">Current Time: <?php HabariDateTime::date_create('now')->out(); ?></div>
 	<h2>Current Crontab Entries</h2>
 	
 
@@ -22,6 +28,7 @@
 			
 			<ul class="dropbutton">
 				<li><a href="<?php URL::out('admin', array('page'=>'cronjob', 'cron_id'=>$cron->cron_id)); ?>">Edit</a></li>
+				<li><a href="<?php URL::out('admin', array('page'=>'crontab', 'action'=>'run', 'cron_id'=>$cron->cron_id)); ?>">Run Now</a></li>
 				<li><a href="<?php URL::out('admin', array('page'=>'crontab', 'action'=>'delete', 'cron_id'=>$cron->cron_id)); ?>">Delete</a></li>
 			</ul>
 
@@ -34,14 +41,14 @@
 		
 		<ul class="description pct50">
 			<li>Runs Every <?php echo $cron->increment; ?> seconds.</li>
-			<li>Last Run: <?php $cron->last_run->out(); ?></li>
+			<li>Last Run: <?php echo $cron->last_run ? $cron->last_run->get() : 'Not Run'; ?></li>
 			<li>Next Run: <?php $cron->next_run->out(); ?></li>
 			<li>Starts On: <?php  $cron->start_time->out(); ?></li>
 			<li>Ends On: <?php echo $cron->end_time ? $cron->end_time->get() : 'Never'; ?></li>
 		</ul>
 	</div>
 
-<?php endforeach; ?>
+	<?php endforeach; ?>
 </div>
 
 <?php $theme->display('footer');?>
