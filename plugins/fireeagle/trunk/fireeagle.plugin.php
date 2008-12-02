@@ -79,7 +79,7 @@ class FireEagle extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add('Fire Eagle', $this->info->guid, $this->info->version);
+		Update::add($this->info->name, $this->info->guid, $this->info->version);
 	}
 
 	/**
@@ -170,7 +170,7 @@ class FireEagle extends Plugin
 	 */
 	public function action_admin_header($theme)
 	{
-		if ($theme->page != 1) return; // why dashboard is 1?
+		if ($theme->page != 'dashboard') return;
 		Stack::add('admin_header_javascript', $this->get_url() . '/js/admin.js');
 		Stack::add('admin_stylesheet', array($this->get_url() . '/css/admin.css', 'screen'));
 	}
