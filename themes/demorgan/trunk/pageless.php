@@ -9,7 +9,7 @@
 <?php if (is_array($post->tags)) { ?>
 				<span class="entry-tags"><?php echo $post->tags_out; ?></span>
 <?php } ?>
-<?php if ($user->loggedin) { ?>
+<?php if ($loggedin) { ?>
 				<span class="entry-edit"><a href="<?php echo $post->editlink; ?>" title="<?php _e('Edit post', 'demorgan'); ?>"><?php _e('Edit', 'demorgan'); ?></a></span>
 <?php } ?>
 			</div>
