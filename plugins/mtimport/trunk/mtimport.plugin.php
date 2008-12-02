@@ -814,7 +814,7 @@ $(document).ready(function(){
 				$t_post['slug'] = $mt_post['_META']['BASENAME'];
 			}
 			$t_post['content_type'] = Post::type('entry');
-			$t_post['title'] = MultiByte::convert_encoding($mt_post['_META']['TITLE']);
+			$t_post['title'] = strip_tags(htmlspecialchars_decode(MultiByte::convert_encoding($mt_post['_META']['TITLE'])));
 			if (isset($mt_post['EXTENDED BODY']['_BODY'])) {
 				$t_post['content'] = MultiByte::convert_encoding($mt_post['BODY']['_BODY'] . $mt_post['EXTENDED BODY']['_BODY']);
 			} else {
