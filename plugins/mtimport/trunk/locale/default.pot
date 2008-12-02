@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mtimport\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 03:11+0900\n"
+"POT-Creation-Date: 2008-12-02 14:40+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mtimport/mtimport.plugin.php:50
+#: mtimport/mtimport.plugin.php:50 mtimport/mtimport.plugin.php:51
 msgid "Movable Type Database (MySQL)"
 msgstr ""
 
@@ -33,101 +33,110 @@ msgstr ""
 msgid "Unknown Stage: %s"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:128
+#: mtimport/mtimport.plugin.php:128 mtimport/mtimport.plugin.php:150
 msgid "Habari will attempt to import from a Movable Type Database."
 msgstr ""
 
 #: mtimport/mtimport.plugin.php:132 mtimport/mtimport.plugin.php:702
+#: mtimport/mtimport.plugin.php:154
 msgid ""
 "Please provide the connection details for an existing Movable Type database:"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:134
+#: mtimport/mtimport.plugin.php:134 mtimport/mtimport.plugin.php:156
 msgid "Database Name"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:135
+#: mtimport/mtimport.plugin.php:135 mtimport/mtimport.plugin.php:157
 msgid "Database Host"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:136
+#: mtimport/mtimport.plugin.php:136 mtimport/mtimport.plugin.php:158
 msgid "Database User"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:137
+#: mtimport/mtimport.plugin.php:137 mtimport/mtimport.plugin.php:159
 msgid "Database Password"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:138
+#: mtimport/mtimport.plugin.php:138 mtimport/mtimport.plugin.php:160
 msgid "Table Prefix"
 msgstr ""
 
 #: mtimport/mtimport.plugin.php:141 mtimport/mtimport.plugin.php:707
+#: mtimport/mtimport.plugin.php:163 mtimport/mtimport.plugin.php:723
 msgid "Next"
 msgstr ""
 
 #: mtimport/mtimport.plugin.php:161 mtimport/mtimport.plugin.php:202
+#: mtimport/mtimport.plugin.php:183 mtimport/mtimport.plugin.php:224
 msgid ""
 "Could not connect to the Movable Type database using the values supplied. "
 "Please correct them and try again."
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:168
+#: mtimport/mtimport.plugin.php:168 mtimport/mtimport.plugin.php:190
 msgid "Please specify Blog which imports:"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:170
+#: mtimport/mtimport.plugin.php:170 mtimport/mtimport.plugin.php:192
 msgid "Import Blog"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:182
+#: mtimport/mtimport.plugin.php:182 mtimport/mtimport.plugin.php:204
 msgid "Import"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:207
+#: mtimport/mtimport.plugin.php:207 mtimport/mtimport.plugin.php:229
+#: mtimport/mtimport.plugin.php:766
 #, php-format
 msgid "Starting import from \"%s\""
 msgstr ""
 
 #: mtimport/mtimport.plugin.php:253 mtimport/mtimport.plugin.php:321
 #: mtimport/mtimport.plugin.php:452 mtimport/mtimport.plugin.php:570
+#: mtimport/mtimport.plugin.php:275 mtimport/mtimport.plugin.php:343
+#: mtimport/mtimport.plugin.php:474 mtimport/mtimport.plugin.php:592
 #, php-format
 msgid "Failed to import from \"%s\""
 msgstr ""
 
 #: mtimport/mtimport.plugin.php:254 mtimport/mtimport.plugin.php:453
-#: mtimport/mtimport.plugin.php:571
+#: mtimport/mtimport.plugin.php:571 mtimport/mtimport.plugin.php:276
+#: mtimport/mtimport.plugin.php:475 mtimport/mtimport.plugin.php:593
 msgid "Failed to connect using the given database connection details."
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:260
+#: mtimport/mtimport.plugin.php:260 mtimport/mtimport.plugin.php:282
 msgid "<p>Importing users...</p>"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:322
+#: mtimport/mtimport.plugin.php:322 mtimport/mtimport.plugin.php:344
 msgid "The database connection details have failed to connect."
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:337
+#: mtimport/mtimport.plugin.php:337 mtimport/mtimport.plugin.php:359
 #, php-format
 msgid "<p>Importing posts %d-%d of %d.</p>"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:461
+#: mtimport/mtimport.plugin.php:461 mtimport/mtimport.plugin.php:483
 #, php-format
 msgid "<p>Importing comments %d-%d of %d.</p>"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:579
+#: mtimport/mtimport.plugin.php:579 mtimport/mtimport.plugin.php:601
 #, php-format
 msgid "<p>Importing trackbacks %d-%d of %d.</p>"
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:645
+#: mtimport/mtimport.plugin.php:645 mtimport/mtimport.plugin.php:667
+#: mtimport/mtimport.plugin.php:924
 msgid "Import is complete."
 msgstr ""
 
-#: mtimport/mtimport.plugin.php:649
+#: mtimport/mtimport.plugin.php:649 mtimport/mtimport.plugin.php:671
+#: mtimport/mtimport.plugin.php:928
 msgid "There were errors during import:"
 msgstr ""
 
@@ -137,4 +146,32 @@ msgstr ""
 
 #: mtimport/mtimport.plugin.php:704
 msgid "Backup File"
+msgstr ""
+
+#: mtimport/mtimport.plugin.php:715
+msgid "Habari will attempt to import from a Movable Type Export File."
+msgstr ""
+
+#: mtimport/mtimport.plugin.php:720
+msgid "MT Export File"
+msgstr ""
+
+#: mtimport/mtimport.plugin.php:745
+msgid "Please specify Movable Type Export File."
+msgstr ""
+
+#: mtimport/mtimport.plugin.php:753
+msgid "Upload failed."
+msgstr ""
+
+#: mtimport/mtimport.plugin.php:760
+msgid "Possible file upload attack!"
+msgstr ""
+
+#: mtimport/mtimport.plugin.php:802
+msgid "Failed parsing File: "
+msgstr ""
+
+#: mtimport/mtimport.plugin.php:923
+msgid "Import complete from MT Export File"
 msgstr ""
