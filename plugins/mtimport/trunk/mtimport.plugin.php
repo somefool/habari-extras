@@ -11,6 +11,7 @@
  *
  * Tested with Movable Type Ver 4.12 (MySQL)
  */
+require_once('mtparser.php');
 class MTImport extends Plugin implements Importer
 {
 	private $supported_importers;
@@ -26,7 +27,7 @@ class MTImport extends Plugin implements Importer
 	{
 		return array(
 			'name' => 'Movable Type Importer',
-			'version' => '0.01-alpha',
+			'version' => '0.02-alpha',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -48,6 +49,18 @@ class MTImport extends Plugin implements Importer
 
 		$this->supported_importers = array();
 		$this->supported_importers['mysql'] = _t('Movable Type Database (MySQL)', 'mtimport');
+		$this->supported_importers['file'] = _t('Movable Type Export File', 'mtimport');
+	}
+
+	/**
+	 * action: update_check
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function action_update_check()
+	{
+		Update::add('Movable Type Importer', $this->info->guid, $this->info->version);
 	}
 
 	/**
@@ -60,17 +73,6 @@ class MTImport extends Plugin implements Importer
 	public function filter_import_names($import_names)
 	{
 		return array_merge($import_names, $this->supported_importers);
-	}
-
-	/**
-	 * action: update_check
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function action_update_check()
-	{
-		Update::add('Movable Type Importer', $this->info->guid, $this->info->version);
 	}
 
 	/**
@@ -100,6 +102,28 @@ class MTImport extends Plugin implements Importer
 		$output = $this->$stage_method(array());
 
 		return $output;
+	}
+
+	/**
+	 * filter: import_form_enctype
+	 *
+	 * @access public
+	 * @param string $enctype
+	 * @param string $import_name
+	 * @param string $stage
+	 * @return string
+	 */
+	public function filter_import_form_enctype($enctype, $import_name, $stage)
+	{
+		if (($importer = array_search($import_name, $this->supported_importers)) === false) {
+			return $enctype;
+		}
+
+		if ($importer == 'file') {
+			return 'multipart/form-data';
+		}
+
+		return $enctype;
 	}
 
 	/**
@@ -670,6 +694,245 @@ $( '#import_progress' ).load(
 );
 </script>
 <?php
+	}
+
+	/**
+	 * first stage of Movable Type Export File import process
+	 *
+	 * @access private
+	 * @return string The UI for the first stage of the import process
+	 */
+	private function file_stage_1($inputs)
+	{
+		$default_values = array(
+			'warning' => ''
+		 );
+		$inputs = array_merge( $default_values, $inputs );
+		extract( $inputs );
+
+		ob_start();
+?>
+<p><?php echo _t('Habari will attempt to import from a Movable Type Export File.', 'mtimport'); ?></p>
+<?php if (!empty($warning)): ?>
+<p class="warning"><?php echo htmlspecialchars($warning); ?></p>
+<?php endif; ?>
+<table>
+	<tr><td><?php echo _t('MT Export File', 'mtimport'); ?></td><td><input type="file" name="file" /></td></tr>
+</table>
+<input type="hidden" name="stage" value="2">
+<p class="submit"><input type="submit" name="import" value="<?php echo _t('Next', 'mtimport'); ?>" /></p>
+<?php
+		$output = ob_get_contents();
+		ob_end_clean();
+		return $output;
+	}
+
+	/**
+	 * second stage of Movable Type Export File import process
+	 *
+	 * @access private
+	 * @return string The UI for the first stage of the import process
+	 */
+	private function file_stage_2($inputs)
+	{
+		$default_values = array(
+			'warning' => ''
+		 );
+		$inputs = array_merge($default_values, $inputs);
+		extract($inputs);
+
+		if (empty($_FILES['file'])) {
+			$inputs['warning'] = _t('Please specify Movable Type Export File.', 'mtimport');
+			return $this->stage_1($inputs);
+		}
+
+		switch ($_FILES['file']['error']) {
+		case UPLOAD_ERR_OK:
+			break;
+		default:
+			$inputs['warning'] = _t('Upload failed.', 'mtimport');
+			return $this->stage_1($inputs);
+		}
+
+		$mt_file = tempnam(null, 'habari_');
+		
+		if (!move_uploaded_file($_FILES['file']['tmp_name'], $mt_file)) {
+			$inputs['warning'] = _t('Possible file upload attack!', 'mtimport');
+			return $this->stage_1($inputs);
+		}
+		$_SESSION['mtimport_mt_file'] = $mt_file;
+
+		$ajax_url = URL::get('auth_ajax', array('context' => 'mt_file_import_all'));
+		EventLog::log(sprintf(_t('Starting import from "%s"'), 'mtfile'));
+		Options::set('import_errors', array());
+
+		ob_start();
+?>
+<p>Import In Progress</p>
+<div id="import_progress">Starting Import...</div>
+<script type="text/javascript">
+// A lot of ajax stuff goes here.
+$(document).ready(function(){
+	$('#import_progress').load(
+		"<?php echo $ajax_url; ?>",
+		{
+		postindex: 0
+		}
+	 );
+});
+</script>
+<?php
+		$output = ob_get_contents();
+		ob_end_clean();
+		return $output;
+	}
+
+	/**
+	 * action: auth_ajax_mt_file_import_all
+	 *
+	 * @access public
+	 * @param array $handler
+	 */
+	public function action_auth_ajax_mt_file_import_all($handler)
+	{
+		$text = file_get_contents($_SESSION['mtimport_mt_file']);
+		try {
+			$parser = new MTFileParser($text);
+		} catch (Exception $e) {
+			echo '<p>' . _t('Failed parsing File: ') . $e->getMessage() . '</p>';
+			return;
+		}
+
+		$posts = $parser->getResult();
+
+		@reset($posts);
+		while (list(, $mt_post) = @each($posts)) {
+			// Post
+			$t_post = array();
+			$tags = array();
+			if (isset($mt_post['_META']['BASENAME'])) {
+				$t_post['slug'] = $mt_post['_META']['BASENAME'];
+			}
+			$t_post['content_type'] = Post::type('entry');
+			$t_post['title'] = MultiByte::convert_encoding($mt_post['_META']['TITLE']);
+			if (isset($mt_post['EXTENDED BODY']['_BODY'])) {
+				$t_post['content'] = MultiByte::convert_encoding($mt_post['BODY']['_BODY'] . $mt_post['EXTENDED BODY']['_BODY']);
+			} else {
+				$t_post['content'] = MultiByte::convert_encoding($mt_post['BODY']['_BODY']);
+			}
+			if (!isset($mt_post['_META']['STATUS']) || $mt_post['_META']['STATUS'] == 'Publish') {
+				$t_post['status'] = Post::status('published');
+			} else {
+				$t_post['status'] = Post::status('draft');
+			}
+			$t_post['pubdate'] = $t_post['updated'] = HabariDateTime::date_create($mt_post['_META']['DATE']);
+			if (isset($mt_post['_META']['CATEGORY'])) {
+				$tags = array_merge($tags, $mt_post['_META']['CATEGORY']);
+			}
+			if (isset($mt_post['_META']['TAGS'])) {
+				$t_tags = explode(',', $mt_post['_META']['TAGS']);
+				$t_tags = array_map('trim', $t_tags, array('"'));
+				$tags = array_merge($tags, $t_tags);
+			}
+
+			$post = new Post($t_post);
+			if (isset($mt_post['_META']['ALLOW COMMENTS']) && $mt_post['_META']['ALLOW COMMENTS'] != 1) {
+				$post->info->comments_disabled = 1;
+			}
+			$post->tags = array_unique($tags);
+			$post->user_id = User::identify()->id; // TODO: import MT author
+			try {
+				$post->insert();
+			} catch (Exception $e) {
+				EventLog::log($e->getMessage(), 'err', null, null, print_r(array($p, $e), 1));
+				Session::error($e->getMessage());
+				$errors = Options::get('import_errors');
+				$errors[] = $p->title . ' : ' . $e->getMessage();
+				Options::set('import_errors', $errors);
+			}
+
+			// Comments
+			if (isset($mt_post['COMMENT'])) {
+				@reset($mt_post['COMMENT']);
+				while (list(, $mt_comment) = @each($mt_post['COMMENT'])) {
+					$t_comment = array();
+					$t_comment['post_id'] = $post->id;
+					$t_comment['name'] = MultiByte::convert_encoding($mt_comment['AUTHOR']);
+					if (isset($mt_comment['EMAIL'])) {
+						$t_comment['email'] = $mt_comment['EMAIL'];
+					}
+					if (isset($mt_comment['URL'])) {
+						$t_comment['url'] = strip_tags($mt_comment['URL']);
+					}
+					if (isset($mt_comment['IP'])) {
+						$t_comment['ip'] = $mt_comment['IP'];
+					}
+					$t_comment['content'] = MultiByte::convert_encoding($mt_comment['_BODY']);
+					$t_comment['status'] = Comment::STATUS_APPROVED;
+					$t_comment['date'] = HabariDateTime::date_create($mt_comment['DATE']);
+					$t_comment['type'] = Comment::COMMENT;
+
+					$comment = new Comment($t_comment);
+					try {
+						$comment->insert();
+					} catch (Exception $e) {
+						EventLog::log($e->getMessage(), 'err', null, null, print_r(array($c, $e), 1));
+						Session::error($e->getMessage());
+						$errors = Options::get('import_errors');
+						$errors[] = $e->getMessage();
+						Options::set('import_errors', $errors);
+					}
+				}
+			}
+
+			// Trackbacks
+			if (isset($mt_post['PING'])) {
+				@reset($mt_post['PING']);
+				while (list(, $mt_comment) = @each($mt_post['PING'])) {
+					$t_comment = array();
+					$t_comment['post_id'] = $post->id;
+					$t_comment['name'] = MultiByte::convert_encoding($mt_comment['BLOG NAME'] . ' - ' . $mt_comment['TITLE']);
+					if (isset($mt_comment['EMAIL'])) {
+						$t_comment['email'] = $mt_comment['EMAIL'];
+					}
+					if (isset($mt_comment['URL'])) {
+						$t_comment['url'] = strip_tags($mt_comment['URL']);
+					}
+					if (isset($mt_comment['IP'])) {
+						$t_comment['ip'] = $mt_comment['IP'];
+					}
+					$t_comment['content'] = MultiByte::convert_encoding($mt_comment['_BODY']);
+					$t_comment['status'] = Comment::STATUS_APPROVED;
+					$t_comment['date'] = HabariDateTime::date_create($mt_comment['DATE']);
+					$t_comment['type'] = Comment::TRACKBACK;
+
+					$comment = new Comment($t_comment);
+					try {
+						$comment->insert();
+					} catch (Exception $e) {
+						EventLog::log($e->getMessage(), 'err', null, null, print_r(array($c, $e), 1));
+						Session::error($e->getMessage());
+						$errors = Options::get('import_errors');
+						$errors[] = $e->getMessage();
+						Options::set('import_errors', $errors);
+					}
+				}
+			}
+		}
+
+		EventLog::log(_t('Import complete from MT Export File', 'mtimport'));
+		echo '<p>' . _t('Import is complete.') . '</p>';
+
+		$errors = Options::get('import_errors');
+		if(count($errors) > 0 ) {
+			echo '<p>' . _t('There were errors during import:') . '</p>';
+
+			echo '<ul>';
+			foreach ($errors as $error) {
+				echo '<li>' . $error . '</li>';
+			}
+			echo '</ul>';
+		}
 	}
 
 	/**
