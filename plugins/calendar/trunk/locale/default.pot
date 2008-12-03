@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: calendar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-12-04 06:56+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: calendar/calendar.plugin.php:84 calendar/calendar.plugin.php:101
+msgid "Configure"
+msgstr ""
+
+#: calendar/calendar.plugin.php:86
+msgid "Week starts on: "
+msgstr ""
+
+#: calendar/calendar.plugin.php:87
+msgid "Save"
+msgstr ""
+
+#: calendar/calendar.plugin.php:148
+msgid "Sun"
+msgstr ""
+
+#: calendar/calendar.plugin.php:148
+msgid "Mon"
+msgstr ""
+
+#: calendar/calendar.plugin.php:148
+msgid "Tue"
+msgstr ""
+
+#: calendar/calendar.plugin.php:148
+msgid "Wed"
+msgstr ""
+
+#: calendar/calendar.plugin.php:148
+msgid "Thu"
+msgstr ""
+
+#: calendar/calendar.plugin.php:148
+msgid "Fri"
+msgstr ""
+
+#: calendar/calendar.plugin.php:148
+msgid "Sat"
+msgstr ""
