@@ -1,0 +1,200 @@
+body {
+margin:0;
+padding:0;
+background-color:black;
+background-image:url(images/background.png);
+background-position:top;
+background-repeat:repeat-x;	
+}
+
+
+
+#container{
+	width:900px;
+	margin:0 auto;
+	text-align:center;
+	
+}
+
+#header{
+	height:37px;
+	min-width:100%;
+	background-image:url(images/menubar.png);
+	background-position:top;
+	background-repeat:repeat-x;
+}
+
+	#header h1{
+		text-indent:-5000px;
+		background-image:url(images/titleimage.png);
+		float:left;
+		height:37px;
+		width:210px;
+		margin:0;
+	}
+	
+	#header h2{
+		float:left;
+		margin-left:25px;
+		margin:0;
+		font-size:1.5em;
+		line-height:1em;
+		padding-top:8px;
+		font-weight:normal;
+	}
+	
+	#header h2 span {
+		font-size:0.6em;
+	}
+	
+	#header #pages_menu{
+		margin:0 10px 0 0;
+		float:right;
+		padding-top:8px;
+	}
+	
+	#header #pages_menu li{
+		float:left;
+		margin-right:20px;
+	}
+
+#content{
+	text-align:center;
+	
+}
+	
+#page_content{
+	margin-top:30px;
+	position:relative;
+	text-align:left;
+	border:1px solid #efefef;
+	padding:20px;
+	margin-bottom:20px;
+}
+	
+#post_content{
+	padding: 0 42px;
+	margin:0;
+	margin-top:30px;
+	position:relative;
+	text-align:center;
+}
+
+#post_content img {
+	border:1px solid #ccc;
+}
+
+#post_content #prev_post{
+	height:100%;
+	width:50%;
+	position:absolute;
+	top:0;
+	left:0px;
+		
+}
+
+#post_content #next_post{
+	height:100%;
+	width:50%;
+	position:absolute;
+	top:0;
+	right:0px;
+	
+}
+
+#post_content #prev_post a.prev-post{
+	display:block;
+	height:100%;
+	width:100%;
+	text-indent:-5000px;
+	position:absolute;
+	right:50px;
+	top:0;
+	outline:none;
+}
+
+#post_content #prev_post a.prev-post:hover{
+	background-image:url(images/backwardhover.png);
+	background-repeat:no-repeat;
+	background-position:right center;
+	outline:none;
+}
+	
+
+#post_content #next_post a.next-post{
+	display:block;
+	height:100%;
+	width:100%;
+	text-indent:-5000px;
+	position:absolute;
+	left:50px;
+	top:0;
+	outline:none;
+}
+	
+#post_content #next_post a.next-post:hover{
+	background-image:url(images/forwardhover.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	outline:none;
+}
+
+#post_details_link{
+	clear:both;
+	text-align:center;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+#post_content_link{
+	margin-top:30px;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+#footer p{
+	color:#999;
+	text-align:center;
+	clear:both;
+}
+
+#post_details{
+	clear:both;
+	border:1px solid #efefef;
+	text-align:left;
+}
+
+#post_details #comments{
+	width:45%;
+	float:right;
+	margin-right:10px;
+	text-align:left;
+
+}
+
+#post_details #details{
+	width:45%;
+	float:left;
+	margin-left:10px;
+	
+}
+
+/* layout classes */
+
+.hidden {display:none;}
+.clear {clear:both;}	
+/* Type */
+
+body{
+	font-family:Helvetica, Arial, sans-serif;
+	color:white;
+	font-size:75%;
+	line-height:1.5em;
+}
+
+a:link, a:visited{
+	color:white;
+}
+
+
+
