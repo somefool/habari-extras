@@ -137,7 +137,7 @@ class Calendar extends Plugin
 		$start_time = mktime(0, 0, 0, $month, 1, $year);
 		$end_time = mktime(0, 0, 0, $next_month, 1, $next_year);
 		$t_posts_day = DB::get_column('SELECT pubdate FROM {posts} WHERE pubdate >= ? AND pubdate < ? AND status = ?', array($start_time, $end_time, Post::status('published')));
-                $posts_day = array();
+		$posts_day = array();
 		@reset($t_posts_day);
 		while (list(, $pubdate) = @each($t_posts_day)) {
                     $posts_day[] = (int)date("j", $pubdate);
@@ -145,7 +145,7 @@ class Calendar extends Plugin
 
 		$month_start_week = date("w", $start_time);
 		$month_days = date("t", $start_time);
-		$week_days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+		$week_days = array(_t('Sun', 'calendar'), _t('Mon', 'calendar'), _t('Tue', 'calendar'), _t('Wed', 'calendar'), _t('Thu', 'calendar'), _t('Fri', 'calendar'), _t('Sat', 'calendar'));
 		$week_start = Options::get('calendar__week_start');
 
 		$calendar = array();
