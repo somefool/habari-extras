@@ -27,6 +27,7 @@
 			<?php
 				$theme->jaiku();
 				$theme->twitter();
+				$theme->twitterlitte();
 				$theme->audioscrobbler();
 				$theme->flickrfeed();
 				if (Plugins::is_loaded('FlickrRSS', '1.3')) $theme->display('flickrrss.widget');
