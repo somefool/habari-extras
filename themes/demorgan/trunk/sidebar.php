@@ -32,6 +32,7 @@
 				$theme->display('tagcloud.widget');
 				$theme->jaiku();
 				$theme->twitter();
+				$theme->twitterlitte();
 				$theme->audioscrobbler();
 				$theme->display('feedlink.widget');
 				$theme->display('admin.widget');
