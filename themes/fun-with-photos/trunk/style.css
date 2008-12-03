@@ -110,12 +110,14 @@ background-repeat:repeat-x;
 	position:absolute;
 	right:50px;
 	top:0;
+	outline:none;
 }
 
 #post_content #prev_post a.prev-post:hover{
 	background-image:url(images/backwardhover.png);
 	background-repeat:no-repeat;
 	background-position:right center;
+	outline:none;
 }
 	
 
@@ -127,12 +129,14 @@ background-repeat:repeat-x;
 	position:absolute;
 	left:50px;
 	top:0;
+	outline:none;
 }
 	
 #post_content #next_post a.next-post:hover{
 	background-image:url(images/forwardhover.png);
 	background-repeat:no-repeat;
 	background-position:left center;
+	outline:none;
 }
 
 #post_details_link{
@@ -191,4 +195,6 @@ body{
 a:link, a:visited{
 	color:white;
 }
+
+
 

@@ -31,6 +31,12 @@ If you use this method then everything in the normal post box will be extra text
 
 Included with the theme is a folder called PSD. In it you will find a photoshop document with the blog title in it so you can change it.
 
+== Versions ==
+
+= 1.0.1 =
+
+Added a single line of CSS to remove the outlines on the next and previous links.
+
 Enjoy
 
 Andrew
