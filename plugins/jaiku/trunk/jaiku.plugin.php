@@ -147,7 +147,7 @@ class Jaiku extends Plugin
 					if (is_array($presences)) {
 						$theme->presences = array_slice($presences, 0, $params['limit']);
 					} else {
-						$theme->presences = $presences;
+						$theme->presences = array($presences);
 					}
 					// Do cache
 					Cache::set($cache_name, $theme->presences, $params['cache']);
@@ -195,6 +195,30 @@ class Jaiku extends Plugin
 
 class JaikuPresence extends stdClass
 {
+	function __get($name)
+	{
+		switch ($name) {
+			case 'message_out':
+				$message = htmlspecialchars($this->title);
+				// Linkify URIs
+				$message = preg_replace(
+					'|(?<uri>' .
+					'(?<scheme>[a-z0-9]+)://' .
+					'(?:(?<username>[a-z0-9-_.!~*\'()%]+)(?::(?<password>[a-z0-9-_.!~*\'()%;&=+$,]+))?@)?' .
+					'(?<hostname>(?:[a-z0-9-]{2,}.)+[a-z0-9-]{2,})(?::(?<port>\d{2,5}))?' .
+					'(?<path>(?:/[a-z0-9-_.%])+)?' .
+					'(?<query>\?[a-z0-9-_.!~*\'()%]+=[a-z0-9-_.!~*\'()%]+(?:&[a-z0-9-_.!~*\'()%\[\]]+=[a-z0-9-_.!~*\'()%]+)*)?' .
+					'(?<fragment>#[a-z0-9;/?:@&=+$,-_.!~*\'()]+)?' .
+					')|i', '<a href="${1}">${5}</a>', $message);
+				// Linkify Users
+				$message = preg_replace('|\B@([a-z0-9_]+)\b|i', '@<a href="http://${1}.jaiku.com">${1}</a>', $message);
+				return $message;
+				break;
+			default:
+				return NULL;
+				break;
+		}
+	}
 }
 
 class JaikuUser extends stdClass
