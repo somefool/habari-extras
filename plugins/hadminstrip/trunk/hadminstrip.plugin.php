@@ -48,7 +48,7 @@ class HadminStrip extends Plugin
 	 */
 	public function action_add_template_vars()
 	{
-		if ( User::identify() ) {
+		if ( User::identify()->loggedin ) {
 			Stack::add( 'template_stylesheet', array($this->get_url() . '/hadminstrip.css', 'screen'), 'hadminstrip.css' );
 		}
 	}
