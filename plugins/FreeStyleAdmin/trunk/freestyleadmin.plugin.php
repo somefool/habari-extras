@@ -25,19 +25,15 @@ class FreeStyleAdmin extends Plugin {
             switch ($action) {
                 case _t('Configure'):
                     $ui = new FormUI(strtolower(get_class($this)));
-                    $clientcode    = $ui->append('text', 'css_location', 'option:freestyleadmin__css_location', _t('FreeStyle CSS Location', 'FreeStyleAdmin'));
+                    $css_location = $ui->append('text', 'css_location', 'option:freestyleadmin__css_location', _t('FreeStyle CSS Location', 'FreeStyleAdmin'));
+                    $css_location->add_validator( 'validate_required' );
                     
-                    $ui->on_success(array($this, 'updated_config'));
                     $ui->append( 'submit', 'save', _t( 'Save', 'FreeStyleAdmin' ) );
                     $ui->set_option( 'success_message', _t( 'Configuration saved', 'FreeStyleAdmin' ) );
                     $ui->out();
                 break;
             }
         }
-    }
-
-    public function updated_config($ui) {
-        return true;
     }
 
     private static function getvar($var) {
