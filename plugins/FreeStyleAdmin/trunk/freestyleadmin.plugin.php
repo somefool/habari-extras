@@ -25,7 +25,7 @@ class FreeStyleAdmin extends Plugin {
             switch ($action) {
                 case _t('Configure'):
                     $ui = new FormUI(strtolower(get_class($this)));
-                    $clientcode    = $ui->add('text', 'css_location', _t('FreeStyle CSS Location'));
+                    $clientcode    = $ui->append('text', 'css_location', _t('FreeStyle CSS Location'));
                     
                     $ui->on_success(array($this, 'updated_config'));
                     $ui->out();
