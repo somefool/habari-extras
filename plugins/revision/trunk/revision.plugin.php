@@ -1,12 +1,14 @@
 <?php
-/*
-
-  Revision
-
-  Revision: $Id$
-  Head URL: $URL$
-
-*/
+/**
+ * Revision
+ *
+ * @package revision
+ * @version $Id$
+ * @author ayunyan <ayu@commun.jp>
+ * @author freakerz (@1271)
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link http://ayu.commun.jp/habari-revision
+ */
 require_once( 'revision_diff.php');
 
 class Revision extends Plugin
@@ -27,6 +29,7 @@ class Revision extends Plugin
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',
 			'description' => '',
+			'guid' => '01bcbf1c-2958-11dd-b5d6-001b210f913f'
 			);
 	}
 
@@ -66,7 +69,7 @@ class Revision extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add( 'Revision', '01bcbf1c-2958-11dd-b5d6-001b210f913f', $this->info->version );
+		Update::add($this->info->name, $this->info->guid, $this->info->version);
 	}
 
 	/**

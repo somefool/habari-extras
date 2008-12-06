@@ -1,40 +1,40 @@
 <?php $theme->display('header'); ?>
 <div class="container">
   <div class="item clear">
-    <div class="column span-3">&nbsp;</div>
-    <div class="column span-8"><?php $old_post->modified->out('F jS, Y H:i:s'); ?></div>
-    <div class="column span-8 last"><?php $new_post->modified->out('F jS, Y H:i:s'); ?></div>
+    <div class="pct20">&nbsp;</div>
+    <div class="pct40"><?php $old_post->modified->out('F jS, Y H:i:s'); ?></div>
+    <div class="pct40"><?php $new_post->modified->out('F jS, Y H:i:s'); ?></div>
   </div>
 
   <div class="item clear">
-    <div class="column span-3">
+    <div class="pct20">
       <label><?php echo _t( 'Title' ); ?></label>
     </div>
-    <div class="column span-8">
+    <div class="pct40">
       <?php echo $old_post->title; ?>
     </div>
-    <div class="column span-8 last">
+    <div class="pct40">
       <?php echo $new_post->title; ?>
     </div>
   </div>
 
   <div class="item clear">
-    <div class="column span-3">
+    <div class="pct20">
       <label><?php echo _t( 'Author' ); ?></label>
     </div>
-    <div class="column span-8">
+    <div class="pct40">
       <?php echo $old_post->author->username; ?>
     </div>
-    <div class="column span-8 last">
+    <div class="pct40">
       <?php echo $new_post->author->username; ?>
     </div>
   </div>
 
   <div class="item clear">
-    <div class="column span-3">
+    <div class="pct20">
       <label><?php echo _t( 'Content' ); ?></label>
     </div>
-    <div class="column span-16 last">
+    <div class="pct80">
       <?php echo $content_diff; ?>
     </div>
   </div>

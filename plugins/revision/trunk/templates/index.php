@@ -1,33 +1,33 @@
 <?php $theme->display('header'); ?>
 <div class="container">
   <div class="item clear">
-    <div class="column span-3">&nbsp;</div>
-    <div class="column span-8 last"><?php $post->updated->out('F jS, Y H:i:s'); ?></div>
+    <div class="pct20">&nbsp;</div>
+    <div class="pct80"><?php $post->updated->out('F jS, Y H:i:s'); ?></div>
   </div>
 
   <div class="item clear">
-    <div class="column span-3">
+    <div class="pct20">
       <label><?php echo _t( 'Title' ); ?></label>
     </div>
-    <div class="column span-8 last">
+    <div class="pct80">
       <?php echo $post->title; ?>
     </div>
   </div>
 
   <div class="item clear">
-    <div class="column span-3">
+    <div class="pct20">
       <label><?php echo _t( 'Author' ); ?></label>
     </div>
-    <div class="column span-8 last">
+    <div class="pct80">
       <?php echo $post->author->username; ?>
     </div>
   </div>
 
   <div class="item clear">
-    <div class="column span-3">
+    <div class="pct20">
       <label><?php echo _t( 'Content' ); ?></label>
     </div>
-    <div class="column span-8 last">
+    <div class="pct80">
       <?php echo $post->content; ?>
     </div>
   </div>

@@ -17,7 +17,7 @@ class RevisionDiff
 		$new_lines = explode( "\n", $new );
 
 		$diff = self::diff( $old_lines, $new_lines );
-		$html = '<table class="diff">';
+		$html = '<table class="diff" style="width: 100%;">';
 
 		$diff_count = count( $diff );
 		for ( $i = 0; $i < $diff_count; $i++ ) {
@@ -26,23 +26,23 @@ class RevisionDiff
 				$ins_count = count( $diff[$i]['i'] );
 
 				if ( isset( $diff[$i - 1] ) &&  is_string( $diff[$i - 1] ) ) {
-					$html.= '<tr><td colspan="4" class="span-16">' . ( $i - 1 ) . ' Line</td></tr>';
-					$html.= '<tr><td class="span-1"></td><td class="span-7" style="background-color: #efefef;">' . $diff[$i - 1] . '</td><td class="span-1"></td><td class="span-7" style="background-color: #efefef;">' . $diff[$i - 1] . '</td></tr>';
+					$html.= '<tr><td colspan="4" style="width: 100%;">' . ( $i - 1 ) . ' Line</td></tr>';
+					$html.= '<tr><td style="width: 5%;"></td><td style="width: 45%; background-color: #efefef;">' . $diff[$i - 1] . '</td><td style="width: 5%;"></td><td style="width: 45%; background-color: #efefef;">' . $diff[$i - 1] . '</td></tr>';
 				}
 				else {
-					$html.= '<tr><td colspan="4" class="span-16">' . $i . ' Line</td></tr>';
+					$html.= '<tr><td colspan="4" style="width: 100%;">' . $i . ' Line</td></tr>';
 				}
 
 				$html.= '<tr>';
 
 				// Replace
 				if ( $del_count != 0 && $ins_count != 0 ) {
-					$html.= '<td class="span-1" style="text-align: right;">-</td><td class="span-7" style="background-color: #ffffbb;">';
+					$html.= '<td style="width: 5%; text-align: right;">-</td><td style="width: 45%; background-color: #ffffbb;">';
 
 					for ( $j = 0; $j < $del_count; $j++ ) {
 						$html.= $diff[$i]['d'][$j] . '<br />';
 					}
-					$html.= '</td><td class="span-1" style="text-align: right;">+</td><td class="span-7" style="background-color: #eeffee;">';
+					$html.= '</td><td style="width: 5%; text-align: right;">+</td><td style="width: 45%; background-color: #eeffee;">';
 
 					for ( $j = 0; $j < $ins_count; $j++ ) {
 						$html.= $diff[$i]['i'][$j] . '<br />';
@@ -51,16 +51,16 @@ class RevisionDiff
 				}
 				// Delete
 				elseif ( $del_count != 0 ) {
-					$html.= '<td class="span-1" style="text-align: right;">-</td><td class="span-7" style="background-color: #ffffbb;">';
+					$html.= '<td style="width: 5%; text-align: right;">-</td><td style="width: 45%; background-color: #ffffbb;">';
 
 					for ( $j = 0; $j < $del_count; $j++ ) {
 						$html.= $diff[$i]['d'][$j] . '<br />';
 					}
-					$html.= '</td><td colspan="2" class="span-7"></td>';
+					$html.= '</td><td colspan="2" class="pct35"></td>';
 				}
 				// Insert
 				elseif ( $ins_count != 0 ) {
-					$html.= '<td colspan="2" class="span-8"></td><td class="span-1" style="text-align: right;">+</td><td class="span-7" style="background-color: #eeffee;">';
+					$html.= '<td colspan="2" style="width: 50%;"></td><td style="width: 5%; text-align: right;">+</td><td style="width: 45%; background-color: #eeffee;">';
 
 					for ( $j = 0; $j < $ins_count; $j++ ) {
 						$html.= $diff[$i]['i'][$j] . '<br />';
@@ -70,7 +70,7 @@ class RevisionDiff
 				$html.= '</tr>';
 
 				if ( isset( $diff[$i + 1] ) &&  is_string( $diff[$i + 1] ) ) {
-					$html.= '<tr><td class="span-1"></td><td class="span-7" style="background-color: #efefef;">' . $diff[$i + 1] . '</td><td class="span-1"></td><td class="span-7" style="background-color: #efefef;">' . $diff[$i + 1] . '</td></tr>';
+					$html.= '<tr><td style="width: 5%;"></td><td style="width: 45%; background-color: #efefef;">' . $diff[$i + 1] . '</td><td style="width: 5%;"></td><td style="width: 45%; background-color: #efefef;">' . $diff[$i + 1] . '</td></tr>';
 				}
 			}
 		}
