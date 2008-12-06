@@ -172,7 +172,7 @@ habari.media.preview.dropiosilo = function(fileindex, fileobj) {
 				try {
 					$result = $dropio->upload($_FILES['file']['tmp_name'], $_FILES['file']['name']);
 				} catch (Exception $e) {
-					return sprintf(_t('File Upload Failed: %s'), $e->getMessage());
+					return sprintf(_t('File Upload Failed: %s', 'dropiosilo'), $e->getMessage());
 				}
 				$panel .= '<p>' . _t('File upload successfully.', 'dropiosilo') . '</p>';
 			} else {
@@ -427,7 +427,7 @@ class MyRemoteRequest
 	private $response_body = '';
 	private $response_headers = '';
 	
-	private $user_agent = 'Habari'; // TODO add version to that (Habari/0.1.4) 
+	private $user_agent = 'Habari';
 	
 	/**
 	 * @param string $url URL to request
@@ -439,8 +439,10 @@ class MyRemoteRequest
 		$this->method = strtoupper( $method );
 		$this->url = $url;
 		$this->set_timeout( $timeout );
+
+		$this->user_agent .= '/' . Version::HABARI_VERSION;
 		$this->add_header( array( 'User-Agent' => $this->user_agent ) );
-		
+
 		// can't use curl's followlocation in safe_mode with open_basedir, so
 		// fallback to srp for now
 		if ( function_exists( 'curl_init' )
