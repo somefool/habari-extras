@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: amazon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-12-02 14:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: amazon/templates/reviewsummary.php:10
+msgid "Sales Rank: "
+msgstr ""
+
+#: amazon/templates/reviewsummary.php:13
+msgid "Average Rating: "
+msgstr ""
+
+#: amazon/amazon.plugin.php:235 amazon/amazon.plugin.php:408
+#: amazon/amazon.plugin.php:409
+msgid "Configure"
+msgstr ""
+
+#: amazon/amazon.plugin.php:248
+msgid "Country: "
+msgstr ""
+
+#: amazon/amazon.plugin.php:249
+msgid "Associate Tag: "
+msgstr ""
+
+#: amazon/amazon.plugin.php:250
+msgid "Template: "
+msgstr ""
+
+#: amazon/amazon.plugin.php:251
+msgid "Save"
+msgstr ""
+
+#: amazon/amazon.plugin.php:282 amazon/amazon.plugin.php:283
+msgid "please specify keywords."
+msgstr ""
+
+#: amazon/amazon.plugin.php:287 amazon/amazon.plugin.php:288
+msgid "please specify searchIndex."
+msgstr ""
+
+#: amazon/amazon.plugin.php:304 amazon/amazon.plugin.php:352
+#: amazon/amazon.plugin.php:305 amazon/amazon.plugin.php:353
+msgid "following error reply existed from the server: "
+msgstr ""
+
+#: amazon/amazon.plugin.php:309 amazon/amazon.plugin.php:310
+msgid "did not match any items."
+msgstr ""
+
+#: amazon/amazon.plugin.php:342 amazon/amazon.plugin.php:343
+msgid "please specify ASIN."
+msgstr ""
+
+#: amazon/amazon.plugin.php:380 amazon/amazon.plugin.php:381
+msgid "Amazon"
+msgstr ""
+
+#: amazon/amazon.plugin.php:388 amazon/amazon.plugin.php:389
+msgid "Search"
+msgstr ""
