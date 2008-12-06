@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: socialink\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 03:11+0900\n"
+"POT-Creation-Date: 2008-12-02 14:40+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: socialink/socialink.plugin.php:100 socialink/socialink.plugin.php:125
+#: socialink/socialink.plugin.php:101 socialink/socialink.plugin.php:126
 msgid "Configure"
 msgstr ""
 
-#: socialink/socialink.plugin.php:106
+#: socialink/socialink.plugin.php:106 socialink/socialink.plugin.php:107
 msgid "Auto Insert: "
 msgstr ""
 
-#: socialink/socialink.plugin.php:108
+#: socialink/socialink.plugin.php:108 socialink/socialink.plugin.php:109
 msgid "Services: "
 msgstr ""
 
-#: socialink/socialink.plugin.php:111
+#: socialink/socialink.plugin.php:111 socialink/socialink.plugin.php:112
 msgid "Save"
 msgstr ""
