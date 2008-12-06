@@ -30,7 +30,7 @@
 								<dd><?php echo $post->tags_out ?></dd>
 							</dl>
 							<?php endif; ?>
-							<?php if ( $user ) : ?>
+							<?php if ( $user->loggedin ) : ?>
 							<dl>
 								<dt>Edit:</dt>
 								<dd><a href="<?php URL::out( 'admin', 'page=publish&slug=' . $post->slug); ?>" title="Edit post">Edit this entry.</a></dd>
