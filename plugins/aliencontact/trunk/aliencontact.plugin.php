@@ -90,7 +90,7 @@ class AlienContact extends Plugin
 		return $rules;
 	}
 
-	public function filter_post_content( $content ) 
+	public function filter_post_content_out( $content ) 
 	{
 		$url= Site::get_url( 'host' ) . Controller::get_full_url();
 		$input= 'post';
