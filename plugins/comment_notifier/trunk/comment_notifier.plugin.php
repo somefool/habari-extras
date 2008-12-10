@@ -2,7 +2,7 @@
 
 class comment_notifier extends Plugin
 {
-	const VERSION = '1.1';
+	const VERSION = '1.2';
 	
 	public function info()
 	{
@@ -23,6 +23,10 @@ class comment_notifier extends Plugin
 	public function action_update_check()
 	{
 	 	Update::add( 'Comment Notifier', '91175a80-38f6-11dd-ae16-0800200c9a66', $this->info->version );
+	}
+	
+	private function mh_utf8($str) {
+		return '=?UTF-8?B?' . base64_encode($str) . '?=';
 	}
 	
 	public function action_comment_insert_after( $comment )
@@ -66,9 +70,9 @@ MESSAGE;
 			'MIME-Version: 1.0',
 			'Content-type: text/plain; charset=utf-8',
 			'Content-Transfer-Encoding: 8bit',
-			'From: ' . $comment->name . ' <' . $comment->email . '>',
+			'From: ' . $this->mh_utf8($comment->name) . ' <' . $comment->email . '>',
 		);
-		mail ($author->email, $title, $message, implode("\r\n", $headers));
+		mail ($author->email, $this->mh_utf8($title), $message, implode("\r\n", $headers));
 	}
 }
 ?>
