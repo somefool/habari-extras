@@ -19,43 +19,43 @@ class autoclose extends Plugin
 	public function action_plugin_activation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
-      CronTab::add_daily_cron( 'autoclose_check_posts', array( __CLASS__, 'check_posts' ), 'Check for posts to close comments on' );
-      self::check_posts( true );
+			CronTab::add_daily_cron( 'autoclose_check_posts', array( __CLASS__, 'check_posts' ), 'Check for posts to close comments on' );
+			self::check_posts( true );
 		}
 	}
 
 	public function action_plugin_deactivation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
-      CronTab::delete_cron( 'autoclose_check_posts' );
+			CronTab::delete_cron( 'autoclose_check_posts' );
 		}
 	}
 
-  public static function check_posts( $nolimit = false ) {
-    $would_close= array();
-    $age_in_days= Options::get( 'autoclose__age_in_days' );
-    if ( is_null( $age_in_days ) ) $age_in_days= 90;
-    $age_in_days = abs( intval( $age_in_days ) );
-    
-    $search= array(
-      'before' => HabariDateTime::date_create()->modify('-' . $age_in_days . ' days'),
-      'nolimit' => true,
-      'status' => 'published',
-    );
-    if (!$nolimit) {
-      $search['after'] = HabariDateTime::date_create()->modify('-' . ($age_in_days + 30). ' days');
-    }
-    
-    $posts= Posts::get( $search );
-    foreach ($posts as $post) {
-      if (!$post->info->comments_disabled && !$post->info->comments_autoclosed) {
-        $would_close[]= sprintf('<a href="%s">%s</a>', $post->permalink, htmlspecialchars($post->title));
-        $post->info->comments_disabled= true;
-        $post->info->comments_autoclosed= true;
-        $post->info->commit();
-      }
-    }
-    Session::notice("Comments autoclosed for " . implode(', ', $would_close));
+	public static function check_posts( $nolimit = false ) {
+		$would_close= array();
+		$age_in_days= Options::get( 'autoclose__age_in_days' );
+		if ( is_null( $age_in_days ) ) $age_in_days= 90;
+		$age_in_days = abs( intval( $age_in_days ) );
+		
+		$search= array(
+			'before' => HabariDateTime::date_create()->modify('-' . $age_in_days . ' days'),
+			'nolimit' => true,
+			'status' => 'published',
+		);
+		if (!$nolimit) {
+			$search['after'] = HabariDateTime::date_create()->modify('-' . ($age_in_days + 30). ' days');
+		}
+		
+		$posts= Posts::get( $search );
+		foreach ($posts as $post) {
+			if (!$post->info->comments_disabled && !$post->info->comments_autoclosed) {
+				$would_close[]= sprintf('<a href="%s">%s</a>', $post->permalink, htmlspecialchars($post->title));
+				$post->info->comments_disabled= true;
+				$post->info->comments_autoclosed= true;
+				$post->info->commit();
+			}
+		}
+		Session::notice("Comments autoclosed for " . implode(', ', $would_close));
 
 		return true;
 	}
@@ -67,11 +67,11 @@ class autoclose extends Plugin
 		}
 		return $actions;
 	}
-  
-  public function action_admin_theme_get_autoclose( $handler, $theme ) {
-    self::check_posts( !is_null( $handler->handler_vars['nolimit'] ) );
-    Session::messages_out();exit;
-  }
+	
+	public function action_admin_theme_get_autoclose( $handler, $theme ) {
+		self::check_posts( !is_null( $handler->handler_vars['nolimit'] ) );
+		Session::messages_out();exit;
+	}
 
 	public function action_plugin_ui( $plugin_id, $action )
 	{
