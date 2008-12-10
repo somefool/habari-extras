@@ -2,7 +2,7 @@
 
 class comment_notifier extends Plugin
 {
-	const VERSION = '1.0';
+	const VERSION = '1.1';
 	
 	public function info()
 	{
@@ -62,8 +62,13 @@ MESSAGE;
 			URL::get('admin', 'page=comments')
 		);
 
-		$headers = 'From: ' . $comment->name . ' <' . $comment->email . '>';
-		mail ($author->email, $title, $message, $headers);
+		$headers = array(
+			'MIME-Version: 1.0',
+			'Content-type: text/plain; charset=utf-8',
+			'Content-Transfer-Encoding: 8bit',
+			'From: ' . $comment->name . ' <' . $comment->email . '>',
+		);
+		mail ($author->email, $title, $message, implode("\r\n", $headers));
 	}
 }
 ?>
