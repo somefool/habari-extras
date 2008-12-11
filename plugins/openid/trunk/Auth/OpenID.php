@@ -295,7 +295,7 @@ class Auth_OpenID {
      * pairs from $data into a URL query string
      * (e.g. "username=bob&id=56").
      */
-    function httpBuildQuery($data)
+    public static function httpBuildQuery($data)
     {
         $pairs = array();
         foreach ($data as $key => $value) {
@@ -323,7 +323,7 @@ class Auth_OpenID {
      * @return string $url The original URL with the new parameters added.
      *
      */
-    function appendArgs($url, $args)
+    public static function appendArgs($url, $args)
     {
         if (count($args) == 0) {
             return $url;

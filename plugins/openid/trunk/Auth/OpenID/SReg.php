@@ -173,7 +173,7 @@ class Auth_OpenID_SRegRequest extends Auth_OpenID_SRegBase {
     /**
      * Initialize an empty simple registration request.
      */
-    function build($required=null, $optional=null,
+    public static function build($required=null, $optional=null,
                    $policy_url=null,
                    $sreg_ns_uri=Auth_OpenID_SREG_NS_URI,
                    $cls='Auth_OpenID_SRegRequest')
