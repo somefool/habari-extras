@@ -176,12 +176,12 @@ class MTImport extends Plugin implements Importer
 	private function mysql_stage_2($inputs)
 	{
 		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix');
-		$inputs = array_intersect_key($_POST, array_flip($valid_fields));
+		$inputs = array_merge(Controller::get_handler_vars()->filter_keys($valid_fields)->getArrayCopy(), $inputs);
 		extract($inputs);
 
 		if(($mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix)) === false) {
 			$inputs['warning']= _t('Could not connect to the Movable Type database using the values supplied. Please correct them and try again.', 'mtimport');
-			return $this->stage_1($inputs);
+			return $this->mysql_stage_1($inputs);
 		}
 
 		$blogs = $mtdb->get_results("SELECT blog_id, blog_name FROM {$db_prefix}blog;");
@@ -217,12 +217,12 @@ class MTImport extends Plugin implements Importer
 	private function mysql_stage_3($inputs)
 	{
 		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix', 'blog_id');
-		$inputs = array_intersect_key($_POST, array_flip($valid_fields));
+		$inputs = array_merge(Controller::get_handler_vars()->filter_keys($valid_fields)->getArrayCopy(), $inputs);
 		extract($inputs);
 
 		if(($mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix)) === false) {
 			$inputs['warning']= _t('Could not connect to the Movable Type database using the values supplied. Please correct them and try again.', 'mtimport');
-			return $this->stage_1($inputs);
+			return $this->mysql_stage_1($inputs);
 		}
 
 		$ajax_url = URL::get('auth_ajax', array('context' => 'mt_mysql_import_users'));
@@ -231,8 +231,8 @@ class MTImport extends Plugin implements Importer
 
 		ob_start();
 ?>
-<p>Import In Progress</p>
-<div id="import_progress">Starting Import...</div>
+<p><?php _e('Import In Progress'); ?></p>
+<div id="import_progress"><?php _e('Starting Import...'); ?></div>
 <script type="text/javascript">
 // A lot of ajax stuff goes here.
 $(document).ready(function(){
@@ -267,8 +267,8 @@ $(document).ready(function(){
 	public function action_auth_ajax_mt_mysql_import_users($handler)
 	{
 		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix','userindex', 'blog_id');
-		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields));
-		extract( $inputs );
+		$inputs = Controller::get_handler_vars()->filter_keys($valid_fields)->getArrayCopy();
+		extract($inputs);
 
 		$mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix);
 		if(!$mtdb ) {
@@ -335,7 +335,7 @@ $( document ).ready( function(){
 	public function action_auth_ajax_mt_mysql_import_posts($handler)
 	{
 		$valid_fields = array('db_name','db_host','db_user','db_pass','db_prefix','postindex', 'blog_id');
-		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		$inputs = Controller::get_handler_vars()->filter_keys($valid_fields)->getArrayCopy();
 		extract($inputs);
 
 		$mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix);
@@ -467,8 +467,9 @@ $('#import_progress').load(
 	public function action_auth_ajax_mt_mysql_import_comments($handler)
 	{
 		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'commentindex');
-		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
-		extract( $inputs );
+		$inputs = Controller::get_handler_vars()->filter_keys($valid_fields)->getArrayCopy();
+		extract($inputs);
+
 		$mtdb = $this->mt_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
 		if(!$mtdb) {
 			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
@@ -585,9 +586,10 @@ $( '#import_progress' ).load(
 	public function action_auth_ajax_mt_mysql_import_trackbacks($handler)
 	{
 		$valid_fields = array( 'db_name','db_host','db_user','db_pass','db_prefix', 'blog_id', 'trackbackindex');
-		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
-		extract( $inputs );
-		$mtdb = $this->mt_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
+		$inputs = Controller::get_handler_vars()->filter_keys($valid_fields)->getArrayCopy();
+		extract($inputs);
+
+		$mtdb = $this->mt_connect($db_host, $db_name, $db_user, $db_pass, $db_prefix);
 		if(!$mtdb) {
 			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
 			echo '<p>'._t( 'Failed to connect using the given database connection details.' ).'</p>';
