@@ -4,10 +4,10 @@ class Polls extends Plugin {
 	function info() {
 		return array(
 			'name' => 'Poll',
-			'version' => '.5',
-			'url' => 'www.thebigsqueak.com',
+			'version' => '0.51',
+			'url' => 'http://www.thebigsqueak.com',
 			'author' => 'Bigsqueak Studios',
-			'authorurl' => 'www.thebigsqueak.com',
+			'authorurl' => 'http://www.thebigsqueak.com',
 			'licence' => 'Creative Commons Attribution-Share Alike 3.0',
 			'description' => 'A flexible polling plugin for habari'
 		);
