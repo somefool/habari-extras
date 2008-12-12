@@ -187,13 +187,13 @@ class BloggerImport extends Plugin implements Importer
 		$_SESSION['bloggerimport_file'] = $atom_file;
 
 		$ajax_url = URL::get('auth_ajax', array('context' => 'blogger_import_all'));
-		EventLog::log(sprintf(_t('Starting import from "%s"'), 'mtfile'));
+		EventLog::log(sprintf(_t('Starting import from "%s"'), _t('Blogger Export File', 'bloggerimport')));
 		Options::set('import_errors', array());
 
 		ob_start();
 ?>
-<p>Import In Progress</p>
-<div id="import_progress">Starting Import...</div>
+<p><?php _e('Import In Progress'); ?></p>
+<div id="import_progress"><?php _e('Starting Import...'); ?></div>
 <script type="text/javascript">
 // A lot of ajax stuff goes here.
 $(document).ready(function(){
@@ -225,6 +225,9 @@ $(document).ready(function(){
 			return;
 		}
 
+
+		$post_map = DB::get_column("SELECT value FROM " . DB::table('postinfo') . " WHERE name='blogger_id';");
+		$comment_map = DB::get_column("SELECT value FROM " . DB::table('commentinfo') . " WHERE name='blogger_id';");
 		$post_id_map = array();
 
 		$entry_count = count($feed->entry);
@@ -234,6 +237,9 @@ $(document).ready(function(){
 			switch ((string)$entry->category[0]['term']) {
 			// post
 			case 'http://schemas.google.com/blogger/2008/kind#post':
+				// already exists skipped
+				if (in_array((string)$entry->id, $post_map)) continue;
+
 				$t_post = array();
 
 				$t_post['title'] = MultiByte::convert_encoding((string)$entry->title);
@@ -258,13 +264,15 @@ $(document).ready(function(){
 
 				$post = new Post($t_post);
 				$post->tags = array_unique($tags);
+				$post->info->blogger_id = (string)$entry->id;
+
 				try {
 					$post->insert();
 				} catch (Exception $e) {
 					EventLog::log($e->getMessage(), 'err', null, null, print_r(array($p, $e), 1));
 					Session::error($e->getMessage());
 					$errors = Options::get('import_errors');
-					$errors[] = $p->title . ' : ' . $e->getMessage();
+					$errors[] = $post->title . ' : ' . $e->getMessage();
 					Options::set('import_errors', $errors);
 				}
 
@@ -272,6 +280,9 @@ $(document).ready(function(){
 				break;
 			// comment
 			case 'http://schemas.google.com/blogger/2008/kind#comment':
+				// already exists skipped
+				if (in_array((string)$entry->id, $comment_map)) continue;
+
 				$result = $entry->xpath('//thr:in-reply-to');
 				if (empty($result) || !isset($post_id_map[(string)$result[0]->ref])) break;
 
@@ -291,6 +302,7 @@ $(document).ready(function(){
 				$t_comment['type'] = Comment::COMMENT;
 
 				$comment = new Comment($t_comment);
+				$comment->info->blogger_id = (string)$entry->id;
 				try {
 					$comment->insert();
 				} catch (Exception $e) {
