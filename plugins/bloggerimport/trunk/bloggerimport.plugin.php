@@ -167,7 +167,7 @@ class BloggerImport extends Plugin implements Importer
 
 		if (empty($_FILES['file'])) {
 			$inputs['warning'] = _t('Please specify Blogger Export File.', 'bloggerimport');
-			return $this->stage_1($inputs);
+			return $this->blogger_stage_1($inputs);
 		}
 
 		switch ($_FILES['file']['error']) {
@@ -175,14 +175,14 @@ class BloggerImport extends Plugin implements Importer
 			break;
 		default:
 			$inputs['warning'] = _t('Upload failed.', 'bloggerimport');
-			return $this->stage_1($inputs);
+			return $this->blogger_stage_1($inputs);
 		}
 
 		$atom_file = tempnam(null, 'habari_');
 		
 		if (!move_uploaded_file($_FILES['file']['tmp_name'], $atom_file)) {
 			$inputs['warning'] = _t('Possible file upload attack!', 'bloggerimport');
-			return $this->stage_1($inputs);
+			return $this->blogger_stage_1($inputs);
 		}
 		$_SESSION['bloggerimport_file'] = $atom_file;
 
