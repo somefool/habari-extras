@@ -3,38 +3,24 @@
 <?php
 //Getting result of of theme function
 if ($pollid == null) { 
-$poll = Posts::Get(array('content_type' => Post::type('poll')));
+$poll = Post::get(array('content_type' => Post::type('Poll')));
 } elseif (is_int($pollid) === true) {
-$poll = Posts::get(array('content_type'=>Post::type('poll'), 'id'=>$pollid));
+$poll = Post::get(array('content_type'=>Post::type('Poll'), 'id'=>$pollid));
 }
-//Utils::debug($poll[0]->id);
+
 $form = new FormUi(strtolower( get_class( $this ) ) );
 $array = array();
 $form->append('radio', 'entry', 'null:null', 'poll this');
-//Utils::debug($poll);
 
-if ( $poll[0]->info->entry1 != '') {
-	$array['entry1'] = $poll[0]->info->entry1;
-}
-if ( $poll[0]->info->entry2 != '') {
-	$array['entry2'] = $poll[0]->info->entry2;
-}
-if ( $poll[0]->info->entry3 != '') {
-	$array['entry3'] = $poll[0]->info->entry3;
-}
-if ( $poll[0]->info->entry4 != '') {
-	$array['entry4'] = $poll[0]->info->entry4;
-}
-if ( $poll[0]->info->entry5 != '') {
-	$array['entry5'] = $poll[0]->info->entry5;
-}
 
+	$poll->info->entry;
+	$array = $poll->info->entry;
 	$form->entry->options = $array;
 ?> 
 
 
 <div id="main_poll">
-	<span id="polltitle"> <a href="<?php echo $poll[0]->permalink ?>"> <b> <?php echo $poll[0]->title; ?> </b> </a></span>
+	<span id="polltitle"> <a href="<?php echo $poll->permalink ?>"> <b> <?php echo $poll->title; ?> </b> </a></span>
 
 	<?php if (!Session::get_set('votes', false)) { ?>
 		<div id="vote">
@@ -72,7 +58,7 @@ $('#veiw_results').click(function() {
 		$('#vote').css({display: "none"});
 		$('#results').css({display: "block"});
 		
-		$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null, pollid: <?php echo $poll[0]->id?>}, function(data) {
+		$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null, pollid: <?php echo $poll->id?>}, function(data) {
 		
 		$('#results').html(data);
 		
@@ -87,7 +73,7 @@ $('#votesubmitt').click(function() {
 	value = value.replace('entry','')
 	value = parseFloat(value);
 
-	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: value, pollid: <?php echo $poll[0]->id ?> }, function(data) {
+	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: value, pollid: <?php echo $poll->id ?> }, function(data) {
 		$('#results').html(data);
 		$('#results').show()
 		$('#vote').css({display: "none"});
@@ -105,7 +91,7 @@ $('#vote').hide();
 }
 
 function getresults() {
-	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null, pollid: <?php echo $poll[0]->id ?>}, function(data) {
+	$.get('<?php echo URL::get('ajax', array('context' => 'ajaxpoll')); ?>', {result: null, pollid: <?php echo $poll->id ?>}, function(data) {
 		
 		$('#results').html(data);
 		

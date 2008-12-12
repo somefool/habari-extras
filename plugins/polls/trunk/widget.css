@@ -19,9 +19,9 @@ position: static;
 }
 
 div#entry label {
-float:left;
-width:100%;
-line-height:100%;
+
+display:block;
+line-height:140%;
 
 }
 
@@ -64,9 +64,12 @@ img#contentLoading {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	padding: 0px;
 }
 /*form stuff */
 
-form#polls div label input {
-	margin: 6px 10px 6px 10px;
+form#polls div input {
+	
+	display: block;
+	float: left;
 }

@@ -7,9 +7,8 @@ To call this plugin one should type in the theme:
 So far, one can type the poll id to select individual posts, or leave the arguments blank to get the latest poll.
 
 
-As of now, There is a default poll.single.php
+The Top of the widget links to the polls respective page.
+One needs a poll.single.php for this link to work.
 
-One can create that file in there theme that will override this.
-
-Use the demo in the polls plugin dir.
+This is still in Alpha mode, and I am working hard to add more and more features.
 
