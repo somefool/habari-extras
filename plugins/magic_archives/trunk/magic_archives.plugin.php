@@ -43,6 +43,39 @@ class MagicArchives extends Plugin
 		Stack::add( 'template_header_javascript', URL::get_from_filesystem(__FILE__) . '/stringranker.js', 'stringranker' );
 		Stack::add( 'template_header_javascript', URL::get_from_filesystem(__FILE__) . '/magicarchives.js', 'magicarchives' );
 	}
+	
+	
+	public function action_ajax_getdates($param=array()) {
+	$count = 0;
+	$param = json_decode($param);
+	$posts = Posts::get($param);
+	?>	
+	<div id="results">
+	<?php
+		if(isset($posts[0])) {
+			foreach($posts as $post):
+				$count++
+					?>
+					<div id="post-<?php echo $count; ?>" class="entry">
+						<span id="name"><?php echo"$post->title"?></span>
+						<span id="date"><?php echo "$post->pubdate_out" ?></span>
+
+					</div>
+					<?php
+			endforeach;
+		} else {
+			?>
+			<div id="none" class="entry">
+				<span id="name">no posts where found</span>
+			</div>
+		<?php
+		}
+	?>
+	</div>
+
+	<?php
+	}
+	
 }
 
 ?>
