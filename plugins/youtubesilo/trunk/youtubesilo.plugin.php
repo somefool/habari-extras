@@ -1,5 +1,140 @@
 <?php
 
+class YouTube extends ArrayObject
+{
+	const YOUTUBE_BASE = 'http://gdata.youtube.com/feeds/api/';
+
+	/**
+	* Return a video feed (there are several types of video feeds)
+	*
+	* TODO Probably split these into individual functions
+	* Videos feed
+	* Related videos feed
+	* Video responses feed
+	* Standard feeds
+	* User favorites feed
+	* Playlist feed 
+	*
+	* @return ??
+	*
+	*/
+	public function video( $params )
+	{
+	}
+
+	/**
+	* Return a user's playlist feed
+	*
+	* @param string YouTube username
+	*
+	* @return ??
+	*
+	*/
+	public static function playlist( $user )
+	{
+		$url = self::YOUTUBE_BASE . 'users/' . $user . '/uploads';
+		$call = new RemoteRequest($url);
+
+		$call->set_timeout(5);
+		$result = $call->execute();
+		if (Error::is_error($result)) {
+			throw $result;
+		}
+
+		$response = $call->get_response_body();
+		try {
+			$xml = new SimpleXMLElement($response);
+			$videos = array();
+
+			foreach ($xml->entry as $entry) {
+				$video = array();
+				$video['id'] = $entry->id;
+				$video['flash_url'] = self::flash_url($entry);
+				$video['thumbnail_url'] = self::thumbnail_url($entry);
+				$video['title'] = self::title($entry);
+				$videos[] = $video;
+			}
+
+			return new YouTube($videos);
+		}
+		catch(Exception $e) {
+			Session::error('Currently unable to connect to Flickr.', 'flickr API');
+//				Utils::debug($url, $response);
+			return false;
+		}
+	}
+
+	/**
+	* Return a user's subscription feed
+	*
+	* @param string YouTube username
+	*
+	* @return ??
+	*
+	*/
+	public function subscription( $user )
+	{
+	}
+
+	/**
+	* Return a video's comment feed
+	*
+	* @param ??
+	*
+	* @return ??
+	*
+	*/
+	public function comments( $user )
+	{
+	}
+
+	/**
+	* Return a user's profile entry
+	*
+	* @param ??
+	*
+	* @return ??
+	*
+	*/
+	public function profile( $user )
+	{
+	}
+
+	/**
+	* Return a user's contacts feed
+	*
+	* @param ??
+	*
+	* @return ??
+	*
+	*/
+	public function contacts( $user )
+	{
+	}
+
+	private static function flash_url($entry)
+	{
+		$entry->registerXPathNamespace('media', 'http://search.yahoo.com/mrss/');
+		$content = $entry->xpath('.//media:content[@type="application/x-shockwave-flash"]');
+		return (string)$content[0]->attributes()->url;
+	}
+
+	private static function thumbnail_url($entry)
+	{
+		$entry->registerXPathNamespace('media', 'http://search.yahoo.com/mrss/');
+		$thumbnail = $entry->xpath('.//media:thumbnail[1]');
+		return (string)$thumbnail[0]->attributes()->url;
+	}
+
+	private static function title($entry)
+	{
+		$entry->registerXPathNamespace('media', 'http://search.yahoo.com/mrss/');
+		$title = $entry->xpath('.//media:title[1]');
+		return (string)$title[0];
+	}
+
+}
+
 /**
 * YouTube Silo
 */
@@ -16,12 +151,12 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	public function info()
 	{
 		return array('name' => 'YouTube Media Silo',
-			'version' => '0.1.1',
+			'version' => '0.6-0.2',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Implements basic YouTube integration',
+			'description' => 'Implements YouTube integration',
 			'copyright' => '2008',
 			);
 	}
@@ -53,65 +188,27 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	*/
 	public function silo_dir($path)
 	{
-		set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__FILE__) . PATH_SEPARATOR . 'Zend');
-		require_once 'Zend/Loader.php';
-		Zend_Loader::loadClass('Zend_Gdata_YouTube');
-		$youtube = new Zend_Gdata_YouTube();
 		$props = array();
 		$props['filetype']= 'youtube';
 		$username = User::identify()->info->youtube__username;
 
 		$results = array();
 		$section = strtok($path, '/');
-		// TODO remove redundant code - possibly put the calls in a YouTube class?
 		switch($section) {
 			case 'videos':
-				$videoFeed = $youtube->getUserUploads($username);
-				foreach ($videoFeed as $videoEntry) {
-
-					$props['url']= $this->findFlashUrl($videoEntry);
-					$props['thumbnail_url'] = $videoEntry->mediaGroup->thumbnail[0]->url;
-					$props['title']= $videoEntry->mediaGroup->title->text;
-					$props['description']= $videoEntry->mediaGroup->description->text;
+				$videos = YouTube::playlist($username);
+				foreach ($videos as $video) {
 
 					$results[] = new MediaAsset(
-						self::SILO_NAME . '/videos/' . $videoEntry->getVideoId(),
+						self::SILO_NAME . '/videos/' . $video['id'],
 						false,
-						$props
+						$video
 					);
 				}
 				break;
-			case 'tags':
-				$videoFeed = $youtube->getSubscriptionFeed($username);
-				foreach ($videoFeed as $videoEntry) {
-
-					$props['url']= $this->findFlashUrl($videoEntry);
-					$props['thumbnail_url'] = $videoEntry->mediaGroup->thumbnail[0]->url;
-					$props['title']= $videoEntry->mediaGroup->title->text;
-					$props['description']= $videoEntry->mediaGroup->description->text;
-
-					$results[] = new MediaAsset(
-						self::SILO_NAME . '/videos/' . $videoEntry->getVideoId(),
-						false,
-						$props
-					);
-				}
+			case 'subscriptions':
 				break;
 			case 'favorites':
-				$videoFeed = $youtube->getUserFavorites($username);
-				foreach ($videoFeed as $videoEntry) {
-
-					$props['url']= $this->findFlashUrl($videoEntry);
-					$props['thumbnail_url'] = $videoEntry->mediaGroup->thumbnail[0]->url;
-					$props['title']= $videoEntry->mediaGroup->title->text;
-					$props['description']= $videoEntry->mediaGroup->description->text;
-
-					$results[] = new MediaAsset(
-						self::SILO_NAME . '/videos/' . $videoEntry->getVideoId(),
-						false,
-						$props
-					);
-				}
 				break;
 			case '':
 				$results[] = new MediaAsset(
@@ -119,6 +216,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 					true,
 					array('title' => 'Videos')
 				);
+				/* TODO These never worked anyway.
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/tags',
 					true,
@@ -129,6 +227,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 					true,
 					array('title' => 'Favorites')
 				);
+				*/
 				break;
 		}
 
@@ -273,7 +372,7 @@ YOUTUBE;
 	*/
 	function findFlashUrl($entry)
 	{
-		foreach ($entry->mediaGroup->content as $content) {
+		foreach ($entry->group->content as $content) {
 			if ($content->type === 'application/x-shockwave-flash') {
 				return $content->url;
 			}
