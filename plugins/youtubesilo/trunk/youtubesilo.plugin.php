@@ -49,7 +49,7 @@ class YouTube extends ArrayObject
 			foreach ($xml->entry as $entry) {
 				$video = array();
 				$video['id'] = $entry->id;
-				$video['flash_url'] = self::flash_url($entry);
+				$video['url'] = self::flash_url($entry);
 				$video['thumbnail_url'] = self::thumbnail_url($entry);
 				$video['title'] = self::title($entry);
 				$videos[] = $video;
@@ -58,7 +58,7 @@ class YouTube extends ArrayObject
 			return new YouTube($videos);
 		}
 		catch(Exception $e) {
-			Session::error('Currently unable to connect to Flickr.', 'flickr API');
+			Session::error('Currently unable to connect to YouTube.', 'YouTube API');
 //				Utils::debug($url, $response);
 			return false;
 		}
@@ -91,7 +91,7 @@ class YouTube extends ArrayObject
 			foreach ($xml->entry as $entry) {
 				$video = array();
 				$video['id'] = $entry->id;
-				$video['flash_url'] = self::flash_url($entry);
+				$video['url'] = self::flash_url($entry);
 				$video['thumbnail_url'] = self::thumbnail_url($entry);
 				$video['title'] = self::title($entry);
 				$videos[] = $video;
@@ -100,7 +100,7 @@ class YouTube extends ArrayObject
 			return new YouTube($videos);
 		}
 		catch(Exception $e) {
-			Session::error('Currently unable to connect to Flickr.', 'flickr API');
+			Session::error('Currently unable to connect to YouTube.', 'YouTube API');
 //				Utils::debug($url, $response);
 			return false;
 		}
@@ -244,7 +244,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 					$results[] = new MediaAsset(
 						self::SILO_NAME . '/videos/' . $video['id'],
 						false,
-						$video
+						array_merge($props, $video)
 					);
 				}
 				break;
@@ -257,7 +257,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 					$results[] = new MediaAsset(
 						self::SILO_NAME . '/videos/' . $video['id'],
 						false,
-						$video
+						array_merge($props, $video)
 					);
 				}
 				break;
@@ -397,7 +397,7 @@ class YouTubeSilo extends Plugin implements MediaSilo
 
 	public function action_admin_footer( $theme ) {
 		// Add the media type 'youtube' if this is the publish page
-		if ( Controller::get_var('page') == 'publish' ) {
+		if ( $theme->page == 'publish' ) {
 			//TODO Use cache for the dimensions variables
 			$width = User::identify()->info->youtube__width;
 			$height = User::identify()->info->youtube__height;
