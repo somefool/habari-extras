@@ -39,15 +39,41 @@
 }
 
 /* controls */
-#magicArchives #archive_controls .section#archive_tags {
+#magicArchives #archive_controls .section {
 	clear:both;
-/*	display:none;*/
+	display:none;
 	width:619px;
 	background:#555;
 	border-bottom:2px solid #000;
 }
 
+#magicArchives #archive_controls .section .controls {
+	background:#555;
+	border-bottom:2px solid #000;
+	padding:5px;
+	color:#DDD;
+	font-size:125%;
+}
+
+#magicArchives #archive_controls .section .controls a.clear, #magicArchives #archive_controls .section .controls a.close {
+	display:block;
+	margin-left:10px;
+	float:right;
+	color:#DDD;
+	font-weight:bold;
+}
+
+#magicArchives #archive_controls .section .controls a.clear:hover, #magicArchives #archive_controls .section .controls a.close:hover {
+	color:#FFF;
+}
+
 /* =tags */
+#magicArchives #archive_controls .section#archive_tags {
+	background:#777;
+}
+#magicArchives #archive_controls .section#archive_tags .tags {
+	padding:5px;	
+}
 #magicArchives #archive_controls .section#archive_tags span.tag {
 	display: inline-block;
 	color:#FFF;
@@ -65,6 +91,14 @@
 #magicArchives #archive_controls .section#archive_tags span.tag label {
 	line-height:15px;
 	cursor:pointer;
+}
+
+#magicArchives #archive_controls .section#archive_tags span.tag:hover {
+	color:#FFD39A;
+}
+
+#magicArchives #archive_controls .section#archive_tags span.tag.selected {
+	color:#F5A133;
 }
 
 #magicArchives #archive_controls .section#archive_tags span.tag sup {

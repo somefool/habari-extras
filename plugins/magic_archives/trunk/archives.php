@@ -3,7 +3,7 @@
 		<div id="archive_search_label" class="section">
 			<a class="toggle none" href="#"><?php _e('Search'); ?></a>
 		</div>
-		<div id="archive_tags_label" class="section open">
+		<div id="archive_tags_label" class="section">
 			<a class="toggle none" href="#"><?php _e('Tags'); ?></a>
 		</div>
 		<div id="archive_date_label" class="section">
@@ -13,14 +13,14 @@
 	<div id="archive_controls">
 		<div id="archive_search" class="section">
 		</div>
-		<div id="archive_tags" class="section open">
+		<div id="archive_tags" class="section">
 			<div id="archive_tags_controls" class="controls">
+				<a class="close" href="#"><?php _e('Close'); ?></a>
+				<a class="clear" href="#"><?php _e('Clear'); ?></a>
 				<span class="checkboxandselected pct30">
 					<input type="checkbox" id="master_checkbox" name="master_checkbox">
 					<label class="selectedtext minor none" for="master_checkbox"><?php _e('None selected'); ?></label>
 				</span>
-				<a class="clear" href="#"><?php _e('Clear'); ?></a>
-				<a class="close" href="#"><?php _e('Close'); ?></a>
 			</div>
 			<div class="tags">
 			<?php // Utils::debug($tags); ?>
