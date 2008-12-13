@@ -17,6 +17,7 @@ class MagicArchives extends Plugin
 
 	public function action_init()
 	{
+		$this->add_template('page.archives', dirname(__FILE__) . '/page.archives.php');
 		$this->add_template('magicarchives', dirname(__FILE__) . '/archives.php');
 	}
 	

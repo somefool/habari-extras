@@ -1,95 +1,40 @@
 #magicArchives {
 	float:left;
 	width:100%;
-	border:1px solid #000000;
-}
-#archiveControls {
-	float:left;
-	width:100%;
-	border-bottom:3px #CCCCCC solid;
-}
-#magicArchives div.control {
-	float:left;
-	width:25%;
-}
-#magicArchives div.control h4, #magicArchives div.control ol {
-	border-style:none solid;
-	border-width:1px;
-	border-color:#000000;
-}
-#magicArchives div.control h4 {
-	background:#E4E3E4;
-	border-bottom:1px solid #CCCCCC;
-	text-align:center;
-	padding:1px;
-}
-#magicArchives div.control ol {
-	height:6.5em;
-	overflow-y:scroll;
-}
-#magicArchives div.control ol li {
-	line-height:1.1em;
-	padding:0.1em 5px;
-}
-#magicArchives div.control ol li.active {
-	background:#1D67DA;
-	color:#FFFFFF;
-}
-#magicArchives div.control.type ol li {
-	text-transform:capitalize;
 }
 
-/* posts */
-ol#archiveItems {
-	float:left;
+/* controls */
+#magicArchives #archive_controlbar {
 	width:100%;
 }
-ol#archiveItems li {
+
+#magicArchives #archive_controlbar .section .label {
+	width:27%;
 	float:left;
-	width:100%;
-}
-ol#archiveItems li .section {
-	float:left;
-	display:block;
-}
-ol#archiveItems li a, ol#archiveItems li.headings div.container {
-	display:block;
-	float:left;
-	width:100%;
-	text-decoration:none;
-	color:#333333;
-	padding:1px 0;
-}
-ol#archiveItems li a:hover, ol#archiveItems li a:focus {
-	background:#1D67DA;
+	background:#333333;
 	color:#FFFFFF;
+	border-bottom:#222222;
+	height:3em;
+	line-height:3em;
+	padding-left:5%;
 }
-ol#archiveItems li span.comments {
-	width:5%;
-	text-align:center;
+
+#magicArchives #archive_controlbar .section .label input, #magicArchives #archive_controlbar .section .label h3 {
+	font-size:175%;
+	color:#FEFEFE;
 }
-ol#archiveItems li span.comments strong {
-	font-weight:normal;
+
+#magicArchives #archive_controlbar #archive_searchbox .label, #magicArchives #archive_controlbar #archive_tags .label {
+	border-right:2px solid #111111;
 }
-ol#archiveItems li span.comments span.unit {
+
+/* =search */
+#magicArchives #archive_controlbar #archive_searchbox label {
 	display:none;
 }
-ol#archiveItems li strong.title {
-	width:45%;
-}
-ol#archiveItems li span.date {
-	width:18%;
-}
-ol#archiveItems li span.type {
-	display:none;
-}
-ol#archiveItems li span.tags {
-	width:30%;
-}
-ol#archiveItems li.headings {
-	background:#DEDCDE;
-	border-bottom:1px #CCCCCC solid;
-}
-ol#archiveItems li.headings span.comments {
-	text-indent:-100000px;
+
+#magicArchives #archive_controlbar #archive_searchbox .label input {
+	margin:0.1em 0;
+	width:94%;
+	color:#000;
 }
