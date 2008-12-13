@@ -1,40 +1,84 @@
 #magicArchives {
 	float:left;
-	width:100%;
+	width:620px;
 }
 
-/* controls */
+/* controlbar */
 #magicArchives #archive_controlbar {
 	width:100%;
 }
 
-#magicArchives #archive_controlbar .section .label {
-	width:27%;
+#magicArchives #archive_controlbar .section {
+	width:205px;
 	float:left;
 	background:#333333;
 	color:#FFFFFF;
-	border-bottom:#222222;
-	height:3em;
-	line-height:3em;
-	padding-left:5%;
+	border-bottom:2px solid #222222;
+	height:35px;
+	line-height:35px;
 }
 
-#magicArchives #archive_controlbar .section .label input, #magicArchives #archive_controlbar .section .label h3 {
+#magicArchives #archive_controlbar .section a.toggle {
+	padding-left:20px;
+	display:block;
 	font-size:175%;
+	line-height:35px;
 	color:#FEFEFE;
 }
 
-#magicArchives #archive_controlbar #archive_searchbox .label, #magicArchives #archive_controlbar #archive_tags .label {
+#magicArchives #archive_controlbar #archive_search_label, #magicArchives #archive_controlbar #archive_tags_label {
 	border-right:2px solid #111111;
 }
 
-/* =search */
-#magicArchives #archive_controlbar #archive_searchbox label {
+#magicArchives #archive_controlbar .section.open {
+	border-bottom-color:#555;
+}
+
+#magicArchives #archive_controlbar .section.open a.toggle {
+	background:#555;
+}
+
+/* controls */
+#magicArchives #archive_controls .section#archive_tags {
+	clear:both;
+/*	display:none;*/
+	width:619px;
+	background:#555;
+	border-bottom:2px solid #000;
+}
+
+/* =tags */
+#magicArchives #archive_controls .section#archive_tags span.tag {
+	display: inline-block;
+	color:#FFF;
+	font-size:220;
+	background: transparent !important;
+	border: none;
+	margin: 0;
+	padding: 2px;
+}
+
+#magicArchives #archive_controls .section#archive_tags span.tag .checkbox {
 	display:none;
 }
 
-#magicArchives #archive_controlbar #archive_searchbox .label input {
-	margin:0.1em 0;
-	width:94%;
-	color:#000;
+#magicArchives #archive_controls .section#archive_tags span.tag label {
+	line-height:15px;
+	cursor:pointer;
 }
+
+#magicArchives #archive_controls .section#archive_tags span.tag sup {
+	display:none;
+}
+
+#magicArchives #archive_controls .section#archive_tags .wt0 { font-size: 10px; }
+#magicArchives #archive_controls .section#archive_tags .wt1 { font-size: 11px; }
+#magicArchives #archive_controls .section#archive_tags .wt2 { font-size: 12px; }
+#magicArchives #archive_controls .section#archive_tags .wt3 { font-size: 13px; }
+#magicArchives #archive_controls .section#archive_tags .wt4 { font-size: 15px; }
+#magicArchives #archive_controls .section#archive_tags .wt5 { font-size: 16px; }
+#magicArchives #archive_controls .section#archive_tags .wt6 { font-size: 19px; }
+#magicArchives #archive_controls .section#archive_tags .wt7 { font-size: 20px; }
+#magicArchives #archive_controls .section#archive_tags .wt8 { font-size: 22px; }
+#magicArchives #archive_controls .section#archive_tags .wt9 { font-size: 23px; }
+#magicArchives #archive_controls .section#archive_tags .wt10 { font-size: 25px; }

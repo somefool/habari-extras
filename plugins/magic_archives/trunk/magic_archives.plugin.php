@@ -21,17 +21,11 @@ class MagicArchives extends Plugin
 		$this->add_template('magicarchives', dirname(__FILE__) . '/archives.php');
 	}
 	
-	public function get_magic_archives() {
-		$cache = 'magicarchives__posts';
-		
-		if(Cache::has($cache)) {
-			$archives = Cache::get($cache);
-
-		} else {
-			$archives = Posts::get(array('nolimit' => true));
-			Cache::set( $cache, $archives, 4000);
-	
-		}
+	public function theme_magic_archives($theme) {
+		$tags= Tags::get(array('nolimit' => true));
+		$theme->tags= $tags;
+				
+		$theme->display('magicarchives');
 		
 		return $archives;
 	}
