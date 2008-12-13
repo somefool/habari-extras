@@ -18,7 +18,7 @@ class YouTube extends ArrayObject
 	* @return ??
 	*
 	*/
-	public function video( $params )
+	public static function video( $params )
 	{
 	}
 
@@ -65,6 +65,48 @@ class YouTube extends ArrayObject
 	}
 
 	/**
+	* Return a user's favorited video feed
+	*
+	* @param string YouTube username
+	*
+	* @return ??
+	*
+	*/
+	public static function favorites( $user )
+	{
+		$url = self::YOUTUBE_BASE . 'users/' . $user . '/favorites';
+		$call = new RemoteRequest($url);
+
+		$call->set_timeout(5);
+		$result = $call->execute();
+		if (Error::is_error($result)) {
+			throw $result;
+		}
+
+		$response = $call->get_response_body();
+		try {
+			$xml = new SimpleXMLElement($response);
+			$videos = array();
+
+			foreach ($xml->entry as $entry) {
+				$video = array();
+				$video['id'] = $entry->id;
+				$video['flash_url'] = self::flash_url($entry);
+				$video['thumbnail_url'] = self::thumbnail_url($entry);
+				$video['title'] = self::title($entry);
+				$videos[] = $video;
+			}
+
+			return new YouTube($videos);
+		}
+		catch(Exception $e) {
+			Session::error('Currently unable to connect to Flickr.', 'flickr API');
+//				Utils::debug($url, $response);
+			return false;
+		}
+	}
+
+	/**
 	* Return a user's subscription feed
 	*
 	* @param string YouTube username
@@ -72,7 +114,7 @@ class YouTube extends ArrayObject
 	* @return ??
 	*
 	*/
-	public function subscription( $user )
+	public static function subscription( $user )
 	{
 	}
 
@@ -84,7 +126,7 @@ class YouTube extends ArrayObject
 	* @return ??
 	*
 	*/
-	public function comments( $user )
+	public static function comments( $user )
 	{
 	}
 
@@ -96,7 +138,7 @@ class YouTube extends ArrayObject
 	* @return ??
 	*
 	*/
-	public function profile( $user )
+	public static function profile( $user )
 	{
 	}
 
@@ -108,7 +150,7 @@ class YouTube extends ArrayObject
 	* @return ??
 	*
 	*/
-	public function contacts( $user )
+	public static function contacts( $user )
 	{
 	}
 
@@ -209,6 +251,15 @@ class YouTubeSilo extends Plugin implements MediaSilo
 			case 'subscriptions':
 				break;
 			case 'favorites':
+				$videos = YouTube::favorites($username);
+				foreach ($videos as $video) {
+
+					$results[] = new MediaAsset(
+						self::SILO_NAME . '/videos/' . $video['id'],
+						false,
+						$video
+					);
+				}
 				break;
 			case '':
 				$results[] = new MediaAsset(
@@ -222,12 +273,12 @@ class YouTubeSilo extends Plugin implements MediaSilo
 					true,
 					array('title' => 'Tags')
 				);
+				*/
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/favorites',
 					true,
 					array('title' => 'Favorites')
 				);
-				*/
 				break;
 		}
 
