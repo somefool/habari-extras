@@ -182,25 +182,25 @@ class FlickrFeed extends Plugin
 				$flickrfeed = array_slice($flickrfeed['items'], 0, $params['num_item']);
 
 				// Photo size
-				for ($i = 0; $i < $params['num_item']; $i++) {
+				foreach ($flickrfeed as &$image) {
 					switch ($params['size']) {
 						case 'thumbnail':
-							$flickrfeed[$i]['image_url'] = str_replace('_m.jpg', '_t.jpg', $flickrfeed[$i]['m_url']);
+							$image['image_url'] = str_replace('_m.jpg', '_t.jpg', $image['m_url']);
 							break;
 						case 'small':
-							$flickrfeed[$i]['image_url'] = $flickrfeed[$i]['m_url'];
+							$image['image_url'] = $image['m_url'];
 							break;
 						case 'medium':
-							$flickrfeed[$i]['image_url'] = $flickrfeed[$i]['l_url'];
+							$image['image_url'] = $image['l_url'];
 							break;
 						case 'large':
-							$flickrfeed[$i]['image_url'] = str_replace('_m.jpg', '_b.jpg', $flickrfeed[$i]['m_url']);
+							$image['image_url'] = str_replace('_m.jpg', '_b.jpg', $image['m_url']);
 							break;
 						case 'original':
-							$flickrfeed[$i]['image_url'] = $flickrfeed[$i]['photo_url'];
+							$image['image_url'] = $image['photo_url'];
 							break;
 						default:
-							$flickrfeed[$i]['image_url'] = $flickrfeed[$i]['t_url'];
+							$image['image_url'] = $image['t_url'];
 							break;
 					}
 				}
