@@ -35,17 +35,8 @@ code{font-family:Consolas,"Bitstream Vera Sans Mono",Monaco,"Courier New","Micro
 .alt{font-style:italic;}
 
 	/* Google Code Prettify */
-	pre.prettyprint{background:#141414;color:#f8f8f8;overflow:auto;padding:.7em !important;border:0 !important;}
+	pre.prettyprint{overflow:auto;padding:.7em !important;border:0 !important;}
 	pre.prettyprint code{font-size:.875em;line-height:1.2;}
-	pre.prettyprint span.str,pre.prettyprint span.atv{color:#8f9d6a;}
-	pre.prettyprint span.kwd,pre.prettyprint span.pun{color:#cda869;}
-	pre.prettyprint span.com{color:#5f5a60;font-style:italic;}
-	pre.prettyprint span.typ{color:#9b703f;}
-	pre.prettyprint span.lit{color:#cf6a4c;}
-	pre.prettyprint span.pln{color:#7587a6;}
-	pre.prettyprint span.tag{color:#ac885b;}
-	pre.prettyprint span.atn{color:#e0c589;}
-	pre.prettyprint span.dec{color:#494949;}
 
 /* Header */
 body.home #header{margin:0 0 0 12em;}
@@ -78,6 +69,10 @@ body.home #header{margin:0 0 0 12em;}
 		/* Footnote */
 		.footnotes{font-size:.875em;padding:2.4em 0 0;}
 		.footnotes hr{text-align:left;width:66%;}
+
+		/* Downloads */
+		div.download{background:#f6f6f6 url(images/download.png) no-repeat 8px 16px;border:2px solid #ddd;margin:.7em 2em;padding:1em 1em 1em 4em;text-align:left;}
+			div.download a{font-size:1.5em;line-height:1.125;display:block;margin-left:-2em;padding-left:2em;}
 
 	/* Block Element */
 	#content p{text-align:justify;}
