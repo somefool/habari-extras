@@ -104,7 +104,9 @@ STYLE;
 		if($comment->url != '') {
 			$lastcomment = Comments::get(array('url' => $comment->url, 'limit' => 1, 'orderby'=>'`date` DESC', 'fetch_fn'=>'get_row'));
 			if($lastcomment instanceof Comment) {
-				$comment->info->redirecturl = $lastcomment->info->redirecturl;
+				if(isset($lastcomment->info->redirecturl)) {
+					$comment->info->redirecturl = $lastcomment->info->redirecturl;
+				}
 			}
 		}
 	}
@@ -114,18 +116,24 @@ STYLE;
 		return substr(md5($commentid . $_SERVER['REMOTE_ADDR'] . Options::get('GUID') . HabariDateTime::date_create()->yday), 0, 6);
 	}
 
-	private function quote_whitelist($value)
+	private function get_whitelist()
 	{
-		return preg_quote(trim($value), ':');
+		static $whitelist = null;
+		if(is_null($whitelist)) {
+			$whitelist = explode("\n", Options::get('urlapprove__whitelist'));
+			$whitelist = array_map('trim', $whitelist);
+			$whitelist = Plugins::filter('urlapprove_whitelist', $whitelist);
+		}
+		return $whitelist;
 	}
 
 	public function filter_comment_url_out($value, $comment)
 	{
-		$whitelist = explode("\n", Options::get('urlapprove__whitelist'));
-		if($whitelist != '' && $comment->url) {
-			$whitelist = array_map(array($this, 'quote_whitelist'), $whitelist);
-			$whitelist = ':' . implode('|', $whitelist) . ':i';
-			if(preg_match($whitelist, $value)) {
+		$whitelist = $this->get_whitelist();
+		if(count($whitelist) > 0 && $comment->url != '') {
+			$comment_url = InputFilter::parse_url($value);
+			$domain = $comment_url['host'];
+			if(in_array($domain, $whitelist)) {
 				return $value;
 			}
 		}
