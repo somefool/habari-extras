@@ -226,9 +226,14 @@ $(document).ready(function(){
 		}
 
 
-		$post_map = DB::get_column("SELECT value FROM " . DB::table('postinfo') . " WHERE name='blogger_id';");
-		$comment_map = DB::get_column("SELECT value FROM " . DB::table('commentinfo') . " WHERE name='blogger_id';");
 		$post_id_map = array();
+		$post_map = array();
+		$result = DB::get_results("SELECT post_id,value FROM " . DB::table('postinfo') . " WHERE name='blogger_id';");
+		for ($i = 0; $i < count($result); $i++) {
+			$post_id_map[$result[$i]->value] = $result[$i]->post_id;
+			$post_map[] = $result[$i]->value;
+		}
+		$comment_map = DB::get_column("SELECT value FROM " . DB::table('commentinfo') . " WHERE name='blogger_id';");
 
 		$entry_count = count($feed->entry);
 		for ($i = 0; $i < $entry_count; $i++) {
@@ -284,11 +289,11 @@ $(document).ready(function(){
 				if (in_array((string)$entry->id, $comment_map)) continue;
 
 				$result = $entry->xpath('//thr:in-reply-to');
-				if (empty($result) || !isset($post_id_map[(string)$result[0]->ref])) break;
+				if (empty($result) || !isset($post_id_map[(string)$result[0]['ref']])) continue;
 
 				$t_comment = array();
 
-				$t_comment['post_id'] = $post_id_map[(string)$result[0]->ref];
+				$t_comment['post_id'] = $post_id_map[(string)$result[0]['ref']];
 				$t_comment['name'] = MultiByte::convert_encoding((string)$entry->author->name);
 				if (isset($entry->author->email)) {
 					$t_comment['email'] = (string)$entry->author->email;
