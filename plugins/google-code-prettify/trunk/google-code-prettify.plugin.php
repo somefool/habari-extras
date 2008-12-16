@@ -10,7 +10,7 @@ class GoogleCodePrettify extends Plugin
 	private $config = array();
 	private $class_name = '';
 	private $default_options = array (
-		'color_scheme' => 'google'
+		'color_scheme' => 'Google'
 	);
 
 	public function info()
