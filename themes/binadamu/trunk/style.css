@@ -71,7 +71,7 @@ body.home #header{margin:0 0 0 12em;}
 		.footnotes hr{text-align:left;width:66%;}
 
 		/* Downloads */
-		div.download{background:#f6f6f6 url(images/download.png) no-repeat 8px 16px;border:2px solid #ddd;margin:.7em 2em;padding:1em 1em 1em 4em;text-align:left;}
+		div.download{background:#f6f6f6 url(images/download.png) no-repeat 1em 50%;border:2px solid #ddd;margin:.7em 2em;padding:1em 1em 1em 4em;text-align:left;}
 			div.download a{font-size:1.5em;line-height:1.125;display:block;margin-left:-2em;padding-left:2em;}
 
 	/* Block Element */
@@ -127,11 +127,11 @@ body.home #header{margin:0 0 0 12em;}
 	#pager a.next{background:url(images/pager-next.png) no-repeat 100% .2em;padding:0 1.2em 0 0;float:right;}
 
 	/* Aside */
-	body.multiple #content div.tag-edge{margin:2.8em 0 0;border-top:1.4em solid #f3f3f3;}
-	body.multiple #content div.tag-edge div.entry-head{width:10em;float:left;}
-	body.multiple #content div.tag-edge .entry-meta{font-size:.75em;padding:0;margin:.8em 0;float:none;}
-	body.multiple #content div.tag-edge .entry-title{font-size:1.4em;line-height:1;margin:.5em 0 0;padding:0;border:none;}
-	body.multiple #content div.tag-edge .entry-date,body.multiple #content div.tag-edge .entry-time,body.multiple #content div.tag-edge .comments-link,body.multiple #content div.tag-edge .entry-tags{display:none;}
+	body.multiple #content div.tag-aside{margin:2.8em 0 0;border-top:1.4em solid #f3f3f3;}
+	body.multiple #content div.tag-aside div.entry-head{width:10em;float:left;}
+	body.multiple #content div.tag-aside .entry-meta{font-size:.75em;padding:0;margin:.8em 0;float:none;}
+	body.multiple #content div.tag-aside .entry-title{font-size:1.4em;line-height:1;margin:.5em 0 0;padding:0;border:none;}
+	body.multiple #content div.tag-aside .entry-date,body.multiple #content div.tag-aside .entry-time,body.multiple #content div.tag-aside .comments-link,body.multiple #content div.tag-aside .entry-tags{display:none;}
 
 	/* Archives */
 	body.page-archive #content,body.page-archives #content{overflow:visible;}
