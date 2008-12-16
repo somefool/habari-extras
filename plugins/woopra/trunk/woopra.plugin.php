@@ -19,7 +19,7 @@ class Woopra extends Plugin {
 	{
 		return array(
 			'name'=>'Woopra',
-			'version'=>'0.5',
+			'version'=>'0.6',
 			'url'=>'http://www.awhitebox.com/woopra-plugin-for-habari',
 			'author'=>'Ali B.',
 			'authorurl'=>'http://www.awhitebox.com',
@@ -74,7 +74,7 @@ class Woopra extends Plugin {
 			$tag_registered= $form->fieldset1->append( 'checkbox', 'tag_registered', 'option:woopra__tag_registered', _t( 'Enabled', 'woopra' ));
 			$label2= $form->fieldset1->append( 'label','label2', _t( 'Display users avatars', 'woopra') );
 			$display_avatar= $form->fieldset1->append( 'radio', 'display_avatar', 'option:woopra__display_avatar',  _t( 'Display users avatars', 'woopra'), array( 'no'=>'Disabled', 'userimage'=>'Local user image', 'gravatar'=>'Gravatar' ));
-			$form->append( 'fieldset','fieldset2', _t( 'Execlude Users', 'woopra' ) );
+			$form->append( 'fieldset','fieldset2', _t( 'Exclude Users', 'woopra' ) );
 			$excluded_users= $form->fieldset2->append( 'textmulti', 'excluded_users', 'option:woopra__excluded_users', _t( 'Don\'t track visits from the following user names', 'woopra'));
 			$form->append('submit', 'save', _t('Save'));
 			$form->on_success( array( $this, 'save_config' ) );
