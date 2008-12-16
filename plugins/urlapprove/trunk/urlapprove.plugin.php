@@ -99,6 +99,16 @@ STYLE;
 		return $status_msg;
 	}
 
+	public function action_comment_insert_before($comment)
+	{
+		if($comment->url != '') {
+			$lastcomment = Comments::get(array('url' => $comment->url, 'limit' => 1, 'orderby'=>'`date` DESC', 'fetch_fn'=>'get_row'));
+			if($lastcomment instanceof Comment) {
+				$comment->info->redirecturl = $lastcomment->info->redirecturl;
+			}
+		}
+	}
+
 	protected function get_hash($commentid)
 	{
 		return substr(md5($commentid . $_SERVER['REMOTE_ADDR'] . Options::get('GUID') . HabariDateTime::date_create()->yday), 0, 6);
