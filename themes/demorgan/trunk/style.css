@@ -109,10 +109,10 @@ div.entry-content hr{display:block;background:#f2c200;color:#f2c200;clear:both;f
 	#page-selector a.current-page{background:#c41;color:#fff;}
 
 	/* Aside */
-	body.multiple div.tag-edge div.entry-head br.clear,body.multiple div.tag-aside div.entry-head br.clear{display:none;}
-	body.multiple div.tag-edge .entry-title a,body.multiple div.tag-aside .entry-title a{color:#c41;display:inline;padding:0 .48em;background:transparent;}
-	body.multiple div.tag-edge h1,div.tag-edge h2,body.multiple div.tag-aside h1,div.tag-aside h2{font-size:1.25em;line-height:1.35;}
-	body.multiple div.tag-edge span.comments-link,body.multiple div.tag-edge span.entry-tags,body.multiple div.tag-aside span.comments-link,body.multiple div.tag-aside span.entry-tags{display:none;}
+	body.multiple div.tag-aside div.entry-head br.clear{display:none;}
+	body.multiple div.tag-aside .entry-title a{color:#c41;display:inline;padding:0 .48em;background:transparent;}
+	body.multiple div.tag-aside h1,div.tag-aside h2{font-size:1.25em;line-height:1.35;}
+	body.multiple div.tag-aside span.comments-link,body.multiple div.tag-aside span.entry-tags{display:none;}
 
 	/* Footnotes */
 	div.footnotes{font-size:.875em;line-height:1.92857;margin:3.85714em 0 2.7em;}
