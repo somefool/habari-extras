@@ -4,8 +4,8 @@ class Polls extends Plugin {
 	function info() {
 		return array(
 			'name' => 'Poll',
-			'version' => '0.51',
-			'url' => 'http://www.thebigsqueak.com',
+			'version' => '0.52',
+			'url' => 'http://www.thebigsqueak.com/pluginspolls',
 			'author' => 'Bigsqueak Studios',
 			'authorurl' => 'http://www.thebigsqueak.com',
 			'licence' => 'Creative Commons Attribution-Share Alike 3.0',
