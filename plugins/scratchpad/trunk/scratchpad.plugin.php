@@ -16,7 +16,7 @@ class ScratchPad extends Plugin implements MediaSilo
 	{
 		return array(
 			'name' => 'ScratchPad',
-			'version' => '0.1',
+			'version' => '0.6-0.1.1',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -205,7 +205,7 @@ class ScratchPad extends Plugin implements MediaSilo
 	public function action_handler_scratchpad($handler_vars)
 	{
 		$user = User::identify();
-		if ( !$user ) {
+		if ( !$user->loggedin ) {
 			// TODO We should allow the user to log in somehow
 			$response = "User not logged in.";
 		}
@@ -262,7 +262,7 @@ class ScratchPad extends Plugin implements MediaSilo
 	{
 		$response = '';
 		$user = User::identify();
-		if ( !$user ) {
+		if ( !$user->loggedin ) {
 			// TODO should we allow the user to log in here ? They're sending data directly to where they shouldn't be. Maybe their session timed out ?
 			$response = "User not logged in.";
 		}
@@ -367,7 +367,7 @@ class ScratchPad extends Plugin implements MediaSilo
 				}}
 				habari.media.preview.scratchpad = function(fileindex, fileobj) {
 					var stats = '';
-					return '<div class="mediatitle">' + fileobj.title + '</div><div class="mediastats">' + fileobj.content + '</div>';
+					return '<div class="mediatitle">' + fileobj.title + '</div><div>' + fileobj.content + '</div>';
 				}
 			</script>
 SCRATCHPAD;
