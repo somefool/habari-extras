@@ -151,8 +151,8 @@ class FreshComments extends Plugin
 			if ($this->config['show_trackbacks']) $comment_types[] = Comment::TRACKBACK;
 			if ($this->config['show_pingbacks']) $comment_types[] = Comment::PINGBACK;
 
-			$query = 'SELECT {posts}.* FROM {comments}, {posts} WHERE {comments}.status = ? AND ({comments}.type = ?' . str_repeat(' OR {comments}.type = ?', count($comment_types) - 1) . ') AND {posts}.id = post_id GROUP BY post_id ORDER BY {comments}.date DESC, post_id DESC LIMIT ' . $this->config['num_posts'];
-			$query_args = array_merge(array(Comment::STATUS_APPROVED), $comment_types);
+			$query = 'SELECT {posts}.* FROM {comments}, {posts} WHERE {posts}.status = ? AND {comments}.status = ? AND ({comments}.type = ?' . str_repeat(' OR {comments}.type = ?', count($comment_types) - 1) . ') AND {posts}.id = post_id GROUP BY post_id ORDER BY {comments}.date DESC, post_id DESC LIMIT ' . $this->config['num_posts'];
+			$query_args = array_merge(array(Post::status('published'), Comment::STATUS_APPROVED), $comment_types);
 			$commented_posts = DB::get_results($query, $query_args, 'Post');
 
 			$freshcomments = array();
@@ -165,7 +165,6 @@ class FreshComments extends Plugin
 				foreach ($comments as $j => $comment) {
 					$freshcomments[$i]['comments'][$j]['comment'] = $comment;
 					$freshcomments[$i]['comments'][$j]['color'] = $this->get_color($comment->date);
-
 				}
 			}
 
