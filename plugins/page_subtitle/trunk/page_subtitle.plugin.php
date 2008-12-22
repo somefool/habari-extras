@@ -7,7 +7,7 @@ class PageSubtitle extends Plugin
 	function info() {
 		return array(
 			'name' => 'Page Subtitle',
-			'version' => '0.1',
+			'version' => '0.3',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -19,38 +19,27 @@ class PageSubtitle extends Plugin
 	/**
 	 * Add the subtitle control to the publish page
 	 *
-	 * @param array $controls The publish controls
+	 * @param FormUI $form The publish page form
 	 * @param Post $post The post being edited
-	 * @return array The updated controls
 	 **/
-	public function filter_publish_controls ( $controls, $post )
+	public function action_form_publish ( $form, $post )
 	{
-		if ( Controller::get_handler()->handler_vars['content_type'] == Post::type('page') ) {
-			$controls['Settings'].= '<hr><div class="container"><p class="column span-5">Subtitle</p>		<p class="column span-14 last"><input type="text" name="subtitle" id="subtitle" class="styledformelement" value="' . $post->info->subtitle . '"></p></div>';
-		}
-		
-		return $controls;
-	}
-
-	/**
-	 * Handle creation of subtitle
-	 * @param Post $post The post being created
-	 **/
-	public function action_post_insert_before( $post )
-	{
-		if ( $post->content_type == Post::type('page') ) {
-			$post->info->subtitle= Controller::get_handler()->handler_vars['subtitle'];
+		if ( $form->content_type->value == Post::type( 'page' ) ) {
+			$subtitle = $form->settings->append( 'text', 'subtitle', 'null:null', _t( 'Subtitle: '), 'tabcontrol_text' );
+			$subtitle->value = $post->info->subtitle;
+			$subtitle->move_before( $form->settings->status );
 		}
 	}
 
 	/**
 	 * Handle update of subtitle
 	 * @param Post $post The post being updated
+	 * @param FormUI $form. The form from the publish page
 	 **/
-	public function action_post_update_before( $post )
+	public function action_publish_post( $post, $form )
 	{
-		if ( $post->content_type == Post::type('page') ) {
-			$post->info->subtitle= Controller::get_handler()->handler_vars['subtitle'];
+		if ( $post->content_type == Post::type( 'page' ) ) {
+			$post->info->subtitle = $form->subtitle->value;
 		}
 	}
 
