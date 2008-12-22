@@ -22,10 +22,9 @@ class Maintenance extends Plugin
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.2',
-			'description' => 'Redirects all requests to a maintenance mode page, with two exceptions. 
-			The first is that the login page is available. 
-			The second is that any user who is logged in can see any page on the site.',
+			'version' => '0.3',
+			'description' => 'Redirects all requests to a maintenance mode page. 
+			The login page always remains available. Logged in users can see any page on the site even when in maintenance mode.', 
 			'license' => 'Apache License 2.0',
 		);
 	}
@@ -35,6 +34,16 @@ class Maintenance extends Plugin
 		if ( realpath( $file ) == __FILE__ ) {
 			Options::set( self::OPTION_NAME . '__text' , _t( "We're down for maintenance. Please return later." ) );
 			Options::set( self::OPTION_NAME . '__in_maintenance', FALSE );
+			Options::set( self::OPTION_NAME . '__display_feeds', FALSE );
+		}
+	}
+
+	public function action_plugin_deactivation( $file )
+	{
+		if ( realpath( $file ) == __FILE__ ) {
+			Options::delete( self::OPTION_NAME . '__text' , _t( "We're down for maintenance. Please return later." ) );
+			Options::delete( self::OPTION_NAME . '__in_maintenance', FALSE );
+			Options::delete( self::OPTION_NAME . '__display_feeds', FALSE );
 		}
 	}
 
@@ -56,6 +65,7 @@ class Maintenance extends Plugin
 					$ui->append( 'textarea', 'mm_text', self::OPTION_NAME . '__text', _t('Display Text: ' ) );
 					// Add checkbox to put in/out of maintenance mode
 					$ui->append( 'checkbox', 'in_maintenance', self::OPTION_NAME . '__in_maintenance', _t( 'In Maintenance Mode' ) );
+					$ui->append( 'checkbox', 'display_feeds', self::OPTION_NAME . '__display_feeds', _t( 'Display Feeds When In Maintenance Mode' ) );
 
 					$ui->append( 'submit', 'save', _t( 'Save' ) );
 					$ui->on_success( array( $this, 'updated_config' ) );
@@ -82,11 +92,19 @@ class Maintenance extends Plugin
 
 	public function filter_rewrite_request( $start_url )
 	{
-		if( Options::get( self::OPTION_NAME . '__in_maintenance' ) ) {
-			if( ! User::identify() ) {
-					if ( strpos( $start_url, 'user/login' ) === FALSE  && strpos( $start_url, 'admin' ) === FALSE  ) {
-						$start_url = 'maintenance';
-					}
+		if( ! Options::get( self::OPTION_NAME . '__in_maintenance' ) ) {
+			return $start_url;
+		}
+
+		if( Options::get( self::OPTION_NAME . '__display_feeds' ) ) {
+			if( strpos( $start_url, 'atom' ) !== FALSE || strpos( $start_url, 'rss' ) !== FALSE  || strpos( $start_url, 'rsd' ) !== FALSE ) {
+				return $start_url;
+			}
+		}
+
+		if( ! User::identify()->loggedin ) {
+			if ( strpos( $start_url, 'user/login' ) === FALSE  && strpos( $start_url, 'admin' ) === FALSE  ) {
+				$start_url = 'maintenance';
 			}
 		}
 		return $start_url;
@@ -102,7 +120,7 @@ class Maintenance extends Plugin
 			'action' => 'display_maintenance',
 			'priority' => 4,
 			'rule_class' => RewriteRule::RULE_PLUGIN,
-			'is_active' => ( User::identify() ? 0 : 1 ),
+			'is_active' => ( User::identify()->loggedin ? 0 : 1 ),
 			'description' => 'Displays the maintenance mode page'
 		) );
 
