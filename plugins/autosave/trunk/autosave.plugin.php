@@ -4,7 +4,7 @@ class AutoSave extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'AutoSave',
-			'version' => '0.1',
+			'version' => '0.1.1',
 			'author' =>	'Andrew da Silva',
 			'authorurl' => 'http://andrewdasilva.com/',
 			'license' => 'Apache License 2.0',
@@ -31,10 +31,8 @@ class AutoSave extends Plugin {
 		$response = array();
 
 		try {
-			extract( $that->handler_vars );
-			
 			$form = $that->form_publish( new Post(), false );
-			
+
 			// check to see if we are updating or creating a new post
 			if ( $form->post_id->value != 0 ) {
 				$post = Post::get( array( 'id' => $form->post_id->value, 'status' => Post::status( 'any' ) ) );
@@ -104,6 +102,6 @@ class AutoSave extends Plugin {
 			exit;
 		}
 	}
-	
+
 }
 ?>
