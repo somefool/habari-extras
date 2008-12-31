@@ -80,23 +80,25 @@ class HadminStrip extends Plugin
 				
 				<?php $unapprovedcomments=Comments::count_total( Comment::STATUS_UNAPPROVED, FALSE ); 
 			
-			$postnumber=Posts::get( array( 'count' => 1, 'content_type' => Post::type('entry'), 'status' => Post::status('published') ) ); 
+				$postnumber=Posts::get( array( 'count' => 1, 'content_type' => Post::type('entry'), 'status' => Post::status('published') ) ); 
 				$commentnumber=Comments::count_total( Comment::STATUS_APPROVED, FALSE );
+				$spamnumber=Comments::count_total( Comment::STATUS_SPAM );
 				$tagcount=DB::get_value('SELECT count(id) FROM {tags}');
 				$pagecount=Posts::get( array( 'count' => 1, 'content_type' => Post::type('page'), 'status' => Post::status('published') ) );?>
 				
 				
-				<a href="<?php echo ( URL::get( 'admin', 'page=dashboard' )); ?>" title="Visit the Dashboard.."><span id="admin">DASHBOARD</span></a>
-				 &middot; <a href="<?php echo (URL::get( 'user', 'page=logout')); ?>" title="Log out..">Logout</a> 
-				 &middot; <a href="<?php echo (URL::get( 'admin', 'page=publish')); ?>" title="Write an entry..">Write</a> 
-				 &middot; <a href="<?php echo (URL::get( 'admin', 'page=plugins'));?>" title="Plugins">Plugins</a> 
-			
-					 &middot; <a href="<?php echo (URL::get( 'admin', 'page=options' )); ?>" title="Update settings..">Options</a> 
+				<a id="striplink" href="<?php echo ( URL::get( 'admin', 'page=dashboard' )); ?>" title="Visit the Dashboard.."><span id="admin">DASHBOARD</span></a>
+				&middot; <a id="striplink" href="<?php echo (URL::get( 'user', 'page=logout')); ?>" title="Log out..">Logout</a> 
+				&middot; <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=publish')); ?>" title="Write an entry..">Write</a> 
+				&middot; <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=plugins'));?>" title="Plugins">Plugins</a> 
+				&middot; <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=options' )); ?>" title="Update settings..">Options</a> 
 					
-					<?php	if ( $unapprovedcomments!=0) { ?> &middot; <a id="admincomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo ($unapprovedcomments) ?> comments</a><?php } ?>
-				 
-			&middot; 	There are <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagcount) ?> tags</a></a>
+				<?php	if ( $unapprovedcomments!=0) { ?> &middot; <a id="modcomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Unapproved Comments"><?php echo ($unapprovedcomments) ?> moderate</a><?php } ?>
 				
+				<?php	if ( $spamnumber!=0) { ?> <a id="admincomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Spam Comments"><?php echo ($spamnumber) ?> spam</a><?php } ?>
+				 
+				&middot; There are <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagcount) ?> tags</a></a>
+								
 				 </div>
 				
 				

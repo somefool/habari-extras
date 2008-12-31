@@ -1,15 +1,18 @@
 #adminstrip {
 	text-align:center; bottom: 0; clear:none; z-index:9999;
 	position:fixed; background-color: #000;
-	border-top: 1px solid #292929; list-style: none; color: #747474;-moz-opacity:0.85;
+	border-top: 1px solid #292929; list-style: none; color: #a3a3a3;-moz-opacity:0.85;
 	width: 100%;
 	float: none;
 	opacity: 0.85;
-	font: 10px Helvetica, Arial, Geneva, sans-serif;
+	font: normal 10px Helvetica, Arial, Geneva, sans-serif;
 	display: inline;
 	right: 0;
 	padding: 5px 4px 6px;
 	text-shadow: #000 0 1px 0;
+	text-transform: none;
+	text-decoration: none;
+	letter-spacing: 0;
 }
 
 #adminstrip select {
@@ -30,24 +33,51 @@
 
 #adminstrip #admin:hover {
 	background-color: #595959;
-	text-decoration: underline;
+	text-decoration: underline !important;
 }
 
 #adminstrip a, #adminstrip a:visited {
-	color: #fff !important;
+	color: #fff;
+	text-decoration: none !important;
+	letter-spacing: 0;
+	border-style: none;
 }
 
 #adminstrip a:hover {
-	text-decoration: underline;
+	color: #fff;
+	text-decoration: underline !important;
 	opacity: 1;
+}
+a#striplink {
+	font-weight: normal;
+	font-style: normal;
+	text-transform: none;
+}
+a#striplink:hover {
+	background-color: transparent;
 }
 #admincomments {
 -webkit-border-radius: 3px;
 	-moz-border-radius: 3px;	
 		background-color: #f92e2d;
-	color: #fff !important;
+	color: #17160e !important;
 	padding: 1px 4px 2px;
 	font-weight: bold;
-	text-shadow: #a70000 0 1px 0;
+	text-shadow: #f8a3a4 0 1px 0;
+	border-style: none;
+	opacity: 1;
+	text-transform: uppercase;
 }
 
+#modcomments {
+-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+		background-color: #fcd915;
+	color: #17160e !important;
+	padding: 1px 4px 2px;
+	font-weight: bold;
+	text-shadow: #fcf7e0 0 1px 0;
+	border-style: none;
+	opacity: 1;
+	text-transform: uppercase;
+}
