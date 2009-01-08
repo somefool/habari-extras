@@ -77,7 +77,7 @@ class OpenID_Delegation extends Plugin {
 	
 	public function theme_header( $theme )
 	{
-		if( isset($theme->request) && $theme->request->display_home ) {
+		if( isset($theme) && $theme->request->display_home ) {
 			return $this->add_links();
 		}
 	}
