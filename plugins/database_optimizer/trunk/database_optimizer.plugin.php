@@ -110,7 +110,7 @@
 					
 				case 'sqlite':
 					
-					if ( DB::query( 'VACUUM' ) ) {
+					if ( DB::exec( 'VACUUM' ) ) {
 						$result = true;
 						
 						EventLog::log( 'SQLite database VACUUM\'ed successfully.' );
