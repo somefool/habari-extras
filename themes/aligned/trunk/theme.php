@@ -9,6 +9,10 @@ class Unknown extends Theme
 	{
 		// Apply Format::autop() to post content...
 		Format::apply( 'autop', 'post_content_out' );
+		// Only uses the <!--more--> tag, with the 'more' as the link to full post
+		Format::apply_with_hook_params( 'more', 'post_content_out', 'more' );
+		// Creates an excerpt option. echo $post->content_excerpt;
+		Format::apply_with_hook_params( 'more', 'post_content_excerpt', 'more', 60, 1 );
 		// Apply Format::autop() to comment content...
 		Format::apply( 'autop', 'comment_content_out' );
 		// Apply Format::tag_and_list() to post tags...
