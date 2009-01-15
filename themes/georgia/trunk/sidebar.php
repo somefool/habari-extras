@@ -16,7 +16,7 @@
 			    <li><a href="<?php echo $tab->permalink; ?>" title="<?php echo $tab->title; ?>"><?php echo $tab->title; ?></a></li>
 			<?php
 			}
-			if ( $user ) { ?>
+			if ( $loggedin ) { ?>
 			    <li><a href="<?php Site::out_url( 'admin' ); ?>" title="Admin area">Admin</a></li>
 			<?php } ?>
 		</ul>
