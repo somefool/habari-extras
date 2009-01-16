@@ -24,8 +24,8 @@
 			),
 			'display_entry_by_id' => array( // Wordpress entry id based permalink: archives/<id>
 				'name' => 'display_entry_by_id',
-				'parse_regex' => '%^archives/(?P<id>\d+)(?:/page/(?P<page>\d+))?/?$%i',
-				'build_str' => 'archives/{$id}(/page/{$page})',
+				'parse_regex' => '%^(?P<id>\d+)(?:/page/(?P<page>\d+))?/?$%i',
+				'build_str' => '{$id}(/page/{$page})',
 				'action' => 'display_entry',
 				'description' => 'Wordpress entry id based permalink',
 				'priority' => 10
@@ -65,7 +65,7 @@
 		public function info() {
 			return array(
 				'name' => 'Route 301',
-				'version' => '0.6.4',
+				'version' => '0.6.5',
 				'url' => 'http://habariproject.org/',
 				'author' =>	'Habari Community',
 				'authorurl' => 'http://habariproject.org/',
@@ -116,7 +116,7 @@
 				if ( isset( $this->handler_vars['slug'] ) ) {
 					$url = URL::get( 'display_entry', $this->handler_vars, false );
 				} else {
-					$url = Post::get( $this->handler_vars )->permalink;
+					$url = Post::get( $this->handler_vars->getArrayCopy() )->permalink;
 				}
 			} else {
 				$url = URL::get( $action, $this->handler_vars, false );
