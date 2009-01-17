@@ -116,10 +116,15 @@
 				if ( isset( $this->handler_vars['slug'] ) ) {
 					$url = URL::get( 'display_entry', $this->handler_vars, false );
 				} else {
-					$url = Post::get( $this->handler_vars->getArrayCopy() )->permalink;
+					$post = Post::get( $this->handler_vars->getArrayCopy() );
+					if ( $post !== false ) {
+						$url = $post->permalink;
+					} else {
+						$url = URL::get( 'display_404', $this->handler_vars->getArrayCopy(), false );
+					}
 				}
 			} else {
-				$url = URL::get( $action, $this->handler_vars, false );
+				$url = URL::get( $action, $this->handler_vars->getArrayCopy(), false );
 			}
 			header( 'Location: ' . $url, true, 301 );
 		}
