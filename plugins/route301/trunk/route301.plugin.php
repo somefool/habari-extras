@@ -24,8 +24,8 @@
 			),
 			'display_entry_by_id' => array( // Wordpress entry id based permalink: archives/<id>
 				'name' => 'display_entry_by_id',
-				'parse_regex' => '%^(?P<id>\d+)(?:/page/(?P<page>\d+))?/?$%i',
-				'build_str' => '{$id}(/page/{$page})',
+				'parse_regex' => '%^archives/(?P<id>\d+)(?:/page/(?P<page>\d+))?/?$%i',
+				'build_str' => 'archives/{$id}(/page/{$page})',
 				'action' => 'display_entry',
 				'description' => 'Wordpress entry id based permalink',
 				'priority' => 10
