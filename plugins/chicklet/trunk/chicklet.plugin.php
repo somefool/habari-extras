@@ -41,7 +41,7 @@ class Chicklet extends Plugin
 		$theme->subscribers = $count;
 	}
 	
-	public function fetch() {
+	static public function fetch() {
 		if(Cache::get('chickler_subscribercount') == NULL) {
 			$url = "http://api.feedburner.com/awareness/1.0/GetFeedData?uri=" . Options::get('chicklet__feedname') ;
 			$remote = RemoteRequest::get_contents($url);
