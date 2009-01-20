@@ -87,7 +87,7 @@ class TwipleTweetback extends Plugin
 			$form = new FormUI(strtolower(get_class($this)));
 			$form->append('checkbox', 'auto_insert', 'twiple_tweetback__auto_insert', _t('Auto Insert:', 'twiple_tweetback'));
 			$form->append('checkbox', 'default_style', 'twiple_tweetback__default_style', _t('Default Style:', 'twiple_tweetback'));
-			$limit = $form->append('text', 'limit', 'twiple_tweetback__limit', _t('Limit: ', 'twiple_tweetback'));
+			$limit = $form->append('text', 'limit', 'twiple_tweetback__limit', _t('Display Limit: ', 'twiple_tweetback'));
 			$limit->add_validator('validate_regex', '/^[0-9]+$/');
 			$form->append('text', 'load_message', 'twiple_tweetback__load_message', _t('Loading Message: ', 'twiple_tweetback'));
 			$form->append('text', 'notweets_message', 'twiple_tweetback__notweets_message', _t('No Tweets Message: ', 'twiple_tweetback'));
