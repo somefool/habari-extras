@@ -1,37 +1,83 @@
 var magicArchives = {
-	archives: null,
-	sections: null,
+	search: null,
 	init: function() {
 		magicArchives.archives = $('#magicArchives');
-		magicArchives.labels = $('#archive_controlbar .section', magicArchives.archives);
-		magicArchives.sections = $('#archive_controls .section', magicArchives.archives);
+		magicArchives.controller= $('#archive_controller', magicArchives.archives);
+		magicArchives.searcher= $('.section.search input', magicArchives.archives);
+		magicArchives.posts= $('#archive_posts', magicArchives.archives);
 		
-		// console.log(magicArchives.sections);
-		
-		$('a.toggle', magicArchives.labels).click(function() {
-			magicArchives.toggle(magicArchives.labels.index($(this).parent()));
+		// Toggle tags
+		$('a#archive_toggle_tags', magicArchives.controller).click(function() {
+			magicArchives.toggle($('#archive_tags'));
 			return false;
 		});
 		
-		$('.controls .close', magicArchives.sections).click(function() {
-			magicArchives.toggle(magicArchives.sections.index($(this).parent().parent()));
-			return false;
+		// Set up our AJAX
+		magicArchives.ajax = $.manageAjax({manageType: 'abortOld', maxReq: 1}); 
+		
+		// Set up the search label
+		magicArchives.searcher
+			.val($('.section.search label').text())
+			.focus(function() {
+				if(magicArchives.searcher.val() == $('.section.search label').text()) {
+					magicArchives.searcher.val('');
+				}
+			})
+			.blur(function() {
+				if(magicArchives.searcher.val() == '') {
+					magicArchives.searcher.val($('.section.search label').text());
+				}
+			});
+		
+		
+		// Update on search
+		magicArchives.searcher.keyup(function() {
+			if(magicArchives.searcher.val() != magicArchives.search) {
+				magicArchives.fetch();
+			}
 		});
 		
 		tagManage.init();
 	},
-	toggle: function(index) {
-		section= magicArchives.sections.eq(index);
-		label= magicArchives.labels.eq(index);
+	fetch: function() {
+		magicArchives.search= magicArchives.searcher.val();
+		
+		params= {
+			search: magicArchives.search
+		}
+		
+		magicSpinner.start();
+		
+		magicArchives.ajax.add({ 
+			type: "GET",
+			url: magicArchives.endpoint,
+			data: params,
+			success: function(response){
+				magicSpinner.stop();
+				magicArchives.posts.html(response);
+			}
+		});
+	 
+	},
+	toggle: function(section) {
 		if(section.hasClass('open')) {
 			section.slideUp();
-			section.add(label).removeClass('open');
+			section.removeClass('open');
 		} else {
 			section.slideDown();
-			section.add(label).addClass('open');
+			section.addClass('open');
 		}
 	}
 };
+
+var magicSpinner = {
+	start: function() {
+		magicArchives.archives.addClass('spinner');
+	},
+	stop: function () {
+		magicArchives.archives.removeClass('spinner');
+	}
+}
 
 var tagManage = {
 	init: function() {

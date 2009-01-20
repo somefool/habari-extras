@@ -39,44 +39,58 @@
 }
 
 /* controls */
-#magicArchives #archive_controls .section {
-	clear:both;
-	display:none;
-	width:619px;
-	background:#555;
-	border-bottom:2px solid #000;
+
+/* =search */
+#magicArchives #archive_controller .section.search {
+	width:100%;
+	float:left;
 }
 
-#magicArchives #archive_controls .section .controls {
-	background:#555;
-	border-bottom:2px solid #000;
-	padding:5px;
-	color:#DDD;
-	font-size:125%;
-}
-
-#magicArchives #archive_controls .section .controls a.clear, #magicArchives #archive_controls .section .controls a.close {
+#magicArchives #archive_controller .section.search a#archive_previous, #magicArchives #archive_controller .section.search a#archive_next {
 	display:block;
-	margin-left:10px;
-	float:right;
-	color:#DDD;
-	font-weight:bold;
+	float:left;
+	width:20%;
+	color:#000;
+	font-size:120%;
 }
 
-#magicArchives #archive_controls .section .controls a.clear:hover, #magicArchives #archive_controls .section .controls a.close:hover {
-	color:#FFF;
+#magicArchives #archive_controller .section.search a#archive_previous:hover, #magicArchives #archive_controller .section.search a#archive_next:hover, #magicArchives #archive_controller .section#archive_tags span.tag:hover {
+	color:orange;
+}
+
+#magicArchives #archive_controller .section.search a#archive_next {
+	text-align:right;
+}
+
+#magicArchives #archive_controller .section.search label {
+	display:none;
+}
+
+#magicArchives #archive_controller .section.search #archive_search {
+	width:42%;
+	padding:2px 4px 2px 24px;
+	background:url('search.png') no-repeat 5px 50%;
+	margin:0 5%;
+	float:left;
+	-moz-border-radius:7px;
+	border:2px solid #BBB;
+}
+
+#magicArchives #archive_controller .section.search #archive_search:focus {
+	border-color:#777;
+}
+
+#magicArchives.spinner #archive_controller .section.search #archive_search {
+	background-image:url('spinner.gif');
 }
 
 /* =tags */
-#magicArchives #archive_controls .section#archive_tags {
-	background:#777;
+#magicArchives #archive_controller .section#archive_tags {
+	display:none;
 }
-#magicArchives #archive_controls .section#archive_tags .tags {
-	padding:5px;	
-}
-#magicArchives #archive_controls .section#archive_tags span.tag {
+#magicArchives #archive_controller .section#archive_tags span.tag {
 	display: inline-block;
-	color:#FFF;
+	color:#555555;
 	font-size:220;
 	background: transparent !important;
 	border: none;
@@ -84,35 +98,32 @@
 	padding: 2px;
 }
 
-#magicArchives #archive_controls .section#archive_tags span.tag .checkbox {
+#magicArchives #archive_controller .section#archive_tags span.tag .checkbox {
 	display:none;
 }
 
-#magicArchives #archive_controls .section#archive_tags span.tag label {
+#magicArchives #archive_controller .section#archive_tags span.tag label {
 	line-height:15px;
 	cursor:pointer;
 }
 
-#magicArchives #archive_controls .section#archive_tags span.tag:hover {
-	color:#FFD39A;
+
+#magicArchives #archive_controller .section#archive_tags span.tag.selected {
+	color:#FB430F;
 }
 
-#magicArchives #archive_controls .section#archive_tags span.tag.selected {
-	color:#F5A133;
-}
-
-#magicArchives #archive_controls .section#archive_tags span.tag sup {
+#magicArchives #archive_controller .section#archive_tags span.tag sup {
 	display:none;
 }
 
-#magicArchives #archive_controls .section#archive_tags .wt0 { font-size: 10px; }
-#magicArchives #archive_controls .section#archive_tags .wt1 { font-size: 11px; }
-#magicArchives #archive_controls .section#archive_tags .wt2 { font-size: 12px; }
-#magicArchives #archive_controls .section#archive_tags .wt3 { font-size: 13px; }
-#magicArchives #archive_controls .section#archive_tags .wt4 { font-size: 15px; }
-#magicArchives #archive_controls .section#archive_tags .wt5 { font-size: 16px; }
-#magicArchives #archive_controls .section#archive_tags .wt6 { font-size: 19px; }
-#magicArchives #archive_controls .section#archive_tags .wt7 { font-size: 20px; }
-#magicArchives #archive_controls .section#archive_tags .wt8 { font-size: 22px; }
-#magicArchives #archive_controls .section#archive_tags .wt9 { font-size: 23px; }
-#magicArchives #archive_controls .section#archive_tags .wt10 { font-size: 25px; }
+#magicArchives #archive_controller .section#archive_tags .wt0 { font-size: 10px; }
+#magicArchives #archive_controller .section#archive_tags .wt1 { font-size: 11px; }
+#magicArchives #archive_controller .section#archive_tags .wt2 { font-size: 12px; }
+#magicArchives #archive_controller .section#archive_tags .wt3 { font-size: 13px; }
+#magicArchives #archive_controller .section#archive_tags .wt4 { font-size: 15px; }
+#magicArchives #archive_controller .section#archive_tags .wt5 { font-size: 16px; }
+#magicArchives #archive_controller .section#archive_tags .wt6 { font-size: 19px; }
+#magicArchives #archive_controller .section#archive_tags .wt7 { font-size: 20px; }
+#magicArchives #archive_controller .section#archive_tags .wt8 { font-size: 22px; }
+#magicArchives #archive_controller .section#archive_tags .wt9 { font-size: 23px; }
+#magicArchives #archive_controller .section#archive_tags .wt10 { font-size: 25px; }
