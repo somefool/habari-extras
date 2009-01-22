@@ -182,10 +182,8 @@ class FreshComments extends Plugin
 
 	protected function get_color($comment_date)
 	{
-		
-		$comment_date = strtotime($comment_date);
 		if ($this->config['fade_old']) {
-			$time_span = ($_SERVER['REQUEST_TIME'] - $comment_date) / $this->config['range_in_seconds'];
+			$time_span = ($_SERVER['REQUEST_TIME'] - $comment_date->int) / $this->config['range_in_seconds'];
 			$time_span = min($time_span, 1);
 			$color = array(
 				'r' => self::sanitize_color($this->config['newest_color']['r'] + $this->config['color_range']['r'] * $time_span),
