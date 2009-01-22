@@ -179,3 +179,7 @@ input {
 textarea {
 	width: 99%;
 }
+
+.center {
+	text-align: center;
+}
