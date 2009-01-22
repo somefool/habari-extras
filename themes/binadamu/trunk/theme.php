@@ -16,11 +16,6 @@ define('THEME_CLASS', 'BinadamuTheme');
  */
 class BinadamuTheme extends Theme
 {
-	private $class_name = '';
-	private $default_options = array(
-		'show_about' => FALSE,
-		'home_tab' => 'Blog'
-	);
 	private $handler_vars = array();
 
 	/**
@@ -45,52 +40,8 @@ class BinadamuTheme extends Theme
 		$this->load_text_domain('binadamu');
 	}
 
-	/**
-	 * On theme activation, set the default options
-	 */
-	public function action_theme_activation($file)
-	{
-		if (realpath($file) == __FILE__) {
-			$this->class_name = strtolower(get_class($this));
-			foreach ($this->default_options as $name => $value) {
-				$current_value = Options::get($this->class_name . '__' . $name);
-				if (is_null($current_value)) {
-					Options::set($this->class_name . '__' . $name, $value);
-				}
-			}
-		}
-	}
-
-	public function filter_theme_config($configurable)
-	{
-		$configurable = true;
-		return $configurable;
-	}
-
-	/**
-	 * Respond to the user selecting an action on the theme page
-	 **/
-	public function action_theme_ui($theme)
-	{
-		$ui = new FormUI(strtolower(get_class($this)));
-
-		$ui->append('text', 'home_tab', 'option:' . $this->class_name . '__home_tab', _t('Link Text to Home', 'binadamu'));
-		$ui->home_tab->add_validator('validate_required');
-
-		$ui->append('checkbox', 'show_about', 'option:' . $this->class_name . '__show_about', _t('Show ‘About’ at Sidebar', 'binadamu'));
-
-		// Save
-		$ui->append('submit', 'save', _t('Save', 'binadamu'));
-		$ui->set_option('success_message', _t('Options saved', 'binadamu'));
-		$ui->out();
-	}
-
 	public function add_template_vars()
 	{
-		//Theme Options
-		foreach ($this->default_options as $name => $value) {
-			$this->assign($name, $value);
-		}
 		$this->assign('home_tab', 'Blog'); //Set to whatever you want your first tab text to be.
 
 		if (!$this->assigned('pages')) {
@@ -116,13 +67,7 @@ class BinadamuTheme extends Theme
 		}
 		return $return;
 	}
-/*
-	public function filter_theme_call_footer($return, $theme)
-	{
-		var_dump($this);
-		return $return;
-	}
-*/
+
 	public function filter_post_tags_class($tags)
 	{
 		if (!is_array($tags))
