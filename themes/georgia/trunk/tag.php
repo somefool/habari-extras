@@ -3,7 +3,7 @@
 	<h3 class="page_title">Posts tagged with <em><?php echo $tag_text; ?></em></h3>
 <?php foreach ( $posts as $post ) { ?>
 	<div class="post<?php if($post->status == 1) { echo ' draft'; } ?>" id="post-<?php echo $post->id; ?>">
-		<p class="post_date"><?php echo $post->pubdate_out; ?></p>
+		<p class="post_date"><?php $post->pubdate->out(); ?></p>
 		<h2 class="post_title"><a href="<?php echo $post->permalink; ?>" title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a> <em>by</em> <?php echo $post->author->displayname; ?></h2>
 		<div class="post_content">
 			<?php $content = preg_replace('%^\s*<p>%i', '<p class="first_paragraph">', $post->content_out, 1); echo $content; ?>

@@ -2,7 +2,7 @@
 <theme>
 	<name>Georgia</name>
 	<author>Thomas Silkjær</author>
-	<url>http://blog.theundersigned.net/</url>
-	<version>1.1</version>
+	<url>http://theundersigned.net/</url>
+	<version>1.2</version>
 	<template_engine>rawphpengine</template_engine>
 </theme>

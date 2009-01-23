@@ -2,7 +2,7 @@
 	<h3 class="page_title">Search results for <em><?php echo htmlspecialchars( $criteria ); ?></em></h3>
 	<?php if( count( $posts ) != 0 ) { foreach ( $posts as $post ) { ?>
 	<div class="post<?php if($post->status == 1) { echo ' draft'; } ?>" id="post-<?php echo $post->id; ?>">
-		<p class="post_date"><span><?php echo $post->pubdate_out; ?> | <strong><?php echo $post->author->displayname; ?></strong></span></p>
+		<p class="post_date"><span><?php $post->pubdate->out(); ?> | <strong><?php echo $post->author->displayname; ?></strong></span></p>
 		<h2 class="post_title"><a href="<?php echo $post->permalink; ?>" title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a></h2>
 		<div class="post_content">
 			<?php echo $post->content_out; ?>

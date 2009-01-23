@@ -7,6 +7,7 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 			<?php 
 			if ( $post->comments->moderated->count ) {
 				foreach ( $post->comments->moderated as $comment ) {
+					if ( $comment->url_out == '' ) {						$comment_url = $comment->name_out;					}					else {						$comment_url = '<a href="' . $comment->url_out . '" rel="external">' . $comment->name_out . '</a>';					}
 					$class= 'class="comment';
 					if ( $comment->status == Comment::STATUS_UNAPPROVED ) {
 						$class.= ' unapproved';
@@ -14,7 +15,7 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 					$class.= '"';
 					?>
      						<li id="comment-<?php echo $comment->id; ?>" <?php echo $class; ?>>
-								<h2 class="comment_author"><a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a> <em>at</em> <a href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php echo $comment->date; ?></a></h2>
+								<h2 class="comment_author"><?php echo $comment_url; ?> <em>at</em> <a href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php $comment->date->out(); ?></a></h2>
       							<div class="comment_content">
        								<?php echo $comment->content_out; ?>
 								</div>

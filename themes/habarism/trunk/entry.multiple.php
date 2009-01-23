@@ -5,7 +5,7 @@
 		<div class="post<?php if($post->status == 1) { echo ' draft'; } ?>" id="post-<?php echo $post->id; ?>">
 			<div class="post_head">
 				<h2><a href="<?php echo $post->permalink; ?>" title="<?php echo $post->title; ?>"><?php echo $post->title_out; ?></a></h2>
-				<p class="post_head_meta"><?php echo $post->author->displayname; ?> &middot; <?php echo $post->pubdate_out; ?></p>
+				<p class="post_head_meta"><?php echo $post->author->displayname; ?> &middot; <?php $post->pubdate->out(); ?></p>
 			</div>
 			<div class="post_content">
 				<?php echo $post->content_out; ?>
