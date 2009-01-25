@@ -58,6 +58,7 @@ class MyTheme extends Theme
 			$this->assign('user', User::identify() );
 		}
 		if( !$this->template_engine->assigned( 'page' ) ) {
+			$page = Controller::get_var( 'page' );
 			$this->assign('page', isset( $page ) ? $page : 1 );
 		}
 		parent::add_template_vars();
