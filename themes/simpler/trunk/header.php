@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 	<head>
-		<title><?php Options::out( 'title' ); ?></title>
+		<title><?php if ( $request->display_entry && isset($post) ) { echo "{$post->title} - "; } ?><?php Options::out( 'title' ) ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="<?php $theme->feed_alternate(); ?>">
 		<link rel="edit" type="application/atom+xml" title="Atom Publishing Protocol" href="<?php URL::out( 'atompub_servicedocument' ); ?>">
