@@ -21,6 +21,9 @@ a:hover, a:active {
 	text-decoration: none;
 	border-bottom: 1px solid #d72;
 }
+a img {
+	border: 0;
+}
 h1 {
 	font-weight: normal;
 	margin-bottom: 5px;
