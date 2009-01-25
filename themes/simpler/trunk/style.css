@@ -127,6 +127,10 @@ h2 a {
 	text-align: center;
 }
 
+.paging a.current-page {
+	color: #000000;
+}
+
 ol#comments {
 	list-style: none;
 	margin-left: 0;
