@@ -31,10 +31,17 @@
 						
 						foreach ( $post->comments->approved as $comment ) {
 							
+							if ( $comment->url == '' ) {
+								$comment_url = $comment->name_out;
+							}
+							else {
+								$comment_url = '<a href="' . $comment->url . '" rel="external">' . $comment->name_out . '</a>';
+							}
+							
 							?>
 							
 								<li id="comment-<?php echo $comment->id; ?>" class="comment">
-									<p class="commenter"><cite><a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name_out; ?></a></cite>, on <a href="#comment-<?php echo $comment->id; ?>" title="Permalink to this post"><?php echo $comment->date_out; ?></a>, said:</p>
+									<p class="commenter"><cite><?php echo $comment_url; ?></cite>, on <a href="#comment-<?php echo $comment->id; ?>" title="Permalink to this post"><?php echo $comment->date_out; ?></a>, said:</p>
 									<div class="response">
 										<?php echo $comment->content_out; ?>
 									</div>
