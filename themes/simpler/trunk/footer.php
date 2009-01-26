@@ -15,7 +15,7 @@
 			</div>
 			<br>
 			<div id="footer">
-				<p>&copy; Copyright 2002 - <?php echo date('Y');?>. All Rights Reserved. Subscribe to <a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Entries</a> or <a href="<?php URL::out( 'atom_feed_comments', array( 'index' => '1' ) ); ?>">Comments</a></p>
+				<p>&copy; Copyright <?php echo date('Y');?>. All Rights Reserved. Subscribe to <a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Entries</a> or <a href="<?php URL::out( 'atom_feed_comments', array( 'index' => '1' ) ); ?>">Comments</a></p>
 			</div>
 		</div>
 	</body>
