@@ -2,6 +2,7 @@
 /**
  * Twitter Avatar
  * Twitter avatar plugin
+ * to use this plugin, please add "<?php echo $commnet->twitter_avatar; ?>"
  *
  * @package twitter_avatar
  * @version $Id$
@@ -10,7 +11,7 @@
  * @link http://twitter.com/
  * @link http://gravater.com/
  */
-class DropioSilo extends Plugin
+class TwitterAvatar extends Plugin
 {
 
 	/**
