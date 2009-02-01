@@ -84,8 +84,8 @@ class DropioSilo extends Plugin
 		if ($plugin_id != $this->plugin_id()) return;
 		if ($action == _t('Configure')) {
 			$form = new FormUI(strtolower(get_class($this)));
-			$form->append('input', 'cache_expire', 'twitter_avatar__cache_expire', _t('Cache Expire (hour):', 'twitter_avatar'));
-			$form->append('input', 'default_icon', 'twitter_avatar__default_icon', _t('Default Icon URL:', 'twitter_avatar'));
+			$form->append('text', 'cache_expire', 'twitter_avatar__cache_expire', _t('Cache Expire (hour):', 'twitter_avatar'));
+			$form->append('text', 'default_icon', 'twitter_avatar__default_icon', _t('Default Icon URL:', 'twitter_avatar'));
 			$form->append('checkbox', 'fallback_gravater', 'twitter_avatar__fallback_gravatar', _t('Fallback to Gravater: ', 'twitter_avatar'));
 			$form->append('submit', 'save', _t('Save'));
 			$form->out();
@@ -119,7 +119,7 @@ class DropioSilo extends Plugin
 		} elseif (Cache::has('twitter_avatar_' . $comment->email)) {
 			$twitter_user = Cache::get('twitter_avatar_' . $comment->email);
 		} else {
-			$request = new RemoteRequest('http://twitter.com/users/show.json?email=' . $comment->email);
+			$request = new RemoteRequest('http://twitter.com/users/show.json?email=' . $comment->email, 'GET', 5);
 			$result = $request->execute();
 			if ($result !== true) {
 				$twitter_user = false;
