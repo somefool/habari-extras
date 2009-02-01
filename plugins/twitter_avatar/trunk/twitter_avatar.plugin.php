@@ -135,9 +135,9 @@ class DropioSilo extends Plugin
 			$query = array();
 			$query['gravatar_id'] = md5(strtolower($comment->email));
 			$default_icon = Options::get('twitter_avatar__default_icon');
-			if (!empty($default_icon)) $query['default'] = $default_icon;
+			if (!empty($default_icon)) $query['default'] = urlencode($default_icon);
 
-			return '<img src="http://www.gravatar.com/avatar.php?' . http_build_query($query) . '" class="twitter_avatar" alt="' . $comment->name . '" />';
+			return '<img src="http://www.gravatar.com/avatar.php?' . http_build_query($query, '', '&amp;') . '" class="twitter_avatar" alt="' . $comment->name . '" />';
 		} else {
 			$default_icon = Options::get('twitter_avatar__default_icon');
 			if (!empty($default_icon)) {
