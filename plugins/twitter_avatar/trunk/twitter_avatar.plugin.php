@@ -2,7 +2,7 @@
 /**
  * Twitter Avatar
  * Twitter avatar plugin
- * to use this plugin, please add "<?php echo $commnet->twitter_avatar; ?>"
+ * to use this plugin, please add "<?php echo $comment->twitter_avatar; ?>"
  *
  * @package twitter_avatar
  * @version $Id$
