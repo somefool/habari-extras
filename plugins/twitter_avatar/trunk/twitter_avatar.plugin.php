@@ -46,7 +46,7 @@ class DropioSilo extends Plugin
 
 		Options::set('twitter_avatar__cache_expire', 24);
 		Options::set('twitter_avatar__default_icon', '');
-		Options::set('twitter_avatar__fallback_gravater', true);
+		Options::set('twitter_avatar__fallback_gravatar', true);
 	}
 
 	/**
