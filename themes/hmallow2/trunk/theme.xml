@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>hMallow2</name>
+	<author>MatthewM (somefool)</author>
+	<url>http://www.somefoolwitha.com/</url>
+	<version>1.0</version>
+	<template_engine>rawphpengine</template_engine>
+	<description>Based on K2 which comes with Habari and WP-Mallow2 - my WordPress theme</description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+</theme>
