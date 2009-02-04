@@ -41,16 +41,21 @@ class TagRewriter extends Plugin
 			switch ( $action ) {
 				case _t('Configure') :
 					$ui = new FormUI( strtolower( get_class( $this ) ) );
+					
+					$ui->append( 'checkbox', 'pluralization', 'tagrewriter__plurals', _t('Attempt automatic pluralization coordination to existing tags') );
+					
 					$ui->append( 'static', 'explanation', 'Create aliases in the form of <code>{original}={new}</code>' );
 					$ui->append( 'textmulti', 'aliases', 'tagrewriter__aliases', _t('Aliases:') );
+					
 					$ui->append( 'submit', 'save', _t('Save') );
+					
 					$ui->out();
 					break;
 			}
 		}
 	}
 	
-	public static function get_aliases() {
+	private static function get_aliases() {
 		$option= Options::get('tagrewriter__aliases');
 		
 		$aliases= array();
@@ -62,19 +67,38 @@ class TagRewriter extends Plugin
 		return $aliases;
 	}
 	
-	public function action_form_publish($form, $post) {
-		if($form->tags->value == '') return;
-		// If we don't have tags, don't run
+	public function action_post_update_before($post) {
 		
 		$aliases= self::get_aliases();
-
-		$tags= $form->tags->value;
-		foreach($aliases as $original => $new) {
-			$tags= str_replace($original, $new, $tags);
+		
+		if(Options::get('tagrewriter__plurals') != NULL && Options::get('tagrewriter__plurals') == 1) {
+			$pluralize= true;
+		} else {
+			$pluralize= false;
 		}
-
-		$form->tags->value= $tags;
-		return $form;
+		
+		$tags= array();
+		foreach($post->tags as $tag) {
+			if(isset($aliases[$tag])) {
+				$tags[]= $aliases[$tag];
+				continue;
+			}
+			
+			if($pluralize) {
+				if(Tags::get_by_slug($tag . 's') != false) {
+					$tags[]= $tag . 's';
+					continue;
+				}
+				elseif(Tags::get_by_slug(rtrim($tag, 's')) != false) {
+					$tags[]= rtrim($tag, 's');
+					continue;
+				}
+			}
+			
+			$tags[]= $tag;
+		}
+		
+		$post->tags= $tags;
 	}
 
 }	
