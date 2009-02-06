@@ -114,7 +114,8 @@
 			} else
 			if ( $action === 'display_entry' ) {
 				if ( isset( $this->handler_vars['slug'] ) ) {
-					$url = URL::get( 'display_entry', $this->handler_vars, false );
+					$post= Post::get( array( 'slug' => $this->handler_vars['slug'] ) );
+					$url = URL::get( 'display_entry', $post, false );
 				} else {
 					$post = Post::get( $this->handler_vars->getArrayCopy() );
 					if ( $post !== false ) {
