@@ -13,20 +13,28 @@
 		<div id="header">
 			<h1><?php Options::out( 'title' ); ?></h1>
 			<ul id="navigation">
-				<li><a href="<?php Site::out_url( 'habari' ); ?>">Home</a></li>
-<?php
-	// Menu tabs
-	foreach ( array_filter($pages->getArrayCopy(), create_function('$a', 'return !in_array($a->slug, array("tag", "archives"));')) as $tab ) {
-?>
-				<li><a href="<?php echo $tab->permalink; ?>" title="<?php echo $tab->title; ?>"><?php echo $tab->title; ?></a></li>
-<?php
-	}
-	if ( $user ) { 
-?>
-				<li class="admintab"><a href="<?php Site::out_url( 'admin' ); ?>" title="Admin area">Admin</a></li>
-<?php
-	}
-?>
+				<li>
+					<a href="<?php Site::out_url( 'habari' ); ?>">Home</a>
+				</li>
+					
+					<?php
+					
+						// Menu tabs
+						foreach ( array_filter($pages->getArrayCopy(), create_function('$a', 'return !in_array($a->slug, array("tag", "archives"));')) as $tab ) {
+							?>
+								<li>
+									<a href="<?php echo $tab->permalink; ?>" title="<?php echo $tab->title; ?>"><?php echo $tab->title; ?></a>
+								</li>
+							<?php
+						}
+						
+						if ( User::identify()->loggedin ) { 
+							?>
+								<li class="admintab"><a href="<?php Site::out_url( 'admin' ); ?>" title="Admin area">Admin</a></li>
+							<?php
+						}
+					?>
+					
 			</ul>
 			<p id="tagline"><?php Options::out( 'tagline' ); ?></p>
 		</div>
