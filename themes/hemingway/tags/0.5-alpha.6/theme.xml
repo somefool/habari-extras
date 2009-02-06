@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>Hemingway</name>
+	<author>Kyle Neath (original WordPress theme) and Stanislas Mazurek (Habari port)</author>
+	<url>http://github.com/stan/habari-themes/tree/master</url>
+	<version>0.5-alpha.6</version>
+	<template_engine>rawphpengine</template_engine>
+</theme>
