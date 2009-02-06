@@ -1,0 +1,17 @@
+Hemingway theme for Habari.
+
+cf LICENSE for license issues
+cf theme.xml for version status
+
+INSTALL:
+1. Move the hemingway folder into the user/themes/ directory.
+2. Login to the Habari Admin dashboard and navigate to 'Themes'.
+3. Activate the 'Hemingway' theme.
+4. eventually update CSS_COLOR in theme.php to switch colors
+
+This theme is compatible (ie uses if activated) the following Habari plugins (cf http://wiki.habariproject.org/en/Available_Plugins):
+
+1. RN Monthly Archives 0.7 by Raman Ng (a.k.a. tinyau)
+2. RN Tag Cloud 1.0 by Raman Ng (a.k.a. tinyau)
+3. GeSHi 0.2 by Pawbie
+4. Colophon 0.2 by Stanislas Mazurek - http://github.com/stan/habari-plugins/tree/master
