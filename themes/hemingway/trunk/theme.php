@@ -17,11 +17,11 @@ Format::apply( 'autop', 'comment_content_out' );
 // Apply Format::tag_and_list() to post tags...
 Format::apply( 'tag_and_list', 'post_tags_out' );
 // Apply Format::nice_date() to post date...
-Format::apply( 'nice_date', 'post_pubdate_out', 'm.j' );
-Format::apply( 'nice_date', 'post_pubdate_home', 'm/d/y' );
-Format::apply( 'nice_time', 'post_pubdate_time', 'ga' );
+// Format::apply( 'nice_date', 'post_pubdate_out', 'm.j' );
+// Format::apply( 'nice_date', 'post_pubdate_home', 'm/d/y' );
+// Format::apply( 'nice_time', 'post_pubdate_time', 'ga' );
 // Apply Format::nice_date() to comment date...
-Format::apply( 'nice_date', 'comment_date', 'F jS, Y' );
+// Format::apply( 'nice_date', 'comment_date', 'F jS, Y' );
 
 // Limit post length to 1 paragraph or 100 characters. As currently implemented
 // in home.php and entry.multiple.php, the first post will be displayed in full

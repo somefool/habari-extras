@@ -13,7 +13,7 @@
 		<li id="comment-<?php echo $comment->id; ?>">
 			<cite>
 				<span class="author"><a href="<?php echo $comment->url; ?>" rel="external nofollow"><?php echo $comment->name; ?></a></span>
-				<span class="date"><?php echo $comment->date; ?></span>
+				<span class="date"><?php echo $comment->date->out(); ?></span>
 			</cite>
 			<div class="content">
 				<?php if ($comment->comment_approved == '0') : ?>
@@ -48,7 +48,6 @@
       <h3 class="formhead">Have your say</h3>
       
       <form action="<?php URL::out('submit_feedback', array('id'=>$post->id) ); ?>" method="post" id="commentform">
-      
       <input type="text" name="name" id="author" value="<?php echo $commenter['name']; ?>" class="textfield" tabindex="1" /><label class="text">Name (required)</label><br />
       <input type="text" name="email" id="email" value="<?php echo $commenter['email']; ?>" class="textfield" tabindex="2" /><label class="text">Email (required -  not published)</label><br />
       <input type="text" name="url" id="url" value="<?php echo $commenter['url']; ?>" class="textfield" tabindex="3" /><label class="text">Website</label><br />

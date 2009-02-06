@@ -15,7 +15,7 @@
 					<p>You&rsquo;re currently reading &ldquo;<?php echo $post->title; ?>&rdquo;, an entry on <?php echo Options::out( 'title' ) ?></p>
 					<dl>
 						<dt>Published:</dt>
-						<dd><?php echo $post->pubdate_time; ?> <?= _('on') ?> <?php echo $post->pubdate_home; ?></dd>
+						<dd><?php echo $post->pubdate->out(); ?></dd>
 					</dl>
 					<dl>
 						<dt>Tags:</dt>
@@ -50,6 +50,5 @@
 	</div>
 
 <?php include 'sidebar.php'; ?>
-
 <?php include 'footer.php'; ?>
 <!-- /entry.single -->

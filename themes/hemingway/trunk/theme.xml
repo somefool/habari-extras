@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <theme>
 	<name>Hemingway</name>
-	<author>Kyle Neath (original WordPress theme) and Stanislas Mazurek (Habari port)</author>
-	<url>http://github.com/stan/habari-themes/tree/master</url>
-	<version>0.5-alpha.6</version>
+	<author>Habari Community</author>
+	<url>http://habariproject.org</url>
+	<version>0.6</version>
 	<template_engine>rawphpengine</template_engine>
+	<description>This is a port of the popular &lt;a href=&quot;http://warpspire.com/hemingway&quot;&gt;Hemingway&lt;/a&gt; theme by &lt;a href=&quot;http://warpspire.com&quot;&gt;Kyle Neath&lt;/a&gt;, originally ported to Habari by &lt;a href=&quot;http://github.com/stan/habari-themes/tree/master&quot;&gt;Stanislas Mazurek&lt;/a&gt;.</description>
 </theme>
