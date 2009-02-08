@@ -1,4 +1,4 @@
-n/ <?php include 'header.php'; ?>
+<?php include 'header.php'; ?>
 		<div id="content">
 			<div id="post-<?php echo $post->id; ?>" class="<?php echo $post->statusname; ?> post">
 				<h2 class="title"><a href="<?php echo $post->permalink; ?>" rel="bookmark" title="Permanent Link to <?php echo $post->title_out; ?>"><?php echo $post->title_out; ?></a></h2>
