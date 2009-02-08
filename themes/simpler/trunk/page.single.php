@@ -7,7 +7,7 @@
 				</div>
 				<p class="meta">
 					<?php echo $post->pubdate_out; ?> <?php if ( ! $post->info->comments_disabled ) { ?> | <a href="<?php echo $post->permalink; ?>#comments" title="Comments on this post"><?php echo $post->comments->approved->count; ?> <?php echo _n( 'Comment', 'Comments', $post->comments->approved->count ); ?></a><?php } ?><?php if ( $user->loggedin ) { ?> | <a href="<?php URL::out( 'admin', 'page=publish&id=' . $post->id); ?>" title="Edit post">Edit</a><?php } ?><br>
-					<?php if ( is_array( $post->tags ) ) { ?> <?php echo $post->tags_out; ?><?php } ?>
+					<?php if ( is_array( $post->tags ) ) { ?> Tagged: <?php echo $post->tags_out; ?><?php } ?>
 				</p>
 				<div id="responses">
 					<?php include 'comments.php'; ?>
