@@ -89,9 +89,9 @@ table {
 
 #supernav a:hover { color: white; } 
 
-.storycontent, #wp-calendar td:hover, #wp-calendar #today, h4, #menu ul li { color: #303030; }
+.storycontent, #wp-calendar td:hover, #wp-calendar #today, #menu ul li { color: #303030; }
 
-#menu a, #menu a:visited, a:link, h1, h2, h3 .feedback, h3, .meta span, #blogtitle h1 a, #blogtitle h1 a:visited, #bottommeta a:visited { color: #263a99; } 
+#menu a, #menu a:visited, a:link, h1, h2, h3 .feedback, h3, h4 #comments, .meta span, #blogtitle h1 a, #blogtitle h1 a:visited, #bottommeta a:visited, h4#respond.reply { color: #263a99; } 
 
 
 #menu a:hover, .storytitle a:hover { color: #4377ff; }
@@ -191,6 +191,13 @@ h4 #comments {
 font-size:150%;
 font-weight:normal;
 margin-bottom:5px;
+}
+
+h4#respond.reply {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 18px;
+	margin-top: 25px;
 }
 
 #commentarea { 
@@ -387,6 +394,7 @@ h4 {
 	padding: 0;
 	font-size: 16px;
 	line-height: 22px;
+	overflow: hidden;
 }
 
 .storycontent p {
@@ -399,7 +407,7 @@ h4 {
 	padding-left: 18px;
 }
 
-p, .storycontent ul li , .storycontent ol li 	{
+p, .storycontent ul li , .storycontent ol li{
 	list-style-position: outside;
 	color: #4f4f4f;
 }
@@ -508,6 +516,8 @@ cite {
 	padding-top: 10px;
 	font-size: 80%;
 	font-family: Helvetica, Arial, sans-serif;
+	text-shadow: #fff 0 1px 0;
+	margin-top: 10px;
 }
 
 
@@ -606,14 +616,56 @@ body#single .storytitle {
 	text-shadow: #fff 0 1px 0;
 }
 
-#commentform #author, #commentform #email, #commentform #url, #commentform textarea {
-	background: #fff;
-	border: 1px solid #333;
-	padding: .2em;
+#comment-personaldetails p {
+	margin: 2px 0 10px;
 }
 
-#commentform textarea {
-	width: 400px;
+#comment-personaldetails input#name, #comment-personaldetails input#email, #comment-personaldetails input#url {
+	width: 200px;
+	font-size: 12px;
+	padding: 6px 8px;
+	margin-right: 8px;
+}
+
+
+#comment-personaldetails input#name, #comment-personaldetails input#email, #comment-personaldetails input#url, #commentform textarea#content {
+-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;	
+	background: #fafaff;
+	border: 1px solid #90aedb;
+	color: #263a99;
+}
+
+#commentform textarea#content {
+	padding: 6px 8px;
+	font-size: 14px;
+	width: 540px !important;
+}
+
+#comment-personaldetails input#name:hover, #comment-personaldetails input#email:hover, #comment-personaldetails input#url:hover, #commentform textarea#content:hover {
+		background: #fff;
+	border: 1px solid #263a99;
+	color: #263a99;
+}
+
+#commentform input#submit {
+-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;		margin-top: 10px;
+	font-size: 16px;
+	background-color: #d5e1f2;
+	border: 1px solid #32459f;
+	color: #32459f;
+	padding: 6px 12px 4px;
+	text-shadow: #fff 0 1px 0;
+	margin-right: 3px;
+	display: block;
+}
+
+#commentform input#submit:hover {
+		cursor: pointer;
+	background-color: #abc8f2;
+	border: 1px solid #32459f;
+	color: #32459f;
 }
 
 
@@ -653,9 +705,10 @@ body#single .storytitle {
 .comments {
 	list-style: none;
  margin: 0px 0px 10px 0px;
- width: 530px;
 	padding: 10px 10px 5px 8px;
+	text-shadow: #fff 0 1px 0;
 }
+
 
 .pings {
 	list-style: none;
@@ -664,7 +717,8 @@ body#single .storytitle {
 }
 
 .comment-author-admin {
-	list-style: none;
+-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;	list-style: none;
  width: 530px;
  margin: 0px 50px 10px 0px;
 	padding: 10px 10px 5px 8px;
@@ -688,9 +742,11 @@ img.gravatar {
 
 body#single #content, #commentcontent {
 	padding-bottom: 10px;
-		width: 650px;
+		width: 580px;
 			margin-right: auto;
 	margin-left: auto;
+	padding-top: 4px;
+	padding-right: 8px;
 }
 
 body#home #content, body#archives #content, body#e404 #content {

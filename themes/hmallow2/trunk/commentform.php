@@ -36,4 +36,5 @@ if ( Session::has_messages() ) {
        <div class="clear"></div>
       </form>
      </div>
+
 <!-- /commentsform -->

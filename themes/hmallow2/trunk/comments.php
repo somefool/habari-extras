@@ -30,7 +30,6 @@ if ( $post->comments->moderated->count ) {
 	}
 }
 else { ?>
-      <li><?php _e('There are currently no comments.'); ?></li>
 <?php } ?>
      </ol>
 
