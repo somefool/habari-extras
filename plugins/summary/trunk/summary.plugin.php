@@ -38,7 +38,8 @@ class SummaryPlugin extends Plugin
   public function action_form_publish($form, $post)
   {
     if($post->content_type == Post::type('entry') ) {
-      $form->insert('tags', 'text', 'summary', 'null:unused', _t('Summary'), 'admincontrol_textArea');
+      $form->insert('tags', 'text', 'summary', 'null:null', _t('Summary'), 'admincontrol_textArea');
+	  $form->summary->raw = true;
       $form->summary->value = $post->info->summary;
       $form->summary->tabindex = 3;
       $form->tags->tabindex = 4;
