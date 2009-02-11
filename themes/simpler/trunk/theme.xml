@@ -3,7 +3,7 @@
 	<name>Simpler</name>
 	<author>Habari Community</author>
 	<url>http://habariproject.org</url>
-	<version>4.2</version>
+	<version>6</version>
 	<template_engine>rawphpengine</template_engine>
-	<description>A simple theme. License: Do what you want with this theme. I'd appreciate a link but you don't have to. Original author Randy Walker.</description>
+	<description>A simple theme. License: Do what you want with this theme. Linking to the original author would be appreciated but you don't have to. Original author Randy Walker.</description>
 </theme>
