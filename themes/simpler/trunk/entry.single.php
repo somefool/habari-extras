@@ -11,13 +11,13 @@
 				</p>
 				<div class="paging">
 				<?php if ( $previous= $post->descend() ): ?>
-					&laquo; <a href="<?php echo $previous->permalink ?>" title="<?php echo $previous->slug ?>"><?php echo $previous->title ?></a>
+					&laquo; <a href="<?php echo $previous->permalink; ?>" title="<?php echo _t('View') . ' ' . $previous->title_out; ?>"><?php echo $previous->title_out; ?></a>
 				<?php endif; ?>
 				<?php if ( $next= $post->ascend() && $previous= $post->descend() ): ?>
 					&nbsp;&mdash;&nbsp;
 				<?php endif; ?>
 				<?php if ( $next= $post->ascend() ): ?>
-					<a href="<?php echo $next->permalink ?>" title="<?php echo $next->slug ?>"><?php echo $next->title ?></a> &raquo;
+					<a href="<?php echo $next->permalink; ?>" title="<?php echo _t('View') . ' ' . $next->title_out; ?>"><?php echo $next->title_out; ?></a> &raquo;
 				<?php endif; ?>
 				</div>
 				<div id="comments">
