@@ -2,7 +2,7 @@
 
 
 <div id="crontab" class="container settings">
-	<h2><?php echo $cron->name; ?> Cron Job</h2>
+	<h2><?php _e('%s Cron Job', array($cron->name), 'crontabmanager'); ?></h2>
 
 	<?php echo $form; ?>
 </div>
