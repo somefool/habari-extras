@@ -270,7 +270,7 @@ class CronTabManager extends Plugin
 	{
 		$logout = $menu['logout'];
 		unset($menu['logout']);
-		$menu['crontab'] = array( 'url' => URL::get( 'admin', 'page=crontab'), 'title' => _t('Manage the crontab', 'crontabmanager'), 'text' => _t('Crontab' , 'crontabmanager'), 'hotkey' => 'J', 'selected' => false);
+		$menu['crontab'] = array( 'url' => URL::get( 'admin', 'page=crontab'), 'title' => _t('Manage the crontab', 'crontabmanager'), 'text' => _t('Crontab' , 'crontabmanager'), 'hotkey' => 'J', 'selected' => false, 'access'=>array('manage_cronjobs', true));
 		// push logout link to bottom.
 		$menu['logout'] = $logout;
 		return $menu;
