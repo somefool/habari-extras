@@ -1,6 +1,6 @@
-#A0BFEA/*
+/*
  * Name: Habari Admin Stylesheet
- * Author: Habari Community
+ * Author: Habari Community with modifications by Randy Walker
  * License: Apache License 2.0
  */
 
@@ -216,7 +216,7 @@ a img {
 	min-width: 8em;
 	max-width: 16em;
 	white-space: nowrap;
-	background: #333;
+	background: #B7410E;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	font-size: 9px;
@@ -293,7 +293,7 @@ a img {
 }
 
 #page .dropbutton li:hover {
-	background: #555;
+	background: #853815;
 }
 
 #page .dropbutton li.first-child a {
@@ -1266,7 +1266,7 @@ body.page-users .addnewuser {
 body.page-user .userstats, body.page-group .groupstats {
 	font: 1.5em 'Helvetica Neue Light', 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, Sans-Serif;
 	text-align: center;
-	color: #333;
+	color: #4A85E6;
 	padding: 10px !important;
 }
 
@@ -2131,7 +2131,7 @@ ul.tabs li.ui-tabs-selected.last-child {
 }
 
 .styledformelement {
-	border: 1px solid #bbb;
+	border: 1px solid #A3C6ED;
 }
 
 
