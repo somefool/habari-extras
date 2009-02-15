@@ -13,6 +13,13 @@ class Chicklet extends Plugin
 			);
 	}
 	
+	public function action_init() {
+		// Handle backwards compatability
+		if(!is_array(Options::get('chicklet__feedname'))) {
+			Options::set('chicklet__feedname', array(Options::get('chicklet__feedname')));
+		}
+	}
+	
 	public function filter_plugin_config( $actions, $plugin_id )
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
@@ -27,7 +34,7 @@ class Chicklet extends Plugin
 			switch ( $action ) {
 				case _t('Configure') :
 					$ui = new FormUI( strtolower( get_class( $this ) ) );
-					$customvalue = $ui->append( 'text', 'feedname', 'chicklet__feedname', _t('Feed Address:') );
+					$customvalue = $ui->append( 'textmulti', 'feedname', 'chicklet__feedname', _t('Feed Addresses:') );
 					$customvalue = $ui->append( 'submit', 'submit', _t('Save') );
 					$ui->out();
 					break;
@@ -43,12 +50,16 @@ class Chicklet extends Plugin
 	
 	static public function fetch() {
 		if(Cache::get('chickler_subscribercount') == NULL) {
-			$url = "https://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=" . Options::get('chicklet__feedname') ;
-			$remote = RemoteRequest::get_contents($url);
+			$count= 0;
+			
+			foreach(Options::get('chicklet__feedname') as $feed) {
+				$url = "https://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=" . $feed ;
+				$remote = RemoteRequest::get_contents($url);
 
-			$xml = new SimpleXMLElement($remote);
-			$count = intval($xml->feed->entry['circulation']);
-
+				$xml = new SimpleXMLElement($remote);
+				$count = $count + intval($xml->feed->entry['circulation']);
+			}
+						
 			Cache::set('chickler_subscribercount', $count);
 		} else {
 			$count = Cache::get('chickler_subscribercount');
