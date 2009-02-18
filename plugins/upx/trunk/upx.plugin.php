@@ -64,6 +64,34 @@ class UPX extends Plugin
 		ob_clean();		// no idea why we get a blank line at the beginning, but it breaks XML parsing
 		echo $xml->asXML();
 	}
+	
+	public function filter_adminhandler_post_user_fields ( $fields ) {
+		
+		$fields['ircnick'] = 'ircnick';
+		$fields['blog'] = 'blog';
+		
+		return $fields;
+	
+	}
+	
+	public function action_form_user ( $form, $edit_user ) {
+
+		$ircnick = ( isset( $user->info->ircnick ) ) ? $user->info->ircnick : '';
+		
+		// insert the UPX block into the form above the page_controls section
+		$upx = $form->insert('page_controls', 'wrapper', 'upx', _t('UPX'));
+		$upx->class = 'container settings';
+		$upx->append( 'static', 'upx', '<h2>' . htmlentities( _t('UPX'), ENT_COMPAT, 'UTF-8' ) . '</h2>' );
+		
+		$ircnick = $form->upx->append( 'text', 'ircnick', 'user:foo', _t( 'IRC Nick' ), 'optionscontrol_text' );
+		$ircnick->class = 'item clear';
+		$ircnick->value = $edit_user->info->ircnick;
+		
+		$blog = $form->upx->append( 'text', 'blog', 'null:null', _t( 'Blog URL' ), 'optionscontrol_text' );
+		$blog->class = 'item clear';
+		$blog->value = $edit_user->info->blog;
+		
+	}
 
 }
 
