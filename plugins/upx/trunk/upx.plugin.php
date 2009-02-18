@@ -55,10 +55,13 @@ class UPX extends Plugin
 				$xml = new SimpleXMLElement('<userinfo></userinfo>');
 				$xml['nickname'] = $params['username'];
 				$xml->blog = $user->info->blog;
+				$xml->name = $user->info->displayname;
+				$xml->nickname = $user->info->ircnick;
 				break;
 
 		}
-		header('Content-type: text/plain');
+		header('Content-type: text/xml');
+		ob_clean();		// no idea why we get a blank line at the beginning, but it breaks XML parsing
 		echo $xml->asXML();
 	}
 
