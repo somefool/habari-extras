@@ -117,7 +117,7 @@ class RateIt extends Plugin
 	 */
 	public function action_template_header()
 	{
-		Stack::add( 'template_header_javascript', Site::get_url( 'scripts', true ) . 'jquery.js' );
+		Stack::add( 'template_header_javascript', Site::get_url( 'scripts' ) . '/jquery.js', 'jquery' );
 		Stack::add( 'template_header_javascript', $this->get_url() . '/js/rateit.js' );
 		Stack::add( 'template_stylesheet', array($this->get_url() . '/css/rateit.css', 'all') );
 		echo '<script type="text/javascript">var rateit_habari_url = \'' . Site::get_url( 'habari' ) . '\';var rateit_url = \'' . $this->get_url() . '\';</script>';
