@@ -1,0 +1,11 @@
+<plugin>
+	<name>OpenID</name>
+	<version>1.1.2</version>
+	<url>http://phpquebec.org/</url>
+	<author>PHP Quebec Community</author>
+	<authorurl>http://phpquebec.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Adds OpenID 2.0 authentification support.</description>
+	<copyright>2007</copyright>
+</plugin>
+

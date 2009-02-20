@@ -1,0 +1,10 @@
+<plugin>
+	<name>Limit Access</name>
+	<url>http://habariproject.org/</url>
+	<author>Owen Winkler</author>
+	<authorurl>http://asymptomatic.net/</authorurl>
+	<version>1.0</version>
+	<description>Limits certain users to specific features - to eventually be replaced by the full core ACL implementation</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

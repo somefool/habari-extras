@@ -1,0 +1,9 @@
+<plugin>
+	<name>Photoblog</name>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>0.1</version>
+	<description>Adds features needed to create a photoblog.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

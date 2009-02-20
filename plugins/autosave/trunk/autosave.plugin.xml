@@ -1,0 +1,10 @@
+<plugin>
+	<name>AutoSave</name>
+	<version>0.1.1</version>
+	<author>Andrew da Silva</author>
+	<authorurl>http://andrewdasilva.com/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Saves post every minute if changes were made to the title or content. <strong>Do not use with the Revision plugin.</strong></description>
+	<copyright>2008</copyright>
+</plugin>
+

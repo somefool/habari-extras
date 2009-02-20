@@ -1,0 +1,10 @@
+<plugin>
+	<name>Poll</name>
+	<version>0.52</version>
+	<url>http://www.thebigsqueak.com/pluginspolls</url>
+	<author>Bigsqueak Studios</author>
+	<authorurl>http://www.thebigsqueak.com</authorurl>
+	<licence>Creative Commons Attribution-Share Alike 3.0</licence>
+	<description>A flexible polling plugin for habari</description>
+</plugin>
+

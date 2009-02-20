@@ -1,0 +1,9 @@
+<plugin>
+	<name>Rewriter</name>
+	<author>Habari Community</author>
+	<description>Allows you to change rewrite rules for custom permalinks.</description>
+	<url>http://habariproject.org</url>
+	<version>0.1</version>
+	<license>Apache License 2.0</license>
+</plugin>
+

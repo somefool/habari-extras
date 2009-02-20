@@ -1,0 +1,10 @@
+<plugin>
+	<name>Pinger Update</name>
+	<url>http://redalt.com/Habari/plugins/Pinger+Update</url>
+	<author>Owen Winkler</author>
+	<authorurl>http://asymptomatic.net</authorurl>
+	<version>1.0</version>
+	<description>Sends pings to notification services.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

@@ -1,0 +1,4 @@
+<plugin>
+	<name' => 'Drupal Importer', 'version' => '0.1', 'url' => 'http://habariproject.org/', 'author' => 'Joshua Benner', 'authorurl' => 'http://jbenner.net', 'license' => 'Apache License 2.0', 'description' => 'Import Drupal 5.x content.', 'copyright>2008</name' => 'Drupal Importer', 'version' => '0.1', 'url' => 'http://habariproject.org/', 'author' => 'Joshua Benner', 'authorurl' => 'http://jbenner.net', 'license' => 'Apache License 2.0', 'description' => 'Import Drupal 5.x content.', 'copyright>
+</plugin>
+

@@ -1,0 +1,10 @@
+<plugin>
+	<name>Live Help</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>0.11</version>
+	<description>Allows users to connect to #habari on IRC from within the admin.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

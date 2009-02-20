@@ -1,0 +1,11 @@
+<plugin>
+	<name>Last.fm Media Silo</name>
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Allows data from last.fm to be inserted into posts</description>
+	<copyright>2008</copyright>
+</plugin>
+

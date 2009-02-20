@@ -1,0 +1,9 @@
+<plugin>
+	<name>Copperleaf Photo Gallery Plugin</name>
+	<url>http://wiki.habariproject.org/en/CPG</url>
+	<author>Bill Smith</author>
+	<authorurl>http://www.copperleaf.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>A plugin for managing and displaying photos.</description>
+</plugin>
+

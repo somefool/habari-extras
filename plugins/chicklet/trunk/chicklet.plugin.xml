@@ -1,0 +1,9 @@
+<plugin>
+	<name>Chicklet</name>
+	<author>Habari Community</author>
+	<description>Fetches the statistics for your Feedburner feed.</description>
+	<url>http://habariproject.org</url>
+	<version>0.1</version>
+	<license>Apache License 2.0</license>
+</plugin>
+

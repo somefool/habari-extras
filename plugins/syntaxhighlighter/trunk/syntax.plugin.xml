@@ -1,0 +1,10 @@
+<plugin>
+	<name>Syntax Highlighter</name>
+	<version>1.0</version>
+	<url>http://www.xvolter.com/project/habari-syntax-highlighter</url>
+	<author>Benjamin Hutchins</author>
+	<authorurl>http://www.xvolter.com/</authorurl>
+	<license>MIT</license>
+	<description>Highlight your source codes within &lt;code&gt; tags.</description>
+</plugin>
+

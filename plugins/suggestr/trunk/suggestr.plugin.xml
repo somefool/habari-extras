@@ -1,0 +1,9 @@
+<plugin>
+	<name>Suggestr</name>
+	<author>Habari Community</author>
+	<description>Provides tag suggestions for posts</description>
+	<url>http://habariproject.org</url>
+	<version>0.1</version>
+	<license>Apache License 2.0</license>
+</plugin>
+

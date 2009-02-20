@@ -1,0 +1,9 @@
+<plugin>
+	<name>Random Posts</name>
+	<url>http://mikelietz.org/code/habari/</url>
+	<author>Mike Lietz</author>
+	<authorurl>http://mikelietz.org</authorurl>
+	<description>Lists random posts, based on tags to include and/or exclude</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

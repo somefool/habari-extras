@@ -1,0 +1,10 @@
+<plugin>
+	<name>Admin Detour</name>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Decide what is your front page when logging in.</description>
+</plugin>
+

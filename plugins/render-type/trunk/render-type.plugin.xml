@@ -1,0 +1,9 @@
+<plugin>
+	<name>Render Type</name>
+	<url>http://svn.habariproject.org/habari-extras/plugins/render-type/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org</authorurl>
+	<description>A plugin for rendering text as images.</description>
+	<license>Public Domain</license>
+</plugin>
+

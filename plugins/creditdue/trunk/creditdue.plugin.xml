@@ -1,0 +1,10 @@
+<plugin>
+	<name>Credit Due</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>0.2</version>
+	<description>Allows for output of information for active themes and plugins</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

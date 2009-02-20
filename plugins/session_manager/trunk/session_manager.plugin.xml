@@ -1,0 +1,10 @@
+<plugin>
+	<name>Session Manager</name>
+	<url>http://habariproject.org/</url>
+	<author>Owen Winkler</author>
+	<authorurl>http://asymptomatic.net/</authorurl>
+	<version>1.0</version>
+	<description>Prevents spiders from filling the session table.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

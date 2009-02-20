@@ -1,0 +1,11 @@
+<plugin>
+	<name>drop.io Silo</name>
+	<version>0.02-alpha</version>
+	<url>http://ayu.commun.jp/habari-dropiosilo</url>
+	<author>ayunyan</author>
+	<authorurl>http://ayu.commun.jp/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>drop.io silo (http://drop.io/)</description>
+	<guid>e9f30bd4-be96-11dd-aff6-001b210f913f</guid>
+</plugin>
+

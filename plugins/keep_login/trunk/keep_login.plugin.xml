@@ -1,0 +1,10 @@
+<plugin>
+	<name>Keep Login</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.1</version>
+	<description>Uses ajax to keep a session logged in in the admin.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

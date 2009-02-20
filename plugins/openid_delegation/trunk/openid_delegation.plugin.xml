@@ -1,0 +1,9 @@
+<plugin>
+	<name>OpenID Delegation</name>
+	<url>http://mikelietz.org/code</url>
+	<author>Mike Lietz</author>
+	<authorurl>http://mikelietz.org/</authorurl>
+	<description>Enables site address to be used as a OpenID identifier, when using a third-party OpenID provider.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

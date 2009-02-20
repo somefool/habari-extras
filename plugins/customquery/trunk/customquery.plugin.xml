@@ -1,0 +1,8 @@
+<plugin>
+	<name>Custom Query</name>
+	<author>Habari Community</author>
+	<description>Allows you to set the number of posts to display for each page.</description>
+	<url>http://habariproject.org</url>
+	<license>Apache License 2.0</license>
+</plugin>
+

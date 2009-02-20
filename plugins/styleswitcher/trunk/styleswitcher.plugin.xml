@@ -1,0 +1,11 @@
+<plugin>
+	<name>StyleSwitcher</name>
+	<version>0.1.1</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Switch stylesheet without reloading, thanks to jQuery!</description>
+	<copyright>2008</copyright>
+</plugin>
+

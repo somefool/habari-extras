@@ -1,0 +1,10 @@
+<plugin>
+	<name>Auto-Approve</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.0.0</version>
+	<description>Automatically approve comments that are not spam.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

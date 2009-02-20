@@ -1,0 +1,10 @@
+<plugin>
+	<name>Admin Theme</name>
+	<url>http://redalt.com/plugins/habari/admin</url>
+	<author>Owen Winkler</author>
+	<authorurl>http://asymptomatic.net/</authorurl>
+	<version>1.0</version>
+	<description>A replacement admin for Habari - put the required admin files and directories in the directory with this plugin</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

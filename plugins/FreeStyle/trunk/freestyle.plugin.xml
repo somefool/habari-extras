@@ -1,0 +1,10 @@
+<plugin>
+	<url>http://iamgraham.net/plugins</url>
+	<name>FreeStyle</name>
+	<description>Allows you to inject arbitrary CSS into themes.</description>
+	<license>Apache License 2.0</license>
+	<author>Graham Christensen</author>
+	<authorurl>http://iamgraham.net/</authorurl>
+	<version>0.1</version>
+</plugin>
+

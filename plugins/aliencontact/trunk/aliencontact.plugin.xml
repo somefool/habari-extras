@@ -1,0 +1,10 @@
+<plugin>
+	<name>AlienContact</name>
+	<version>1.0</version>
+	<url>http://myfla.ws/projects/contact/</url>
+	<author>Arthus Erea</author>
+	<authorurl>http://myfla.ws</authorurl>
+	<license>Creative Commons Attribution-Share Alike 3.0</license>
+	<description>AlienContact generates a form for visitors to contact you</description>
+</plugin>
+

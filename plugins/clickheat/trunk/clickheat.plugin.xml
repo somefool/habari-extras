@@ -1,0 +1,10 @@
+<plugin>
+	<name>Clickheat</name>
+	<version>1.0</version>
+	<url>http://www.xvolter.com/project/habari-clickheat/</url>
+	<author>Benjamin Hutchins</author>
+	<authorurl>http://www.xvolter.com</authorurl>
+	<license>MIT License</license>
+	<description>Generate clickheat graphs based off your visitors.</description>
+</plugin>
+

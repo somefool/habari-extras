@@ -1,0 +1,10 @@
+<plugin>
+	<name>GetClicky Analytics</name>
+	<version>1.4.2</version>
+	<url>http://digitalspaghetti.me.uk/</url>
+	<author>Tane Piper</author>
+	<authorurl>http://digitalspaghetti.me.uk</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Adds GetClicky analytics integration to your site</description>
+</plugin>
+

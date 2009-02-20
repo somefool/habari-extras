@@ -1,0 +1,10 @@
+<plugin>
+	<name>UPX</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.0</version>
+	<description>Exposes user profile information via xml entrypoint</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

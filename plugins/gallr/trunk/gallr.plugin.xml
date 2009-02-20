@@ -1,0 +1,9 @@
+<plugin>
+	<name>Flickr Gallr</name>
+	<url>http://habariproject.org</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org</authorurl>
+	<description>Display Flickr photos in a gallery on your site.</description>
+	<license>ASL</license>
+</plugin>
+

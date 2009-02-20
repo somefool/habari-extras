@@ -1,0 +1,10 @@
+<plugin>
+	<name>Socialink</name>
+	<version>0.2-alpha</version>
+	<url>http://ayu.commun.jp/habari-socialink</url>
+	<author>ayunyan</author>
+	<authorurl>http://ayu.commun.jp/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>adding Social Bookmark Links to your posts.</description>
+</plugin>
+

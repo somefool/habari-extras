@@ -1,0 +1,9 @@
+<plugin>
+	<name>Habmin Bar</name>
+	<url>http://habariproject.org</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org</authorurl>
+	<description>An admin bar for Habari.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

@@ -1,0 +1,11 @@
+<plugin>
+	<name>Twitter Tweet Silo</name>
+	<version>1.0</version>
+	<url>http://seancoates.com/habari</url>
+	<author>Sean Coates</author>
+	<authorurl>http://seancoates.com/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Simple Twitter Silo</description>
+	<copyright>2008</copyright>
+</plugin>
+

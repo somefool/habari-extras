@@ -1,0 +1,10 @@
+<plugin>
+	<name>Cisco</name>
+	<url>http://habariproject.org</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org</authorurl>
+	<version>0.1</version>
+	<description>Pays homage to the 2008-09-25 cisco hack.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

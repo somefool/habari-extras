@@ -1,0 +1,9 @@
+<plugin>
+	<name>View Blog Menu Item</name>
+	<url>http://blog.voodoolabs.net/</url>
+	<author>Thomas Coats</author>
+	<authorurl>http://blog.voodoolabs.net/</authorurl>
+	<description>Adds an extra menu item for viewing the blog</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

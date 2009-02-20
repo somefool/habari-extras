@@ -1,0 +1,11 @@
+<plugin>
+	<name>Route 301</name>
+	<version>0.6.5</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Assign user-defined rules to existing or custom rules.</description>
+	<copyright>2007</copyright>
+</plugin>
+

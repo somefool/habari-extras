@@ -1,0 +1,9 @@
+<plugin>
+	<url>http://iamgraham.net/plugins</url>
+	<name>GoogleAds</name>
+	<license>Apache License 2.0</license>
+	<author>Graham Christensen</author>
+	<authorurl>http://iamgraham.net/</authorurl>
+	<version>0.2</version>
+</plugin>
+

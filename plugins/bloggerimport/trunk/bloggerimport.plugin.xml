@@ -1,0 +1,11 @@
+<plugin>
+	<name>Blogger Importer</name>
+	<version>0.01-alpha</version>
+	<url>http://ayu.commun.jp/habari-bloggerimport</url>
+	<author>ayunyan</author>
+	<authorurl>http://ayu.commun.jp/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Import Blogger Export File</description>
+	<guid>6e805c3a-c775-11dd-aff6-001b210f913f</guid>
+</plugin>
+

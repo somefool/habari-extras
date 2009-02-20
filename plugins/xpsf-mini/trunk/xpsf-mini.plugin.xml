@@ -1,0 +1,10 @@
+<plugin>
+	<name>XSPF Mini</name>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>ASL 2.0</license>
+	<description>An audio player using the xspf slim player.</description>
+</plugin>
+

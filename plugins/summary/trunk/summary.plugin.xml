@@ -1,0 +1,10 @@
+<plugin>
+	<name>Summary</name>
+	<url>http://scratch.flyoverblues.com/summary.plugin.php</url>
+	<author>Eli Naeher</author>
+	<authorurl>http://flyoverblues.com</authorurl>
+	<version>1.0</version>
+	<description>A plugin for providing post summaries</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

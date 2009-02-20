@@ -1,0 +1,11 @@
+<plugin>
+	<name>Paginator</name>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Decide how the pagination, either as a `unordered list` or as a `span`.</description>
+	<copyright>2007</copyright>
+</plugin>
+

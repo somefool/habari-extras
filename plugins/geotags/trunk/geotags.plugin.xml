@@ -1,0 +1,9 @@
+<plugin>
+	<name>Header GeoTags</name>
+	<url>http://mikelietz.org/code</url>
+	<author>Mike Lietz</author>
+	<authorurl>http://mikelietz.org/</authorurl>
+	<description>Adds Geocode data to headers.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

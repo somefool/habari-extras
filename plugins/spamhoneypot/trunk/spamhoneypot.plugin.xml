@@ -1,0 +1,10 @@
+<plugin>
+	<name>Spam HoneyPot</name>
+	<url>http://seancoates.com/habari</url>
+	<author>Sean Coates</author>
+	<authorurl>http://seancoates.com/</authorurl>
+	<version>1.0</version>
+	<description>Entraps spammers with a honeypot comment field</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

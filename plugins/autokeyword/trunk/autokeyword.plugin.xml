@@ -1,0 +1,10 @@
+<plugin>
+	<name>AutoKeyword</name>
+	<version>1.0</version>
+	<url>http://www.xvolter.com/project/autokeyword</url>
+	<author>Benjamin Hutchins</author>
+	<authorurl>http://www.xvolter.com/</authorurl>
+	<license>MIT</license>
+	<description>Auto generate keywords for posts and pages.</description>
+</plugin>
+

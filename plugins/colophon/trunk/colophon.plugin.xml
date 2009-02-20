@@ -1,0 +1,9 @@
+<plugin>
+	<name>Colophon Plugin</name>
+	<url>http://habariproject.org/dist/plugins</url>
+	<author>stanislas mazurek</author>
+	<authorurl>http://stanbar.jp</authorurl>
+	<license>Apache license 2.0</license>
+	<description>Adds an About / Colophon to your blog</description>
+</plugin>
+
