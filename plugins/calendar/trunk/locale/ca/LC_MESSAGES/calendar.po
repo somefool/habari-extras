@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Calendar Habair plugin Catalan Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-12-04 06:56+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: catalan\n"
+"X-Poedit-Country: spain\n"
+
+#: calendar/calendar.plugin.php:84
+#: calendar/calendar.plugin.php:101
+msgid "Configure"
+msgstr "Configura"
+
+#: calendar/calendar.plugin.php:86
+msgid "Week starts on: "
+msgstr "La setmana comença en:"
+
+#: calendar/calendar.plugin.php:87
+msgid "Save"
+msgstr "Desa"
+
+#: calendar/calendar.plugin.php:148
+msgid "Sun"
+msgstr "Dg."
+
+#: calendar/calendar.plugin.php:148
+msgid "Mon"
+msgstr "Dl."
+
+#: calendar/calendar.plugin.php:148
+msgid "Tue"
+msgstr "Dt."
+
+#: calendar/calendar.plugin.php:148
+msgid "Wed"
+msgstr "Dc."
+
+#: calendar/calendar.plugin.php:148
+msgid "Thu"
+msgstr "Dj."
+
+#: calendar/calendar.plugin.php:148
+msgid "Fri"
+msgstr "Dv."
+
+#: calendar/calendar.plugin.php:148
+msgid "Sat"
+msgstr "Ds."
+
