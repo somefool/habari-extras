@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-02 07:35+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: catalan\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\flickrfeed\n"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:55
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:70
+msgid "Configure"
+msgstr "Configura"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:73
+msgid "Photostream Type"
+msgstr "Tipus de de corrent d'imatges"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:75
+msgid "Public photos & video"
+msgstr "Imatges i vídeos públics"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:76
+msgid "Public photos & video from you"
+msgstr "Imatges i vídeos públics teus"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:77
+msgid "Your friends’ photostream"
+msgstr "Corrents d'amics teus"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:78
+msgid "Public favorites from you"
+msgstr "Preferits públics teus"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:79
+msgid "Group pool"
+msgstr "Corrent d'un grup"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:83
+msgid "Flickr ID (You can get it from <a href=\"http://idgettr.com\">idGettr</a>)"
+msgstr "ID de Flickr (La pots aconseguir d'<a href=\"http://idgettr.com\">idGettr</a>)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:86
+msgid "&#8470; of Photos"
+msgstr "&#8470; d'Imatges"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:90
+msgid "Photo Size"
+msgstr "Mida de les imatges"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:93
+msgid "Square"
+msgstr "Quadrada"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:94
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:95
+msgid "Small"
+msgstr "Petita"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:96
+msgid "Medium"
+msgstr "Mitjana"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:97
+msgid "Large"
+msgstr "Gran"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:98
+msgid "Original"
+msgstr "Original"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:102
+msgid "Tags (comma separated, no space)"
+msgstr "Etiquetes (separades per coma i sense espai)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:104
+msgid "Cache Expiry (in seconds)"
+msgstr "Expiració de la caché (en segons)"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:109
+msgid "Save"
+msgstr "Desa"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:110
+msgid "Options saved"
+msgstr "Opcions desades"
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:120
+msgid "This field must be positive integer."
+msgstr "Aquest camp ha de ser un nombre enter positiu."
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:128
+msgid "A value for this field is required while type is not ‘Public’."
+msgstr "Es necessita un valor per aquest camp perquè és tipus no és 'Públic'."
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:178
+msgid "Unable to contact Flickr."
+msgstr "No es pot connectar amb Flickr."
+
+#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:232
+msgid "FlickrFeed Plugin is not configured properly."
+msgstr "L'extensió FlickrFeed no està ben configurada."
+
