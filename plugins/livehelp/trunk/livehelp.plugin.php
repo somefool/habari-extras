@@ -26,6 +26,26 @@ class LiveHelp extends Plugin
 	}
 
 	/**
+	 * add ACL tokens when this plugin is activated
+	**/
+	public function action_plugin_activation( $file )
+	{
+		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
+			ACL::create_token( 'LiveHelp', 'Access the #habari IRC channel via the LiveHelp plugin', 'livehelp' );
+		}
+	}
+
+	/**
+	 * remove ACL tokens when this plugin is deactivated
+	**/
+	function action_plugin_deactivation( $plugin_file )
+	{
+		if( Plugins::id_from_file( __FILE__ ) == Plugins::id_from_file( $plugin_file  ) ) {
+			ACL::destroy_token( 'LiveHelp' );
+		}
+	}
+
+	/**
 	 * Add the Live Help page to the admin menu
 	 *
 	 * @param array $menus The main admin menu
@@ -33,7 +53,9 @@ class LiveHelp extends Plugin
 	 */
 	function filter_adminhandler_post_loadplugins_main_menu( $menus )
 	{
-		$menus['livehelp'] =  array( 'url' => URL::get( 'admin', 'page=livehelp'), 'title' => _t('Live Help'), 'text' => _t('Live Help'), 'selected' => false );
+		if ( User::identify()->can('LiveHelp') ) {
+			$menus['livehelp'] =  array( 'url' => URL::get( 'admin', 'page=livehelp'), 'title' => _t('Live Help'), 'text' => _t('Live Help'), 'selected' => false );
+		}
 		return $menus;
 	}
 
@@ -67,6 +89,21 @@ class LiveHelp extends Plugin
 	public function action_update_check()
 	{
 		Update::add( 'Live Help', 'c2413ab2-7c79-4f92-b008-18e3d8e05b64',  $this->info->version );
+	}
+
+	/**
+	 * filter the permissions so that admin users can use this plugin
+	**/
+	public function filter_admin_access_tokens( $require_any, $page, $type )
+	{
+		// we only need to filter if the Page request is for our page
+		if ( 'livehelp' == $page ) {
+			// we can safely clobber any existing $require_any
+			// passed because our page didn't match anything in
+			// the adminhandler case statement
+			$require_any= array( 'super_user' => true, 'livehelp' => true );
+		}
+		return $require_any;
 	}
 
 }
