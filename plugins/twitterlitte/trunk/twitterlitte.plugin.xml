@@ -1,0 +1,9 @@
+<plugin>
+	<name>Twitter Litte</name>
+	<version>0.1</version>
+	<url>http://code.google.com/p/bcse/wiki/TwitterLitte</url>
+	<author>Joel Lee</author>
+	<authorurl>http://blog.bcse.info/</authorurl>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
+	<description>Display your latest tweets on your blog.</description>
+</plugin>
