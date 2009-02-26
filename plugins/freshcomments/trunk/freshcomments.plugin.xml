@@ -1,10 +1,10 @@
 <plugin>
 	<name>Fresh Comments</name>
-	<version>0.3-pre</version>
+	<version>0.3</version>
 	<url>http://code.google.com/p/bcse/wiki/FreshComments</url>
 	<author>Joel Lee</author>
 	<authorurl>http://blog.bcse.info/</authorurl>
-	<license>Apache License 2.0</license>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
 	<description>Allow you display recent comments just like Brian’s latest Comment.</description>
 	<copyright>2008</copyright>
 </plugin>

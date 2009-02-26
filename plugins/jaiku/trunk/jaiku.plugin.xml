@@ -1,10 +1,10 @@
 <plugin>
 	<name>Jaiku</name>
-	<version>0.6-pre</version>
+	<version>0.6</version>
 	<url>http://code.google.com/p/bcse/wiki/Jaiku</url>
 	<author>Joel Lee</author>
 	<authorurl>http://blog.bcse.info/</authorurl>
-	<license>Apache License 2.0</license>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
 	<description>Display your latest presences on your blog.</description>
 	<copyright>2008</copyright>
 </plugin>

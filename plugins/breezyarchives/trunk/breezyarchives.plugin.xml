@@ -1,10 +1,10 @@
 <plugin>
 	<name>Breezy Archives</name>
-	<version>0.3-pre</version>
+	<version>0.3</version>
 	<url>http://code.google.com/p/bcse/wiki/BreezyArchives</url>
 	<author>Joel Lee</author>
 	<authorurl>http://blog.bcse.info/</authorurl>
-	<license>Apache License 2.0</license>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
 	<description>An archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’.</description>
 	<copyright>2008</copyright>
 </plugin>
