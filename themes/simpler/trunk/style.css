@@ -24,11 +24,50 @@ a:hover, a:active {
 a img {
 	border: 0;
 }
+
 h1 {
 	font-weight: normal;
 	margin-bottom: 5px;
 	float: left;
 	color: #d72;
+}
+
+h2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h2 a {
+	font-weight: normal;
+}
+
+fieldset {
+	width: 720px;
+	padding: 15px;
+	padding-top: 0;
+	margin-top: 20px;
+}
+
+label {
+	width: 150px;
+	max-width: 150px;
+	display: block;
+	float: left;
+}
+
+input {
+	width: 250px;
+}
+
+textarea {
+	width: 99%;
+}
+
+pre,
+code {
+	font-family: Consolas, "Andale Mono", "Courier New", Courier, Monospace;
+	font-size: 1.1em;
+	overflow: auto;
 }
 
 #tagline {
@@ -106,15 +145,6 @@ h1 {
 	text-align: right;
 }
 
-h2 {
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-h2 a {
-	font-weight: normal;
-}
-
 .post {
 	padding-top: 10px;
 	border-top: 1px solid #d5d5d5;
@@ -163,36 +193,6 @@ ol#comments {
 
 .mycomment a:hover, .mycomment a:active {
 	border-bottom: 1px solid #d72;
-}
-
-fieldset {
-	width: 720px;
-	padding: 15px;
-	padding-top: 0;
-	margin-top: 20px;
-}
-
-label {
-	width: 150px;
-	max-width: 150px;
-	display: block;
-	float: left;
-}
-
-input {
-	width: 250px;
-}
-
-textarea {
-	width: 99%;
-}
-
-code {
-	font: 1.1em 'Courier New', Courier, Monospace;
-}
-
-pre {
-	font: 1.1em 'Courier New', Courier, Monospace;
 }
 
 .center {
