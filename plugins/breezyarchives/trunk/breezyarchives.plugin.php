@@ -6,35 +6,38 @@ class BreezyArchives extends Plugin
 	private $config = array();
 	private $class_name = '';
 	private $cache_name = '';
-	private $default_options = array (
-		/* Chronology */
-		'chronology_title' => 'Chronology',
-		'month_format' => 'M',
-		'show_monthly_post_count' => TRUE,
-		/* Taxonomy */
-		'taxonomy_title' => 'Taxonomy',
-		'show_tag_post_count' => TRUE,
-		'excluded_tags' => array(),
-		/* Pagination */
-		'posts_per_page' => 15,
-		'next_page_text' => 'Older →',
-		'prev_page_text' => '← Newer',
-		/* General */
-		'show_newest_first' => TRUE,
-		'show_comment_count' => TRUE
-	);
+
+	private static function default_options()
+	{
+		return array (
+			/* Chronology */
+			'chronology_title' => _t('Chronology', $this->class_name),
+			'month_format' => 'M',
+			'show_monthly_post_count' => TRUE,
+			/* Taxonomy */
+			'taxonomy_title' => _t('Taxonomy', $this->class_name),
+			'show_tag_post_count' => TRUE,
+			'excluded_tags' => array(),
+			/* Pagination */
+			'posts_per_page' => 15,
+			'next_page_text' => _t('Older →', $this->class_name),
+			'prev_page_text' => _t('← Newer', $this->class_name),
+			/* General */
+			'show_newest_first' => TRUE,
+			'show_comment_count' => TRUE
+		);
+	}
 
 	public function info()
 	{
 		return array(
 			'name' => 'Breezy Archives',
-			'version' => '0.3-pre',
+			'version' => '0.3',
 			'url' => 'http://code.google.com/p/bcse/wiki/BreezyArchives',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'An archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’.',
-			'copyright' => '2008'
+			'description' => _t('An archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’.', $this->class_name)
 		);
 	}
 
@@ -46,7 +49,7 @@ class BreezyArchives extends Plugin
 		if (realpath($file) === __FILE__) {
 			$this->class_name = strtolower(get_class($this));
 			$this->cache_name = Site::get_url('host') . ':' . $this->class_name;
-			foreach ($this->default_options as $name => $value) {
+			foreach (self::default_options() as $name => $value) {
 				$current_value = Options::get($this->class_name . '__' . $name);
 				if (is_null($current_value)) {
 					Options::set($this->class_name . '__' . $name, $value);
@@ -61,11 +64,11 @@ class BreezyArchives extends Plugin
 	public function action_init()
 	{
 		$this->class_name = strtolower(get_class($this));
-		foreach ($this->default_options as $name => $value) {
+		foreach (self::default_options() as $name => $value) {
 			$this->config[$name] = Options::get($this->class_name . '__' . $name);
 		}
 		$this->load_text_domain($this->class_name);
-		$this->add_template('breezyarchives', dirname(__FILE__) . '/breezyarchives.php');
+		$this->add_template($this->class_name, dirname(__FILE__) . '/breezyarchives.php');
 		$this->add_template('breezyarchives_chrono', dirname(__FILE__) . '/breezyarchives_chrono.php');
 		$this->add_template('breezyarchives_month', dirname(__FILE__) . '/breezyarchives_month.php');
 		$this->add_template('breezyarchives_tags', dirname(__FILE__) . '/breezyarchives_tags.php');
@@ -239,12 +242,12 @@ class BreezyArchives extends Plugin
 		} else {
 			$css_path = $this->get_url(TRUE) . $this->class_name . '.css';
 		}
-		Stack::add('template_stylesheet', array($css_path, 'screen'), 'breezyarchives');
+		Stack::add('template_stylesheet', array($css_path, 'screen'), $this->class_name);
 	}
 
 	public function theme_breezyarchives($theme)
 	{
-		Stack::add('template_footer_javascript', 'http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js', 'jquery');
+		Stack::add('template_footer_javascript', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', 'jquery');
 		Stack::add('template_footer_javascript', Site::get_url('scripts') . '/jquery.spinner.js', 'jquery.spinner', 'jquery');
 		Stack::add('template_footer_javascript', URL::get('display_breezyarchives_js', array('class_name' => $this->class_name, 'config' => md5(serialize($this->config)))), 'jquery.breezyarchives', 'jquery');
 
@@ -253,7 +256,7 @@ class BreezyArchives extends Plugin
 		} else {
 			$theme->chronology_title = $this->config['chronology_title'];
 			$theme->taxonomy_title = $this->config['taxonomy_title'];
-			$ret = $theme->fetch('breezyarchives');
+			$ret = $theme->fetch($this->class_name);
 			Cache::set($this->cache_name, $ret);
 			return $ret;
 		}

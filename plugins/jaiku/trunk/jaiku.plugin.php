@@ -10,11 +10,15 @@ class Jaiku extends Plugin
 {
 	private $config = array();
 	private $class_name = '';
-	private $default_options = array(
-		'username' => '',
-		'limit' => 1,
-		'cache' => 60
-	);
+
+	private static function default_options()
+	{
+		return array (
+			'username' => '',
+			'limit' => 1,
+			'cache' => 60
+		);
+	}
 
 	/**
 	 * Required plugin information
@@ -24,13 +28,12 @@ class Jaiku extends Plugin
 	{
 		return array(
 			'name' => 'Jaiku',
-			'version' => '0.6-pre',
+			'version' => '0.6',
 			'url' => 'http://code.google.com/p/bcse/wiki/Jaiku',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Display your latest presences on your blog.',
-			'copyright' => '2008'
+			'description' => _t('Display your latest presences on your blog.', $this->class_name)
 		);
 	}
 
@@ -170,7 +173,7 @@ class Jaiku extends Plugin
 	{
 		if (realpath($file) == __FILE__) {
 			$this->class_name = strtolower(get_class($this));
-			foreach ($this->default_options as $name => $value) {
+			foreach (self::default_options() as $name => $value) {
 				$current_value = Options::get($this->class_name . '__' . $name);
 				if (is_null($current_value)) {
 					Options::set($this->class_name . '__' . $name, $value);
@@ -185,7 +188,7 @@ class Jaiku extends Plugin
 	public function action_init()
 	{
 		$this->class_name = strtolower(get_class($this));
-		foreach ($this->default_options as $name => $value) {
+		foreach (self::default_options() as $name => $value) {
 			$this->config[$name] = Options::get($this->class_name . '__' . $name);
 		}
 		$this->load_text_domain($this->class_name);

@@ -1,124 +1,124 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Breezy Archives\n"
+"Project-Id-Version: FlickrFeed\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 09:23+0800\n"
+"POT-Creation-Date: 2009-02-27 01:08+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Joel Lee <elohim@gmail.com>\n"
 "Language-Team: Joel Lee <elohim@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
-"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: TAIWAN\n"
-"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\flickrfeed\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _n:1,2;_ne:1,2;_t;_e\n"
+"X-Poedit-Basepath: ../../../\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:55
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:70
+#: flickrfeed.plugin.php:37
+msgid "Display your latest photos on your blog."
+msgstr ""
+
+#: flickrfeed.plugin.php:58
+#: flickrfeed.plugin.php:73
 #, fuzzy
 msgid "Configure"
 msgstr "設定"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:73
+#: flickrfeed.plugin.php:76
 msgid "Photostream Type"
 msgstr "照片流類型"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:75
+#: flickrfeed.plugin.php:78
 msgid "Public photos & video"
 msgstr "所有人已公開的照片及影片"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:76
+#: flickrfeed.plugin.php:79
 msgid "Public photos & video from you"
 msgstr "你已公開的照片及影片"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:77
+#: flickrfeed.plugin.php:80
 msgid "Your friends’ photostream"
 msgstr "朋友的照片流"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:78
+#: flickrfeed.plugin.php:81
 msgid "Public favorites from you"
 msgstr "你的最愛"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:79
+#: flickrfeed.plugin.php:82
 msgid "Group pool"
 msgstr "群組分享區"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:83
+#: flickrfeed.plugin.php:86
 msgid "Flickr ID (You can get it from <a href=\"http://idgettr.com\">idGettr</a>)"
 msgstr "Flickr ID (你可以在 <a href=\"http://idgettr.com\">idGettr</a> 取得)"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:86
-#, fuzzy
+#: flickrfeed.plugin.php:89
 msgid "&#8470; of Photos"
-msgstr "書籤數量"
+msgstr "照片數量"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:90
+#: flickrfeed.plugin.php:93
 msgid "Photo Size"
 msgstr "照片尺寸"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:93
+#: flickrfeed.plugin.php:95
 msgid "Square"
 msgstr "正方形"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:94
+#: flickrfeed.plugin.php:96
 msgid "Thumbnail"
 msgstr "縮圖"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:95
+#: flickrfeed.plugin.php:97
 msgid "Small"
 msgstr "小圖"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:96
+#: flickrfeed.plugin.php:98
 msgid "Medium"
 msgstr "中等"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:97
+#: flickrfeed.plugin.php:99
 msgid "Large"
 msgstr "大圖"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:98
+#: flickrfeed.plugin.php:100
 msgid "Original"
 msgstr "原尺寸"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:102
+#: flickrfeed.plugin.php:104
 msgid "Tags (comma separated, no space)"
-msgstr "標籤（逗號分隔，不可空白）"
+msgstr "標籤 (逗號分隔，不可空白)"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:104
-#, fuzzy
+#: flickrfeed.plugin.php:106
 msgid "Cache Expiry (in seconds)"
-msgstr "暫存檔保存期限（秒）"
+msgstr "暫存檔保存期限 (秒)"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:109
+#: flickrfeed.plugin.php:111
 #, fuzzy
 msgid "Save"
 msgstr "儲存"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:110
+#: flickrfeed.plugin.php:112
 #, fuzzy
 msgid "Options saved"
 msgstr "設定已儲存"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:120
+#: flickrfeed.plugin.php:122
 #, fuzzy
 msgid "This field must be positive integer."
 msgstr "此欄位必須填入正整數。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:128
+#: flickrfeed.plugin.php:130
 msgid "A value for this field is required while type is not ‘Public’."
 msgstr "如果你選擇的照片流類型不是「所有人」，就必須填寫這個欄位。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:178
-#, fuzzy
+#: flickrfeed.plugin.php:180
 msgid "Unable to contact Flickr."
-msgstr "無法連接到 Delicious 。"
+msgstr "無法連接到 Flickr。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\flickrfeed/flickrfeed.plugin.php:232
-#, fuzzy
+#: flickrfeed.plugin.php:234
 msgid "FlickrFeed Plugin is not configured properly."
-msgstr "DeliciousFeed 外掛尚未正確設定。"
+msgstr "FlickrFeed 尚未正確設定。"
 

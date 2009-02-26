@@ -11,16 +11,20 @@ class FreshComments extends Plugin
 	private $config = array();
 	private $class_name = '';
 	private $cache_name = '';
-	private $default_options = array(
-		'num_posts' => 5,
-		'num_comments' => 6,
-		'show_trackbacks' => FALSE,
-		'show_pingbacks' => FALSE,
-		'fade_old' => TRUE,
-		'range_in_days' => 10,
-		'newest_color' => '#444444',
-		'oldest_color' => '#cccccc'
-	);
+
+	private static function default_options()
+	{
+		return array (
+			'num_posts' => 5,
+			'num_comments' => 6,
+			'show_trackbacks' => FALSE,
+			'show_pingbacks' => FALSE,
+			'fade_old' => TRUE,
+			'range_in_days' => 10,
+			'newest_color' => '#444444',
+			'oldest_color' => '#cccccc'
+		);
+	}
 
 	/**
 	 * Required plugin information
@@ -30,13 +34,12 @@ class FreshComments extends Plugin
 	{
 		return array(
 			'name' => 'Fresh Comments',
-			'version' => '0.3-pre',
+			'version' => '0.3',
 			'url' => 'http://code.google.com/p/bcse/wiki/FreshComments',
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Allow you display recent comments just like Brian’s latest Comment.',
-			'copyright' => '2008'
+			'description' => _t('Allow you display recent comments just like Brian’s latest Comment.', $this->class_name)
 		);
 	}
 
@@ -204,7 +207,7 @@ class FreshComments extends Plugin
 		if (realpath($file) == __FILE__) {
 			$this->class_name = strtolower(get_class($this));
 			$this->cache_name = Site::get_url('host') . $this->class_name;
-			foreach ($this->default_options as $name => $value) {
+			foreach (self::default_options() as $name => $value) {
 				$current_value = Options::get($this->class_name . '__' . $name);
 				if (is_null($current_value)) {
 					Options::set($this->class_name . '__' . $name, $value);
@@ -260,7 +263,7 @@ class FreshComments extends Plugin
 	{
 		$this->class_name = strtolower(get_class($this));
 		$this->cache_name = Site::get_url('host') . $this->class_name;
-		foreach ($this->default_options as $name => $value) {
+		foreach (self::default_options() as $name => $value) {
 			$this->config[$name] = Options::get($this->class_name . '__' . $name);
 		}
 

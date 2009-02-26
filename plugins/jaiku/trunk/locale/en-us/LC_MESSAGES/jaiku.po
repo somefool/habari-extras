@@ -1,68 +1,72 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Breezy Archives\n"
+"Project-Id-Version: Jaiku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 09:51+0800\n"
+"POT-Creation-Date: 2009-02-27 01:09+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Joel Lee <elohim@gmail.com>\n"
 "Language-Team: Joel Lee <elohim@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
-"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
-"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\plugins\\jaiku\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: TAIWAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _n:1,2;_ne:1,2;_t;_e\n"
+"X-Poedit-Basepath: ../../../\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.php:7
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.php:13
+#: jaiku.php:9
 msgid "Read more…"
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:54
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:69
+#: jaiku.plugin.php:36
+msgid "Display your latest presences on your blog."
+msgstr ""
+
+#: jaiku.plugin.php:57
+#: jaiku.plugin.php:72
 msgid "Configure"
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:72
+#: jaiku.plugin.php:75
 msgid "Jaiku Username"
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:76
+#: jaiku.plugin.php:79
 msgid "&#8470; of Presences"
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:79
+#: jaiku.plugin.php:82
 msgid "Cache Expiry (in seconds)"
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:82
+#: jaiku.plugin.php:85
 msgid "Save"
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:83
+#: jaiku.plugin.php:86
 msgid "Options saved"
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:93
+#: jaiku.plugin.php:96
 msgid "Your Jaiku username is not valid."
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:101
+#: jaiku.plugin.php:104
 msgid "This field must be positive integer."
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:132
+#: jaiku.plugin.php:135
 msgid "Unable to contact Jaiku."
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:139
+#: jaiku.plugin.php:142
 msgid "Response is not correct, maybe Jaiku server is down or API is changed."
 msgstr ""
 
-#: D:\htdocs\_\bcse-svn\habari-extras\plugins\jaiku/jaiku.plugin.php:161
+#: jaiku.plugin.php:164
 msgid "Please set your username in the Jaiku plugin config."
 msgstr ""
 
