@@ -14,7 +14,6 @@ body {
 a:link, a:visited {
 	color: #07f;
 	text-decoration: none;
-	border-bottom: 1px solid #fff;
 }
 a:hover, a:active {
 	color: #d72;
@@ -66,7 +65,6 @@ textarea {
 pre,
 code {
 	font-family: Consolas, "Andale Mono", "Courier New", Courier, Monospace;
-	font-size: 1.1em;
 	overflow: auto;
 }
 
@@ -77,7 +75,7 @@ code {
 }
 
 .draft {
-	background-color: #aaa;
+	background-color: #efefef;
 }
 #navigation {
 	text-align: right;
