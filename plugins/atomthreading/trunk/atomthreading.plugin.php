@@ -18,7 +18,7 @@ class AtomThreading extends Plugin
 			'author' => 'Joel Lee',
 			'authorurl' => 'http://blog.bcse.info/',
 			'license' => 'Apache License 2.0',
-			'description' => _t('Implement Atom threading extensions (RFC4685) on Habari. In other words, this plugin allows you to add Comments Count !FeedFlare™ to your feed.', $this->class_name)
+			'description' => _t('Implement Atom threading extensions (RFC4685) on Habari. In other words, this plugin allows you to add Comments Count FeedFlare™ to your feed.', $this->class_name)
 		);
 	}
 
