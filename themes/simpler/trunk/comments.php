@@ -88,10 +88,10 @@
 						<legend>Leave a Comment?</legend>
 							<p>
 								<label for="comment">Comment:</label><br>
-								<textarea name="content" id="content" rows="5" tabindex="1"></textarea>
+								<textarea name="content" id="comment" rows="5" tabindex="1"></textarea>
 							</p>
 							<p>
-								<label for="author">Name:</label>
+								<label for="name">Name:</label>
 								<input type="text" name="name" id="name" value="<?php echo $commenter_name; ?>" size="22" tabindex="2">
 							</p>
 							<p>
