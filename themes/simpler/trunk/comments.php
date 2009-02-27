@@ -88,7 +88,7 @@
 						<legend>Leave a Comment?</legend>
 							<p>
 								<label for="comment">Comment:</label><br>
-								<textarea name="content" id="comment" rows="5" tabindex="1"></textarea>
+								<textarea name="content" id="comment" rows="5" cols="5" tabindex="1"></textarea>
 							</p>
 							<p>
 								<label for="name">Name:</label>
