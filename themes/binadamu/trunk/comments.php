@@ -66,7 +66,7 @@
 					printf(_t('%1$s on %2$s', 'binadamu'),
 						'<a href="' . $pingback->url . '" rel="external">' . $pingback->name . '</a>',
 						'<a class="pingback-permalink" href="' . $post->permalink . '#pingback-' . $pingback->id . '" title="' . _t('Permanent Link to this pingback', 'binadamu') . '" rel="bookmark">
-							<abbr class="pingback-date published" title="' . $pingback->date_iso . '">' . $pingback->date_out . '</abbr>
+							<abbr class="pingback-date published" title="' . $pingback->date->get('iso') . '">' . $pingback->date->out() . '</abbr>
 						</a>');
 				?>
 				</li>

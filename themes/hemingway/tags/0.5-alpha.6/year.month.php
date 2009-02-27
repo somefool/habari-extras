@@ -10,7 +10,7 @@
 		<ul class="dates">
 		 	<?php foreach ( $posts as $post ): ?>
 			<li>
-				<span class="date"><?php echo $post->pubdate_out; ?></span>
+				<span class="date"><?php echo $post->date->out(); ?></span>
 				<a href="<?php echo $post->permalink; ?>"><?php echo $post->title; ?></a> posted in <?php echo $post->tags_out; ?>
 			</li>
 			<?php endforeach; ?>
