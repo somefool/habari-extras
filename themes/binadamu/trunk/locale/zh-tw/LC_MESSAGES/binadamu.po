@@ -2,307 +2,313 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Binadamu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 11:48+0800\n"
+"POT-Creation-Date: 2009-02-28 01:26+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Joel Lee <elohim@gmail.com>\n"
 "Language-Team: Joel Lee <elohim@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: _e;_t;_n:1,2;_ne:1,2\n"
-"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: TAIWAN\n"
-"X-Poedit-SearchPath-0: D:\\htdocs\\_\\bcse-svn\\habari-extras\\themes\\binadamu\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _n:1,2;_ne:1,2;_t;_e\n"
+"X-Poedit-Basepath: ../../../\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/404.php:5
+#: 404.php:5
 msgid "Error!"
 msgstr "錯誤！"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/404.php:6
+#: 404.php:6
 msgid "The requested post was not found."
 msgstr "找不到要求的文章。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/admin.widget.php:2
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/admin.widget.php:6
+#: admin.widget.php:2
+#: admin.widget.php:6
 msgid "Admin"
 msgstr "管理"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/admin.widget.php:5
+#: admin.widget.php:5
 #, php-format
 msgid "You are logged in as %s."
-msgstr "您已登入為 %s 。"
+msgstr "%s 已登入。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/admin.widget.php:5
+#: admin.widget.php:5
 msgid "Edit Your Profile"
 msgstr "編輯你的個人資料"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/admin.widget.php:7
+#: admin.widget.php:7
 msgid "Logout"
 msgstr "登出"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/admin.widget.php:9
+#: admin.widget.php:9
 msgid "Login"
 msgstr "登入"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/audioscrobbler.php:2
+#: audioscrobbler.php:2
 msgid "Listening"
 msgstr "聆聽"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/commentform.php:3
+#: commentform.php:3
 #, fuzzy
 msgid "Please do not load this page directly. Thanks!"
 msgstr "請勿直接載入此頁。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/commentform.php:6
+#: commentform.php:6
 msgid "Leave a Reply"
 msgstr "留下回應"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/commentform.php:15
+#: commentform.php:15
 msgid "Name"
 msgstr "名稱"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/commentform.php:17
+#: commentform.php:17
 msgid "E-mail"
 msgstr "電子信箱"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/commentform.php:19
+#: commentform.php:19
 msgid "Website"
 msgstr "網站"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/commentform.php:21
+#: commentform.php:21
 msgid "Message"
 msgstr "留言"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/commentform.php:25
+#: commentform.php:25
 msgid "Submit"
 msgstr "發表"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/comments.php:6
+#: commentform.php:27
+msgid "Your comment may not display immediately due to spam filtering. Please wait for moderation."
+msgstr "為了避免不當的廣告留言，您的迴響必須經過審核才會顯示。"
+
+#: comments.php:6
 #, php-format
 msgid "%1$d Response"
 msgid_plural "%1$d Responses"
 msgstr[0] "%1$d 則回應"
 msgstr[1] "%1$d 則回應"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/comments.php:51
+#: comments.php:45
 msgid "Permanent Link to this comment"
-msgstr "這則迴響的永久連結"
+msgstr "這則迴響的易記網址"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/comments.php:52
+#: comments.php:46
 msgid "In moderation"
 msgstr "審核中"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/comments.php:72
+#: comments.php:66
 #, php-format
 msgid "%1$s on %2$s"
 msgstr "%1$s 於 %2$s"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/comments.php:74
+#: comments.php:68
 msgid "Permanent Link to this pingback"
-msgstr "這則通知的永久連結"
+msgstr "這則引用通知的易記網址"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/db_profiling.php:28
+#: db_profiling.php:28
 msgid "DB Profiling"
 msgstr "執行效能分析"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/db_profiling.php:39
+#: db_profiling.php:39
 msgid "Time to Execute:"
-msgstr "執行耗時："
+msgstr "執行耗時:"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/db_profiling.php:53
+#: db_profiling.php:53
 msgid "Total Number of Queries:"
-msgstr "資料庫查詢次數："
+msgstr "資料庫查詢次數:"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/db_profiling.php:54
+#: db_profiling.php:54
 msgid "Total Time Executing Queries:"
-msgstr "資料庫查詢耗時："
+msgstr "資料庫查詢耗時:"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/feedlink.widget.php:2
+#: feedlink.widget.php:2
 msgid "Subscribe"
 msgstr "訂閱"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/feedlink.widget.php:4
+#: feedlink.widget.php:4
 msgid "All posts"
 msgstr "所有文章"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/feedlink.widget.php:5
+#: feedlink.widget.php:5
 msgid "All comments"
 msgstr "所有迴響"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/flickrrss.widget.php:2
+#: flickrrss.widget.php:2
 msgid "Flickr"
-msgstr ""
+msgstr "Flickr"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/footer.php:6
+#: footer.php:6
 #, php-format
 msgid "%1$s is powered by %2$s and %3$s theme."
 msgstr "%1$s 使用 %2$s 及 %3$s 佈景主題。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/freshcomments.php:2
+#: freshcomments.php:2
 #, fuzzy
 msgid "Comments"
 msgstr "迴響"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/freshcomments.php:7
-#, fuzzy, php-format
+#: freshcomments.php:7
+#, php-format
 msgid "%1$d comment"
 msgid_plural "%1$d comments"
 msgstr[0] "%1$d 則迴響"
-msgstr[1] ""
+msgstr[1] "%1$d 則迴響"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/freshcomments.php:10
+#: freshcomments.php:10
 #, fuzzy, php-format
 msgid "Posted at %1$s"
 msgstr "發表於 %1$s"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/freshsurf.widget.php:2
+#: freshsurf.widget.php:2
 msgid "Notepad"
 msgstr "筆記"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/home.php:11
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/multiple.php:12
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.archives.php:8
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.single.php:8
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/pageless.php:8
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/single.php:10
+#: home.php:11
+#: multiple.php:12
+#: page.archives.php:8
+#: page.single.php:8
+#: pageless.php:8
+#: single.php:10
 #, fuzzy
 msgid "Comments to this post"
 msgstr "對這篇文章發表迴響"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/home.php:11
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/multiple.php:12
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.archives.php:8
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.single.php:8
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/pageless.php:8
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/single.php:10
-#, fuzzy, php-format
+#: home.php:11
+#: multiple.php:12
+#: page.archives.php:8
+#: page.single.php:8
+#: pageless.php:8
+#: single.php:10
+#, php-format
 msgid "%1$d Comment"
 msgid_plural "%1$d Comments"
 msgstr[0] "%1$d 則迴響"
-msgstr[1] ""
+msgstr[1] "%1$d 則迴響"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/home.php:16
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/multiple.php:17
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.archives.php:10
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.single.php:10
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/pageless.php:13
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/single.php:15
+#: home.php:16
+#: multiple.php:17
+#: page.archives.php:10
+#: page.single.php:10
+#: pageless.php:13
+#: single.php:15
 msgid "Edit post"
 msgstr "編輯文章"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/home.php:16
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/multiple.php:17
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.archives.php:10
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.single.php:10
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/pageless.php:13
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/single.php:15
+#: home.php:16
+#: multiple.php:17
+#: page.archives.php:10
+#: page.single.php:10
+#: pageless.php:13
+#: single.php:15
 msgid "Edit"
 msgstr "編輯"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/jaiku.php:2
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/tweets.php:2
+#: jaiku.php:2
+#: tweets.php:2
 msgid "Soliloquy"
 msgstr "短語"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/jaiku.php:9
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/jaiku.php:13
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/tweets.php:6
+#: jaiku.php:9
+#: tweets.php:5
 #, fuzzy
 msgid "Read more…"
 msgstr "更多…"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/page.archives.php:25
-msgid "Not implemented yet."
-msgstr "此功能尚為實作"
-
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/recententries.widget.php:2
+#: recententries.widget.php:2
 msgid "Recently"
 msgstr "近期文章"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/recententries.widget.php:13
+#: recententries.widget.php:13
 msgid "There are currently no posts in this blog."
 msgstr "此網誌暫無文章。"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/relatedposts.widget.php:2
+#: relatedposts.widget.php:2
 msgid "Related Posts"
 msgstr "相關文章"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/relatedtags.widget.php:2
+#: relatedtags.widget.php:2
 msgid "Related Tags"
 msgstr "相關標籤"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/sidebar.php:6
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/sidebar.single.php:6
+#: sidebar.php:6
+#: sidebar.single.php:6
 #, fuzzy
 msgid "Search"
 msgstr "搜尋"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/sidebar.php:15
+#: sidebar.php:15
 msgid "About"
 msgstr "關於這裡"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/tagcloud.widget.php:2
+#: tagcloud.widget.php:2
 msgid "Tag Cloud"
 msgstr "標籤雲"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:87
-msgid "Link Text to Home"
-msgstr "首頁的連結文字"
-
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:90
-msgid "Show ‘About’ at Sidebar"
-msgstr "在側邊欄顯示「關於我」"
-
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:93
-#, fuzzy
-msgid "Save"
-msgstr "儲存"
-
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:94
-#, fuzzy
-msgid "Options saved"
-msgstr "設定已儲存"
-
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:202
+#: theme.php:151
 #, php-format
 msgid "%1$s &raquo; Chronological Archives of %2$s"
 msgstr "%1$s &raquo; %2$s 的日期彙整"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:207
+#: theme.php:156
 #, php-format
 msgid "%1$s &raquo; Taxonomic Archives of %2$s"
 msgstr "%1$s &raquo; %2$s 的標籤彙整"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:211
+#: theme.php:160
 #, php-format
 msgid "%1$s ¶ %2$s"
-msgstr ""
+msgstr "%1$s ¶ %2$s"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:215
+#: theme.php:164
 #, php-format
 msgid "%1$s &raquo; Search Results of %2$s"
 msgstr "%1$s &raquo; %2$s 的搜尋結果"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:223
+#: theme.php:172
 #, php-format
 msgid "%1$s &rsaquo; Page %2$s"
 msgstr "%1$s &rsaquo; 第 %2$s 頁"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:241
+#: theme.php:190
 #, php-format
 msgid "Posts written in %s"
-msgstr "本文寫於 %s"
+msgstr "發表於 %s 的文章"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:246
+#: theme.php:195
 #, php-format
 msgid "Posts tagged with %s"
-msgstr "本文標籤為 %s"
+msgstr "標籤為 %s 的文章"
 
-#: D:\htdocs\_\bcse-svn\habari-extras\themes\binadamu/theme.php:250
+#: theme.php:199
 #, php-format
 msgid "Search results for “%s”"
 msgstr "符合 “%s” 的搜尋結果"
+
+#~ msgid "on"
+#~ msgstr "於"
+
+#, fuzzy
+#~ msgid "Comment"
+#~ msgid_plural "Comments"
+#~ msgstr[0] "迴響"
+#~ msgstr[1] "迴響"
+#~ msgid "Popular Tags"
+#~ msgstr "熱門標籤"
+#~ msgid "Not implemented yet."
+#~ msgstr "此功能尚為實作"
+#~ msgid "Link Text to Home"
+#~ msgstr "首頁的連結文字"
+#~ msgid "Show ‘About’ at Sidebar"
+#~ msgstr "在側邊欄顯示「關於我」"
+
+#, fuzzy
+#~ msgid "Save"
+#~ msgstr "儲存"
+
+#, fuzzy
+#~ msgid "Options saved"
+#~ msgstr "設定已儲存"
 
