@@ -20,7 +20,7 @@
 					<a href="<?php echo $next->permalink; ?>" title="<?php echo _t('View') . ' ' . $next->title_out; ?>"><?php echo $next->title_out; ?></a> &raquo;
 				<?php endif; ?>
 				</div>
-				<div id="comments">
+				<div>
 					<?php include 'comments.php'; ?>
 				</div>
 			</div>
