@@ -102,7 +102,7 @@
 								<input type="text" name="url" id="url" value="<?php echo $commenter_url; ?>" size="22" tabindex="4">
 							</p>
 							<p>
-								<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+								<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment">
 							</p>
 					</fieldset>
 				</form>
