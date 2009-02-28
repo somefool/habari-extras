@@ -9,7 +9,7 @@
  * @author ayunyan <ayu@commun.jp>
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link http://twitter.com/
- * @link http://gravater.com/
+ * @link http://gravatar.com/
  */
 class TwitterAvatar extends Plugin
 {
@@ -127,7 +127,13 @@ class TwitterAvatar extends Plugin
 			} else {
 				$twitter_user = json_decode($request->get_response_body());
 			}
-			Cache::set('twitter_avatar_' . $comment->email, $twitter_user, Options::get('twitter_avatar__cache_expire') * 3600);
+
+			// Invalid response
+			if ($twitter_user !== false && !isset($twitter_user->screen_name)) {
+				$twitter_user = false;
+			} else {
+				Cache::set('twitter_avatar_' . $comment->email, $twitter_user, Options::get('twitter_avatar__cache_expire') * 3600);
+			}
 		}
 
 		if ($twitter_user !== false) {
