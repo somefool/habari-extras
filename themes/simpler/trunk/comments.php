@@ -5,7 +5,12 @@
 	$cookie= 'comment_' . Options::get( 'GUID' );
 	
 	if ( $user ) {
-		$commenter_name= $user->username;
+		if ( $user->displayname != '' ) {
+			$commenter_name = $user->displayname;
+		}
+		else {
+			$commenter_name = $user->username;
+		}
 		$commenter_email= $user->email;
 		$commenter_url= Site::get_url('habari');
 	}
