@@ -7,7 +7,7 @@ class BreezyArchives extends Plugin
 	private $class_name = '';
 	private $cache_name = '';
 
-	private static function default_options()
+	private function default_options()
 	{
 		return array (
 			/* Chronology */
