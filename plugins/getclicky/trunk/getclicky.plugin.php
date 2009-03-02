@@ -5,7 +5,7 @@ class GetClicky extends Plugin
   {
         return array(
             'name' => 'GetClicky Analytics',
-            'version' => '1.4.2',
+            'version' => '1.4.3',
             'url' => 'http://digitalspaghetti.me.uk/',
             'author' => 'Tane Piper',
             'authorurl' => 'http://digitalspaghetti.me.uk',
