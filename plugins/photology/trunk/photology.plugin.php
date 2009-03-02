@@ -3,7 +3,7 @@ class Photology extends Plugin
 {
 	private	$uuid = '3e343f83-75cd-4648-91a6-22c4da399209';	
 
-	$max_dimension = 123;
+	$max_dimension = 123; // hardcoded, to be put into a setting very soon.
 
 	public function action_init()
 	{
@@ -146,7 +146,7 @@ class Photology extends Plugin
 	public function make_thumbnail( $image )
 	{
 		// Does derivative directory not exist?
-		$thumbdir = dirname( $src_filename ) . '/' . HabariSilo::DERIV_DIR . '';
+		$thumbdir = dirname( $image ) . '/' . HabariSilo::DERIV_DIR . '';
 		if( ! is_dir( $thumbdir ) ) {
 			// Create the derivative directory
 			if( ! mkdir( $thumbdir, 0755 ) ){
