@@ -3,8 +3,6 @@ class Photology extends Plugin
 {
 	private	$uuid = '3e343f83-75cd-4648-91a6-22c4da399209';	
 
-	$max_dimension = 123; // hardcoded, to be put into a setting very soon.
-
 	public function action_init()
 	{
 	}
@@ -111,7 +109,7 @@ class Photology extends Plugin
 		if ( ! $thumb ) {
 			// no thumbnail exists for this post yet, so make one
 			$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
-			$post->info->photology_md5= md5_file( $this->get_image_file( $elements['src'] ;
+			$post->info->photology_md5= md5_file( $this->get_image_file( $elements['src'] ) );
 			$post->info->commit();
 		} else {
 			// a thumbnail exists; we should check whether we need to update it
@@ -120,7 +118,7 @@ class Photology extends Plugin
 				// one we previously calculated for it, so
 				// generate a new thumbnail
 				$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
-				$post->info->photology_md5= md5_file( $this->get_image_file( $elements['src'] ;
+				$post->info->photology_md5= md5_file( $this->get_image_file( $elements['src'] ) );
 				$post->info->commit();
 			}
 		}
@@ -145,6 +143,7 @@ class Photology extends Plugin
 	**/
 	public function make_thumbnail( $image )
 	{
+		$max_dimension -= 123;
 		// Does derivative directory not exist?
 		$thumbdir = dirname( $image ) . '/' . HabariSilo::DERIV_DIR . '';
 		if( ! is_dir( $thumbdir ) ) {
@@ -208,7 +207,7 @@ class Photology extends Plugin
 		imagedestroy( $dst_img );
 		imagedestroy( $src_img );
 
-		return true;
+		return $dst_filename;
 	}
 }
 ?>
