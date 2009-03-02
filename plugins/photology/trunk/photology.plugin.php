@@ -109,6 +109,7 @@ class Photology extends Plugin
 		if ( ! $thumb ) {
 			// no thumbnail exists for this post yet, so make one
 			$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
+			$post->info->photology_md5= md5( $elements['src'] );
 			$post->info->commit();
 		} else {
 			// a thumbnail exists; we should check it
@@ -137,7 +138,29 @@ class Photology extends Plugin
 		// get the image from the filesystem
 		$img= $this->get_image_file( $image );
 
-		// get the image properties
+		// Get information about the image
+		list( $src_width, $src_height, $type, $attr )= getimagesize( $img );
+
+		// Load the image based on filetype
+		switch( $type ) {
+			case IMAGETYPE_JPEG:
+			$src_img = imagecreatefromjpeg( $img );
+			break;
+			
+			case IMAGETYPE_PNG:
+			$src_img = imagecreatefrompng( $img );
+			break;
+
+			case IMAGETYPE_GIF:
+			$src_img = imagecreatefromgif( $img );
+			break;
+			
+			default:
+			return false;
+		}
+
+
+
 		// scale the image to the specified maximum dimension
 	}
 }
