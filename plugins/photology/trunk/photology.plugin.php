@@ -111,10 +111,18 @@ class Photology extends Plugin
 		if ( ! $thumb ) {
 			// no thumbnail exists for this post yet, so make one
 			$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
-			$post->info->photology_md5= md5( $elements['src'] );
+			$post->info->photology_md5= md5_file( $this->get_image_file( $elements['src'] ;
 			$post->info->commit();
 		} else {
-			// a thumbnail exists; we should check it
+			// a thumbnail exists; we should check whether we need to update it
+			if ( md5_file( $this->get_image_file( $elements['src'] ) ) != $post->info->photology_md5 ) {
+				// the image has a different MD5 sum than the
+				// one we previously calculated for it, so
+				// generate a new thumbnail
+				$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
+				$post->info->photology_md5= md5_file( $this->get_image_file( $elements['src'] ;
+				$post->info->commit();
+			}
 		}
 	}
 
