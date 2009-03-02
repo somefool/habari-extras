@@ -107,7 +107,7 @@ class GetClicky extends Plugin
       // Login page; don't dipslay
       return;
     }
-    if ( User::identify() ) {
+    if ( User::identify()->loggedin ) {
       // Only track the logged in user if we were told to
       if ( Options::get('getclicky__loggedin') ) {
         return;
