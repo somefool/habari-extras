@@ -3,6 +3,8 @@ class Photology extends Plugin
 {
 	private	$uuid = '3e343f83-75cd-4648-91a6-22c4da399209';	
 
+	$max_dimension = 123;
+
 	public function action_init()
 	{
 	}
@@ -66,7 +68,7 @@ class Photology extends Plugin
 	/**
 	 * function action_post_insert_after
 	 * Invokes our thumbnail generating function when a new post is saved
-	 * @param Post the post being addedd
+	 * @param Post the post being added
 	**/
 	public function action_post_insert_after( $post )
 	{
@@ -135,6 +137,15 @@ class Photology extends Plugin
 	**/
 	public function make_thumbnail( $image )
 	{
+		// Does derivative directory not exist?
+		$thumbdir = dirname( $src_filename ) . '/' . HabariSilo::DERIV_DIR . '';
+		if( ! is_dir( $thumbdir ) ) {
+			// Create the derivative directory
+			if( ! mkdir( $thumbdir, 0755 ) ){
+				// Couldn't make derivative directory
+				return false;
+			}
+		}
 		// get the image from the filesystem
 		$img= $this->get_image_file( $image );
 
@@ -159,9 +170,37 @@ class Photology extends Plugin
 			return false;
 		}
 
+		// Did the image fail to load?
+		if ( !$src_img ) {
+			return false;
+		}
 
+		// Calculate the output size based on the original's aspect ratio
+		if ( $src_width > $src_height ) 
+		{
+			$thumb_w = $max_dimension;
+			$thumb_h = $src_height * $max_dimension / $src_width;
+		} 
+		else { // it's either portrait, or square
+			$thumb_h = $max_dimension;
+			$thumb_w = $src_width * $max_dimension / $src_height;
+		}
 
-		// scale the image to the specified maximum dimension
+		// Create the output image and copy to source to it
+		$dst_img = ImageCreateTrueColor( $thumb_w, $thumb_h );
+		imagecopyresampled( $dst_img, $src_img, 0,0,0,0, $thumb_w, $thumb_h, $src_width, $src_height );
+
+		// Define the thumbnail filename
+		$dst_filename = $thumbdir . '/' . basename( $img ) . ".photology_tb.jpg";
+
+		// Save the thumbnail as a JPEG
+		imagejpeg( $dst_img, $dst_filename );
+
+		// Clean up memory
+		imagedestroy( $dst_img );
+		imagedestroy( $src_img );
+
+		return true;
 	}
 }
 ?>
