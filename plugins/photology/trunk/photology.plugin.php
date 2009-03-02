@@ -1,6 +1,8 @@
 <?php
 class Photology extends Plugin
 {
+	private	$uuid = '3e343f83-75cd-4648-91a6-22c4da399209';	
+
 	public function action_init()
 	{
 	}
