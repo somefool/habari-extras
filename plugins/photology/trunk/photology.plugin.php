@@ -20,9 +20,22 @@ class Photology extends Plugin
 		);
 	}
 
+	/**
+	 * Add help text (?) to plugin configuration page
+	 **/
+	public function help()
+	{
+		$help = _t( 'Requires Habari File Silo<hr>Creates a thumbnail for the first image file, taken 
+from the Habari File Silo, in <code>$post->info->photology_thumb</code>.' );
+	}
+
 	public function action_plugin_activation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
+			if ( Options::get( 'photology__maxdim' ) == null ) {
+				// Set a reasonable default
+				Options::set( 'photology__maxdim', 100 );
+			}
 		}
 	}
 
@@ -48,12 +61,21 @@ class Photology extends Plugin
 					$ui = new FormUI( strtolower( get_class( $this ) ) );
 
 					$max_dimension = $ui->append( 'text', 'max_dimension', 'photology__maxdim', _t( 'Maximum size of thumbnail (length and width)' ) );
+					$max_dimension->add_validator( array ( $this, 'validate_numeric' ) );
 					$ui->append( 'submit', 'save', _t('Save') );
 					$ui->on_success( array( $this, 'update_config' ) );
 					$ui->out();
 					break;
 				}
 			}
+	}
+
+	public function validate_numeric( $value )
+	{
+		if( !is_numeric( $value ) ) {
+			return array( _t( 'This field must be a number.', 'photology' ) );
+		}
+		return array();
 	}
 
 	/**
@@ -111,7 +133,6 @@ class Photology extends Plugin
 		}
 		if ( ! isset( $elements['src'] ) ) {
 			// no src= found, so don't try to do anything else
-			die("no");
 			return;
 		}
 
@@ -165,11 +186,10 @@ class Photology extends Plugin
 	**/
 	public function make_thumbnail( $image )
 	{
-		$option_maxdir = Options::get( 'photology__maxdim' ); 
-/* this needs to be cleaned up, can do it in one line if there's a numeric validator on the config */
-		$max_dimension = ( is_numeric( $option_maxdir)  ? $option_maxdir : 123 );
+		// Get maximum size from stored options
+		$max_dimension= Options::get( 'photology__maxdim' ); 
 
-		// get the image from the filesystem
+		// Get the image from the filesystem
 		$img= $this->get_image_file( $image );
 
 		// Does derivative directory not exist?
