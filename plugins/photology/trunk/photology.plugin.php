@@ -106,15 +106,15 @@ class Photology extends Plugin
 		}
 
 		$thumb= $post->info->photology_thumb;
-		if ( ! $thumb ) {
+
+		if ( ! isset( $thumb ) ) {
 			// no thumbnail exists for this post yet, so make one
 			$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
 			$post->info->photology_md5= md5_file( $this->get_image_file( $elements['src'] ) );
 			$post->info->commit();
 		} else {
 			// a thumbnail exists; we should check whether we need to update it
-			if ( md5_file( $this->get_image_file( $elements['src'] ) ) != $post->info->photology_md5 ) {
-				// the image has a different MD5 sum than the
+			if (true) { // ( md5_file( $this->get_image_file( $elements['src'] ) ) != $post->info->photology_md5 ) { 				// the image has a different MD5 sum than the
 				// one we previously calculated for it, so
 				// generate a new thumbnail
 				$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
@@ -136,6 +136,17 @@ class Photology extends Plugin
 	}
 
 	/**
+	 * function get_image_url
+	 * Given the filesystem path to the image to an image, obtain a URL 
+	 * @param String the filesystem path to the image
+	 * @return String the image URL
+	**/
+	public function get_image_url( $image )
+	{
+		return substr_replace( $image, Site::get_url( 'user' ), 0, strlen( Site::get_dir( 'user' ) ) );
+	}
+
+	/**
 	 * function make_thumbnail
 	 * Create a thumbnail from an image URL
 	 * @param String The image defined in the <img> tag
@@ -143,9 +154,13 @@ class Photology extends Plugin
 	**/
 	public function make_thumbnail( $image )
 	{
-		$max_dimension -= 123;
+		$max_dimension = 123;
+
+		// get the image from the filesystem
+		$img= $this->get_image_file( $image );
+
 		// Does derivative directory not exist?
-		$thumbdir = dirname( $image ) . '/' . HabariSilo::DERIV_DIR . '';
+		$thumbdir = dirname( $img ) . '/' . HabariSilo::DERIV_DIR . '';
 		if( ! is_dir( $thumbdir ) ) {
 			// Create the derivative directory
 			if( ! mkdir( $thumbdir, 0755 ) ){
@@ -153,8 +168,6 @@ class Photology extends Plugin
 				return false;
 			}
 		}
-		// get the image from the filesystem
-		$img= $this->get_image_file( $image );
 
 		// Get information about the image
 		list( $src_width, $src_height, $type, $attr )= getimagesize( $img );
@@ -207,7 +220,9 @@ class Photology extends Plugin
 		imagedestroy( $dst_img );
 		imagedestroy( $src_img );
 
-		return $dst_filename;
+		$dst_url= $this->get_image_url( $dst_filename );
+
+		return $dst_url;
 	}
 }
 ?>
