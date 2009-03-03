@@ -46,16 +46,23 @@ class Photology extends Plugin
 			switch ( $action ) {
 				case _('Configure') :
 					$ui = new FormUI( strtolower( get_class( $this ) ) );
+
+					$max_dimension = $ui->append( 'text', 'max_dimension', 'photology__maxdim', _t( 'Maximum size of thumbnail (length and width)' ) );
 					$ui->append( 'submit', 'save', _t('Save') );
+					$ui->on_success( array( $this, 'update_config' ) );
 					$ui->out();
 					break;
 				}
 			}
 	}
 
+	/**
+	 * Give the user a session message to confirm options were saved.
+	**/
 	public function update_config( $ui )
 	{
-		return true;
+		Session::notice( _t( 'Maximum Thumbnail Dimension set.', 'photology' ) );
+		$ui->save();
 	}
 
 	public function action_update_check()
@@ -154,7 +161,9 @@ class Photology extends Plugin
 	**/
 	public function make_thumbnail( $image )
 	{
-		$max_dimension = 123;
+		$option_maxdir = Options::get( 'photology__maxdim' ); 
+/* this needs to be cleaned up, can do it in one line if there's a numeric validator on the config */
+		$max_dimension = ( is_numeric( $option_maxdir)  ? $option_maxdir : 123 );
 
 		// get the image from the filesystem
 		$img= $this->get_image_file( $image );
@@ -220,6 +229,7 @@ class Photology extends Plugin
 		imagedestroy( $dst_img );
 		imagedestroy( $src_img );
 
+		// Get back a URL - probably should just store the filename...
 		$dst_url= $this->get_image_url( $dst_filename );
 
 		return $dst_url;
