@@ -101,14 +101,17 @@ class Photology extends Plugin
 		$matches= array();
 		if ( preg_match( '/<img [^>]+>/', $post->content, $matches) ) {
 			// we got one! Now tease out the src element
-			$attributes= explode( ' ', substr( substr( $matches[0], 5 ), 0, -1 ) );
-			foreach ($attributes as $att) {
-				list( $name, $value )= explode( '=', $att );
-				$elements[$name]= trim( $value, "'\"" );
+			$html= new HTMLTokenizer( $matches[0] );
+			$tokens= $html->parse();
+			foreach ($tokens as $node ) {
+				if ( 'img' == $node['name'] ) {
+					$elements= $node['attrs'];
+				}
 			}
 		}
 		if ( ! isset( $elements['src'] ) ) {
 			// no src= found, so don't try to do anything else
+			die("no");
 			return;
 		}
 
@@ -121,7 +124,8 @@ class Photology extends Plugin
 			$post->info->commit();
 		} else {
 			// a thumbnail exists; we should check whether we need to update it
-			if (true) { // ( md5_file( $this->get_image_file( $elements['src'] ) ) != $post->info->photology_md5 ) { 				// the image has a different MD5 sum than the
+			if (true) { // ( md5_file( $this->get_image_file( $elements['src'] ) ) != $post->info->photology_md5 ) {
+				// the image has a different MD5 sum than the
 				// one we previously calculated for it, so
 				// generate a new thumbnail
 				$post->info->photology_thumb= $this->make_thumbnail( $elements['src'] );
