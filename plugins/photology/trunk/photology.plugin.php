@@ -258,5 +258,18 @@ from the Habari File Silo, in <code>$post->info->photology_thumb</code>.' );
 
 		return $dst_url;
 	}
+
+	/**
+	 * post_filter_content_excerpt_out
+	 * filters the post's excerpt to display only the thumbnail
+	**/
+	public function filter_post_content_excerpt_out ( $excerpt, $post )
+	{
+		if (isset( $post->info->photology_thumb ) ) {
+			return '<img src="' . $post->info->photology_thumb . '">';
+		} else {
+			return $excerpt;
+		}
+	}
 }
 ?>
