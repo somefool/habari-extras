@@ -1,7 +1,7 @@
 <?php
 class BreezyArchivesHandler extends ActionHandler
 {
-	private $theme = null;
+	public $theme = null;
 
 	/**
 	 * Constructor for the default theme handler.  Here, we
