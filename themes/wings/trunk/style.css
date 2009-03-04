@@ -1,0 +1,492 @@
+/*
+Theme Name: Wings
+Theme URI: http://chasecrawford.us/habari-theme-wings
+Version: 0.1
+Author: Chase Crawford
+Author URI: http://chasecrawford.us
+
+This design was originally created by Chris Pearson of http://pearsonified.com for a Wordpress theme.
+I took his design and recreated it as a theme for Habari.
+*/
+
+/*---------------:[ GENERAL ]:---------------*/
+
+*
+{
+padding:0;
+margin:0;
+}
+
+body,
+input,
+textarea
+{
+font-family:Georgia,"Times New Roman",Times,serif;
+font-size:16px;
+color:#333;
+}
+
+a
+{
+color:#0060FF;
+}
+
+a:hover
+{
+color:#D00;
+}
+
+a img
+{
+border:none;
+}
+
+.clear
+{
+clear:both;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+font-family:Helvetica,Arial,sans-serif;
+color:#000;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+{
+color:#000;
+text-decoration:none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover
+{
+color:#090;
+}
+
+h1 { font-size:72px; line-height:72px; }
+h2 { font-size:28px; line-height:28px; }
+h3 { font-size:24px; line-height:24px; font-weight:normal; }
+h4 { font-size:22px; line-height:22px; font-weight:normal; }
+h5 { font-size:16px; line-height:16px; }
+h6 { font-size:14px; line-height:14px; }
+
+p, li { line-height:21px; }
+
+
+div#wrap
+{
+margin:0 auto;
+width:990px;
+}
+
+/*---------------:[ HEADER ]:---------------*/
+
+div#header
+{
+margin:15px 0 25px 0;
+border-top:solid 1px #CCC;
+border-bottom:solid 1px #000;
+padding-bottom:175px;
+background:url("images/header.jpg") bottom no-repeat;
+}
+
+div#header h1 a,
+div#header h1 a:hover
+{
+display:block;
+text-align:center;
+text-decoration:none;
+color:#000;
+line-height:72px;
+padding-top:15px;
+}
+
+div#header p#tagline
+{
+font-family:Helvetica,Arial,sans-serif;
+font-size:32px;
+color:#888;
+text-align:center;
+line-height:32px;
+padding-bottom:20px;
+}
+
+div#header ul#nav
+{
+border-top:dotted 2px #000;
+border-bottom:solid 3px #000;
+list-style:none;
+}
+
+div#header ul#nav li
+{
+float:left;
+}
+
+div#header ul#nav li#rss
+{
+float:right;
+}
+
+div#header ul#nav li#rss a
+{
+padding-right: 20px;
+background:url("images/rss.gif") no-repeat right;
+}
+
+div#header ul#nav li.clear
+{
+float:none;
+}
+
+div#header ul#nav li a
+{
+color:#000;
+font-family:Helvetica,Arial,sans-serif;
+text-decoration:none;
+display:block;
+padding:10px 25px 10px 0;
+text-transform:uppercase;
+font-size:16px;
+font-weight:bold;
+outline:0;
+}
+
+div#header ul#nav li a.selected
+{
+color:#090;
+text-decoration:underline;
+}
+
+div#header ul#nav li a:hover
+{
+text-decoration:underline;
+}
+
+/*---------------:[ FOOTER ]:---------------*/
+
+div#footer
+{
+border-top:solid 2px #CCC;
+}
+
+div#footer p
+{
+text-align:center;
+padding:10px 0;
+color:#999;
+}
+
+div#footer p a
+{
+color:#999;
+text-decoration:none;
+}
+
+div#footer p a:hover
+{
+text-decoration:underline;
+}
+
+/*---------------:[ LEFT COLUMN ]:---------------*/
+
+div#left-col
+{
+width:685px;
+float:left;
+padding:0 20px 5px 0;
+}
+
+div.page div#left-col,
+div.entry div#left-col
+{
+padding-bottom:15px;
+}
+
+div#left-col div.post
+{
+padding-bottom:25px;
+}
+
+div#left-col div.post p.details,
+div.entry div#left-col p.details
+{
+font-size:14px;
+color:#888;
+font-style:italic;
+border-bottom:solid 1px #999;
+padding:5px 0 5px 0;
+margin-bottom:5px;
+line-height:14px;
+}
+
+div#left-col div.post p.details a,
+div.entry div#left-col p.details a
+{
+text-decoration:none;
+color:#888;
+}
+
+div#left-col div.post p.details a:hover,
+div.entry div#left-col p.details a:hover 
+{
+text-decoration:underline;
+}
+
+div#left-col div.post p.bottom
+{
+padding-top:0;
+padding-bottom:0;
+}
+
+div#left-col div.post p.bottom strong
+{
+color:#000;
+}
+
+div.entry div#left-col div.post p.bottom
+{
+border-bottom:solid 1px #999;
+padding-bottom:25px;
+}
+
+div#left-col div.post p.bottom span
+{
+float:right;
+}
+
+div#left-col div.post p.bottom a,
+div.entry div#left-col p.bottom a
+{
+text-decoration:none;
+color:#333;
+}
+
+div#left-col div.post p.bottom a:hover,
+div.entry div#left-col p.bottom a:hover
+{
+color:#D00;
+}
+
+p.center
+{
+text-align:center;
+}
+
+div.page div#left-col h2
+{
+border-bottom:solid 1px #999;
+padding:0 0 7px 0;
+margin-bottom:10px;
+}
+
+div.page div#left-col h3,
+div.entry div#left-col h3,
+div.page div#left-col h4,
+div.entry div#left-col h4,
+div.page div#left-col h5,
+div.entry div#left-col h5,
+div.page div#left-col h6,
+div.entry div#left-col h6
+{
+padding-top:10px;
+}
+
+div#left-col div.post p,
+div.page div#left-col p,
+div.entry div#left-col p
+{
+padding-top:5px;
+padding-bottom:10px;
+}
+
+div.page div#left-col ul,
+div.entry div#left-col ul,
+div.page div#left-col ol,
+div.entry div#left-col ol
+{
+padding-top:10px;
+padding-bottom:10px;
+margin:0 0 0 25px;
+}
+
+div#left-col div#page-selector
+{
+padding-bottom:25px;
+}
+
+/*---------------:[ SIDEBAR.PHP ]:---------------*/
+
+div#right-col
+{
+width:260px;
+float:left;
+padding:0px 0 15px 20px;
+}
+
+div#right-col h3
+{
+border-top:solid 3px #000;
+border-bottom:dotted 2px #000;
+padding:5px 5px 3px 5px;
+text-transform:uppercase;
+font-size:16px;
+font-weight:bold;
+}
+
+div#right-col div#search input
+{
+display:block;
+margin:25px auto 30px auto;
+border:solid 1px;
+border-color:#999999 #F5F5F5 #F5F5F5 #999999;
+padding:5px;
+background:#FFF;
+width:200px;
+color:#090;
+font-size:12px;
+}
+
+div#right-col div#search input:focus
+{
+border-color:#666666 #DDDDDD #DDDDDD #666666;
+}
+
+div#right-col div#recent-entries ul
+{
+list-style:square;
+margin:20px 30px 30px 30px;
+}
+
+div#right-col div#recent-entries ul li
+{
+margin:10px 0 0 0;
+}
+
+/*---------------:[ COMMENTS.PHP ]:---------------*/
+
+div.entry div#left-col div#comments ol
+{
+margin-left:0;
+list-style:none;
+}
+
+div#comments ol li
+{
+padding:10px 0 0 0;
+}
+
+div#comments span#count
+{
+margin-top:8px;
+float:right;
+color:#888;
+}
+
+div#comments h6
+{
+padding-bottom:3px;
+}
+
+div#comments h6 a
+{
+color:#0060FF;
+text-decoration:underline;
+font-size:16px;
+font-family:Georgia,"Times New Roman",Times,serif;
+letter-spacing:1px;
+}
+
+div#comments h6 a:hover
+{
+color:#D00;
+}
+
+div#comments h6 span
+{
+color:#888;
+font-family:Verdana,Helvetica,Arial,sans-serif;
+font-weight:normal;
+}
+
+div#comments div.comment-content
+{
+color:#333;
+font-size:14px;
+line-height:21px;
+padding:5px 0;
+border-top:dotted 1px #CCC;
+}
+
+div.entry div#left-col div#comments p.comment-feed
+{
+padding-top:0;
+padding-bottom:0;
+}
+
+div#comments h3#responses
+{
+padding:25px 0 10px 0;
+}
+
+div#comments h3#replay
+{
+padding:10px 0 5px 0;
+}
+
+div#comments input
+{
+width:30%;
+}
+
+div#comments textarea
+{
+width:90%;
+}
+
+div#comments input,
+div#comments textarea
+{
+background:#fff;
+border:solid;
+border-width:2px 1px 1px 2px;
+border-color:#999999 #FFFFFF #FFFFFF #999999;
+color:#333;
+padding:3px 5px;
+font-size:14px;
+}
+
+div#comments input:focus,
+div#comments textarea:focus
+{
+border-color:#666666 #DDDDDD #DDDDDD #666666;
+}
+
+div#comments input#btn
+{
+width:15%;
+cursor:pointer;
+}
+
+div#comments input#btn:hover
+{
+border-color:#666666 #DDDDDD #DDDDDD #666666;
+}
+
+/*---------------:[ MULTIPLE.PHP ]:---------------*/
+
+div#left-col h3#multiple
+{
+margin:2px 0 30px 0;
+border-top:solid 2px #000;
+border-bottom:dotted 2px #000;
+padding:5px 5px 3px 5px;
+text-transform:uppercase;
+font-size:16px;
+font-weight:bold;
+}
+
+div#left-col h3#multiple span
+{
+color:#090;
+}
