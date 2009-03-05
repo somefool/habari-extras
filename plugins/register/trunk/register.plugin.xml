@@ -1,0 +1,8 @@
+<plugin>
+	<url>http://habariproject.org</url>
+	<name>Register</name>
+	<license>Apache License 2.0</license>
+	<author>Habari Community</author>
+	<description>Lets people register to become blog users, and be placed in a group specified by the admin.</description>
+</plugin>
+
