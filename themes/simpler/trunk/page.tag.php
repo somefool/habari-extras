@@ -10,6 +10,11 @@
 						}
 						?>
 					</ul>
+					<?php if ( $user->loggedin ) { ?>
+						<p class="meta">
+							<a href="<?php URL::out( 'admin', 'page=publish&id=' . $post->id); ?>" title="Edit post">Edit</a>
+						</p>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
