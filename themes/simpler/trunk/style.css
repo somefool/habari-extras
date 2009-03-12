@@ -12,13 +12,13 @@ body {
 	text-align: left;
 }
 a:link, a:visited {
-	color: #mediumblue;
+	color: mediumblue;
 	text-decoration: none;
 }
 a:hover, a:active {
-	color: #darkorange;
+	color: darkorange;
 	text-decoration: none;
-	border-bottom: 1px solid #darkorange;
+	border-bottom: 1px solid darkorange;
 }
 a img {
 	border: 0;
@@ -28,7 +28,7 @@ h1 {
 	font-weight: normal;
 	margin-bottom: 5px;
 	float: left;
-	color: #darkorange;
+	color: darkorange;
 }
 
 h2 {
@@ -91,7 +91,7 @@ code {
 	border: none;
 }
 #navigation li a:hover {
-	background: #darkorange;
+	background: darkorange;
 	color:#fff;
 }
 #content {
@@ -178,7 +178,7 @@ ol#comments {
 }
 
 .alt a:hover, .alt a:active {
-	border-bottom: 1px solid #darkorange;
+	border-bottom: 1px solid darkorange;
 }
 
 .mycomment {
@@ -190,7 +190,7 @@ ol#comments {
 }
 
 .mycomment a:hover, .mycomment a:active {
-	border-bottom: 1px solid #darkorange;
+	border-bottom: 1px solid darkorange;
 }
 
 .center {
