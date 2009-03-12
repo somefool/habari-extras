@@ -33,8 +33,25 @@ class CustomCTypes extends Plugin
 	 */
 	function filter_adminhandler_post_loadplugins_main_menu( $menus )
 	{
-		$menus['admin']['submenu']['content_types'] =  array( 'caption' => _t( 'Custom Content Types' ), 'url' => URL::get( 'admin', 'page=admin_cctypes' ) );
+		$menus['content_types'] = array( 'url' => URL::get( 'admin', 'page=admin_cctypes' ), 'title' => _t( 'Manage custom content types' ), 'text' => _t( 'Custom Content Types' ), 'access'=>array('manage_plugins'=>true, 'manage_plugins_config' => true), 'selected' => FALSE );
+
 		return $menus;
+	}
+	
+	/**
+	 * Restrict access to this admin page by token
+	 * 
+	 * @param array $require_any An array of tokens, of which any will grant access
+	 * @param string $page The admin page name
+	 * @param string $type The content type of the page
+	 * @return array An array of tokens, of which any will grant access
+	 */
+	function filter_admin_access_tokens( $require_any, $page, $type )
+	{
+		if($page == 'admin_cctypes') {
+			$require_any = array('manage_plugins'=>true, 'manage_plugins_config'=>true);
+		}
+		return $require_any;
 	}
 
 	/**
@@ -63,6 +80,7 @@ class CustomCTypes extends Plugin
 			$theme->edit_type = $edit_type;
 			$theme->edit_type_name = $posttypes[$edit_type];
 		}
+		
 	}
 
 	/**
@@ -77,27 +95,27 @@ class CustomCTypes extends Plugin
 		switch($action) {
 			case 'addtype':
 				Post::add_new_type($_POST['newtype']);
+				$typeid = Post::type($_POST['newtype']);
 				$handled = Options::get('cctypes_types');
 				if(!is_array($handled)) {
 					$handled = array();
 				}
-				$handled[$_POST['newtype']] = $_POST['newtype'];
+				$handled[$typeid] = $typeid;
 				array_unique($handled);
 				Options::set('cctypes_types', $handled);
 				Session::notice(_t('Added post type "'.$_POST['newtype'].'".'));
 				break;
 			case 'deletetype':
+				$typename = Post::type_name($_POST['deltype']);
 				Post::deactivate_post_type($_POST['deltype']);
 				$handled = Options::get('cctypes_types');
 				if(isset($handled[$_POST['deltype']])) {
 					unset($handled[$_POST['deltype']]);
 				}
 				Options::set('cctypes_types', $handled);
-				Session::notice(_t('Deactivated post type "'.$_POST['newtype'].'".'));
+				Session::notice(_t('Deactivated post type "'.$typename.'".'));
 		}
-		$this->action_admin_theme_get_admin_cctypes($handler, $theme);
-		$theme->display( 'admin_cctypes' );
-		exit;
+		Utils::redirect();
 	}
 
 	/**
@@ -123,8 +141,8 @@ class CustomCTypes extends Plugin
 	{
 		$handled = Options::get('cctypes_types');
 
-		if ( isset( $handler->handler_vars['slug'] ) ) {
-			$post = Post::get( array( 'slug' => $handler->handler_vars['slug'], 'status' => Post::status( 'any' ) ) );
+		if ( isset( $handler->handler_vars['id'] ) ) {
+			$post = Post::get( array( 'id' => $handler->handler_vars['id'], 'status' => Post::status( 'any' ) ) );
 			$ctype = Post::type_name($post->content_type);
 		}
 		else if ( isset( $handler->handler_vars['content_type'] ) ) {
@@ -135,31 +153,8 @@ class CustomCTypes extends Plugin
 			$template_name = 'admin_publish_' . $ctype;
 			if($theme->template_exists( $template_name )) {
 				$theme->display( $template_name );
+				exit;
 			}
-			else {
-				if ( isset( $post ) ) {
-					$this->theme->newpost = false;
-				}
-				else {
-					$post = new Post();
-					$theme->newpost = true;
-				}
-				$theme->content_type = Post::type( $ctype );
-				$theme->post = $post;
-
-				$statuses = Post::list_post_statuses( false );
-				unset( $statuses[array_search( 'any', $statuses )] );
-				$statuses = Plugins::filter( 'admin_publish_list_post_statuses', $statuses );
-				$theme->statuses = $statuses;
-				$theme->wsse = Utils::WSSE();
-
-				$controls = array(
-					'Settings' => $theme->fetch( 'publish_settings' ),
-				);
-				$theme->controls = Plugins::filter( 'publish_controls', $controls, $post );
-				$theme->display( 'admin_cctype_publish' );
-			}
-			exit;
 		}
 	}
 
@@ -168,22 +163,15 @@ class CustomCTypes extends Plugin
 	 *
 	 * @param AdminHandler $handler The admin handler object
 	 * @param Theme $theme The admin theme object
+	 * @todo Get a list of fields that this plugin handles for this content type and map the data out of the form into the info fields
 	 */
-	function action_admin_theme_post_publish( $handler, $theme )
+	function action_publish_post( $post, $form )
 	{
 		$handled = Options::get('cctypes_types');
 
-		if ( isset( $handler->handler_vars['slug'] ) ) {
-			$post = Post::get( array( 'slug' => $handler->handler_vars['slug'], 'status' => Post::status( 'any' ) ) );
-			$ctype = Post::type_name($post->content_type);
-		}
-		else if ( isset( $handler->handler_vars['content_type'] ) ) {
-			$ctype = Post::type_name($handler->handler_vars['content_type']);
-		}
-
-		if(isset($handled[$ctype])) {
-Utils::debug($_POST);
-			exit;
+		if(isset($handled[$post->content_type])) {
+			// Utils::debug($form);
+			// Put custom data fields into $post->info here
 		}
 	}
 

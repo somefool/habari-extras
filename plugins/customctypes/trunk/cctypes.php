@@ -7,7 +7,7 @@
 <h3>Available Types</h3>
 <ul>
 <?php foreach($posttypes as $type_id => $type): ?>
-<li><a href="<?php echo $theme->admin_edit_ctype_url($type_id); ?>"><?php echo $type; ?></a></li>
+<li><a href="<?php $theme->admin_edit_ctype_url($type_id); ?>"><?php echo $type; ?></a></li>
 <?php endforeach; ?>
 <li><input type="text" id="newtype" name="newtype"><button>Add</button></li>
 </ul>
