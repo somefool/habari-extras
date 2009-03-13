@@ -1,0 +1,143 @@
+/* Lace v0&half by sd 
+ at http://stygiandaze.com
+ 04-13-08
+*/
+
+* html .push-4 { margin: 0 -80px 1.5em 80px; }
+
+body {
+	font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+	background: #222;
+	}
+
+#header {
+	padding-top: 25px;
+	font-family: "Trebuchet MS", Verdana, sans-serif;
+	font-size: 0.89em;
+	text-align: center;
+	background: transparent;
+	font-variant: small-caps;
+	}
+
+#searchbox {
+	text-align:right;
+	margin-bottom: -8px;
+	padding: 3px;
+	color:#666;
+	}
+
+#s {
+	border:1px solid #333;
+	background:#222;
+	color:#696969;
+	padding: 3px;
+	margin-right: 15px;
+	}
+
+#main {
+	background: white;
+	color: #696969;
+	}
+
+#content, #comments {
+	padding:1.5em;
+	margin-bottom:1.5em;
+	}
+
+#navigation {
+	background: transparent;
+	color:#FFFCF9;
+	margin-top: 10px;
+	font-size: 11px;
+	}
+
+#pagenav {padding:1em 1.5em 1em 1.5em;text-align:left;border-top:1px solid #DCDCDC;}
+
+#footer {background: transparent;color: #FFFCF9;text-align: center;margin-top:-10px;}
+
+
+
+/* classes */
+
+.message {margin:1.5em;color:#1E90FF;}
+
+.post-title {color:#696969;}
+
+.draft {border:3px groove #CCC;padding:10px;}
+
+.meta {color: #D3D3D3;text-align:right;}
+
+.commentslink {background: #333;padding:2px;}
+
+.owner {background:#26261D;}
+
+.owner p {color:white;}
+
+.alt {background:#eee;}
+
+.unapproved {border:1px dotted #111!important;}
+
+
+
+/* decoration */
+
+#header h1{color: #FFFCF9;}
+
+#searchbox input:focus {
+	color:#C0C0C0;
+	background: #333;
+	}
+	
+#searchbox p {
+	font-variant: small-caps;
+	}
+
+#content h2 {font-size: 1.7em;margin-bottom: 0;	}
+
+#content h4, #content h4 a {color: #D3D3D3;margin-bottom: 1em;}
+
+
+
+#navigation p {margin:1px;}
+
+#navigation ul {margin:6px;}
+
+#navigation li {list-style: none;}
+
+#navigation p {color:#696969;border-bottom:1px solid #333;font-variant:small-caps;padding:2px;}
+
+#comments li { list-style-position: outside; padding:6px;border-bottom:1px solid white;}
+
+p img {
+	border: 1px solid #ccc;
+	padding: 3px;
+	margin: 5px 3px 0;
+	float:none;
+	max-width:97%;
+	}
+
+/* links */
+
+a {color:#FFFCF9; text-decoration: none;}
+
+a:hover {color:#FFFCF9;border-bottom:2px solid white;position:relative;} /* position:relative is needed for IE6, duh! */
+
+a:active{color:#FFFCF9; text-decoration: overline;}
+
+#header a:hover {text-decoration:none;border:none;}
+
+#main a {color:#29C0B3;text-decoration:none;}
+
+#main a:hover{text-decoration:underline;border:none;}
+
+#main h2 a, #main h2 a:hover {color:#696969;font-weight:bold;}
+
+#comments li a {color:silver;}
+
+#pagenav a {border:1px solid #DCDCDC;padding:0 3px 0 3px;}
+
+#pagenav a.current-page {border:1px solid #DCDCDC;color:#DCDCDC;padding:0 3px 0 3px;}
+
+#pagenav a:hover.current-page {border:1px solid gray;color:gray;background:transparent;}
+
+#pagenav a:hover {border:1px solid gray;color:#29C0B3;background:gray;}
