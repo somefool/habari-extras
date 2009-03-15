@@ -129,7 +129,7 @@ class Vimeo {
 		if ( $clips = $this->fetch( 'channel/' . $channel . '/clips' ) ){
 			return $clips;
 		}
-		return array('title' => 'error');
+		return array();
 	}
 
 	public function get_channel_info( $channel )
@@ -158,7 +158,7 @@ class Vimeo {
 
 	private function fetch( $relative_url, $response_format = 'php' )
 	{
-		$request = new RemoteRequest( self::API_URL . $relative_url . '.' . $response_format , 'GET', 10 );
+		$request = new RemoteRequest( self::API_URL . $relative_url . '.' . $response_format , 'GET', 20 );
 
 		$result = $request->execute();
 		if (Error::is_error($result)){

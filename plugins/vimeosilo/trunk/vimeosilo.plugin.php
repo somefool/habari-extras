@@ -10,7 +10,6 @@ include ('vimeo.php');
 
 class VimeoSilo extends Plugin implements MediaSilo
 {
-	//TODO: Use caching
 	const SILO_NAME = 'Vimeo';
 	private $username;
 
@@ -38,7 +37,6 @@ class VimeoSilo extends Plugin implements MediaSilo
 	{
 		if ($plugin_id == $this->plugin_id()){
 			$actions[] = _t('Configure');
-			//$actions[] = _t('test');
 		}
 		return $actions;
 	}
@@ -56,29 +54,36 @@ class VimeoSilo extends Plugin implements MediaSilo
 				case _t('Configure'):
 					$form = new FormUI( strtolower( get_class( $this ) ) );
 					$form->append( 'text', 'username', 'option:vimeosilo__username',_t( 'Username' ) );
+					$form->append( 'fieldset','video_options', _t('Override video dimensions') );
+					$form->video_options->append( 'static', 'note', _t( 'Set any of the dimensions to override it when embedding clips. Clear to use clips\' original(s).' ) );
+					$form->video_options->append( 'text', 'clip_width', 'option:vimeosilo__width', _t( 'Width (pixels)' ) );
+					$form->video_options->append( 'text', 'clip_height', 'option:vimeosilo__height', _t( 'Height (pixels)' ) );
 					$form->append( 'submit', 'save', _t('Save') );
+					$form->on_success( array( $this, 'submit_config' ) );
 					$form->out();
-					break;
-				case _t('test'):
-					$vimeo = new Vimeo('brad');
-					Utils::debug($vimeo->username);
-					Utils::debug( $vimeo->get_user_groups() );
-					Utils::debug( $vimeo->get_user_channels() );
 			}
 		}
+	}
+	
+	public function submit_config( $form ){
+		if ( Cache::has( 'vimeosilo_options' ) ) Cache::expire( 'vimeosilo_options' );
+		$form->save();
+		Session::notice( 'Vimeo Silo configuration saved' );
 	}
 
 	public function help()
 	{
 		return <<<HERE
 <p>Set the Username to either your <strong>user id</strong> (Obtained from your Vimeo home URL) or your <strong>Shortcut URL</strong>. To set your shortcut URL, log in to your vimeo account and go to <a href="http://www.vimeo.com/settings/shortcut">http://www.vimeo.com/settings/shortcut</a>.</p>
-<p>Note that the number of videos displayed at a given time is 20 clips. This is a limitation in the Vimeo simple API.
+<p>Note that the number of videos displayed at a given time is 20 clips. This is a limitation within the Vimeo simple API.
 HERE;
 	}
 
-	private function user_set(){
-		if ( Options::get( strtolower( get_class( $this ) ) . '__username' ) ){
-			$this->username = Options::get( strtolower( get_class( $this ) ) . '__username' );
+	private function user_set()
+	{
+		$options = $this->get_options();
+		if ( !empty( $options['username'] ) ){
+			$this->username = $options['username'];
 			return true;
 		}
 		else {
@@ -172,6 +177,7 @@ HERE;
 	*/
 	public function silo_dir($path)
 	{
+		
 		$vimeo = new Vimeo( $this->username );
 		$results = array();
 		$section = strtok($path, '/');
@@ -184,6 +190,8 @@ HERE;
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
 					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
 
 					$results[] = new MediaAsset(
@@ -201,8 +209,9 @@ HERE;
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
 					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
-
 					$results[] = new MediaAsset(
 						self::SILO_NAME . '/user_likes/' . $clip['clip_id'],
 						false,
@@ -218,6 +227,8 @@ HERE;
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
 					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
 					$results[] = new MediaAsset(
 						self::SILO_NAME . '/user_subscriptions/' . $clip['clip_id'],
@@ -234,8 +245,9 @@ HERE;
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
 					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
-
 					$results[] = new MediaAsset(
 						self::SILO_NAME . '/user_appears_in/' . $clip['clip_id'],
 						false,
@@ -251,8 +263,9 @@ HERE;
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
 					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
-
 					$results[] = new MediaAsset(
 						self::SILO_NAME . '/user_contacts_clips/' . $clip['clip_id'],
 						false,
@@ -268,8 +281,9 @@ HERE;
 					$props['url'] = $clip['url'];
 					$props['thumbnail_url'] = $clip['thumbnail_large'];
 					$props['clip_id'] = $clip['clip_id'];
+					$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+					$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 					$props['filetype'] = 'vimeoclip';
-
 					$results[] = new MediaAsset(
 						self::SILO_NAME . '/user_contacts_likes/' . $clip['clip_id'],
 						false,
@@ -288,8 +302,9 @@ HERE;
 						$props['url'] = $clip['url'];
 						$props['thumbnail_url'] = $clip['thumbnail_large'];
 						$props['clip_id'] = $clip['clip_id'];
+						$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+						$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 						$props['filetype'] = 'vimeoclip';
-
 						$results[] = new MediaAsset(
 							self::SILO_NAME . '/user_groups/' . $selected_group . '/' . $clip['clip_id'],
 							false,
@@ -319,8 +334,9 @@ HERE;
 						$props['url'] = $clip['url'];
 						$props['thumbnail_url'] = $clip['thumbnail_large'];
 						$props['clip_id'] = $clip['clip_id'];
+						$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+						$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 						$props['filetype'] = 'vimeoclip';
-
 						$results[] = new MediaAsset(
 							self::SILO_NAME . '/user_channels/' . $selected_channel . '/' . $clip['clip_id'],
 							false,
@@ -349,8 +365,9 @@ HERE;
 						$props['url'] = $clip['url'];
 						$props['thumbnail_url'] = $clip['thumbnail_large'];
 						$props['clip_id'] = $clip['clip_id'];
+						$props['clip_width'] = isset($clip['width'])?$clip['width']:'400';
+						$props['clip_height'] = isset($clip['height'])?$clip['height']:'300';
 						$props['filetype'] = 'vimeoclip';
-
 						$results[] = new MediaAsset(
 							self::SILO_NAME . '/user_albums/' . $selected_album  . '/' . $clip['clip_id'],
 							false,
@@ -425,18 +442,20 @@ HERE;
 
 	public function action_admin_footer( $theme )
 	{
-		//get options here.
+		$options = $this->get_options();
+		$width = empty( $options['width'] )? 'fileobj.clip_width' : $options['width'];
+		$height = empty( $options['height'] )? 'fileobj.clip_height' : $options['height'];
 		if( Controller::get_var( 'page' ) == 'publish' ) {
 			echo <<< VIMEO
 			<script type="text/javascript">
 				habari.media.output.vimeoclip = {
 					Embed_Video: function(fileindex, fileobj) {
 						habari.editor.insertSelection(''+
-						'<object width="400" height="250">'+
+						'<object width="' + {$width}+ '" height="' + {$height} + '">'+
 						'<param name="allowfullscreen" value="true" />'+
 						'<param name="allowscriptaccess" value="always" />'+
 						'<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=' + fileobj.clip_id + '&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" />'+
-						'<embed src="http://vimeo.com/moogaloop.swf?clip_id=' + fileobj.clip_id + '&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="250"></embed>'+
+						'<embed src="http://vimeo.com/moogaloop.swf?clip_id=' + fileobj.clip_id + '&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="' + {$width} + '" height="' + {$height} + '"></embed>'+
 						'</object>'
 						);
 					}
@@ -447,6 +466,22 @@ HERE;
 				}
 			</script>
 VIMEO;
+		}
+	}
+	
+	private function get_options()
+	{
+		if ( Cache::has( 'vimeosilo_options' ) ){
+			return Cache::get( 'vimeosilo_options' );
+		}
+		else {
+			$options = array(
+				'username'=>Options::get( 'vimeosilo__username' ),
+				'width'=>Options::get( 'vimeosilo__width' ),
+				'height'=>Options::get( 'vimeosilo__height' )
+			);
+			Cache::set( 'vimeosilo_options', $options );
+			return $options;
 		}
 	}
 }
