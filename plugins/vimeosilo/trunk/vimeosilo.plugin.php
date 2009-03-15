@@ -70,7 +70,10 @@ class VimeoSilo extends Plugin implements MediaSilo
 
 	public function help()
 	{
-		return '<p>Set the Username to either your <strong>user id</strong> (Obtained from your Vimeo home URL) or your <strong>Shortcut URL</strong>. To set your shortcut URL, log in to your vimeo account and go to <a href="http://www.vimeo.com/settings/shortcut">http://www.vimeo.com/settings/shortcut</a>.</p>';
+		return <<<HERE
+<p>Set the Username to either your <strong>user id</strong> (Obtained from your Vimeo home URL) or your <strong>Shortcut URL</strong>. To set your shortcut URL, log in to your vimeo account and go to <a href="http://www.vimeo.com/settings/shortcut">http://www.vimeo.com/settings/shortcut</a>.</p>
+<p>Note that the number of videos displayed at a given time is 20 clips. This is a limitation in the Vimeo simple API.
+HERE;
 	}
 
 	private function user_set(){
@@ -298,7 +301,7 @@ class VimeoSilo extends Plugin implements MediaSilo
 					$groups = $vimeo->get_user_groups();
 					foreach ( $groups as $group ){
 						$results[] = new MediaAsset(
-							self::SILO_NAME . '/user_groups/' . $vimeo->extract_group_slug( $group['url'] ),
+							self::SILO_NAME . '/user_groups/' . $group['id'],
 							true,
 							array( 'title' => $group['name'] . ' ('.$group['total_videos'] . ')' )
 						);
@@ -329,7 +332,7 @@ class VimeoSilo extends Plugin implements MediaSilo
 					$channels = $vimeo->get_user_channels();
 					foreach ( $channels as $channel ){
 						$results[] = new MediaAsset(
-							self::SILO_NAME . '/user_channels/' . $vimeo->extract_channel_slug( $channel['url'] ),
+							self::SILO_NAME . '/user_channels/' . $channel['id'],
 							true,
 							array( 'title' => $channel['name'] . ' ('.$channel['total_videos'] . ')' )
 						);
@@ -373,47 +376,47 @@ class VimeoSilo extends Plugin implements MediaSilo
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_clips',
 					true,
-					array( 'title' => 'My Videos (' . $user_info['total_videos_uploaded'] . ')' )
+					array( 'title' => 'Videos (' . $user_info['total_videos_uploaded'] . ')' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_albums',
 					true,
-					array( 'title' => 'My Albums (' . $user_info['total_albums'] . ')' )
+					array( 'title' => 'Albums (' . $user_info['total_albums'] . ')' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_likes',
 					true,
-					array( 'title' => 'My Likes (' . $user_info['total_videos_liked'] . ')' )
+					array( 'title' => 'Likes (' . $user_info['total_videos_liked'] . ')' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_channels',
 					true,
-					array( 'title' => 'My Channels' )
+					array( 'title' => 'Channels' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_groups',
 					true,
-					array( 'title' => 'My Groups' )
+					array( 'title' => 'Groups' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_subscriptions',
 					true,
-					array( 'title' => 'My Subscriptions' )
+					array( 'title' => 'Subscriptions' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_appears_in',
 					true,
-					array( 'title' => 'My Appearances  (' . $user_info['total_videos_appears_in'] . ')' )
+					array( 'title' => 'Appearances  (' . $user_info['total_videos_appears_in'] . ')' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_contacts_clips',
 					true,
-					array( 'title' => 'My Contacts Clips' )
+					array( 'title' => 'Contacts Clips' )
 				);
 				$results[] = new MediaAsset(
 					self::SILO_NAME . '/user_contacts_likes',
 					true,
-					array( 'title' => 'My Contacts Likes' )
+					array( 'title' => 'Contacts Likes' )
 				);
 				break;
 		}

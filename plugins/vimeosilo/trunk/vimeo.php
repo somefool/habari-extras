@@ -18,8 +18,8 @@ class Vimeo {
 
 	public function get_user_info()
 	{
-		if ( $clips = $this->fetch( $this->username . '/info' ) ){
-			return $clips;
+		if ( $info = $this->fetch( $this->username . '/info' ) ){
+			return $info;
 		}
 		return array();
 	}
@@ -42,32 +42,32 @@ class Vimeo {
 
 	public function get_user_albums()
 	{
-		if ( $clips = $this->fetch( $this->username . '/albums' ) ){
-			return $clips;
+		if ( $albums = $this->fetch( $this->username . '/albums' ) ){
+			return $albums;
 		}
 		return array();
 	}
 
 	public function get_user_subscriptions()
 	{
-		if ( $clips = $this->fetch( $this->username . '/subscriptions' ) ){
-			return $clips;
+		if ( $subs = $this->fetch( $this->username . '/subscriptions' ) ){
+			return $subs;
 		}
 		return array();
 	}
 
 	public function get_user_channels()
 	{
-		if ( $clips = $this->fetch( $this->username . '/channels' ) ){
-			return $clips;
+		if ( $channels = $this->fetch( $this->username . '/channels' ) ){
+			return $channels;
 		}
 		return array();
 	}
 
 	public function get_user_groups()
 	{
-		if ( $clips = $this->fetch( $this->username . '/groups' ) ){
-			return $clips;
+		if ( $groups = $this->fetch( $this->username . '/groups' ) ){
+			return $groups;
 		}
 		return array();
 	}
@@ -118,19 +118,18 @@ class Vimeo {
 
 	public function get_group_info( $group )
 	{
-		if ( $clips = $this->fetch( 'group/' . $group . '/info' ) ){
-			return $clips;
+		if ( $info = $this->fetch( 'group/' . $group . '/info' ) ){
+			return $info;
 		}
 		return array();
 	}
 
 	public function get_channel_clips( $channel )
 	{
-
 		if ( $clips = $this->fetch( 'channel/' . $channel . '/clips' ) ){
 			return $clips;
 		}
-		return array();
+		return array('title' => 'error');
 	}
 
 	public function get_channel_info( $channel )
@@ -157,17 +156,6 @@ class Vimeo {
 		return array();
 	}
 
-	public function extract_group_slug( $url )
-	{
-		return str_ireplace( 'http://vimeo.com/groups/', '', $url );
-	}
-
-	public function extract_channel_slug( $url )
-	{
-		return str_ireplace( 'http://vimeo.com/', '', $url );
-	}
-
-
 	private function fetch( $relative_url, $response_format = 'php' )
 	{
 		$request = new RemoteRequest( self::API_URL . $relative_url . '.' . $response_format , 'GET', 10 );
@@ -189,12 +177,13 @@ class Vimeo {
 				}
 				catch( Exception $e )
 				{
-					Session::error('Problem with response from Vimeo', 'Vimeo');
+					Session::error('Problem with response from Vimeo.', 'Vimeo');
 					return false;
 				}
 				break;
 			default:
 				//TODO: Implement the other formats (xml, json).
+				Session::error('Output format is not supported.', 'Vimeo');
 				return false;
 				break;
 		}
