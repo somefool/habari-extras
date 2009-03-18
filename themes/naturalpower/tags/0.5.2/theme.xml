@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>Natural Power</name>
+	<author>David Peralty (original WordPress theme) and Marc Riera (Habari port)</author>
+	<url>http://webs.racocatala.cat/iesmou</url>
+	<version>0.1</version>
+	<template_engine>rawphpengine</template_engine>
+</theme>
