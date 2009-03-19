@@ -1,18 +1,18 @@
 		<div id="bottom">
 
 			<div class="column">
-				<h3>Recent Comments</h3>
+				<h2>Recent Comments</h2>
 				<?php $theme->show_recentcomments(); ?>
 			</div>
 
 			<div class="column">
-				<h3>Monthly Archives</h3>
+				<h2>Monthly Archives</h2>
 				<?php $theme->monthly_archives(5, 'N'); ?>
 				<a href="<?php Site::out_url( 'habari' ); ?>/archives">More...</a>
 			</div>
 
 			<div class="column">
-				<h3>Tags</h3>
+				<h2>Tags</h2>
 				<?php $theme->tag_cloud(5); ?>
 				<a href="<?php Site::out_url( 'habari' ); ?>/tag">More...</a>
 			</div>

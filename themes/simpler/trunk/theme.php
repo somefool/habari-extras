@@ -26,7 +26,7 @@ Format::apply( 'nice_date', 'comment_date_out', 'F j, Y \a\t g:ia' );
 define( 'THEME_CLASS', 'MyTheme' );
 
 /**
- * A custom theme for K2 output
+ * A custom theme for Simpler output
  */
 class MyTheme extends Theme
 {

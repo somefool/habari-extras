@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
+<html lang="<?php Options::out('locale') ?>">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><?php if ( $request->display_entry && isset($post) ) { echo "{$post->title} - "; } ?><?php Options::out( 'title' ) ?></title>

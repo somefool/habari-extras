@@ -28,7 +28,7 @@
 		?>
 		
 			<h3><?php echo $post->comments->approved->count; ?> Comments so far</h3>
-			<ol id="comments">
+			<ol id="comments-list">
 			
 				<?php
 				
