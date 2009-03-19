@@ -19,17 +19,6 @@
 			
 			<?php include "sidebar-text.php"; ?>
 		
-			<h2>Recent Entries</h2>
-			<ul>
-			<?php foreach($more_posts as $post): ?>
-			<?php
-			echo '<li>';
-			echo '<a href="' . $post->permalink .'">' . $post->title_out . '</a>';
-			echo '</li>';
-			?>
-			<?php endforeach; ?>
-			</ul>
-			
 			<h2>Categories</h2>
 			<ul>
 			<?php if( count( $all_tags ) > 0 ) { ?>
