@@ -24,7 +24,7 @@
 			
 			<div id="more_entries">
 			<h2>
-			<?php $theme->prev_page_link(); ?> <?php $theme->page_selector( null, array( 'leftSide' => 2, 'rightSide' => 2 ) ); ?> <?php $theme->next_page_link(); ?>
+			<?php $theme->next_page_link(); ?> <?php $theme->page_selector( null, array( 'leftSide' => 2, 'rightSide' => 2 ) ); ?> <?php $theme->prev_page_link(); ?>
 			</h2>
 			</div>
 

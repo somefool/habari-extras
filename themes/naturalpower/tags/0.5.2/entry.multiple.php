@@ -24,7 +24,7 @@
 			
 			<div id="more_entries">
 			<h2>
-			<?php $theme->next_page_link('Entrades anteriors'); ?>  <?php $theme->prev_page_link('Entrades següents'); ?>
+			<?php $theme->next_page_link(); ?> <?php $theme->page_selector( ); ?>  <?php $theme->prev_page_link(); ?>
 			</h2>
 			</div>
 		
