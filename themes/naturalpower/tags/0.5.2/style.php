@@ -1,14 +1,3 @@
-<?php
-require_once( dirname(__FILE__) . '../../../../wp-config.php');
-require_once( dirname(__FILE__) . '/functions.php');
-header("Content-type: text/css");
-
-global $options;
-
-foreach ($options as $value) {
-        if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); } }
-?>
-
 html, body {
 	font-family: arial;
 	font-size: 12px;
@@ -180,7 +169,7 @@ blockquote {
 #header #text {
 	width: 570px;
 	height: 140px;
-	background: url(img/header_<?php echo $C9_header_bg; ?>.jpg);
+	background: url(img/header_green.jpg);
 	display: table;
 	position: relative;
 	overflow: hidden;
