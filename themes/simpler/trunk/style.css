@@ -1,25 +1,30 @@
 * {
 	font-family: "Lucida Grande", Calibri, Verdana, Helvetica, Arial, sans-serif;
 }
+
 html {
 	background: #fff;
 	color: #333;
 	font-size: 0.8em;
 }
+
 body {
 	max-width: 750px;
 	margin: 10px auto;
 	text-align: left;
 }
+
 a:link, a:visited {
 	color: #0000CD;
 	text-decoration: none;
 }
+
 a:hover, a:active {
 	color: #FF8C00;
 	text-decoration: none;
 	border-bottom: 1px solid #FF8C00;
 }
+
 a img {
 	border: 0;
 }
@@ -29,6 +34,16 @@ h1 {
 	margin-bottom: 5px;
 	float: left;
 	color: #FF8C00;
+	margin: 0;
+	padding: 0;
+}
+
+#search {
+	float: right;
+}
+
+#search input {
+	height: 1.6em;
 }
 
 h2 {
@@ -58,12 +73,15 @@ input {
 	width: 250px;
 }
 
+#searchsubmit {
+	width: 50px;
+}
+
 textarea {
 	width: 99%;
 }
 
-pre,
-code {
+pre, code {
 	font-family: Consolas, "Andale Mono", "Courier New", Courier, Monospace;
 	overflow: auto;
 }
@@ -77,23 +95,38 @@ code {
 .draft {
 	background-color: #efefef;
 }
+
+#search p {
+	padding: 0;
+	margin: 0;
+}
+
+#search p * {
+	padding: 0;
+	margin: 0;
+}
+
 #navigation {
 	text-align: right;
 	float: right;
 	list-style-type: none;
 }
+
 #navigation li {
 	float: left;
 }
+
 #navigation li a, #navigation li .current {
 	padding: 5px 10px;
 	text-decoration:none;
 	border: none;
 }
+
 #navigation li a:hover {
 	background: #FF8C00;
 	color:#fff;
 }
+
 #content {
 	line-height: 1.5;
 	clear: both;
@@ -159,7 +192,7 @@ code {
 	color: #000000;
 }
 
-ol#comments {
+#comments ol {
 	list-style: none;
 	margin-left: 0;
 	padding-left: 0;

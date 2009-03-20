@@ -12,14 +12,15 @@
 	<body>
 		<div id="header">
 			<h1><?php Options::out( 'title' ); ?></h1>
+			<form method="get" id="search" action="<?php URL::out('display_search'); ?>">
+				<p><input type="text" id="searchfield" name="criteria" value="<?php if ( isset( $criteria ) ) { echo htmlentities($criteria, ENT_COMPAT, 'UTF-8'); } ?>"> <input type="submit" id="searchsubmit" value="<?php _e('Search'); ?>"></p>
+			</form>
+			<p id="tagline"><?php Options::out( 'tagline' ); ?></p>
 			<ul id="navigation">
 				<li>
 					<a href="<?php Site::out_url( 'habari' ); ?>">Home</a>
 				</li>
-					
 					<?php
-					
-						// Menu tabs
 						foreach ( array_filter($pages->getArrayCopy(), create_function('$a', 'return !in_array($a->slug, array("tag", "archives"));')) as $tab ) {
 							?>
 								<li>
@@ -36,5 +37,4 @@
 					?>
 					
 			</ul>
-			<p id="tagline"><?php Options::out( 'tagline' ); ?></p>
 		</div>
