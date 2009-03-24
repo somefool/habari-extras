@@ -58,7 +58,7 @@ class GeshiHighlighterFormatPlugin extends Format
 	{
 		// Look, ma! No Regex!
 		
-		$tokenizer = new HTMLTokenizer( $in );
+		$tokenizer = new HTMLTokenizer( $in, false );
 		$tokens = $tokenizer->parse();
 		$slices = $tokens->slice( 'div', array( 'class' => 'highlight' ) );
 		foreach ($slices as $slice) {
