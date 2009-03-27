@@ -8,6 +8,13 @@
 		 * You have to use the key of your $redirect_rules as the action for your redirecting rules.
 		 */
 		public $custom_rules = array(
+			'display_entry_by_slug' => array(
+				'name' => 'display_entry_by_slug',
+				'parse_regex' => '%^(?P<slug>[^/]+)(?:/page/(?P<page>\d+)/?)?$%i',
+				'build_str' => '{$slug}',
+				'action' => 'display_entry',
+				'description' => 'Habari slug permalink'
+			),
 			'display_entry_by_date_and_slug' => array( // Wordpress date and slug based permalink: 2007/09/17/<slug>
 				'name' => 'display_entry_by_date_and_slug',
 				'parse_regex' => '%^(?P<year>[1,2]\d{3})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[^/]+)(?:/page/(?P<page>\d+)/?)?$%i',
@@ -106,6 +113,7 @@
 		 */
 		public function act( $action )
 		{
+			EventLog::log( 'action: ' . $action );
 			if ( $action === 'atom_feed' ) {
 				if ( !isset( $this->handler_vars['index'] ) ) {
 					$this->handler_vars['index'] = 1;
