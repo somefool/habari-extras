@@ -106,7 +106,6 @@
 		 */
 		public function act( $action )
 		{
-			EventLog::log( 'action: ' . $action );
 			if ( $action === 'atom_feed' ) {
 				if ( !isset( $this->handler_vars['index'] ) ) {
 					$this->handler_vars['index'] = 1;
