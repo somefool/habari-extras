@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+        <name>Habari Menyu-BP</name>
+        <author>Mike Lietz</author>
+        <url>http://habariproject.org/</url>
+        <version>0.1</version>
+        <description>A first stab at some sort of plugins and themes directory for hp.o, using BLUEPRINT.</description>
+        <template_engine>rawphpengine</template_engine>
+</theme>

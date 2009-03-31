@@ -1,0 +1,255 @@
+body {
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	outline: none;
+}
+
+.container {
+//	width: 920px;
+	}
+
+h1{
+	padding:6px 3px;
+	font-family:georgia;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+}
+
+h3{	
+	margin: 1em 0 0.25em;
+}
+
+#logotype_white h1 {
+	text-align: right;
+	color: #eee; 
+}
+
+#logotype_black h1 {
+	color: #111;
+	text-align: left;
+	position: relative;
+	left: -10px;
+	letter-spacing: 0;
+}
+
+#outer {
+	background-image: url("images/202x1137.png");
+	background-repeat: no-repeat;
+//	background-position: bottom left;
+//	background-position: 0px -42px;
+	background-position: -40px -400px;
+}
+
+#toplinks {
+	margin-top: 0;
+	height: 30px;
+	width: 670px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	background-color: #111;
+	margin-bottom: 100px;	
+}
+
+#toplinks ul {
+	display: block;
+	margin: 0;
+	padding: 0 0 0 38px;
+
+}
+
+#toplinks li {
+	display: inline;
+	font-weight: bold;
+	font-size:1em;
+	line-height: 2;
+	float: left;
+}
+
+#toplinks li a {
+	display: block;
+	width: 120px;
+	color: white;
+	text-decoration: none;
+	padding-top: 5px;
+	height: 25px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#toplinks li a:hover {
+	text-decoration: underline;
+	color: #eee;
+	background-color: #5a5a5a;
+}
+	
+#recent_updates {
+//	background-color: #111;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	color: white;
+	padding:1.5em 0 2em;
+	margin-bottom:1.5em;
+	text-align: center;
+
+}
+
+#recent_updates a {
+	padding: 0;
+	margin:	 0.25em 0;
+	display: block;
+	color: #dd0;
+	background-color: #333;
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #111;
+	text-decoration: none;
+}
+
+#recent_updates a:hover {
+	background-color: #553;
+	color: #eee;
+}
+
+h2.plugin_title {
+	font-weight: bold;
+	font-size: 2.75em;
+	font-family: verdana,arial,sans !important;
+	display: inline;
+	margin-bottom: 0.5em;
+}
+
+p.plugin_title {
+	margin-left: 1em;
+	font-size: 1.25em;
+	font-style: italic;
+	font-family: verdana, arial, sans !important;
+	display: inline;
+}
+
+.plugin_title a,
+.plugin_title a:hover {
+	text-decoration: none;
+}
+
+.ui-tabs-hide {
+	display: none;
+}
+
+.ui-tabs-panel {
+	padding: 1em;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+
+}
+
+.plugin_tabs_container a {
+	outline: none;
+	font-size: 0.95em;
+}
+
+.plugin_tabs_container {
+	background-color: #FAFAFA;
+}
+
+ul.plugin_tabs { 
+	text-align: left; 
+	margin: 1em 0 0 0;
+	font: 10pt verdana, arial, sans-serif !important; 
+	border-bottom: 1px solid #888;
+	list-style-type: none;
+	padding: 3px 10px 2px 10px; /* THIRD number must change with respect to padding-top (X) below */
+}
+
+ul.plugin_tabs li { 
+	display: inline;
+}
+
+.ui-tabs-selected { /* settings for selected tab */
+	border-bottom: 1px solid #fff; /* set border color to page background color */
+	background-color: #fff !important; /* set background color to match above border color */
+}
+
+.ui-tabs-selected a { /* settings for selected tab link */
+	background-color: #fff !important; /* set selected tab background color as desired */
+	color: #333 !important; /* set selected tab link color as desired */
+	position: relative;
+	top: 1px;
+	padding-top: 4px; /* must change with respect to padding (X) above and below */
+}
+
+ul.plugin_tabs li a { 
+	padding: 3px 0.75em 2px; 
+	border: 1px solid #888; /* set border COLOR as desired; usually matches border color specified in #tabnav */
+	background-color: #CCC; /* set unselected tab background color as desired */
+	color: #999; /* set unselected tab link color as desired */
+	margin-right: 3px; /* set additional spacing between tabs as desired */
+	text-decoration: none;
+	border-bottom: none;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+}
+
+ul.plugin_tabs a:hover { 
+	background: #fff; /* set desired hover color */
+}
+
+.screenshot img {
+	padding:4px;
+	border:1px dotted #A7A37E;
+	display:block;
+	text-align:center;
+	margin:0 auto 18px auto;
+	width: 300px;
+}
+
+.olderpostbox {
+        background-color: #fff;
+}
+
+.olderpostbox + .olderpostbox {
+/*      border-top: 3px solid #f60; */
+
+}
+
+.oldcontent {
+        margin: 0 5px;
+        padding-left: 15px;
+}
+#version_wrapper {
+        padding: 0;
+}
+
+#version_wrapper a {
+        color: #444;
+}
+
+#version_wrapper .versiontitle {
+	outline: none;
+	background-color: #999;
+	padding: 1em 0.5em 0;
+        clear: both;
+        font-size: 190%;
+}
+
+#version_wrapper .versiontitle a,
+#version_wrapper .versioncontent a {
+        font-weight: normal;
+        color: #a45209;
+}
+
+#version_wrapper .versioncontent {
+        border-bottom: 1px dotted #a45209;
+        background-color: #FAFAFA;
+        color: #555;
+}
+
