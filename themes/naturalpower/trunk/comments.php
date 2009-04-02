@@ -11,7 +11,7 @@ if ( $post->comments->moderated->count ) {
 </div>
 <div class="right">
 <h4><b><a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a></b>&nbsp; on 
-<?php echo $comment->date; ?></h4>
+<?php echo $comment->date_out; ?></h4>
 <?php echo $comment->content_out; ?>
 	<?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) {
 		echo '<p><em>Your comment is awaiting moderation.</em></p>';

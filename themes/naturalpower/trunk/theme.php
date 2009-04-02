@@ -19,7 +19,7 @@ Format::apply( 'tag_and_list', 'post_tags_out' );
 // Apply Format::nice_date() to post date...
 Format::apply( 'nice_date', 'post_pubdate_out', 'l, d F Y' );
 // Apply Format::nice_date() to comment date...
-Format::apply( 'nice_date', 'comment_date', 'l, d F Y' );
+Format::apply( 'nice_date', 'comment_date_out', 'l, d F Y' );
 
 $header_text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.';
 
