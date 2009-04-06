@@ -9,7 +9,7 @@ Any blog that allows people to comment wil receive spam. Simple Blacklist can be
 
 Requirements 
 
-Habari 0.5 alpha or higher.
+Habari 0.6 or higher
 
 Installation
 
@@ -21,8 +21,7 @@ Usage
 
 Click on the Configure option for Simple Blacklist. The configuration dialog contains two settings.
 1. A text box in which you enter the words, phrases, urls, and ip addresses. Each entry must be on its own line. Whenever you find a new item you wish to include in the blacklist, come back here and add it to the list.
-2. A select box to allow you to decide whether frequent commenters must have their comments compared to the blacklist or not.
-
+2. A checkbox to allow you to decide whether frequent commenters must have their comments compared to the blacklist or not. 
 After you've made your changes to the options, click the Save button to save them to your database, then click the Close button to close the dialog.
 
 Uninstallation
@@ -33,7 +32,7 @@ Uninstallation
 
 Cleanup
 
-1. The plugin places several items in your Options table. All are prepended with 'simpleblacklist_'. You can safely delete these entries after you uninstall the plugin.
+1. The plugin places several items in your Options table. All are prepended with 'simpleblacklist__'. You can safely delete these entries after you uninstall the plugin.
 
 Changelog
 Version 1.3.1-alpha2
