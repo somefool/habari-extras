@@ -38,7 +38,7 @@ class PageMenuPlugin extends Plugin
 	
 	public function show_form()
 	{
-		$candidates = Posts::get(array('type'=>'page', 'status'=>'published'));
+		$candidates = Posts::get(array('content_type'=>'page', 'status'=>'published'));
 		
 		usort($candidates, array($this, 'sort_candidates'));
 		$menuids = Options::get('pagemenu__ids');
@@ -124,6 +124,8 @@ HEADER_CSS;
 	
 	public function theme_pagemenu($theme)
 	{
+		$theme->start_buffer();
+
 		$menuids = (array)Options::get('pagemenu__ids');
 		
 		$orderbys = array();
@@ -132,9 +134,19 @@ HEADER_CSS;
 		}
 		$orderby = implode(',', $orderbys);
 
-		$menupages = Posts::get(array('type'=>'page', 'id'=>$menuids, 'orderby' => $orderby));
+		$menupages = Posts::get(array('content_type'=>'page', 'id'=>$menuids, 'orderby' => $orderby));
+		foreach($menupages as $key => $page) {
+			if(isset($theme->post) && $theme->post->slug == $page->slug) {
+				$theme->activemenu = $page;
+				$menupages[$key]->active = true;
+				$menupages[$key]->activeclass = 'active';
+			}
+			else {
+				$menupages[$key]->active = false;
+				$menupages[$key]->activeclass = 'inactive';
+			}
+		}
 		
-		$theme->start_buffer();
 		$theme->menupages = $menupages;
 		$out = $theme->fetch('pagemenu', true);
 		
