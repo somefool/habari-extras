@@ -1,0 +1,45 @@
+#tag-cloud li {
+	list-style: none;
+	float: left;
+	padding: 0px 5px 0px 0px;
+	font-size: 10px; /* If we have 10  steps and start with 10px we will get 10,12,114,...28px */	
+}
+#tag-cloud li a {
+	margin: 0px;
+	line-height: 34px;
+	color: #000;
+}
+#tag-cloud li a:hover {
+	background: #000;
+	color: #fff;	
+}
+#tag-cloud .step-1 a {
+	font-size: 1.0em;
+}
+#tag-cloud .step-2 a {
+	font-size: 1.2em;
+}
+#tag-cloud .step-3 a {
+	font-size: 1.4em;
+}
+#tag-cloud .step-4 a {
+	font-size: 1.6em;
+}
+#tag-cloud .step-5 a {
+	font-size: 1.8em;
+}
+#tag-cloud .step-6 a {
+	font-size: 2.0em;
+}
+#tag-cloud .step-7 a {
+	font-size: 2.2em;
+}
+#tag-cloud .step-8 a {
+	font-size: 2.4em;
+}
+#tag-cloud .step-9 a {
+	font-size: 2.6em;
+}
+#tag-cloud .step-10 a {
+	font-size: 2.8em;
+}
