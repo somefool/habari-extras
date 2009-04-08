@@ -41,7 +41,7 @@ class PageMenuPlugin extends Plugin
 		$candidates = Posts::get(array('content_type'=>'page', 'status'=>'published'));
 		
 		usort($candidates, array($this, 'sort_candidates'));
-		$menuids = Options::get('pagemenu__ids');
+		$menuids = (array)Options::get('pagemenu__ids');
 		
 		echo '<form action="" method="post">';
 		echo '<ul id="pagemenu_candidates">';
@@ -98,16 +98,29 @@ function pagemenu_toggle(e){
 HEADER_JS;
 		Stack::add( 'admin_header_javascript',  $script, 'pagemenu', array('jquery', 'ui.sortable') );
 		
-		$styles = <<< HEADER_CSS
+		$styles = "
 #pagemenu_candidates {
 margin: 10px;
 }
 #pagemenu_candidates li {
 	border: 1px solid #ccc;
+	border-width: 1px 2px;
 	width: 50%;
 	padding: 5px;
+	margin-bottom: 3px;
+
 }
-HEADER_CSS;
+
+#pagemenu_candidates label {
+		background: url(" .  Site::get_url('system') . "/admin/images/dashboardhandle.png) no-repeat scroll 320px center;
+		display: block;
+}
+
+#pagemenu_candidates li:hover {
+	background: #f3f3f3;
+}
+
+";
 		Stack::add( 'admin_stylesheet', array($styles, 'screen'), 'pagemenu');
 	}
 	
