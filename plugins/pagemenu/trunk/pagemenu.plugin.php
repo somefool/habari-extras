@@ -1,0 +1,158 @@
+<?php
+
+class PageMenuPlugin extends Plugin
+{
+	/**
+	 * function info
+	 * Returns information about this plugin
+	 * @return array Plugin info array
+	 **/
+	function info()
+	{
+		return array (
+			'name' => 'Page Menu',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Owen Winkler',
+			'authorurl' => 'http://asymptomatic.net/',
+			'version' => '1.0',
+			'description' => 'Creates a menu from Pages',
+			'license' => 'Apache License 2.0',
+		);
+	}
+
+	function action_init()
+	{
+		$this->add_template( 'pagemenu', dirname(__FILE__) . '/pagemenu.php' );
+	}
+
+	public function configure()
+	{
+		if($_SERVER['REQUEST_METHOD']=='POST') {
+			$this->process_form();
+		}
+		else {
+			$this->show_form();
+		}
+		
+	}
+	
+	public function show_form()
+	{
+		$candidates = Posts::get(array('type'=>'page', 'status'=>'published'));
+		
+		usort($candidates, array($this, 'sort_candidates'));
+		$menuids = Options::get('pagemenu__ids');
+		
+		echo '<form action="" method="post">';
+		echo '<ul id="pagemenu_candidates">';
+		foreach($candidates as $candidate) {
+			$checked = in_array($candidate->id, $menuids) ? ' checked' : '';
+			echo '<li><label><input type="checkbox" name="pagemenu[]" value="' . $candidate->id . '" ' . $checked . '> ' . $candidate->title . '</label></li>';
+		}
+		echo '</ul>';
+		echo '<div><label><input id="#pagemenu_show" type="checkbox" checked onclick="pagemenu_toggle(this);"> List pages not currently selected for the menu</label></div>';
+		echo '<input type="submit" name="submit" value="Set Menu">';
+		echo '</form>';
+	}
+	
+	public function sort_candidates($a, $b)
+	{
+		static $menuids = null;
+		if(empty($menuids)) {
+			$menuids = (array)Options::get('pagemenu__ids');
+		}
+		
+		$ia = in_array($a->id, $menuids);
+		$ib = in_array($b->id, $menuids);
+		
+		if(!$ia && !$ib) {
+			return $a->title > $b->title ? 1 : -1;
+		}
+		elseif($ia && !$ib) {
+			return -1;
+		}
+		elseif(!$ia && $ib) {
+			return 1;
+		}
+		else {
+			$sa = array_search($a->id, $menuids);
+			$sb = array_search($b->id, $menuids);
+			
+			return $sa > $sb ? 1 : -1;
+		}
+	}
+	
+	public function action_admin_header()
+	{
+		$script = <<< HEADER_JS
+$(function(){ 
+	$('#pagemenu_candidates').sortable({axis: 'y', distance: 3});
+});
+function pagemenu_toggle(e){
+	if($(e).attr('checked')) {
+		$('#pagemenu_candidates li').show();
+	} else {
+		$('#pagemenu_candidates input[type=checkbox]:not(:checked)').parents('li').hide();
+	}
+}
+HEADER_JS;
+		Stack::add( 'admin_header_javascript',  $script, 'pagemenu', array('jquery', 'ui.sortable') );
+		
+		$styles = <<< HEADER_CSS
+#pagemenu_candidates {
+margin: 10px;
+}
+#pagemenu_candidates li {
+	border: 1px solid #ccc;
+	width: 50%;
+	padding: 5px;
+}
+HEADER_CSS;
+		Stack::add( 'admin_stylesheet', array($styles, 'screen'), 'pagemenu');
+	}
+	
+	public function process_form()
+	{
+		$menus = $_POST['pagemenu'];
+		
+		Options::set('pagemenu__ids', $menus);
+		
+		Session::notice(_t('Updated the menu.'));
+		$this->show_form();
+		//Utils::redirect();  // Should do this instead, wasn't working locally?
+	}
+	
+	public function theme_pagemenu($theme)
+	{
+		$menuids = (array)Options::get('pagemenu__ids');
+		
+		$orderbys = array();
+		foreach(array_reverse($menuids) as $id) {
+			$orderbys[] = "id = {$id}";
+		}
+		$orderby = implode(',', $orderbys);
+
+		$menupages = Posts::get(array('type'=>'page', 'id'=>$menuids, 'orderby' => $orderby));
+		
+		$theme->start_buffer();
+		$theme->menupages = $menupages;
+		$out = $theme->fetch('pagemenu', true);
+		
+		return $out;
+	}
+
+	public function help()
+	{
+		return <<< END_HELP
+<p>To output the menu in your theme, insert this code where you want the menu to appear:</p>
+<blockquote><code>&lt;?php \$theme-&gt;pagemenu(); ?&gt;</code></blockquote>
+<p>The default theme only displays the &lt;li&gt; and &lt;a&gt; elements for the menu item.  
+If you want to alter this, you should copy the <tt>pagemenu.php</tt> template included with 
+this plugin to your current theme directory and make changes to it there.</p>
+END_HELP;
+	}
+
+}
+
+
+?>
