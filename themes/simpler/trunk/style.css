@@ -29,22 +29,69 @@ a img {
 	border: 0;
 }
 
+#siteinfo {
+	float: left;
+	width: 40%;
+}
+
+#sitenav {
+	float: right;
+	width: 60%;
+}
+
 h1 {
 	font-weight: normal;
 	margin-bottom: 5px;
-	float: left;
 	color: #FF8C00;
 	margin: 0;
 	padding: 0;
+	height: 30px;
+}
+
+#tagline {
+	font-style: italic;
 }
 
 #search {
-	float: right;
+	text-align: right;
+	height: 30px;
 }
 
 #search input {
 	height: 1.6em;
 }
+
+#search p {
+	padding: 0;
+	margin: 0;
+}
+
+#search p * {
+	padding: 0;
+	margin: 0;
+}
+
+#menu {
+	text-align: right;
+	list-style-type: none;
+	float: right;
+}
+
+#menu li {
+	float: left;
+}
+
+#menu li a, #menu li .current {
+	padding: 5px 10px;
+	text-decoration:none;
+	border: none;
+}
+
+#menu li a:hover {
+	background: #FF8C00;
+	color:#fff;
+}
+
 
 h2 {
 	margin-top: 5px;
@@ -86,45 +133,10 @@ pre, code {
 	overflow: auto;
 }
 
-#tagline {
-	float: left;
-	clear: both;
-	font-style: italic;
-}
+
 
 .draft {
 	background-color: #efefef;
-}
-
-#search p {
-	padding: 0;
-	margin: 0;
-}
-
-#search p * {
-	padding: 0;
-	margin: 0;
-}
-
-#navigation {
-	text-align: right;
-	float: right;
-	list-style-type: none;
-}
-
-#navigation li {
-	float: left;
-}
-
-#navigation li a, #navigation li .current {
-	padding: 5px 10px;
-	text-decoration:none;
-	border: none;
-}
-
-#navigation li a:hover {
-	background: #FF8C00;
-	color:#fff;
 }
 
 #content {
