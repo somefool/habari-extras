@@ -2,6 +2,7 @@
 /**
  * DiggBar Blocker Plugin
  *
+ * Inspired by http://daringfireball.net/2009/04/how_to_block_the_diggbar
  **/
 
 class DiggbarBlocker extends Plugin
@@ -14,7 +15,7 @@ class DiggbarBlocker extends Plugin
 	{
 		return array(
 			'name' => 'DiggBar Blocker',
-			'version' => '0.1',
+			'version' => '0.2',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -53,7 +54,6 @@ class DiggbarBlocker extends Plugin
 		if ( $plugin_id == $this->plugin_id() ) {
 			$actions[] = 'Configure';
 		}
-
 		return $actions;
 	}
 
@@ -67,30 +67,40 @@ class DiggbarBlocker extends Plugin
 		if ( $plugin_id == $this->plugin_id() ) {
 			
 			if ( $action == _t( 'Configure' ) ) {
-				
+
 				$ui = new FormUI( strtolower( get_class( $this ) ) );
 
-				$message = $ui->append( 'textarea', 'message', 'option:diggbarblocker__message', 
-					_t('Text to display to Diggbar-using visitors:') );
-				$message->rows = 3;
+				$reload_fieldset = $ui->append( 'fieldset', 'reload', _t( 'No Message' ) );
+					
+				$reload_page = $reload_fieldset->append( 'checkbox', 'reload', 'option:diggbarblocker__reload', 
+					_t( 'Instead of displaying a message, reload the page without the bar' ) );
+
+				$message_fieldset = $ui->append( 'fieldset', 'message_settings', _t( 'Message Settings' ) );
+				$message = $message_fieldset->append( 'textarea', 'message', 'option:diggbarblocker__message', 
+					_t( 'If the box above is not checked, display this to Diggbar-using visitors:' ) );
+				$message->rows = 2;
 				$message->class[] = 'resizable';
-				$reload_page = $ui->append( 'checkbox', 'reload', 'option:diggbarblocker__reload', 
-					_t('Instead of displaying a message, reload the page without the bar') );
+
+				$link = $message_fieldset->append( 'checkbox', 'addlink', 'option:diggbarblocker__addlink',
+					_t( 'Add a link to the target page.' ) );
+
 				$ui->append( 'submit', 'save', _t('Save') );
 				$ui->out();
-			
 			}
 		}
 	}
 
 	/**
-	 * Set default text.
+	 * Set default text & link behavior
 	 **/
 	public function action_plugin_activation( $file )
 	{
-		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
+		if ( Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__) ) {
 			if ( Options::get( 'diggbarblocker__message' ) == null ) {
-				Options::set( 'diggbarblocker__message', _t('This site does not support use of the DiggBar') );
+				Options::set( 'diggbarblocker__message', _t('This site does not support use of the DiggBar.') );
+			}
+			if ( Options::get( 'diggbarblocker__add_link' ) == null ) {
+				Options::set( 'diggbarblocker__addlink', 1 ); 
 			}
 		}
 	}
@@ -111,7 +121,10 @@ class DiggbarBlocker extends Plugin
 
 			} else
 			{	
-				$buffer = Options::get( 'diggbarblocker__message' );
+				$buffer = '<p>' . Options::get( 'diggbarblocker__message' ) .'</p>' . 
+					( Options::get( 'diggbarblocker__addlink' ) ? 
+					_t( '<p>Open <a title="Open in a new window" target="_top" href="') . $_SERVER[ 'SCRIPT_URI' ] . '">' .
+					$_SERVER[ 'SCRIPT_URI' ] . _t('</a> in a new tab or window to view it.</p>') : '');
 			}	
 		}
 		return $buffer;
