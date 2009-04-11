@@ -49,7 +49,7 @@ class habaridiggbarkiller extends Plugin
 <!-- habaridiggbarkiller -->
 <script type="text/javascript">
 if (top !== self && document.referrer.match(/digg\.com\/\w{1,8}/)) {
-		  top.location.href = self.location.href;
+  top.location.replace(self.location.href);
 		}
 </script>
 <!-- habaridiggbarkiller END -->
