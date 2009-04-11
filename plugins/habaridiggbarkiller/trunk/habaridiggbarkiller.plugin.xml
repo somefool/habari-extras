@@ -1,0 +1,9 @@
+<plugin>
+	<name>habaridiggbarkiller</name>
+	<url>http://www.somefoolwitha.com</url>
+	<author>MatthewM</author>
+	<authorurl>http://somefoolwitha.com</authorurl>
+	<description>Removes digg bar frame.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+
