@@ -27,7 +27,7 @@ class habaridiggbarkiller extends Plugin
 			'author' => 'MatthewM',
 			'authorurl' => 'http://somefoolwitha.com',
 			'version' => self::VERSION,
-			'description' => 'An admin strip for Habari.',
+			'description' => 'Removes the Diggbar frame.',
 			'license' => 'Apache License 2.0',
 		);
 	}
