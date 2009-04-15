@@ -38,7 +38,7 @@ class DiggbarBlocker extends Plugin
 	 **/
 	public function help()
 	{
-		$help = _t( "This plugin does two things: Post a notification to your twitter stream linking to a newly published post, and retrieving and displaying your recent status update on your blog. Either or both can be enabled.<br>A 'tweets' template file for themes is provided."
+		$help = _t( "This plugin Prevents DiggBar from framing your site."
 		);
 		return $help;
 	}
