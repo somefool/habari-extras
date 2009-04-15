@@ -68,7 +68,7 @@ class GeshiHighlighterFormatPlugin extends Format
 			
 			$sliceCacheName = 'plugin.highlight.' . md5($sliceValue);
 			
-			if ( false && Cache::has( $sliceCacheName ) ) {
+			if ( Cache::has( $sliceCacheName ) ) {
 				$geshiOutput = Cache::get( $sliceCacheName );
 			} else {
 				// capture the first class (not "highlight")
