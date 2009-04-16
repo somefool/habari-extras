@@ -38,8 +38,7 @@ class PageMenuPlugin extends Plugin
 	
 	public function show_form()
 	{
-		$candidates = Posts::get(array('content_type'=>'page', 'status'=>'published'));
-		
+		$candidates = Posts::get(array('content_type'=>'page', 'status'=>'published', 'nolimit'=>true));
 		usort($candidates, array($this, 'sort_candidates'));
 		$menuids = (array)Options::get('pagemenu__ids');
 		
