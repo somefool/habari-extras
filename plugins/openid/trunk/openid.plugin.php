@@ -5,13 +5,13 @@ class OpenID extends Plugin
 	{
 		return array(
 			'name' => 'OpenID',
-			'version' => '1.1.2',
+			'version' => '1.1.3',
 			'url' => 'http://phpquebec.org/',
 			'author' =>	'PHP Quebec Community',
 			'authorurl' => 'http://phpquebec.org/',
 			'license' => 'Apache License 2.0',
 			'description' => 'Adds OpenID 2.0 authentification support.',
-			'copyright' => '2007'
+			'copyright' => '2009'
 			);
 	}
 
@@ -272,7 +272,7 @@ class OpenID extends Plugin
 	{
 		$consumer = self::getConsumer();
 		$return_to = self::getReturnTo();
-		$response = $consumer->complete( $return_to );
+		$response = $consumer->complete( $return_to, Auth_OpenId::getQuery( $_SERVER->raw( 'QUERY_STRING' ) ) );
 
 		switch( $response->status ) {
 			case Auth_OpenID_CANCEL:
