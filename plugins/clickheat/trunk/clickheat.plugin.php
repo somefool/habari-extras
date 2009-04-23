@@ -39,9 +39,9 @@ class Clickheat extends Plugin
 		return array(
 			'name' => 'Clickheat',
 			'version' => '1.0',
-			'url' => 'http://www.xvolter.com/project/habari-clickheat/',
+			'url' => 'http://www.benhutchins.com/project/habari-clickheat/',
 			'author' => 'Benjamin Hutchins',
-			'authorurl' => 'http://www.xvolter.com',
+			'authorurl' => 'http://www.benhutchins.com',
 			'license' => 'MIT License',
 			'description' => 'Generate clickheat graphs based off your visitors.'
 		);

@@ -1,0 +1,9 @@
+<plugin>
+	<name>Project Management System</name>
+	<version>1.2</version>
+	<url>http://www.benhutchins.com/project/project-management/</url>
+	<author>Benjamin Hutchins</author>
+	<authorurl>http://www.benhutchins.com</authorurl>
+	<license>MIT License</license>
+	<description>Not a replacement for the better systems such as Trac or a true SVN, but will help any developer manage their projects, clients, scripts, and more.</description>
+</plugin>
