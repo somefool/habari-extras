@@ -80,7 +80,7 @@ class GeshiHighlighterFormatPlugin extends Format
 				$geshi->set_header_type( GESHI_HEADER_PRE );
 				$geshi->set_overall_class( 'geshicode' );
 				$geshiOutput = @$geshi->parse_code(); // @ is slow, but geshi is full of E_NOTICE
-				Cache::set( $sliceCacheName, '$geshiOutput' );
+				Cache::set( $sliceCacheName, $geshiOutput );
 			}
 			$slice->tokenize_replace( $geshiOutput );
 			$tokens->replace_slice( $slice );
