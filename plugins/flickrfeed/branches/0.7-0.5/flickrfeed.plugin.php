@@ -217,25 +217,19 @@ class FlickrFeed extends Plugin
 
 				// Photo size
 				foreach ($flickrfeed as &$image) {
-					switch ($params['size']) {
-						case 'thumbnail':
-							$image['image_url'] = str_replace('_m.jpg', '_t.jpg', $image['m_url']);
-							break;
-						case 'small':
-							$image['image_url'] = $image['m_url'];
-							break;
-						case 'medium':
-							$image['image_url'] = $image['l_url'];
-							break;
-						case 'large':
-							$image['image_url'] = str_replace('_m.jpg', '_b.jpg', $image['m_url']);
-							break;
-						case 'original':
-							$image['image_url'] = $image['photo_url'];
-							break;
-						default:
-							$image['image_url'] = $image['t_url'];
-							break;
+					$image['image_sizes'] = array(
+						'thumbnail' => str_replace('_m.jpg', '_t.jpg', $image['m_url']),
+						'small' => $image['m_url'],
+						'medium' => $image['l_url'],
+						'large' => str_replace('_m.jpg', '_b.jpg', $image['m_url']),
+						'original' => $image['photo_url'],
+						'default' => $image['t_url'],
+					);
+					if(isset($image['image_sizes'][$params['size']])) {
+						$image['image_url'] = $image['image_sizes'][$params['size']];
+					}
+					else {
+						$image['image_url'] = $image['image_sizes']['default'];
 					}
 				}
 
