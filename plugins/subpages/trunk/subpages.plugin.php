@@ -161,9 +161,18 @@ class SubPagesPlugin extends Plugin
 			$subpage_vocab = Vocabulary::get('subpages');
 			$term = $subpage_vocab->get_term($post->slug);
 			if ( null != $term ) {
+
 				// TODO this should be get_objects etc
-				$theme->subpages = $term->children();
-				return $theme->display('subpages');
+
+				$slugs = array();
+				$children = $term->children();
+				foreach ( $children as $child ) {
+					$slugs[] = $child->term;
+				}
+				if ( count($slugs) > 0 ) {
+					$theme->subpages = Posts::get(array('slug' => $slugs));
+					return $theme->display('subpages');
+				}
 			}
 		}
 	}
