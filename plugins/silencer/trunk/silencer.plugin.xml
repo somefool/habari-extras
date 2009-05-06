@@ -1,0 +1,11 @@
+<plugin>
+	<name>Silencer</name>
+	<version>0.01</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<description>Disables comments for all newly published posts</description>
+	<license>Apache License 2.0</license>
+	<copyright>2009</copyright>
+</plugin>
+
