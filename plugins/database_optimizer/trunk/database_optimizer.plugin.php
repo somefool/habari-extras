@@ -3,7 +3,7 @@
 	class DatabaseOptimizer extends Plugin
 	{
 		
-		const VERSION = '0.4';
+		const VERSION = '0.4.1';
 		
 		public function info ( ) {
 			
@@ -101,7 +101,7 @@
 							
 						}
 						
-						EventLog::log( 'Database Tables Optimized. ' . Utils::human_size( $space_saved ) . ' reclaimed from ' . Locale::_n( 'table', 'tables', $tables ) . '.' );
+						EventLog::log( 'Database Tables Optimized. ' . Utils::human_size( $space_saved ) . ' reclaimed from ' . HabariLocale::_n( 'table', 'tables', $tables ) . '.' );
 						
 					}
 					
