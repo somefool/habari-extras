@@ -10,7 +10,7 @@ class userfields extends Plugin
 	{
 		return array(
 			'name' => 'User Fields',
-			'version' => '0.01',
+			'version' => '0.02',
 			'url' => 'http://habariproject.org',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org',
@@ -37,6 +37,15 @@ class userfields extends Plugin
 	}
 
 	/**
+	 * Add help text to plugin configuration page
+	 **/
+	public function help()
+	{
+		$help = _t( 'These fields are added to the User page. To use the values you have set, <code>echo $post->author->info->userfield_{your field}</code>' );
+		return $help;
+	}
+
+	/**
 	* Respond to the user selecting an action on the plugin page
 	*
 	* @param string $plugin_id The string id of the acted-upon plugin
@@ -47,8 +56,7 @@ class userfields extends Plugin
 		if ($plugin_id == $this->plugin_id()) {
 			if ( $action == 'Configure' ) {
 				$ui = new FormUI('userfields');
-				$ui->append('static', 'typelabel', _t( 'Fields to add to Users' ) );
-				$ui->append('textmulti', 'fields', 'userfields__fields' , 'Additional Fields:');
+				$ui->append('textmulti', 'fields', 'userfields__fields' , _t( 'Additional User Fields:' ) );
 				$ui->append('submit', 'submit', 'Submit');
 				$ui->out();
 			}
@@ -74,11 +82,10 @@ class userfields extends Plugin
 
 		foreach($fields as $field) {
 			$fieldname = "userfield_{$field}";
-			$customfield = $userfields->append('text', $fieldname, 'null:null', $field);
-			$customfield->value = isset($edit_user->info->{$field}) ? $edit_user->info->{$field} : '';
+			$customfield = $userfields->append( 'text', $fieldname, 'null:null', $field );
+			$customfield->value = isset( $edit_user->info->{$fieldname} ) ? $edit_user->info->{$fieldname} : '';
 			$customfield->class[] = 'important item clear';
 			$customfield->template = 'optionscontrol_text';
-			$userfields->append('static','wtf' . $fieldname , $fieldname );
 		}
 		$form->move_after( $userfields, $form->user_info );
 	}
