@@ -1,0 +1,11 @@
+<plugin>
+	<name>User Fields</name>
+	<version>0.01</version>
+	<url>http://habariproject.org</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Allows site administrators to create new user data fields.</description>
+	<copyright>2009</copyright>
+</plugin>
+
