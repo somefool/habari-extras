@@ -26,28 +26,56 @@ class RSSBlock extends Plugin
 			'description' => _t('Links from an RSS feed as a block'),
 		);
 	}
+	
+	public function action_plugin_activation( $file )
+	{
+		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
+			CronTab::add_hourly_cron('update_rrs_blocks', 'rssblocks_update');
+		}
+	}
+	
+	public function filter_rssblocks_update($success)
+	{
+		EventLog::log('Running rrsblocks update');
+
+		$blocks = DB::get_results('SELECT b.* FROM {blocks} b WHERE b.type = ?', array('rssblock'), 'Block');
+		Plugins::act('get_blocks', $blocks);
+
+		foreach($blocks as $block) {
+			$cachename = array('rssblock', md5($block->feed_url));
+			if(Cache::expired($cachename)) {
+				$r = new RemoteRequest( $block->feed_url );
+				$r->set_timeout( 10 );
+				$r->execute();
+				$feed = $r->get_response_body();
+				if(is_string($feed)) {
+					Cache::set($cachename, $feed, 30, true);
+				}
+			}
+		}
+		
+		Session::notice('ran rssblocks update');
+		
+		return $success;
+	}
 
 	public function filter_block_list($block_list)
 	{
 		$block_list['rssblock'] = _t('RSS Block');
 		return $block_list;
 	}
-
+	
 	public function action_block_content_rssblock($block)
 	{
+		$items = array();
 		$cachename = array('rssblock', md5($block->feed_url));
-		if(Cache::has($cachename)) {
-			$feed = Cache::get($cachename);
-		}
-		else {
-			$feed = RemoteRequest::get_contents($block->feed_url);
-			Cache::set($cachename, $feed);
-		}
-		
+		if(Cache::expired($cachename)) {
+			CronTab::add_single_cron('single_update_rrs_blocks', 'rrsblocks_update', HabariDateTime::date_create());
+		}	
+		$feed = Cache::get($cachename);
 		$xml = new SimpleXMLElement($feed);
 		$dns = $xml->getDocNamespaces();
 		
-		$items = array();
 		$itemcount = 0;
 		foreach($xml->channel->item as $xitem) {
 			$item = new StdClass();
