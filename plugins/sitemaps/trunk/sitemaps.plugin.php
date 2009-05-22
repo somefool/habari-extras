@@ -7,13 +7,13 @@ class Sitemaps extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'Sitemaps',
-			'version' => '0.6.2',
+			'version' => '0.6.3',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
 			'license' => 'Apache License 2.0',
 			'description' => 'Sitemaps plugin for Habari.',
-			'copyright' => '2007'
+			'copyright' => '2009'
 		);
 	}
 	
@@ -85,7 +85,7 @@ class Sitemaps extends Plugin {
 				foreach ( $entries as $entry ) {
 					$url = $xml->addChild( 'url' );
 					$url_loc = $url->addChild( 'loc', $entry->permalink );
-					$url_lastmod = $url->addChild( 'lastmod', $entry->updated->format(DATE_ATOM) );
+					$url_lastmod = $url->addChild( 'lastmod', $entry->updated->get( 'c' ) );
 				}
 			}
 			$xml = $xml->asXML();
