@@ -2,10 +2,10 @@
 /**
  * Laconica Twitter-Compat API Plugin
  *
- * Show your latest Laconica notice in your theme and/or
+ * Show your latest Laconica notices in your theme and/or
  * post your latest blog post to your Laconica service.
  *
- * Usage: <?php $theme->laconica(); ?> to show your latest notice.
+ * Usage: <?php $theme->laconica(); ?> to show your latest notices.
  * Copy the laconica.tpl.php template to your active theme to customize
  * output display.
  *
@@ -21,7 +21,7 @@ class Laconica extends Plugin
 	{
 		return array(
 			'name' => 'Laconica',
-			'version' => '0.6.1',
+			'version' => '0.6.2',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -50,7 +50,7 @@ class Laconica extends Plugin
 				<p>To use identi.ca, for example, since your URL is
 				something like <tt>http://identi.ca/yourname</tt>,
 				you would enter <tt>identi.ca</tt>.</p>
-				<p>To display your latest notice, call <code>$theme->laconica();</code>
+				<p>To display your latest notices, call <code>$theme->laconica();</code>
 				at the appropriate place in your theme.</p>');
 		return $help;
 	}
@@ -76,17 +76,20 @@ class Laconica extends Plugin
 	public function action_plugin_activation( $file )
 	{
 		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
-			if ( Options::get( 'laconica__hide_replies' ) != 0 ) {
+			if ( Options::get( 'laconica__hide_replies' ) !== 0 ) {
 				Options::set( 'laconica__hide_replies', 1 );
 			}
-			if ( Options::get( 'laconica__linkify_urls' ) != 0 ) {
+			if ( Options::get( 'laconica__linkify_urls' ) !== 0 ) {
 				Options::set( 'laconica__linkify_urls', 1 );
 			}
-			if ( Options::get( 'laconica__svc' ) == null ) {
+			if ( !Options::get( 'laconica__svc' )  ) {
 				Options::set( 'laconica__svc', 'identi.ca' );
 			}
-			if ( Options::get( 'laconica__show' ) != 0 ) {
+			if ( Options::get( 'laconica__show' ) !== 0 ) {
 				Options::set( 'laconica__show', 1 );
+			}
+			if ( !Options::get( 'laconica__limit' ) ) {
+				Options::set( 'laconica__limit', 1 );
 			}
 		}
 	}
@@ -115,7 +118,10 @@ class Laconica extends Plugin
 				$laconica_post = $ui->append( 'text', 'prefix', 'laconica__prefix',
 				 _t('Autopost Prefix (e.g., "New post: "):') );
 				$laconica_show = $ui->append( 'checkbox', 'show', 'laconica__show', 
-					_t('Fetch latest notice') );
+					_t('Show latest notices') );
+				$laconica_limit = $ui->append( 'select', 'limit', 'laconica__limit', 
+					_t('Limit of notices to show') );
+				$laconica_limit->options = array_combine(range(1, 20), range(1, 20));
 				$laconica_show = $ui->append( 'checkbox', 'hide_replies', 
 					'laconica__hide_replies', _t('Hide @replies') );
 				$laconica_show = $ui->append( 'checkbox', 'linkify_urls', 
@@ -202,6 +208,7 @@ class Laconica extends Plugin
 	 **/
 	public function theme_laconica( $theme )
 	{
+		$notices = array();
 		if ( Options::get( 'laconica__show' ) && Options::get( 'laconica__svc' ) && Options::get( 'laconica__username' ) != '' ) {
 			$laconica_url = 'http://' . Options::get( 'laconica__svc' ) . '/index.php?action=api&apiaction=statuses&method=user_timeline&argument=' . urlencode( Options::get( 'laconica__username' ) ) . '.xml';
 			
@@ -209,14 +216,12 @@ class Laconica extends Plugin
 			 * Only need to get a single notice if @replies are hidden.
 			 * (Otherwise, rely on the maximum returned and hope one is a non-reply.)
 			 */
-			if ( Options::get( 'laconica__hide_replies' ) == '0' ) {
-				$laconica_url .= '&count=1';
+			if ( !Options::get( 'laconica__hide_replies' ) &&  Options::get( 'laconica__limit' ) ) {
+				$laconica_url .= '&count=' . Options::get( 'laconica__limit' );
 			}
 
-			if ( Cache::has( 'laconica_notice_text' ) && Cache::has( 'laconica_notice_time' ) && Cache::has( 'notice_image_url' ) ) {
-				$theme->notice_text = Cache::get( 'laconica_notice_text' );
-				$theme->notice_time = Cache::get( 'laconica_notice_time' );
-				$theme->notice_image_url = Cache::get( 'notice_image_url' );
+			if ( Cache::has( 'laconica_notices' ) ) {
+				 $notices = Cache::get( 'laconica_notices' );
 			}
 			else {
 				try {
@@ -225,57 +230,66 @@ class Laconica extends Plugin
 					// Check we've got a load of statuses returned
 					if ( $xml->getName() === 'statuses' ) {
 						foreach ( $xml->status as $status ) {
-							if ( ( Options::get( 'laconica__hide_replies' ) == '0' ) || ( strpos( $status->text, '@' ) !== 0) ) {
-								$theme->notice_text = (string) $status->text;
-								$theme->notice_time = (string) $status->created_at;
-								$theme->notice_image_url = (string) $status->user->profile_image_url;
-								break;
+							if ( ( !Options::get( 'laconica__hide_replies' ) ) || ( strpos( $status->text, '@' ) === false) ) {
+								$notice = (object) array (
+									'text' => (string) $status->text, 
+									'time' => (string) $status->created_at, 
+									'image_url' => (string) $status->user->profile_image_url
+								);
+								
+								$notices[] = $notice;
+								if ( Options::get( 'laconica__hide_replies' ) && count($notices) >= Options::get( 'laconica__limit' ) )
+									break;
 							}
 							else {
 							// it's a @. Keep going.
 							}
 						}
-						if ( !isset( $theme->notice_text ) ) {							
-							$theme->notice_text = 'No non-replies replies available from service.';
-							$theme->notice_time = '';
-							$theme->notice_image_url = '';
+						if ( !$notices ) {							
+							$notice->text = 'No non-replies replies available from service.';
+							$notice->time = '';
+							$notice->image_url = '';
 						}
 					}
 					// You can get error as a root element if service is in maintance mode.
 					else if ( $xml->getName() === 'error' ) {
-						$theme->notice_text = (string) $xml;
-						$theme->notice_time = '';
-						$theme->notice_image_url = '';
+						$notice->text = (string) $xml;
+						$notice->time = '';
+						$notice->image_url = '';
 					}
 					// Should not be reached.
 					else {
-						$theme->notice_text = 'Received unexpected XML from service.';
-						$theme->notice_time = '';
-						$theme->notice_image_url = '';
+						$notice->text = 'Received unexpected XML from service.';
+						$notice->time = '';
+						$notice->image_url = '';
 					}
-					// Cache (even errors) to avoid hitting rate limit.
-					Cache::set( 'laconica_notice_text', $theme->notice_text, Options::get( 'laconica__cache' ) );
-					Cache::set( 'laconica_notice_time', $theme->notice_time, Options::get( 'laconica__cache' ) );
-					Cache::set( 'notice_image_url', $theme->notice_image_url, Options::get( 'laconica__cache' ) );
 				}
 				catch ( Exception $e ) {
-					$theme->notice_text = 'Unable to contact service.';
-					$theme->notice_time = '';
-					$theme->notice_image_url = '';
+					$notice->text = 'Unable to contact service.';
+					$notice->time = '';
+					$notice->image_url = '';
 				}
+				if (!$notices)
+					$notices[] = $notice;
+				// Cache (even errors) to avoid hitting rate limit.
+				Cache::set( 'laconica_notices', $notices, Options::get( 'laconica__cache' ) );
+			}
+			if ( Options::get( 'laconica__linkify_urls' ) != FALSE ) {
+				/* http: links */
+				foreach ($notices as $notice)
+					$notice->text = preg_replace( '%https?://\S+?(?=(?:[.:?"!$&\'()*+,=]|)(?:\s|$))%i', "<a href=\"$0\">$0</a>", $notice->text );
 			}
 		}
 		else {
-			$theme->notice_text = _t('Check username or "Show latest notice" setting in <a href="%s">Laconica plugin config</a>', array( URL::get( 'admin' , 
-			'page=plugins&configure=' . $this->plugin_id . '&configaction=Configure' ) . '#plugin_' . 
-			$this->plugin_id ) , 'laconica' );			
-			$theme->notice_time = '';
-			$theme->notice_image_url = '';
+			$notice = (object) array (
+			'text' => _t('Check username or "Show latest notice" setting in <a href="%s">Laconica plugin config</a>', array( URL::get( 'admin' , 
+			'page=plugins&configure=' . $this->plugin_id . '&configaction=Configure' ) . '#plugin_' . $this->plugin_id ) , 'laconica' ), 
+			'time' => '', 
+			'image_url' => ''
+			);
+			$notices[] = $notice;
 		}
-		if ( Options::get( 'laconica__linkify_urls' ) != FALSE ) {
-			/* http: links */
-			$theme->notice_text = preg_replace( '%https?://\S+?(?=(?:[.:?"!$&\'()*+,=]|)(?:\s|$))%i', "<a href=\"$0\">$0</a>", $theme->notice_text );
-		}
+		$theme->notices = $notices;
 		return $theme->fetch( 'laconica.tpl' );
 	}
 
