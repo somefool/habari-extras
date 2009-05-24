@@ -257,6 +257,9 @@ END_HELP;
 		if ( is_string($term) ) {
 			$term = Vocabulary::get('subpages')->get_term($term);
 		}
+		if ( null == $term ) {
+			return false;
+		}
 		$ancestors = $term->ancestors();
 
 		$stub_parts = array();
