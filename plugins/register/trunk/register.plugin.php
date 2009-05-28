@@ -64,12 +64,8 @@ class Register extends Plugin
 		$form->append('text', 'password', 'null:null', _t('Password'), 'formcontrol_text');
 		$form->password->add_validator('validate_required');
 
-		// Store the group to be added, all secreted up
-		$form->append('hidden', 'group_name', 'group_name');
-		$group_hash = md5($group);
-		$form->group_name->value = $group_hash;
-		$form->append('hidden', 'group_digest', 'group_digest');
-		$form->group_digest->value = $this->hmac($group_hash);
+		// Store the group to be added. This is stored locally, not retrieved from unsafe data.
+		$form->set_option('group_name', $group);
 
 		// Create the Register button
 		$form->append('submit', 'register', _t('Register'), 'formcontrol_submit');
@@ -82,21 +78,7 @@ class Register extends Plugin
 
 	public function register_user( $form )
 	{
-		$allowed_groups = array();
-
-		foreach ( UserGroups::get_all() as $group ) {
-			$allowed_groups[] = $group->name;
-		}
-
-		$allowed_groups = array_combine(array_map('md5', $allowed_groups), $allowed_groups);
-
-		$group = '';
-		if ($this->hmac($form->group_name->value) == $form->group_digest->value) {
-			$group = UserGroup::get($allowed_groups[$form->group_name]);
-		}
-		else {
-			die('You naughty hacker!');
-		}
+		$group = $form->get_option('group_name');
 
 		$user = new User( array( 'username' => $form->username, 'email' => $form->email, 'password' => Utils::crypt( $form->password ) ) );
 		if ( $user->insert() ) {
@@ -112,11 +94,6 @@ class Register extends Plugin
 	public function theme_registration( $theme, $group )
 	{
 		$this->get_form($group)->out();
-	}
-
-	function hmac($data)
-	{
-		return md5(md5($data) . Options::get( 'title' ) . md5(Options::get('register_secret')));
 	}
 
 }
