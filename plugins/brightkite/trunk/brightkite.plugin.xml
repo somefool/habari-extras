@@ -1,0 +1,8 @@
+<plugin>
+	<name>Brightkite Location</name>
+	<url>http://www.ciscomonkey.net</url>
+	<author>Ryan Mullins</author>
+	<authorurl>http://www.ciscomonkey.net</authorurl>
+	<description>Show the current Checked in location from Brightkite.</description>
+	<license>Apache License 2.0</license>
+</plugin>
