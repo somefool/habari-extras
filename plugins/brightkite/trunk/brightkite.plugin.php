@@ -6,8 +6,6 @@
  * 
  * Usage: <?php $theme->bk_location(); ?>
  *
- * @todo update theme to support new sidebar styles
- * @todo update wiki docs
  **/
 
 class Brightkite extends Plugin
@@ -39,7 +37,7 @@ class Brightkite extends Plugin
 			'url' => 'http://www.ciscomonkey.net/',
 			'author' => 'Ryan Mullins',
 			'authorurl' => 'http://www.ciscomonkey.net',
-			'version' => self::VERSION, // . '.' . intval( preg_replace( '%[^0-9]%', '', self::PLUGIN_SVN_REV ) ),
+			'version' => self::VERSION,
 			'description' => _t('Display your latest checkedin info on your blog.', $this->class_name),
 			'license' => 'Apache License 2.0',
 			);

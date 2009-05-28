@@ -1,6 +1,6 @@
 	<!-- Brightkite plugin for habari -->
 	<!-- To customize this template, copy it to your currently active theme directory and edit it -->
-	<!-- $Id$ -->
+	<!-- $Id: brightkite.php 1817 2009-05-28 12:28:01Z ciscomonkey $ -->
 	<div class="item">
 		<h3 class="subs">Last Seen</h3>
 		<ul>
