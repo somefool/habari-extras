@@ -78,7 +78,7 @@ class Register extends Plugin
 
 	public function register_user( $form )
 	{
-		$group = $form->get_option('group_name');
+		$group = UserGroup::get($form->get_option('group_name'));
 
 		$user = new User( array( 'username' => $form->username, 'email' => $form->email, 'password' => Utils::crypt( $form->password ) ) );
 		if ( $user->insert() ) {
