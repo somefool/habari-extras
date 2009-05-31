@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+        <name>The Prestige</name>
+	<author>Michael Bishop &amp; Rick Cockrum</author>
+	<url>http://miklb.com</url>
+        <version>0.8</version>
+        <template_engine>hiengine</template_engine>
+		<description>A custom Habari theme utilizing the Habari Hiengine theme framework.</description>
+		<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+</theme>
