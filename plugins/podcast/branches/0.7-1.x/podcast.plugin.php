@@ -438,7 +438,6 @@ MEDIAJS;
 				$player .= '<param name="wmode" value="transparent" />';
 				$player .= '<embed src="' . $this->get_url() . '/players/xspf/xspf_player_slim.swf?song_url=' . $file . '&song_title=' . $title . '&player_title=' . htmlentities( Options::get( 'title' ), ENT_QUOTES, 'UTF-8' ) . '" type="application/x-shockwave-flash" wmode="transparent" width="' . Options::get( self::OPTIONS_PREFIX . 'xspf_width' ) . '" height="' . Options::get( self::OPTIONS_PREFIX . 'xspf_height' ) . '"></embed>';
 				$player .= '</object></p>';
-//				$player .= '<p><a href="' . $options['enclosure'] . '" rel="enclosure"><small>' . htmlentities( $title, ENT_QUOTES, 'UTF-8' ) . '</small></a></p>';
 				$player .= '<p><a href="' . $options['enclosure'] . '" ><small>Download Podcast</small></a></p>';
 				break;
 
@@ -449,7 +448,6 @@ MEDIAJS;
 				$player .= '<param name="bgcolor" value="#' . Options::get( self::OPTIONS_PREFIX . 'nifty_background' ) . '">';
 				$player .= '<embed src="' . $this->get_url() . '/players/niftyplayer/niftyplayer.swf?file=' . $file . '&as=0" quality="high" bgcolor="#' . Options::get( self::OPTIONS_PREFIX . 'nifty_background' ) . '" width="' . Options::get( self::OPTIONS_PREFIX . 'nifty_width' ) . '" height="' . Options::get( self::OPTIONS_PREFIX . 'nifty_height' ) . '" name="niftyPlayer1" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">';
 				$player .= '</embed></object></p>';
-//				$player .= '<p><a href="' . $options['enclosure'] . '" rel="enclosure"><small>' . htmlentities( $title, ENT_QUOTES, 'UTF-8' ) . '</small></a></p>';
 				$player .= '<p><a href="' . $options['enclosure'] . '" ><small>Download Podcast</small></a></p>';
 				break;
 		}
@@ -658,8 +656,7 @@ MEDIAJS;
 		);
 		$paramarray['user_filters'] = $default_filters;
 
-		$theme->act_display( $paramarray );
-		return TRUE;
+		return $theme->act_display( $paramarray );
 	}
 
 	/**
