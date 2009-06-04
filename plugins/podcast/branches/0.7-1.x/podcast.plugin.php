@@ -141,6 +141,46 @@ class Podcast extends Plugin
 	}
 
 	/**
+	 * Redirects the link from an embedded player, feed, or an html
+	 * download link to the actual file
+	 *
+	 * @param PluginHandler $handler. Primarily used to get the handler vars
+	 * @return Nothing.
+	 * @TODO make sure $podcast actually holds a valid feed
+	 * @TODO make sure $method is valid
+	 */
+	public function action_plugin_act_podcast_media( $handler )
+	{
+		// $podcast is the name of the podcast
+		$podcast = $handler->handler_vars['podcast_name'];
+		// $post is the post we're using
+		$post = Post::get( array( 'slug' => $handler->handler_vars['post_name'] ) );
+		// $method is the source of the link
+		// embed - from an on-page player
+		// download- from a download link under the player
+		// feed - from a feed
+		$method = $handler->handler_vars['method'];
+
+		$info = $post->info->{$podcast};
+		if( !empty( $info ) && isset( $info['enclosure'] ) ) {
+			$filename = $handler->handler_vars['filename'];
+			$url = dirname( $info['enclosure'] ) . DIRECTORY_SEPARATOR . $filename;
+
+			// allow plugins to act. intended for stats
+			Plugins::act( 'podcast_redirect', $podcast, $post, $method, rawurldecode( $filename ) );
+
+			header( 'Cache-Control: no-cache, must-revalidate' ); // HTTP/1.1
+			header( 'Expires: Sat, 26 Jul 1997 05:00:00 GMT' );
+			header( 'Pragma:no-cache'); // HTTP/1.0
+			header( 'Content-type: ' . 'audio/mpeg' );
+			header('Content-Length: '. $info['size'] );
+
+			Utils::redirect( $url );
+		}
+
+	}
+
+	/**
 	* Set up the podcast content type on activation
 	* @param string $plugin_file The filename of the plugin being activated, compare to this class' filename
 	*/
@@ -186,6 +226,8 @@ class Podcast extends Plugin
 		$this->add_template( 'podcast.single', dirname( __FILE__ ) . '/templates/rawphp/podcast.single.php' );
 		$this->add_template( 'podcast.multiple', dirname( __FILE__ ) . '/templates/hi/podcast.multiple.php' );
 		$this->add_template( 'podcast.single', dirname( __FILE__ ) . '/templates/hi/podcast.single.php' );
+
+		$this->add_rule("'podcast'/podcast_name/post_name/method/filename", 'podcast_media');
 	}
 
 	/**
@@ -431,24 +473,27 @@ MEDIAJS;
 
 		$title = ! empty( $options['subtitle'] ) ? $options['subtitle'] : basename( $options['enclosure'], '.mp3' );
 
+		$embed_url = Site::get_url( 'habari' ) . '/podcast/' . $feed . '/' . $this->current_post->slug . '/embed/' . rawurlencode( basename( $options['enclosure'] ) );
+		$download_url = Site::get_url( 'habari' ) . '/podcast/' . $feed . '/' . $this->current_post->slug . '/download/' . rawurlencode( basename( $options['enclosure'] ) );
+
 		switch( Options::get( self::OPTIONS_PREFIX . 'player' ) ) {
 			case 'xspf':
 				$player = '<p><object width="' . Options::get( self::OPTIONS_PREFIX . 'xspf_width' ) . '" height="' . Options::get( self::OPTIONS_PREFIX . 'xspf_height' ) . '">';
-				$player .= '<param name="movie" value="' . $this->get_url() . '/players/xspf/xspf_player_slim.swf?song_url=' . $file . '&song_title=' . $title . '&player_title=' . htmlentities( Options::get( 'title' ), ENT_QUOTES, 'UTF-8' ) . '" />';
+				$player .= '<param name="movie" value="' . $this->get_url() . '/players/xspf/xspf_player_slim.swf?song_url=' . $embed_url . '&song_title=' . $title . '&player_title=' . htmlentities( Options::get( 'title' ), ENT_QUOTES, 'UTF-8' ) . '" />';
 				$player .= '<param name="wmode" value="transparent" />';
-				$player .= '<embed src="' . $this->get_url() . '/players/xspf/xspf_player_slim.swf?song_url=' . $file . '&song_title=' . $title . '&player_title=' . htmlentities( Options::get( 'title' ), ENT_QUOTES, 'UTF-8' ) . '" type="application/x-shockwave-flash" wmode="transparent" width="' . Options::get( self::OPTIONS_PREFIX . 'xspf_width' ) . '" height="' . Options::get( self::OPTIONS_PREFIX . 'xspf_height' ) . '"></embed>';
+				$player .= '<embed src="' . $this->get_url() . '/players/xspf/xspf_player_slim.swf?song_url=' . $embed_url . '&song_title=' . $title . '&player_title=' . htmlentities( Options::get( 'title' ), ENT_QUOTES, 'UTF-8' ) . '" type="application/x-shockwave-flash" wmode="transparent" width="' . Options::get( self::OPTIONS_PREFIX . 'xspf_width' ) . '" height="' . Options::get( self::OPTIONS_PREFIX . 'xspf_height' ) . '"></embed>';
 				$player .= '</object></p>';
-				$player .= '<p><a href="' . $options['enclosure'] . '" ><small>Download Podcast</small></a></p>';
+				$player .= '<p><a href="' . $download_url . '" ><small>Download Podcast</small></a></p>';
 				break;
 
 			case 'niftyplayer':
 				$player = '<p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="165" height="38" id="niftyPlayer1" align="">';
-				$player .= '<param name=movie value="' . $this->get_url() . '/players/niftyplayer/niftyplayer.swf?file=' . $file . '&as=0">';
+				$player .= '<param name=movie value="' . $this->get_url() . '/players/niftyplayer/niftyplayer.swf?file=' . $embed_url . '&as=0">';
 				$player .= '<param name="quality" value="high">';
 				$player .= '<param name="bgcolor" value="#' . Options::get( self::OPTIONS_PREFIX . 'nifty_background' ) . '">';
-				$player .= '<embed src="' . $this->get_url() . '/players/niftyplayer/niftyplayer.swf?file=' . $file . '&as=0" quality="high" bgcolor="#' . Options::get( self::OPTIONS_PREFIX . 'nifty_background' ) . '" width="' . Options::get( self::OPTIONS_PREFIX . 'nifty_width' ) . '" height="' . Options::get( self::OPTIONS_PREFIX . 'nifty_height' ) . '" name="niftyPlayer1" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">';
+				$player .= '<embed src="' . $this->get_url() . '/players/niftyplayer/niftyplayer.swf?file=' . $embed_url . '&as=0" quality="high" bgcolor="#' . Options::get( self::OPTIONS_PREFIX . 'nifty_background' ) . '" width="' . Options::get( self::OPTIONS_PREFIX . 'nifty_width' ) . '" height="' . Options::get( self::OPTIONS_PREFIX . 'nifty_height' ) . '" name="niftyPlayer1" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">';
 				$player .= '</embed></object></p>';
-				$player .= '<p><a href="' . $options['enclosure'] . '" ><small>Download Podcast</small></a></p>';
+				$player .= '<p><a href="' . $download_url . '" ><small>Download Podcast</small></a></p>';
 				break;
 		}
 
@@ -608,9 +653,13 @@ MEDIAJS;
 		$info = $post->info->get_url_args();
 		foreach( $info as $key => $value ) {
 			if( is_array( $value ) && isset( $value['enclosure'] ) ) {
+
+				// create a url
+				$episode = Site::get_url( 'habari' ) . '/podcast/' . $key . '/' . $post->slug . '/feed/' . rawurlencode( basename( $value['enclosure'] ) );
+
 				$enclosure = $feed_entry->addChild( 'link' );
 				$enclosure->addAttribute( 'rel', 'enclosure' );
-				$enclosure->addAttribute( 'href', $value['enclosure'] );
+				$enclosure->addAttribute( 'href', $episode );
 				$enclosure->addAttribute( 'length', $value['size'] );
 				$enclosure->addAttribute( 'type', 'audio/mpeg' );
 			}
@@ -625,10 +674,15 @@ MEDIAJS;
 	public function action_rss_add_post( $feed_entry, $post )
 	{
 		$info = $post->info->get_url_args();
+
 		foreach( $info as $key => $value ) {
 			if( is_array( $value ) && isset( $value['enclosure'] ) ) {
+
+				// create a url
+				$episode = Site::get_url( 'habari' ) . '/podcast/' . $key . '/' . $post->slug . '/feed/' . rawurlencode( basename( $value['enclosure'] ) );
+
 				$enclosure = $feed_entry->addChild( 'enclosure' );
-				$enclosure->addAttribute( 'url', $value['enclosure'] );
+				$enclosure->addAttribute( 'url', $episode );
 				$enclosure->addAttribute( 'length', $value['size'] );
 				$enclosure->addAttribute( 'type', 'audio/mpeg' );
 			}

@@ -167,8 +167,12 @@ class PodcastHandler extends ActionHandler
 				$guid->addAttribute( 'isPermaLink', 'false' );
 
 				extract( (array)$post->info->$feed_name );
+
+				// create a url
+				$episode = Site::get_url( 'habari' ) . '/podcast/' . $feed_name . '/' . $post->slug . '/feed/' . rawurlencode( basename( $enclosure ) );
+
 				$itunes_enclosure = $item->addChild( 'enclosure' );
-				$itunes_enclosure->addAttribute( 'url', $enclosure );
+				$itunes_enclosure->addAttribute( 'url', $episode );
 				$itunes_enclosure->addAttribute( 'length', $size );
 				$itunes_enclosure->addAttribute( 'type', 'audio/mpeg' );
 
