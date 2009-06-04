@@ -169,7 +169,7 @@ class PodcastHandler extends ActionHandler
 				extract( (array)$post->info->$feed_name );
 
 				// create a url
-				$episode = Site::get_url( 'habari' ) . '/podcast/' . $feed_name . '/' . $post->slug . '/feed/' . rawurlencode( basename( $enclosure ) );
+				$episode = URL::get( 'podcast_media', array( 'podcast_name' => $feed_name, 'post_name' => $post->slug, 'method' => 'feed', 'filename' => rawurlencode( basename( $enclosure ) ) ) );
 
 				$itunes_enclosure = $item->addChild( 'enclosure' );
 				$itunes_enclosure->addAttribute( 'url', $episode );

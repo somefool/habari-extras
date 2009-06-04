@@ -473,8 +473,8 @@ MEDIAJS;
 
 		$title = ! empty( $options['subtitle'] ) ? $options['subtitle'] : basename( $options['enclosure'], '.mp3' );
 
-		$embed_url = Site::get_url( 'habari' ) . '/podcast/' . $feed . '/' . $this->current_post->slug . '/embed/' . rawurlencode( basename( $options['enclosure'] ) );
-		$download_url = Site::get_url( 'habari' ) . '/podcast/' . $feed . '/' . $this->current_post->slug . '/download/' . rawurlencode( basename( $options['enclosure'] ) );
+		$embed_url = URL::get( 'podcast_media', array( 'podcast_name' => $feed, 'post_name' => $this->current_post->slug, 'method' => 'embed', 'filename' => rawurlencode( basename( $options['enclosure'] ) ) ) );
+		$download_url = URL::get( 'podcast_media', array( 'podcast_name' => $feed, 'post_name' => $this->current_post->slug, 'method' => 'download', 'filename' => rawurlencode( basename( $options['enclosure'] ) ) ) );
 
 		switch( Options::get( self::OPTIONS_PREFIX . 'player' ) ) {
 			case 'xspf':
@@ -655,7 +655,7 @@ MEDIAJS;
 			if( is_array( $value ) && isset( $value['enclosure'] ) ) {
 
 				// create a url
-				$episode = Site::get_url( 'habari' ) . '/podcast/' . $key . '/' . $post->slug . '/feed/' . rawurlencode( basename( $value['enclosure'] ) );
+				$episode = URL::get( 'podcast_media', array( 'podcast_name' => $key, 'post_name' => $post->slug, 'method' => 'feed', 'filename' => rawurlencode( basename( $value['enclosure'] ) ) ) );
 
 				$enclosure = $feed_entry->addChild( 'link' );
 				$enclosure->addAttribute( 'rel', 'enclosure' );
@@ -679,7 +679,7 @@ MEDIAJS;
 			if( is_array( $value ) && isset( $value['enclosure'] ) ) {
 
 				// create a url
-				$episode = Site::get_url( 'habari' ) . '/podcast/' . $key . '/' . $post->slug . '/feed/' . rawurlencode( basename( $value['enclosure'] ) );
+				$episode = URL::get( 'podcast_media', array( 'podcast_name' => $key, 'post_name' => $post->slug, 'method' => 'feed', 'filename' => rawurlencode( basename( $value['enclosure'] ) ) ) );
 
 				$enclosure = $feed_entry->addChild( 'enclosure' );
 				$enclosure->addAttribute( 'url', $episode );
