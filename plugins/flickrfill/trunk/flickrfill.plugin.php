@@ -35,7 +35,8 @@ class FlickrFill extends Plugin
 	public function help()
 	{
 		return <<< END_HELP
-		<p>This needs to be written</p>
+		<p>Add this code to your theme where you would like your photos displayed. This must be inside the post loop.</p>
+		<code>&lt;?php \$theme-&gt;flickrfill(\$post,\$posts); ?&gt;</code>
 		<p>CSS Classes</p>
 		<ul><li>flickrfill: container div for images</li>
 		<li>flickrfillimg: class assigned to each img</li></ul>
