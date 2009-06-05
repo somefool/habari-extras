@@ -87,30 +87,59 @@ END_HELP;
 		$this->add_template( 'flickrfill', dirname(__FILE__) . '/flickrfill.php' );
 	}
 	
-	public function theme_flickrfill( $theme, $post1date, $post2date )
+	public function theme_flickrfill_bydate( $theme, $post1date, $post2date )
 	{
 		$this->person_id= Options::get( 'flickrfill__person' );
 		$this->size= Options::get ( 'flickrfill__size' );
 		$this->number= Options::get ( 'flickrfill__number' );
-		$request= new RemoteRequest( 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=rest&api_key=39b1bcf1b0c84a24435677252085d436&user_id=' . $this->person_id . '&min_taken_date=' . $post2date . '&max_taken_date=' . $post1date . '&sort=interestingness-desc&media=photos&per_page=' . $this->number );
+		
+		$feed_url = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=rest&api_key=39b1bcf1b0c84a24435677252085d436&user_id=' . $this->person_id . '&min_taken_date=' . $post2date . '&max_taken_date=' . $post1date . '&sort=interestingness-desc&media=photos&per_page=' . $this->number;
+		
+		if(Cache::has($feed_url)) {
+			$response = Cache::get($feed_url);
+		}
+		if(!Cache::has($feed_url) || Cache::expired($feed_url)) {  // Cache::expired() is a 0.7 feature.
+			$request = new RemoteRequest( $feed_url );
 		$request->set_timeout( 5 );
 		$result= $request->execute();
 		if ( Error::is_error( $result ) ) {
 			EventLog::log( 'Error getting photo from Flickr', 'err', 'default', 'habari' );
-			return;
 		}
+			else {
 		$response= $request->get_response_body();
-		$xml= new SimpleXMLElement( $response );
-		if ( ! $xml ) { return; }
-		/*$photo=$xml->photos->photo;*/
-		echo '<div class="flickrfill">';
-		foreach ( $xml->photos->photo as $photo ) {
-			if ( ! $photo ) { return; }
-			if ( ! $photo['id'] ) { return; }
-			echo '<a href="http://www.flickr.com/photos/' . $this->person_id . '/' . $photo['id'] . '"><img class="flickrfillimg" src="http://farm' . $photo['farm'] . '.static.flickr.com/' . $photo['server'] . '/' . $photo['id'] . '_' . $photo['secret'] . $this->size . '.jpg"></a>';
+			}
 		}
-		echo '</div>';
 		
+		$output = '';
+		$xml= new SimpleXMLElement( $response );
+		if ( ! $xml ) { 
+			return 'no xml'; 
+		}
+		
+		$output .= '<div class="flickrfill">';
+		foreach ( $xml->photos->photo as $photo ) {
+			if ( ! $photo ) { 
+				return; 
+			}
+			if ( ! $photo['id'] ) { 
+				return; 
+			}
+			$output .= '<a href="http://www.flickr.com/photos/' . $this->person_id . '/' . $photo['id'] . '"><img class="flickrfeedimg" src="http://farm' . $photo['farm'] . '.static.flickr.com/' . $photo['server'] . '/' . $photo['id'] . '_' . $photo['secret'] . $this->size . '.jpg"></a>';
+		}
+		$output .= '</div>';
+		return $output;
+		}
+		
+	public function theme_flickrfill( $theme, $post, $posts )
+	{
+		$prevpost = $posts->ascend($post);
+		if (empty($prevpost)) {
+			$post1date = date('Y-m-d');
+		} else {
+			$post1date = $prevpost->pubdate->format('Y-m-d');
+		}
+		$post2date = $post->pubdate->format('Y-m-d');
+		return $this->theme_flickrfill_bydate( $theme, $post1date, $post2date );
 	}
 	
 	/**
