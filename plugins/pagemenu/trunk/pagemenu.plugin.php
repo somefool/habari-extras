@@ -146,7 +146,7 @@ margin: 10px;
 		}
 		$orderby = implode(',', $orderbys);
 
-		$menupages = Posts::get(array('content_type'=>'page', 'id'=>$menuids, 'orderby' => $orderby));
+		$menupages = Posts::get(array('content_type'=>'page', 'id'=>$menuids, 'orderby' => $orderby, 'nolimit' => true));
 		foreach($menupages as $key => $page) {
 			if(isset($theme->post) && $theme->post->slug == $page->slug) {
 				$theme->activemenu = $page;
