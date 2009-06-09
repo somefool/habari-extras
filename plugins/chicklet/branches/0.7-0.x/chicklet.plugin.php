@@ -1,18 +1,7 @@
 <?php
 class Chicklet extends Plugin
 {
-	public function info()
-	{
-		return array(
-			'name' => 'Chicklet',
-			'author' => 'Habari Community',
-			'description' => 'Fetches the statistics for your Feedburner feed.',
-			'url' => 'http://habariproject.org',
-			'version' => '0.1',
-			'license' => 'Apache License 2.0'
-			);
-	}
-	
+
 	public function action_init() {
 		// Handle backwards compatability
 		if(!is_array(Options::get('chicklet__feedname'))) {
