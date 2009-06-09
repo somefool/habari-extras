@@ -2,23 +2,7 @@
 
 	class Dateyurl extends Plugin
 	{ 
-		
-		/**
-		 * Required plugin info() implementation provides info to Habari about this plugin.
-		 */ 
-		public function info()
-		{
-			return array (
-				'name' => 'DateYURL',
-				'url' => 'http://habariproject.org',
-				'author' => 'Habari Community',
-				'authorurl' => 'http://habariproject.org',
-				'version' => 0.2,
-				'description' => 'Makes entry urls in the form /{year}/{month}/{day}/{slug} or /{year}/{month}/{slug}. <strong>Ensure the Route 301 plugin is not also attempting to rewrite your choice!</strong>',
-				'license' => 'Apache License 2.0',
-			);
-		}
-	
+
 		public function action_init() {
 			
 			$format = Options::get( 'dateyurl__format' );
