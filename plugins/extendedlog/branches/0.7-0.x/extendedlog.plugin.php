@@ -2,24 +2,6 @@
 
 class ExtendedLog extends Plugin
 {
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Extended Log',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Owen Winkler',
-			'authorurl' => 'http://asymptomatic.net/',
-			'version' => '1.0',
-			'description' => 'Displays more information about log entries upon click',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
 	function action_admin_header()
 	{
 		$url = URL::get('auth_ajax', 'context=extendedlog');
