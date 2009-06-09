@@ -2,18 +2,6 @@
 
 class Loupable extends Plugin
 {
-	function info()
-	{
-		return array(
-			'name' => 'Loupable',
-			'version' => '1.0',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Allows you to insert an interactive loupe navigation on the front-end of your site',
-		);
-	}
 	
 	public function action_init()
 	{
