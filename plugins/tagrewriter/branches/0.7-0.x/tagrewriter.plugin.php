@@ -2,22 +2,6 @@
 
 class TagRewriter extends Plugin
 { 
-	
-	/**
-	 * Required plugin info() implementation provides info to Habari about this plugin.
-	 */ 
-	public function info()
-	{
-		return array (
-			'name' => 'Tag Rewriter',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => 0.1,
-			'description' => 'Automatically renames tags when writing a post',
-			'license' => 'ASL 2.0',
-		);
-	}
 
 	/**
 	* Add update beacon support
