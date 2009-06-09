@@ -4,22 +4,6 @@ class RequireSlug extends Plugin
 { 
 	
 	/**
-	 * Required plugin info() implementation provides info to Habari about this plugin.
-	 */ 
-	public function info()
-	{
-		return array (
-			'name' => 'Require Slug',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => 0.1,
-			'description' => 'Puts the slug field in a prominent position.',
-			'license' => 'ASL 2.0',
-		);
-	}
-
-	/**
 	* Add update beacon support
 	**/
 	public function action_update_check()
