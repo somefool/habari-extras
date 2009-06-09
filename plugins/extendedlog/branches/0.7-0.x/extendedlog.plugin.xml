@@ -1,0 +1,10 @@
+<plugin>
+	<name>Extended Log</name>
+	<url>http://habariproject.org/</url>
+	<author>Owen Winkler</author>
+	<authorurl>http://asymptomatic.net/</authorurl>
+	<version>1.0</version>
+	<description>Displays more information about log entries upon click</description>
+	<license>Apache License 2.0</license>
+</plugin>
+
