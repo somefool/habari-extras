@@ -13,33 +13,6 @@
 
 class Laconica extends Plugin
 {
-	/**
-	 * Required plugin information
-	 * @return array The array of information
-	 **/
-	public function info()
-	{
-		return array(
-			'name' => 'Laconica',
-			'version' => '0.6.2',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Post to and display from <a href="http://laconi.ca">Laconica</a> servers.',
-			'copyright' => '2009'
-		);
-	}
-
-	/**
-	 * Update beacon support. UID is real, but not reg'd with project.
-	 **/
-
-	public function action_update_check()
-	{
-	 	Update::add( 'Laconica', '8676A858-E4B1-11DD-9968-131C56D89593', $this->info->version );
-	}
-
 	public function help()
 	{
 		$help = _t('<p>For the <strong>Laconica Service</strong> setting,
