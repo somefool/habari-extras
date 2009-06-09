@@ -14,7 +14,6 @@ require_once 'jambohandler.php';
 
 class Jambo extends Plugin
 {
-	const VERSION = '1.4.1-alpha';
 	const OPTION_NAME = 'jambo';
 	
 	private $theme;
@@ -42,24 +41,6 @@ class Jambo extends Plugin
 	// helper function to return option values
 	public static function get( $name ) {
 		return Options::get( self::OPTION_NAME . '__' . $name );
-	}
-	
-	/**
-	 * Return plugin metadata for this plugin
-	 *
-	 * @return array Plugin metadata
-	 */
-	public function info()
-	{
-		return array(
-			'url' => 'http://drunkenmonkey.org/projects/jambo',
-			'name' => 'Jambo',
-			'license' => 'Apache License 2.0',
-			'author' => 'Drunken Monkey Labs',
-			'authorurl' => 'http://drunkenmonkey.org/projects/jambo',
-			'version' => self::VERSION,
-			'description' => 'Adds a contact form to any page or post.'
-		);
 	}
 	
 	public function set_priorities()
