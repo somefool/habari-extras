@@ -12,24 +12,6 @@
 
 class Colophon extends Plugin
 {
-	const VERSION = '0.5';
-
-	/**
-	* Required plugin information
-	* @return array The array of information
-	*/
-	function info()
-	{
-		return array(
-			'name'		=>	'Colophon Plugin',
-			'version'	=>	self::VERSION,
-			'url'		=>	'http://habariproject.org/dist/plugins',
-			'author'	=>	'stanislas mazurek',
-			'authorurl'	=>	'http://stanbar.jp',
-			'license'	=>	'Apache license 2.0',
-			'description'	=>	'Adds an About / Colophon to your blog'
-		);
-	}
 
 	/**
 	* Add actions to the plugin page for this plugin
