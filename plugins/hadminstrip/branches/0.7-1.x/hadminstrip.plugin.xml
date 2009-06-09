@@ -1,9 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Hadmin Strip</name>
-	<url>http://www.somefoolwitha.com</url>
-	<author>MatthewM</author>
-	<authorurl>http://somefoolwitha.com</authorurl>
-	<description>An admin strip for Habari.</description>
-	<license>Apache License 2.0</license>
-</plugin>
-
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://www.somefoolwitha.com/">Habari Community</author>
+	<version>1.0</version>
+	<url>http://www.somefoolwitha.com/</url>
+	<description><![CDATA[An admin strip for Habari.]]></description>
+	<copyright>2009</copyright>
+</pluggable>

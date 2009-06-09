@@ -15,25 +15,6 @@
 class HadminStrip extends Plugin
 {
 	const VERSION= '1.0.1';
-	
-	/**
-	 * function info
-	 *
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 */
-	public function info()
-	{
-		return array (
-			'name' => 'Hadmin Strip',
-			'url' => 'http://www.somefoolwitha.com',
-			'author' => 'MatthewM',
-			'authorurl' => 'http://somefoolwitha.com',
-			'version' => self::VERSION,
-			'description' => 'An admin strip for Habari.',
-			'license' => 'Apache License 2.0',
-		);
-	}
 
 	/**
 	 * Add update beacon support
