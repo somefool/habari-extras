@@ -5,22 +5,6 @@ class Discussit extends Plugin
 	
 	static $regex_name= '/@([A-Za-z0-9]+)/';
 	static $regex_url= '/@\<a href="(.+)#comment-([0-9]+)"\>([A-Za-z0-9]+)\<\/a\>/';
-	
-	/**
-	 * Required plugin info() implementation provides info to Habari about this plugin.
-	 */ 
-	public function info()
-	{
-		return array (
-			'name' => 'DiscussIT',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => 0.1,
-			'description' => 'Enables discussion and threading features for comments.',
-			'license' => 'ASL 2.0',
-		);
-	}
 
 	/**
 	* Add update beacon support
