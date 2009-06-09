@@ -4,22 +4,6 @@ class GoodCode extends Plugin
 { 
 	
 	private static $mappings;
-	
-	/**
-	 * Required plugin info() implementation provides info to Habari about this plugin.
-	 */ 
-	public function info()
-	{
-		return array (
-			'name' => 'GoodCode',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => 0.1,
-			'description' => 'Attempts to make your html better and removes or replaces presentational markup.',
-			'license' => 'ASL 2.0',
-		);
-	}
 
 	/**
 	* Add update beacon support
