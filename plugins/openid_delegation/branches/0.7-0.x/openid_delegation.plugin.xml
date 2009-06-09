@@ -1,9 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>OpenID Delegation</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://mikelietz.org/">Mike Lietz</author>
+	<version>0.1</version>
 	<url>http://mikelietz.org/code</url>
-	<author>Mike Lietz</author>
-	<authorurl>http://mikelietz.org/</authorurl>
-	<description>Enables site address to be used as a OpenID identifier, when using a third-party OpenID provider.</description>
-	<license>Apache License 2.0</license>
-</plugin>
-
+	<description><![CDATA[Enables site address to be used as a OpenID identifier, when using a third-party OpenID provider.]]></description>
+	<copyright>2009</copyright>
+</pluggable>

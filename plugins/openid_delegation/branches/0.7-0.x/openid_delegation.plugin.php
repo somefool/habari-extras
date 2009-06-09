@@ -6,19 +6,6 @@ class OpenID_Delegation extends Plugin {
 
 	private $config= array();
 
-	public function info()
-	{
-		return array(
-			'name' => 'OpenID Delegation',
-			'url' => 'http://mikelietz.org/code',
-			'author' =>'Mike Lietz',
-			'authorurl' => 'http://mikelietz.org/',
-			'version' => self::VERSION,
-			'description' => 'Enables site address to be used as a OpenID identifier, when using a third-party OpenID provider.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
 	public function action_update_check()
 	{
 	 	Update::add( 'OpenID Delegation', 'DC735D26-9021-11DD-B91C-207A56D89593', $this->info->version );
