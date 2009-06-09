@@ -1,0 +1,9 @@
+<plugin>
+	<name>Hadmin Strip</name>
+	<url>http://www.somefoolwitha.com</url>
+	<author>MatthewM</author>
+	<authorurl>http://somefoolwitha.com</authorurl>
+	<description>An admin strip for Habari.</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

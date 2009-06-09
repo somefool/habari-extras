@@ -1,0 +1,9 @@
+<plugin>
+	<name>Spamview</name>
+	<url>http://habariproject.org</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org</authorurl>
+	<description>Provides a dashboard module to quickly see new spam</description>
+	<license>ASL 2.0</license>
+</plugin>
+
