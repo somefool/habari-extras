@@ -2,19 +2,7 @@
 
 class MagicArchives extends Plugin
 {
-	function info()
-	{
-		return array(
-			'name' => 'Magic Archives',
-			'version' => '1.0',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'A little magician which reads your mind and... *presto* ...finds the posts you were thinking of.',
-		);
-	}
-
+	
 	public function action_init()
 	{
 		$this->add_template('page.archives', dirname(__FILE__) . '/page.archives.php');
