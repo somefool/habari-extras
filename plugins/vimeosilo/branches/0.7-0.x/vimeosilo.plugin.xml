@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Vimeo Media Silo</name>
-	<url>http://www.awhitebox.com/</url>
-	<author>Ali B.</author>
-	<authorurl>http://www.awhitebox.com/</authorurl>
-	<version>1.0</version>
-	<description>Easily add Vimeo videos to your posts</description>
+	<author url="http://awhitebox.com/">Ali B.</author>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Easily add Vimeo videos to your posts.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<copyright>2009</copyright>
-</plugin>
+</pluggable> 

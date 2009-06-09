@@ -13,19 +13,6 @@ class VimeoSilo extends Plugin implements MediaSilo
 	const SILO_NAME = 'Vimeo';
 	private $username;
 
-	public function info()
-	{
-		return array('name' => 'Vimeo Media Silo',
-			'version' => '0.1',
-			'url' => 'http://www.awhitebox.com/',
-			'author' => 'Ali B.',
-			'authorurl' => 'http://www.awhitebox.com',
-			'license' => 'Apache License 2.0',
-			'description' => 'Easily add Vimeo videos to your posts',
-			'copyright' => '2009',
-			);
-	}
-
 	/**
 	* Add actions to the plugin page for this plugin
 	*
