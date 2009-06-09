@@ -10,23 +10,6 @@ class Lipsum extends Plugin
 	private $thumbs = array();
 
 	/**
-	 * Return information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Lipsum',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
-			'description' => 'Creates random sample data to test themes and plugins',
-			'license' => 'Apache License 2.0',
-		);
-	}
-	
-	/**
 	 * Adds a Configure action to the plugin
 	 * 
 	 * @param array $actions An array of actions that apply to this plugin
