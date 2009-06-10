@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Highlighter</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache
+	Software License 2.0</license>
+	<author url="http://seancoates.com/">Sean Coates</author>
+	<version>0.1.1</version>
+	<url>http://seancoates.com/habari</url>
+	<description><![CDATA[Highlighter]]></description>
+</pluggable> 
