@@ -45,8 +45,13 @@ class Chicklet extends Plugin
 				$url = "https://feedburner.google.com/api/awareness/1.0/GetFeedData?uri=" . $feed ;
 				$remote = RemoteRequest::get_contents($url);
 
-				$xml = new SimpleXMLElement($remote);
-				$count = $count + intval($xml->feed->entry['circulation']);
+				@$xml = simplexml_load_string($remote);
+				
+				if($xml == false) {
+					return 0;
+				} else {
+					$count = $count + intval($xml->feed->entry['circulation']);
+				}
 			}
 						
 			Cache::set('chickler_subscribercount', $count);
