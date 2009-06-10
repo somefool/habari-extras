@@ -11,7 +11,6 @@
 class Brightkite extends Plugin
 {
 	const VERSION = '0.1.2';
-	const PLUGIN_SVN_REV = '$Rev$';
 	
 	private $config = array();
 	private $class_name = '';
