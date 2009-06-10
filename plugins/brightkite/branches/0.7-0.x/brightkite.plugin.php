@@ -29,6 +29,8 @@ class Brightkite extends Plugin
 	 * Required plugin information
 	 * @return array The array of information
 	 **/
+	/*
+	 *  per r3624 removing this from the plugin for the 0.7 branch
 	public function info()
 	{
 		return array(
@@ -41,6 +43,8 @@ class Brightkite extends Plugin
 			'license' => 'Apache License 2.0',
 			);
 	}
+	 *
+	 */
 	
 	/**
 	 * Add actions to the plugin page
