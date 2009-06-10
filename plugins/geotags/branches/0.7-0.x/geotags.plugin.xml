@@ -1,9 +1,12 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?> 
+<pluggable type="plugin">
 	<name>Header GeoTags</name>
 	<url>http://mikelietz.org/code</url>
+	<version>0.2.2</version>
 	<author>Mike Lietz</author>
 	<authorurl>http://mikelietz.org/</authorurl>
 	<description>Adds Geocode data to headers.</description>
 	<license>Apache License 2.0</license>
-</plugin>
+	<copyright>2009</copyright>
+</pluggable>
 
