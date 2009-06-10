@@ -32,6 +32,8 @@ class XMPPNotify extends Plugin
 	 * Required plugin infoormation
 	 * @return array The array of information
 	 **/
+	/*
+	 * per r3624 removing this from the plugin for the 0.7 branch
 	public function info()
 	{
 		return array(
@@ -44,6 +46,8 @@ class XMPPNotify extends Plugin
 			'description' => 'Implements XMPP Notification for Habari'
 		);
 	}
+	 *
+	 */
 	
 	/**
 	 * Add update beacon support

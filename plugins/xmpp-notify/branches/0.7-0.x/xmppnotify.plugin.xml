@@ -1,9 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?> 
+<pluggable type="plugin">
 	<name>XMPP Notify</name>
-	<url>http://www.ciscomonkey.net/habari-plugins/</url>
-	<author>Ryan Mullins</author>
-	<authorurl>http://www.ciscomonkey.net/</authorurl>
-	<license>Apache License 2.0</license>
-	<description>Implements XMPP Notification for Habari</description>
-</plugin>
-
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://www.ciscomonkey.net/">Ryan Mullins</author>
+	<version>0.1.4</version>
+	<url>http://wiki.habariproject.org/en/XMPP-Notify</url>
+	<description><![CDATA[Implements basic XMPP Notification for Habari]]></description>
+	<copyright>2009</copyright>
+</pluggable>
