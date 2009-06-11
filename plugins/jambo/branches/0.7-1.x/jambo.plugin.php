@@ -14,6 +14,7 @@ require_once 'jambohandler.php';
 
 class Jambo extends Plugin
 {
+	const VERSION = '1.4.1';
 	const OPTION_NAME = 'jambo';
 	
 	private $theme;
@@ -42,7 +43,7 @@ class Jambo extends Plugin
 	public static function get( $name ) {
 		return Options::get( self::OPTION_NAME . '__' . $name );
 	}
-	
+
 	public function set_priorities()
 	{
 		return array(
