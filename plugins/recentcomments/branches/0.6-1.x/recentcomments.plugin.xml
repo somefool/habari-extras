@@ -1,0 +1,10 @@
+<plugin>
+	<name>Recent Comments</name>
+	<version>1.4-alpha</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Displays the most recent comments in your blog sidebar</description>
+</plugin>
+

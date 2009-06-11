@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Recent Comments</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license> 
+	<author url="http://www.habariproject.org/">Habari Community</author>
+	<version>1.5</version>
+	<url>http://habariproject.org/</url>
+	<description>Displays the most recent comments in your blog sidebar</description>
+	<copyright>2009</copyright>
+</pluggable>
+
