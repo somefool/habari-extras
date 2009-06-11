@@ -32,7 +32,7 @@ class JWYSIWYG extends Plugin {
 		if ( $theme->page == 'publish' ) {
 			echo <<<JWYSIWYG
 			<script type="text/javascript">
-			$('[@for=content]').removeAttr('for');
+			$('label[for=content]').text('');
 			$(function()
 			{
 				$('#content').wysiwyg();
