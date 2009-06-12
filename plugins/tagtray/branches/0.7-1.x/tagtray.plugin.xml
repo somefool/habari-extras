@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Tag Tray</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.0</version>
+	<description>Displays a tray of tags on the publish page to click on and add to the edited post.</description>
+	<license>Apache License 2.0</license>
+</pluggable>
+
