@@ -1,4 +1,5 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Sitemaps</name>
 	<version>0.6.3</version>
 	<url>http://habariproject.org/</url>
@@ -7,5 +8,5 @@
 	<license>Apache License 2.0</license>
 	<description>Sitemaps plugin for Habari.</description>
 	<copyright>2009</copyright>
-</plugin>
+</pluggable>
 

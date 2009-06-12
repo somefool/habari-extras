@@ -2,22 +2,6 @@
 class Sitemaps extends Plugin {
 
 	/**
-	 * Returns required plugin informations
-	 */
-	public function info() {
-		return array(
-			'name' => 'Sitemaps',
-			'version' => '0.6.3',
-			'url' => 'http://habariproject.org/',
-			'author' =>	'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Sitemaps plugin for Habari.',
-			'copyright' => '2009'
-		);
-	}
-	
-	/**
 	 * Filter function called by the plugin hook `rewrite_rules`
 	 * Add a new rewrite rule to the database's rules.
 	 *
