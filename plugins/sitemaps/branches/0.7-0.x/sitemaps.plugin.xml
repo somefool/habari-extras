@@ -6,7 +6,7 @@
 	<author>Habari Community</author>
 	<authorurl>http://habariproject.org/</authorurl>
 	<license>Apache License 2.0</license>
-	<description>Sitemaps plugin for Habari.</description>
+	<description><![CDATA[Sitemaps plugin for Habari.]]></description>
 	<copyright>2009</copyright>
 </pluggable>
 
