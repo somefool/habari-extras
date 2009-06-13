@@ -1,9 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Maintenance Mode</name>
-	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
+	<author url="http://habariproject.org/">Habari Community</author>
 	<version>0.3</version>
-	<license>Apache License 2.0</license>
-</plugin>
-
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[edirects all requests to a maintenance mode page. The login page always remains available. Logged in users can see any page on the site even when in maintenance mode.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2009</copyright>
+</pluggable> 
