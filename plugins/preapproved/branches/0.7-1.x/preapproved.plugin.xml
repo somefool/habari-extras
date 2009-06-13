@@ -1,10 +1,10 @@
-<plugin>
-	<name>PreApproved</name>
-	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>CronTabManager</name>
+	<author url="http://habariproject.org/">Habari Community</author>
 	<version>1.3.1</version>
-	<description>Automatically approve comments based on the number of approved comments the commenter has previously made.</description>
-	<license>Apache License 2.0</license>
-</plugin>
-
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Automatically approve comments based on the number of approved comments the commenter has previously made..]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2009</copyright>
+</pluggable> 
