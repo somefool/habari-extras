@@ -116,23 +116,6 @@ class Podcast extends Plugin
 	);
 
 	/**
-	* Return information about this plugin
-	* @return array Plugin info array
-	*/
-	public function info()
-	{
-		return array (
-			'name' => 'Podcast',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.1.2',
-			'description' => 'Podcast provides podcasting functionality and iTunes compatibility.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
