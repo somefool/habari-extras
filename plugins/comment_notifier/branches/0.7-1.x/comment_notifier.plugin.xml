@@ -1,9 +1,12 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Comment Notifier</name>
+	<author url="http://habariproject.org/">Joel Lee</author>
+	<version>0.2.0</version>
 	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<description>Send an email to the author of a post whenever a non-spam comment is moderated for one of their posts.</description>
-	<license>Apache License 2.0</license>
-</plugin>
+	<description><![CDATA[Send an email to the author of a post whenever a non-spam comment is moderated for one of their posts.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2008</copyright>
+</pluggable> 
+
 
