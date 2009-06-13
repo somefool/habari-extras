@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>Autoclose</name>
-	<author url="http://habariproject.org/">Joel Lee</author>
+	<author url="http://habariproject.org/">Habari Community</author>
 	<version>0.2.0</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Automatically close comments on posts older than a given number of days.]]></description>
