@@ -13,22 +13,6 @@
 class Woopra extends Plugin {
 
 	/**
-	 * Provides Plugin information.
-	 **/
-	public function info()
-	{
-		return array(
-			'name'=>'Woopra',
-			'version'=>'0.6',
-			'url'=>'http://www.awhitebox.com/woopra-plugin-for-habari',
-			'author'=>'Ali B.',
-			'authorurl'=>'http://www.awhitebox.com',
-			'license'=>'Apache License 2.0',
-			'description'=>'Enable Woopra\'s tracking for your site.'
-		);
-	}
-
-	/**
 	 * Implement the update notification feature
 	 */
   	public function action_update_check()

@@ -1,10 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Woopra</name>
+	<author url="http://awhitebox.com">Ali B.</author>
 	<version>0.6</version>
-	<url>http://www.awhitebox.com/woopra-plugin-for-habari</url>
-	<author>Ali B.</author>
-	<authorurl>http://www.awhitebox.com</authorurl>
-	<license>Apache License 2.0</license>
-	<description>Enable Woopra\'s tracking for your site.</description>
-</plugin>
-
+	<url>http://awhitebox.com/woopra-plugin-for-habari</url>
+	<description><![CDATA[Enable Woopra tracking for your site.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2008</copyright>
+</pluggable> 
