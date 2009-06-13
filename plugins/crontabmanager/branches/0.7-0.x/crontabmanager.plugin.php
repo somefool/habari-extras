@@ -2,15 +2,6 @@
 
 class CronTabManager extends Plugin
 {
-	public function info()
-	{
-		return array (
-			'name' => 'CronTabManager',
-			'version' => '0.1',
-			'author' => 'Habari Community',
-			'license' => 'Apache License 2.0',
-		);
-	}
 
 	public function alias()
 	{
