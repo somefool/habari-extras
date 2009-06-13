@@ -1,0 +1,9 @@
+<plugin>
+	<name>Maintenance Mode</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>0.3</version>
+	<license>Apache License 2.0</license>
+</plugin>
+
