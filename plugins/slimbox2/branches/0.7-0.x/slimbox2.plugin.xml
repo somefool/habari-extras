@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>SlimBox 2</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache
+	Software License 2.0</license>
+	<author url="http://eighty4.se">eighty4</author>
+	<version>0.1</version>
+	<url>http://eighty4.se/projects/</url>
+	<description><![CDATA[Adds slimbox2 to your site. All credit goes to 
+		Christophe Beyls http://code.google.com/p/slimbox/]]></description>
+	<copyright>2009</copyright>
+</pluggable> 
