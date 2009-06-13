@@ -150,6 +150,7 @@ class PrestigeTheme extends Theme
 			$commentContent->value = $theme->commenter_content;
 			$commentContent->id = 'content';
 			$commentContent->control_title = 'Add to the discussion. Required.';
+			$commentContent->cols = 70;
 
 			$comment_info_fieldset = $ui->append('fieldset', 'commenter_info', _t( 'A Little Info About You' ) );
 			$name = $comment_info_fieldset->append( 'text', 'ename', 'null:null', _t( 'Name' ) );
