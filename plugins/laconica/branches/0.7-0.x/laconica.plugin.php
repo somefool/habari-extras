@@ -13,6 +13,14 @@
 
 class Laconica extends Plugin
 {
+	/**
+	 * Update beacon support. UID is real, but not reg'd with project.
+	 **/
+	public function action_update_check()
+	{
+		Update::add( 'Laconica', '8676A858-E4B1-11DD-9968-131C56D89593', $this->info->version );
+	}
+
 	public function help()
 	{
 		$help = _t('<p>For the <strong>Laconica Service</strong> setting,
