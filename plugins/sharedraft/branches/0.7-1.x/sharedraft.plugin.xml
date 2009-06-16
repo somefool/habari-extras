@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Share Draft</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://asymptomatic.net/">Owen Winkler</author>
+	<version>0.7-1.0.1</version>
+	<description><![CDATA[Allows an author to share a draft of a post using a special link.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
