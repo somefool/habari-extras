@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>OpenID</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://phpquebec.org/</url>
+	<author url="http://phpquebec.org/">PHP Quebec Community</author>
+	<version>0.7-1.1.2</version>
+	<description><![CDATA[Adds OpenID 2.0 authentification support.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
