@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Twitter Tweet Silo</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://seancoates.com/habari</url>
+	<author url="http://seancoates.com/">Sean Coates</author>
+	<version>0.7-1.0</version>
+	<description><![CDATA[Simple Twitter Silo]]></description>
+	<copyright>2009</copyright>
+</pluggable>
