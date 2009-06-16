@@ -10,23 +10,6 @@
 class RSSBlock extends Plugin
 {
 
-	/**
-	 * Required plugin information
-	 * @return array The array of information
-	 **/
-	public function info()
-	{
-		return array(
-			'name' => 'RSS Block',
-			'version' => '1.0',
-			'url' => 'http://redalt.com/plugins',
-			'author' => 'Owen Winkler',
-			'authorurl' => 'http://asymptomatic.net/',
-			'license' => 'Apache License 2.0',
-			'description' => _t('Links from an RSS feed as a block'),
-		);
-	}
-	
 	public function action_plugin_activation( $file )
 	{
 		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
@@ -48,9 +31,13 @@ class RSSBlock extends Plugin
 				$r->set_timeout( 10 );
 				$r->execute();
 				$feed = $r->get_response_body();
-				if(is_string($feed)) {
-					Cache::set($cachename, $feed, 30, true);
+				try{
+					if(is_string($feed)) {
+						new SimpleXMLElement($feed); // This throws an exception if the feed isn't valid
+						Cache::set($cachename, $feed, 3600, true);
+					}
 				}
+				catch(Exception $e) {}
 			}
 		}
 		
@@ -70,34 +57,39 @@ class RSSBlock extends Plugin
 		$items = array();
 		$cachename = array('rssblock', md5($block->feed_url));
 		if(Cache::expired($cachename)) {
-			CronTab::add_single_cron('single_update_rrs_blocks', 'rrsblocks_update', HabariDateTime::date_create());
+//			CronTab::add_single_cron('single_update_rrs_blocks', 'rrsblocks_update', HabariDateTime::date_create());
 		}	
 		$feed = Cache::get($cachename);
-		$xml = new SimpleXMLElement($feed);
-		$dns = $xml->getDocNamespaces();
-		
-		$itemcount = 0;
-		foreach($xml->channel->item as $xitem) {
-			$item = new StdClass();
-			
-			foreach($xitem->children() as $child) {
-				$item->{$child->getName()} = (string) $child;
-			}
 
-			foreach($dns as $ns => $nsurl) {
-				foreach($xitem->children($nsurl) as $child) {
-					$item->{$ns . '__' . $child->getName()} = (string) $child;
-					foreach($child->attributes() as $name => $value) {
-						$item->{$ns . '__' . $child->getName() . '__' . $name} = (string) $value;
+		try {
+			$xml = new SimpleXMLElement($feed);
+			$dns = $xml->getDocNamespaces();
+			
+			$itemcount = 0;
+			foreach($xml->channel->item as $xitem) {
+				$item = new StdClass();
+				
+				foreach($xitem->children() as $child) {
+					$item->{$child->getName()} = (string) $child;
+				}
+	
+				foreach($dns as $ns => $nsurl) {
+					foreach($xitem->children($nsurl) as $child) {
+						$item->{$ns . '__' . $child->getName()} = (string) $child;
+						foreach($child->attributes() as $name => $value) {
+							$item->{$ns . '__' . $child->getName() . '__' . $name} = (string) $value;
+						}
 					}
 				}
+	
+				$items[] = $item;
+				$itemcount++;
+				if($block->item_limit > 0 && $itemcount >= $block->item_limit) {
+					break;
+				}
 			}
-
-			$items[] = $item;
-			$itemcount++;
-			if($block->item_limit > 0 && $itemcount >= $block->item_limit) {
-				break;
-			}
+		}
+		catch(Exception $e) {
 		}
 		
 		$block->items = $items;
