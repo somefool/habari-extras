@@ -11,18 +11,7 @@ class Pullquote extends Plugin
 	 * Return information about this plugin
 	 * @return array Plugin info array
 	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Pull Quotes',
-			'url' => 'http://miklb.com',
-			'author' => 'Michael Bishop',
-			'authorurl' => 'http://miklb.com/',
-			'version' => '0.2',
-			'description' => 'Create pull quotes from existing content',
-			'license' => 'Apache License 2.0',
-		);
-	}
+	
 	
 	public function action_init()
 	{
