@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>NicEditor</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.7-0.2.5</version>
+	<description><![CDATA[NicEditor Plugin for Habari]]></description>
+	<copyright>2009</copyright>
+</pluggable>
+
