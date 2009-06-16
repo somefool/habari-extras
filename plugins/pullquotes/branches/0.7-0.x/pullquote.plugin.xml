@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Pull Quotes</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<author url="http://miklb.com">Michael Bishop</author>
+	<version>0.3</version>
+	<url>http://miklb.com/habari-plugin-pull-quotes</url>
+	<description><![CDATA[Create pull quotes from existing content.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
