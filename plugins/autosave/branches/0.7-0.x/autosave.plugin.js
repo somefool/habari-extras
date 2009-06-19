@@ -13,14 +13,9 @@ var autoSave = {
 		
 		/* Let's hook everything we need to provide best autosaving */
 		$('#save > input').val('Save now').click(function(){
-			// Save now" button clicked, prevent form from submitting
-			autoSave.saveClicked = true;
 			// Call our own handler via ajax
 			autoSave.save();
-		});
-		$('#publish, #delete').click(function(){
-			// Other button clicked, let form be submitted
-			autoSave.saveClicked = false;
+			return false;
 		});
 		
 		// Reset the "Save now" button if changes happen on any field and unset timers
@@ -28,14 +23,6 @@ var autoSave = {
 		$('#create-content input[type="checkbox"], #create-content input[type="radio"], #create-content select').change(autoSave.formChangeAndUnset);
 		// Save after interval if changes happen upon changing title or content
 		$('#title, #content').unbind('keypress', autoSave.formChangeAndUnset).keypress(autoSave.formChangeAndSet);
-		
-		// Intercept form submission
-		$('#create-content').submit(function() {
-			if (autoSave.saveClicked) {
-				// Prevent "save" button to submit form, we'll handle the saving "ajax style!"
-				return false;
-			}
-		});
 	},
 	
 	// Displays difference in time (X minutes ago)
@@ -52,7 +39,7 @@ var autoSave = {
 	save: function() {
 		// Time to send form home
 		var publishForm = $('#create-content').serializeArray();
-		$.post('autosave', publishForm, autoSave.handleResponse, 'json');
+		$.post(autoSave.url, publishForm, autoSave.handleResponse, 'json');
 		autoSave.saveTimer = null;
 	},
 	
@@ -75,14 +62,18 @@ var autoSave = {
 			$('#autosave_type').html(autoSave.saveClicked ? 'Saved' : 'Autosaved');
 			autoSave.diff();
 			autoSave.diffTimer = setInterval("autoSave.diff()", 60000); // 1 minute
-		}
-		else if (autoSave.isSet(data.error)) {
-			autoSave.lastFailed = true;
-			$('#autosave').html(data.error + ' (' + lastHours + ':' + lastMinutes + ')');
+			
+			// Don't prompt users with annoying messages about not being saved
+			initialCrc32 = crc32($('#content').val(), crc32($('#title').val()));
 		}
 		else {
+			autoSave.lastFailed = true;
 			$('#autosave').html('Unexpected behavior, post may not have been saved. (' + lastHours + ':' + lastMinutes + ')').css('color', '#A30000');
 		}
+		
+		$.each( data.messages, function( i ) {
+			humanMsg.displayMsg( data.messages[i] );
+		});
 	},
 	
 	formChange: function() {
