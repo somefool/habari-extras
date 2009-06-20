@@ -2,24 +2,6 @@
 class TagTray extends Plugin
 {
 	private $theme;
-
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Tag Tray',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
-			'description' => 'Displays a tray of tags on the publish page to click on and add to the edited post.',
-			'license' => 'Apache License 2.0',
-		);
-	}
 	
 	/**
 	 * Add the tray to the publish form
