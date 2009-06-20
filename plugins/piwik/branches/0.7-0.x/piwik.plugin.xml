@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>Piwik</name>
-	<version>0.2</version>
+	<version>0.3</version>
 	<url>http://trac.habariproject.org/habari-extras/browser/plugins/piwik</url>
 	<author>Andy C</author>
 	<authorurl>http://nbrightside.com/habari/</authorurl>

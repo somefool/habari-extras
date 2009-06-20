@@ -17,7 +17,7 @@ Habari installation.
 Then activate and configure the plugin from the dashboard (Admin-Plugins).
 <p>The configuration options are:
 <ul>
-<li>Pwiki site URL: This is the full URL of the Piwik site (e.g. \'http://www.example.com/piwik/\') - the trailing slash \'/\' is required.</li>
+<li>Pwiki site URL: This is the full URL of the Piwik site (e.g. \'http://www.example.com/piwik/\').</li>
 <li>Piwik site number: Piwik can track multiple Web sites. The site number is displayed in the Piwik-Settings administration screen under the \'Site\' tab in the \'ID\' field.</li>
 <li>Tracked logged-in users: Visits by logged in users can optionally be ignored.</li>
 </ul>';
@@ -87,6 +87,8 @@ Then activate and configure the plugin from the dashboard (Admin-Plugins).
 	{
 		$class= strtolower( get_class( $this ) );
 		$siteurl = Options::get( $class . '__siteurl');
+        	if (strrpos($siteurl,'/') === false) 
+ 			$siteurl .= '/'; 
 		$ssl_siteurl = str_replace("http://", "https://", $siteurl);
 		$sitenum = Options::get( $class . '__sitenum');
 		$trackloggedin = Options::get( $class . '__trackloggedin');
@@ -104,7 +106,7 @@ Then activate and configure the plugin from the dashboard (Admin-Plugins).
 		echo <<<EOD
 <!-- Piwik -->
 <script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "${siteurl}" : "{$siteurl}");
+var pkBaseURL = (("https:" == document.location.protocol) ? "${ssl_siteurl}" : "{$siteurl}");
 document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
 </script><script type="text/javascript">
 try {
@@ -115,7 +117,7 @@ piwikTracker.enableLinkTracking();
 catch( err ) {
 }
 </script>
-<!. End Piwik Tag .>
+<!-- End Piwik Tag -->
 EOD;
 	}
 
