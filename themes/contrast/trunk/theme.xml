@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="theme">
+	<name>Contrast</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://morgante.net">Morgante Pell</author>
+	<author url="http://habariproject.org/">Habari Community</author>
+	
+	<version>0.1</version>
+	<url>http://lab.morgante.net/habari/contrast/</url>
+	<description><![CDATA[Contrast pushes the limits of awesomeness.]]></description>
+	
+	<template_engine>rawphpengine</template_engine>
+
+	<copyright>2009</copyright>
+	
+	<config name="configure" load="1">
+		<caption>
+			<value>Configure</value>
+			<value xml:lang="es-es">Configurar</value>
+		</caption>
+		<container type="fieldset">
+			<attribute name="caption">
+				<value>My fieldset</value>
+				<value xml:lang="es-es">Mi fieldset</value>
+			</attribute>
+			<control type="text" name="textbox1" storage="option:textbox1">
+				<attribute name="caption">
+					<value>My fieldset</value>
+					<value xml:lang="es-es">Mi fieldset</value>
+				</attribute>
+				<attribute name="default">
+					<value>Four</value>
+					<value xml:lang="es-es">Quatro</value>
+				</attribute>
+
+				<validator type="required"/>
+			</control>
+		</container>
+		<control type="textarea" name="textarea1" storage="option:textarea1">
+			<attribute name="caption">
+				<value>My textarea</value>
+				<value xml:lang="es-es">Mi textarea</value>
+			</attribute>
+
+			<attribute name="default">
+				<value><![CDATA[
+				This is the default value of the textarea.
+				It has more than one line.
+				]]></value>
+				<value xml:lang="es-es"><![CDATA[
+				Este es el valor por defecto de los de texto.
+				Cuenta con más de una línea.
+				]]></value>
+			</attribute>
+		</control>
+	</config>
+	
+	<config name="block" load="1">
+		<caption>
+			<value>Configure</value>
+			<value xml:lang="es-es">Configurar</value>
+		</caption>
+		<container type="fieldset">
+			<attribute name="caption">
+				<value>My fieldset</value>
+				<value xml:lang="es-es">Mi fieldset</value>
+			</attribute>
+			<control type="text" name="textbox1" storage="option:textbox1">
+				<attribute name="caption">
+					<value>My fieldset</value>
+					<value xml:lang="es-es">Mi fieldset</value>
+				</attribute>
+				<attribute name="default">
+					<value>Four</value>
+					<value xml:lang="es-es">Quatro</value>
+				</attribute>
+
+				<validator type="required"/>
+			</control>
+		</container>
+		<control type="textarea" name="textarea1" storage="option:textarea1">
+			<attribute name="caption">
+				<value>My textarea</value>
+				<value xml:lang="es-es">Mi textarea</value>
+			</attribute>
+
+			<attribute name="default">
+				<value><![CDATA[
+				This is the default value of the textarea.
+				It has more than one line.
+				]]></value>
+				<value xml:lang="es-es"><![CDATA[
+				Este es el valor por defecto de los de texto.
+				Cuenta con más de una línea.
+				]]></value>
+			</attribute>
+		</control>
+	</config>
+	
+	<config name="block_config">
+		<control type="checkbox" name="check1" storage="option:check1">
+			<attribute name="caption">
+				<value>My checkbox</value>
+				<value xml:lang="es-es">Mi checkbox</value>
+			</attribute>
+		</control>
+	</config>
+	
+</pluggable>
