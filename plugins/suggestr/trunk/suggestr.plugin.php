@@ -4,18 +4,6 @@ class Suggestr extends Plugin
 {
 	var $rules;
 	
-	public function info()
-	{
-		return array(
-			'name' => 'Suggestr',
-			'author' => 'Habari Community',
-			'description' => 'Provides tag suggestions for posts',
-			'url' => 'http://habariproject.org',
-			'version' => '0.1',
-			'license' => 'Apache License 2.0'
-		);
-	}
-	
 	public function action_admin_header() {
 		Stack::add( 'admin_header_javascript', URL::get_from_filesystem(__FILE__) . '/suggestr.js', 'suggestr' );
 		Stack::add( 'admin_stylesheet', array(URL::get_from_filesystem(__FILE__) . '/suggestr.css', 'screen'), 'suggestr' );
