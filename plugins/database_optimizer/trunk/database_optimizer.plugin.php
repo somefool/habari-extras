@@ -2,27 +2,10 @@
 
 	class DatabaseOptimizer extends Plugin
 	{
-		
-		const VERSION = '0.4.1';
-		
-		public function info ( ) {
-			
-			return array (
-					'name' => 'Database Optimizer',
-					'url' => 'http://habariproject.org',
-					'author' => 'Habari Community',
-					'authorurl' => 'http://habariproject.org',
-					'version' => self::VERSION,
-					'description' => 'Automagically optimizes your database tables weekly.',
-					'license' => 'Apache License 2.0'
-			);
-			
-		}
-		
 			
 		public function action_update_check ( ) {
 
-			Update::add( 'DatabaseOptimizer', 'E619A6D0-15F8-11DD-8567-98DE55D89593', self::VERSION );
+			Update::add( 'DatabaseOptimizer', 'E619A6D0-15F8-11DD-8567-98DE55D89593', $this->info->version );
 		
 		}
 		
