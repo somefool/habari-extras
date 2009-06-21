@@ -87,7 +87,7 @@ Then activate and configure the plugin from the dashboard (Admin-Plugins).
 	{
 		$class= strtolower( get_class( $this ) );
 		$siteurl = Options::get( $class . '__siteurl');
-        	if (strrpos($siteurl,'/') === false) 
+        	if (strrpos($siteurl,'/') !== 0) 
  			$siteurl .= '/'; 
 		$ssl_siteurl = str_replace("http://", "https://", $siteurl);
 		$sitenum = Options::get( $class . '__sitenum');
