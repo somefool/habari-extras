@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Spoilers</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://twofishcreative.com/">Michael C. Harris</author>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.7-1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[A plugin to hide spoilers until a conscious action on the part of the user.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
