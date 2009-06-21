@@ -1,9 +1,7 @@
 <?php
 
 	class Acronyms extends Plugin {
-		
-		const VERSION = '0.1';
-		
+				
 		public $acronyms = array(
 			'AFAIK' => 'As far as I know',
 			'AIM' => 'AOL Instant Messenger',
@@ -139,20 +137,6 @@
 			'XUL' => 'XML User Interface Language',
 			'YMMV' => 'Your mileage may vary'
 		);
-		
-		public function info ( ) {
-			
-			return array (
-					'name' => 'Acronyms',
-					'url' => 'http://habariproject.org',
-					'author' => 'Habari Community',
-					'authorurl' => 'http://habariproject.org',
-					'version' => self::VERSION,
-					'description' => 'Automagically wraps an &lt;acronym&gt; tag around acronyms it recognizes in your post content.',
-					'license' => 'Apache License 2.0'
-			);
-			
-		}
 		
 		public function filter_post_content_out ( $content, $post ) {
 			
