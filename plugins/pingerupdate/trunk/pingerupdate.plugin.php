@@ -3,19 +3,6 @@
 class PingerUpdate extends Plugin
 {
 
-	public function info()
-	{
-		return array (
-			'name' => 'Pinger Update',
-			'url' => 'http://redalt.com/Habari/plugins/Pinger+Update',
-			'author' => 'Owen Winkler',
-			'authorurl' => 'http://asymptomatic.net',
-			'version' => '1.0',
-			'description' => 'Sends pings to notification services.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
 	public function action_post_status_published($post)
 	{
 		if ( $post->status == Post::status( 'published' ) ) {
