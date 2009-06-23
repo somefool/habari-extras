@@ -5,7 +5,7 @@
 	<url>http://habariproject.org/</url>
 	<author url="http://habariproject.org/">Habari Community</author>
 	<author url="http://twofishcreative.com/">Michael C. Harris</author>
-	<version>0.7-0.11</version>
+	<version>0.12</version>
 	<description><![CDATA[Allows users to connect to #habari on IRC from within the admin.]]></description>
 	<copyright>2009</copyright>
 </pluggable>

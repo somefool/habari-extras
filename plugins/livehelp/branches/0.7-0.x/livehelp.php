@@ -9,9 +9,9 @@
 	<div class="container">
 		<p>Users and developers hang out here. Ask a question or just say 'hi'.</p>
 		<iframe id="irc" scrolling="no" frameborder="0"
-		src="http://embed.mibbit.com/?server=irc.freenode.net&channel=%23habari&nick=<?php echo $nick; ?>&noServerNotices=true&noServerMotd=true">
+		src="http://webchat.freenode.net/?randomnick=1&channels=habari">
 		</iframe>
-		<p>type /nick to change your nickname, or /help for available commands</p>
+		<p>type /nick to change your nickname, or /help for available commands (in the 'Status' tab)</p>
 
 	</div>
 
