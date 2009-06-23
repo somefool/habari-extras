@@ -1,22 +1,11 @@
 <?php
 class AutoSave extends Plugin {
 	
-	public function info() {
-		return array(
-			'name' => 'AutoSave',
-			'version' => '0.1.1',
-			'author' =>	'Andrew da Silva',
-			'authorurl' => 'http://andrewdasilva.com/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Saves post every minute if changes were made to the title or content. <strong>Do not use with the Revision plugin.</strong>',
-			'copyright' => '2008'
-		);
-	}
-	
 	public function action_admin_theme_get_publish() {
-		Stack::add('admin_header_javascript', array($this->get_url() . '/autosave.plugin.js'), 'autosave-plugin-js');
+		Stack::add('admin_header_javascript', array($this->get_url() . '/autosave.plugin.js'), 'autosave');
+		Stack::add('admin_header_javascript', 'autoSave.url=\'' . URL::get('ajax', array('context' => 'autosave')) . '\'', 'autosave-url');
 	}
-	
+		
 	/**
 	 * Altered copy of AdminHandler::post_publish():
 	 * - Throws exceptions rather than Session notices so we can return errors to AJAX calls;
@@ -24,21 +13,27 @@ class AutoSave extends Plugin {
 	 *
 	 * @see AdminHandler::post_publish()
 	 *
-	 * @param AdminHandler $that The AdminHandler instance
-	 * @param Theme $theme The Theme instance
+	 * @param AjaxHandler $that The AjaxHandler instance
 	 */
-	public function action_admin_theme_post_autosave($that, $theme) {
+	public function action_ajax_autosave($handler) {
 		$response = array();
 
 		try {
-			$form = $that->form_publish( new Post(), false );
+			$post_id = 0;
+			if ( isset($handler->handler_vars['id']) ) {
+				$post_id = intval($handler->handler_vars['id']);
+			}
 
-			// check to see if we are updating or creating a new post
-			if ( $form->post_id->value != 0 ) {
-				$post = Post::get( array( 'id' => $form->post_id->value, 'status' => Post::status( 'any' ) ) );
+			// If an id has been passed in, we're updating an existing post, otherwise we're creating one
+			if ( 0 !== $post_id ) {
+				$post = Post::get( array( 'id' => $post_id, 'status' => Post::status( 'any' ) ) );
+
+				$this->theme->admin_page = sprintf(_t('Publish %s'), Plugins::filter('post_type_display', Post::type_name($post->content_type), 'singular')); 
+				$form = $post->get_form( 'ajax' );
+
 				$post->title = $form->title->value;
 				if ( $form->newslug->value == '' ) {
-					throw new Exception(_t('A post slug cannot be empty. Keeping old slug.'));
+					Session::notice( _t('A post slug cannot be empty. Keeping old slug.') );
 				}
 				elseif ( $form->newslug->value != $form->slug->value ) {
 					$post->slug = $form->newslug->value;
@@ -61,10 +56,14 @@ class AutoSave extends Plugin {
 				else {
 					$post->pubdate = HabariDateTime::date_create( $form->pubdate->value );
 				}
-
+				$minor = $form->minor_edit->value && ($post->status != Post::status('draft'));
 				$post->status = $form->status->value;
 			}
 			else {
+				$post = new Post();
+				$form = $post->get_form( 'ajax' );
+				$form->set_option( 'form_action', URL::get('admin', 'page=publish' ) );
+
 				$postdata = array(
 					'slug' => $form->newslug->value,
 					'title' => $form->title->value,
@@ -75,11 +74,12 @@ class AutoSave extends Plugin {
 					'status' => $form->status->value,
 					'content_type' => $form->content_type->value,
 				);
+				$minor = false;
 
 				$post = Post::create( $postdata );
 			}
 
-			if( $post->pubdate->int > HabariDateTime::date_create()->int && $post->status == Post::status( 'published' ) ) {
+			if ( $post->pubdate->int > HabariDateTime::date_create()->int && $post->status == Post::status( 'published' ) ) {
 				$post->status = Post::status( 'scheduled' );
 			}
 
@@ -87,11 +87,23 @@ class AutoSave extends Plugin {
 
 			Plugins::act('publish_post', $post, $form);
 
-			$post->update( $form->minor_edit->value );
+			$post->update( $minor );
+
+			$permalink = ( $post->status != Post::status( 'published' ) ) ? $post->permalink . '?preview=1' : $post->permalink;
+			Session::notice( sprintf( _t( 'The post %1$s has been saved as %2$s.' ), sprintf('<a href="%1$s">\'%2$s\'</a>', $permalink, htmlspecialchars( $post->title ) ), Post::status_name( $post->status ) ) );
+			if ( $post->slug != Utils::slugify( $post->title ) ) {
+				Session::notice( sprintf( _t( 'The content address is \'%1$s\'.'), $post->slug ));
+			}
+			
+			
 			$response['post_id'] = $post->id;
 			$response['post_slug'] = $post->slug;
+			$response['messages'] = Session::messages_get( true, 'array' );
+			
 			ob_end_clean();
+						
 			echo json_encode($response);
+						
 			// Prevent rest of adminhandler to run, we only wanted to save!
 			exit;
 		} catch(Exception $e) {
