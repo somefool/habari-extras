@@ -19,7 +19,7 @@ class LiveHelp extends Plugin
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.11',
+			'version' => '0.12',
 			'description' => 'Allows users to connect to #habari on IRC from within the admin.',
 			'license' => 'Apache License 2.0',
 		);
