@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Photology</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 
+2.0</license>
+	<url>http://soullesssoftware.com/photology</url>
+	<author url="http://skippy.net/">Scott Merrill</author>
+	<author url="http://mikelietz.org/code">Mike Lietz</author>
+	<version>1.0</version>
+	<description><![CDATA[Automatically make thumbnail from the first image in a post.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
