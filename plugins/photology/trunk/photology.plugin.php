@@ -25,9 +25,10 @@ class Photology extends Plugin
 	 **/
 	public function help()
 	{
-		$help = _t( 'Requires Habari File Silo<hr>Creates a thumbnail for the first image file, taken 
-from the Habari File Silo, in <code>$post->info->photology_thumb</code>. You can also obtain the thumbnail by 
+		$help = _t( 'Requires Habari Media Silo<hr>Creates a thumbnail for the first image file, taken 
+from the Habari Media Silo, in <code>$post->info->photology_thumb</code>. You can also obtain the thumbnail by 
 echoing $post->content_excerpt_out;' );
+		return $help;
 	}
 
 	public function action_plugin_activation( $file )

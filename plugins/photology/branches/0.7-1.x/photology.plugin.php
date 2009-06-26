@@ -7,19 +7,6 @@ class Photology extends Plugin
 	{
 	}
 
-	function info()
-	{
-		return array(
-			'name' => 'Photology',
-			'url' => 'http://soullesssoftware.com/photology',
-			'author' => 'Scott Merrill',
-			'authorurl' => 'http://skippy.net/',
-			'version' => '1.0',
-			'license' => 'Apache License 2.0',
-			'description' => 'Automatically make thumbnail from the first image in a post.'
-		);
-	}
-
 	/**
 	 * Add help text (?) to plugin configuration page
 	 **/
@@ -89,7 +76,7 @@ class Photology extends Plugin
 
 	public function action_update_check()
 	{
-		Update::add( 'Photology', $this->uuid, $this->info->version );
+		Update::add( 'Photology', $this->uuid );
 	}
 
 	/**
@@ -273,3 +260,4 @@ class Photology extends Plugin
 	}	
 }
 ?>
+
