@@ -1,0 +1,11 @@
+<plugin>
+	<name>Calendar</name>
+	<version>0.01-alpha</version>
+	<url>http://ayu.commun.jp/habari-calendar</url>
+	<author>ayunyan</author>
+	<authorurl>http://ayu.commun.jp/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Displays calendar on your blog.</description>
+	<guid>4f97ad6b-c0a5-11dd-aff6-001b210f913f</guid>
+</plugin>
+
