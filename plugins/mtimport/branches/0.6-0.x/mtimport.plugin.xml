@@ -1,0 +1,11 @@
+<plugin>
+	<name>Movable Type Importer</name>
+	<version>0.02-alpha</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Import Movable Type Database</description>
+	<guid>d77b95b2-769e-11dd-90de-001b210f913f</guid>
+</plugin>
+
