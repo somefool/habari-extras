@@ -1,0 +1,23 @@
+.dashboard .module.fire-eagle-module .modulecore {
+	height: 25px;
+}
+
+.dashboard .module.fire-eagle-module h2 img {
+	vertical-align: text-bottom;
+	margin-left: 5px;
+}
+
+.dashboard .module.fire-eagle-module form {
+	padding: 0 3%;
+}
+
+.dashboard .module.fire-eagle-module label {
+	font-weight: normal;
+}
+
+.dashboard .module.fire-eagle-module input[type=text] {
+	width: 250px;
+}
+.dashboard .module.fire-eagle-module .formcontrol {
+	display: inline;
+}

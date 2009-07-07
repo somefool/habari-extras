@@ -1,0 +1,11 @@
+<plugin>
+	<name>Fire Eagle</name>
+	<version>0.01-beta</version>
+	<url>http://ayu.commun.jp/habari-fireeagle</url>
+	<author>ayunyan</author>
+	<authorurl>http://ayu.commun.jp/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Displays current location on your blog.</description>
+	<guid>84708e24-6de5-11dd-b14a-001b210f913f</guid>
+</plugin>
+
