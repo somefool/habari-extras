@@ -1,0 +1,102 @@
+.rateit {
+    margin: 15px 0px;
+}
+
+.rateit ul, div.rateit-readonly {
+    width: 80px;
+    height: 16px;
+    margin: 0 0 0 0;
+    padding: 0;
+    list-style: none;
+    clear: both;
+    position: relative;
+    background: url(../img/star.png) no-repeat 0 0;
+}
+
+.rateit-nostar ul, .rateit-nostar div {
+    background-position:0 0;
+}
+.rateit-onestar ul, .rateit-onestar div {
+    background-position:0 -16px;
+}
+.rateit-twostar ul, .rateit-twostar div {
+    background-position:0 -32px;
+}
+.rateit-threestar ul, .rateit-threestar div {
+    background-position:0 -48px;
+}
+.rateit-fourstar ul, .rateit-fourstar div {
+    background-position:0 -64px;
+}
+.rateit-fivestar ul, .rateit-fivestar div {
+    background-position:0 -80px;
+}
+
+.rateit li {
+    cursor: pointer;
+    float: left;
+    text-indent: -999em;
+}
+
+.rateit li a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    text-decoration: none;
+    z-index: 200;
+}
+
+.rateit li.rateit-one a {
+    left: 0;
+}
+
+.rateit li.rateit-two a {
+    left: 16px;
+}
+
+.rateit li.rateit-three a {
+    left: 32px;
+}
+
+.rateit li.rateit-four a {
+    left: 48px;
+}
+
+.rateit li.rateit-five a {
+    left: 64px;
+}
+
+.rateit li a:hover {
+    width: 80px;
+    height: 16px;
+    left: 0;
+    z-index: 2;
+    overflow: hidden;
+    background: url(../img/star.png) no-repeat 0 0;
+}
+
+.rateit li.rateit-one a:hover {
+    background-position: 0 -96px;
+}
+
+.rateit li.rateit-two a:hover {
+    background-position: 0 -112px;
+}
+
+.rateit li.rateit-three a:hover {
+    background-position: 0 -128px;
+}
+
+.rateit li.rateit-four a:hover {
+    background-position: 0 -144px;
+}
+
+.rateit li.rateit-five a:hover {
+    background-position: 0 -160px;
+}
+
+.rateit-loading {
+    visibility: hidden;
+}
