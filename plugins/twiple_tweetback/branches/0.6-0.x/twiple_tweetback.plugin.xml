@@ -1,0 +1,11 @@
+<plugin>
+	<name>Twiple! Tweetback</name>
+	<version>0.01</version>
+	<url>http://ayu.commun.jp/habari-twiple-tweetback</url>
+	<author>ayunyan</author>
+	<authorurl>http://ayu.commun.jp/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>adding Twiple! Tweetback to your posts.</description>
+	<guid>42604d65-e6ea-11dd-bd4c-001b210f913f</guid>
+</plugin>
+
