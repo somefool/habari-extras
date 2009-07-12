@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Habari: Amazon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-18 05:49+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Ayumi M <ayu@commun.jp>\n"
+"Language-Team: ayunyan <ayu@commun.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _t\n"
+"X-Poedit-Basepath: \\\\Dahlia\\ayu\\public_html\\projects\\habari\\user\\plugins\\\n"
+"X-Poedit-SearchPath-0: amazon\n"
+
+#: amazon/amazon.plugin.php:230
+#: amazon/amazon.plugin.php:391
+msgid "Configure"
+msgstr "設定"
+
+#: amazon/amazon.plugin.php:243
+msgid "Country: "
+msgstr "国:"
+
+#: amazon/amazon.plugin.php:244
+msgid "Associate Tag: "
+msgstr "アフェリエイトタグ:"
+
+#: amazon/amazon.plugin.php:245
+msgid "Template: "
+msgstr "テンプレート:"
+
+#: amazon/amazon.plugin.php:246
+msgid "Save"
+msgstr "保存"
+
+#: amazon/amazon.plugin.php:278
+msgid "please specify keywords."
+msgstr "キーワードを指定してください。"
+
+#: amazon/amazon.plugin.php:283
+msgid "please specify searchIndex."
+msgstr "searchIndexを指定してください。"
+
+#: amazon/amazon.plugin.php:300
+#: amazon/amazon.plugin.php:348
+msgid "following error reply existed from the server: "
+msgstr "次のエラーがサーバから返されました: "
+
+#: amazon/amazon.plugin.php:305
+msgid "did not match any items."
+msgstr "アイテムは見つかりませんでした。"
+
+#: amazon/amazon.plugin.php:338
+msgid "please specify ASIN."
+msgstr "ASINを指定してください。"
+
+#: amazon/amazon.plugin.php:376
+msgid "Amazon"
+msgstr "Amazon"
+
+#: amazon/amazon.plugin.php:484
+msgid "Search"
+msgstr "検索"
+
+#: amazon/templates/reviewsummary.php:10
+msgid "Sales Rank: "
+msgstr "売り上げランク:"
+
+#: amazon/templates/reviewsummary.php:13
+msgid "Average Rating: "
+msgstr "平均評価:"
+
