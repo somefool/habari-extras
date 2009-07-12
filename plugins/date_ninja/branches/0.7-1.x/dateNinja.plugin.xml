@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<pluggable type="plugin">
+	<name>Date Ninja</name>
+	<license url="">MIT</license>
+	<author url="http://www.chrisjdavis.org">Chris J. Davis</author>
+	<version>1.0</version>
+	<url>http://www.chrisjdavis.org</url>
+	<description><![CDATA[Allows you to use plain language when selecting dates. Based on datejs.]]></description>
+	<copyright>2008</copyright>
+</pluggable>
+
