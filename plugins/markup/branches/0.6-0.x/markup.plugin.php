@@ -125,7 +125,14 @@ class MarkUp extends Plugin {
 	}
 
 
-	public static function filter_post_content_out( $content, $post )
+  public function alias()
+  {
+    return array(
+      'do_markup' => array( 'filter_post_content_out', 'filter_post_content_excerpt', 'filter_post_content_summary' )
+    );
+  }
+
+	public function do_markup( $content, $post )
 	{
 		static $textile;
 		static $markdown;
