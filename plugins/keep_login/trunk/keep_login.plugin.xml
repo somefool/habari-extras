@@ -1,10 +1,11 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Keep Login</name>
-	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache
+	Software License 2.0</license>
+	<author url="http://habariproject.org/">Habari Community</author>
 	<version>1.1</version>
-	<description>Uses ajax to keep a session logged in in the admin.</description>
-	<license>Apache License 2.0</license>
-</plugin>
-
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Uses ajax to keep a session logged in to the admin.]]></description>
+	<copyright>2008</copyright>
+</pluggable>
