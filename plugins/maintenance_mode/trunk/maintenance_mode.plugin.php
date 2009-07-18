@@ -10,25 +10,6 @@ class Maintenance extends Plugin
 
 	const OPTION_NAME = 'maint_mode';
 
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Maintenance Mode',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.3',
-			'description' => 'Redirects all requests to a maintenance mode page. 
-			The login page always remains available. Logged in users can see any page on the site even when in maintenance mode.', 
-			'license' => 'Apache License 2.0',
-		);
-	}
-
 	public function action_plugin_activation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
