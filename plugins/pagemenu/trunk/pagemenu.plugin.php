@@ -2,27 +2,11 @@
 
 class PageMenuPlugin extends Plugin
 {
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Page Menu',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Owen Winkler',
-			'authorurl' => 'http://asymptomatic.net/',
-			'version' => '1.0',
-			'description' => 'Creates a menu from Pages',
-			'license' => 'Apache License 2.0',
-		);
-	}
 
 	function action_init()
 	{
 		$this->add_template( 'pagemenu', dirname(__FILE__) . '/pagemenu.php' );
+		$this->add_template( 'block.pagemenu', dirname(__FILE__) . '/block.pagemenu.php' );
 	}
 
 	public function configure()
@@ -140,23 +124,29 @@ margin: 10px;
 
 		$menuids = (array)Options::get('pagemenu__ids');
 		
-		$orderbys = array();
-		foreach(array_reverse($menuids) as $id) {
-			$orderbys[] = "id = {$id}";
-		}
-		$orderby = implode(',', $orderbys);
-
+		if(count($menuids) > 0) {
+		
+			$orderbys = array();
+			foreach(array_reverse($menuids) as $id) {
+				$orderbys[] = "id = {$id}";
+			}
+			$orderby = implode(',', $orderbys);
+	
 		$menupages = Posts::get(array('content_type'=>'page', 'id'=>$menuids, 'orderby' => $orderby, 'nolimit' => true));
-		foreach($menupages as $key => $page) {
-			if(isset($theme->post) && $theme->post->slug == $page->slug) {
-				$theme->activemenu = $page;
-				$menupages[$key]->active = true;
-				$menupages[$key]->activeclass = 'active';
+			foreach($menupages as $key => $page) {
+				if(isset($theme->post) && $theme->post->slug == $page->slug) {
+					$theme->activemenu = $page;
+					$menupages[$key]->active = true;
+					$menupages[$key]->activeclass = 'active';
+				}
+				else {
+					$menupages[$key]->active = false;
+					$menupages[$key]->activeclass = 'inactive';
+				}
 			}
-			else {
-				$menupages[$key]->active = false;
-				$menupages[$key]->activeclass = 'inactive';
-			}
+		}
+		else {
+			$menupages = new Posts();
 		}
 		
 		$theme->menupages = $menupages;
@@ -176,6 +166,44 @@ this plugin to your current theme directory and make changes to it there.</p>
 END_HELP;
 	}
 
+	public function filter_block_list($block_list)
+	{
+		$block_list['pagemenu'] = _t('Page Menu');
+		return $block_list;
+	}
+	
+	public function action_block_content_pagemenu($block, $theme)
+	{
+		$menuids = (array)Options::get('pagemenu__ids');
+		
+		if(count($menuids) > 0) {
+		
+			$orderbys = array();
+			foreach(array_reverse($menuids) as $id) {
+				$orderbys[] = "id = {$id}";
+			}
+			$orderby = implode(',', $orderbys);
+	
+			$menupages = Posts::get(array('content_type'=>'page', 'id'=>$menuids, 'orderby' => $orderby));
+			foreach($menupages as $key => $page) {
+				if(isset($theme->post) && $theme->post->id == $page->id) {
+					$block->activemenu = $page;
+					$menupages[$key]->active = true;
+					$menupages[$key]->activeclass = 'active';
+				}
+				else {
+					$menupages[$key]->active = false;
+					$menupages[$key]->activeclass = 'inactive';
+				}
+			}
+		}
+		else {
+			$menupages = new Posts();
+		}
+		
+		$block->menupages = $menupages;
+	}	
+	
 }
 
 
