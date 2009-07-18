@@ -8,24 +8,6 @@
 class KeepLogin extends Plugin
 {
 	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Keep Login',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.1',
-			'description' => 'Uses ajax to keep a session logged in in the admin.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-	/**
 	 * Add output in the admin header
 	 * Adds the necessary javascript to make periodic ajax calls to the admin.
 	 */
