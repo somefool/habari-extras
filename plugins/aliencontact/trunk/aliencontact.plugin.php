@@ -12,19 +12,6 @@
 class AlienContact extends Plugin 
 {
 	private $theme= null;
-	
-	function info() 
-	{
-		return array(
-			'name' => 'AlienContact',
-			'version' => '1.0',
-			'url' => 'http://myfla.ws/projects/contact/',
-			'author' => 'Arthus Erea',
-			'authorurl' => 'http://myfla.ws',
-			'license' => 'Creative Commons Attribution-Share Alike 3.0',
-			'description' => 'AlienContact generates a form for visitors to contact you',
-		);
-	}
 
 	/**
 	 * Add update beacon support

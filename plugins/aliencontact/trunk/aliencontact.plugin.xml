@@ -1,10 +1,11 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>AlienContact</name>
-	<version>1.0</version>
-	<url>http://myfla.ws/projects/contact/</url>
-	<author>Arthus Erea</author>
-	<authorurl>http://myfla.ws</authorurl>
 	<license>Creative Commons Attribution-Share Alike 3.0</license>
-	<description>AlienContact generates a form for visitors to contact you</description>
-</plugin>
-
+	<url>http://myfla.ws/projects/contact/</url>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<author url="http://myfla.ws">Arthus Erea</author>
+	<version>0.7-1.0</version>
+	<description><![CDATA[AlienContact generates a form for visitors to contact you]]></description>
+	<copyright>2009</copyright>
+</pluggable>
