@@ -2,13 +2,13 @@
 class TagTray extends Plugin
 {
 	private $theme;
-	
+
 	/**
 	 * Add the tray to the publish form
 	 * @params FormUI $form The publish form object instance
 	 * @params Post $post The post that is being edited
-	 **/	 	 	 	
-	public function action_form_publish($form, $post) 
+	 **/
+	public function action_form_publish($form, $post)
 	{
 		// Create the tags selector
 		$tagselector = $form->publish_controls->append('fieldset', 'tagselector', _t('Tags'));
@@ -29,15 +29,15 @@ class TagTray extends Plugin
 
 		$tags_list->append('static', 'tagslistend', '</ul>');
 	}
-	
+
 	/**
 	 * Add the required javascript to the publish page
 	 * @param Theme $theme The admin theme instance
-	 **/	 
+	 **/
 	public function action_admin_header($theme)
 	{
 		Stack::add('admin_header_javascript', $this->get_url(true) . 'tagtray.js', 'tagtray');
 	}
-	
+
 }
 ?>
