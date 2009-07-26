@@ -2,23 +2,6 @@
 
 class PlaintextPlugin extends Plugin
 {
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Plaintext',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
-			'description' => "Displays plain text of posts' when URL ends in .text",
-			'license' => 'Apache License 2.0',
-		);
-	}
 
 	/**
 	 * Filter the rewrite rules to add our own new rule based on the existing display_entry rule
