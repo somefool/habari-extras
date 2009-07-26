@@ -9,22 +9,6 @@
 Class RecentComments extends Plugin
 {	
 	/**
-	 * Provides Plugin information.
-	 **/	
-	public function info()
-	{
-		return array(
-		'name'=>'Recent Comments',
-		'version'=>'1.4-alpha',
-		'url'=>'http://habariproject.org/',
-		'author'=>'Habari Community',
-		'authorurl'=>'http://habariproject.org/',
-		'license'=>'Apache License 2.0',
-		'description'=>'Displays the most recent comments in your blog sidebar'
-		);
-	}
-	
-	/**
 	 * Implement the update notification feature
 	 */
   	public function action_update_check()
