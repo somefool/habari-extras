@@ -8,24 +8,6 @@
 class DiggbarBlocker extends Plugin
 {
 	/**
-	 * Required plugin information
-	 * @return array The array of information
-	 **/
-	public function info()
-	{
-		return array(
-			'name' => 'DiggBar Blocker',
-			'version' => '0.2',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Prevents DiggBar from framing your site',
-			'copyright' => '2009'
-		);
-	}
-
-	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
@@ -38,7 +20,7 @@ class DiggbarBlocker extends Plugin
 	 **/
 	public function help()
 	{
-		$help = _t( "This plugin Prevents DiggBar from framing your site."
+		$help = _t( "This plugin prevents DiggBar from framing your site. Install and configure it."
 		);
 		return $help;
 	}
@@ -84,7 +66,7 @@ class DiggbarBlocker extends Plugin
 				$link = $message_fieldset->append( 'checkbox', 'addlink', 'option:diggbarblocker__addlink',
 					_t( 'Add a link to the target page.' ) );
 
-				$ui->append( 'submit', 'save', _t('Save') );
+				$ui->append( 'submit', 'save', _t( 'Save' ) );
 				$ui->out();
 			}
 		}
@@ -97,7 +79,7 @@ class DiggbarBlocker extends Plugin
 	{
 		if ( Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__) ) {
 			if ( Options::get( 'diggbarblocker__message' ) == null ) {
-				Options::set( 'diggbarblocker__message', _t('This site does not support use of the DiggBar.') );
+				Options::set( 'diggbarblocker__message', _t( 'This site does not support use of the DiggBar.' ) );
 			}
 			if ( Options::get( 'diggbarblocker__add_link' ) == null ) {
 				Options::set( 'diggbarblocker__addlink', 1 ); 
@@ -118,7 +100,6 @@ class DiggbarBlocker extends Plugin
 		top.location.replace( self.location.href );
 	}
 </SCRIPT>';
-
 			} else
 			{	
 				$buffer = '<p>' . Options::get( 'diggbarblocker__message' ) .'</p>' . 
@@ -129,7 +110,6 @@ class DiggbarBlocker extends Plugin
 		}
 		return $buffer;
 	}
-
 }
 
 ?>

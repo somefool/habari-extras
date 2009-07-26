@@ -1,8 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>DiggBar Blocker</name>
-	<url>http://habariproject.org/</utrl>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<license>Apache License 2.0</license>
-	<description>Prevents DiggBar from framing your site</description>
-</plugin>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.2</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Prevents DiggBar from framing your site]]></description>
+	<copyright>2009</copyright>
+</pluggable>
