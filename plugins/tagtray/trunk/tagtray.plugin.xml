@@ -1,10 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Tag Tray</name>
-	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<author url="http://habariproject.org">Habari Community</author>
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Displays a tray of tags on the publish page to click on and add to the edited post.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<copyright>2008</copyright>
-</plugin>
-
+</pluggable> 
