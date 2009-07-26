@@ -1,11 +1,12 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Amazon</name>
 	<version>0.02</version>
 	<url>http://ayu.commun.jp/habari-amazon</url>
-	<author>ayunyan</author>
-	<authorurl>http://ayu.commun.jp/</authorurl>
-	<license>Apache License 2.0</license>
-	<description>easily/quickly insert Amazon Products into your posts.</description>
+	<author url="http://ayu.commun.jp/">ayunyan</author>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<description><![CDATA[Easily/quickly insert Amazon Products into your posts.]]></description>
 	<guid>4c91ed13-1fcd-11dd-b5d6-001b210f913f</guid>
-</plugin>
+	<copyright>2009</copyright>
+</pluggable>
 

@@ -164,26 +164,6 @@ class Amazon extends Plugin
 	var $star_image_url = 'http://g-ecx.images-amazon.com/images/G/01/x-locale/common/customer-reviews/stars-';
 
 	/**
-	 * plugin information
-	 *
-	 * @access public
-	 * @retrun void
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Amazon',
-			'version' => '0.02',
-			'url' => 'http://ayu.commun.jp/habari-amazon',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => 'easily/quickly insert Amazon Products into your posts.',
-			'guid' => '4c91ed13-1fcd-11dd-b5d6-001b210f913f'
-			);
-	}
-
-	/**
 	 * action: plugin_activation
 	 *
 	 * @access public
