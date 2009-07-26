@@ -10,28 +10,10 @@
 
 class Monthly_Archives extends Plugin
 {
-
-	const VERSION = '0.9.1';
-
 	private $monthly_archives = ''; // stores the actual archives list
 	private $config = array(); // stores our config options
 
 	private $cache_expiry = 604800; // one week, in seconds: 60 * 60 * 24 * 7
-
-
-	public function info ( ) {
-
-		return array(
-			'name' => 'Monthly Archives',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => self::VERSION,
-			'description' => 'Shows archives grouped by month.',
-			'license' => 'Apache License 2.0'
-		);
-
-	}
 
 	public function action_update_check ( ) {
 
