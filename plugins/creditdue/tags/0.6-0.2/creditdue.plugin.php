@@ -7,13 +7,21 @@
 class CreditDue extends Plugin
 {
 	/**
-	 * Add help text to plugin configuration page
+	 * function info
+	 * Returns information about this plugin
+	 * @return array Plugin info array
 	 **/
-	public function help()
+	function info()
 	{
-		$help = _t( '<p>To use, add <code>&lt;?php $theme->show_credits(); ?&gt;</code> in your theme.</p><p>To customize the output template, copy creditdue.php to your theme\'s directory</p>'
+		return array (
+			'name' => 'Credit Due',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'version' => '0.2',
+			'description' => 'Allows for output of information for active themes and plugins',
+			'license' => 'Apache License 2.0',
 		);
-		return $help;
 	}
 
 	/**
@@ -23,10 +31,13 @@ class CreditDue extends Plugin
 	 * Usage: This function is called using <?php $theme->show_credits(); ?>
 	 * This loads the template creditdue.php (which can be copied to the theme directory and customized) and shows the theme and plugins in unordered lists
 	 */
-	public function theme_show_credits( $theme )
-	{
+	public function theme_show_credits( $theme ) {
+
 		$theme_credits = Themes::get_active();
 		$plugin_credits = Plugins::get_active();
+
+		#Utils::debug($theme_credits);
+		#Utils::debug($plugin_credits);
 		
 		$theme->theme_credits = $theme_credits;
 		$theme->plugin_credits = $plugin_credits;
@@ -51,4 +62,6 @@ class CreditDue extends Plugin
 	}
 
 }
+
+
 ?>

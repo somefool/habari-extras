@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+    <name>Credit Due</name>
+    <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+    <author url="http://habariproject.org/">Habari Community</author>
+    <version>0.2</version>
+    <url>http://habariproject.org/</url>
+    <description><![CDATA[Allows for output of information for active themes and plugins.]]></description>
+    <copyright>2009</copyright>
+</pluggable>
