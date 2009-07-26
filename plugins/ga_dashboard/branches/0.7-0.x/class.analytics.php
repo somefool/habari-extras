@@ -4,7 +4,7 @@
  *
  */
 
-class GoogleAnalytics
+class Google_Analytics
 {
 	
 	// URLs that we use
