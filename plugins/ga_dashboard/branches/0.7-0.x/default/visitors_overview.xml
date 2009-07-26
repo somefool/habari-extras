@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<report>
+	<name>Visitors Overview</name>
+	<type>areachart</type>
+	<!-- Personally prefer: lineSize: 5, pointSize: 2 -->
+	<opts>height: 175, backgroundColor: 'FAFAFA', legend: 'none'</opts>
+	<sort>numeric</sort>
+	
+	<dataReference>
+		<dimensions>ga:month,ga:day</dimensions>
+		<metrics>ga:visits</metrics>
+		<sort>ga:month</sort>
+	</dataReference>
+	
+	<dataTypes>
+		<row type="string">Date</row>
+		<row type="number">Visitors</row>
+	</dataTypes>
+</report>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<report>
+	<name>Traffic Sources Overview</name>
+	<type>piechart</type>
+	<opts>height: 200, legendFontSize: 10, legend: 'right', legendBackgroundColor: 'FAFAFA', backgroundColor: 'FAFAFA'</opts>
+	<sort>numeric</sort>
+	
+	<dataReference>
+		<dimensions>ga:source</dimensions>
+		<metrics>ga:visits</metrics>
+		<sort>ga:source</sort>
+	</dataReference>
+	
+	<limit>
+		<max>8</max>
+		<totalDropped>1</totalDropped>
+	</limit>
+	
+	<dataTypes>
+		<row type="string">Referrer</row>
+		<row type="number">Number</row>
+	</dataTypes>
+</report>
