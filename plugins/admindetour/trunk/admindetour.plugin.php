@@ -33,7 +33,7 @@ class admindetour extends Plugin {
 	
 	public function action_before_act_admin( $that ) {
 		if (!isset($that->handler_vars['page'])) {
-			$that->handler_vars = array_merge($that->handler_vars, User::identify()->info->admindetour_real['args']);
+			$that->handler_vars->merge( User::identify()->info->admindetour_real['args']);
 		}
 	}
 	
