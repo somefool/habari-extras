@@ -3,6 +3,18 @@ class admindetour extends Plugin {
 	
 	public $mainmenus = array();
 	
+	public function info() {
+		return array(
+			'name' => 'Admin Detour',
+			'version' => '0.2',
+			'url' => 'http://habariproject.org/',
+			'author' =>	'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Decide what is your front page when logging in.',
+			);
+	}
+	
 	public function filter_rewrite_rules( $db_rules )
 	{	
 		$db_rules[] = new RewriteRule ( array(
@@ -19,7 +31,7 @@ class admindetour extends Plugin {
 		return $db_rules;
 	}
 	
-	public function action_before_act_admin( $that ) 
+	public function action_before_act_admin( $that )
 	{
 		if (!isset($that->handler_vars['page'])) {
 			$args = User::identify()->info->admindetour_real['args'];
