@@ -6,7 +6,7 @@ class admindetour extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'Admin Detour',
-			'version' => '0.1',
+			'version' => '0.2',
 			'url' => 'http://habariproject.org/',
 			'author' =>	'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
@@ -31,13 +31,16 @@ class admindetour extends Plugin {
 		return $db_rules;
 	}
 	
-	public function action_before_act_admin( $that ) {
+	public function action_before_act_admin( $that )
+	{
 		if (!isset($that->handler_vars['page'])) {
-			$that->handler_vars->merge( User::identify()->info->admindetour_real['args']);
+			$args = User::identify()->info->admindetour_real['args'];
+			$that->handler_vars = $that->handler_vars->merge( $args );
 		}
 	}
 	
-	public function filter_adminhandler_post_loadplugins_main_menu( $mainmenus ) {
+	public function filter_adminhandler_post_loadplugins_main_menu( $mainmenus )
+	{
 		$mainmenus['dashboard'] = array( 'url' => URL::get( 'admin', 'page=dashboard' ), 'title' => _t( 'View your user dashboard' ), 'text' => _t( 'Dashboard' ), 'hotkey' => 'D', 'selected' => false );
 		
 		$this->mainmenus = $mainmenus;
