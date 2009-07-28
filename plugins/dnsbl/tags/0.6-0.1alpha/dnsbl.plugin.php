@@ -12,6 +12,26 @@
 class Dnsbl extends Plugin
 {
 	/**
+	 * plugin information
+	 *
+	 * @access public
+	 * @retrun array
+	 */
+	public function info()
+	{
+		return array(
+			'name' => 'DNSBL',
+			'version' => '0.1-alpha',
+			'url' => 'http://ayu.commun.jp/habari-dnsbl',
+			'author' => 'ayunyan',
+			'authorurl' => 'http://ayu.commun.jp/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Check comments against an IP blacklist',
+			'guid' => '86fcddaa-ab4e-11dd-9e8d-001b210f913f'
+			);
+	}
+
+	/**
 	 * setting priority
 	 *
 	 * @access public
