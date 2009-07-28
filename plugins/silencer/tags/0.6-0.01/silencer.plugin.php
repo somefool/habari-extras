@@ -2,6 +2,24 @@
 class Silencer extends Plugin
 {
 	/**
+	 * Required plugin information
+	 * @return array The array of information
+	 **/
+	public function info()
+	{
+		return array(
+			'name' => 'Silencer',
+			'version' => '0.01',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Disables comments for all newly published posts',
+			'copyright' => '2009'
+		);
+	}
+
+	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
