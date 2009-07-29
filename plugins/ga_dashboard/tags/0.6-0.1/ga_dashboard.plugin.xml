@@ -1,0 +1,8 @@
+<plugin>
+	<name>Google Analytics Dashboard Modules</name>
+	<url>http://www.ciscomonkey.net</url>
+	<author>Ryan Mullins</author>
+	<authorurl>http://www.ciscomonkey.net/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Adds Google Analytics to your dashboard modules.</description>
+</plugin>
