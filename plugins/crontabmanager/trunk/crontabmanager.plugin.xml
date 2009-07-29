@@ -1,7 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>CronTabManager</name>
+	<author url="http://habariproject.org/">Habari Community</author>
 	<version>0.1</version>
-	<author>Habari Community</author>
-	<license>Apache License 2.0</license>
-</plugin>
-
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Manage Habari crons.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2009</copyright>
+</pluggable> 

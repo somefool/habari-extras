@@ -2,6 +2,17 @@
 
 class CronTabManager extends Plugin
 {
+	public function info()
+	{
+		return array (
+			'name' => 'CronTabManager',
+			'version' => '0.1',
+			'author' => 'Habari Community',
+			'license' => 'Apache License 2.0',
+			'description' => 'Allows admin users to manage cron jobs manually with a <a href="' . Site::get_url( 'admin' ) . '/crontab">management page</a>.',
+		);
+	}
+
 	public function alias()
 	{
 		return array(
