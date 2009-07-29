@@ -106,7 +106,7 @@ class CronTabManager extends Plugin
 
 		$callback = $new->append('text', 'callback', 'null:null', _t('Callback', 'crontabmanager'), 'tabcontrol_text');
 
-		$increment = $new->append('text', 'increment', 'null:null', _t('Iterval', 'crontabmanager'), 'tabcontrol_text');
+		$increment = $new->append('text', 'increment', 'null:null', _t('Interval', 'crontabmanager'), 'tabcontrol_text');
 
 		$start_time = $new->append('text', 'start_time', 'null:null', _t('Start Time', 'crontabmanager'), 'tabcontrol_text');
 
@@ -114,14 +114,14 @@ class CronTabManager extends Plugin
 
 		$description = $new->append('text', 'description', 'null:null', _t('Description', 'crontabmanager'), 'tabcontrol_text');
 
-		$cron_class = $new->append('select', 'cron_class', 'null:null', _t('Cron Class', 'crontabmanager'), 'tabcontrol_select');
-		$cron_class->value = CronJob::CRON_CUSTOM;
-		$cron_class->options = array(
+		$cron_classes = array(
 			CronJob::CRON_SYSTEM => _t('System', 'crontabmanager'),
 			CronJob::CRON_THEME => _t('Theme', 'crontabmanager'),
 			CronJob::CRON_PLUGIN => _t('Plugin', 'crontabmanager'),
 			CronJob::CRON_CUSTOM => _t('Custom', 'crontabmanager'),
 		);
+		$cron_class = $new->append('select', 'cron_class', 'null:null', _t('Cron Class', 'crontabmanager'), $cron_classes, 'tabcontrol_select');
+		$cron_class->value = CronJob::CRON_CUSTOM;
 
 		$new->append( 'submit', 'save', _t('Save', 'crontabmanager') );
 		$form->on_success( array($this, 'formui_submit') );
