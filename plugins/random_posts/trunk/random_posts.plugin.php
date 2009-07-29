@@ -2,32 +2,24 @@
 
 /**********************************
  *
- * Random Posts plugin for Habari 0.5+
+ * Random Posts plugin for Habari
  * 
- * to use, add <?php $theme->random_posts(); ?> to your theme where you want the list output.
  *
  *********************************/
 
 class RandomPosts extends Plugin
 {
-	const VERSION = '0.3';
+	const VERSION = '0.4';
 
 	private $config = array();
 	private $random_posts = '';
  
 	private $hard_limit = 5; // in case this is not configured, so that all posts are not returned
 
-	public function info()
+	public function help() 
 	{
-		return array(
-			'name' => 'Random Posts',
-			'url' => 'http://mikelietz.org/code/habari/',
-			'author' =>'Mike Lietz',
-			'authorurl' => 'http://mikelietz.org',
-			'version' => self::VERSION,
-			'description' => 'Lists random posts, based on tags to include and/or exclude',
-			'license' => 'Apache License 2.0',
-		);
+		$help = _t( 'To use, add <code>&lt;?php $theme->random_posts(); ?&gt;</code> to your theme where you want the list output.' );
+		return $help;
 	}
 
 	public function action_update_check()
@@ -106,7 +98,6 @@ class RandomPosts extends Plugin
 
 		return $this->random_posts;
 	}
- 
  
 }
 ?>
