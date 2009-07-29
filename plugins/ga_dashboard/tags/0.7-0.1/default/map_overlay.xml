@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<report>
+	<name>Map Overlay</name>
+	<type>geomap</type>
+	<sort>none</sort>
+	
+	<dataReference>
+		<dimensions>ga:country</dimensions>
+		<metrics>ga:visits</metrics>
+		<sort>ga:country</sort>
+	</dataReference>
+	
+	<dataTypes>
+		<row type="string">Country</row>
+		<row type="number">Visits</row>
+	</dataTypes>
+</report>

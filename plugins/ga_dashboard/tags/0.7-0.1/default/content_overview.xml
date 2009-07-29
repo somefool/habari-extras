@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<report>
+	<name>Content Overview</name>
+	<type>none</type>
+	<sort>numeric</sort>
+	
+	<dataReference>
+		<dimensions>ga:pagePath</dimensions>
+		<metrics>ga:pageviews</metrics>
+		<sort>ga:pagePath</sort>
+	</dataReference>
+	
+	<limit>
+		<max>8</max>
+		<totalDropped>0</totalDropped>
+	</limit>
+</report>

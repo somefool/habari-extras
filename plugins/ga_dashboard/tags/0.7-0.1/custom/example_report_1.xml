@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<report>
+	<name>Visits vs Pageviews</name>
+	<type>linechart</type>
+	<opts>height: 200, backgroundColor: 'FAFAFA', legendBackgroundColor: 'FAFAFA', legend: 'bottom'</opts>
+	<sort>none</sort>
+	
+	<dataReference order="1">
+		<dimensions>ga:month,ga:day</dimensions>
+		<metrics>ga:visits</metrics>
+		<sort>ga:month</sort>
+	</dataReference>
+	<dataReference order="2">
+		<dimensions>ga:month,ga:day</dimensions>
+		<metrics>ga:pageviews</metrics>
+		<sort>ga:month</sort>
+	</dataReference>
+	
+	<dataTypes>
+		<row type="string">Date</row>
+		<row type="number">Visitors</row>
+		<row type="number">Pageviews</row>
+	</dataTypes>
+</report>
