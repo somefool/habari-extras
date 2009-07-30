@@ -141,7 +141,7 @@ class ga_dashboard extends Plugin
 					$cache_expiry->add_validator( 'validate_required' );
 					
 					if ( $this->plugin_configured( $this->config ) ) {
-						$ga = new Google_Analytics( $this->config['user_id'], $this->config['user_pw'] );
+						$ga = new Google_Analytics( $this->config['user_id'], base64_decode( $this->config['user_pw'] ) );
 						// get an array with profiles (profileId => profileName)
 						$gprofs = $ga->get_profiles();
 						$profile = $ui->append( 'select', 'profile', 'option:' . $this->class_name . '__profile', _t( 'Profile' ) );
