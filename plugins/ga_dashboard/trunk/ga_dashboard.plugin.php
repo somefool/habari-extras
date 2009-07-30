@@ -134,6 +134,7 @@ class ga_dashboard extends Plugin
 					
 					$user_id = $ui->append( 'text', 'user_id', 'option:' . $this->class_name . '__user_id', _t( 'GA username', $this->class_name ) );
 					$user_pw = $ui->append( 'password', 'user_pw', 'option:' . $this->class_name . '__user_pw', _t( 'GA password', $this->class_name ) );
+					$user_pw->value = base64_decode( Options::get( $this->class_name . '__user_pw' ) );
 					
 					$cache_expiry = $ui->append( 'text', 'cache_expiry', 'option:' . $this->class_name . '__cache_expiry', _t( 'Cache Expiry (in seconds)', $this->class_name ) );
 					$cache_expiry->add_validator( 'validate_uint' );
@@ -159,7 +160,12 @@ class ga_dashboard extends Plugin
 	
 	public function updated_config( $ui )
 	{
+		$b64_pw = base64_encode( $ui->user_pw->value );
+		
 		$ui->save();
+		
+		Options::set( $this->class_name . '__user_pw', $b64_pw );
+		
 		foreach ( $this->reports as $rpt => $data ) {
 			$cache = $this->class_name . '__' . $rpt;
 			Cache::expire( $cache );
@@ -551,7 +557,7 @@ class ga_dashboard extends Plugin
 			// Time to fetch it.
 			try {
 				// Call out to get the data here.
-				$gObj = new Google_Analytics( $this->config['user_id'], $this->config['user_pw'] );
+				$gObj = new Google_Analytics( $this->config['user_id'], base64_decode( $this->config['user_pw'] ) );
 				
 				// get an array with profiles (profileId => profileName)
 				$prof = $gObj->get_profiles();
