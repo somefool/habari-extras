@@ -2,22 +2,6 @@
 
 class Spamview extends Plugin
 { 
-	
-	/**
-	 * Required plugin info() implementation provides info to Habari about this plugin.
-	 */ 
-	public function info()
-	{
-		return array (
-			'name' => 'Spamview',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => 0.1,
-			'description' => 'Provides a dashboard module to quickly see new spam',
-			'license' => 'ASL 2.0',
-		);
-	}
 
 	/**
 	* Add update beacon support
