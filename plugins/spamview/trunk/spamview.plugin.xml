@@ -2,9 +2,20 @@
 <pluggable type="plugin">
 	<name>Spamview</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://morgante.net">Morgante Pell</author>
 	<author url="http://habariproject.org">Habari Community</author>
-	<version>0.1</version>
+	<version>0.2</version>
 	<url>http://habariproject.org</url>
-	<description><![CDATA[Provides a dashboard module to quickly see new spam.]]></description>
+	<description><![CDATA[Provides a dashboard module to quickly see new spam, and a button to delete it.]]></description>
 	<copyright>2009</copyright>
+	
+	<help>
+		<value><![CDATA[
+			<p>When activated, a dashboard module is created. This dashboard module lists your most recent spam <em>and <strong>unapproved</strong></em> comments.</p>
+			<p>You can optionally enable a button to delete all spam, from the plugin config page. With this option enabled, a button is added to the dashboard module allowing you to instantly delete all <strong>spam</strong> (but not unapproved comments). A button is also added to the comment management page.</p>
+			<p>Finally, there is a keyboard shortcut accessible on both the dashboard and comments page. When you press <strong>ctrl+d</strong> all spam will be deleted.</p>
+		]]></value>
+	</help>
+	
+	
 </pluggable>

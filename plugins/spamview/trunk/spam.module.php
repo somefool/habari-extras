@@ -1,3 +1,4 @@
+<?php if( count($latestspam_comments) > 0): ?>
 <ul class="items">
 
 	<?php foreach($latestspam_comments as $comment): ?>
@@ -9,3 +10,11 @@
 	<?php endforeach; ?>
 
 </ul>
+
+<?php if($spambutton): ?>
+<a href="#" id="deleteallspam"><?php echo sprintf( _t( 'Delete all %s spam comments.' ), $spamcount ); ?></a>
+<?php endif; ?>
+
+<?php else: ?>
+<p><?php echo _t( 'You have no spam today. Yay!' ); ?></p>
+<?php endif; ?>
