@@ -10,7 +10,7 @@
 
 class PostWordCount extends Plugin
 {
-	const VERSION= '0.2';
+	const VERSION= '0.3';
 
 	public function info()
 	{
@@ -71,6 +71,8 @@ class PostWordCount extends Plugin
 	
 	public function filter_post_word_count( $word_count, $post ) 
 	{
-		return str_word_count( strip_tags( ( $this->config[ 'add_title' ] ? $post->content_out . " {$post->title}" : $post->content_out ) ) ); 	}
+		$allcharacters = 'ÁÀÂÄǍĂĀÃÅǺĄƁĆĊĈČÇĎḌƊÉÈĖÊËĚĔĒĘẸƎƏƐĠĜǦĞĢƔĤḤĦIÍÌİÎÏǏĬĪĨĮỊĴĶƘĹĻŁĽĿŃŇÑŅÓÒÔÖǑŎŌÕŐỌØǾƠŔŘŖŚŜŠŞȘṢŤŢṬÚÙÛÜǓŬŪŨŰŮŲỤƯẂẀŴẄǷÝỲŶŸȲỸƳŹŻŽẒáàâäǎăāãåǻąɓćċĉčçďḍɗéèėêëěĕēęẹǝəɛġĝǧğģɣĥḥħıíìiîïǐĭīĩįịĵķƙĸĺļłľŀŉńňñņóòôöǒŏōõőọøǿơŕřŗśŝšşșṣſťţṭúùûüǔŭūũűůųụưẃẁŵẅƿýỳŷÿȳỹƴźżžẓΑΆΒΓΔΕΈΖΗΉΘΙΊΪΚΛΜΝΞΟΌΠΡΣΤΥΎΫΦΧΨΩΏαάβγδεέζηήθιίϊΐκλμνξοόπρσςτυύϋΰφχψωώÆǼǢÐĐĲŊŒÞŦæǽǣðđĳŋœßþŧ';
+		return str_word_count( strip_tags( ( $this->config[ 'add_title' ] ? $post->content_out . " {$post->title}" : $post->content_out ) ), 0, $allcharacters ); 	
+	}
 }
 ?>

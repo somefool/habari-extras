@@ -4,7 +4,7 @@
 	<url>http://mikelietz.org/code/habari/counters.php</url>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://mikelietz.org/">Mike Lietz</author>
-	<version>0.2</version>
+	<version>0.3</version>
 	<description><![CDATA[Counts words in a single post.]]></description>
 	<copyright>2009</copyright>
 </pluggable>
