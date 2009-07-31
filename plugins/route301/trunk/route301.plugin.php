@@ -61,20 +61,6 @@
 			)
 		);
 
-		/* Information function called by the plugin manager. */
-		public function info() {
-			return array(
-				'name' => 'Route 301',
-				'version' => '0.6.5',
-				'url' => 'http://habariproject.org/',
-				'author' =>	'Habari Community',
-				'authorurl' => 'http://habariproject.org/',
-				'license' => 'Apache License 2.0',
-				'description' => 'Assign user-defined rules to existing or custom rules.',
-				'copyright' => '2007'
-				);
-		}
-
 		/* Filter function called by the plugin hook `rewrite_rules`
 		 * Add a new rewrite rule to the database's rules.
 		 */
