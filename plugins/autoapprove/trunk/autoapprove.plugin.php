@@ -10,24 +10,6 @@
 class AutoApprove extends Plugin
 {
 	/*
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 */
-	function info()
-	{
-		return array (
-			'name' => 'Auto-Approve',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0.0',
-			'description' => 'Automatically approve comments that are not spam.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-	/*
 	 * Register the PreApproved event type with the event log
 	 */
 	public function action_plugin_activation( $file )
@@ -79,7 +61,7 @@ class AutoApprove extends Plugin
 	*/
 	function action_update_check()
 	{
-		//Update::add( 'PreApproved', '0fa22c74-a0d6-11dc-8314-0800200c9a66', $this->info->version );
+		Update::add( 'Auto-Approve', 'dbf559b2-62db-4364-b35d-74fc57ebc9b9', $this->info->version );
 	}
 
 }
