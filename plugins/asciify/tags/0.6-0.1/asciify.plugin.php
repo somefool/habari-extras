@@ -11,6 +11,24 @@
 class asciify extends Plugin
 {
 	/**
+	 * Required plugin information
+	 * @return array The array of information
+	 **/
+	public function info()
+	{
+		return array(
+			'name' => 'Asciify',
+			'version' => '0.1',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Make urls more friendly ',
+			'copyright' => '2008'
+		);
+	}
+
+	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
