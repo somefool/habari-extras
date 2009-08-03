@@ -22,23 +22,6 @@ class FlickrFeed extends Plugin
 	}
 
 	/**
-	 * Required plugin information
-	 * @return array The array of information
-	 **/
-	public function info()
-	{
-		return array(
-			'name' => 'FlickrFeed',
-			'version' => '0.5',
-			'url' => 'http://code.google.com/p/bcse/wiki/FlickrFeed',
-			'author' => 'Joel Lee',
-			'authorurl' => 'http://blog.bcse.info/',
-			'license' => 'Apache License 2.0',
-			'description' => _t('Display your latest photos on your blog.', $this->class_name)
-		);
-	}
-
-	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()

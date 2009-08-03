@@ -1,11 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>FlickrFeed</name>
+	<author url="http://blog.bcse.info/">Joel Lee</author>
 	<version>0.5</version>
 	<url>http://code.google.com/p/bcse/wiki/FlickrFeed</url>
-	<author>Joel Lee</author>
-	<authorurl>http://blog.bcse.info/</authorurl>
+	<description><![CDATA[Display your latest photos on your blog.]]></description>
 	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
-	<description>Display your latest photos on your blog.</description>
 	<copyright>2008</copyright>
-</plugin>
-
+</pluggable> 
