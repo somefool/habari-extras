@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Bumping Posts</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://nashape.com/">Donal Ellis</author>
+	
+	<version>1.0</version>
+	<url>http://nashape.com/habari/plugins/bumping/</url>
+	<description><![CDATA[Posts that are updated or receive (approved) comments are bumped to the first post position.]]></description>
+
+	<copyright>2009</copyright>
+</pluggable>
