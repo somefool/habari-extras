@@ -7,6 +7,19 @@
 
 class Bumping extends Plugin
 {
+	function info()
+	{
+		return array(
+			'name' => 'Bumping',
+			'license' => 'Apache Software License 2.0',
+			'url' => 'http://nashape.com/habari/plugins/bumping/',
+			'author' => 'Donal Ellis',
+			'authorurl' => 'http://nashape.com/',
+			'version' => '1.0',
+			'description' => 'Posts that are updated or receive (approved) comments are bumped to the first post position.',
+			'copyright' => '2009');
+	}
+
 	function filter_template_where_filters( $where_filters )
 	{
 		$where_filters["orderby"] = "modified DESC, pubdate DESC";
