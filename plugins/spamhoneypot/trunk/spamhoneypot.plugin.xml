@@ -1,10 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Spam HoneyPot</name>
 	<url>http://seancoates.com/habari</url>
-	<author>Sean Coates</author>
-	<authorurl>http://seancoates.com/</authorurl>
+	<author url="http://seancoates.com/">Sean Coates</author>
 	<version>1.0.1</version>
-	<description>Entraps spammers with a honeypot comment field</description>
-	<license>Apache License 2.0</license>
-</plugin>
+	<description><![CDATA[Entraps spammers with a honeypot comment field.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+</pluggable>
 

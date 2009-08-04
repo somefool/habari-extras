@@ -8,24 +8,6 @@
  */
 class SpamHoneyPot extends Plugin
 {
-	/**
-	 * Plugin information
-	 * 
-	 * @return array Plugin info array
-	 */
-	function info()
-	{
-		return array (
-			'name' => 'Spam HoneyPot',
-			'url' => 'http://seancoates.com/habari',
-			'author' => 'Sean Coates',
-			'authorurl' => 'http://seancoates.com/',
-			'version' => '1.0.1',
-			'description' => 'Entraps spammers with a honeypot comment field',
-			'license' => 'Apache License 2.0',
-		);
-	}
-	
 	public function filter_final_output ( $out ) {
 		// this sucks, fwiw, but there's no way to properly capture a comment form, currently
 		$tokenizer = new HTMLTokenizer( $out, false );
@@ -47,7 +29,7 @@ class SpamHoneyPot extends Plugin
 		$tokens->replace_slice( $slice );
 		return (string) $tokens;
 	}
-	
+
 	/**
 	 * Check submitted form for honeypot and qualify as spam accordingly
 	 * 
@@ -65,6 +47,14 @@ class SpamHoneyPot extends Plugin
 			$comment->status = Comment::STATUS_SPAM;
 			$spamcheck[] = _t('Caught by the honeypot');
 		}
+	}
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Spam Honeypot', '7dc5c83b-d4ec-4cc8-b65a-bd4139685bb4', $this->info->version );
 	}
 
 }
