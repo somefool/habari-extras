@@ -5,7 +5,7 @@ spamview = {
 		
 		if(spamview.button.length > 0) {
 			$.hotkeys.add('Ctrl+d', {propagate:true, disableInInput: true}, function(){
-					spamview.delete();
+					spamview.trash();
 			});
 		}
 		
@@ -17,7 +17,7 @@ spamview = {
 		// });
 		
 		spamview.button.click(function() {
-			spamview.delete();
+			spamview.trash();
 			
 			return;
 		});
@@ -31,7 +31,7 @@ spamview = {
 		// });
 		
 	},
-	delete: function() {
+	trash: function() {
 
 		query = {};
 
