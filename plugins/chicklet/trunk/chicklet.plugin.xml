@@ -1,9 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Chicklet</name>
-	<author>Habari Community</author>
-	<description>Fetches the statistics for your Feedburner feed.</description>
-	<url>http://habariproject.org</url>
-	<version>0.1</version>
-	<license>Apache License 2.0</license>
-</plugin>
-
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://morgante.net/">Morgante Pell</author>
+	<version>0.2</version>
+	<url>http://morgante.net</url>
+	<description><![CDATA[Fetches the statistics for your Feedburner feed.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
