@@ -28,4 +28,14 @@ class GoodCode extends Plugin
 	
 }	
 
+class GoodCodeFormat extends Format
+{
+	// Stop the rediculous insanity of buggy autop() from screwing with our fine-tuned markup
+	public static function autop( $content )
+	{
+		return $content;
+	}
+
+}
+
 ?>
