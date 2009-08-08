@@ -15,25 +15,6 @@ class HabminBar extends Plugin
 	const VERSION = '1.0';
 
 	/**
-	 * function info
-	 *
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 */
-	public function info()
-	{
-		return array (
-			'name' => 'Habmin Bar',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => self::VERSION,
-			'description' => 'An admin bar for Habari.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
