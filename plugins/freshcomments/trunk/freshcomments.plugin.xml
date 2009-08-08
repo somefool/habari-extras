@@ -1,11 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Fresh Comments</name>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
+	<author url="http://blog.bcse.info/">Joel Lee</author>
 	<version>0.3</version>
 	<url>http://code.google.com/p/bcse/wiki/FreshComments</url>
-	<author>Joel Lee</author>
-	<authorurl>http://blog.bcse.info/</authorurl>
-	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
-	<description>Allow you display recent comments just like Brian’s latest Comment.</description>
+	<description><![CDATA[Allow you display recent comments just like Brian’s latest Comment.]]></description>
 	<copyright>2008</copyright>
-</plugin>
-
+</pluggable>

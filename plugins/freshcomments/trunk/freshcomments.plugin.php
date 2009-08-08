@@ -26,22 +26,6 @@ class FreshComments extends Plugin
 		);
 	}
 
-	/**
-	 * Required plugin information
-	 * @return array The array of information
-	 **/
-	public function info()
-	{
-		return array(
-			'name' => 'Fresh Comments',
-			'version' => '0.3',
-			'url' => 'http://code.google.com/p/bcse/wiki/FreshComments',
-			'author' => 'Joel Lee',
-			'authorurl' => 'http://blog.bcse.info/',
-			'license' => 'Apache License 2.0',
-			'description' => _t('Allow you display recent comments just like Brian’s latest Comment.', $this->class_name)
-		);
-	}
 
 	/**
 	 * Add update beacon support
