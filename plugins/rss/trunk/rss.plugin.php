@@ -2,22 +2,7 @@
 
 class RSS extends Plugin {
 
-	/**
-	 * Produce the info required by Habari for identifying this plugin
-	 * @return array Array of plugin info.
-	 */
-	public function info()
-	{
-		return array (
-			'name' => 'RSS 2.0',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.1',
-			'description' => 'Provides an RSS 2.0 feed for entries and comments.',
-			'license' => 'Apache License 2.0',
-		);
-	}
+	
 
 	/**
 	 * Add additional rewrite rules so that Habari can answer requests for the feed URLs

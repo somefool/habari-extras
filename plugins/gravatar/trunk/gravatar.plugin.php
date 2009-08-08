@@ -12,23 +12,6 @@
  */
 class Gravatar extends Plugin {
 
-	/**
-	 * Required method for all plugins.
-	 *
-	 * @return array Various informations about this plugin.
-	 */
-	public function info() {
-		return array(
-			'name' => 'Gravatar',
-			'version' => '1.3.1',
-			'url' => 'http://habariproject.org/',
-			'author' =>	'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Gravatar plugin for Habari',
-			'copyright' => '2008'
-		);
-	}
 
 	/**
 	 * Add update beacon support

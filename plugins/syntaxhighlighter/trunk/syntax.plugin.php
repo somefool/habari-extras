@@ -10,21 +10,7 @@
 
 class Syntax extends Plugin {
 
-	/**
-	 * Return plugin information
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Syntax Highlighter',
-			'version' => '1.0',
-			'url' => 'http://www.xvolter.com/project/habari-syntax-highlighter',
-			'author' =>	'Benjamin Hutchins',
-			'authorurl' => 'http://www.xvolter.com/',
-			'license' => 'MIT',
-			'description' => 'Highlight your source codes within &lt;code&gt; tags.'
-		 );
-	}
+	
 
 
 	/**

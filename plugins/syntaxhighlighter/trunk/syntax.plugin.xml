@@ -1,10 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Syntax Highlighter</name>
+	<license url="">MIT</license>
+	<author url="http://www.xvolter.com/">Benjamin Hutchins</author>
 	<version>1.0</version>
 	<url>http://www.xvolter.com/project/habari-syntax-highlighter</url>
-	<author>Benjamin Hutchins</author>
-	<authorurl>http://www.xvolter.com/</authorurl>
-	<license>MIT</license>
-	<description>Highlight your source codes within &lt;code&gt; tags.</description>
-</plugin>
-
+	<description><![CDATA[Highlight your source codes within &lt;code&gt; tags.]]></description>
+	<copyright>2009</copyright>
+</pluggable>

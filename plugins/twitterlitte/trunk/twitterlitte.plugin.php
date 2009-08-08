@@ -21,23 +21,7 @@ class TwitterLitte extends Plugin
 		);
 	}
 
-	/**
-	 * Required plugin information
-	 * @return array The array of information
-	 **/
-	public function info()
-	{
-		return array(
-			'name' => 'Twitter Litte',
-			'version' => '0.1',
-			'url' => 'http://code.google.com/p/bcse/wiki/TwitterLitte',
-			'author' => 'Joel Lee',
-			'authorurl' => 'http://blog.bcse.info/',
-			'license' => 'Apache License 2.0',
-			'description' => _t('Display your latest tweets on your blog.', $this->class_name),
-			'copyright' => '2008'
-		);
-	}
+	
 
 	/**
 	 * Add update beacon support
