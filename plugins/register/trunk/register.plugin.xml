@@ -1,8 +1,11 @@
-<plugin>
-	<url>http://habariproject.org</url>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Register</name>
-	<license>Apache License 2.0</license>
-	<author>Habari Community</author>
-	<description>Lets people register to become blog users, and be placed in a group specified by the admin.</description>
-</plugin>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.7-0.1</version>
+	<description><![CDATA[Lets people register to become blog users, and be placed in a group specified by the admin.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
 

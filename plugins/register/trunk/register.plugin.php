@@ -3,25 +3,6 @@
 class Register extends Plugin
 {
 
-	const VERSION= '0.1';
-
-	/**
-	 * Return plugin metadata for this plugin
-	 *
-	 * @return array Plugin metadata
-	 */
-	public function info()
-	{
-		return array(
-			'url' => 'http://habariproject.org',
-			'name' => 'Register',
-			'license' => 'Apache License 2.0',
-			'author' => 'Habari Community',
-			'version' => self::VERSION,
-			'description' => 'Lets people register to become blog users, and be placed in a group specified by the admin.'
-		);
-	}
-
 	/**
 	 * Add update beacon support
 	 **/
