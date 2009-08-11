@@ -1,0 +1,133 @@
+/* ==TOP */
+body {
+	background-color:#F0F0F0;
+	color:#000000;
+	font-family: "Helvetica Neue", Helvetica, "Lucida Grande", Arial, Verdana, Sans-Serif;
+	font-size:95%;
+}
+
+#page {
+	background:transparent url('../../../system/admin/images/loginbg.png') no-repeat scroll center -56px;
+	margin:0;
+	min-height:536px;
+}
+
+
+#page .container {
+	background:transparent none repeat scroll 0 0;
+	border:medium none;
+	margin:auto;
+	padding:0;
+	width:290px;
+}
+
+/* ==GENERAL */
+* {
+	border:0 none;
+	font-size:100%;
+	font-style:inherit;
+	font-weight:inherit;
+	margin:0;
+	padding:0;
+	vertical-align:baseline;
+}
+
+a {
+	color:#333333;
+	text-decoration:none;
+}
+
+a:hover, a:active, a:focus {
+	text-decoration:underline;
+}
+
+
+/* ==HEADER */
+h1 {
+	-x-system-font:none;
+	font-size:3.5em;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:100px;
+	margin:0;
+	padding:50px 0;
+	text-align:center;
+}
+
+/* ==FORM */
+form div {
+	margin:0 0 15px 0;
+}
+
+/* ===INPUTS */
+input[type=text], input[type=password], label.overcontent {
+	width: 100%;
+	padding: 3px 5px;
+	margin: 0 auto;
+	width: 280px; /* 100% will break the vertical lines */
+	color: #333;
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0 0 20px #ddd;
+	-moz-border-radius: 5px;
+	border:1px solid #BBBBBB;
+}
+
+/* ===LABELS */
+label.overcontent {
+	cursor:text;
+	font-weight:normal;
+	position:absolute;
+	width:auto;
+	color:#AEAEAE;
+	text-transform:lowercase;
+	border:none;
+}
+
+label.abovecontent {
+	font-size: 9px;
+	line-height: 10px;
+	background: #d4d4d4;
+	padding: 1px 10px 2px;
+	color: #444;
+	font-weight: normal;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	position: absolute;
+	margin-top: -13px;
+	margin-left: 5px;
+	z-index: 2;
+}
+
+/* ===ERRORS */
+ul.error, ul.error li {
+	list-style:none;
+	font-size:85%;
+	color:#F00;
+	padding: 3px 5px;
+	
+}
+
+/* ===SUBMIT */
+#page input[type=button], #page input[type=submit], #page button {
+	padding: 2px 4px 2px 4px;
+	cursor: pointer;
+	-webkit-border-radius: 9px;		/* Webkit only supports up to 9px at present */
+	-moz-border-radius: 9px;
+	font-size: 10px;
+	background: transparent url('../../../system/admin/images/button_background.png') repeat-x;
+	border: 1px solid #b3b3b3;
+	float:right;
+	margin-right:-1px;
+	width:100px;
+}
+
+#page input[type=button]:hover, #page input[type=submit]:hover, #page button:hover {
+	border: 1px solid #555;
+	background-position: 0 -30px;
+
+}
