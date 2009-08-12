@@ -8,6 +8,14 @@
  */
 class SpamHoneyPot extends Plugin
 {
+	/** 
+	 * Register the new textarea template
+	 *
+	 */
+	public function action_init() {
+		$this->add_template( 'honeypot_text', dirname(__FILE__) . '/templates/honeypot_text.php' );
+	}
+
 	/**
 	 * Create additional textarea
 	 * ...
@@ -15,7 +23,9 @@ class SpamHoneyPot extends Plugin
 	 */
 	public function action_form_comment( $form, $context = 'public' ) {
 		
-		$form->append( 'text','more_content','null:null', _t( 'stuff here' ) );
+		$second_textarea = $form->append( 'text','more_content','null:null', _t( 'stuff here' ) );
+		$second_textarea->template = 'honeypot_text';
+
 		return $form;
 	}
 
