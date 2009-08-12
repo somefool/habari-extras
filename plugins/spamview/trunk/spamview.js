@@ -19,7 +19,7 @@ spamview = {
 		spamview.button.click(function() {
 			spamview.trash();
 			
-			return;
+			return false;
 		});
 		// 
 		// spamview.button.focus(function() {
@@ -50,8 +50,7 @@ spamview = {
 
 			success: function( json ) {
 				if(query.page == 'dashboard') {
-					// Reload the page, though we should ideally just refresh with AJAX
-					location.reload(true);
+					dashboard.fetch();
 				}
 				else {
 					jQuery.each( json.messages, function( index, value) {
