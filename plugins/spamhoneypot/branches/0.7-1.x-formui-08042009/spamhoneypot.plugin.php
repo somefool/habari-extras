@@ -8,53 +8,41 @@
  */
 class SpamHoneyPot extends Plugin
 {
-/*	public function filter_final_output ( $out ) {
-		// this sucks, fwiw, but there's no way to properly capture a comment form, currently
-		$tokenizer = new HTMLTokenizer( $out, false );
-		$tokens = $tokenizer->parse();
-		$slices = $tokens->slice( 'textarea', array( 'id' => 'content' ) );
-		// no comment form...
-		if (!$slices) {
-			return $out;
-		}
-		// should only be one:
-		$slice = $slices[0];
-		$sliceValue = trim( (string)$slice );
-		$sliceValue .= '<div style="display: none;" id="honeypot">Hello fine '
-						.'sir, please enter your '
-						.'good content here (unless you are evil.. in which '
-						.'case, do not):<textarea name="morecontent" '
-						.'id="morecontent"></textarea></div>';
-		$slice->tokenize_replace( $sliceValue );
-		$tokens->replace_slice( $slice );
-		return (string) $tokens;
-	}*/
-
+	/**
+	 * Create additional textarea
+	 * ...
+	 * @return the form
+	 */
 	public function action_form_comment( $form, $context = 'public' ) {
 		
-		$form->append( 'text','morecontent','null:null', _t( 'stuff here' ) );
+		$form->append( 'text','more_content','null:null', _t( 'stuff here' ) );
 		return $form;
 	}
 
 	/**
-	 * Check submitted form for honeypot and qualify as spam accordingly
-	 * 
-	 * @param Comment The comment that will be processed before storing it in the database.
-	 * @return Comment The comment result to store.
-	 **/
-	function action_comment_insert_before ( Comment $comment )
+	 * Check comment for honeypot field and qualify as spam accordingly
+	 *
+	 * @param float $spam_rating The spamminess of the comment as detected by other plugins
+	 * @param Comment $comment The submitted comment object
+	 * @param array $handlervars An array of handlervars passed in via the comment submission URL
+	 * @param array $extra An array of all fields passed to the comment form
+	 * @return float The original spam rating
+	 */
+	function filter_spam_filter( $spam_rating, $comment, $handlervars, $extra )
 	{
 		// This plugin ignores non-comments
-		if($comment->type != Comment::COMMENT) {
-			return $comment;
+		if( $comment->type != Comment::COMMENT ) {
+			return $spam_rating;
 		}
 
-// 		if (isset($_POST['morecontent']) &&  $_POST['morecontent'] != '') {
-		if (isset($_POST['morecontent']) &&  $_POST['morecontent'] != '') {
+		if( !empty( $extra[ 'more_content' ]) ) {
 			$comment->status = Comment::STATUS_SPAM;
 			$spamcheck[] = _t('Caught by the honeypot');
 		}
+
+		return $spam_rating;
 	}
+	
 
 	/**
 	 * Add update beacon support
