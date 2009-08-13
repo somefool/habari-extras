@@ -17,7 +17,7 @@
 	border: 1px solid #E7E7E7;
 }
 
-a#deleteallspam:hover, a#deleteallspam:focus, a#deleteallspam:active {
+a.deleteall:hover, a.deleteall:focus, a.deleteall:active {
 	opacity: 1.0;
 	text-decoration: none;
 }
@@ -27,7 +27,7 @@ a#deleteallspam:hover, a#deleteallspam:focus, a#deleteallspam:active {
 }
 
 /* DELETE BUTTON */
-.page-comments #deleteallspam {
+.page-comments .deleteall, .page-logs .deleteall {
 	display: block;
 	position: absolute;
 	right: 10px;

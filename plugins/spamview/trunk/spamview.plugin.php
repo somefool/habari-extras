@@ -21,6 +21,10 @@ class Spamview extends Plugin
 		if( Options::get('spamview__spambutton') === NULL ) {
 			Options::set('spamview__spambutton', true);
 		}
+		
+		if( Options::get('spamview__logbutton') === NULL ) {
+			Options::set('spamview__logbutton', false);
+		}
 	}
 	
 	/**
@@ -71,6 +75,7 @@ class Spamview extends Plugin
 					$form = new FormUI( strtolower( get_class( $this ) ) );
 
 					$form->append( 'checkbox', 'spambutton', 'spamview__spambutton', _t('Enable delete all spam button') );
+					$form->append( 'checkbox', 'logbutton', 'spamview__logbutton', _t('Enable delete all logs button') );
 
 					$form->append( 'submit', 'save', _t('Save') );
 					$form->out();
@@ -140,35 +145,50 @@ class Spamview extends Plugin
 	 *
 	 * @return void
 	 **/
-	public function action_auth_ajax_deleteallspam( $handler )
+	public function action_auth_ajax_deleteall( $handler )
 	{
-		if(!User::identify()->can( 'manage_all_comments' )) {
-			return;
-		}
 		
-		$total = Comments::count_total( Comment::STATUS_SPAM, FALSE );
 		$result = array();
 		
-		Comments::delete_by_status( Comment::status('spam') );
-		Session::notice( sprintf( _t( 'Deleted all %s spam comments.' ), $total ) );
+		switch( $handler->handler_vars['target'] ) {
+			
+			case 'spam':
+				if(!User::identify()->can( 'manage_all_comments' )) {
+					Session::error( _t( 'You do not have permission to do that action.' ) );
+					break;
+				}
+
+				$total = Comments::count_total( Comment::STATUS_SPAM, FALSE );
+
+				Comments::delete_by_status( Comment::status('spam') );
+				Session::notice( sprintf( _t( 'Deleted all %s spam comments.' ), $total ) );
+
+				break;
+			
+			case 'logs':
+				if(!User::identify()->can( 'manage_logs' )) {
+					Session::error( _t( 'You do not have permission to do that action.' ) );
+					break;
+				}
+
+				$to_delete = EventLog::get( array( 'date' => 'any', 'nolimit' => 1 ) );
 				
-		if( $handler->handler_vars['page'] == 'dashboard') {
+				$count = 0;
+				
+				foreach( $to_delete as $log ) {
+					$log->delete();
+					$count++;
+				}
+				
+				Session::notice( sprintf( _t( 'Deleted all %s log entries.' ), $count ) );
+
+				break;
 			
-			// Ideally, we would be able to display the module html here.
-			
-			// $admin = new AdminHandler;
-			// 
-			// $admin->fetch_dashboard_modules();
-			
-			// $result['modules'] = $admin->theme->fetch( 'dashboard_modules' );
 		}
-		else {
-			$result['messages'] = Session::messages_get( true, 'array' );
-		}
+		
+		$result['messages'] = Session::messages_get( true, 'array' );
 		
 		echo json_encode( $result );
-		
-		return;
 	}
 	
 	/**
@@ -178,9 +198,13 @@ class Spamview extends Plugin
 	 **/
 	public function action_admin_info( $theme, $page )
 	{
-		if( $page == 'comments' ) {
+		if( $page == 'comments' && Options::get('spamview__spambutton') == TRUE ) {
 			$spamcount = Comments::count_total( Comment::STATUS_SPAM, FALSE );
-			echo '<a href="#" id="deleteallspam">' . sprintf( _t( 'Clear spam' ), $spamcount ) . '</a>';
+			echo '<a href="#" id="deleteallspam" class="deleteall">' . sprintf( _t( 'Clear spam' ), $spamcount ) . '</a>';
+		}
+		
+		if( $page == 'logs' && Options::get('spamview__logbutton') == TRUE ) {
+			echo '<a href="#" id="deletealllogs" class="deleteall">' . _t( 'Clear logs' ) . '</a>';
 		}
 		
 		return;

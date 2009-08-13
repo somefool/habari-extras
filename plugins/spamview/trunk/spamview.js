@@ -1,6 +1,6 @@
 spamview = {
 	init: function() {
-		spamview.button = $('#deleteallspam');
+		spamview.button = $('#deleteallspam, #deletealllogs');
 		spamview.body = $('body');
 		
 		if(spamview.button.length > 0) {
@@ -37,13 +37,19 @@ spamview = {
 
 		if(spamview.body.hasClass('page-dashboard')) {
 			query.page = 'dashboard';
+			query.target = 'spam';
+		}
+		else if(spamview.body.hasClass('page-logs')) {
+			query.page = 'logs';
+			query.target = 'logs';
 		}
 		else {
 			query.page = 'comments';
+			query.target = 'spam';
 		}
 
 		$.ajax({
-			url: habari.url.habari + '/auth_ajax/deleteallspam',
+			url: habari.url.habari + '/auth_ajax/deleteall',
 			type: "POST",
 			dataType: "json",
 			data: query,
@@ -53,12 +59,13 @@ spamview = {
 					dashboard.fetch();
 				}
 				else {
-					jQuery.each( json.messages, function( index, value) {
-						humanMsg.displayMsg( value );
-					} );
-
 					itemManage.fetch();
-				}	
+				}
+				
+				jQuery.each( json.messages, function( index, value) {
+					humanMsg.displayMsg( value );
+				} );
+				
 			},
 
 		});
