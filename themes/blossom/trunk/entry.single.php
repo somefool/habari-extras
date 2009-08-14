@@ -19,7 +19,7 @@
 					<div class="spiffy_content">
 						<div class="featured">
 							<h2>About this entry</h2>
-							<p>You&rsquo;re currently reading &ldquo;<?php echo $post->title; ?>,&rdquo; an entry on <?php Options::out( 'title' ) ; ?></p>
+							<p>You&rsquo;re currently reading &ldquo;<?php echo $post->title; ?>&rdquo;, an entry on <?php Options::out( 'title' ) ; ?></p>
 							<dl>
 								<dt>Published:</dt>
 								<dd><?php echo Format::nice_date($post->pubdate, 'Y.j.n') ?> / <?php echo Format::nice_date($post->pubdate, 'ga') ?></dd>

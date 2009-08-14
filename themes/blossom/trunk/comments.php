@@ -47,28 +47,6 @@ else: // no approved comments
 endif; ?>
 
 <?php
-if ( !$post->info->comment_disabled ):
-	$commenter= User::commenter(); ?>
-
-	<div id="comment-form">
-		<h3 class="formhead">Have your say</h3>
-		<form action="<?php URL::out('submit_feedback', array('id'=>$post->id) ); ?>" method="post" id="commentform">
-
-			<input type="text" name="name" id="author" value="<?php echo $commenter['name']; ?>" class="textfield" tabindex="1" />
-			<label for="name"><small>Name</small></label><br>
-
-			<input type="text" name="email" id="email" value="<?php echo $commenter['email']; ?>" class="textfield" tabindex="2" />
-			<label for="email">Email (will not be published)</label><br>
-
-			<input type="text" name="url" id="url" value="<?php echo $commenter['url']; ?>" class="textfield" tabindex="3" />
-			<label for="url">Website</label>
-
-			<textarea name="content" id="comment" class="commentbox" tabindex="4"></textarea>
-			<p>I reserve the right to delete any comments I don't like.</p>
-			<div class="formactions">
-				<input type="submit" name="submit" tabindex="5" class="submit" value="Add your comment" />
-			</div>
-		</form>
-	</div>
-
-<?php endif; ?>
+if ( !$post->info->comment_disabled ) {
+	$post->comment_form()->out();
+} ?>

@@ -47,6 +47,10 @@ class Blossom extends Theme
 		*/
 	public function add_template_vars()
 	{
+		// Add FormUI template placing the input before the label
+		$this->add_template( 'blossom_text', dirname(__FILE__) . '/formcontrol_text.php' );
+
+
 		$this->habari = Site::get_url( 'habari' );
 		if ( !$this->posts ) {
 			$this->posts = Posts::get( array( 'content_type' => 'entry', 'status' => Post::status('published') ) );
@@ -126,6 +130,26 @@ class Blossom extends Theme
 
 		$form->set_option( 'success_message', _t( 'Configuration saved' ) );
 		$form->out();
+	}
+
+	/**
+	 * Customize comment form layout.
+	 */
+	public function action_form_comment( $form ) { 
+		$form->name = 'comment-form';
+		$form->append( 'static','formhead', _t( '<h3 class="formhead">Have your say</h3>' ) );
+		$form->move_before( $form->formhead, $form->commenter );
+		$form->commenter->caption = '<small>' . _t( 'Name' ) . '</small>';
+		$form->commenter->template = 'blossom_text';
+		$form->email->caption = _t('Email (will not be published)');
+		$form->email->template = 'blossom_text';
+		$form->url->caption = _t('Website');
+		$form->url->template = 'blossom_text';
+	        $form->content->caption = '';
+		$form->append( 'static','disclaimer', _t( '<p>I reserve the right to delete any comments I don\'t like.</p>' ) );
+		$form->move_after( $form->disclaimer, $form->content );
+		$form->submit->caption = _t( 'Add your comment' );
+		$form->submit->class[] = 'formactions';
 	}
 
 }

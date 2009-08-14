@@ -3,7 +3,7 @@
 	<name>Japanese Cherry Blossom</name>
 	<author>The Habari Community</author>
 	<url>http://habariproject.org/</url>
-	<version>0.6-0.3.2</version>
+	<version>0.4</version>
 	<description>A Habari theme based on April D. Spreeman's WordPress theme of the same name.</description>
 	<template_engine>rawphpengine</template_engine>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
