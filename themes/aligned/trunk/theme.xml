@@ -3,6 +3,6 @@
 	<name>Aligned</name>
 	<author>Thomas Silkjær</author>
 	<url>http://theundersigned.net/</url>
-	<version>1.1</version>
+	<version>1.2</version>
 	<template_engine>rawphpengine</template_engine>
 </theme>

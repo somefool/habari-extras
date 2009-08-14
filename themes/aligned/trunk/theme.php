@@ -27,6 +27,7 @@ class Unknown extends Theme
 	{
 		$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
 		$this->assign('recent_posts', Posts::get( array('limit'=>5, 'orderby'=>'pubdate DESC', 'content_type'=>1, 'status'=>2 ) ) );
+		$this->add_template( 'aligned_text', dirname(__FILE__) . '/formcontrol_text.php' );
 		
 		if ( '' != Controller::get_var('tag') ) {
 		     $tag_text= DB::get_value('SELECT tag_text FROM {tags} WHERE tag_slug=?', array( Controller::get_var('tag') ) );
@@ -70,6 +71,28 @@ class Unknown extends Theme
 		$random = mt_rand(0, $no);
 		
 		return $imglist[$random];
+	}
+
+	public function action_form_comment( $form ) { 
+		$form->name = 'commentform';
+		$form->append( 'wrapper','comment_personaldetails' ); 
+		$form->move_before( $form->comment_personaldetails, $form->commenter );
+		$form->commenter->move_into( $form->comment_personaldetails );
+		$form->commenter->caption = 'Name';
+		$form->commenter->class[] = 'clearfix';
+
+		$form->email->move_into( $form->comment_personaldetails );
+		$form->email->caption = 'Mail';
+		$form->email->class[] = 'clearfix';
+		$form->email->template = 'aligned_text';
+		$form->email->span = _t( '(will not be published)' );
+
+		$form->url->move_into( $form->comment_personaldetails );
+		$form->url->caption = 'Website';
+		$form->url->class[] = 'clearfix';
+
+		$form->content->caption = '';
+		$form->submit->name = 'submit_wrapper';
 	}
 
 }
