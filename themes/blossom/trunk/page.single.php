@@ -26,10 +26,10 @@
 							<dd><?php echo $post->tags_out ?></dd>
 						</dl>
 						<?php endif; ?>
-						<?php if ( $user ) : ?>
+						<?php if ( $loggedin ) : ?>
 						<dl>
 							<dt>Edit:</dt>
-							<dd><a href="<?php URL::out( 'admin', 'page=publish&slug=' . $post->slug); ?>" title="Edit post">Edit this entry.</a></dd>
+							<dd><a href="<?php URL::out( 'admin', 'page=publish&id=' . $post->id ); ?>" title="Edit post">Edit this entry.</a></dd>
 						</dl>
 						<?php endif; ?><br/>
 

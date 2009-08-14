@@ -38,6 +38,12 @@
 	margin:0 0 0 50%;
 }
 
+#primary img {
+	border: 1px solid #000000;
+	max-width:98%;
+	margin:0 auto;
+}
+
 a {
 	color: #000000;
 }
