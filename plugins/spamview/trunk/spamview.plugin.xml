@@ -5,7 +5,7 @@
 	<author url="http://morgante.net">Morgante Pell</author>
 	<author url="http://habariproject.org">The Habari Community</author>
 	<version>0.3</version>
-	<url>http://habariproject.org</url>
+	<url>http://lab.morgante.net/spamview</url>
 	<description><![CDATA[Provides a dashboard module to quickly see new spam, and a button to delete it.]]></description>
 	<copyright>2009</copyright>
 	
