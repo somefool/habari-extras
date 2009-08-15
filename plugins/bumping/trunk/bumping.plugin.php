@@ -7,6 +7,14 @@
 
 class Bumping extends Plugin
 {
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+		Update::add( 'Bumping', '4444b659-793b-4787-8178-b0e986a519e0', $this->info->version );
+	}
+
 	function filter_template_where_filters( $where_filters )
 	{
 		$where_filters["orderby"] = "modified DESC, pubdate DESC";
