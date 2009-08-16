@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Notify All</name>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.9</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Send an email to all registered users whenever a post or comment is made.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2009</copyright>
+</pluggable>
