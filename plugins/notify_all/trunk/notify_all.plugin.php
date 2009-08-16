@@ -180,7 +180,7 @@ There is a new post, "%1\$s", on %2\$s:
 Author: %4\$s
 
 Post:
-%5\$s
+
 MESSAGE;
 		$message = _t( $message, 'notify_all' );
 		$message = sprintf(
@@ -188,9 +188,9 @@ MESSAGE;
 			$post->title,
 			Options::get('title'),
 			$post->permalink,
-			$author->username,
-			$post->content
+			$author->username
 		);
+		$body = $post->content;
 		$headers = 'From: ' . $author->username . ' <' . $author->email . '>';
 
 		$users = Users::get();
@@ -203,7 +203,7 @@ MESSAGE;
 				( Options::get( 'notify_all__user_can_override' ) && $user->info->notify_all__notify_posts ) ) &&
 				$user->id != $author->id
 			) {
-				$this->send_mail( $user->email, $title, $message, $headers, 'post' );
+				$this->send_mail( $user->email, $title, $message, $body, $headers, 'post' );
 			}
 		}
 	}
@@ -231,7 +231,7 @@ Author: %4\$s <%5\$s>
 URL: %6\$s
 
 Comment:
-%7\$s
+
 MESSAGE;
 		$message = _t( $message, 'notify_all' );
 		$message = sprintf(
@@ -241,9 +241,9 @@ MESSAGE;
 			$post->permalink . '#comment-' . $comment->id,
 			$comment->name,
 			$comment->email,
-			$comment->url,
-			$comment->content
+			$comment->url
 		);
+		$body = $comment->content;
 
 		$headers = 'From: ' . $comment->name . ' <' . $comment->email . '>';
 
@@ -257,7 +257,7 @@ MESSAGE;
 				( Options::get( 'notify_all__user_can_override' ) && $user->info->notify_all__notify_comments ) ) &&
 				$user->email != $comment->email
 			) {
-				$this->send_mail( $user->email, $title, $message, $headers, 'comment' );
+				$this->send_mail( $user->email, $title, $message, $body, $headers, 'comment' );
 			}
 		}
 	}
@@ -265,7 +265,7 @@ MESSAGE;
 /**
  * Sends the email and writes to the log
  */
-	private function send_mail( $email, $subject, $message, $headers, $type )
+	private function send_mail( $email, $subject, $message, $body, $headers, $type )
 	{
 		// use PHP_EOL instead of \r\n to separate headers as you must use native
 		// line endings for the system running PHP
@@ -275,10 +275,14 @@ MESSAGE;
 		$mailHeaders .= $headers . PHP_EOL;
 
 		// strip all HTML tags as this email is sent in plain text
-		$message = strip_tags( $message );
+		$body = strip_tags( $body );
 		// limit post/comment content to 50 words or 3 paragraphs
 		// (which doesn't make any different for plain text)
-		$message = Format::summarize( $message, 50, 3 );
+		$body = Format::summarize( $body, 50, 3 );
+		$message .= $body;
+
+		// for the reason above, use consistent line separators
+		$message = str_replace( array( "\r\n", "\n", "\r" ), PHP_EOL, $message );
 
 		if ( ( mail( $email, $subject, $message, $mailHeaders ) ) === TRUE ) {
 			EventLog::log( $type . ' email sent to ' . $email, 'info', 'default', 'notify_all' );
