@@ -10,7 +10,7 @@ class GoodCode extends Plugin
 	**/
 	public function action_update_check()
 	{
-		Update::add( $this->info->name, '228B214C-A885-11DD-8FC0-65A455D89593', $this->info->version );
+		Update::add( $this->info->name, '9bfb17aa-f8f0-4638-a549-af4f86a9d412', $this->info->version );
 	}
 	
 	public function filter_post_content($content) {
@@ -24,6 +24,14 @@ class GoodCode extends Plugin
 			$content= str_replace('</' . $from . '>', '</' . $properties[0] . '>', $content);
 		}
 		return $content;
+	}
+	
+	/**
+	 * Stop post content from being butchered by the overzealous nanny software
+	 **/
+	public function action_form_publish( $form, $post, $context )
+	{
+		$form->title->raw = true;
 	}
 	
 }
