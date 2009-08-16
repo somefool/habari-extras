@@ -34,6 +34,26 @@ class GoodCode extends Plugin
 		$form->title->raw = true;
 	}
 	
+	private function filter( $string ) {
+		return htmlentities( $string );
+	}
+	
+	/**
+	 * Properly escape in Atom feed
+	 */
+	public function filter_post_title_atom( $title )
+	{
+		return $this->filter( $title );
+	}
+	
+	/**
+	 * Properly escape title content
+	 */
+	public function filter_post_title_out( $title )
+	{
+		return $this->filter( $title );
+	}
+	
 }
 
 ?>

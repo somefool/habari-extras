@@ -3,9 +3,9 @@
 	<name>GoodCode</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://morgante.net/">Morgante Pell</author>
-	<author url="http://habariproject.org">Habari Community</author>
+	<author url="http://habariproject.org">The Habari Community</author>
 	<version>0.2</version>
-	<url>http://morgante.net</url>
+	<url>http://lab.morgante.net/goodcode</url>
 	<description><![CDATA[Attempts to make your html better and removes or replaces presentational markup, while also making Habari trust you to write good code.]]></description>
 	<copyright>2009</copyright>
 </pluggable>
