@@ -191,20 +191,19 @@ MESSAGE;
 			$author->username,
 			$post->content
 		);
-		$from = $author->username . ' <' . $author->email . '>';
-		$headers = array( 'From' => $from );
+		$headers = 'From: ' . $author->username . ' <' . $author->email . '>';
 
 		$users = Users::get();
-		for ( $i = 0; $i < count($users); $i++ ) {
+		foreach ( $users as $user ) {
 			// if user is not allowed to override, and email notification for posts is on, send email
 			// if user is allowed to override, and they have opted to receive emails, send email
 			// also don't send email to the author of the post
 			if (
 				( ( !Options::get( 'notify_all__user_can_override' ) && Options::get( 'notify_all__notify_posts' ) ) ||
-				( Options::get( 'notify_all__user_can_override' ) && $users[$i]->info->notify_all__notify_posts ) ) &&
-				$users[$i]->id != $author->id
+				( Options::get( 'notify_all__user_can_override' ) && $user->info->notify_all__notify_posts ) ) &&
+				$user->id != $author->id
 			) {
-				$this->send_mail( $users[$i]->email, $title, $message, $headers, 'post' );
+				$this->send_mail( $user->email, $title, $message, $headers, 'post' );
 			}
 		}
 	}
@@ -246,19 +245,19 @@ MESSAGE;
 			$comment->content
 		);
 
-		$from = $comment->name . ' <' . $comment->email . '>';
-		$headers = array( 'From' => $from );
+		$headers = 'From: ' . $comment->name . ' <' . $comment->email . '>';
+
 		$users = Users::get();
-		for ( $i = 0; $i < count($users); $i++ ) {
+		foreach ( $users as $user ) {
 			// if user is not allowed to override, and email notification for comments is on, send email
 			// if user is allowed to override, and they have opted to receive emails, send email
 			// also don't send email to the email address of the person who wrote the comment
 			if (
 				( ( !Options::get( 'notify_all__user_can_override' ) && Options::get( 'notify_all__notify_comments' ) ) ||
-				( Options::get( 'notify_all__user_can_override' ) && $users[$i]->info->notify_all__notify_comments ) ) &&
-				$users[$i]->email != $comment->email
+				( Options::get( 'notify_all__user_can_override' ) && $user->info->notify_all__notify_comments ) ) &&
+				$user->email != $comment->email
 			) {
-				$this->send_mail( $users[$i]->email, $title, $message, $headers, 'comment' );
+				$this->send_mail( $user->email, $title, $message, $headers, 'comment' );
 			}
 		}
 	}
@@ -268,12 +267,20 @@ MESSAGE;
  */
 	private function send_mail( $email, $subject, $message, $headers, $type )
 	{
-		$headers = array_merge( array( "Content-Transfer-Encoding" => "8bit" ), $headers);
-		$headers = array_merge( array( "Content-type" => "text/plain; charset=utf-8" ), $headers);
-		$headers = array_merge( array( "MIME-Version" => "1.0" ), $headers);
+		// use PHP_EOL instead of \r\n to separate headers as you must use native
+		// line endings for the system running PHP
+		$mailHeaders  = 'MIME-Version: 1.0' . PHP_EOL;
+		$mailHeaders .= 'Content-type: text/plain; charset=utf-8' . PHP_EOL;
+		$mailHeaders .= 'Content-Transfer-Encoding: 8bit' . PHP_EOL;
+		$mailHeaders .= $headers . PHP_EOL;
+
+		// strip all HTML tags as this email is sent in plain text
 		$message = strip_tags( $message );
+		// limit post/comment content to 50 words or 3 paragraphs
+		// (which doesn't make any different for plain text)
 		$message = Format::summarize( $message, 50, 3 );
-		if ( ( Utils::mail( $email, $subject, $message, $headers ) ) === TRUE ) {
+
+		if ( ( mail( $email, $subject, $message, $mailHeaders ) ) === TRUE ) {
 			EventLog::log( $type . ' email sent to ' . $email, 'info', 'default', 'notify_all' );
 		}
 		else {
