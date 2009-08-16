@@ -274,10 +274,10 @@ MESSAGE;
 		$message = strip_tags( $message );
 		$message = Format::summarize( $message, 50, 3 );
 		if ( ( Utils::mail( $email, $subject, $message, $headers ) ) === TRUE ) {
-			EventLog::log( $type . ' email sent to ' . $email . ' from ' . $headers['From'], 'info', 'default', 'notify_all' );
+			EventLog::log( $type . ' email sent to ' . $email, 'info', 'default', 'notify_all' );
 		}
 		else {
-			EventLog::log( $type . ' email could not be sent to  ' . $users[$i]->email, 'err', 'default', 'notify_all' );
+			EventLog::log( $type . ' email could not be sent to  ' . $email, 'err', 'default', 'notify_all' );
 		}
 	}
 
