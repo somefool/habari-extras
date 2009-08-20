@@ -18,6 +18,19 @@
 
 class Cisco extends Plugin
 {
+	public function info()
+	{
+		return array(
+			'name' => 'Cisco',
+			'url' => 'http://habariproject.org',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org',
+			'version' => "0.1",
+			'description' => 'Pays homage to the 2008-09-25 cisco hack.',
+			'license' => 'Apache License 2.0'
+		);
+	}
+	
 	public function filter_final_output( $buffer )
 	{
 		return str_replace( 't', '', $buffer );
