@@ -1,0 +1,11 @@
+<plugin>
+	<name>Date Ninja</name>
+	<version>1.0</version>
+	<url>http://www.chrisjdavis.org</url>
+	<author>Chris J. Davis</author>
+	<authorurl>http://www.chrisjdavis.org</authorurl>
+	<license>MIT</license>
+	<description>Allows you to use plain language when selecting dates. Based on datejs.</description>
+	<copyright>2008</copyright>
+</plugin>
+
