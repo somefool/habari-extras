@@ -5,7 +5,14 @@
 	<url>http://myfla.ws/projects/contact/</url>
 	<author url="http://habariproject.org/">Habari Community</author>
 	<author url="http://myfla.ws">Arthus Erea</author>
-	<version>0.7-1.0</version>
+	<version>1.0</version>
 	<description><![CDATA[AlienContact generates a form for visitors to contact you]]></description>
 	<copyright>2009</copyright>
+	
+	<help>
+		<value><![CDATA[
+			<p>Insert <code>&lt;!--contactForm--&gt;</code> in a post, where you want the contact form to appear.</p>
+		]]></value>
+	</help>
+	
 </pluggable>

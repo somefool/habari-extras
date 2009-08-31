@@ -100,7 +100,7 @@ class AlienContact extends Plugin
 
 	public function action_ajax_submit_form( $handler ) 
 	{
-		echo self::get_form( '', $_POST );
+		echo self::get_form( '', 'post' );
 	}
 	
 	public function filter_plugin_config( $actions, $plugin_id ) 
@@ -160,11 +160,17 @@ class AlienContact extends Plugin
 		$output= '';
 		$values= array();
 		$errors= array();
-		
+				
 		if( $input == 'post' ) {
 			foreach( $elements as $key => $field ) {
-				if( isset( $_POST[ 'contactForm_' . $key ] ) ) {
-					$value = $_POST['contactForm_' . $key];
+				if( isset( $_POST[ 'contactForm_' . $key ] ) || isset( $_POST[$key] ) ) {
+					if( isset( $_POST['contactForm_' . $key] ) ) {
+						$value = $_POST['contactForm_' . $key];
+					}
+					else {
+						$value = $_POST[$key];
+					}
+					
 					if( AlienContact::check_input( $value, $key ) != '' ) {
 						$errors[$key]= AlienContact::check_input( $value, $key );
 						$values[$key]= $value;
@@ -276,9 +282,6 @@ class AlienContact extends Plugin
 		
 		$elements= self::elements();
 		
-		$headers= 'MIME-Version: 1.0' . "\r\n";
-		$headers.= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		
 		$message= 'You have recieved a submission through your online form. The message follows.<br />';
 		
 		foreach($input as $field => $value) {
@@ -287,6 +290,8 @@ class AlienContact extends Plugin
 			$message.= '<br />';
 		}
 		
+		// Utils::debug( Utils::mail( Options::get( 'aliencontact__email' ), Options::get( 'aliencontact__subject' ), $message ) );
+			
 		if( mail( Options::get( 'aliencontact__email' ), Options::get( 'aliencontact__subject' ), $message ) == TRUE ) {
 			if( self::install() ) {
 				if( self::insert( $input ) ) {
