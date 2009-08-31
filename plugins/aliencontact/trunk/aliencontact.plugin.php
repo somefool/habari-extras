@@ -282,6 +282,9 @@ class AlienContact extends Plugin
 		
 		$elements= self::elements();
 		
+		$headers['MIME-Version']=  '1.0';
+		$headers['Content-type']= 'text/html; charset=iso-8859-1';
+		
 		$message= 'You have recieved a submission through your online form. The message follows.<br />';
 		
 		foreach($input as $field => $value) {
@@ -289,10 +292,8 @@ class AlienContact extends Plugin
 			$message.= $value;
 			$message.= '<br />';
 		}
-		
-		// Utils::debug( Utils::mail( Options::get( 'aliencontact__email' ), Options::get( 'aliencontact__subject' ), $message ) );
-			
-		if( mail( Options::get( 'aliencontact__email' ), Options::get( 'aliencontact__subject' ), $message ) == TRUE ) {
+					
+		if( Utils::mail( Options::get( 'aliencontact__email' ), Options::get( 'aliencontact__subject' ), $message, $headers ) == TRUE ) {
 			if( self::install() ) {
 				if( self::insert( $input ) ) {
 					return TRUE;
