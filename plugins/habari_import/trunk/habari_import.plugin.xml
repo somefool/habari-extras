@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Habari Importer</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Import Habari 0.6 - .07 database.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
