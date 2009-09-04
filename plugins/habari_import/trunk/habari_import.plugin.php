@@ -34,7 +34,7 @@ class HabariImport extends Plugin implements Importer
 	}
 
 	/**
-	 * Plugin filter that supplies the UI for the WP importer
+	 * Plugin filter that supplies the UI for the Habari importer
 	 *
 	 * @param string $stageoutput The output stage UI
 	 * @param string $import_name The name of the selected importer
@@ -83,7 +83,7 @@ class HabariImport extends Plugin implements Importer
 	}
 
 	/**
-	 * Create the UI for stage one of the WP import process
+	 * Create the UI for stage one of the import process
 	 *
 	 * @param array $inputs Inputs received via $_POST to the importer
 	 * @return string The UI for the first stage of the import process
@@ -91,7 +91,7 @@ class HabariImport extends Plugin implements Importer
 	private function stage1( $inputs )
 	{
 		$default_values = array(
-			'db_type' => 0,
+			'db_type' => self::TYPE_MYSQL,
 			'db_name' => '',
 			'db_host' => 'localhost',
 			'db_user' => '',
@@ -141,7 +141,7 @@ HAB_IMPORT_STAGE1;
 	}
 
 	/**
-	 * Create the UI for stage two of the WP import process
+	 * Create the UI for stage two of the import process
 	 * This stage kicks off the ajax import.
 	 *
 	 * @param array $inputs Inputs received via $_POST to the importer
@@ -189,9 +189,9 @@ HAB_IMPORT_STAGE2;
 	 * Attempt to connect to the Habari database
 	 *
 	 * @param string $connect_string The connection string of the Habari database
-	 * @param string $db_user The user of the WP database
-	 * @param string $db_pass The user's password for the WP database
-	 * @param string $db_prefix The table prefix for the WP instance in the database
+	 * @param string $db_user The user of the database
+	 * @param string $db_pass The user's password for the database
+	 * @param string $db_prefix The table prefix in the database
 	 * @return mixed false on failure, DatabseConnection on success
 	 */
 	private function hab_connect( $connect_string, $db_user, $db_pass, $db_prefix )
