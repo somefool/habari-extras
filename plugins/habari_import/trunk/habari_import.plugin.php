@@ -110,31 +110,38 @@ class HabariImport extends Plugin implements Importer
 			{$warning}
 			<p>Please provide the connection details for an existing Habari database:</p>
 			<div class="item clear">
-				<span class="pct25"><label for="db_name">Database Name</label></span><span class="pct40"><input type="text" name="db_name" value="{$db_name}" tab index="1"></span>
+				<span class="pct25"><label for="db_type">Database Type</label></span>
+				<span>
+					<input type="radio" name="db_type" value="0" tab index="1" />MySQL
+					<input type="radio" name="db_type" value="1" tab index="2" />SQLite
+					<input type="radio" name="db_type" value="2" tab index="3" />PostgreSQL
+				</span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_host">Database Host</label></span><span class="pct40"><input type="text" name="db_host" value="{$db_host}" tab index="2"></span>
+				<span class="pct25"><label for="db_name">Database Name</label></span><span class="pct40"><input type="text" name="db_name" value="{$db_name}" tab index="4"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_user">Database User</label></span><span class="pct40"><input type="text" name="db_user" value="{$db_user}" tab index="3"></span>
+				<span class="pct25"><label for="db_host">Database Host</label></span><span class="pct40"><input type="text" name="db_host" value="{$db_host}" tab index="5"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_pass">Database Password</label></span><span class="pct40"><input type="password" name="db_pass" value="{$db_pass}" tab index="4"></span>
+				<span class="pct25"><label for="db_user">Database User</label></span><span class="pct40"><input type="text" name="db_user" value="{$db_user}" tab index="6"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_prefix">Table Prefix</label></span><span class="pct40"><input type="text" name="db_prefix" value="{$db_prefix}" tab index="5"></span>
+				<span class="pct25"><label for="db_pass">Database Password</label></span><span class="pct40"><input type="password" name="db_pass" value="{$db_pass}" tab index="7"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct40"><label for="tag_import">Import Tags</label></span><span class="pct25"><input type="checkbox" name="tag_import" value="1" checked></span>
+				<span class="pct25"><label for="db_prefix">Table Prefix</label></span><span class="pct40"><input type="text" name="db_prefix" value="{$db_prefix}" tab index="8"></span>
+			</div>
+			<div class="item clear">
+				<span class="pct25"><label for="tag_import">Import Tags</label></span><span class="pct40"><input type="checkbox" name="tag_import" value="1" checked></span>
 			</div>
 				
 			<div class="clear"></div>
-			<input type="hidden" name="stage" value="1">
-			<input type="hidden" name="db_type" value="0">
+				<input type="hidden" name="stage" value="1">
 			</div>
 			<div
 			<div class="container transparent"
-			<input type="submit" class="button" name="import" value="Import" />
+				<input type="submit" class="button" name="import" value="Import" />
 			</div>
 HAB_IMPORT_STAGE1;
 		return $output;
