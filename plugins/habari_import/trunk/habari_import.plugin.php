@@ -3,7 +3,7 @@
 define( 'IMPORT_BATCH', 100 );
 
 /**
- * Habari Importer - Imports data from WordPress into Habari
+ * Habari Importer - Imports data from another Habari database
  *
  */
 class HabariImport extends Plugin implements Importer
@@ -56,10 +56,13 @@ class HabariImport extends Plugin implements Importer
 		switch( $stage ) {
 		case 1:
 			if( count( $_POST ) ) {
-				$valid_fields = array( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix', 'tag_import' );
-				$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
-				$connect_string = $this->get_connect_string( $inputs['db_type'], $inputs['db_host'], $inputs['db_name'] );
-				if( $this->hab_connect( $connect_string, $inputs['db_user'], $inputs['db_pass'], $inputs['db_prefix'] ) ) {
+				$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix', 'tag_import' );
+				foreach ( $inputs as $key => $value ) {
+					$$key = $value;
+				}
+
+				$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
+				if( $this->hab_connect( $connect_string, $db_user, $db_pass, $db_prefix ) ) {
 					$stage = 2;
 				}
 				else {
@@ -112,7 +115,7 @@ class HabariImport extends Plugin implements Importer
 			<div class="item clear">
 				<span class="pct25"><label for="db_type">Database Type</label></span>
 				<span>
-					<input type="radio" name="db_type" value="0" tab index="1" />MySQL
+					<input type="radio" name="db_type" value="0" tab index="1" checked />MySQL
 					<input type="radio" name="db_type" value="1" tab index="2" />SQLite
 					<input type="radio" name="db_type" value="2" tab index="3" />PostgreSQL
 				</span>
@@ -156,16 +159,19 @@ HAB_IMPORT_STAGE1;
 	 */
 	private function stage2( $inputs )
 	{
-		extract( $inputs );
+		$inputs = $inputs->filter_keys(  'db_type', 'db_name','db_host','db_user','db_pass','db_prefix', 'tag_import'  );
+		foreach ( $inputs as $key => $value ) {
+			$$key = $value;
+		}
 
 		if ( ! isset( $tag_import ) ) {
 			$tag_import = 0;
 		}
 		$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_users' ) );
-		EventLog::log(sprintf(_t('Starting import from "%s"'), $db_name));
-		Options::set('import_errors', array());
+		EventLog::log( sprintf( _t('Starting import from "%s"'), $db_name ) );
+		Options::set( 'import_errors', array() );
 
-		$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
+		$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $inputs['db_pass'], 'prefix' => $db_prefix ) );
 
 		$output = <<< HAB_IMPORT_STAGE2
 		<p>Import In Progress</p>
@@ -183,7 +189,7 @@ HAB_IMPORT_STAGE1;
 					db_pass: "{$vars['pass']}",
 					db_prefix: "{$vars['prefix']}",
 					tag_import: "{$tag_import}",
-					postindex: 0
+					userindex: 0
 				}
 			 );
 		} );
@@ -201,13 +207,13 @@ HAB_IMPORT_STAGE2;
 	 * @param string $db_prefix The table prefix in the database
 	 * @return mixed false on failure, DatabseConnection on success
 	 */
-	private function hab_connect( $connect_string, $db_user, $db_pass, $db_prefix )
+	private function hab_connect( $connect_string, $db_user, $db_pass )
 	{
 		// Connect to the database or return false
 		try {
-			$hab_db = DatabaseConnection::ConnectionFactory( $connect_string );;
-			$hab_db->connect( $connect_string, $db_user, $db_pass );
-			return $hab_db;
+			$db = DatabaseConnection::ConnectionFactory( $connect_string );;
+			$db->connect( $connect_string, $db_user, $db_pass );
+			return $db;
 		}
 		catch( Exception $e ) {
 			return false;
@@ -238,15 +244,17 @@ HAB_IMPORT_STAGE2;
 	 */
 	public function action_auth_ajax_hab_import_posts( $handler )
 	{
-		$valid_fields = array( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','postindex', 'tag_import' );
-		$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
-		extract( $inputs );
-		if ( ! isset( $inputs['tag_import'] ) ) {
-			$inputs[tag_import] = 0;
+		$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','postindex', 'tag_import' );
+		foreach ( $inputs as $key => $value ) {
+			$$key = $value;
+		}
+
+		if ( ! isset( $tag_import ) ) {
+			$tag_import = 0;
 		}
 
 		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
-		$db = $this->hab_connect( $connect_string, $db_user, $db_pass, $db_prefix );
+		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
 		if( $db ) {
 			if( !DB::in_transaction() ) DB::begin_transaction();
 
@@ -255,8 +263,7 @@ HAB_IMPORT_STAGE2;
 			$max = min( ( $postindex + 1 ) * IMPORT_BATCH, $postcount );
 
 			$user_map = array();
-			$userinfo = DB::table( 'userinfo' );
-			$user_info = DB::get_results( "SELECT user_id, value FROM {$userinfo} WHERE name= 'old_id';" );
+			$user_info = DB::get_results( "SELECT user_id, value FROM {userinfo} WHERE name= 'old_id';" );
 			foreach( $user_info as $info ) {
 				$user_map[$info->value]= $info->user_id;
 			}
@@ -309,7 +316,7 @@ HAB_IMPORT_STAGE2;
 				}
 				else {
 					$errors = Options::get('import_errors');
-					$errors[] = _t('Post author id %s was not found in WP database, assigning post "%s" (WP post id #%d) to current user.', array($p->user_id, $p->title,$post_array['id']) );
+					$errors[] = _t('Post author id %s was not found in the external database, assigning post "%s" (external post id #%d) to current user.', array($p->user_id, $p->title,$post_array['id']) );
 					Options::set('import_errors', $errors);
 					$p->user_id = User::identify()->id;
 				}
@@ -341,7 +348,7 @@ HAB_IMPORT_STAGE2;
 
 				$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
 
-				echo <<< HAB_IMPORT_AJAX1
+				echo <<< HAB_IMPORT_POSTS
 					<script type="text/javascript">
 					$( '#import_progress' ).load(
 						"{$ajax_url}",
@@ -358,13 +365,13 @@ HAB_IMPORT_STAGE2;
 					 );
 
 				</script>
-HAB_IMPORT_AJAX1;
+HAB_IMPORT_POSTS;
 			}
 			else {
 				$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_comments' ) );
 
 				$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
-				echo <<< HAB_IMPORT_AJAX2
+				echo <<< HAB_IMPORT_COMMENTS
 					<script type="text/javascript">
 					$( '#import_progress' ).load(
 						"{$ajax_url}",
@@ -381,7 +388,7 @@ HAB_IMPORT_AJAX1;
 					 );
 
 				</script>
-HAB_IMPORT_AJAX2;
+HAB_IMPORT_COMMENTS;
 
 			}
 		}
@@ -401,11 +408,13 @@ HAB_IMPORT_AJAX2;
 	 */
 	public function action_auth_ajax_hab_import_users( $handler )
 	{
-		$valid_fields = array( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','userindex', 'tag_import' );
-		$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
-		extract( $inputs );
+		$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','userindex', 'tag_import' );
+		foreach ( $inputs as $key => $value ) {
+			$$key = $value;
+		}
+
 		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
-		$db = $this->hab_connect( $connect_string, $db_user, $db_pass, $db_prefix );
+		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
 		if( $db ) {
 			if( !DB::in_transaction() ) DB::begin_transaction();
 			$new_users = $db->get_results(
@@ -457,7 +466,7 @@ HAB_IMPORT_AJAX2;
 
 			$vars = Utils::addslashes( array( 'type' => $db_type, 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
 
-			echo <<< HAB_IMPORT_USERS1
+			echo <<< HAB_IMPORT_POSTS
 			<script type="text/javascript">
 			// A lot of ajax stuff goes here.
 			$( document ).ready( function(){
@@ -476,7 +485,7 @@ HAB_IMPORT_AJAX2;
 				 );
 			} );
 			</script>
-HAB_IMPORT_USERS1;
+HAB_IMPORT_POSTS;
 		}
 		else {
 			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
@@ -493,12 +502,13 @@ HAB_IMPORT_USERS1;
 	 */
 	public function action_auth_ajax_hab_import_comments( $handler )
 	{
-		$valid_fields = array( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','commentindex', 'tag_import' );
-		$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
-		extract( $inputs );
+		$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','commentindex', 'tag_import' );
+		foreach ( $inputs as $key => $value ) {
+			$$key = $value;
+		}
 
 		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
-		$db = $this->hab_connect( $connect_string, $db_user, $db_pass, $db_prefix );
+		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
 		if( $db ) {
 			if( !DB::in_transaction() ) DB::begin_transaction();
 
@@ -508,8 +518,7 @@ HAB_IMPORT_USERS1;
 
 			echo "<p>Importing comments {$min}-{$max} of {$commentcount}.</p>";
 
-			$postinfo = DB::table( 'postinfo' );
-			$post_info = DB::get_results( "SELECT post_id, value FROM {$postinfo} WHERE name= 'old_id';" );
+			$post_info = DB::get_results( "SELECT post_id, value FROM {postinfo} WHERE name= 'old_id';" );
 			foreach( $post_info as $info ) {
 				$post_map[$info->value] = $info->post_id;
 			}
@@ -559,7 +568,7 @@ HAB_IMPORT_USERS1;
 
 				$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
 
-				echo <<< HAB_IMPORT_AJAX1
+				echo <<< HAB_IMPORT_COMMENTS1
 					<script type="text/javascript">
 					$( '#import_progress' ).load(
 						"{$ajax_url}",
@@ -576,7 +585,7 @@ HAB_IMPORT_USERS1;
 					 );
 
 				</script>
-HAB_IMPORT_AJAX1;
+HAB_IMPORT_COMMENTS1;
 			}
 			else {
 				EventLog::log('Import complete from "'. $db_name .'"');
