@@ -324,12 +324,19 @@ HAB_IMPORT_STAGE2;
 				$p->guid = $p->guid; // Looks fishy, but actually causes the guid to be set.
 				$p->tags = $tags;
 
+				$infos = $db->get_results("SELECT name, value, type FROM {$db_prefix}postinfo WHERE post_id = ?", array( $post_array['id'] ) );
+
 				$p->info->old_id = $post_array['id'];  // Store the old post id in the post_info table for later
 
 				try {
 					$p->insert();
 					$p->updated = $post_array['updated'];
 					$p->update();
+					foreach ( $infos as $info ) {
+						$fields = $info->get_url_args();
+						$fields['post_id'] = $p->id;
+						DB::insert( DB::table( 'postinfo'), $fields );
+					}
 				}
 				catch( Exception $e ) {
 					EventLog::log($e->getMessage(), 'err', null, null, print_r(array($p, $e), 1));
@@ -525,6 +532,7 @@ HAB_IMPORT_POSTS;
 
 			$comments = $db->get_results( "
 				SELECT
+				c.id,
 				c.content,
 				c.name,
 				c.email,
@@ -548,8 +556,16 @@ HAB_IMPORT_POSTS;
 					unset( $carray['old_post_id'] );
 
 					$c = new Comment( $carray );
+
+					$infos = $db->get_results("SELECT name, value, type FROM {$db_prefix}commentinfo WHERE comment_id = ?", array( $carray['id'] ) );
+
 					try{
 						$c->insert();
+						foreach ( $infos as $info ) {
+							$fields = $info->get_url_args();
+							$fields['comment_id'] = $c->id;
+							DB::insert( DB::table( 'commentinfo'), $fields );
+						}
 					}
 					catch( Exception $e ) {
 						EventLog::log($e->getMessage(), 'err', null, null, print_r(array($c, $e), 1));
