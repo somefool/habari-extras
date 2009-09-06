@@ -4,14 +4,46 @@ habari.media.preview.note = function(fileindex, fileobj) {
 
 habari.media.output.note = {
 	view: function(fileindex, fileobj) {
-		$('input[name=note_key]').val( fileobj.key );
-		$('textarea#notes').val( fileobj.content ).focus();
+		notes.key.val( fileobj.key );
+		notes.input.val( fileobj.content ).focus();
 		
-		console.log( $('#mediatabs').parent() );
-		$('#mediatabs').parent().tabs('select', -1);
-		// habari.media.clearSelections();
+		notes.show();
+		
+		// $('#mediatabs').parent().tabs('select', -1);
 	},
 	insert: function(fileindex, fileobj) {
 		habari.editor.insertSelection(fileobj.content);
 	}
 }
+
+var notes = {
+	init: function() {
+		notes.input = $('#notes');
+		notes.key = $('input[name=note_key]');
+		notes.container = notes.input.parents('.container');
+		notes.tabs = $('#mediatabs').parent();
+		
+		notes.container.hide();
+		
+		notes.tabs.bind('tabsselect', function(event, ui) {
+			notes.hide();
+		});
+		
+		notes.tabs.bind('tabsshow', function(event, ui) {
+			// console.log(notes.tabs.tabs('option', 'selected'));
+			if( $(ui.panel).children('#silo_simplenote').length > 0 && notes.key.val() != '') {
+				notes.show();
+			}
+		});
+	},
+	show: function() {
+		notes.container.slideDown('slow');
+	},
+	hide: function() {
+		notes.container.slideUp('slow');
+	}
+}
+
+$(document).ready(function() {
+	notes.init();
+});
