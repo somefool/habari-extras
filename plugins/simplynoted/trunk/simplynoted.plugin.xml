@@ -8,11 +8,5 @@
 	<description><![CDATA[Allows the reference of <a href="http://www.simplenoteapp.com/">Simplenote</a> on the post composition screen.]]></description> 
 	<copyright>2009</copyright>
 	
-	<help>
-		<value><![CDATA[
-			<p>Authentication settings can be configured from your <a href="user">profile</a> page.</p>
-		]]></value>
-	</help>
-	
 	
 </pluggable>

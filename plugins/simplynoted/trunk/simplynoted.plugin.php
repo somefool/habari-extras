@@ -26,6 +26,16 @@ class Simplenote extends Plugin implements MediaSilo
 	}
 	
 	/**
+	 * Provide plugin help
+	 **/
+	public function help()
+	{
+		$help = sprintf( _t( '<p>Authentication settings can be configured from your <a href="%s">profile</a> page.</p>' ), URL::get('admin', 'page=user') );
+		
+		return $help;
+	}
+	
+	/**
 	 * Check for updates
 	 */
 	public function action_update_check()
