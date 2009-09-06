@@ -222,8 +222,6 @@ class simplenoteapi
 			base64_encode($content),
 			$parameters
 		);
-		
-		Utils::debug( $response );
 
 		if ($response['stats']['http_code'] == 200)
 		{
@@ -231,6 +229,7 @@ class simplenoteapi
 		}
 		else
 		{
+			// Utils::debug( $response );
 			return false;
 		}
 	}
@@ -283,7 +282,13 @@ class simplenoteapi
 
 		if ($response['stats']['http_code'] == 200)
 		{
+			
+			if( json_decode($response['body']) == '' ) {
+				Utils::debug( $response );
+			}
+			
 			$response = json_decode($response['body']);
+			
 			$return = array(
 				'count' => $response->Response->totalRecords,
 				'results' => array()
@@ -305,5 +310,9 @@ class simplenoteapi
 		}
 	}
 }
+
+$api = new simplenoteapi;
+$api->login('email@domain.tld', 'password');
+print_r($api->index());
 
 ?>

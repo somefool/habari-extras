@@ -15,6 +15,14 @@ class Simplenote extends Plugin implements MediaSilo
 		if( isset( User::identify()->info->simplenote_email ) ) {
 			$this->api = new SimpleAPI( User::identify()->info->simplenote_email, User::identify()->info->simplenote_password );
 		}
+		
+		// $note = $this->api->get( "agtzaW1wbGUtbm90ZXIMCxIETm90ZRjyxgwM" );
+		// $note->content = 'clear post';
+		// Utils::debug( $note, $note->update(), $this->get_notes() );
+		// 
+		// $note = new Note('agtzaW1wbGUtbm90ZXIMCxIETm90ZRiy0wwM');
+		// $note->delete();
+		
 	}
 	
 	/**
@@ -133,12 +141,17 @@ class Simplenote extends Plugin implements MediaSilo
 	{
 		$this->action_form_publish($form, $post);
 		
-		$post->info->note_key = $post->note->key = $form->note_key->value;
+		$note = new Note( $form->note_key->value );
+		$note->content = $form->notes->value;
 		
-		$post->note->content = $form->notes->value;
+		$note->update();
 		
-		Utils::debug( $post->note->update(), $post->note );
-		exit;
+		// Utils::debug( $note, $note->update(), $this->get_notes() );
+		
+		$post->info->note_key = $note->key;
+		
+		
+		// exit;
 		
 	}
 	
@@ -370,8 +383,8 @@ class SimpleAPI
 	public function get( $key )
 	{
 		$result = $this->api->get_note( $key );
-		
-		$note = new Note( $result['key'] );
+				
+		$note = new Note( $key );
 		$note->content = $result['content'];
 		
 		return $note;
@@ -381,10 +394,21 @@ class SimpleAPI
 	 * Updates a note
 	 **/
 	public function update( $key, $content )
-	{
-		Utils::debug( $this->api->save_note( $content, $key ) );
-		
+	{		
 		if( $this->api->save_note( $content, $key ) ) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Deletes a note
+	 **/
+	public function delete( $key )
+	{		
+		if( $this->api->delete_note( $key ) ) {
 			return true;
 		}
 		else {
@@ -428,13 +452,31 @@ class Note
 	}
 	
 	/**
-	 * Update a post
+	 * Update the note
 	 **/
 	public function update()
 	{
 		$api = new SimpleAPI( User::identify()->info->simplenote_email, User::identify()->info->simplenote_password );
 		
-		return $api->update( $this->key, $this->content );
+		$content = str_replace( "\r", '', $this->content );
+		
+		// $content = utf8_decode( $this->content );
+		 
+		// Utils::debug( $content );
+		
+		return $api->update( $this->key, $content );
+		
+	}
+	
+	
+	/**
+	 * Delete the note
+	 **/
+	public function delete()
+	{
+		$api = new SimpleAPI( User::identify()->info->simplenote_email, User::identify()->info->simplenote_password );
+		
+		return $api->delete( $this->key );
 		
 	}
 	
