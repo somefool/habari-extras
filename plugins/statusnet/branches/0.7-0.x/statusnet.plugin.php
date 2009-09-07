@@ -1,37 +1,37 @@
 <?php
 /**
- * Laconica Twitter-Compat API Plugin
+ * StatusNet Twitter-Compat API Plugin
  *
- * Show your latest Laconica notices in your theme and/or
- * post your latest blog post to your Laconica service.
+ * Show your latest StatusNet notices in your theme and/or
+ * post your latest blog post to your StatusNet service.
  *
- * Usage: <?php $theme->laconica(); ?> to show your latest notices.
- * Copy the laconica.tpl.php template to your active theme to customize
+ * Usage: <?php $theme->statusnet(); ?> to show your latest notices.
+ * Copy the statusnet.tpl.php template to your active theme to customize
  * output display.
  *
  **/
 
-class Laconica extends Plugin
+class StatusNet extends Plugin
 {
 	/**
 	 * Update beacon support. UID is real, but not reg'd with project.
 	 **/
 	public function action_update_check()
 	{
-		Update::add( 'Laconica', '8676A858-E4B1-11DD-9968-131C56D89593', $this->info->version );
+		Update::add( 'StatusNet', '8676A858-E4B1-11DD-9968-131C56D89593', $this->info->version );
 	}
 
 	public function help()
 	{
-		$help = _t('<p>For the <strong>Laconica Service</strong> setting,
-				enter the portion of your Laconica server home page
+		$help = _t('<p>For the <strong>StatusNet Service</strong> setting,
+				enter the portion of your StatusNet server home page
 				URL between the slash at the end of <tt>http://</tt>
 				and the slash before your user name:
-				<tt>http://</tt><strong>laconica.service</strong><tt>/</tt><em>yourname</em>.</p>
+				<tt>http://</tt><strong>statusnet.service</strong><tt>/</tt><em>yourname</em>.</p>
 				<p>To use identi.ca, for example, since your URL is
 				something like <tt>http://identi.ca/yourname</tt>,
 				you would enter <tt>identi.ca</tt>.</p>
-				<p>To display your latest notices, call <code>$theme->laconica();</code>
+				<p>To display your latest notices, call <code>$theme->statusnet();</code>
 				at the appropriate place in your theme.</p>');
 		return $help;
 	}
@@ -57,20 +57,20 @@ class Laconica extends Plugin
 	public function action_plugin_activation( $file )
 	{
 		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
-			if ( Options::get( 'laconica__hide_replies' ) !== 0 ) {
-				Options::set( 'laconica__hide_replies', 1 );
+			if ( Options::get( 'statusnet__hide_replies' ) !== 0 ) {
+				Options::set( 'statusnet__hide_replies', 1 );
 			}
-			if ( Options::get( 'laconica__linkify_urls' ) !== 0 ) {
-				Options::set( 'laconica__linkify_urls', 1 );
+			if ( Options::get( 'statusnet__linkify_urls' ) !== 0 ) {
+				Options::set( 'statusnet__linkify_urls', 1 );
 			}
-			if ( !Options::get( 'laconica__svc' )  ) {
-				Options::set( 'laconica__svc', 'identi.ca' );
+			if ( !Options::get( 'statusnet__svc' )  ) {
+				Options::set( 'statusnet__svc', 'identi.ca' );
 			}
-			if ( Options::get( 'laconica__show' ) !== 0 ) {
-				Options::set( 'laconica__show', 1 );
+			if ( Options::get( 'statusnet__show' ) !== 0 ) {
+				Options::set( 'statusnet__show', 1 );
 			}
-			if ( !Options::get( 'laconica__limit' ) ) {
-				Options::set( 'laconica__limit', 1 );
+			if ( !Options::get( 'statusnet__limit' ) ) {
+				Options::set( 'statusnet__limit', 1 );
 			}
 		}
 	}
@@ -87,27 +87,27 @@ class Laconica extends Plugin
 			if ( $action == _t( 'Configure' ) ) {
 				
 				$ui = new FormUI( strtolower( get_class( $this ) ) );
-				$laconica_svc = $ui->append( 'text', 'svc', 'laconica__svc', _t('Laconica Service:') );
-//				$laconica_svc->add_validator('validate_url');
-				$laconica_username = $ui->append( 'text', 'username', 'laconica__username', 
+				$statusnet_svc = $ui->append( 'text', 'svc', 'statusnet__svc', _t('StatusNet Service:') );
+//				$statusnet_svc->add_validator('validate_url');
+				$statusnet_username = $ui->append( 'text', 'username', 'statusnet__username', 
 					_t('Service Username:') );
-				$laconica_password = $ui->append( 'password', 'password', 'laconica__password', 
+				$statusnet_password = $ui->append( 'password', 'password', 'statusnet__password', 
 					_t('Service Password:') );
-				$laconica_post = $ui->append( 'checkbox', 'post_status', 'laconica__post_status', 
+				$statusnet_post = $ui->append( 'checkbox', 'post_status', 'statusnet__post_status', 
 					_t('Autopost to Service') );
-				$laconica_post->options = array( '0' => _t('Disabled'), '1' => _t('Enabled') );
-				$laconica_post = $ui->append( 'text', 'prefix', 'laconica__prefix',
+				$statusnet_post->options = array( '0' => _t('Disabled'), '1' => _t('Enabled') );
+				$statusnet_post = $ui->append( 'text', 'prefix', 'statusnet__prefix',
 				 _t('Autopost Prefix (e.g., "New post: "):') );
-				$laconica_show = $ui->append( 'checkbox', 'show', 'laconica__show', 
+				$statusnet_show = $ui->append( 'checkbox', 'show', 'statusnet__show', 
 					_t('Show latest notices') );
-				$laconica_limit = $ui->append( 'select', 'limit', 'laconica__limit', 
+				$statusnet_limit = $ui->append( 'select', 'limit', 'statusnet__limit', 
 					_t('Limit of notices to show') );
-				$laconica_limit->options = array_combine(range(1, 20), range(1, 20));
-				$laconica_show = $ui->append( 'checkbox', 'hide_replies', 
-					'laconica__hide_replies', _t('Hide @replies') );
-				$laconica_show = $ui->append( 'checkbox', 'linkify_urls', 
-					'laconica__linkify_urls', _t('Linkify URLs') );
-				$laconica_cache_time = $ui->append( 'text', 'cache', 'laconica__cache', 
+				$statusnet_limit->options = array_combine(range(1, 20), range(1, 20));
+				$statusnet_show = $ui->append( 'checkbox', 'hide_replies', 
+					'statusnet__hide_replies', _t('Hide @replies') );
+				$statusnet_show = $ui->append( 'checkbox', 'linkify_urls', 
+					'statusnet__linkify_urls', _t('Linkify URLs') );
+				$statusnet_cache_time = $ui->append( 'text', 'cache', 'statusnet__cache', 
 					_t('Cache expiry in seconds:') );
 				$ui->on_success( array( $this, 'updated_config' ) );
 				$ui->append( 'submit', 'save', _t('Save') );
@@ -123,19 +123,19 @@ class Laconica extends Plugin
 	 **/
 	public function updated_config( FormUI $ui )
 	{
-		Session::notice( _t( 'Laconica options saved.', 'laconica' ) );
+		Session::notice( _t( 'StatusNet options saved.', 'statusnet' ) );
 		$ui->save();
 	}
 
 	/**
-	 * Add the Laconica user options to the list of valid field names.
-	 * This causes adminhandler to recognize the laconica fields and
+	 * Add the StatusNet user options to the list of valid field names.
+	 * This causes adminhandler to recognize the statusnet fields and
 	 * to set the userinfo record appropriately
 	**/
 	public function filter_adminhandler_post_user_fields( $fields )
 	{
-		$fields['laconica_name'] = 'laconica_name';
-		$fields['laconica_pass'] = 'laconica_pass';
+		$fields['statusnet_name'] = 'statusnet_name';
+		$fields['statusnet_pass'] = 'statusnet_pass';
 		return $fields;
 	}
 
@@ -163,17 +163,17 @@ class Laconica extends Plugin
 	{
 		if ( is_null( $oldvalue ) ) return;
 		if ( $newvalue == Post::status( 'published' ) && $post->content_type == Post::type('entry') && $newvalue != $oldvalue ) {
-			if ( Options::get( 'laconica__post_status' ) == '1' ) {
+			if ( Options::get( 'statusnet__post_status' ) == '1' ) {
 				$user = User::get_by_id( $post->user_id );
-				if ( ! empty( $user->info->laconica_name ) && ! empty( $user->info->laconica_pass ) ) {
-					$name = $user->info->laconica_name;
-					$pw = $user->info->laconica_pass;
+				if ( ! empty( $user->info->statusnet_name ) && ! empty( $user->info->statusnet_pass ) ) {
+					$name = $user->info->statusnet_name;
+					$pw = $user->info->statusnet_pass;
 				} else {
-					$name = Options::get( 'laconica__username' );
-					$pw = Options::get( 'laconica__password' );
+					$name = Options::get( 'statusnet__username' );
+					$pw = Options::get( 'statusnet__password' );
 				}
-				$svcurl = 'http://' . Options::get('laconica__svc') . '/index.php?action=api&apiaction=statuses&method=update.xml';
-				$this->post_status( $svcurl, Options::get( 'laconica__prefix' ) . $post->title . ' ' . $post->permalink, $name, $pw );
+				$svcurl = 'http://' . Options::get('statusnet__svc') . '/index.php?action=api&apiaction=statuses&method=update.xml';
+				$this->post_status( $svcurl, Options::get( 'statusnet__prefix' ) . $post->title . ' ' . $post->permalink, $name, $pw );
 			}
 		}
 	}
@@ -187,31 +187,31 @@ class Laconica extends Plugin
 	 * Add last service status, time, and image to the available template vars
 	 * @param Theme $theme The theme that will display the template
 	 **/
-	public function theme_laconica( $theme )
+	public function theme_statusnet( $theme )
 	{
 		$notices = array();
-		if ( Options::get( 'laconica__show' ) && Options::get( 'laconica__svc' ) && Options::get( 'laconica__username' ) != '' ) {
-			$laconica_url = 'http://' . Options::get( 'laconica__svc' ) . '/index.php?action=api&apiaction=statuses&method=user_timeline&argument=' . urlencode( Options::get( 'laconica__username' ) ) . '.xml';
+		if ( Options::get( 'statusnet__show' ) && Options::get( 'statusnet__svc' ) && Options::get( 'statusnet__username' ) != '' ) {
+			$statusnet_url = 'http://' . Options::get( 'statusnet__svc' ) . '/index.php?action=api&apiaction=statuses&method=user_timeline&argument=' . urlencode( Options::get( 'statusnet__username' ) ) . '.xml';
 			
 			/* 
 			 * Only need to get a single notice if @replies are hidden.
 			 * (Otherwise, rely on the maximum returned and hope one is a non-reply.)
 			 */
-			if ( !Options::get( 'laconica__hide_replies' ) &&  Options::get( 'laconica__limit' ) ) {
-				$laconica_url .= '&count=' . Options::get( 'laconica__limit' );
+			if ( !Options::get( 'statusnet__hide_replies' ) &&  Options::get( 'statusnet__limit' ) ) {
+				$statusnet_url .= '&count=' . Options::get( 'statusnet__limit' );
 			}
 
-			if ( Cache::has( 'laconica_notices' ) ) {
-				 $notices = Cache::get( 'laconica_notices' );
+			if ( Cache::has( 'statusnet_notices' ) ) {
+				 $notices = Cache::get( 'statusnet_notices' );
 			}
 			else {
 				try {
-					$response = RemoteRequest::get_contents( $laconica_url );
+					$response = RemoteRequest::get_contents( $statusnet_url );
 					$xml = @new SimpleXMLElement( $response );
 					// Check we've got a load of statuses returned
 					if ( $xml->getName() === 'statuses' ) {
 						foreach ( $xml->status as $status ) {
-							if ( ( !Options::get( 'laconica__hide_replies' ) ) || ( strpos( $status->text, '@' ) === false) ) {
+							if ( ( !Options::get( 'statusnet__hide_replies' ) ) || ( strpos( $status->text, '@' ) === false) ) {
 								$notice = (object) array (
 									'text' => (string) $status->text, 
 									'time' => (string) $status->created_at, 
@@ -219,7 +219,7 @@ class Laconica extends Plugin
 								);
 								
 								$notices[] = $notice;
-								if ( Options::get( 'laconica__hide_replies' ) && count($notices) >= Options::get( 'laconica__limit' ) )
+								if ( Options::get( 'statusnet__hide_replies' ) && count($notices) >= Options::get( 'statusnet__limit' ) )
 									break;
 							}
 							else {
@@ -253,9 +253,9 @@ class Laconica extends Plugin
 				if (!$notices)
 					$notices[] = $notice;
 				// Cache (even errors) to avoid hitting rate limit.
-				Cache::set( 'laconica_notices', $notices, Options::get( 'laconica__cache' ) );
+				Cache::set( 'statusnet_notices', $notices, Options::get( 'statusnet__cache' ) );
 			}
-			if ( Options::get( 'laconica__linkify_urls' ) != FALSE ) {
+			if ( Options::get( 'statusnet__linkify_urls' ) != FALSE ) {
 				/* http: links */
 				foreach ($notices as $notice)
 					$notice->text = preg_replace( '%https?://\S+?(?=(?:[.:?"!$&\'()*+,=]|)(?:\s|$))%i', "<a href=\"$0\">$0</a>", $notice->text );
@@ -263,15 +263,15 @@ class Laconica extends Plugin
 		}
 		else {
 			$notice = (object) array (
-			'text' => _t('Check username or "Show latest notice" setting in <a href="%s">Laconica plugin config</a>', array( URL::get( 'admin' , 
-			'page=plugins&configure=' . $this->plugin_id . '&configaction=Configure' ) . '#plugin_' . $this->plugin_id ) , 'laconica' ), 
+			'text' => _t('Check username or "Show latest notice" setting in <a href="%s">StatusNet plugin config</a>', array( URL::get( 'admin' , 
+			'page=plugins&configure=' . $this->plugin_id . '&configaction=Configure' ) . '#plugin_' . $this->plugin_id ) , 'statusnet' ), 
 			'time' => '', 
 			'image_url' => ''
 			);
 			$notices[] = $notice;
 		}
 		$theme->notices = $notices;
-		return $theme->fetch( 'laconica.tpl' );
+		return $theme->fetch( 'statusnet.tpl' );
 	}
 
 	/**
@@ -279,7 +279,7 @@ class Laconica extends Plugin
 	 */
 	public function action_init()
 	{
-		$this->add_template('laconica.tpl', dirname(__FILE__) . '/laconica.tpl.php');
+		$this->add_template('statusnet.tpl', dirname(__FILE__) . '/statusnet.tpl.php');
 	}
 }
 
