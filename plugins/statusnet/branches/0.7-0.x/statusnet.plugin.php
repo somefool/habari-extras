@@ -23,8 +23,8 @@ class StatusNet extends Plugin
 
 	public function help()
 	{
-		$help = _t('<p>For the <strong>StatusNet Service</strong> setting,
-				enter the portion of your StatusNet server home page
+		$help = _t('<p>For the <strong>&micro;blog service</strong> setting,
+				enter the portion of your &micro;blog service home page
 				URL between the slash at the end of <tt>http://</tt>
 				and the slash before your user name:
 				<tt>http://</tt><strong>statusnet.service</strong><tt>/</tt><em>yourname</em>.</p>
@@ -87,28 +87,53 @@ class StatusNet extends Plugin
 			if ( $action == _t( 'Configure' ) ) {
 				
 				$ui = new FormUI( strtolower( get_class( $this ) ) );
-				$statusnet_svc = $ui->append( 'text', 'svc', 'statusnet__svc', _t('StatusNet Service:') );
-//				$statusnet_svc->add_validator('validate_url');
+				$ui->append('fieldset', 'svcinfo', _t('Service', 'statusnet'));
+
+				$statusnet_svc = $ui->append( 'text', 'svc', 'statusnet__svc', _t('&micro;blog service:') );
+				$ui->svc->move_into($ui->svcinfo);
+
 				$statusnet_username = $ui->append( 'text', 'username', 'statusnet__username', 
-					_t('Service Username:') );
+					_t('Service username:') );
+				$ui->username->move_into($ui->svcinfo);
+
 				$statusnet_password = $ui->append( 'password', 'password', 'statusnet__password', 
-					_t('Service Password:') );
+					_t('Service password:') );
+				$ui->password->move_into($ui->svcinfo);
+
+				$ui->append('fieldset', 'publishinfo', _t('Publish', 'statusnet'));			
+
 				$statusnet_post = $ui->append( 'checkbox', 'post_status', 'statusnet__post_status', 
-					_t('Autopost to Service') );
+					_t('Announce new blog posts on µblog') );
 				$statusnet_post->options = array( '0' => _t('Disabled'), '1' => _t('Enabled') );
+				$ui->post_status->move_into($ui->publishinfo);
+
 				$statusnet_post = $ui->append( 'text', 'prefix', 'statusnet__prefix',
-				 _t('Autopost Prefix (e.g., "New post: "):') );
+				 _t('Announcement prefix (e.g., "New post: "):') );
+				$ui->prefix->move_into($ui->publishinfo);
+
+				$ui->append('fieldset', 'subscribeinfo', _t('Subscribe', 'statusnet'));			
+
 				$statusnet_show = $ui->append( 'checkbox', 'show', 'statusnet__show', 
-					_t('Show latest notices') );
+					_t('Retrieve µblog notices for blog display') );
+				$ui->show->move_into($ui->subscribeinfo);
+
 				$statusnet_limit = $ui->append( 'select', 'limit', 'statusnet__limit', 
-					_t('Limit of notices to show') );
+					_t('Number of notices to display:') );
 				$statusnet_limit->options = array_combine(range(1, 20), range(1, 20));
+				$ui->limit->move_into($ui->subscribeinfo);
+
 				$statusnet_show = $ui->append( 'checkbox', 'hide_replies', 
 					'statusnet__hide_replies', _t('Hide @replies') );
+				$ui->hide_replies->move_into($ui->subscribeinfo);
+
 				$statusnet_show = $ui->append( 'checkbox', 'linkify_urls', 
 					'statusnet__linkify_urls', _t('Linkify URLs') );
+				$ui->linkify_urls->move_into($ui->subscribeinfo);
+
 				$statusnet_cache_time = $ui->append( 'text', 'cache', 'statusnet__cache', 
 					_t('Cache expiry in seconds:') );
+				$ui->cache->move_into($ui->subscribeinfo);
+
 				$ui->on_success( array( $this, 'updated_config' ) );
 				$ui->append( 'submit', 'save', _t('Save') );
 				$ui->out();
