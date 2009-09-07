@@ -172,7 +172,7 @@ class StatusNet extends Plugin
 					$name = Options::get( 'statusnet__username' );
 					$pw = Options::get( 'statusnet__password' );
 				}
-				$svcurl = 'http://' . Options::get('statusnet__svc') . '/index.php?action=api&apiaction=statuses&method=update.xml';
+				$svcurl = 'http://' . Options::get('statusnet__svc') . '/api/statuses/update.xml';
 				$this->post_status( $svcurl, Options::get( 'statusnet__prefix' ) . $post->title . ' ' . $post->permalink, $name, $pw );
 			}
 		}
@@ -191,14 +191,14 @@ class StatusNet extends Plugin
 	{
 		$notices = array();
 		if ( Options::get( 'statusnet__show' ) && Options::get( 'statusnet__svc' ) && Options::get( 'statusnet__username' ) != '' ) {
-			$statusnet_url = 'http://' . Options::get( 'statusnet__svc' ) . '/index.php?action=api&apiaction=statuses&method=user_timeline&argument=' . urlencode( Options::get( 'statusnet__username' ) ) . '.xml';
+			$statusnet_url = 'http://' . Options::get( 'statusnet__svc' ) . '/api/statuses/user_timeline/' . urlencode( Options::get( 'statusnet__username' ) ) . '.xml';
 			
 			/* 
 			 * Only need to get a single notice if @replies are hidden.
 			 * (Otherwise, rely on the maximum returned and hope one is a non-reply.)
 			 */
 			if ( !Options::get( 'statusnet__hide_replies' ) &&  Options::get( 'statusnet__limit' ) ) {
-				$statusnet_url .= '&count=' . Options::get( 'statusnet__limit' );
+				$statusnet_url .= '?count=' . Options::get( 'statusnet__limit' );
 			}
 
 			if ( Cache::has( 'statusnet_notices' ) ) {
