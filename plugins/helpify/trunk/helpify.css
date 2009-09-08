@@ -1,0 +1,64 @@
+/*
+   helpify.css
+*/
+
+/* ==CONTAINER */
+#create-content #help_container {
+	position: relative;
+}
+
+/* ==TOGGLER */
+#create-content #help_container .head a.help {
+	display: block;
+	position: absolute;
+	right: 40px;
+	top: -37.5px;
+	text-indent: -10000px;
+	width: 15px;
+	height: 15px;
+	outline: none;
+	z-index: 100;
+}
+#create-content #help_container .head a.help, #create-content #help_container.open .head a.help:hover {
+	background: transparent url('../../../system/admin/images/help_icon.png') scroll no-repeat;
+}
+
+#create-content #help_container .head a.help:hover, #create-content #help_container.open .head a.help {
+	background-image: url('../../../system/admin/images/help_icon_over.png');
+}
+
+/* ==CONTENT */
+#create-content #help_container .content {
+	display: none;
+}
+#create-content #help_container.open .content {
+	display: block;
+}
+
+#create-content #help_container .content h3 {
+	font: 1.6em 'Helvetica Neue Light', 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, Sans-Serif;
+	color: #333;
+	text-transform: capitalize;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+#create-content #help_container .content h4 {
+	font-size: 130%;
+	margin-top: 10px;
+}
+
+#create-content #help_container .content ul {
+	list-style: disc;
+	margin-top: 5px;
+}
+
+#create-content #help_container .content code.block {
+	display: block;
+	white-space: pre;
+	background-color:#F9F9F9;
+	border:1px dashed #2F6FAB;
+	color:black;
+	line-height:1.1em;
+	padding:1em;
+}
