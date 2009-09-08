@@ -2,7 +2,8 @@
 <pluggable type="plugin"> 
 	<name>Helpify</name> 
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license> 
-	<author url="http://morgante.net/">Morgante Pell</author> 
+	<author url="http://morgante.net/">Morgante Pell</author>
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<version>0.1</version> 
 	<url>http://lab.morgante.net/helpify</url> 
 	<description><![CDATA[Helpify displays customizable help on the publish page.]]></description> 
