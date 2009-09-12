@@ -148,7 +148,7 @@ class PrestigeTheme extends Theme
 			$comment_fieldset = $ui->append( 'fieldset', 'content_box', _t( 'Add To The Discussion' ) );
 			$commentContent = $comment_fieldset->append( 'textarea', 'commentContent', 'null:null', _t( 'Comment' ));
 			$commentContent->value = $theme->commenter_content;
-			$commentContent->id = 'content';
+			$commentContent->id = 'comment_content';
 			$commentContent->control_title = 'Add to the discussion. Required.';
 			$commentContent->cols = 70;
 

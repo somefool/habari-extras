@@ -212,6 +212,10 @@ a .more {
 	float: left;
 }
 
+#primaryContent img {
+	max-width: 100%;
+}
+
 .entry {
 	float: right;
 	width: 520px;
