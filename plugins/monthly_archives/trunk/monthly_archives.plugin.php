@@ -10,6 +10,7 @@
 
 class Monthly_Archives extends Plugin
 {
+	const VERSION = '0.9.2';
 	private $monthly_archives = ''; // stores the actual archives list
 	private $config = array(); // stores our config options
 
