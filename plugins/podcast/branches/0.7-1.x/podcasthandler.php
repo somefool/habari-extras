@@ -150,7 +150,7 @@ class PodcastHandler extends ActionHandler
 			if ( $post instanceof Post ) {
 				// remove Podpress detritus
 				$content = preg_replace( '%\[display_podcast\]%', '', $post->content );
-				// experimental elimination of podcast links from feed
+				// eliminate podcast links from feed
 				preg_match_all( '%<a href="(.*)(" rel="enclosure">)(.*)</a>%i', $content, $matches );
 
 				$count = count( $matches[1] );
