@@ -1,28 +1,14 @@
 <?php
-
 class comment_notifier extends Plugin
 {
 	const VERSION = '1.2';
 	
-	public function info()
-	{
-		return array(
-			'name' => 'Comment Notifier', 
-			'url' => 'http://habariproject.org/', 
-			'author' => 'Habari Community', 
-			'authorurl' => 'http://habariproject.org/', 
-			'version' => self::VERSION, 
-			'description' => 'Send an email to the author of a post whenever a non-spam comment is moderated for one of their posts.', 
-			'license' => 'Apache License 2.0'
-		);
-	}
-
 	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
 	{
-	 	Update::add( 'Comment Notifier', '91175a80-38f6-11dd-ae16-0800200c9a66', $this->info->version );
+	 	Update::add( 'Comment Notifier', '91175a80-38f6-11dd-ae16-0800200c9a66', self::VERSION );
 	}
 	
 	private function mh_utf8($str) {

@@ -2,7 +2,7 @@
 <pluggable type="plugin">
 	<name>Comment Notifier</name>
 	<author url="http://habariproject.org/">Habari Community</author>
-	<version>0.5</version>
+	<version>1.2</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Send an email to the author of a post whenever a non-spam comment is moderated for one of their posts.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
