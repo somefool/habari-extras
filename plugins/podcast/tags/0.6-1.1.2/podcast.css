@@ -1,0 +1,37 @@
+.podcast-settings{
+	border: 2px solid white;
+	width: 75%;
+	margin-left: 200px;
+}
+
+.podcast-settings input[type="text"] {
+	width: 60%;
+}
+
+.podcast-settings select {
+	width: 60%;
+}
+
+.podcast-settings textarea {
+	width: 60%;
+	height: 10em;
+}
+
+#feed select {
+	width: 50%;
+	margin: 5px auto;
+}
+
+#feed input[type="text"] {
+	margin: 5px auto;
+	width: 50%;
+}
+
+#manage-podcasts input[type="text"], #manage-podcasts select{
+	margin: 5px;
+	width: 50%;
+}
+
+#manage-podcasts input[type="checkbox"] {
+	margin: 5px;
+}
