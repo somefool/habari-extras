@@ -4,9 +4,20 @@ class CustomQuery extends Plugin
 {
 	const VERSION = '0.2';
 	
+	public function info()
+	{
+		return array( 
+			'name' => 'Custom Query',
+			'author' => 'Habari Community',
+			'description' => 'Allows you to set the number of posts to display for each page.',
+			'url' => 'http://habariproject.org',
+			'version' => self::VERSION,
+			'license' => 'Apache License 2.0'
+			);
+	}
 	
 	public function filter_plugin_config( $actions, $plugin_id )
-	{
+      {
 		if ( $plugin_id == $this->plugin_id() ) {
 			$actions[]= _t('Configure', 'customquery');
 		}
