@@ -1,7 +1,6 @@
-<h3 id="tagcloud"><?php _e('Tag cloud'); ?></h3>
-<ul id="fluffytag">
+<ul id="tag-cloud">
 <?php
-foreach( $theme->fluffy as $tag ) {
+foreach( $theme->fluffytag as $tag ) {
 	echo '<li class="step-' . $tag['step'] . '"><a href="' . 
 	URL::get( 'display_entries_by_tag', array ( 'tag' => $tag['slug'] ), false ) . '" rel="tag" title="' . $tag['tag'] .'">' . $tag['tag'] . "</a></li>\n";  
 }

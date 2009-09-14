@@ -3,6 +3,21 @@
 class fluffytag extends Plugin
 {
 	private $cache_name = 'fluffytag';
+	/**
+	 * Required plugin info() implementation provides info to Habari about this plugin.
+	 */
+	public function info()
+	{
+		return array(
+			'name' => 'Fluffy Tag',
+			'url' => 'http://eighty4.se/plugins',
+			'author' =>' eighty4',
+			'authorurl' => 'http://eighty4.se',
+			'version' => '0.0.1',
+			'description' => 'Shows a Fluffy cloud of tags (Base copied from RN Tag Cloud). Remember to add <code>&lt;?php $theme->fluffytag(); &gt;</code> somewhere in your theme.',
+			'license' => 'Apache License 2.0',
+		);
+	}
 
 	/**
 	 * Add update beacon support
@@ -23,10 +38,13 @@ class fluffytag extends Plugin
 			}
 			if ( Options::get( 'fluffytag__steps' ) == null ) {
 				Options::set( 'fluffytag__steps', '10' );
-			}           
+			}
+			if ( Options::get( 'fluffytag__hide' ) == null ) {
+				Options::set( 'fluffytag__hide', '' );
+			}
 			if ( Options::get( 'fluffytag__expire' ) == null ) {
 				Options::set( 'fluffytag__expire', '36000000' ); // We're updating the cache everytime a post change...
-            }
+			}
 		}
 	}
 
@@ -66,7 +84,8 @@ class fluffytag extends Plugin
 	 *
 	 * @param string $plugin_id The unique id of a plugin
 	 * @param string $action The action to display
-	 **/
+	 */
+	 
 	public function action_plugin_ui( $plugin_id, $action )
 	{
 		// Display the UI for this plugin?
@@ -78,7 +97,8 @@ class fluffytag extends Plugin
 					$hide_tags = $ui->append( 'text', 'hide_tags', 'option:' . 'fluffytag__hide', _t( 'Tag(s) to be hidden (seperate with ",")' ) );
 					$steps = $ui->append( 'text', 'steps_tag', 'option:' . 'fluffytag__steps', _t( 'No. of steps (if you change this you will also need to change fluffytag.css accordingly)' ) );
 
-					$cache_expire = $ui->append( 'text', 'cache_expire', 'option:' . 'fluffytag__expire', _t( 'Time the cache should save result (sec)' ) );
+
+					//$cache_expire = $ui->append( 'text', 'cache_expire', 'option:' . 'fluffytag__expire', _t( 'Time the cache should save result (sec)' ) );
 
 					$ui->append( 'submit', 'save', _t( 'Save' ) );
 					$ui->set_option( 'success_message', _t( 'Configuration saved' ) );
@@ -104,14 +124,14 @@ class fluffytag extends Plugin
 	public function theme_fluffytag($theme)
 	{
 		/*if ( Cache::has( $this->cache_name ) ) {
-			$fluffy = Cache::get( $this->cache_name );
+			$tag_cloud = Cache::get( $this->cache_name );
 		}
 		else {*/
-			$fluffy = $this->build_cloud();
-			Cache::set( $this->cache_name, $fluffy, Options::get( 'fluffytag__expire' ) );
+		$cloud_tag = $this->build_cloud();
+		Cache::set( $this->cache_name, $cloud_tag, Options::get( 'fluffytag__expire' ) );
 		//}
-
-		$theme->fluffy = $fluffy;
+	
+		$theme->fluffytag = $cloud_tag;
 		return $theme->fetch( 'fluffytag' );
 	}
 
