@@ -1,11 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>JWYSIWYG</name>
-	<license>Apache License 2.0</license>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<version>0.3</version>
-	<description>Publish posts using the JWYSIWYG editor.</description>
-	<copyright>2008</copyright>
-</plugin>
-
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.7-0.5</version>
+	<description><![CDATA[Publish posts using the JWYSIWYG editor.]]></description>
+	<copyright>2009</copyright>
+</pluggable>

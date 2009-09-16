@@ -1,23 +1,7 @@
 <?php
 
-class JWYSIWYG extends Plugin {
-
-	/*
-	 * Required Plugin Information
-	 */
-	function info()
-	{
-		return array(
-			'name' => 'JWYSIWYG',
-			'license' => 'Apache License 2.0',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.6-0.4',
-			'description' => 'Publish posts using the JWYSIWYG editor.',
-			'copyright' => '2008'
-		);
-	}
+class JWYSIWYG extends Plugin
+{
 
 	public function action_admin_header($theme)
 	{
