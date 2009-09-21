@@ -77,6 +77,8 @@ class fluffytag extends Plugin
 					$ui = new FormUI( get_class( $this ) );
 					$hide_tags = $ui->append( 'text', 'hide_tags', 'option:' . 'fluffytag__hide', _t( 'Tag(s) to be hidden (seperate with ",")' ) );
 					$steps = $ui->append( 'text', 'steps_tag', 'option:' . 'fluffytag__steps', _t( 'No. of steps (if you change this you will also need to change fluffytag.css accordingly)' ) );
+					
+					$hide_prefix = $ui->append( 'text', 'hide_prefix', 'option:', 'fluffytag__prefix', _t( 'If you want to hide tags you can prefix them with something. Ex. @tag.' ) );
 
 					$cache_expire = $ui->append( 'text', 'cache_expire', 'option:' . 'fluffytag__expire', _t( 'Time the cache should save result (sec)' ) );
 
@@ -139,6 +141,12 @@ class fluffytag extends Plugin
 		$max = Tags::max_count();
 		$hide = $this->get_hide_tag_list();
 		$tag_array = array();
+		
+		$tags = array_filter($tags, create_function('$tag', 'return (Posts::count_by_tag($tag->slug, "published") > 0);'));
+		
+		if( Options::get( 'fluffytag__prefix' ) != "" ) {
+			$tags= array_filter( $tags, create_function( '$a', 'return $a{0} != "' . Options::get( 'fluffytag__prefix' ) . '";' ) );
+		}
 		
 		$step = $max / Options::get( 'fluffytag__steps' );
 
