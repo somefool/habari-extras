@@ -21,6 +21,9 @@ class fluffytag extends Plugin
 			if ( Options::get( 'fluffytag__num' ) == null ) {
 				Options::set( 'fluffytag__num', 'true' );
 			}
+			if ( Options::get( 'fluffytag__prefix' ) == null ) {
+				Options::set( 'fluffytag__prefix', '@' );
+			}  
 			if ( Options::get( 'fluffytag__steps' ) == null ) {
 				Options::set( 'fluffytag__steps', '10' );
 			}           
@@ -75,12 +78,15 @@ class fluffytag extends Plugin
 			switch ( $action ) {
 				case _t( 'Configure' ):
 					$ui = new FormUI( get_class( $this ) );
-					$hide_tags = $ui->append( 'text', 'hide_tags', 'option:' . 'fluffytag__hide', _t( 'Tag(s) to be hidden (seperate with ",")' ) );
-					$steps = $ui->append( 'text', 'steps_tag', 'option:' . 'fluffytag__steps', _t( 'No. of steps (if you change this you will also need to change fluffytag.css accordingly)' ) );
-					
-					$hide_prefix = $ui->append( 'text', 'hide_prefix', 'option:', 'fluffytag__prefix', _t( 'If you want to hide tags you can prefix them with something. Ex. @tag.' ) );
+					$ui->append( 'text', 'hide_tags', 'option:' . 'fluffytag__hide', _t( 'Tag(s) to be hidden (seperate with ",")' ) );
+					$ui->append( 'text', 'steps_tag', 'option:' . 'fluffytag__steps', _t( 'No. of steps (if you change this you will also need to change fluffytag.css accordingly)' ) );
 
-					$cache_expire = $ui->append( 'text', 'cache_expire', 'option:' . 'fluffytag__expire', _t( 'Time the cache should save result (sec)' ) );
+
+					$ui->append( 'text', 'hide_prefix', 'option:' . 'fluffytag__prefix', _t( 'Other plugin might use prefixed tags for different reasons. If you want to hide those from the tag cloud add the prefixes here. (seperate with ",")' ) );
+
+
+
+					$ui->append( 'text', 'cache_expire', 'option:' . 'fluffytag__expire', _t( 'Time the cache should save result (sec)' ) );
 
 					$ui->append( 'submit', 'save', _t( 'Save' ) );
 					$ui->set_option( 'success_message', _t( 'Configuration saved' ) );
@@ -142,10 +148,15 @@ class fluffytag extends Plugin
 		$hide = $this->get_hide_tag_list();
 		$tag_array = array();
 		
+		
 		$tags = array_filter($tags, create_function('$tag', 'return (Posts::count_by_tag($tag->slug, "published") > 0);'));
 		
+		
+		
 		if( Options::get( 'fluffytag__prefix' ) != "" ) {
-			$tags= array_filter( $tags, create_function( '$a', 'return $a{0} != "' . Options::get( 'fluffytag__prefix' ) . '";' ) );
+			foreach( explode(',', Options::get( 'fluffytag__prefix' ) ) as $prefix  ) {
+				$tags= array_filter( $tags, create_function( '$a', 'return $a{0} != "' . $prefix . '";' ) );
+			}
 		}
 		
 		$step = $max / Options::get( 'fluffytag__steps' );
