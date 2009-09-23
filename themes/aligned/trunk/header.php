@@ -27,7 +27,7 @@
 			<?php include 'searchform.php'; ?>
 			<div id="preface">
 				<div id="preface_inner">
-					<p><?php if (Plugins::is_loaded('Colophon')) { echo nl2br( $theme->colophon ); } else { ?>You need to load the <a href="http://habariproject.org/dist/plugins/colophon.zip">colophon plugin</a><?php } ?></p>
+					<p><?php if (Plugins::is_loaded('Colophon')) { $theme->colophon(); } else { ?>You need to load the <a href="http://habariproject.org/dist/plugins/colophon.zip">colophon plugin</a><?php } ?></p>
 				</div>
 			</div>
 		</div>
