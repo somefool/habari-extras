@@ -1,0 +1,71 @@
+﻿Version 1.0
+*** This version needs a minimum of Habari 0.7 to run ***
+- Converted the comment form to Habari's built-in form.
+
+Version 0.9
+- Updated in accord with the current state of Habari's HiEngine template system.
+
+Version 0.8
+- Updated in accord with the current state of Habari's HiEngine template system.
+- Updated in accord with Habari's definition of a user.
+
+Version 0.7
+- Fix: Tag output was appearing even when an entry had no tags.
+- Change: Converted comment form to use Habari's FormUI interface.
+- Updated to work with Habari's new date/time class
+
+Version 0.61
+*** This version needs a minimum of Harbari 0.5 to run ***
+
+- Change: Incorporated core page selector changes.
+- Change: Incorporated core post retrieval changes.
+
+Version 0.6
+- Change: Added previous/next page links to pages with multiple posts
+- Change: Added styling for scheduled posts
+
+Version 0.51
+- Fixed: More posts listed in sidebar was showing drafts, leading to 404 errors when the link was clicked
+- Fixed: Page selector display on multiple entry pages
+- Fixed: Improved api usage getting previous and next post links
+
+Version 0.5
+- Change: Display next/previous post links at top of individual post pages
+
+Version 0.4
+- Fixed: Tag pages now use tag text instead of tag slug
+- Change: Comment form simplified
+- Change: added bookmark microformat to head elements
+- Change: simplified getting permalinks in sitemap
+- Change: use Habari functions to display the different parts of a page rather than including them.
+- Fixed: Use the actual count of posts on the Sitemap rather than assuming 1000 post maximum
+- Change: Author's display name used on single post pages
+
+Version 0.3.2
+- Change: Different markers on sublists in entries
+- Change: Simplified comment form
+- Change: Improved comment color scheme
+- Fixed: Submit buttons were changing colors in Firefox when they received focus
+- Fixed: Validation error on comment list.
+
+Version 0.3.1
+- Fixed: Comment box had tabs in it when it opened
+- Fixed: Comment text was disappearing when required fields weren't filled in
+- Fixed: Header, footer, sidebar theme functions output now in accord with Habari r1348
+
+Version 0.3
+- Added robots information in header so only the home page, single post pages, and page pages are indexed.
+- Made output of the the More Posts, Recent Comments, and Tags headers conditional on comments, posts, and tags actually being available
+- Aligned menu search bar to the right and improved it's alignment in IE7
+- Fixed alignment issues in entry class
+- Made home page show full first post, excerpt only on additional posts
+- Fixed display of page navigation display
+- Added respond id to beginning of comment form so Habari would properly redirect to it
+- stopped pingbacks being listed twice
+
+Version 0.2.1
+- Fixed title tag to output page titles correctly
+- increased font size in content area
+
+Version 0.2
+- Initial Release

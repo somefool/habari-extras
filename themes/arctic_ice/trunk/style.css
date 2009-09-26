@@ -1,0 +1,721 @@
+/*-----------------------------------------------------------------------------
+Arctic Ice - Based on mzingi by Michael Bishop (http://bloggingmeta.com/mzingi)
+Version:	1.0
+Author:	Richard Cockrum
+Email:	rickcockrum@gmail.com
+Website:	http://sagrising.cockrumpublishing.com/
+-----------------------------------------------------------------------------*/
+
+
+/* =Resets 
+-----------------------------------------------------------------------------*/
+/* Remove padding and margin */
+* { 
+	margin: 0;
+	padding: 0;
+}
+
+/* Put it back on certain elements */
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, fieldset, table, ul {
+  margin: .5em 0;
+}
+
+em {
+	font-style: italic;
+}
+
+hr {
+	margin: 0.5em;
+}
+
+strong {
+	font-weight: 700;
+}
+
+blockquote {
+	border: 1px solid #ddd;
+	padding: 0.5em 1em;
+	font-style: italic;
+	background: #F5F5F5;
+	clear: both;
+	margin: 0.5em;
+}
+
+code {
+	font: 0.9em "Courier New", Courier, Monospace;
+	color: #449;
+}
+
+/* =Forms
+-----------------------------------------------------------------------------*/
+
+/* Removes fieldset borders. even on Opea 7 */
+fieldset {
+  border: 1px solid transparent;
+}
+
+/* =Tables
+-----------------------------------------------------------------------------*/
+
+table { 
+  border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td {
+  text-align: left;
+	font-weight: normal;
+}
+
+.right {
+	float: right;
+	margin-left: 0.5em;
+}
+
+.left {
+	float: left;
+	margin-right: 0.5em;
+}
+
+img.right  {
+	padding: 0.3em;
+	margin-left: 0.8em;
+}
+
+img.left {
+	padding: 0.3em;
+	margin-right: 0.8em;
+}
+
+/* Class for clearing floats */
+.clear {
+	clear:both;
+}
+
+/* define inline elements as block */
+
+.block {
+	display: block;
+}
+
+/* define block elements as inline */
+.inline {
+	display: inline;
+}
+
+/* Remove border around linked images */
+img {
+	border: 0;
+}
+
+
+/* =Typography
+-----------------------------------------------------------------------------*/
+
+body {
+	font-size: 62.5%; 
+	font-family: Verdana, Arial, sans-serif;
+	color: #000;
+	text-align: center;
+}
+
+#wrapper {
+	text-align: left;
+}
+
+#masthead {
+	text-align: left;
+}
+
+#content {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 1.3em;
+	line-height: 1.5;
+	color: #222;
+	text-align: left;
+}
+
+.entry {
+	font-size: 1.2em;
+	line-height: 1.5;
+	text-align: left;
+	color: #444;
+}
+
+#secondary {
+	font-size: 1.2em;
+	color: #222;
+}
+
+#footer {
+	font-size: 1.3em;
+	color: #ddd;
+}
+
+/* =Structure
+-----------------------------------------------------------------------------*/
+
+body {
+	background: #fff;
+}
+
+#wrapper {
+	width: 76em;
+	margin: 0 auto;
+	background: #fff;
+}
+
+#masthead {
+	position: relative;
+	margin: 0;
+	border-bottom: 1px solid #666;
+	padding: 0;
+	background: #2222ae url('images/headbg.jpg');
+	height: 13em;
+}
+
+
+#content {
+	float: left;
+	width: 40em;
+	padding: 4em 2em 0 0;
+}
+
+#secondary {
+	float: left;
+	width: 16em;
+	padding: 8em 0em 0.5em 1em;
+}
+
+#footer {
+	border-top: 1px solid #666;
+	padding: 0.5em 0;
+	margin-top: 0.5em;
+	background: #2222ae url('images/footbg.jpg');
+	clear: both;
+}
+
+/* =Headings
+-----------------------------------------------------------------------------*/
+
+
+h1 {
+	font-size: 1.8em;
+	font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+	color: #666;
+}
+
+h2 {
+	color: #666;
+	font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+	font-size: 1.6em;
+}
+
+h3 {
+	color: #666;
+	font-size: 1.4em;
+	font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+
+h4 {
+	color: #666;
+	font-size: 1.3em;
+	font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+
+h5 {
+	color: #666;
+	font-size: 1.2em;
+	font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+
+h6 {
+	color: #666;
+	font-size: 1.1em;
+	font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+
+
+#secondary h3 {
+	padding: 0;
+	margin: 0;
+	font-size: 1.45em;
+	font-size: 1.7em;
+	font-weight: bold;
+	color: #222;
+	border-bottom: 1px solid #ccc;
+}
+
+.site {
+
+}
+
+.aside {
+
+}
+
+.commentheading {
+
+}
+
+
+/* =Links
+-----------------------------------------------------------------------------*/
+
+#content h1 a {
+	color:#22b;
+	text-decoration: none;
+}
+#content h1 a:hover {
+	color: #b22;
+	text-decoration: none;
+}
+
+a:link {
+	color: #22b;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #b22;
+}
+
+a:active {
+	color: #fff;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+#secondary a {
+	text-decoration: none;
+	color: #22b;
+}
+
+#secondary a:hover {
+	text-decoration: none;
+	color: #b22;
+}
+
+#footer a {
+	color: #9bf;
+}
+
+
+#branding a {
+	border: none;
+}
+
+ul#tidbits a {
+	text-decoration: none;
+
+}
+
+/* =Main menu
+-----------------------------------------------------------------------------*/
+
+ul.sitemenu {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+ 	width: 100%;
+	padding: 0.4em 0 0.4em 0;
+	background: #aaa url('images/menubg.jpg');
+	text-transform: uppercase;
+	height: 1.7em;
+	font-family: Verdana, Arial, sans-serif;
+	font-weight: 500;
+	font-size: 1.15em;
+}
+
+
+ul.sitemenu li{
+	display: inline;
+	list-style-type: none;
+	vertical-align: -30%;
+}
+
+ul.sitemenu li a {
+	text-decoration: none;
+	padding: 0 0.5em;
+	color: #229;
+}
+
+ul.sitemenu li a:hover {
+/*	color: #e0a352; */
+	color: #f22;
+	text-decoration: none;
+}
+
+.sitemenu ul li.current a,
+.sitemenu ul li.current a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.sitemenu .search {
+	position: absolute;
+	right: 0;
+	padding-right: 2em; bottom: 0.2em;
+}
+
+/* =Masthead
+-----------------------------------------------------------------------------*/
+
+#branding {
+	float: left;
+	margin-left: 5.5em;
+	padding-top: 1.5em;
+}
+
+#siteTitle a{
+	font-size: 3.0em;
+	font-weight: bold;
+	color: #ddd;
+	text-decoration: none;
+}
+#siteTitle a:hover {
+	color: #b22;
+	text-decoration: none;
+}
+
+#siteTagline {
+	font-size: 1.75em;
+	color: #ccc;
+}
+
+
+/* =Primary Content
+-----------------------------------------------------------------------------*/
+
+.entry {
+	clear: both;
+	text-align: left;
+}
+
+.entry ul {
+	padding-left: 2.0em;
+}
+
+.entry ul ul{
+	list-style-type: square;
+}
+
+.entry ul ul, .entry ul ol {
+	padding-left: 2.0em;
+}
+
+.entry ol {
+	padding-left: 2.0em;
+}
+
+.entry ol ol, .entry ol ul {
+	padding-left: 2.0em;
+}
+
+.entry li {
+	padding-bottom: 0.4em;
+}
+
+.entryMeta {
+	clear: both;
+	margin:3.0em 0.5em;
+	font-size: 0.9em;
+	background: #f5f5f5;
+	padding: 0.5em;
+}
+
+.pubMeta {
+	clear: both;
+	text-align: left;
+	font-size: 0.9em;
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid #22b;
+
+}
+
+.sitemap {
+	list-style-type: none;
+	padding: 0 5em 2em 5em;
+	font-size: 1.1em;
+}
+
+.meta {
+	clear: both;
+	margin: 1em 1em;
+	font-size: 0.9em;
+	padding: 1.5em 0;
+}
+
+.edit {
+	float: left;
+	padding-bottom: 1em;
+	width: 100%;
+}
+
+.commentCount {
+	float:  right;
+}
+
+.tags {
+	float: left;
+}
+
+.draft {
+	background: #f5f5f5;
+}
+
+.scheduled {
+	background: #f5f5f5;
+}
+
+blockquote.right {
+	clear: right;
+	float: right;
+	background: #f5f5f5;
+	font-style: italic;
+	padding: 0.4em;
+	margin: 0.5em 0 0.5em 0.5em;
+	border: 1px solid #ddd;
+	width: 15em;
+}
+
+blockquote.left {
+	clear: left;
+	float: left;
+	background: #f5f5f5;
+	font-style: italic;
+	padding: 0.4em;
+	margin: 0.5em 0.5em 0.5em 0;
+	border: 1px solid #ddd;
+	width: 15em;
+}
+
+#pagenav {
+	text-align: center;
+	border: 1px solid #ccc;
+	padding: 0.4em;
+	background: #F5F5F5;
+	margin: 1.0em 0 1.0em 0;
+	font-size: 1.1em;
+	clear: both;
+}
+
+#pagenav a {
+	text-decoration: none;
+	padding: 0.2em;
+}
+
+#pagenav a:hover {
+	background: #545454;
+	padding: 0.2em;
+	color: #fff;
+	text-decoration: none;
+}
+
+#pagenav a.current-page {
+	border: 1px solid #545454;
+	color: #545454;
+	padding: 0.2em;
+}
+
+.postnav {
+	clear: both;
+	padding-bottom: 2em;
+}
+
+.postprev {
+	float: right;
+}
+
+.postnext {
+	float: left;
+}
+
+/* =Secondary Content
+-----------------------------------------------------------------------------*/
+
+ul.rss {
+	list-style-type: none;
+	padding-bottom: 1em;
+}
+
+ul.rss li {
+	padding-left: 20px;
+	background: url('images/feed.png') no-repeat;
+}
+
+ul.asides {
+	list-style-type: none;
+	margin-left: 1em;
+	padding-bottom: 1em;
+}
+
+ul.moreposts {
+	list-style-type: none;
+	margin-left: 1em;
+	padding-bottom: 1em;
+}
+
+ul.moreposts li {
+	padding-bottom: 0.5em;
+}
+
+
+ul.recentcomments {
+	list-style-type: none;
+	margin-left: 1em;
+	padding-bottom: 1em;
+}
+
+ul.recentcomments li {
+	padding-bottom: 0.5em;
+}
+
+ul.tags {
+	list-style-type: none;
+	margin-left: 1em;
+	padding-bottom: 1em;
+}
+
+ul.tags li {
+	padding-bottom: 0.5em;
+}
+
+
+/* =Footer
+-----------------------------------------------------------------------------*/
+
+#footer p {
+	text-align: center;
+}
+
+
+/*Comments-----------------------------------------------------------------------------*/
+
+#comments {
+	padding-top: 1.0em;
+}
+
+#pings {
+	margin:15px 0 2.5em 0;
+}
+
+.ping-meta {
+	background: #dedff1;
+	border: 1px solid #ccc;
+	padding: 0.4em;
+	margin-bottom: 1.5em;
+}
+
+ul#pings-list {
+	list-style-type: none;
+}
+
+ul#commentlist {
+	list-style-type: none;
+}
+
+.comment {
+	margin-bottom: 1.5em;
+}
+
+.comment-unapproved {
+	margin-bottom: 1.5em;
+}
+
+.comment_content {
+	border: 1px solid #ccc;
+	padding: 0.4em;
+	background: #f5f5f5;
+}
+
+.comment-meta { 
+	background: #dedff1;
+	border: 1px solid #ccc;
+	padding: 0.4em;
+}
+
+.comments .error {
+	list-style-type: none;
+	font-size: 1.1em;
+	color: #9a0707;
+}
+
+.comments .success {
+	list-style-type: none;
+	font-size: 1.1em;
+}
+
+/* Comment Form */
+#respond {
+	padding-top: 2em;
+}
+
+.commentform {
+	padding: 1em;
+	border: 1px solid #ccc;
+	background: #dedff1;
+}
+
+.commentform label {
+	float: left;
+	width: 20em;
+	padding: 0.5em;
+	background: transparent;
+	display: block;
+}
+
+.commentform input[type="text"], .commentform textarea {
+	border-top: 2px solid #999;
+	border-left: 2px solid #999;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	padding: 0.25em;
+}
+
+.commentform #content {
+	margin: 1em 0;
+	padding: 0;
+}
+
+.commentform #submit input {
+	width: 10em;
+	padding: 0.5em 1em;
+	background: #ebf5fc url('images/menubg.jpg');
+}
+
+/* style form elements on focus */
+.commentform input:focus, .commentform textarea:focus {
+	background: #f5f5f5;
+}
+.commentform #submit input:focus {
+	background: #d4ecfb url('images/menubg.jpg');
+}
+
+/*Search Form*/
+
+#searchform {
+	margin: 0;
+	padding: 0 0 0 5em;
+	vertical-align: middle;
+	display: inline;
+}
+
+#searchform #search_s input[type="text"]{
+	margin: 0;
+	padding-top: 1em;
+	width: 10em;
+	vertical-align: middle;
+}
+
+#searchform #searchsubmit input, #searchform #searchsubmit input:focus {
+	margin: 0;
+	width: 4em;
+	background: #ccc url('images/menubg.jpg');
+	vertical-align: middle;
+}
