@@ -22,7 +22,7 @@
 					<div class="tags">{hi:"Tagged:"} {hi:tags_out}</div>
 				{/hi:?}
 				<div class="commentCount">
-					<a href="{hi:permalink}#comments" title="hi:"Comments on this post"}">{hi:"{hi:comments.approved.count} Comment" "{hi:comments.approved.count} Comments" comments.approved.count}</a>
+					<a href="{hi:permalink}#comments" title="{hi:"Comments on this post"}">{hi:"{hi:comments.approved.count} Comment" "{hi:comments.approved.count} Comments" comments.approved.count}</a>
 				</div>
 			</div>
 			<br>
