@@ -1,22 +1,6 @@
 <?php
 class Thickbox extends Plugin {
-	
-	/**
-	 * Required Plugin Informations
-	 */
-	public function info() {
-		return array(
-			'name' => 'Thickbox',
-			'version' => '3.1',
-			'url' => 'http://habariproject.org/',
-			'author' =>	'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Adds Thickbox functionality to your theme.',
-			'copyright' => '2009'
-		);
-	}
-	
+		
 	/**
 	 * Adds needed files to the theme stacks (javascript and stylesheet)
 	 */
