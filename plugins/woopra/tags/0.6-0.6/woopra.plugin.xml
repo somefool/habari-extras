@@ -1,0 +1,10 @@
+<plugin>
+	<name>Woopra</name>
+	<version>0.6</version>
+	<url>http://www.awhitebox.com/woopra-plugin-for-habari</url>
+	<author>Ali B.</author>
+	<authorurl>http://www.awhitebox.com</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Enable Woopra\'s tracking for your site.</description>
+</plugin>
+
