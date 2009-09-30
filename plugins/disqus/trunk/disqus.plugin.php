@@ -3,23 +3,6 @@
 class Disqus extends Plugin
 {
 	/**
-	* Provide plugin info to the system
-	*/
-	public function info()
-	{
-		return array(
-			'name' => 'Disqus',
-			'version' => '0.2',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Integrates the Disqus comment system',
-			'copyright' => '2008',
-		);
-	}
-
-	/**
 	 * On plugin init, add the disqus comments template
 	 */
 	public function action_init()
