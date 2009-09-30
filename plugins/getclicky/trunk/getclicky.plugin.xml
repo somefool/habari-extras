@@ -1,10 +1,14 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>GetClicky Analytics</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://digitalspaghetti.me.uk/">Tane Piper</author>
+	
 	<version>1.4.3</version>
 	<url>http://digitalspaghetti.me.uk/</url>
-	<author>Tane Piper</author>
-	<authorurl>http://digitalspaghetti.me.uk</authorurl>
-	<license>Apache License 2.0</license>
-	<description>Adds GetClicky analytics integration to your site</description>
-</plugin>
+	<description><![CDATA[Adds GetClicky analytics integration to your site.]]></description>
+
+	<copyright>2009</copyright>
+</pluggable>
 

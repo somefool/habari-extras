@@ -1,6 +1,19 @@
 <?php
 class GetClicky extends Plugin
 {
+  function info()
+  {
+        return array(
+            'name' => 'GetClicky Analytics',
+            'version' => '1.4.3',
+            'url' => 'http://digitalspaghetti.me.uk/',
+            'author' => 'Tane Piper',
+            'authorurl' => 'http://digitalspaghetti.me.uk',
+            'license' => 'Apache License 2.0',
+            'description' => 'Adds GetClicky analytics integration to your site',
+        );
+  }
+  
   public function action_plugin_activation( $file )
   {
     if ( realpath( $file ) == __FILE__ ) {
