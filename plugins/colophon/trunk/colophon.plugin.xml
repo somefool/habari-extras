@@ -1,9 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Colophon Plugin</name>
-	<url>http://habariproject.org/dist/plugins</url>
-	<author>stanislas mazurek</author>
-	<authorurl>http://stanbar.jp</authorurl>
-	<license>Apache license 2.0</license>
-	<description>Adds an About / Colophon to your blog</description>
-</plugin>
-
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://stanbar.jp/">stanislas mazurek</author>
+	<version>0.5</version>
+	<url>http://habariproject.org/dist/plugins/</url>
+	<description><![CDATA[Adds an About / Colophon to your blog.]]></description>
+	<copyright>2009</copyright>
+</pluggable> 
