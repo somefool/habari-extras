@@ -1,0 +1,10 @@
+<plugin>
+        <name>Asciify</name>
+        <version>0.1</version>
+        <url>http://eighty4.se/projects/</url>
+        <author>eighty4</author>
+        <authorurl>http://eighty4.se</authorurl>
+        <license>Apache License 2.0</license>
+        <description>Make urls more friendly.</description>
+        <copyright>2008</copyright>
+</plugin>

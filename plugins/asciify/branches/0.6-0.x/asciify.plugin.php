@@ -10,7 +10,21 @@
 
 class asciify extends Plugin
 {
-
+	/**
+	 * Plugin info
+	 */
+	public function info() {
+                return array(
+                        'name' => 'Asciify',
+                        'version' => '0.1',
+                        'url' => 'http://eighty4.se/projects',
+                        'author' =>     'eighty4',
+                        'authorurl' => 'http://eighty4.se',
+                        'license' => 'Apache License 2.0',
+                        'description' => 'Make urls more friendly',
+                        'copyright' => '2009'
+                );
+        }
 	/**
 	 * Add update beacon support
 	 **/
