@@ -14,25 +14,6 @@ class ThemeSwitcher extends Plugin
 	// True if template was shown, false otherwise
 	private $shown= false;
 	
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'ThemeSwitcher',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.1',
-			'description' => 'Allows visitors to change the theme of the site.',
-			'license' => 'Apache License 2.0',
-			'copyright' => '2008'
-		);
-	}
-	
 	function action_init()
 	{
 		if ( !empty($_GET['theme_dir'] ) || !empty( $_POST['theme_dir'] ) ) {
