@@ -151,14 +151,16 @@ class Simplenote extends Plugin implements MediaSilo
 	{
 		$this->action_form_publish($form, $post);
 		
-		$note = new Note( $form->note_key->value );
-		$note->content = $form->notes->value;
-		
-		$note->update();
-		
-		// Utils::debug( $note, $note->update(), $this->get_notes() );
-		
-		$post->info->note_key = $note->key;
+		if( $form->notes->value != NULL ) {
+			$note = new Note( $form->note_key->value );
+			$note->content = $form->notes->value;
+
+			$note->update();
+			
+			// Utils::debug( $note, $note->update(), $this->get_notes() );
+
+			$post->info->note_key = $note->key;
+		}
 		
 		
 		// exit;
@@ -405,8 +407,8 @@ class SimpleAPI
 	 **/
 	public function update( $key, $content )
 	{		
-		if( $this->api->save_note( $content, $key ) ) {
-			return true;
+		if( $key = $this->api->save_note( $content, $key ) ) {
+			return $key;
 		}
 		else {
 			return false;
@@ -474,7 +476,9 @@ class Note
 		 
 		// Utils::debug( $content );
 		
-		return $api->update( $this->key, $content );
+		$this->key = $api->update( $this->key, $content );
+		
+		return true;
 		
 	}
 	

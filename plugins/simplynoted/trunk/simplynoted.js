@@ -31,7 +31,7 @@ var notes = {
 		
 		notes.tabs.bind('tabsshow', function(event, ui) {
 			// console.log(notes.tabs.tabs('option', 'selected'));
-			if( $(ui.panel).children('#silo_simplenote').length > 0 && notes.key.val() != '') {
+			if( $(ui.panel).children('#silo_simplenote').length > 0 ) {
 				notes.show();
 			}
 		});
