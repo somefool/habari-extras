@@ -6,23 +6,6 @@ class PublishQuote extends Plugin
 	static $default_title_template = "{\$title}";
 
 	/**
-	* Required Plugin Information
-	*/
-	function info()
-	{
-		return array(
-			'name' => 'Publish Quote',
-			'license' => 'Apache License 2.0',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
-			'description' => 'Allows users to post quotes with a bookmarklet',
-			'copyright' => '2008'
-		);
-	}
-
-	/**
 	* Create the bookmarklet that is appropriate for the client's User Agent
 	*
 	* @return array The array of actions to attach to the specified $plugin_id
