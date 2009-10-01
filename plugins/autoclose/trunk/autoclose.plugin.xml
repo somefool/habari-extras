@@ -1,11 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Autoclose</name>
+	<author url="http://habariproject.org/">Habari Community</author>
 	<version>0.2.0</version>
 	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<license>Apache License 2.0</license>
-	<description>Automatically close comments on posts older than a given number of days</description>
+	<description><![CDATA[Automatically close comments on posts older than a given number of days.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<copyright>2008</copyright>
-</plugin>
-
+</pluggable> 
