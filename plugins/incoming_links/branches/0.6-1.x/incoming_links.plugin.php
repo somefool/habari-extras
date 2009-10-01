@@ -18,7 +18,7 @@ class IncomingLinks extends Plugin
 			'name' => 'IncomingLinks',
 			'version' => '1.0',
 			'url' => 'http://habariproject.org/',
-			'author' =>	'Habari Community',
+			'author' =>	'The Habari Community',
 			'authorurl' => 'http://habariproject.org/',
 			'license' => 'Apache License 2.0',
 			'description' => 'Incoming Links Dashboard Module',
