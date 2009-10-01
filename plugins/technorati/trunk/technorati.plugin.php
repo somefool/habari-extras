@@ -8,19 +8,6 @@ class Technorati extends Plugin
 	 *
 	 */
 
-	/* Required Plugin Informations */
-	public function info() {
-		return array(
-			'name' => 'Technorati',
-			'version' => '0.5',
-			'url' => 'http://habariproject.org/',
-			'author' =>     'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Technorati plugin for Habari',
-			'copyright' => '2007'
-		);
-	}
 
 	public function action_plugin_activation( $file )
 	{

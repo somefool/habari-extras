@@ -1,0 +1,11 @@
+<plugin>
+	<name>Technorati</name>
+	<version>0.5</version>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Technorati plugin for Habari</description>
+	<copyright>2007</copyright>
+</plugin>
+
