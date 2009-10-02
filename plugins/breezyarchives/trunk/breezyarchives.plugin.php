@@ -28,19 +28,6 @@ class BreezyArchives extends Plugin
 		);
 	}
 
-	public function info()
-	{
-		return array(
-			'name' => 'Breezy Archives',
-			'version' => '0.3',
-			'url' => 'http://code.google.com/p/bcse/wiki/BreezyArchives',
-			'author' => 'Joel Lee',
-			'authorurl' => 'http://blog.bcse.info/',
-			'license' => 'Apache License 2.0',
-			'description' => _t('An archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’.', $this->class_name)
-		);
-	}
-
 	/**
 	 * On plugin activation, set the default options
 	 */
