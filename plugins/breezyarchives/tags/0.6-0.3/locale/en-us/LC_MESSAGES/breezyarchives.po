@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breezy Archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-27 01:06+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _n:1,2;_ne:1,2;_t;_e\n"
+"X-Poedit-Basepath: ../../../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: breezyarchives.plugin.php:14
+#: breezyarchives.plugin.php:114
+msgid "Chronology"
+msgstr ""
+
+#: breezyarchives.plugin.php:18
+#: breezyarchives.plugin.php:136
+msgid "Taxonomy"
+msgstr ""
+
+#: breezyarchives.plugin.php:23
+msgid "Older →"
+msgstr ""
+
+#: breezyarchives.plugin.php:24
+msgid "← Newer"
+msgstr ""
+
+#: breezyarchives.plugin.php:40
+msgid "An archives plugin which mimics ‘Live Archives’ on WordPress. When JavaScript is not available, it will graceful degrade to a ‘Clean Archives’."
+msgstr ""
+
+#: breezyarchives.plugin.php:96
+#: breezyarchives.plugin.php:111
+msgid "Configure"
+msgstr ""
+
+#: breezyarchives.plugin.php:116
+msgid "Title for Chronology Archives"
+msgstr ""
+
+#: breezyarchives.plugin.php:123
+msgid "Month Format"
+msgstr ""
+
+#: breezyarchives.plugin.php:125
+msgid "Full name (January – December)"
+msgstr ""
+
+#: breezyarchives.plugin.php:126
+#, php-format
+msgid "Full name according to the current system locale (%1$s – %2$s)"
+msgstr ""
+
+#: breezyarchives.plugin.php:127
+msgid "Abbreviation (Jan – Dec)"
+msgstr ""
+
+#: breezyarchives.plugin.php:128
+#, php-format
+msgid "Abbreviation according to the current system locale (%1$s – %2$s)"
+msgstr ""
+
+#: breezyarchives.plugin.php:129
+msgid "Number with leading zero (01 – 12)"
+msgstr ""
+
+#: breezyarchives.plugin.php:130
+msgid "Number without leading zero (1 – 12)"
+msgstr ""
+
+#: breezyarchives.plugin.php:134
+msgid "Show Monthly Posts Count"
+msgstr ""
+
+#: breezyarchives.plugin.php:138
+msgid "Title for Taxonomy Archives"
+msgstr ""
+
+#: breezyarchives.plugin.php:141
+msgid "Show Tagged Posts Count"
+msgstr ""
+
+#: breezyarchives.plugin.php:143
+msgid "Excluded Tags"
+msgstr ""
+
+#: breezyarchives.plugin.php:145
+msgid "Pagination"
+msgstr ""
+
+#: breezyarchives.plugin.php:147
+msgid "&#8470; of Posts per Page"
+msgstr ""
+
+#: breezyarchives.plugin.php:151
+msgid "Next Page Link Text"
+msgstr ""
+
+#: breezyarchives.plugin.php:154
+msgid "Previous Page Link Text"
+msgstr ""
+
+#: breezyarchives.plugin.php:157
+msgid "General"
+msgstr ""
+
+#: breezyarchives.plugin.php:159
+msgid "Show Newest First"
+msgstr ""
+
+#: breezyarchives.plugin.php:161
+msgid "Show &#8470; of Comments"
+msgstr ""
+
+#: breezyarchives.plugin.php:178
+msgid "Save"
+msgstr ""
+
+#: breezyarchives.plugin.php:179
+msgid "Options saved"
+msgstr ""
+
+#: breezyarchives.plugin.php:189
+msgid "This field must be positive integer."
+msgstr ""
+
+#: breezyarchives_chrono.php:14
+#: breezyarchives_chrono.php:19
+#: breezyarchives_tags.php:10
+#, php-format
+msgid "%1$d Post"
+msgid_plural "%1$d Posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: breezyarchives_month.php:10
+#: breezyarchives_tag.php:10
+#, php-format
+msgid "%1$d Comment"
+msgid_plural "%1$d Comments"
+msgstr[0] ""
+msgstr[1] ""
+

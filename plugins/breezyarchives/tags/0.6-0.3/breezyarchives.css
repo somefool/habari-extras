@@ -1,0 +1,52 @@
+ul#breezyarchives{margin:.7em 0;padding:0;text-align:left;}
+ul#breezyarchives ul{color:#999;margin:0;padding:0;}
+ul#breezyarchives li{list-style:none;}
+ul#breezyarchives li.year a{font-weight:700;}
+ul#breezyarchives li.year li a{font-weight:400;}
+ul#breezyarchives ul.breezy-yearly-archive{display:inline;}
+ul#breezyarchives ul.breezy-yearly-archive li{display:inline;padding:0 0 0 .5em;text-transform:uppercase;font-size:.75em;line-height:1.8667;}
+ul#breezy-taxonomy-archive li{display:inline;padding:0 1em 0 0;}
+ul#breezyarchives ul.breezy-yearly-archive span.post-count{display:none;}
+ul#breezyarchives a,ul#breezyarchives span{font-size:1em;line-height:1.4;font-weight:400;}
+ul#breezyarchives span.post-count,ul#breezyarchives span.comment-count,ul#breezyarchives.energized a.pager-prev,ul#breezyarchives.energized a.pager-next{color:#999;text-transform:uppercase;font-size:.75em;line-height:1.8667;}
+
+/* ENERGIZED */
+
+ul#breezyarchives.energized li.year a{font-weight:400;}
+ul#breezyarchives.energized ul.breezy-yearly-archive{display:block;}
+ul#breezyarchives.energized ul.breezy-yearly-archive li{display:block;padding:0 .5em;text-transform:none;font-size:1em;line-height:1.4;}
+ul#breezy-taxonomy-archive li{display:block;padding:0 .5em;}
+
+/* Colors */
+ul#breezyarchives.energized li.selected{background:#f3f3f3;}
+ul#breezyarchives.energized li:hover{background:#f2f5d7;}
+ul#breezyarchives.energized li.selected > a{color:#e63d16;}
+ul#breezyarchives.energized a:link{color:#0075b8;}
+ul#breezyarchives.energized a:visited{color:#5f81b1;}
+ul#breezyarchives.energized a:hover{color:#e63d16;}
+ul#breezyarchives.energized a:active,ul#breezyarchives.energized a:focus{color:#c8693b;}
+
+ul#breezyarchives.energized h3{cursor:pointer;padding:0;margin:0;}
+ul#breezyarchives.energized h3{font-size:1em;line-height:1.4;font-weight:400;}
+ul#breezyarchives.energized{position:relative;}
+ul#breezyarchives.energized li{width:5em;padding:0 .5em !important;}
+ul#breezyarchives.energized ul{position:absolute;top:0;left:6em;}
+ul#breezyarchives.energized ul li{width:4em;}
+ul#breezyarchives.energized ul ul{left:5em;}
+ul#breezyarchives.energized li.post,ul#breezyarchives.energized li.pagination{width:15em;}
+ul#breezyarchives.energized li.tag{width:9em;}
+ul#breezyarchives.energized li.tag ul{left:10em;}
+ul#breezyarchives.energized a,ul#breezyarchives.energized span{display:block;}
+ul#breezyarchives.energized a span{display:inline;}
+ul#breezyarchives.energized a.pager-prev{float:left;}
+ul#breezyarchives.energized a.pager-next{float:right;}
+ul#breezyarchives.energized span.post-count,ul#breezyarchives.energized ul.breezy-yearly-archive span.post-count,ul#breezyarchives.energized span.comment-count{display:block;color:#999;float:right;margin-top:-1.8667em;}
+
+/* IE hacks */
+ul#breezyarchives.energized li{**width:7em;}
+ul#breezyarchives.energized ul{**left:7em;}
+ul#breezyarchives.energized ul li{**width:5em;}
+ul#breezyarchives.energized ul ul{**left:5em;}
+ul#breezyarchives.energized li.tag{**width:10em;}
+ul#breezyarchives.energized li.post,ul#breezyarchives.energized li.pagination{**width:15em;}
+ul#breezyarchives.energized span.post-count,ul#breezyarchives.energized span.comment-count{**margin-top:-1.3333em;}
