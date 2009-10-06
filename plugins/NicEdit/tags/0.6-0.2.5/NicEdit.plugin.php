@@ -6,6 +6,20 @@ class NicEditor extends Plugin {
    *
    */
 
+  /* Required Plugin Informations */
+  public function info() {
+    return array(
+      'name' => 'NicEditor',
+      'version' => '0.2.5',
+      'url' => 'http://habariproject.org/',
+      'author' => 'The Habari Community',
+      'authorurl' => 'http://habariproject.org/',
+      'license' => 'Apache License 2.0',
+      'description' => 'NicEditor Plugin for Habari',
+      'copyright' => '2007'
+    );
+  }
+
   /**
     * Add actions to the plugin page for this plugin
     * @param array $actions An array of actions that apply to this plugin

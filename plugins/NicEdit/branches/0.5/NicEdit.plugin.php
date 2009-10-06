@@ -12,7 +12,7 @@ class NicEditor extends Plugin {
 			'name' => 'NicEditor',
 			'version' => '0.5-0.2.5',
 			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
+			'author' => 'The Habari Community',
 			'authorurl' => 'http://habariproject.org/',
 			'license' => 'Apache License 2.0',
 			'description' => 'NicEditor Plugin for Habari',
