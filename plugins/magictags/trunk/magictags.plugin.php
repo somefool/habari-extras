@@ -2,24 +2,6 @@
 class MagicTags extends Plugin
 {
 	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Magic Tags',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => '0.1',
-			'description' => 'Hides tags begining with "@" from display',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
