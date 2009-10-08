@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pluggable type="plugin">
+	<name>Comment Ident</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://elvery.net/drzax/">Simon Elvery</author>
+	
+	<version>0.1</version>
+	<url>http://elvery.net/drzax/comment-ident-habari-plugin</url>
+	<description><![CDATA[Utilises the wonderful <a href="http://identengine.com">Ident Engine</a> javascript library by <a href="http://www.glennjones.net/Home/">Glen Jones</a> to find commenter's various profiles and display them in the comments section.]]></description>
+
+	<copyright>2009</copyright>
+</pluggable>
