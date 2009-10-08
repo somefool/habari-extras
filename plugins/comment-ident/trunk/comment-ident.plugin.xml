@@ -7,7 +7,7 @@
 	
 	<version>0.1</version>
 	<url>http://elvery.net/drzax/comment-ident-habari-plugin</url>
-	<description><![CDATA[Utilises the wonderful <a href="http://identengine.com">Ident Engine</a> javascript library by <a href="http://www.glennjones.net/Home/">Glen Jones</a> to find commenter's various profiles and display them in the comments section.]]></description>
+	<description><![CDATA[Utilises the wonderful <a href="http://identengine.com">Ident Engine</a> javascript library by <a href="http://www.glennjones.net/Home/">Glenn Jones</a> to find commenter's various profiles around the web.]]></description>
 
 	<copyright>2009</copyright>
 </pluggable>
