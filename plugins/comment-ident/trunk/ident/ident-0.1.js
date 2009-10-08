@@ -338,6 +338,7 @@
                    profile.name = ident.domains[x].name;
                    profile.domain = ident.domains[x].domain; 
                    profile.iconUrl = ident.iconPath + ident.domains[x].name.replace(/[\-,., ]/g,'') + '.png';  
+				   profile.iconUrl = profile.iconUrl.toLowerCase();
                    
                    if(ident.domains[x].accounts[y].profile != '' ){
                         profile.profileUrl = ident.domains[x].accounts[y].profile;
