@@ -16,8 +16,7 @@ var comment_ident = function($) {
 		                $('<li> \
 		                    <a href="'+ ident.identities[x].profileUrl  + '">\
 		                    <img width="16" class="icon" src="' + ident.identities[x].iconUrl + '" />' 
-		                    + ident.identities[x].name + '</a> <span class="username">(' + 
-		                    ident.identities[x].username + ')</span>\
+		                    + ident.identities[x].name + '</a>\
 		                    </li>').appendTo(ul);   
 		            else
 		                $('<li>\
@@ -35,7 +34,7 @@ var comment_ident = function($) {
 		init : function () {
 			$(function() {
 				$(document).bind('ident:update', comment_ident.render);
-				$('a.comment-url').click(function(){
+				$('a.ident').click(function(){
 					var url = $(this).attr('href');
 					var result =  ident.search(url);
 					return false;

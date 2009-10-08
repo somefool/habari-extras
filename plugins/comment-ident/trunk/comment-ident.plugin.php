@@ -17,7 +17,7 @@ class CommentIdent extends Plugin {
 	public function help()
 	{
 		return <<< END_HELP
-<p>To use this plugin currently you need to make one small change to your theme. Any anchor tags that link to a commenter's supplied URL should be given the class 'comment-url'. This plugin will take over from there.</p>
+<p>To use this plugin currently you need to make one small change to your theme. Any anchor tags that link to a commenter's supplied URL should be given the class 'ident'. This plugin will take over from there.</p>
 END_HELP;
 	}
 	
