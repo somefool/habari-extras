@@ -6,24 +6,38 @@ class GeoTags extends Plugin {
 
 	private $config= array();
 
+	/**
+	 * Add help text to plugin configuration page
+	 * @return string Helpful instructions for the plugin.
+	 **/
 	public function help()
 	{
 		$help = _t( 'Once configured, Geotagging metadata will be added to your headers as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>.' ); 
 		return $help;
 	}
 
+	/**
+	 * Add update beacon support
+	 **/
 	public function action_update_check()
 	{
 	 	Update::add( 'Header GeoTags', '30840010-6e02-11dd-ad8b-0800200c9a66', $this->info->version );
 	}
 
-	function set_priorities()
+	/**
+	 * Set priority to move inserted tags nearer to the end
+	 * @return array
+	 **/
+	public function set_priorities()
 	{
 		return array(
 			'theme_header' => 11,
 		);
 	}
 
+	/**
+	 * Adds needed files to the theme stacks (javascript and stylesheet)
+	 **/
 	public function action_init()
 	{
 		$class_name= strtolower( get_class( $this ) );
@@ -60,11 +74,19 @@ class GeoTags extends Plugin {
 		}
 	}
 	
+	/**
+	 * Add tags to headers.
+	 * @return array
+	 **/
 	public function theme_header( $theme )
 	{
 		return $this->get_tags();
 	}
 
+	/**
+	 * Generate tags for adding to headers.
+	 * @return string Tags to add to headers.
+	 **/
 	private function get_tags()
 	{
 		$out = '';
