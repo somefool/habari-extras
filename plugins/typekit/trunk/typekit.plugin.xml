@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<pluggable type="plugin">
+	<name>Typekit</name>
+	<url>http://typekit.com/</url>
+	<version>1.0</version>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<description><![CDATA[Embeds Typekit script in headers.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<copyright>2009</copyright>
+	<help>
+		<value><![CDATA[Once configured, the Embed Code generated for your Typekit fonts kit will be added to your headers, as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>]]></value>
+	</help> 
+
+</pluggable>
+
