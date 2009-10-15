@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>SubPages</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<author url="http://twofishcreative.com/">Michael C. Harris</author>
+	<version>0.7-0.1</version>
+	<description><![CDATA[Lets you define parent pages, so you can create an arbitrary page hierarchy. WARNING: This plugin is experimental and based on an unstable Habari API. Do not use in production. (Though if you wanted to test it and let report how it breaks, that would be grand :)]]></description>
+	<copyright>2009</copyright>
+</pluggable>

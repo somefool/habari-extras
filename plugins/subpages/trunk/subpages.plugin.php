@@ -2,22 +2,6 @@
 
 class SubPagesPlugin extends Plugin
 {
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'SubPages',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'version' => '0.7-0.1',
-			'description' => 'Lets you define parent pages, so you can create an arbitrary page hierarchy. WARNING: This plugin is experimental and based on an unstable Habari API. Do not use in production. (Though if you wanted to test it and let report how it breaks, that would be grand :)',
-			'license' => 'Apache License 2.0',
-		);
-	}
 
 	/**
 	 * Add the subpage vocabulary
