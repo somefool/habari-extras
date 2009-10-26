@@ -26,18 +26,6 @@
 
 class HighlightPlugin extends Plugin {
 
-	public function info() {
-		return array (
-			'name' => 'Highlighter',
-			'url' => 'http://seancoates.com/habari',
-			'author' => 'Sean Coates',
-			'authorurl' => 'http://seancoates.com/',
-			'version' => '0.1.1',
-			'description' => 'Highlighter',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
 	public function action_init() {
 		spl_autoload_register( array( __CLASS__, '_autoload') );
 		Format::apply( 'do_highlight', 'post_content_out' );
