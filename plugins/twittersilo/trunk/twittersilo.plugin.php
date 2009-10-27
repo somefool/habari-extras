@@ -9,22 +9,6 @@ class TwitterSilo extends Plugin implements MediaSilo
 	protected $Twitter;
 
 	/**
-	* Provide plugin info to the system
-	*/
-	public function info() {
-		return array(
-			'name' => 'Twitter Tweet Silo',
-			'version' => '1.0',
-			'url' => 'http://seancoates.com/habari',
-			'author' => 'Sean Coates',
-			'authorurl' => 'http://seancoates.com/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Simple Twitter Silo',
-			'copyright' => '2008',
-		);
-	}
-
-	/**
 	* Return basic information about this silo
 	*     name- The name of the silo, used as the root directory for media in this silo
 	*	  icon- An icon to represent the silo
