@@ -12,7 +12,7 @@ class MarkUp extends Plugin {
 		'url' => 'http://habariproject.org/',
 		'author' => 'Habari Community',
 		'authorurl' => 'http://habariproject.org/',
-		'version' => '0.4',
+		'version' => '0.5',
 		'description' => 'Adds easy html, markdown, or textile tag insertion to Habari\'s editor',
 		'copyright' => '2008'
 		);
