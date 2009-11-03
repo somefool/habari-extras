@@ -29,8 +29,9 @@ class postPass extends Plugin
 	{
 		if ( $post->info->password ){
 			// if user logged in, show post
+			// make sure it's not just the anonymous user!
 			$user = User::identify();
-			if ( $user instanceof User ) {
+			if ( ( $user instanceof User ) && ($user != User::anonymous() ) ) {
 				return $content;
 			}
 			
