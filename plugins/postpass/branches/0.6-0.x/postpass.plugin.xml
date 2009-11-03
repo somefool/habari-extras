@@ -1,0 +1,8 @@
+<plugin>
+	<name>Post Pass</name>
+	<version>0.1</version>
+	<author>Habari Community</author>
+	<license>Apache License 2.0</license>
+	<description>Allows you to password protect your entries.</description>
+</plugin>
+
