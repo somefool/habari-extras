@@ -8,29 +8,11 @@
 class LiveHelp extends Plugin
 {
 	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Live Help',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '0.11',
-			'description' => 'Allows users to connect to #habari on IRC from within the admin.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-	/**
 	 * add ACL tokens when this plugin is activated
 	**/
 	public function action_plugin_activation( $file )
 	{
-		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
+		if ( Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__) ) {
 			ACL::create_token( 'LiveHelp', 'Access the #habari IRC channel via the LiveHelp plugin', 'livehelp' );
 		}
 	}
@@ -40,7 +22,7 @@ class LiveHelp extends Plugin
 	**/
 	function action_plugin_deactivation( $plugin_file )
 	{
-		if( Plugins::id_from_file( __FILE__ ) == Plugins::id_from_file( $plugin_file  ) ) {
+		if ( Plugins::id_from_file( __FILE__ ) == Plugins::id_from_file( $plugin_file  ) ) {
 			ACL::destroy_token( 'LiveHelp' );
 		}
 	}
@@ -69,7 +51,7 @@ class LiveHelp extends Plugin
 
 	public function action_add_template_vars( $theme )
 	{
-		if ($theme->admin_page == 'livehelp') {
+		if ( $theme->admin_page == 'livehelp' ) {
 			$user = User::identify();
 			$nick = $user->username;
 			$nick = $nick == 'admin' ? substr($user->email, 0, strpos($user->email, '@')) : $nick;
@@ -78,7 +60,7 @@ class LiveHelp extends Plugin
 	}
 
 	public function action_admin_header( $theme ) {
-		if ($theme->admin_page == 'livehelp') {
+		if ( $theme->admin_page == 'livehelp' ) {
 			Stack::add('admin_stylesheet', array($this->get_url() . '/livehelp.css', 'screen'));
 		}
 	}
@@ -101,7 +83,7 @@ class LiveHelp extends Plugin
 			// we can safely clobber any existing $require_any
 			// passed because our page didn't match anything in
 			// the adminhandler case statement
-			$require_any= array( 'super_user' => true, 'livehelp' => true );
+			$require_any = array( 'super_user' => true, 'livehelp' => true );
 		}
 		return $require_any;
 	}
