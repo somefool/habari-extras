@@ -2,6 +2,8 @@
 
 class postPass extends Plugin
 {
+	const PASSWORD_SET_PROMPT = '[Password set. Delete to remove]';
+	
 	public function info()
 	{
 		return array (
@@ -67,18 +69,25 @@ class postPass extends Plugin
 	
 	public function action_publish_post( Post $post, FormUI $form )
 	{
-		if ( $post->content_type == Post::type('entry') ) {
+		if ($form->postpass->value == '') {
+			unset($post->info->password);
+		} 
+		else if ($form->postpass->value == _t(self::PASSWORD_SET_PROMPT)){
+			// do nothing
+		}
+		else {
 			$post->info->password = Utils::crypt($form->postpass->value);
 		}
 	}
 	
 	public function action_form_publish( FormUI $form, Post $post)
 	{	
-		if( $form->content_type->value == Post::type('entry') ) {
-			// add password feild to settings splitter
-			$settings = $form->settings;
-			$settings->append('text', 'postpass', 'null:null', _t('Password', 'postpass'), 'tabcontrol_text');
-			$settings->postpass->value = $post->info->password;
+		// add password feild to settings splitter
+		$settings = $form->settings;
+		$settings->append('text', 'postpass', 'null:null', _t('Password', 'postpass'), 'tabcontrol_text');
+		if (isset($post->info->password))
+		{
+			$settings->postpass->value = _t(self::PASSWORD_SET_PROMPT);
 		}
 	}
 }
