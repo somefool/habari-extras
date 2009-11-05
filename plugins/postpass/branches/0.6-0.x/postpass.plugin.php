@@ -8,7 +8,7 @@ class postPass extends Plugin
 	{
 		return array (
 			'name' => 'Post Pass',
-			'version' => '0.6-0.1',
+			'version' => '0.6-0.2',
 			'author' => 'Habari Community',
 			'license' => 'Apache License 2.0',
 			'description' => 'Allows you to password protect your entries.',
