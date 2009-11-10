@@ -6,6 +6,20 @@
  **/
 class userfields extends Plugin
 {
+	public function info()
+	{
+		return array(
+			'name' => 'User Fields',
+			'version' => '0.02',
+			'url' => 'http://habariproject.org',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org',
+			'license' => 'Apache License 2.0',
+			'description' => 'Allows site administrators to create new user data fields.',
+			'copyright' => '2009'
+		);
+	}
+
 	/**
 	* Add actions to the plugin page for this plugin
 	*
