@@ -3,7 +3,7 @@
  * Blogger Importer
  *
  * @package bloggerimport
- * @version $Id$
+ * @version $Id: bloggerimport.plugin.php 1464 2008-12-16 12:02:50Z ayunyan $
  * @author ayunyan <ayu@commun.jp>
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link http://ayu.commun.jp/habari-bloggerimport
@@ -12,6 +12,26 @@ class BloggerImport extends Plugin implements Importer
 {
 	private $supported_importers;
 	private $import_batch = 100;
+
+	/**
+	 * plugin information
+	 *
+	 * @access public
+	 * @retrun void
+	 */
+	public function info()
+	{
+		return array(
+			'name' => 'Blogger Importer',
+			'version' => '0.01-alpha',
+			'url' => 'http://ayu.commun.jp/habari-bloggerimport',
+			'author' => 'ayunyan',
+			'authorurl' => 'http://ayu.commun.jp/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Import Blogger Export File',
+			'guid' => '6e805c3a-c775-11dd-aff6-001b210f913f'
+			);
+	}
 
 	/**
 	 * action: init
@@ -35,7 +55,7 @@ class BloggerImport extends Plugin implements Importer
 	 */
 	public function action_update_check()
 	{
-		Update::add($this->info->name, '6e805c3a-c775-11dd-aff6-001b210f913f', $this->info->version);
+		Update::add($this->info->name, $this->info->guid, $this->info->version);
 	}
 
 	/**
