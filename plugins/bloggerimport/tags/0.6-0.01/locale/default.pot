@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bloggerimport\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-12-11 21:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bloggerimport/bloggerimport.plugin.php:47
+#: bloggerimport/bloggerimport.plugin.php:144
+msgid "Blogger Export File"
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:93
+#, php-format
+msgid "Unknown Stage: %s"
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:139
+msgid "Habari will attempt to import from a Blogger Export File."
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:147
+msgid "Next"
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:169
+msgid "Please specify Blogger Export File."
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:177
+msgid "Upload failed."
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:184
+msgid "Possible file upload attack!"
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:190
+#, php-format
+msgid "Starting import from \"%s\""
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:224
+msgid "Failed parsing File"
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:310
+msgid "Import complete from Blogger Export File"
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:311
+msgid "Import is complete."
+msgstr ""
+
+#: bloggerimport/bloggerimport.plugin.php:315
+msgid "There were errors during import:"
+msgstr ""
