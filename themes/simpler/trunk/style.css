@@ -144,6 +144,10 @@ pre, code {
 	clear: both;
 }
 
+#content img {
+        max-width: 100%;
+}
+
 #bottom {
 	text-align: center;
 	margin: 0 auto;
