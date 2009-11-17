@@ -43,25 +43,6 @@ class S9YImport extends Plugin implements Importer
 	}
 
 	/**
-	* Return plugin metadata for this plugin
-	*
-	* @return array Plugin metadata
-	*/
-	public function info()
-	{
-		return array(
-			'name' => 'Serendipity Importer',
-			'version' => '1.0',
-			'url' => 'http://habariproject.org/',
-			'author' =>	'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Import Serendipity 0.9+ database.',
-			'copyright' => '2008'
-		 );
-	}
-
-	/**
 	 * Return a list of names of things that this importer imports
 	 *
 	 * @return array List of importables.
