@@ -1,10 +1,10 @@
-<plugin>
+<?xml version="1.0"?>
+<pluggable type="plugin">
 	<name>Highlighter</name>
 	<url>http://seancoates.com/habari</url>
 	<author>Sean Coates</author>
 	<authorurl>http://seancoates.com/</authorurl>
-	<version>0.1</version>
+	<version>0.2</version>
 	<description>Highlighter</description>
 	<license>Apache License 2.0</license>
-</plugin>
-
+</pluggable>

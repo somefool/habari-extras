@@ -64,7 +64,7 @@ class GeshiHighlighterFormatPlugin extends Format
 					// trim off CDATA wrapper:
 					$sliceValue = substr( $sliceValue, 9, -3 );
 				}
-				$geshi = new Geshi( trim( $sliceValue ), isset( $classes[0] ) ? $classes[0] : 'php' );
+				$geshi = new Geshi( trim( $sliceValue ), isset( $classes[0] ) ? $classes[0] : 'php', HABARI_PATH . '/3rdparty/geshi/geshi/' );
 				$geshi->set_header_type( GESHI_HEADER_PRE );
 				$geshi->set_overall_class( 'geshicode' );
 				$geshiOutput = @$geshi->parse_code(); // @ is slow, but geshi is full of E_NOTICE
