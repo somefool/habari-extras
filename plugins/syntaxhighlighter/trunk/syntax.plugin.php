@@ -89,7 +89,7 @@ class Syntax extends Plugin {
 	 */
 	public function action_template_header()
 	{
-		echo '<link rel="stylesheet" type="text/css" href="' . Site::get_url( 'user' ) . '/plugins/syntax/syntax.css">';
+		echo '<link rel="stylesheet" type="text/css" href="' . $this->get_url() . '/syntax.css">';
 	}
 
 
