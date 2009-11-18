@@ -7,23 +7,28 @@
  *
  * @todo document the functions.
  * @todo use AJAX to submit form, fallback on default if no AJAX.
- * @todo allow "custom feilds" to be added by user.
+ * @todo allow "custom fields" to be added by user.
  */
 
 require_once 'jambohandler.php';
 
 class Jambo extends Plugin
 {
-	const VERSION = '1.4.1';
+	const VERSION = '1.4.2';
 	const OPTION_NAME = 'jambo';
 	
 	private $theme;
-	
+
+	public function help()
+	{
+		return _t( 'Add a contact form by inserting either <code>&lt;!-- jambo --&gt;</code> or <code>&lt;!-- contactform --&gt;</code> into an entry or page.' );
+	}
+
 	private static function default_options()
 	{
 		return array(
 			'send_to' => $_SERVER['SERVER_ADMIN'],
-			'subject_prefix' => _t( '[CONTACT FORM]' ),
+			'subject_prefix' => _t( '[CONTACT FORM] ' ),
 			'show_form_on_success' => 1,
 			'success_msg' => _t( 'Thank you for your feedback. I\'ll get back to you as soon as possible.' ),
 			'error_msg' => _t( 'The following errors occurred with the information you submitted. Please correct them and re-submit the form.' )
@@ -175,7 +180,7 @@ class Jambo extends Plugin
 	
 	// here we store the current theme object for use later
 	// saves us from creating a new theme object and using more resources.
-	public function action_add_template_vars( &$theme, $handler_vars )
+	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		$this->theme = $theme;
 	}
