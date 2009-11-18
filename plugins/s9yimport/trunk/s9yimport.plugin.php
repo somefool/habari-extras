@@ -914,7 +914,7 @@ ENDOFSQL;
 	 */
 	private function get_valid_inputs( $valid_fields )
 	{
-		return array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		return (array) $_POST->filter_keys($valid_fields);
 	}
 
 	/**
