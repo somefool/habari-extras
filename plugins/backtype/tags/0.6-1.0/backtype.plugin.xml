@@ -1,0 +1,9 @@
+<plugin>
+	<name>Backtype Connect</name>
+	<url>http://seancoates.com/habari</url>
+	<author>Sean Coates</author>
+	<authorurl>http://seancoates.com/</authorurl>
+	<version>1.0</version>
+	<description>Backtype Connect integration; see: http://www.backtype.com/connect</description>
+	<license>Apache License 2.0</license>
+</plugin>

@@ -4,6 +4,22 @@
 */
 class BacktypePlugin extends Plugin
 {
+	/**
+	* Provide plugin info to the system
+	*/
+	public function info() {
+		return array(
+			'name' => 'Backtype Connect',
+			'version' => '1.0',
+			'url' => 'http://seancoates.com/habari',
+			'author' => 'Sean Coates',
+			'authorurl' => 'http://seancoates.com/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Backtype Connect integration; see: http://www.backtype.com/connect',
+			'copyright' => '2009',
+		);
+	}
+	
 	
 	public function filter_post_comments(Comments $comments, Post $post) {
 		$url = Site::get_url('habari', true) . $post->slug;
