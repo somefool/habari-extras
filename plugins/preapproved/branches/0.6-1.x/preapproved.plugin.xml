@@ -1,0 +1,9 @@
+<plugin>
+	<name>PreApproved</name>
+	<url>http://habariproject.org/</url>
+	<author>The Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.3.2</version>
+	<description>Automatically approve comments based on the number of approved comments the commenter has previously made.</description>
+	<license>Apache License 2.0</license>
+</plugin>
