@@ -186,22 +186,6 @@ class YouTubeSilo extends Plugin implements MediaSilo
 	const SILO_NAME = 'YouTube';
 
 	static $cache = array();
-
-	/**
-	* Provide plugin info to the system
-	*/
-	public function info()
-	{
-		return array('name' => 'YouTube Media Silo',
-			'version' => '0.6-0.2',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Implements YouTube integration',
-			'copyright' => '2008',
-			);
-	}
 	
 	public function action_plugin_activation($file)
 	{
