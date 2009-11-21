@@ -7,11 +7,10 @@
 		$(document.body).append('<div id="breezyarchives-indicator"></div>');
 		var spinner = {
 			start: function() {
-				$("#breezyarchives-indicator").spinner({height:32,width:32,speed:50,image:"<?php echo $spinner_img; ?>"});
+				$("#breezyarchives-indicator").html('<img src="<?php echo Site::get_url( 'admin_theme' ); ?>/images/spin.gif">');
 				$("#breezyarchives-indicator").show();
 			},
 			stop: function() {
-				$("#breezyarchives-indicator").spinner("stop");
 				$("#breezyarchives-indicator").hide();
 			}
 		}

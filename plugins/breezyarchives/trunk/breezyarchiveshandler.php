@@ -125,7 +125,6 @@ class BreezyArchivesHandler extends ActionHandler
 	//	header('Cache-Control: max-age=315360000');
 		$this->theme->assign('habari_url', Site::get_url('habari', TRUE));
 		$this->theme->assign('class_name', $this->handler_vars['class_name']);
-		$this->theme->assign('spinner_img', URL::get_from_filesystem(__FILE__, TRUE) . 'breezyarchives_spinner.png');
 
 		$this->display('breezyarchives_js');
 	}

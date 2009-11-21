@@ -235,7 +235,6 @@ class BreezyArchives extends Plugin
 	public function theme_breezyarchives($theme)
 	{
 		Stack::add('template_footer_javascript', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', 'jquery');
-		Stack::add('template_footer_javascript', Site::get_url('scripts') . '/jquery.spinner.js', 'jquery.spinner', 'jquery');
 		Stack::add('template_footer_javascript', URL::get('display_breezyarchives_js', array('class_name' => $this->class_name, 'config' => md5(serialize($this->config)))), 'jquery.breezyarchives', 'jquery');
 
 		if (Cache::has($this->cache_name)) {
