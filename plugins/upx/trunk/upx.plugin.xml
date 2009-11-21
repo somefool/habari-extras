@@ -1,10 +1,10 @@
-<plugin>
-	<name>UPX</name>
-	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<version>1.0</version>
-	<description>Exposes user profile information via xml entrypoint</description>
-	<license>Apache License 2.0</license>
-</plugin>
-
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+  <name>UPX</name>
+  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+  <url>http://habariproject.org/</url>
+  <author url="http://habariproject.org/">The Habari Community</author>
+  <version>1.0</version>
+  <description><![CDATA[Exposes user profile information via an XML entry point]]></description>
+  <copyright>2009</copyright>
+</pluggable>

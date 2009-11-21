@@ -7,6 +7,24 @@
 
 class UPX extends Plugin
 {
+	/**
+	 * function info
+	 * Returns information about this plugin
+	 * @return array Plugin info array
+	 **/
+	function info()
+	{
+		return array (
+			'name' => 'UPX',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'version' => '1.0',
+			'description' => 'Exposes user profile information via xml entrypoint',
+			'license' => 'Apache License 2.0',
+		);
+	}
+
 	public function filter_rewrite_rules( $rules )
 	{
 		$rules[] = new RewriteRule(array(
