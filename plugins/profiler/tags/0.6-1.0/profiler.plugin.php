@@ -2,6 +2,22 @@
 
 class ProfilerPlugin extends Plugin
 {
+	/**
+	 * Return information about this plugin
+	 * @return array Plugin info array
+	 **/
+	function info()
+	{
+		return array (
+			'name' => 'Profiler',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Owen Winkler',
+			'authorurl' => 'http://asymptomatic.net/',
+			'version' => '1.0',
+			'description' => 'Reports average page assembly time',
+			'license' => 'Apache License 2.0',
+		);
+	}
 	
 	/**
 	 * Display profiler information on dshboard
