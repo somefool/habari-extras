@@ -7,6 +7,24 @@
 class LockdownPlugin extends Plugin
 {
 	/**
+	 * function info
+	 * Returns information about this plugin
+	 * @return array Plugin info array
+	 **/
+	function info()
+	{
+		return array (
+			'name' => 'Lockdown',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'version' => '1.0',
+			'description' => 'Prevents users from making changes that would disable a demo install',
+			'license' => 'Apache License 2.0',
+		);
+	}
+
+	/**
 	 * Prevent users who are the demo user from being deleted
 	 *
 	 * @param boolean $allow true to allow the deletion of this user
