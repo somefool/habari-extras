@@ -1,10 +1,10 @@
-<plugin>
-	<name>URL Approve</name>
-	<url>http://habariproject.org/</url>
-	<author>Owen Winkler</author>
-	<authorurl>http://asymptomatic.net/</authorurl>
-	<version>1.0.1</version>
-	<description>Allows an admin to mark commenter URLs to link through a redirector instead of directly linking</description>
-	<license>Apache License 2.0</license>
-</plugin>
-
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+  <name>URL Approve</name>
+  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+  <url>http://habariproject.org/</url>
+  <author url="http://asymptomatic.net/">Owen Winkler</author>
+  <version>1.0.1</version>
+  <description><![CDATA[Allows an admin to mark commenter URLs to link through a redirector instead of directly linking]]></description>
+  <copyright>2009</copyright>
+</pluggable

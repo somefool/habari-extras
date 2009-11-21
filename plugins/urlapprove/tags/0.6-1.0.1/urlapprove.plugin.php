@@ -8,6 +8,24 @@ class URLApprove extends Plugin
 
 	private $fetch_real = false;
 
+	/**
+	 * function info
+	 * Returns information about this plugin
+	 * @return array Plugin info array
+	 **/
+	function info()
+	{
+		return array (
+			'name' => 'URL Approve',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Owen Winkler',
+			'authorurl' => 'http://asymptomatic.net/',
+			'version' => '1.0.1',
+			'description' => 'Allows an admin to mark commenter URLs to link through a redirector instead of directly linking',
+			'license' => 'Apache License 2.0',
+		);
+	}
+
 	public function action_init()
 	{
 		$this->load_text_domain('urlapprove');
