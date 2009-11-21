@@ -9,19 +9,6 @@
 Class XSPFMini extends Plugin
 {
 
-	public function info()
-	{
-		return array(
-			'name'=>'XSPF Mini',
-			'version'=>'0.1',
-			'url'=>'http://habariproject.org/',
-			'author'=>'Habari Community',
-			'authorurl'=>'http://habariproject.org/',
-			'license'=>'ASL 2.0',
-			'description'=>'An audio player using the xspf slim player.'
-		);
-	}
-
 	public function action_update_check()
 	{
 		Update::add( 'XSPF Mini', '0DE511F0-7890-11DD-9F6E-3D7356D89593',  $this->info->version );
