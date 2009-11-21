@@ -14,7 +14,7 @@ class Photology extends Plugin
 			'url' => 'http://soullesssoftware.com/photology',
 			'author' => 'Scott Merrill',
 			'authorurl' => 'http://skippy.net/',
-			'version' => '1.0',
+			'version' => '1.1',
 			'license' => 'Apache License 2.0',
 			'description' => 'Automatically make thumbnail from the first image in a post.'
 		);
@@ -57,7 +57,7 @@ class Photology extends Plugin
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ( $action ) {
-				case _('Configure') :
+				case _t('Configure') :
 					$ui = new FormUI( strtolower( get_class( $this ) ) );
 
 					$max_dimension = $ui->append( 'text', 'max_dimension', 'photology__maxdim', _t( 'Maximum size of thumbnail (length and width)' ) );

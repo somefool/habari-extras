@@ -6,7 +6,7 @@
 	<url>http://soullesssoftware.com/photology</url>
 	<author url="http://skippy.net/">Scott Merrill</author>
 	<author url="http://mikelietz.org/code">Mike Lietz</author>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description><![CDATA[Automatically make thumbnail from the first image in a post.]]></description>
 	<copyright>2009</copyright>
 </pluggable>
