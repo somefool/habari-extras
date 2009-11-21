@@ -7,27 +7,12 @@ class Photology extends Plugin
 	{
 	}
 
-	function info()
-	{
-		return array(
-			'name' => 'Photology',
-			'url' => 'http://soullesssoftware.com/photology',
-			'author' => 'Scott Merrill',
-			'authorurl' => 'http://skippy.net/',
-			'version' => '1.0',
-			'license' => 'Apache License 2.0',
-			'description' => 'Automatically make thumbnail from the first image in a post.'
-		);
-	}
-
 	/**
 	 * Add help text (?) to plugin configuration page
 	 **/
 	public function help()
 	{
-		$help = _t( 'Requires Habari Media Silo<hr>Creates a thumbnail for the first image file, taken 
-from the Habari Media Silo, in <code>$post->info->photology_thumb</code>. You can also obtain the thumbnail by 
-echoing $post->content_excerpt_out;' );
+		$help = _t( 'Requires Habari Media Silo<hr>Creates a thumbnail for the first image file, taken from the Habari Media Silo, in <code>$post->info->photology_thumb</code>. You can also obtain the thumbnail by echoing $post->content_excerpt_out;' );
 		return $help;
 	}
 
@@ -91,7 +76,7 @@ echoing $post->content_excerpt_out;' );
 
 	public function action_update_check()
 	{
-		Update::add( 'Photology', $this->uuid, $this->info->version );
+		Update::add( 'Photology', $this->uuid );
 	}
 
 	/**
@@ -275,3 +260,4 @@ echoing $post->content_excerpt_out;' );
 	}	
 }
 ?>
+
