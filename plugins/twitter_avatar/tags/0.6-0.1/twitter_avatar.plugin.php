@@ -13,6 +13,27 @@
  */
 class TwitterAvatar extends Plugin
 {
+
+	/**
+	 * plugin information
+	 *
+	 * @access public
+	 * @retrun void
+	 */
+	public function info()
+	{
+		return array(
+			'name' => 'Twitter Avatar',
+			'version' => '0.1',
+			'url' => 'http://habariproject.org/',
+			'author' => 'ayunyan',
+			'authorurl' => 'http://ayu.commun.jp/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Twitter avatar plugin',
+			'guid' => '3d327504-f01b-11dd-bd4c-001b210f913f'
+			);
+	}
+
 	/**
 	 * action: plugin_activation
 	 *
