@@ -1,0 +1,10 @@
+<plugin>
+	<name>Super Types</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.0</version>
+	<description>Extends Habari to allow for more advanced content types</description>
+	<license>Apache License 2.0</license>
+</plugin>
+

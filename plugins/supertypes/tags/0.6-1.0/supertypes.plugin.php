@@ -3,6 +3,24 @@
 class SuperTypes extends Plugin
 {
 	private $theme;
+
+	/**
+	 * function info
+	 * Returns information about this plugin
+	 * @return array Plugin info array
+	 **/
+	function info()
+	{
+		return array (
+			'name' => 'Super Types',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'version' => '1.0',
+			'description' => 'Extends Habari to allow for more advanced content types',
+			'license' => 'Apache License 2.0',
+		);
+	}
 	
 	public function action_admin_header() {
 		Stack::add( 'admin_stylesheet', array(URL::get_from_filesystem(__FILE__) . '/supertypes.css', 'screen'), 'supertypes' );
