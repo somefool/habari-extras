@@ -1,0 +1,8 @@
+<plugin>
+	<name>Un-button Admin</name>
+	<version>0.1</version>
+	<author>Habari Community</author>
+	<license>Apache License 2.0</license>
+	<description>Reverts the ugly admin buttons to the default OS widgets</description>
+</plugin>
+

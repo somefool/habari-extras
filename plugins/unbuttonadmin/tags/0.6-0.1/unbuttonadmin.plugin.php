@@ -2,6 +2,17 @@
 
 class unButtonAdmin extends Plugin
 {
+	public function info()
+	{
+		return array (
+			'name' => 'Un-button Admin',
+			'version' => '0.1',
+			'author' => 'Habari Community',
+			'license' => 'Apache License 2.0',
+			'description' => 'Reverts the ugly admin buttons to the default OS widgets',
+		);
+	}
+	
 	public function action_admin_header( $theme )
 	{
 		// This is such a hack it's not even funny
