@@ -12,6 +12,24 @@
 class SummaryPlugin extends Plugin
 {
   /**
+   * function info
+   * Returns information about this plugin
+   * @return array Plugin info array
+   **/
+  function info()
+  {
+    return array (
+		  'name' => 'Summary',
+		  'url' => 'http://scratch.flyoverblues.com/summary.plugin.php',
+		  'author' => 'Eli Naeher',
+		  'authorurl' => 'http://flyoverblues.com',
+		  'version' => '1.0',
+		  'description' => 'A plugin for providing post summaries',
+		  'license' => 'Apache License 2.0',
+		  );
+  }
+ 
+  /**
    * Add fields to the publish page for Pages
    *
    * @param FormUI $form The publish form

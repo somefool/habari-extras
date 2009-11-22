@@ -1,10 +1,10 @@
-<plugin>
-	<name>Summary</name>
-	<url>http://scratch.flyoverblues.com/summary.plugin.php</url>
-	<author>Eli Naeher</author>
-	<authorurl>http://flyoverblues.com</authorurl>
-	<version>1.0</version>
-	<description>A plugin for providing post summaries</description>
-	<license>Apache License 2.0</license>
-</plugin>
-
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+  <name>Summary</name>
+  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+  <url>http://scratch.flyoverblues.com/summary.plugin.php</url>
+  <author url="http://flyoverblues.com">Eli Naeher</author>
+  <version>1.0</version>
+  <description><![CDATA[A plugin for providing post summaries]]></description>
+  <copyright>2009</copyright>
+</pluggable>
