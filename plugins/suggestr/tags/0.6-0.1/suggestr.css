@@ -1,0 +1,18 @@
+#tagsuggestions, #tagsuggestions li {
+	list-style:none;
+}
+#tagsuggestions {
+	margin:5px 0;
+}
+#tagsuggestions li {
+	display:inline;
+	font-size:0.9em;
+	line-height:2em;
+	padding:3px;
+	margin:0 2px;
+	cursor:pointer;
+}
+#tagsuggestions li.clicked {
+	background:#262626;
+	color:#CCCCCC;
+}
