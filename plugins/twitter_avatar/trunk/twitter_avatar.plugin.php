@@ -24,8 +24,8 @@ class TwitterAvatar extends Plugin
 	{
 		return array(
 			'name' => 'Twitter Avatar',
-			'version' => '0.01-alpha',
-			'url' => 'http://ayu.commun.jp/habari-twitter_avatar',
+			'version' => '0.1',
+			'url' => 'http://habariproject.org/',
 			'author' => 'ayunyan',
 			'authorurl' => 'http://ayu.commun.jp/',
 			'license' => 'Apache License 2.0',

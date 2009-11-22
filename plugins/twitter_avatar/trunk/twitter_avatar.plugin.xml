@@ -1,7 +1,7 @@
 <plugin>
 	<name>Twitter Avatar</name>
-	<version>0.01-alpha</version>
-	<url>http://ayu.commun.jp/habari-twitter_avatar</url>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
 	<author>ayunyan</author>
 	<authorurl>http://ayu.commun.jp/</authorurl>
 	<license>Apache License 2.0</license>
