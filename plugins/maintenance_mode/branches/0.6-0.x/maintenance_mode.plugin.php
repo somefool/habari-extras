@@ -20,7 +20,7 @@ class Maintenance extends Plugin
 		return array (
 			'name' => 'Maintenance Mode',
 			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
+			'author' => 'The Habari Community',
 			'authorurl' => 'http://habariproject.org/',
 			'version' => '0.3',
 			'description' => 'Redirects all requests to a maintenance mode page. 
