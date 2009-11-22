@@ -7,7 +7,7 @@ class OpenID extends Plugin
 			'name' => 'OpenID',
 			'version' => '1.1.3',
 			'url' => 'http://phpquebec.org/',
-			'author' =>	'PHP Quebec Community',
+			'author' =>	'The PHP Quebec Community',
 			'authorurl' => 'http://phpquebec.org/',
 			'license' => 'Apache License 2.0',
 			'description' => 'Adds OpenID 2.0 authentification support.',

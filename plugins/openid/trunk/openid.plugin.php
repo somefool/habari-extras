@@ -1,20 +1,6 @@
 <?php
 class OpenID extends Plugin
 {
-	public function info()
-	{
-		return array(
-			'name' => 'OpenID',
-			'version' => '1.1.3',
-			'url' => 'http://phpquebec.org/',
-			'author' =>	'PHP Quebec Community',
-			'authorurl' => 'http://phpquebec.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Adds OpenID 2.0 authentification support.',
-			'copyright' => '2009'
-			);
-	}
-
 	public function filter_rewrite_rules( $db_rules )
 	{
 		$db_rules[] = new RewriteRule( array(
