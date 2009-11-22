@@ -4,6 +4,19 @@ define('TRAC_DB_PATH', '/var/www/sites/habariproject/trac/habari/db/trac.db');
 
 class TracFeed extends Plugin
 {
+	public function info()
+	{
+		return array (
+			'name' => 'TracFeed',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'version' => '1.0',
+			'description' => 'Produces a feed from the Trac database',
+			'license' => 'Apache License 2.0',
+		);
+	}
+
 	public function filter_rewrite_rules( $rules ) {
 		$rules[] = new RewriteRule(array(
 			'name' => 'item',

@@ -1,0 +1,10 @@
+<plugin>
+	<name>TracFeed</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.0</version>
+	<description>Produces a feed from the Trac database</description>
+	<license>Apache License 2.0</license>
+</plugin>
+
