@@ -1,0 +1,9 @@
+<plugin>
+	<name>TweetSuite</name>
+	<version>0.1</version>
+	<url>http://code.google.com/p/bcse/wiki/TweetSuite</url>
+	<author>Joel Lee</author>
+	<authorurl>http://blog.bcse.info/</authorurl>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
+	<description>Display Tweetbacks. STILL VERY BUGGY!</description>
+</plugin>

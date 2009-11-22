@@ -8,6 +8,24 @@ class TweetSuite extends Plugin
 	private $class_name = '';
 
 	/**
+	 * Required plugin information
+	 * @return array The array of information
+	 **/
+	public function info()
+	{
+		return array(
+			'name' => 'TweetSuite',
+			'version' => '0.1',
+			'url' => 'http://habariproject.org/',
+			'author' => 'Joel Lee',
+			'authorurl' => 'http://blog.bcse.info/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Display Tweetbacks. STILL VERY BUGGY!',
+			'copyright' => '2009'
+		);
+	}
+
+	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
