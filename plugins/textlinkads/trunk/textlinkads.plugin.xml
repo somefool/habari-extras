@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+  <name>Text Link Ads</name>
+  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+  <url>http://redalt.com/plugins/textlinkads</url>
+  <author url="http://habariproject.org/">Owen Winkler</author>
+  <version>1.0</version>
+  <description><![CDATA[Display Text Link Ads as a block in your theme]]></description>
+  <copyright>2009</copyright>
+</pluggable>
