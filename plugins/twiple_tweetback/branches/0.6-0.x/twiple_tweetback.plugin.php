@@ -22,7 +22,7 @@ class TwipleTweetback extends Plugin
 	{
 		return array(
 			'name' => 'Twiple! Tweetback',
-			'version' => '0.01',
+			'version' => '0.1',
 			'url' => 'http://ayu.commun.jp/habari-twiple-tweetback',
 			'author' => 'ayunyan',
 			'authorurl' => 'http://ayu.commun.jp/',
