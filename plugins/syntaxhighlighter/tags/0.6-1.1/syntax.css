@@ -1,0 +1,97 @@
+.syntax_highlight {
+/*  color: #100;
+  background-color: #f9f9f9;
+  border: 1px solid silver;
+  margin: 0 0 1.5em 0;
+  /*overflow: auto;*/
+}
+
+/* IE FIX */
+/*.syntax_highlight {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: expression(this.scrollWidth > this.offsetWidth ? 15 : 0);
+  width: 100%;
+}*/
+
+.syntax_highlight table {
+	width: 100%;
+	border-collapse: collapse;
+	border: none;
+	padding: 0;
+}
+.syntax_highlight td {
+	padding: 0;
+	border: 0;
+}
+
+.syntax_highlight .line_numbers {
+	text-align: right;
+	width: 10px;
+}
+
+/* potential overrides for other styles */
+.syntax_highlight pre {
+	/*font-size: 12px;
+	line-height: 1.333;*/
+}
+
+
+/**
+ * Keywords
+ */
+.kw1 { color: #b1b100; }
+.kw2 { color: #000000; font-weight: bold; }
+.kw3 { color: #990000; }
+
+.de1 {}
+
+/**
+ * Comments
+ */
+ .coMULTI, 
+.co1, .co2, .co3, .co4 { color: #666666; font-style: italic; }
+.co3 { color: #0000cc; }
+
+/**
+ * Escaped chars
+ */
+.es0, .es1, .es2, .es3, .es4, .es5, .es6, .es_h { font-weight: bold; }
+.es0, .es1, .es6 { color: #000099; }
+.es2, .es3 { color: #660099; }
+.es4, .es5 { color: #006699; }
+.es5 { font-style: italic; }
+
+/**
+ * Strings
+ */
+.st0 { color: #0000ff; }
+.st_h { color: #0000ff; } 
+
+/**
+ * Brackets
+ */
+.br0 { color: #009900; font-weight: bold; }
+
+/**
+ * Numberrs
+ */
+.nu0 { color: #cc66cc; }
+
+/**
+  * Symbols
+ */
+.sy0 { color: #339933; }
+
+/**
+ * Regular Expressions
+ */
+.re0 { color: #000088; }
+
+/**
+ * Lines
+ */
+/*
+.li1 { background: #f0f0f0; }
+.li2 { background: #f9f9f9; }
+*/
