@@ -3,7 +3,7 @@
 	<name>Syntax Highlighter</name>
 	<license url="">MIT</license>
 	<author url="http://www.xvolter.com/">Benjamin Hutchins</author>
-	<version>1.0</version>
+	<version>1.1</version>
 	<url>http://www.xvolter.com/project/habari-syntax-highlighter</url>
 	<description><![CDATA[Highlight your source codes within &lt;code&gt; tags.]]></description>
 	<copyright>2009</copyright>
