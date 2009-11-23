@@ -24,7 +24,8 @@
  * THIS PLUGIN REQUIRES HABARI 0.7-dev! IT WILL NOT WORK ON 0.6 (needs at least r3475)
  */
 
-class HighlightPlugin extends Plugin {
+class HighlightPlugin extends Plugin
+{
 
 	public function action_init() {
 		spl_autoload_register( array( __CLASS__, '_autoload') );
@@ -39,7 +40,7 @@ class HighlightPlugin extends Plugin {
 	}
 }
 
-class GeshiHighlighterFormatPlugin extends Format
+class HighlighterFormatPlugin extends Format
 {
 
 	public static function do_highlight( $in )
@@ -48,29 +49,40 @@ class GeshiHighlighterFormatPlugin extends Format
 		
 		$tokenizer = new HTMLTokenizer( $in, false );
 		$tokens = $tokenizer->parse();
+		
+		// fetch div, pre, code slices that have a class="highlight"
 		$slices = $tokens->slice( array('div','pre','code') , array( 'class' => 'highlight' ) );
+		
+		// iterate the found slices
 		foreach ($slices as $slice) {
-			$classes = array_filter( explode( ' ', trim( str_replace( 'highlight', '', $slice[0]['attrs']['class'] ) ) ) ); // ugly, refactor
-			$slice->trim_container(); // trims off the div
+			// store the class to use once we've stripped the container
+			$classAttr = $slice[0]['attrs']['class'];
+			
+			// unique name to use in the cache for this slice/markup
+			$sliceCacheName = 'plugin.highlight.' . md5( (string)$slice );
+			
+			// trim off the div, and determine the value
+			$slice->trim_container();
 			$sliceValue = trim( (string)$slice );
 			
-			$sliceCacheName = 'plugin.highlight.' . md5($sliceValue);
-			
+			// see if it's already been cached
 			if ( Cache::has( $sliceCacheName ) ) {
-				$geshiOutput = Cache::get( $sliceCacheName );
+				$output = Cache::get( $sliceCacheName );
 			} else {
-				// capture the first class (not "highlight")
+				// trim off the CDATA wrapper, if applicable
 				if ( substr( $sliceValue, 0, 9 ) == '<![CDATA[' && substr( $sliceValue, -3 ) == ']]>' ) {
-					// trim off CDATA wrapper:
 					$sliceValue = substr( $sliceValue, 9, -3 );
 				}
+				
+				$classes = array_filter( explode( ' ', trim( str_replace( 'highlight', '', $classAttr ) ) ) ); // ugly, refactor
+				
 				$geshi = new Geshi( trim( $sliceValue ), isset( $classes[0] ) ? $classes[0] : 'php', HABARI_PATH . '/3rdparty/geshi/geshi/' );
 				$geshi->set_header_type( GESHI_HEADER_PRE );
 				$geshi->set_overall_class( 'geshicode' );
-				$geshiOutput = @$geshi->parse_code(); // @ is slow, but geshi is full of E_NOTICE
-				Cache::set( $sliceCacheName, $geshiOutput );
+				$output = @$geshi->parse_code(); // @ is slow, but geshi is full of E_NOTICE
+				Cache::set( $sliceCacheName, $output );
 			}
-			$slice->tokenize_replace( $geshiOutput );
+			$slice->tokenize_replace( $output );
 			$tokens->replace_slice( $slice );
 		}
 		return (string) $tokens;

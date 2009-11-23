@@ -4,7 +4,7 @@
 	<url>http://seancoates.com/habari</url>
 	<author>Sean Coates</author>
 	<authorurl>http://seancoates.com/</authorurl>
-	<version>0.2</version>
+	<version stable="false">0.3-dev</version>
 	<description>Highlighter</description>
 	<license>Apache License 2.0</license>
 </pluggable>
