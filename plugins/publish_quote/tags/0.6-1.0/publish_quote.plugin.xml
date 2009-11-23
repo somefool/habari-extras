@@ -1,0 +1,11 @@
+<plugin>
+	<name>Publish Quote</name>
+	<license>Apache License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.0</version>
+	<description>Allows users to post quotes with a bookmarklet</description>
+	<copyright>2008</copyright>
+</plugin>
+
