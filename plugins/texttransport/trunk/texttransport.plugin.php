@@ -15,16 +15,25 @@ class TextTransport extends Plugin
 	
 	const OPTIONS_LOCALPATH = 'texttransport__localpath';
 	
-	function action_update_check() 
+	/**
+	 * Standard update checker
+	 */
+	public function action_update_check() 
 	{
 		Update::add( 'Text Transport', 'c54b7fdc-5738-4ad8-a154-7e555878eaaa', $this->info->version ); 
 	}
 
+	/**
+	 * Deactivation; removes the Options key
+	 */
 	public function action_plugin_deactivation( $file )
 	{
-		Options::delete(self::OPTIONS_LOCALPATH);
+		Options::delete( self::OPTIONS_LOCALPATH );
 	}
 
+	/**
+	 * Stndard plugin UI configuration
+	 */
 	public function filter_plugin_config( $actions, $plugin_id )
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
@@ -34,16 +43,19 @@ class TextTransport extends Plugin
 		return $actions;
 	}
 
+	/**
+	 * UI for plugin button
+	 */
 	public function action_plugin_ui( $plugin_id, $action )
 	{
 		if ( $plugin_id == $this->plugin_id() ) {
 			switch ( $action ) {
 				case _t( self::ACTION_CONFIGURE ):
 					$ui = new FormUI( strtolower( __CLASS__ ) );
-					$path = $ui->append( 'text', 'exportpath', self::OPTIONS_LOCALPATH, _t('Export Path:') );
+					$path = $ui->append( 'text', 'exportpath', self::OPTIONS_LOCALPATH, _t( 'Export Path:' ) );
 					$ui->exportpath->add_validator( array( __CLASS__, 'check_path' ) );
 					$ui->append( 'submit', 'save', _t( 'Save' ) );
-					$ui->set_option('success_message', _t('TextExport Settings Saved'));
+					$ui->set_option( 'success_message', _t( 'TextExport Settings Saved' ) );
 					$ui->out();
 					break;
 
@@ -54,6 +66,12 @@ class TextTransport extends Plugin
 		}
 	}
 
+	/**
+	 * FormUI callback to check that the path is writable
+	 *
+	 * @param string $path path to check
+	 * @return array (empty on success, error message on fail)
+	 */
 	public static function check_path( $path )
 	{
 		if ( is_writable( $path ) ) {
@@ -62,7 +80,10 @@ class TextTransport extends Plugin
 		}
 		return array( _t( 'Invalid path (not writable).' ) );
 	}
-	
+
+	/**
+	 * Exports all posts
+	 */
 	protected function export_all()
 	{
 		$posts = array();
@@ -80,6 +101,13 @@ class TextTransport extends Plugin
 		}
 	}
 	
+	/**
+	 * Export a specific post
+	 *
+	 * Also called by export_all
+	 *
+	 * @param Post $post the post to export
+	 */
 	protected static function export_post( Post $post )
 	{
 		$postPath = self::get_post_export_path( $post );
@@ -90,6 +118,11 @@ class TextTransport extends Plugin
 		self::export_comments( $post );
 	}
 	
+	/**
+	 * Export comments for a given post
+	 *
+	 * @param Post $post export comments from this post
+	 */
 	protected static function export_comments( Post $post )
 	{
 		foreach ($post->comments as $comment) {
@@ -102,15 +135,29 @@ class TextTransport extends Plugin
 		return true;
 	}
 	
+	/**
+	 * Get the export path for a specific post
+	 * 
+	 * Rasises an error if the export path isn't writable
+	 *
+	 * @param Post $post the post for which we want the export path
+	 * @return string path
+	 */
 	protected static function get_post_export_path( Post $post )
 	{
-		$exportPath = Options::get( 'textexport__exportpath' );
+		$exportPath = Options::get( self::OPTIONS_LOCALPATH );
 		if (!$exportPath || !is_readable( $exportPath ) || !is_writable( $exportPath ) ) {
 			Error::raise( _t( 'Export path is not readable/writable. Be sure to configure this plugin.' ) );
 		}
 		return $exportPath . DIRECTORY_SEPARATOR . $post->slug . DIRECTORY_SEPARATOR;
 	}
 	
+	/**
+	 * Calculate the recursive post has from disk
+	 *
+	 * @param Post $post calculate a hash for this post, but do not use the post's data; get data from disk
+	 * @return string recursive hash from files on disk; false on failure
+	 */
 	public static function hash_from_disk_post( Post $post )
 	{
 		$postPath = self::get_post_export_path( $post );
@@ -141,6 +188,16 @@ class TextTransport extends Plugin
 		return $hash;
 	}
 	
+	/**
+	 * Calculate the hash for this comment, from disk
+	 *
+	 * REFACTOR to calculate the id, status internally
+	 *
+	 * @param string $commentFile the filename where this comment can be read (full path)
+	 * @param int $id the original comment ID for this comment (calculated from the filename)
+	 * @param string $status the status name of this comment
+	 * @return string hash of the comment
+	 */
 	protected static function hash_from_disk_comment( $commentFile, $id, $status )
 	{
 		$content = file_get_contents( $commentFile );
@@ -148,6 +205,16 @@ class TextTransport extends Plugin
 		return $hash;
 	}
 	
+	/**
+	 * Reads a hash from the pre-calculated value on the disk
+	 *
+	 * This method performs NO calculation; it's just an easy way to determine
+	 * if the contents have changed without hitting the database. This hash
+	 * is read from a file that is written to disk when the post is exported.
+	 *
+	 * @param Post $post the post from which to fetch the hash
+	 * @return string hash of this post
+	 */
 	public static function get_disk_post_hash( Post $post )
 	{
 		$hashPath = self::get_post_export_path( $post ) . self::FILENAME_HASH;
@@ -158,6 +225,12 @@ class TextTransport extends Plugin
 		return file_get_contents( $hashPath );
 	}
 	
+	/**
+	 * Calculates the recursive hash from a Post object
+	 *
+	 * @param Post $post the post object from which to calculate the hash
+	 * @return string hash
+	 */
 	public static function hash_from_post( Post $post )
 	{
 		// these hashes are _NOT_ for security purposes
@@ -176,12 +249,26 @@ class TextTransport extends Plugin
 		return $hash;
 	}
 	
+	/**
+	 * Calculates the hash from a Comment object
+	 *
+	 * @param Comment $comment the comment object from which to calculate the hash
+	 * @return string hash
+	 */
 	protected static function hash_from_comment( Comment $comment )
 	{
 		$hash = md5( $comment->id . Comment::status_name( $comment->status ) . $comment->content );
 		return $hash;
 	}
 	
+	/**
+	 * Recursive file and directory delete
+	 *
+	 * USE WITH CAUTION. This is roughly equivalent to `rm -rf $path`.
+	 *
+	 * @param string $path root path to delete
+	 * @return bool (success)
+	 */
 	protected static function recursive_file_delete( $path )
 	{
 		if ( !is_writable( $path ) ) {
