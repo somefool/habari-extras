@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Text Transport</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://seancoates.com/">Sean Coates</author>
+	<version stable="false">0.1</version>
+	<url>http://seancoates.com/habari/</url>
+	<description><![CDATA[Text export (and eventually import) of posts (for offline editing, and otherwise avoiding nasty textareas)]]></description>
+	<copyright>2009</copyright>
+</pluggable>
