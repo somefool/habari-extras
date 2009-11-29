@@ -256,8 +256,9 @@ HAB_IMPORT_STAGE2;
 		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
 		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
 		if( $db ) {
-			if( !DB::in_transaction() ) DB::begin_transaction();
+			DB::begin_transaction();
 
+			$old_db_version = (int)$db->get_value( "SELECT value FROM {$db_prefix}options WHERE name = ?", array( 'db_version' ) );
 			$postcount = $db->get_value( "SELECT count( id ) FROM {$db_prefix}posts;" );
 			$min = $postindex * IMPORT_BATCH + ( $postindex == 0 ? 0 : 1 );
 			$max = min( ( $postindex + 1 ) * IMPORT_BATCH, $postcount );
@@ -294,13 +295,24 @@ HAB_IMPORT_STAGE2;
 
 				if ($tag_import == 1 ) {
 					// Import tags
-					$tags = $db->get_column(
-						"SELECT tag_text
-						FROM {$db_prefix}tags
-						INNER JOIN {$db_prefix}tag2post
-						ON {$db_prefix}tags.id = {$db_prefix}tag2post.tag_id
-						WHERE post_id = {$post->id}"
-					 );
+					if( $old_db_version < 3749 ) {
+						$tags = $db->get_column(
+							"SELECT tag_text
+							FROM {$db_prefix}tags
+							INNER JOIN {$db_prefix}tag2post
+							ON {$db_prefix}tags.id = {$db_prefix}tag2post.tag_id
+							WHERE post_id = {$post->id}"
+						 );
+					}
+					else {
+						$tags = $db->get_column(
+							"SELECT term_display
+							FROM {$db_prefix}terms
+							INNER JOIN {$db_prefix}object_terms
+							ON {$db_prefix}terms.id = {$db_prefix}object_terms.term_id
+							WHERE object_id = ? AND object_type_id = ?", array( $post->id, Vocabulary::object_type_id( 'post' ) )
+						 );
+					}
 				}
 				else {
 					$tags = array();
@@ -423,7 +435,7 @@ HAB_IMPORT_COMMENTS;
 		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
 		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
 		if( $db ) {
-			if( !DB::in_transaction() ) DB::begin_transaction();
+			DB::begin_transaction();
 			$new_users = $db->get_results(
 				"
 					SELECT
@@ -517,7 +529,7 @@ HAB_IMPORT_POSTS;
 		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
 		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
 		if( $db ) {
-			if( !DB::in_transaction() ) DB::begin_transaction();
+			DB::begin_transaction();
 
 			$commentcount = $db->get_value( "SELECT count( id ) FROM {$db_prefix}comments;" );
 			$min = $commentindex * IMPORT_BATCH + 1;
