@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pluggable type="plugin">
+	<name>Ohloh Badge</name>
+	<author url="http://blog.roshambo.org/">Philip Olson</author>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2009</copyright>
+	<description>
+		<![CDATA[Display an ohloh badge within your blog]]>
+	</description>
+	<description xml:lang="es-es">
+		<![CDATA[Mostrar una placa ohloh en tu blog]]>
+	</description>
+	<help>
+		<value>
+			<![CDATA[Configure, then use <code>&lt;?php $theme->ohloh_badge(); ?></code> in your theme to output the HTML image markup.]]>
+		</value>
+		<value xml:lang="es-es">
+			<![CDATA[Configurar, a continuacion, utilice <code>&lt;?php $theme->ohloh_badge(); ?></code> en su tema a la salida de la imagen de marcas HTML.]]>
+		</value>
+	</help>
+	<help name="Configure">
+		<value>
+			<![CDATA[See the widgets section within your ohloh profile for details about these types.]]>
+		</value>
+		<value xml:lang="es-es">
+			<![CDATA[Vea la sección de reproductores dentro de su perfil Ohloh para obtener más información acerca de estos tipos.]]>
+		</value>
+	</help>
+</pluggable>
