@@ -40,10 +40,10 @@ class MyTheme extends Theme
 {
 	//Set to 'white' or 'black' depending on your color scheme.
 	const CSS_COLOR = 'black';
-	
+
 	//Set to 'header' or 'sidebar' depending on where you want to position your twitter plugin.
 	const TWITTER_IN = 'sidebar';
-	
+
 	/**
 	 * Add additional template variables to the template output.
 	 *
@@ -66,7 +66,7 @@ class MyTheme extends Theme
 	{
 		$this->assign('css_color', self::CSS_COLOR);
 		$this->assign('twitter_in', self::TWITTER_IN);
-		
+
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 				$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
 		}
@@ -76,11 +76,6 @@ class MyTheme extends Theme
 		if( !$this->template_engine->assigned( 'page' ) ) {
 				$this->assign('page', isset( $page ) ? $page : 1 );
 		}
-		if( !$this->template_engine->assigned( 'tags' ) ) {
-				$tags= DB::get_results( 'SELECT * FROM ' . DB::table('tags') );
-				$tags= array_filter($tags, create_function('$tag', 'return (Posts::count_by_tag($tag->tag_slug, "published") > 0);'));
-				$this->assign('tags', $tags);
-		}
 
 		$this->assign( 'nav_pages', Posts::get( array( 'limit' => 5, 'content_type' => 'page', 'status' => 'published', 'orderby' => 'slug ASC' )));
 		$this->assign( 'home_recent_posts', Posts::get(array ( 'limit' => 2, 'content_type' => 'entry', 'status' => 'published', 'orderby' => 'pubdate DESC' )));
@@ -88,19 +83,6 @@ class MyTheme extends Theme
 
 		parent::add_template_vars();
 	}
-	
-	public function filter_post_tags_out($array)
-	{	
-		if ( empty($array) ) { return 'none'; }
-		if ( ! is_array( $array ) ) {
-			$array = array ( $array );
-		}
-		$fn = create_function('$a,$b', 'return "<a href=\\"" . URL::get("display_entries_by_tag", array( "tag" => $b) ) . "\\" rel=\\"tag\\">" . $a . "</a>";');
-		$array = array_map($fn, $array, array_keys($array));
-		$out = implode(' ', $array);
-		return $out;
- 	}    
-
 }
 
 ?>
