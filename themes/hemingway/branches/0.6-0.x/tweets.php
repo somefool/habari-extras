@@ -1,0 +1,1 @@
+<?php echo htmlspecialchars( $tweet_text ); ?>
