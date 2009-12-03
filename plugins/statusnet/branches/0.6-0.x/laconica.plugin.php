@@ -191,7 +191,7 @@ class Laconica extends Plugin
 					$name = Options::get( 'laconica__username' );
 					$pw = Options::get( 'laconica__password' );
 				}
-				$svcurl = 'http://' . Options::get('laconica__svc') . '/index.php?action=api&apiaction=statuses&method=update.xml';
+				$svcurl = 'http://' . Options::get('laconica__svc') . '/api/statuses/update.xml';
 				$this->post_status( $svcurl, Options::get( 'laconica__prefix' ) . $post->title . ' ' . $post->permalink, $name, $pw );
 			}
 		}
@@ -210,7 +210,7 @@ class Laconica extends Plugin
 	{
 		$notices = array();
 		if ( Options::get( 'laconica__show' ) && Options::get( 'laconica__svc' ) && Options::get( 'laconica__username' ) != '' ) {
-			$laconica_url = 'http://' . Options::get( 'laconica__svc' ) . '/index.php?action=api&apiaction=statuses&method=user_timeline&argument=' . urlencode( Options::get( 'laconica__username' ) ) . '.xml';
+			$laconica_url = 'http://' . Options::get( 'laconica__svc' ) . '/api/statuses/user_timeline/' . urlencode( Options::get( 'laconica__username' ) ) . '.xml';
 			
 			/* 
 			 * Only need to get a single notice if @replies are hidden.
