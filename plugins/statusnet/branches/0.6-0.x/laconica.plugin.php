@@ -191,7 +191,7 @@ class Laconica extends Plugin
 					$name = Options::get( 'laconica__username' );
 					$pw = Options::get( 'laconica__password' );
 				}
-				$svcurl = 'http://' . Options::get('laconica__svc') . '/api/statuses/update.xml';
+				$svcurl = 'https://' . Options::get('laconica__svc') . '/api/statuses/update.xml';
 				$this->post_status( $svcurl, Options::get( 'laconica__prefix' ) . $post->title . ' ' . $post->permalink, $name, $pw );
 			}
 		}
