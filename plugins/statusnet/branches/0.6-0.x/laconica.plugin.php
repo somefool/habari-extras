@@ -21,12 +21,12 @@ class Laconica extends Plugin
 	{
 		return array(
 			'name' => 'Laconica',
-			'version' => '0.6.2',
+			'version' => '0.6.3',
 			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
+			'author' => 'The Habari Community',
 			'authorurl' => 'http://habariproject.org/',
 			'license' => 'Apache License 2.0',
-			'description' => 'Post to and display from <a href="http://laconi.ca">Laconica</a> servers.',
+			'description' => 'Post to and display from <a href="http://laconi.ca">StatusNet (formerly Laconica)</a> servers.',
 			'copyright' => '2009'
 		);
 	}
