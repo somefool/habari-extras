@@ -120,10 +120,10 @@ class ArcticIceTheme extends Theme
 
 	public function action_form_comment( $form, $post, $context )
 	{
-		$form->content->cols = 57;
-		$form->commenter->size = 50;
-		$form->email->size = 50;
-		$form->url->size = 50;
+		$form->cf_content->cols = 57;
+		$form->cf_commenter->size = 50;
+		$form->cf_email->size = 50;
+		$form->cf_url->size = 50;
 	}
 }
 
