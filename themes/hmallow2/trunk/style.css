@@ -141,8 +141,13 @@ border-right-color: #d3d3d3;
 #bottommeta { background-color: #d5e1f2; }
 
 .commentlist blockquote, blockquote {
-	border-left: 4px solid #4270ba;
-	background-color: #fff;
+ -webkit-border-radius: 8px;
+	-moz-border-radius: 8px;	
+	background-color: #e3e6eb;
+	margin-top: 5px;
+	margin: 0;
+	padding: 5px 10px 1px;
+	text-shadow: #fffefe 0 1px 0px;
 }
 	
 	.storycontent a:hover {
@@ -367,29 +372,51 @@ font-weight: normal;
 	text-decoration: underline;
 }
 h1 {
-	font-size: 130%;
-	font-family: "Myriad Pro", "Myriad",  Helvetica, Arial, sans-serif;
+	font: normal 130% "Myriad Pro", "Myriad",  Helvetica, Arial, sans-serif;
+	margin-top: 20px;
+	margin-bottom: 0;
+	padding: 0;
 }
 
 h2, .feedback {
-	font-size: 120%;
-	font-family: "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;
+	font: normal 120% "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding: 0;
 }
 
 h3 {
-	font: 110% "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;
-} 
+	font: normal 110% "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding: 0;} 
 
 h4 {
-	font-size: 100%;
-	font-family: "Myriad Pro", "Myriad",  Helvetica, Arial, sans-serif;
-}
+	font: normal 100% "Myriad Pro", "Myriad",  Helvetica, Arial, sans-serif;
+	color: #263a99;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding: 0;}
+
+h5 {
+	font: normal 95% Helvetica, Arial, sans-serif;
+	color: #263a99;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding: 0;}
+h6 {
+	font: normal 90% Helvetica, Arial, sans-serif;
+	color: #263a99;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding: 0;}
 
 
 #menu a:hover, .meta a:hover, .navigation a:hover, .navbottom a:hover, #bottommeta a:hover  { 	text-decoration: underline; }
 
 
 .storycontent {
+	color: #4f5257;
 	margin: 10px 0 0;
 	padding: 0;
 	font-size: 16px;
@@ -399,20 +426,38 @@ h4 {
 
 .storycontent p {
 	padding-bottom: 3px;
-	margin: 5px 0 10px;
 	padding: 0;
+	color: #4f5257;
+	margin: 3px 0 10px;
 }
 
+.storycontent strong, .storycontent bold {
+	font-weight: bold;
+	color: #4a4a4a;
+}
 .storycontent ol, .storycontent ul {
 	padding-left: 18px;
+	font-weight: normal;
+	color: #585858;
+	font-style: normal;
+	margin-top: 10px;
 }
 
-p, .storycontent ul li , .storycontent ol li{
+
+
+.storycontent ul li {
 	list-style-position: outside;
 	color: #4f4f4f;
+	list-style-type: disc;
 }
 
 
+.storycontent ol li  {
+	list-style-position: outside;
+	color: #4f4f4f;
+	list-style-type: decimal;
+	margin-left: 3px;
+}
 
 .storycontent a {
 	text-decoration: underline;
@@ -474,20 +519,6 @@ acronym, abbr, span.caps {
 	letter-spacing: .01em;
 }
 
-.commentlist blockquote, blockquote {
-    font-size:90%;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 8px;
-	padding-right: 8px;
-	margin-left: 5px;
-}
-
-.storycontent li {			
-padding-top: 3px;
-        list-style-type: disc;
-        list-style-position: outside;
-}
 
 
 code { font-family: 'Courier New', Courier, Fixed, sans-serif;
