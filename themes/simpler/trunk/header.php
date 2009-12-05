@@ -15,30 +15,29 @@
 				<h1><?php Options::out( 'title' ); ?></h1>
 				<p id="tagline"><?php Options::out( 'tagline' ); ?></p>
 			</div>
-			<div id="sitenav">
-				<form method="get" id="search" action="<?php URL::out('display_search'); ?>">
-					<p><input type="text" id="searchfield" name="criteria" value="<?php if ( isset( $criteria ) ) { echo htmlentities($criteria, ENT_COMPAT, 'UTF-8'); } ?>"> <input type="submit" id="searchsubmit" value="<?php _e('Search'); ?>"></p>
-				</form>
-				<ul id="menu">
-					<li>
-						<a href="<?php Site::out_url( 'habari' ); ?>">Home</a>
-					</li>
-						<?php
-							foreach ( array_filter($pages->getArrayCopy(), create_function('$a', 'return !in_array($a->slug, array("tag", "archives"));')) as $tab ) {
-								?>
-									<li>
-										<a href="<?php echo $tab->permalink; ?>" title="<?php echo $tab->title; ?>"><?php echo $tab->title; ?></a>
-									</li>
-								<?php
-							}
-						
-							if ( User::identify()->loggedin ) { 
-								?>
-									<li class="admintab"><a href="<?php Site::out_url( 'admin' ); ?>" title="Admin area">Admin</a></li>
-								<?php
-							}
-						?>
-					
-				</ul>
-			</div>
+			<form method="get" id="search" action="<?php URL::out('display_search'); ?>">
+				<p><input type="text" id="searchfield" name="criteria" value="<?php if ( isset( $criteria ) ) { echo htmlentities($criteria, ENT_COMPAT, 'UTF-8'); } ?>"> <input type="submit" id="searchsubmit" value="<?php _e('Search'); ?>"></p>
+			</form>
+			<ul id="menu">
+				<li>
+					<a href="<?php Site::out_url( 'habari' ); ?>">Home</a>
+				</li>
+					<?php
+						foreach ( array_filter($pages->getArrayCopy(), create_function('$a', 'return !in_array($a->slug, array("tag", "archives"));')) as $tab ) {
+							?>
+								<li>
+									<a href="<?php echo $tab->permalink; ?>" title="<?php echo $tab->title; ?>"><?php echo $tab->title; ?></a>
+								</li>
+							<?php
+						}
+				
+						if ( User::identify()->loggedin ) { 
+							?>
+								<li class="admintab"><a href="<?php Site::out_url( 'admin' ); ?>" title="Admin area">Admin</a></li>
+							<?php
+						}
+					?>
+			
+			</ul>
 		</div>
+		

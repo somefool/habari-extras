@@ -32,20 +32,15 @@ a img {
 #siteinfo {
 	float: left;
 	width: 40%;
-}
-
-#sitenav {
-	float: right;
-	width: 60%;
+	padding: 0;
+	margin: 0;
 }
 
 h1 {
 	font-weight: normal;
-	margin-bottom: 5px;
 	color: #FF8C00;
-	margin: 0;
 	padding: 0;
-	height: 30px;
+	margin: 0;
 }
 
 #tagline {
@@ -53,12 +48,17 @@ h1 {
 }
 
 #search {
+	float: right;
+	width: 60%;
 	text-align: right;
-	height: 30px;
 }
 
 #search input {
-	height: 1.6em;
+	height: 1.5em;
+}
+
+#searchsubmit {
+	width: 50px;
 }
 
 #search p {
@@ -72,9 +72,11 @@ h1 {
 }
 
 #menu {
-	text-align: right;
+	text-align: left;
 	list-style-type: none;
-	float: right;
+	float: left;
+	padding: 0;
+	clear: both;
 }
 
 #menu li {
@@ -120,20 +122,14 @@ input {
 	width: 250px;
 }
 
-#searchsubmit {
-	width: 50px;
-}
-
 textarea {
 	width: 99%;
 }
 
 pre, code {
-	font-family: Consolas, "Andale Mono", "Courier New", Courier, Monospace;
+	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Courier New", Courier, Monospace;
 	overflow: auto;
 }
-
-
 
 .draft {
 	background-color: #efefef;
