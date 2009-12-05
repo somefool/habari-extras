@@ -71,7 +71,7 @@
 
 </div>
 
-<?php if (( ! $post->info->comments_disabled ) and ($post->comments->approved->count!=0)) { ?>
+<?php if (( ! $post->info->comments_disabled ) or ($post->comments->approved->count!=0)) { ?>
 
 
 <div id="commentarea">
