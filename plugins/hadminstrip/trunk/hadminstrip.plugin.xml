@@ -7,4 +7,14 @@
 	<url>http://www.somefoolwitha.com/</url>
 	<description><![CDATA[An admin strip for Habari.]]></description>
 	<copyright>2009</copyright>
+	
+	<help> 
+ 	 <value><![CDATA[ 
+ 	  <h3>Hadmin Strip</h3> 
+ 	<p>An adaption of my <a href="http://www.somefoolwitha.com/search/adminstrip">Wordpress Adminstrip</a> plugin and the <a href="http://www.habariproject.org/">Habari</a> <a href="http://trac.habariproject.org/habari-extras/browser/plugins/habminbar/trunk">Habmin bar</a> plugin. <a href="http://skitch.com/matthewm/5kj6/habari-admin-strip">Screenshot here</a> (<a href="http://skitch.com/matthewm/93a8/hadminstrip-wpadminstrip">Update here</a>).
+	<p>You can see <a href="http://www.flickr.com/photos/somefool/3455552398/">a screen grab here</a>.</p></p>
+ 	]]>
+</value> 
+</help>
+
 </pluggable>
