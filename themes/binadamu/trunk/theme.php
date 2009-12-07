@@ -221,18 +221,6 @@ class BinadamuTheme extends Theme
 		}
 		return $h1;
 	}
-
-	public function action_form_comment($form)
-	{
-	    $form->append('fieldset', 'cf_commenter_info');
-	    $form->cf_commenter->move_into($form->cf_commenter_info);
-	    $form->cf_email->move_into($form->cf_commenter_info);
-	    $form->cf_url->move_into($form->cf_commenter_info);
-	    $form->append('fieldset', 'cf_response_content');
-	    $form->cf_content->move_into($form->cf_response_content);
-	    $form->cf_submit->move_into($form->cf_response_content);
-        $form->append('static', 'moderation-notice', _t('<p class="moderation-notice">Your comment may not display immediately due to spam filtering. Please wait for moderation.</p>'));
-	}
 }
 
 ?>
