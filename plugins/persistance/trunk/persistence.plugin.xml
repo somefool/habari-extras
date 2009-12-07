@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>persistence</name>
+	<version>1.8</version>
+	<url>http://soullesssoftware.com/persistence-of-memory</url>
+	<author url="http://skippy.net/">Scott Merrill</author>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<description><![CDATA[Alows you to authenticate to your Habari installation via a cookie stored on your PC]]></description>
+	<copyright>2008</copyright>
+
+</pluggable>
