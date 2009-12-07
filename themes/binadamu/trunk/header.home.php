@@ -10,7 +10,7 @@
 	<?php $theme->header(); ?>
 
 </head>
-<body<?php $theme->body_class(); ?>>
+<body<?php $theme->binadamu_body_class(); ?>>
 <!-- header -->
 <div id="container">
 	<div id="header">

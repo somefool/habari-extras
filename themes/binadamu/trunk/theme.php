@@ -75,7 +75,7 @@ class BinadamuTheme extends Theme
 		return count($tags) > 0 ? 'tag-' . implode(' tag-', array_keys($tags)) : 'no-tags';
 	}
 
-	public function theme_body_class($theme)
+	public function binadamu_body_class()
 	{
 		// Assigning <body> class(es)
 		$body_class = array();
@@ -131,7 +131,7 @@ class BinadamuTheme extends Theme
 		//Get unique items
 		$body_class = array_flip(array_flip($body_class));
 
-		return count($body_class) > 0 ?
+		echo count($body_class) > 0 ?
 			' class="' . implode(' ', $body_class) . '"' :
 			'';
 	}
