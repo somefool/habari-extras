@@ -1,9 +1,11 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>habaridiggbarkiller</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<url>http://www.somefoolwitha.com</url>
-	<author>MatthewM</author>
-	<authorurl>http://somefoolwitha.com</authorurl>
-	<description>Removes digg bar frame.</description>
-	<license>Apache License 2.0</license>
-</plugin>
+	<author url="http://somefoolwitha.com/">MatthewM</author>
+	<version>1.0</version>
+	<description><![CDATA[Removes Digg Bar frame.]]></description>
+	<copyright>2009</copyright>
+</pluggable>
 
