@@ -54,6 +54,27 @@ class BinadamuTheme extends Theme
 			$this->assign('recent_entries', Posts::get(array('limit' => 10, 'content_type' => 'entry', 'status' => Post::status('published'), 'orderby' => 'pubdate DESC')));
 		}
 
+		$user = User::identify();
+	    if ( isset( $_SESSION['comment'] ) ) {
+            $details = Session::get_set( 'comment' );
+            $commenter_name = $details['name'];
+            $commenter_email = $details['email'];
+            $commenter_url = $details['url'];
+            $this->assign('commenter_content', $details['content']);
+	    }
+        elseif ( $user->loggedin ) {
+            $commenter_name = $user->displayname;
+            $commenter_email = $user->email;
+            $commenter_url = Site::get_url( 'habari' );
+        }
+        elseif ( isset( $_COOKIE[$cookie] ) ) {
+            list( $commenter_name, $commenter_email, $commenter_url )= explode( '#', $_COOKIE[$cookie] );
+        }
+
+        $this->assign('commenter_name', $commenter_name);
+        $this->assign('commenter_email', $commenter_email);
+        $this->assign('commenter_url', $commenter_url);
+
 		parent::add_template_vars();
 	}
 
@@ -199,6 +220,18 @@ class BinadamuTheme extends Theme
 			$h1 = '<h1>' . sprintf(_t('Search results for “%s”', 'binadamu'), htmlspecialchars($this->handler_vars['criteria'])) . '</h1>';
 		}
 		return $h1;
+	}
+
+	public function action_form_comment($form)
+	{
+	    $form->append('fieldset', 'cf_commenter_info');
+	    $form->cf_commenter->move_into($form->cf_commenter_info);
+	    $form->cf_email->move_into($form->cf_commenter_info);
+	    $form->cf_url->move_into($form->cf_commenter_info);
+	    $form->append('fieldset', 'cf_response_content');
+	    $form->cf_content->move_into($form->cf_response_content);
+	    $form->cf_submit->move_into($form->cf_response_content);
+        $form->append('static', 'moderation-notice', _t('<p class="moderation-notice">Your comment may not display immediately due to spam filtering. Please wait for moderation.</p>'));
 	}
 }
 

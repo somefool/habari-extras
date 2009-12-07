@@ -21,7 +21,7 @@
 						<label for="message" class="content"><?php _e('Message', 'binadamu'); ?></label>
 					</div>
 					<div class="response-content">
-						<textarea name="content" id="message" cols="100" rows="10" tabindex="4"><?php if (isset($details['content'])) { echo $details['content']; } ?></textarea>
+						<textarea name="content" id="message" cols="100" rows="10" tabindex="4"><?php if (isset($commenter_content)) { echo $commenter_content; } ?></textarea>
 						<button type="submit" id="submit_feedback" tabindex="5" /><?php _e('Submit', 'binadamu'); ?></button>
 					</div>
 					<p class="moderation-notice"><?php _e('Your comment may not display immediately due to spam filtering. Please wait for moderation.', 'binadamu'); ?></p>
