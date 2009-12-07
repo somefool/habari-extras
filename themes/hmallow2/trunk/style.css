@@ -756,7 +756,7 @@ body#single .storytitle {
 	background-color: #d5e1f2;
 }
 
-img.gravatar {
+img.gravatar, .twitter_avatar {
 	width: 25px;
 	height: 25px;
 }

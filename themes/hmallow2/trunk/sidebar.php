@@ -36,7 +36,7 @@
 			</ul>
 	</li>
 	
-<?php if (Plugins::is_loaded('tag_cloud')) { ?>	
+<?php if (Plugins::is_loaded('TagCloud')) { ?>	
 	<li><?php _e('Tag cloud'); ?>
 		<ul id="tagcloud">
 		<?php $theme->tag_cloud(); ?>
