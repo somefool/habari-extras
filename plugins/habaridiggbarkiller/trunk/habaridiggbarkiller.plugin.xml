@@ -7,5 +7,14 @@
 	<version>1.0</version>
 	<description><![CDATA[Removes Digg Bar frame.]]></description>
 	<copyright>2009</copyright>
+	
+	<help> 
+ 	 <value><![CDATA[ 
+ 	  <h3>Habari Digg Bar Killer</h3> 
+ 	<p>Based on <a href="http://farukat.es/journal/2009/04/225-javascript-diggbar-killer-not-blocker"> FarukAt.e?: JavaScript DiggBar killer (but not blocker)</a>.</p>
+ 	]]></value> 
+ 	</help>
+
+
 </pluggable>
 
