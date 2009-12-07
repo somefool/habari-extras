@@ -3,7 +3,7 @@
 	<name>Binadamu</name>
 	<author>Joel Lee</author>
 	<url>http://blog.bcse.info/</url>
-	<version>0.6-1.2-pre</version>
+	<version>1.2-pre</version>
 	<description>A theme which inspired by Sandbox.</description>
 	<template_engine>rawphpengine</template_engine>
 	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
