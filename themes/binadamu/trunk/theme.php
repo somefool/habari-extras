@@ -54,13 +54,19 @@ class BinadamuTheme extends Theme
 			$this->assign('recent_entries', Posts::get(array('limit' => 10, 'content_type' => 'entry', 'status' => Post::status('published'), 'orderby' => 'pubdate DESC')));
 		}
 
+		$cookie = 'comment_' . Options::get( 'GUID' );
+        $commenter_name = '';
+        $commenter_email = '';
+        $commenter_url = '';
+        $commenter_content = '';
 		$user = User::identify();
+
 	    if ( isset( $_SESSION['comment'] ) ) {
             $details = Session::get_set( 'comment' );
             $commenter_name = $details['name'];
             $commenter_email = $details['email'];
             $commenter_url = $details['url'];
-            $this->assign('commenter_content', $details['content']);
+            $commenter_content = $details['content'];
 	    }
         elseif ( $user->loggedin ) {
             $commenter_name = $user->displayname;
@@ -71,6 +77,7 @@ class BinadamuTheme extends Theme
             list( $commenter_name, $commenter_email, $commenter_url )= explode( '#', $_COOKIE[$cookie] );
         }
 
+        $this->assign('commenter_content', $commenter_content);
         $this->assign('commenter_name', $commenter_name);
         $this->assign('commenter_email', $commenter_email);
         $this->assign('commenter_url', $commenter_url);
