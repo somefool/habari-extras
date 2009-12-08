@@ -141,32 +141,30 @@ class fluffytag extends Plugin
 	/*
 	 * Based on the number of steps and tag max count do some magic.
 	 */
+	private function add_count( &$tag )
+	{
+		if( in_array($tag->tag_text{0}, $this->prefix ) ) {
+			return false;
+		}	
+		$tag->count = Posts::count_by_tag($tag->slug, "published");
+		$tag->step = ceil( $tag->count / $this->step );
+		return $tag;
+	}
+	 
 	private function build_cloud()
 	{
-		$tags = Tag::get();
+		$tags = Tags::get();
 		$max = Tags::max_count();
 		$hide = $this->get_hide_tag_list();
-		$tag_array = array();
+		$this->step = $max / Options::get( 'fluffytag__steps' );
 		
-		
-		$tags = array_filter($tags, create_function('$tag', 'return (Posts::count_by_tag($tag->slug, "published") > 0);'));
-		
-		
-		
-		if( Options::get( 'fluffytag__prefix' ) != "" ) {
-			foreach( explode(',', Options::get( 'fluffytag__prefix' ) ) as $prefix  ) {
-				$tags= array_filter( $tags, create_function( '$a', 'return $a{0} != "' . $prefix . '";' ) );
-			}
-		}
-		
-		$step = $max / Options::get( 'fluffytag__steps' );
+		$this->prefix = explode(',', Options::get( 'fluffytag__prefix' ) );
 
-		foreach($tags as $tag) {		
-			if( !( empty( $tag->slug ) || in_array( $tag->slug, $hide ) || in_array( $tag->tag, $hide ) ) ) 
-				$tag_array[] = array( 'tag' => $tag->tag, 'slug' => $tag->slug, 'step' => ceil( $tag->count / $step ) );
-		}
-		//print_r( $tag_array );
-		return $tag_array;
+		//$tags = array_filter($tags, create_function( '$a' 'return $a->slug == ' );
+		$tags = array_filter($tags, array($this, 'add_count'));
+
+		//print_r( $tags );
+		return $tags;
 	}
 
 	/*

@@ -3,9 +3,9 @@
 	<name>Fluffy Tag</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache
 	Software License 2.0</license>
-	<author url="http://eighty4.se">eighty4</author>
-	<version>0.1</version>
-	<url>http://eighty4.se/projects/</url>
-	<description><![CDATA[Shows a Fluffy cloud of tags (Base copied from RN Tag Cloud). Remember to add <code>&lt;?php $theme->fluffytag(); &gt;</code> somewhere in your theme.]]></description>
+	<author url="http://broken8.se">eighty4</author>
+	<version>0.2</version>
+	<url>http://broken8.se/projects/</url>
+	<description><![CDATA[Shows a Fluffy cloud of tags. Remember to add <code>&lt;?php $theme->fluffytag(); &gt;</code> somewhere in your theme.]]></description>
 	<copyright>2009</copyright>
 </pluggable> 
