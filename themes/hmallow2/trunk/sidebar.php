@@ -60,6 +60,15 @@
 <?php } ?>
 	
 	
+<?php if (Plugins::is_loaded('lastrecent')) { ?>			
+	<li><?php _e('Last.fm'); ?>
+		<ul id="lastfm">
+		<?php $theme->lastrecent(); ?>
+	</ul></li>
+<?php } ?>
+	
+		
+	
 <?php if (Plugins::is_loaded('flickrfeed')) { ?>
 	<li><?php _e('Flickr'); ?>
 		<ul id="flickr">
