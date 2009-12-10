@@ -42,8 +42,22 @@
 		<?php $theme->tag_cloud(); ?>
 	</ul></li>
 <?php } ?>
-	
 
+<?php if (Plugins::is_loaded('fluffytag')) { ?>	
+	<li><?php _e('Tag cloud'); ?>
+		<ul id="tagcloud">
+		<?php $theme->fluffytag(); ?>
+	</ul></li>
+<?php } ?>
+	
+<?php if (Plugins::is_loaded('blogroll')) { ?>	
+		<div id="blogroll">
+		<?php $theme->show_blogroll(); ?>
+	</div>
+<?php } ?>
+	
+	
+	
 <?php if (Plugins::is_loaded('deliciousfeed')) { ?>		
 	<li><?php _e('Delicious'); ?>
 		<ul id="delicious">

@@ -1,4 +1,7 @@
-/* @override http://localhost:8888/habari/user/themes/hmallow2/style.css */
+/* @override 
+	http://localhost:8888/habari/user/themes/hmallow2/style.css
+	http://somefoolwitha.com/hmallow2_live/user/themes/hmallow2/style.css
+*/
 
 /*
 Theme Name: hmallow2
@@ -853,12 +856,18 @@ color: #303030;
 	width: 150px;
 }
 
-#menu ul li {
+#menu ul li,  #blogroll h2, #blogroll {
+	color: #303030;
 	list-style-type: none;
 	padding-left: 0px;
 	margin-bottom: 25px;
 	font: 18px "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;
 	padding-bottom: 0;
+}
+
+ #blogroll h2 {
+	margin: 0;
+	padding: 0;
 }
 
 #menu ul {
@@ -867,7 +876,7 @@ color: #303030;
 	margin: 0;
 }
 
-#menu ul li ul li{
+#menu ul li ul li, #blogroll ul li {
 	padding-left: 0px;
     font-weight: normal;
 	list-style-type: none;
