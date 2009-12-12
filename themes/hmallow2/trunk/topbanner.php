@@ -29,7 +29,7 @@
 
 			<form  id="titlesearch" name="searchform" method="get" action="<?php URL::out('display_search'); ?>" autocomplete="off">
 						<input  type="search" results="5" autosave="<?php Options::out( 'title' ); ?>search" id="searchsubmit" name="s" value="Search..." placeholder="Search..." size="18"  onblur=" if (this.value == '') {this.value = 'Search...';}"  onfocus="if (this.value == 'Search...') {this.value = '';}" class="inputboxes" />
-						<input type="submit" id="searchsubmit" value="Search" />
+						<input type="submit" id="searchsubmitb" value="Search" />
 
 				</form>
 

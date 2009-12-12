@@ -20,6 +20,8 @@ http://somefoolwitha.com/tag/mallow
 
 http://www.somefoolwitha.com/mallow_live/
 http://www.somefoolwitha.com/mallow2_live/
+http://www.somefoolwitha.com/hmallow2_live/
+
 
 http://code.google.com/p/wp-mallow/
 http://code.google.com/p/wp-mallow2/
@@ -100,7 +102,7 @@ table {
 
 #menu a:hover, .storytitle a:hover { color: #4377ff; }
 
-body#single .meta a:hover, body#home .meta a:hover, body#archives .meta a:hover, a:hover, .storytitle a, .storytitle a:visited, #blogtitle h1 a:hover, .highlight{ color: #004dbf; }
+body#single .meta a:hover, body#home .meta a:hover, body#archives .meta a:hover, a:hover, .storytitle a, .storytitle a:visited, #blogtitle h1 a:hover { color: #004dbf; }
 
 #menu ul ul li, #wp-calendar td, .storytitle span a, .storytitle span a:active {color: #5e5e5e;}
 
@@ -306,6 +308,7 @@ box-shadow:0px 1px 3px rgba(0,0,0, .3);
 	margin: 5px 5px 0;
 	padding: 10px;
 	width: 95%;
+	color: #4f5257;
 }
 
 #supernavcontainer
@@ -359,7 +362,7 @@ padding: 5px 8px 4px;
 #supernav a:hover {
 	text-decoration: none;
 padding: 5px 8px 4px;
-	text-shadow: #6a86ae 0 1px 0;
+	text-shadow: #111a44 0 1px 0;
 }
 
 .post {
@@ -458,8 +461,8 @@ h6 {
 	color: #4f5257;
 	margin: 10px 0 0;
 	padding: 0;
-	font-size: 16px;
-	line-height: 22px;
+	font-size: 14px;
+	line-height: 20px;
 	overflow: hidden;
 }
 
@@ -565,8 +568,12 @@ acronym, abbr, span.caps {
 
 
 
-code { font-family: 'Courier New', Courier, Fixed, sans-serif;
-font-size: 120%; } 
+code {
+	font: 100%/16px 'Courier New', Courier, Fixed, sans-serif;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	display: inline-block;
+} 
 
 
 body {
@@ -614,6 +621,12 @@ body#single .meta, .metalinks {
     	padding-top: 0px;
 	font-size: 12px;
 }
+
+.metalinks .tweetthislink {
+	margin-left: 15px;
+}
+
+
 
 body#home .meta, body#archives .meta {
 width:530px;
@@ -699,7 +712,7 @@ box-shadow:0px 0px 3px rgba(0,0,0, .3);
 }
 
 #comment-personaldetails input#name, #comment-personaldetails input#email, #comment-personaldetails input#url {
-	width: 200px;
+	width: 250px;
 	font-size: 12px;
 	padding: 6px 8px;
 	margin-right: 8px;
@@ -727,6 +740,10 @@ box-shadow:0px 0px 3px rgba(0,0,0, .3);
 }
 
 #commentform input#submit {
+	-webkit-box-shadow:0px 2px 3px rgba(0,0,0, .3);
+-moz-box-shadow:0px 2px 3px rgba(0,0,0, .3);
+box-shadow:0px 2px 3px rgba(0,0,0, .3);
+
 -webkit-border-radius: 14px;
 	-moz-border-radius: 14px;		margin-top: 10px;
 	font-size: 16px;
@@ -734,16 +751,42 @@ box-shadow:0px 0px 3px rgba(0,0,0, .3);
 	border: 1px solid #32459f;
 	color: #32459f;
 	padding: 6px 12px 4px;
-	text-shadow: #fff 0 1px 0;
+	text-shadow: #fff 0 -1px 0;
 	margin-right: 3px;
 	display: block;
 }
 
+input#searchsubmitb {
+-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;		
+	font-size: 10px;
+	background-color: #f2f2f2;
+	border: 1px solid #32459f;
+	color: #32459f;
+	text-shadow: #fff 0 1px 0;
+	margin-right: 3px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 2px;
+}
+
+input#searchsubmitb:hover {
+			cursor: pointer;
+	background-color: #6e7bb7;
+	border: 1px solid #32459f;
+	color: #fff;
+	text-shadow: #32459f 0 1px 0;
+}
+
 #commentform input#submit:hover {
+	-webkit-box-shadow:0px 0px 3px rgba(0,0,0, .6);
+-moz-box-shadow:0px 0px 3px rgba(0,0,0, .6);
+box-shadow:0px 0px 3px rgba(0,0,0, .6);
 		cursor: pointer;
 	background-color: #abc8f2;
 	border: 1px solid #32459f;
 	color: #32459f;
+	text-shadow: #fff 0 1px 0;
 }
 
 
@@ -1057,5 +1100,3 @@ box-shadow:0px 0px 3px rgba(0,0,0, .6);
 #page-selector a:hover {
 	color: #4377ff;
 }
-
-
