@@ -99,7 +99,11 @@
 <?php } ?>
 
 
-
+<?php if (Plugins::is_loaded('Brightkite')) { ?>	
+	<div id="brightkite">
+	<?php $theme->bk_location(); ?>
+	</div>
+<?php } ?>
 	
 
 <li class="user"><?php _e('User'); ?><ul> 

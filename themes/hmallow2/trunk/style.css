@@ -945,16 +945,17 @@ color: #303030;
 	width: 150px;
 }
 
-#menu ul li,  #blogroll h2, #blogroll {
+#menu ul li,  #blogroll h2, #blogroll, #menu h3.subs, #menu #brightkite {
 	color: #303030;
 	list-style-type: none;
 	padding-left: 0px;
 	margin-bottom: 25px;
 	font: 18px "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;
 	padding-bottom: 0;
+	padding: 0;
 }
 
- #blogroll h2 {
+ #blogroll h2, #menu h3.subs {
 	margin: 0;
 	padding: 0;
 }
@@ -971,7 +972,7 @@ color: #303030;
 }
 
 
-#menu ul li ul li, #blogroll ul li {
+#menu ul li ul li, #blogroll ul li, #menu ul li.bkname, #menu ul li.bkaddress, #menu ul li.bkupdate, #menu ul li.bkmap  {
 	padding-left: 0px;
     font-weight: normal;
 	list-style-type: none;
@@ -1100,3 +1101,5 @@ box-shadow:0px 0px 3px rgba(0,0,0, .6);
 #page-selector a:hover {
 	color: #4377ff;
 }
+
+
