@@ -100,7 +100,7 @@
 
 	
 
-<li><?php _e('User'); ?><ul> 
+<li class="user"><?php _e('User'); ?><ul> 
 	<?php $theme->display ( 'loginform' ); ?>
 </ul></li>
 

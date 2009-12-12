@@ -51,7 +51,7 @@
 		
 		<!-- Actual post -->
 <div class="storycontent">
-    <?php echo $post->content_out; ?>
+    <?php echo $post->content; ?>
 </div>
 
 <div class="navigation">
