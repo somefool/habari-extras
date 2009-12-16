@@ -28,11 +28,11 @@
 
 
 			<form  id="titlesearch" name="searchform" method="get" action="<?php URL::out('display_search'); ?>" autocomplete="off">
-						<input  type="search" results="5" autosave="<?php Options::out( 'title' ); ?>search" id="searchsubmit" name="s" value="Search..." placeholder="Search..." size="18"  onblur=" if (this.value == '') {this.value = 'Search...';}"  onfocus="if (this.value == 'Search...') {this.value = '';}" class="inputboxes" />
+					<input type="search" results="5" autosave="<?php Options::out( 'title' ); ?>search" id="s" name="criteria" value="<?php if ( isset( $criteria ) ) { echo htmlentities($criteria, ENT_COMPAT, 'UTF-8'); }  else { echo ("Search..."); } ?>"  onblur=" if (this.value == '') {this.value = 'Search...';}"  onfocus="if (this.value == 'Search...') {this.value = '';}" > 
 						<input type="submit" id="searchsubmitb" value="Search" />
 
 				</form>
-
-
+				
+			
 	</div>
 <!-- /header -->

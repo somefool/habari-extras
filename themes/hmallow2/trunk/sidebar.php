@@ -5,6 +5,11 @@
 	<?php Plugins::act( 'theme_sidebar_top' ); ?>
 
 <ul>
+	<?php if ($this->request->display_search) { ; ?>
+	<li id="search">
+<?php _e('Search results for \'%s', array( htmlspecialchars( $criteria ) ) ); ?>'</li>
+	<?php } ?>
+	
 	
 <?php if (Plugins::is_loaded('TagCloud')) { ?>	
 	<li id="colophon">
