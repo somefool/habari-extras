@@ -5,6 +5,12 @@
 	<?php Plugins::act( 'theme_sidebar_top' ); ?>
 
 <ul>
+	
+<?php if (Plugins::is_loaded('TagCloud')) { ?>	
+	<li id="colophon">
+		<?php $theme->colophon(); ?>
+	</li>
+<?php } ?>
 
 	<li><?php _e('Recent comments'); ?>
 			<ul id="recentcomments">
