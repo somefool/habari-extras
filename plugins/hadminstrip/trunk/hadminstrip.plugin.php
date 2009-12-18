@@ -14,7 +14,7 @@
 
 class HadminStrip extends Plugin
 {
-	const VERSION= '1.0.1';
+	const VERSION= '1.0.2';
 
 	/**
 	 * Add update beacon support
@@ -59,12 +59,12 @@ class HadminStrip extends Plugin
 			
 			<div id="adminstrip">
 				
-				<?php $unapprovedcomments=Comments::count_total( Comment::STATUS_UNAPPROVED, FALSE ); 
+				<?php  $unapprovedcomments=Comments::count_total( Comment::STATUS_UNAPPROVED, FALSE ); 
 			
 				$postnumber=Posts::get( array( 'count' => 1, 'content_type' => Post::type('entry'), 'status' => Post::status('published') ) ); 
 				$commentnumber=Comments::count_total( Comment::STATUS_APPROVED, FALSE );
 				$spamnumber=Comments::count_total( Comment::STATUS_SPAM );
-				$tagcount=DB::get_value('SELECT count(id) FROM {tags}');
+				$tagscount = Tags::count_total();
 				$pagecount=Posts::get( array( 'count' => 1, 'content_type' => Post::type('page'), 'status' => Post::status('published') ) );?>
 				
 				
@@ -78,7 +78,7 @@ class HadminStrip extends Plugin
 				
 				<?php	if ( $spamnumber!=0) { ?> &middot; <a id="admincomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>?status=2" title="Spam Comments"><?php echo ($spamnumber) ?> spam</a><?php } ?>
 				 
-				&middot; There are <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagcount) ?> tags</a></a>
+				&middot; There are <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagscount) ?> tags</a></a>
 								
 				 </div>
 				
