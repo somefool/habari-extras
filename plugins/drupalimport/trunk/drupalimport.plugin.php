@@ -330,7 +330,7 @@ DRUPAL_IMPORT_STAGE3;
 				$post_array['content'] = preg_replace( '/<!--\s*break\s*-->/', '<!--more-->', $post_array['content'] );
 				
 				$p = new Post( $post_array );
-				$p->id = $post_array['nid'];
+				$p->id = null;
 				$p->user_id = $user_map[$p->user_id];
 				$p->tags = $tags;
 				$p->info->drupal_nid = $post_array['nid']; // Store the Drupal post id in the post_info table for later
