@@ -19,16 +19,6 @@ class DrupalImport extends Plugin implements Importer
 	}
 	
 	/**
-	 * Return plugin metadata for this plugin
-	 *
-	 * @return array Plugin metadata
-	 */
-	public function info()
-	{
-		return array( 'name' => 'Drupal Importer', 'version' => '0.1', 'url' => 'http://habariproject.org/', 'author' => 'Joshua Benner', 'authorurl' => 'http://jbenner.net', 'license' => 'Apache License 2.0', 'description' => 'Import Drupal 6.x content.', 'copyright' => '2008' );
-	}
-	
-	/**
 	 * Return a list of names of things that this importer imports
 	 *
 	 * @return array List of importables.
