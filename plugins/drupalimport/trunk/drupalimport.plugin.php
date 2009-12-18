@@ -62,7 +62,7 @@ class DrupalImport extends Plugin implements Importer
 			case 1:
 				if ( isset( $_POST ) ) {
 					$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments' );
-					$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
+					$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
 					if ( $drupaldb = $this->drupal_connect( $inputs['db_host'], $inputs['db_name'], $inputs['db_user'], $inputs['db_pass'], $inputs['db_prefix'] ) ) {
 						$has_node_type = count( $drupaldb->get_results( "SHOW TABLES LIKE '{$inputs['db_prefix']}node_type'" ) );
 						$has_menu = count( $drupaldb->get_results( "SHOW TABLES LIKE '{$inputs['db_prefix']}menu'" ) );
@@ -614,3 +614,5 @@ DRUPAL_IMPORT_AJAX1;
 	}
 
 }
+
+?>
