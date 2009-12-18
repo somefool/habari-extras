@@ -15,7 +15,7 @@ class DrupalImport extends Plugin implements Importer
 	 **/
 	public function action_init()
 	{
-		$this->supported_importers = array( _t( 'Drupal 5.x Database' ) );
+		$this->supported_importers = array( _t( 'Drupal 6.x Database' ) );
 	}
 	
 	/**
@@ -25,7 +25,7 @@ class DrupalImport extends Plugin implements Importer
 	 */
 	public function info()
 	{
-		return array( 'name' => 'Drupal Importer', 'version' => '0.1', 'url' => 'http://habariproject.org/', 'author' => 'Joshua Benner', 'authorurl' => 'http://jbenner.net', 'license' => 'Apache License 2.0', 'description' => 'Import Drupal 5.x content.', 'copyright' => '2008' );
+		return array( 'name' => 'Drupal Importer', 'version' => '0.1', 'url' => 'http://habariproject.org/', 'author' => 'Joshua Benner', 'authorurl' => 'http://jbenner.net', 'license' => 'Apache License 2.0', 'description' => 'Import Drupal 6.x content.', 'copyright' => '2008' );
 	}
 	
 	/**
@@ -65,12 +65,11 @@ class DrupalImport extends Plugin implements Importer
 					$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
 					if ( $drupaldb = $this->drupal_connect( $inputs['db_host'], $inputs['db_name'], $inputs['db_user'], $inputs['db_pass'], $inputs['db_prefix'] ) ) {
 						$has_node_type = count( $drupaldb->get_results( "SHOW TABLES LIKE '{$inputs['db_prefix']}node_type'" ) );
-						$has_menu = count( $drupaldb->get_results( "SHOW TABLES LIKE '{$inputs['db_prefix']}menu'" ) );
-						if ( $has_node_type && $has_menu ) {
+						if ( $has_node_type ) {
 							$stage = 2;
 						}
 						else {
-							$inputs['warning'] = _t( 'Specified database does not appear to be a Drupal 5.x database. Please enter connection values for a Drupal 5.x database.' );
+							$inputs['warning'] = _t( 'Specified database does not appear to be a Drupal 6.x database. Please enter connection values for a Drupal 6.x database.' );
 						}
 					}
 					else {
@@ -81,7 +80,7 @@ class DrupalImport extends Plugin implements Importer
 			case 2:
 				if ( isset( $_POST ) ) {
 					$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'entry_type', 'page_type', 'tag_vocab' );
-					$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
+					$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
 					// We could re-do the Drupal types/vocab lookup... is that really necessary?
 					$stage = 3;
 				}
@@ -120,9 +119,9 @@ class DrupalImport extends Plugin implements Importer
 		}
 		$import_comments_checked = $import_comments ? ' checked="checked"' : '';
 		$output = <<< DRUPAL_IMPORT_STAGE1
-			<p>Habari will attempt to import from a Drupal 5.x Database.</p>
+			<p>Habari will attempt to import from a Drupal 6.x Database.</p>
 			{$warning}
-			<p>Please provide the connection details for an existing Drupal 5.x database:</p>
+			<p>Please provide the connection details for an existing Drupal 6.x database:</p>
 			<table>
 				<tr><td>Database Name</td><td><input type="text" name="db_name" value="{$db_name}"></td></tr>
 				<tr><td>Database Host</td><td><input type="text" name="db_host" value="{$db_host}"></td></tr>
@@ -175,7 +174,7 @@ DRUPAL_IMPORT_STAGE1;
 			$vocab_options .= "\n" . '<option value="' . $vocab->vid . '"' . ($tag_vocab == $vocab->vid ? ' selected="selected" ' : '') . '>' . $vocab->name . '</option>';
 		}
 		$output = <<< DRUPAL_IMPORT_STAGE2
-			<p>Habari will attempt to import from a Drupal 5.x Database.</p>
+			<p>Habari will attempt to import from a Drupal 6.x Database.</p>
 			{$warning}
 			<p>Select the content types to import as entries and pages, and the vocabulary to import as tags:</p>
 			<table>
@@ -269,7 +268,7 @@ DRUPAL_IMPORT_STAGE3;
 	public function action_auth_ajax_drupal_import_posts($handler)
 	{
 		$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'postindex', 'entry_type', 'page_type', 'tag_vocab' );
-		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
 		extract( $inputs );
 		
 		$drupaldb = $this->drupal_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
@@ -341,6 +340,7 @@ DRUPAL_IMPORT_STAGE3;
 				$post_array['content'] = preg_replace( '/<!--\s*break\s*-->/', '<!--more-->', $post_array['content'] );
 				
 				$p = new Post( $post_array );
+				$p->id = $post_array['nid'];
 				$p->user_id = $user_map[$p->user_id];
 				$p->tags = $tags;
 				$p->info->drupal_nid = $post_array['nid']; // Store the Drupal post id in the post_info table for later
@@ -423,7 +423,7 @@ DRUPAL_IMPORT_AJAX2;
 	public function action_auth_ajax_drupal_import_users($handler)
 	{
 		$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'userindex', 'entry_type', 'page_type', 'tag_vocab' );
-		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
 		extract( $inputs );
 		$drupaldb = $this->drupal_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
 		if ( $drupaldb ) {
@@ -502,7 +502,7 @@ DRUPAL_IMPORT_USERS1;
 	public function action_auth_ajax_drupal_import_comments($handler)
 	{
 		$valid_fields = array( 'db_name', 'db_host', 'db_user', 'db_pass', 'db_prefix', 'import_comments', 'commentindex', 'entry_type', 'page_type', 'tag_vocab' );
-		$inputs = array_intersect_key( $_POST, array_flip( $valid_fields ) );
+		$inputs = array_intersect_key( $_POST->getArrayCopy(), array_flip( $valid_fields ) );
 		extract( $inputs );
 		$drupaldb = $this->drupal_connect( $db_host, $db_name, $db_user, $db_pass, $db_prefix );
 		if ( $drupaldb ) {
