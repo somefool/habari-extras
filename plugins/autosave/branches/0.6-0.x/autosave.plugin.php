@@ -16,7 +16,7 @@ class AutoSave extends Plugin {
 	
 	public function action_admin_theme_get_publish() {
 		Stack::add('admin_header_javascript', array($this->get_url() . '/autosave.plugin.js'), 'autosave');
-		Stack::add('admin_header_javascript', 'autoSave.url=\'' . URL::get('ajax', array('context' => 'autosave')) . '\'', 'autosave-url');
+		Stack::add('admin_header_javascript', 'autoSave.url=\'' . URL::get('auth_ajax', array('context' => 'autosave')) . '\'', 'autosave-url');
 	}
 		
 	/**
@@ -28,7 +28,7 @@ class AutoSave extends Plugin {
 	 *
 	 * @param AjaxHandler $that The AjaxHandler instance
 	 */
-	public function action_ajax_autosave($handler) {
+	public function action_auth_ajax_autosave($handler) {
 		$response = array();
 
 		try {
