@@ -4,7 +4,7 @@ class AutoSave extends Plugin {
 	public function info() {
 		return array(
 			'name' => 'AutoSave',
-			'version' => '0.1.1',
+			'version' => '0.1.2',
 			'url' => 'http://habariproject.org/',
 			'author' => 'Andrew da Silva',
 			'authorurl' => 'http://andrewdasilva.com/',
