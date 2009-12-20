@@ -99,7 +99,7 @@ table {
 
 body#single .meta a:hover, body#home .meta a:hover, body#archives .meta a:hover, a:hover, .storytitle a, .storytitle a:visited, #blogtitle h1 a:hover { color: #004dbf; }
 
-#menu ul ul li, #wp-calendar td, .storytitle span a, .storytitle span a:active {color: #5e5e5e;}
+#menu ul ul li, #menu ul li#colophon p,  #wp-calendar td, .storytitle span a, .storytitle span a:active {color: #5e5e5e;}
 
 
 
@@ -304,6 +304,7 @@ box-shadow:0px 1px 3px rgba(0,0,0, .3);
 	padding: 10px;
 	width: 95%;
 	color: #4f5257;
+	display: block;
 }
 
 #supernavcontainer
@@ -516,6 +517,7 @@ body#home .storycontent, body#archives .storycontent {
 
 body#single .storycontent {
 	width: 580px;
+	padding-bottom: 5px;
 }
 
 
