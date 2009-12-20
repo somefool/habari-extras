@@ -933,7 +933,7 @@ font-size: 90%;
 	background: white;
 }
 
-#menu ul .sb-switcher h2 {
+#menu ul .sb-switcher h2, #PopularPosts h2  {
 color: #303030;
 	font: 18px "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;	
 }
@@ -942,7 +942,7 @@ color: #303030;
 	width: 150px;
 }
 
-#menu ul li, #menu ul li#colophon h2,  #blogroll h2, #blogroll, #menu h3.subs, #menu #brightkite {
+#menu ul li, #menu ul li#colophon h2,  #blogroll h2, #blogroll, #menu h3.subs, #menu #brightkite, #menu #PopularPosts  {
 	color: #303030;
 	list-style-type: none;
 	padding-left: 0px;
@@ -952,7 +952,7 @@ color: #303030;
 	padding: 0;
 }
 
-#menu ul li#colophon h2,  #blogroll h2, #menu h3.subs {
+#menu ul li#colophon h2,  #blogroll h2, #menu h3.subs, #PopularPosts h2 {
 	margin: 0;
 	padding: 0;
 }
@@ -969,7 +969,7 @@ color: #303030;
 }
 
 
-#menu ul li#colophon p, #menu ul li ul li, #blogroll ul li, #menu ul li.bkname, #menu ul li.bkaddress, #menu ul li.bkupdate, #menu ul li.bkmap  {
+#menu ul li#colophon p, #menu ul li ul li, #blogroll ul li, #menu ul li.bkname, #menu ul li.bkaddress, #menu ul li.bkupdate, #menu ul li.bkmap, #menu #PopularPosts ul li  {
 	padding-left: 0px;
     font-weight: normal;
 	list-style-type: none;

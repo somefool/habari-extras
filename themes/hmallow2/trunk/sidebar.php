@@ -47,6 +47,14 @@
 			</ul>
 	</li>
 	
+
+<?php if (Plugins::is_loaded('PopularPosts')) { ?>	
+	<div id="PopularPosts">
+	<?php $theme->popular_posts(); ?>
+	</div>
+<?php } ?>
+
+
 <?php if (Plugins::is_loaded('TagCloud')) { ?>	
 	<li><?php _e('Tag cloud'); ?>
 		<ul id="tagcloud">
