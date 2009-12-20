@@ -8,25 +8,6 @@
 class SessionManager extends Plugin
 {
 	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Session Manager',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Owen Winkler',
-			'authorurl' => 'http://asymptomatic.net/',
-			'version' => '1.0',
-			'description' => 'Prevents spiders from filling the session table.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-
-	/**
 	* Add actions to the plugin page for this plugin
 	*
 	* @param array $actions An array of actions that apply to this plugin
