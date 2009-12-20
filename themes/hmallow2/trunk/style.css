@@ -658,6 +658,12 @@ body#archives .entry { width:530px; }
 	margin: 0;
 	padding: 0;
 }
+
+ul.related-tag li.related-tag-odd{
+	margin-right: 8px;
+}
+
+
 .storytitle a {
 	text-decoration: none;
 }
