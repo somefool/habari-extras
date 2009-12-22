@@ -1,7 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
- <title><?php if($request->display_entry && isset($post)) { echo "{$post->title} - "; } ?><?php Options::out( 'title' ) ?></title>
+ <title><?php  
+ 
+ if (($this->request->display_page) | ($this->request->display_entry)) { echo "{$post->title} - "; } 
+ 
+ if ($this->request->display_search) {  echo "Search for '".htmlspecialchars( $criteria )."' - ";  }
+ 
+ ?><?php Options::out( 'title' ) ?></title>
  <meta http-equiv="Content-Type" content="text/html">
  <meta name="generator" content="Habari">
 

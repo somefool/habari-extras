@@ -1,3 +1,4 @@
+
 <!-- bottom meta -->
 <div id="bottommeta">
 Choose from <a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>" title="<?php _e('Syndicate this sitw'); ?>">full feed</a> or <a href="<?php URL::out( 'atom_feed_comments' ); ?>" title="<?php _e('The latest comments to all posts'); ?>">comments feed</a>. 

@@ -456,7 +456,7 @@ h6 {
 .storycontent {
 	color: #4f5257;
 	margin: 10px 0 0;
-	padding: 0;
+	padding: 0 0 8px;
 	font-size: 14px;
 	line-height: 20px;
 	overflow: hidden;
