@@ -2,25 +2,22 @@
 
 /**
 * Post Fields - A plugin to display additional fields on the publish page
+* @package postfields
 **/
 class postfields extends Plugin
 {
-	/**
-	* Required Plugin Information
-	*/
-	public function info()
-	{
-		return array(
-			'name' => 'Post Fields',
-			'version' => '1.1',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'license' => 'Apache License 2.0',
-			'description' => 'Display additional fields on the post page in the tabs to let authors add additional metadata to their posts.',
-			'copyright' => '2008'
-		);
-	}
+
+
+	const VERSION= '1.1';
+
+ /**
+   * Add update beacon support
+   **/
+  public function action_update_check()
+  {
+		Update::add( 'Postfields', '228D6060-38F0-11DD-AE16-0800200C9A66', $this->info->version );
+  }
+
 
 	/**
 	* Add actions to the plugin page for this plugin
@@ -191,13 +188,7 @@ PLUGIN_CODE_1;
 	}
 	
 		
-  /**
-   * Add update beacon support
-   **/
-  public function action_update_check()
-  {
-		Update::add( 'Postfields', '228D6060-38F0-11DD-AE16-0800200C9A66', $this->info->version );
-  }
+ 
 
 }
 ?>
