@@ -27,7 +27,8 @@ class SiteMaintenance extends Plugin
 	
 	public function filter_check_links_cron ( $result )
 	{
-		$this->check_links( Posts::get('content_type=1') );
+		SiteMaintenanceLog::report_log('checking links', 'info', 'check_links', null);
+		$this->check_links( Posts::get( 'content_type=' . Post::type('entry') ) );
 	}
 	
 	public static function _autoload($class_name)
