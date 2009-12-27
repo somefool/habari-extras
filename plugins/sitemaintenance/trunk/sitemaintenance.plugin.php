@@ -21,7 +21,7 @@ class SiteMaintenance extends Plugin
 		
 		// @todo move this to activation hook
 		if ( ! CronTab::get_cronjob(self::CHECK_LINKS_CRON) ) {
-			CronTab::add_weekly_cron( self::CHECK_LINKS_CRON, 'check_links_cron', _t('Check links in posts for errors', self::TEXT_DOMAIN) ); )
+			CronTab::add_weekly_cron( self::CHECK_LINKS_CRON, 'check_links_cron', _t('Check links in posts for errors', self::TEXT_DOMAIN) );
 		}
 	}
 	
