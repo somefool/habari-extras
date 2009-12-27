@@ -36,6 +36,9 @@ class SiteMaintenance extends Plugin
 		if ( strtolower( $class_name ) == 'sitemaintenancelog' ) {
 			include( dirname(__FILE__) . '/sitemaintenancelog.php' );
 		}
+		elseif ( strtolower( $class_name ) == 'remoterequestsucks' ) {
+			include( dirname(__FILE__) . '/remoterequestsucks.php' );
+		}
 	}
 	
 	/**
@@ -53,38 +56,28 @@ class SiteMaintenance extends Plugin
 					$urls[] = $node['attrs']['href'];
 				}
 			}
-			
+			$urls = array_unique($urls);
 			if ( count($urls) > 0 ) {
-				$urls = array_unique($urls);
 				foreach ( $urls as $url ) {
 					$request = new RemoteRequest($url, 'HEAD');
-					$request->execute();
-					if ( $request->executed() ) {
-						$headers = explode("\r\n", $request->get_response_headers(), 2);
-						$status = $headers[0];
+					$headers = RemoteRequestSucks::head($url);
+					if ( $headers ) {
+						$status = $headers['status'];
 						// is it 404 not found?
-						if ( strpos($status, '404') !== FALSE ) {
+						if ( $status == 404 ) {
 							$message = _t("404 at %s in post %s, got: %s", array($url, $post->slug, $status), 'sitemaintenance');
-							$severity = 'err';
-							$type = '404';
-							$data = $headers;
-							SiteMaintenanceLog::report_log($message, $severity, $type, $data = null);
+							SiteMaintenanceLog::report_log($message, 'err', '404', serialize($headers));
 						}
 						// is it 301 moved permanently?
-						elseif ( strpos($status, '301') !== FALSE ) {
-							foreach ( $headers as $header ) {
-								if ( preg_match('#location:\s*(.+)#i', $header, $m) ) {
-									$location = $m[1];
-								}
-								else {
-									$location = _t('unknown', self::TEXT_DOMAIN);
-								}
+						elseif ( $status == 301 ) {
+							if ( isset($headers['location']) ) {
+								$location = $headers['location'];
+							}
+							else {
+								$location = _t('unknown', self::TEXT_DOMAIN);
 							}
 							$message = _t("301 at %s in post %s, moved to: %s", array($url, $post->slug, $location), 'sitemaintenance');
-							$severity = 'err';
-							$type = '301';
-							$data = $headers;
-							SiteMaintenanceLog::report_log($message, $severity, $type, $data = null);
+							SiteMaintenanceLog::report_log($message, 'err', '301', serialize($headers));
 						}
 					}
 				}
