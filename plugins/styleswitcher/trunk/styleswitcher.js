@@ -1,31 +1,31 @@
 /**
- * Styleswitch stylesheet switcher built on jQuery
- * Under an Attribution, Share Alike License
- * By Kelvin Luck ( http://www.kelvinluck.com/ )
- **/
+* Styleswitch stylesheet switcher built on jQuery
+* Under an Attribution, Share Alike License
+* By Kelvin Luck ( http://www.kelvinluck.com/ )
+**/
 
-$(document).ready(function() {
-	$('#styleswitcher').change(function()
-	{
-		switchStylestyle($(this).val());
-		return false;
-	});
-	var c = readCookie('style');
-	if (c) switchStylestyle(c);
-});
-
-function switchStylestyle(styleName)
+(function($)
 {
-	$('link[@rel*=style][@title]').each(function(i) 
-	{
-		this.disabled = true;
-		if (this.getAttribute('title') == styleName) {
-			this.disabled = false;
-		}
+	$(document).ready(function() {
+		$('#styleswitcher').change(function()
+		{
+			switchStylestyle($(this).val());
+			return false;
+		});
+		var c = readCookie('style');
+		if (c) switchStylestyle(c);
 	});
-	createCookie('style', styleName, 365);
-}
 
+	function switchStylestyle(styleName)
+	{
+		$('link[rel*=style][title]').each(function(i) 
+		{
+			this.disabled = true;
+			if (this.getAttribute('title') == styleName) this.disabled = false;
+		});
+		createCookie('style', styleName, 365);
+	}
+})(jQuery);
 // cookie functions http://www.quirksmode.org/js/cookies.html
 function createCookie(name,value,days)
 {
