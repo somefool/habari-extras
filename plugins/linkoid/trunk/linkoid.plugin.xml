@@ -1,10 +1,9 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Linkoid</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">ASL</license>
 	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<version>1.0</version>
-	<description>Displays posts that are tagged with a specific tag in a different place using a separate template</description>
-	<license>Apache License 2.0</license>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>1.1</version>
+	<description><![CDATA[Displays posts that are tagged with a specific tag in a different place using a separate template]]></description>
 </plugin>
-

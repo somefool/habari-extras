@@ -7,23 +7,6 @@
 
 class Linkoid extends Plugin
 {
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Linkoid',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
-			'description' => 'Displays posts that are tagged with a specific tag in a different place using a separate template',
-			'license' => 'Apache License 2.0',
-		);
-	}
 
 	/**
 	 * Add update beacon support
