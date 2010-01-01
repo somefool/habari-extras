@@ -12,8 +12,7 @@
 
 class FeedList extends Plugin
 { 
-	// Version info
-	const VERSION = '0.2';
+
 	
 	/**
 	* Add update beacon support
