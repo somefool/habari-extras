@@ -16,22 +16,6 @@ class FeedList extends Plugin
 	const VERSION = '0.2';
 	
 	/**
-	 * Required plugin info() implementation provides info to Habari about this plugin.
-	 */ 
-	public function info()
-	{
-		return array (
-			'name' => 'Feed List',
-			'url' => 'http://asymptomatic.net/',
-			'author' => 'Owen Winkler',
-			'authorurl' => 'http://asymptomatic.net/',
-			'version' => self::VERSION,
-			'description' => 'Outputs an RSS feed as an unordered list.',
-			'license' => 'ASL',
-		);
-	}
-
-	/**
 	* Add update beacon support
 	**/
 	public function action_update_check()
