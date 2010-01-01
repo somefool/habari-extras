@@ -21,6 +21,36 @@
 class StyleSwitcher extends Plugin {
 	
 	/**
+	 * Required method for all plugins.
+	 *
+	 * @return array Various informations about this plugin.
+	 */
+	public function info() {
+		return array(
+			'name' => 'StyleSwitcher',
+			'version' => '0.2',
+			'url' => 'http://habariproject.org/',
+			'author' =>	'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Switch stylesheet without reloading, thanks to jQuery!',
+			'copyright' => '2008'
+		);
+	}
+	
+	public function help() {
+		return "
+<p>For this plugin to work, you need to add each stylesheet to the stack 'template_stylesheet_with_title'</p>
+<p>Do not put the <link> yourself in the header, unless they are vital basics.</p>
+<p>Place at the location you want the select list the following call:
+<code>&lt;?php \$theme->styleswitcher(); ?&gt;</code></p>
+<p>Example of stack calls to put in your theme's theme.php:<ul>
+        <li><code>Stack::add( 'template_stylesheet_with_title', array( 'style.css', 'screen', 'Default' ) );</code></li>
+        <li><code>Stack::add( 'template_stylesheet_with_title', array( 'style2.css', 'screen', 'Alternative' ) );</code></li>
+</ul></p>";
+	}
+
+	/**
 	 * Add the Javascript file needed by this plugin to the theme's header.
 	 */
 	public function action_add_template_vars() {
