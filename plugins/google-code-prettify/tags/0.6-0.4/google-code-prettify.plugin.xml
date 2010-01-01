@@ -1,0 +1,10 @@
+<plugin>
+	<name>Google Code Prettify</name>
+	<version>0.4</version>
+	<url>http://code.google.com/p/bcse/wiki/GoogleCodePrettify</url>
+	<author>Joel Lee</author>
+	<authorurl>http://blog.bcse.info/</authorurl>
+	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
+	<description>Allows syntax highlighting of source code snippets.</description>
+</plugin>
+
