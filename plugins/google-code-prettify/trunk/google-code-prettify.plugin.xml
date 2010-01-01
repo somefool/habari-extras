@@ -1,10 +1,10 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Google Code Prettify</name>
-	<version>0.4</version>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<url>http://code.google.com/p/bcse/wiki/GoogleCodePrettify</url>
-	<author>Joel Lee</author>
-	<authorurl>http://blog.bcse.info/</authorurl>
-	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
-	<description>Allows syntax highlighting of source code snippets.</description>
-</plugin>
-
+	<author url="http://blog.bcse.info/">Joel Lee</author>
+	<version>0.4</version>
+	<description><![CDATA[Allows syntax highlighting of source code snippets.]]></description>
+	<copyright>2009</copyright>
+</pluggable>

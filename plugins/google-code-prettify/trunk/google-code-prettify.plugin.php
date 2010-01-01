@@ -17,19 +17,6 @@ class GoogleCodePrettify extends Plugin
 		);
 	}
 
-	public function info()
-	{
-		return array(
-			'name' => 'Google Code Prettify',
-			'version' => '0.4',
-			'url' => 'http://code.google.com/p/bcse/wiki/GoogleCodePrettify',
-			'author' => 'Joel Lee',
-			'authorurl' => 'http://blog.bcse.info/',
-			'license' => 'Apache License 2.0',
-			'description' => _t('Allows syntax highlighting of source code snippets.', $this->class_name)
-		);
-	}
-
 	/**
 	 * Add update beacon support
 	 **/
