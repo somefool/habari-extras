@@ -1,0 +1,9 @@
+<plugin>
+	<name>Feed List</name>
+	<url>http://asymptomatic.net/</url>
+	<author>Owen Winkler</author>
+	<authorurl>http://asymptomatic.net/</authorurl>
+	<description>Outputs an RSS feed as an unordered list.</description>
+	<license>ASL</license>
+</plugin>
+
