@@ -1,0 +1,10 @@
+<plugin>
+	<name>Linkoid</name>
+	<url>http://habariproject.org/</url>
+	<author>Habari Community</author>
+	<authorurl>http://habariproject.org/</authorurl>
+	<version>1.0</version>
+	<description>Displays posts that are tagged with a specific tag in a different place using a separate template</description>
+	<license>Apache License 2.0</license>
+</plugin>
+
