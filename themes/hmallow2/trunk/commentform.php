@@ -33,31 +33,9 @@ if ( Session::has_messages() ) {
 }
 ?>
 
-      <form action="<?php URL::out( 'submit_feedback', array( 'id' => $post->id ) ); ?>" method="post" id="commentform">
-       <div id="comment-personaldetails">
-        <p>
-         <input type="text" name="name" id="name" value="<?php echo $commenter_name; ?>" size="22" tabindex="1">
-         <label for="name"><small><?php _e('Name'); ?></small><span class="required"><?php if (Options::get('comments_require_id') == 1) : ?> *<?php _e('Required'); ?><?php endif; ?></span></label>
-        </p>
-        <p>
-         <input type="text" name="email" id="email" value="<?php echo $commenter_email; ?>" size="22" tabindex="2">
-         <label for="email"><small><?php _e('Mail'); ?> (<?php _e('will not be published'); ?>)</small><span class="required"><?php if (Options::get('comments_require_id') == 1) : ?> *<?php _e('Required'); ?><?php endif; ?></span></label>
-        </p>
-        <p>
-         <input type="text" name="url" id="url" value="<?php echo $commenter_url; ?>" size="22" tabindex="3">
-         <label for="url"><small><?php _e('Website'); ?></small></label>
-        </p>
-       </div>
-       <p>
-<textarea name="content" id="content" cols="100" rows="10" tabindex="4">
-
-</textarea>
-       </p>
-       <p>
-        <input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit  Comment &#x21a9;'); ?>">
-       </p>
-       <div class="clear"></div>
-      </form>
-     </div>
+    <?php	$post->comment_form()->out(); ?>
+    
+    
+         </div>
 
 <!-- /commentsform -->

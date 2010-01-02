@@ -710,39 +710,53 @@ body#single .storytitle {
 box-shadow:0px 0px 3px rgba(0,0,0, .3);
 }
 
-#comment-personaldetails p {
+#cf_commenter, #cf_email, #cf_url {
 	margin: 2px 0 10px;
+	display: inline-block;
 }
 
-#comment-personaldetails input#name, #comment-personaldetails input#email, #comment-personaldetails input#url {
+.commentform .formcontrol label {
+	float: right;
+	margin-top: 8px;
+}
+#comment_name, #comment_email, #comment_url, #comment_content {
 	width: 250px;
 	font-size: 12px;
 	padding: 6px 8px;
 	margin-right: 8px;
-}
-
-
-#comment-personaldetails input#name, #comment-personaldetails input#email, #comment-personaldetails input#url, #commentform textarea#content {
--webkit-border-radius: 8px;
+	display: block;
+	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;	
 	background: #fafaff;
 	border: 1px solid #90aedb;
 	color: #263a99;
 }
 
-#commentform textarea#content {
+#comment_name, #comment_email, #comment_url {
+	float: left;
+	display: inline-block;
+}
+
+textarea#comment_content.formcontrol {
 	font-size: 14px;
 	width: 540px !important;
 	padding: 8px 8px 6px;
+	display: block;
 }
 
-#comment-personaldetails input#name:hover, #comment-personaldetails input#email:hover, #comment-personaldetails input#url:hover, #commentform textarea#content:hover {
+
+
+#comment_name:hover, #comment_email:hover, #comment_url:hover, #comment_content:hover {
 		background: #fff;
 	border: 1px solid #263a99;
 	color: #263a99;
 }
 
-#commentform input#submit {
+.commmentform {
+	display: block;
+	float: left;
+}
+#cf_submit input {
 	-webkit-box-shadow:0px 2px 3px rgba(0,0,0, .3);
 -moz-box-shadow:0px 2px 3px rgba(0,0,0, .3);
 box-shadow:0px 2px 3px rgba(0,0,0, .3);
@@ -756,7 +770,12 @@ box-shadow:0px 2px 3px rgba(0,0,0, .3);
 	padding: 6px 12px 4px;
 	text-shadow: #fff 0 -1px 0;
 	margin-right: 3px;
-	display: block;
+	right: 0;
+	top: 0;
+}
+
+#cf_submit {
+	text-align: right;
 }
 
 input#searchsubmitb {
@@ -781,7 +800,7 @@ input#searchsubmitb:hover {
 	text-shadow: #32459f 0 1px 0;
 }
 
-#commentform input#submit:hover {
+#cf_submit input:hover {
 	-webkit-box-shadow:0px 0px 3px rgba(0,0,0, .6);
 -moz-box-shadow:0px 0px 3px rgba(0,0,0, .6);
 box-shadow:0px 0px 3px rgba(0,0,0, .6);
@@ -817,15 +836,19 @@ box-shadow:0px 0px 3px rgba(0,0,0, .6);
 	margin: 20px 10px 0 0;
 }
 
-.comment-content {
+#comment_content {
 	margin-top: 10px;
 	font-size: 14px;
 	line-height: 18px;
 	margin-bottom: 0;
 }
 
-.comment-content p {
+#comment_content p {
 	margin-bottom: 4px;
+}
+
+#cf_content label {
+	display:none;
 }
 
 .comments {
@@ -873,6 +896,7 @@ body#single #content, #commentcontent {
 	margin-left: auto;
 	padding-right: 8px;
 	padding-top: 8px;
+	display: block;
 }
 
 body#home #content, body#archives #content, body#e404 #content {
