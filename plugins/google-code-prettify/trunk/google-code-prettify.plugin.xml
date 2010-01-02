@@ -7,4 +7,7 @@
 	<version>0.4</version>
 	<description><![CDATA[Allows syntax highlighting of source code snippets.]]></description>
 	<copyright>2009</copyright>
+	<help>
+		<value><![CDATA[<p>Put your code inside <code>&lt;pre class="prettyprint"> &lt;/pre></code> tags.</p>]]></value>
+	</help>
 </pluggable>
