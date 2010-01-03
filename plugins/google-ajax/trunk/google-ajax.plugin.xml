@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pluggable type="plugin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schemas.habariproject.org/Pluggable-1.3.xsd">
+    <name>GoogleAjax</name>
+    <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://colinseymour.co.uk">Colin Seymour</author>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<copyright>Copyright 2009</copyright>
+	<version>0.1</version>
+    <description><![CDATA[Overwrites local paths to common Javascript libraries, like jQuery, MooTool etc, with the paths hosted by Google using either direct links or Google's google.load() method.]]></description>
+    <guid>DDB34CAA-ECBE-11DE-A151-593F56D89593</guid>
+</pluggable>
