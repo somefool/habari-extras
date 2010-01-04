@@ -2,24 +2,6 @@
 class GoogleAjax extends Plugin
 {
 	/**
-     * The help message - it provides a larger explanation of what this plugin
-     * does
-     *
-     * @return string
-     */
-    public function help()
-    {
-		$help  = '<p>' . _t( 'The GoogleAjax plugin overwrites any local paths to common Javascript libraries, with the paths hosted by Google. ') . '</p>';
-		$help .= '<p>' . _t( 'A full list of libraries hosted by Google can be found' ) . ' <a href="http://code.google.com/apis/ajaxlibs/documentation/">here</a></p>';
-		$help .= '<p>' . _t( 'By default, this plugin uses the latest version of each library, and loads the libraries using Google\'s preferred') . ' <a href="http://code.google.com/apis/ajaxlibs/documentation/">google.load()</a> ' . _t ( 'method, however you can choose to link directly to the files if you prefer.' ) . '</p>';
-		$help .= '<p>' . _t( 'In order for this plugin to work, you need to ensure your plugins and theme are using Habari\'s Stack methods, ie Stack::add(), to add the libraries to either the "template_header_javascript" or "template_footer_javascript" stacks and that they are using the generic names that correspond with the generic library names offered by Google, eg jquery.') . '<br><br>';
-		$help .= _t( 'For example:' ) . '<br><br>';
-		$help .= '<code>Stack::add( "template_header_javascript",  "http://example.com/scripts/jquery.js", "jquery" );</code></p>';
-		return $help;
-
-	}
-
-	/**
      * Beacon Support for Update checking
      *
      * @access public
