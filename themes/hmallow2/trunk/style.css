@@ -1,3 +1,5 @@
+/* @override http://somefoolwitha.com/hmallow2_live/user/themes/hmallow2/style.css */
+
 /*
 Theme Name: hmallow2
 Theme URI: http://somefoolwitha.com
@@ -858,6 +860,14 @@ box-shadow:0px 0px 3px rgba(0,0,0, .6);
 	text-shadow: #fff 0 1px 0;
 }
 
+
+
+.comment-content p {
+	margin-top: 6px;
+	margin-bottom: 4px;
+	font-size: 14px;
+	line-height: 18px;
+}
 
 .pings {
 	list-style: none;
