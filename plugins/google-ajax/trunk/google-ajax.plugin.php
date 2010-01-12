@@ -100,13 +100,17 @@ class GoogleAjax extends Plugin
 			case 'template_footer_javascript':
 				// First we remove the duplicates that occur in the header stack if we're processing the footer stack - Habari doesn't do this, so we do.  This is all about performance after all.
 				if ( $stack_name == 'template_footer_javascript' ) {
-					$stack = array_diff_key( $stack, Stack::get_named_stack( 'template_header_javascript' ) );
+					$header_stack = Stack::get_named_stack( 'template_header_javascript' );
+					$stack = array_diff_key( $stack, $header_stack );
 				}
 				if ( Options::get( __CLASS__ . '__direct_link' ) ) {
 					$int = array_intersect_key( $googleHosts, $stack );
 					return array_merge( $stack, $int );
 				} else {
-					$newstack['jsapi'] = 'http://www.google.com/jsapi';
+					// We only need this in the footer if it's not already in the header
+					if ( ! array_intersect_key( $googleHosts, $header_stack ) ) {
+						$newstack['jsapi'] = 'http://www.google.com/jsapi';
+					}
 					$newstack['jsapi_load'] = '';
 					foreach ( $stack as $key => $value ) {
 						if ( array_key_exists( $key, $googleHosts ) ) {
