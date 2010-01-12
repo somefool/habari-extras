@@ -5,7 +5,7 @@
 	<author url="http://colinseymour.co.uk">Colin Seymour</author>
 	<author url="http://habariproject.org/">The Habari Community</author>
 	<copyright>Copyright 2009</copyright>
-	<version>0.1</version>
+	<version>0.2</version>
     <description><![CDATA[Overwrites local paths to common Javascript libraries, like jQuery, MooTool etc, with the paths hosted by Google using either direct links or Google's google.load() method.]]></description>
     <guid>DDB34CAA-ECBE-11DE-A151-593F56D89593</guid>
 	<help>
