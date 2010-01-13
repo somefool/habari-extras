@@ -108,8 +108,9 @@ class GoogleAjax extends Plugin
 					return array_merge( $stack, $int );
 				} else {
 					// We only need this in the footer if it's not already in the header
-					if ( ! array_intersect_key( $googleHosts, $header_stack ) ) {
-						$newstack['jsapi'] = 'http://www.google.com/jsapi';
+					$newstack['jsapi'] = 'http://www.google.com/jsapi';
+					if ( ( $stack_name == 'template_footer_javascript' ) && array_intersect_key( $googleHosts, $header_stack ) ) {
+						unset( $newstack['jsapi'] );
 					}
 					$newstack['jsapi_load'] = '';
 					foreach ( $stack as $key => $value ) {
