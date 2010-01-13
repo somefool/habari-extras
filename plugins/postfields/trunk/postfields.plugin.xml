@@ -11,8 +11,8 @@
 	<copyright>2008</copyright>
 	
 			<help> 
-		 	 <value>	<![CDATA[Display additional fields on the post page in the tabs to let authors add additional metadata to their posts.</description>
-				<copyright>2008<]]>
+		 	 <value>	<![CDATA[Display additional fields on the post page in the tabs to let authors add additional metadata to their posts.
+				<]]>
 		</value> 
 		</help>
 </pluggable>
