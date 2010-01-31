@@ -6,7 +6,7 @@ html {
 }
 
 body {
-	max-width: 750px;
+	max-width: 830px;
 	margin: 10px auto;
 	text-align: left;
 }
@@ -70,7 +70,7 @@ h1 {
 
 #content {
 	float: left;
-	width: 500px;
+	width: 600px;
 	line-height: 1.5;
 	clear: both;
 }
@@ -82,7 +82,7 @@ h1 {
 #sidebar {
 	float: left;
 	margin: 0 auto;
-	padding: 0;
+	padding-left: 25px;
 	width: 205px;
 }
 
@@ -122,7 +122,7 @@ h2 a {
 }
 
 fieldset {
-	width: 720px;
+	width: 450px;
 	padding: 15px;
 	padding-top: 0;
 	margin-top: 20px;

@@ -5,22 +5,22 @@
 				</form>
 			</div>
 			<div class="block">
-				<h2>Recent Comments</h2>
-				<?php $theme->show_recentcomments(); ?>
-			</div>
-			<div class="block">
-				<h2>Monthly Archives</h2>
-				<?php $theme->monthly_archives(5, 'N'); ?>
-				<a href="<?php Site::out_url( 'habari' ); ?>/archives">More...</a>
-			</div>
-			<div class="block">
-				<h2>Tags</h2>
+				<h2><?php _e('Tags'); ?></h2>
 				<?php $theme->tag_cloud(5); ?>
-				<a href="<?php Site::out_url( 'habari' ); ?>/tag">More...</a>
+				<a href="<?php Site::out_url( 'habari' ); ?>/tag"><?php _e('more'); ?>...</a>
 			</div>
+			<br>
+			<div class="block">
+				<h2><?php _e('Archive'); ?></h2>
+				<?php $theme->monthly_archives(0, 'N'); ?>
+			</div>
+
 		</div>
 		<div id="footer">
-			<p><?php echo $copyright; ?> Subscribe to <a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Entries</a> or <a href="<?php URL::out( 'atom_feed_comments', array( 'index' => '1' ) ); ?>">Comments</a></p>
+			<p><?php printf( _t('%1$s is powered by %2$s'), Options::get('title'),' <a
+			href="http://www.habariproject.org/" title="Habari">Habari ' . Version::HABARI_VERSION  . '</a>' ); ?> - 
+			<a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>"><?php _e( 'Atom Entries' ); ?></a><?php _e( ' and ' ); ?>
+			<a href="<?php URL::out( 'atom_feed_comments' ); ?>"><?php _e( 'Atom Comments' ); ?></a></p>
 		</div>
 
 		<?php $theme->footer(); ?>

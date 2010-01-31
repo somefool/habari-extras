@@ -7,7 +7,7 @@
 					<?php echo $post->content_out; ?>
 				</div>
 				<p class="meta">
-					<a href="<?php echo $post->permalink; ?>" rel="bookmark" title="Permanent Link to <?php echo $post->title; ?>"><?php echo $post->pubdate_out; ?></a> <?php if ( ! $post->info->comments_disabled ) { ?> | <a href="<?php echo $post->permalink; ?>#comments" title="Comments on this post"><?php echo $post->comments->approved->count; ?> <?php echo _n( 'Comment', 'Comments', $post->comments->approved->count ); ?></a><?php } ?><?php if ( $user->loggedin ) { ?> | <a href="<?php URL::out( 'admin', 'page=publish&id=' . $post->id); ?>" title="Edit post">Edit</a><?php } ?><br>
+					<a href="<?php echo $post->permalink; ?>" rel="bookmark" title="<?php _e('Permanent Link to'); ?> <?php echo $post->title; ?>"><?php echo $post->pubdate_out('d-m-Y / H:i'); ?></a> <?php if ( ! $post->info->comments_disabled ) { ?> | <a href="<?php echo $post->permalink; ?>#comments" title="<?php _e('Comments on this post'); ?>"><?php echo $post->comments->approved->count; ?> <?php echo _n( 'Comment', 'Comments', $post->comments->approved->count ); ?></a><?php } ?><?php if ( $user->loggedin ) { ?> | <a href="<?php URL::out( 'admin', 'page=publish&id=' . $post->id); ?>" title="<?php _e('Edit post'); ?>"><?php _e('Edit'); ?></a><?php } ?><br>
 					<?php if ( $post->tags ) { ?> Tagged: <?php echo $post->tags_out; ?><?php } ?>
 				</p>
 			</div>

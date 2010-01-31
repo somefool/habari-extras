@@ -116,4 +116,5 @@ class MyTheme extends Theme
 	}
 }
 
+
 ?>

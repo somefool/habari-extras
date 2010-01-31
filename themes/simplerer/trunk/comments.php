@@ -25,9 +25,8 @@
 	
 	if ( ! $post->info->comments_disabled ) {
 	
-		?>
-		
-			<h3><?php echo $post->comments->approved->count; ?> Comments so far</h3>
+		?>	
+                        <h3><?php echo $post->comments->moderated->count; ?> <?php echo _n( 'Response', 'Responses', $post->comments->moderated->count ); ?></h3>
 			<ol id="comments-list">
 			
 				<?php
@@ -46,7 +45,7 @@
 							?>
 							
 								<li id="comment-<?php echo $comment->id; ?>" class="comment">
-									<p class="commenter"><cite><?php echo $comment_url; ?></cite>, on <a href="#comment-<?php echo $comment->id; ?>" title="Permalink to this post"><?php echo $comment->date_out; ?></a>, said:</p>
+									<p class="commenter"><cite><?php echo $comment_url; ?></cite>, on <a href="#comment-<?php echo $comment->id; ?>" title="<?php _e('Permanent link to'); ?>"><?php echo $comment->date_out('d-m-Y / H:i'); ?></a>, said:</p>
 									<div class="response">
 										<?php echo $comment->content_out; ?>
 									</div>
@@ -57,7 +56,7 @@
 											
 												?>
 												
-													<a href="<?php URL::out( 'admin', 'page=comment&id=' . $comment->id); ?>" title="Edit Comment">Edit Comment</a>
+													<a href="<?php URL::out( 'admin', 'page=comment&id=' . $comment->id); ?>" title="<?php _e('Edit this comment'); ?>"><?php _e('Edit this comment'); ?></a>
 													
 												<?php
 		
@@ -90,24 +89,24 @@
 			<div id="commentform">
 				<form action="<?php URL::out( 'submit_feedback', array( 'id' => $post->id ) ); ?>" method="post">
 					<fieldset>
-						<legend>Leave a Comment?</legend>
+						<legend><?php _e('Leave a Reply'); ?></legend>
 							<p>
-								<label for="comment">Comment:</label><br>
+								<label for="comment"><?php _e('Comment'); ?>:</label><br>
 								<textarea name="content" id="comment" rows="5" cols="25" tabindex="1"></textarea>
 							</p>
 							<p>
-								<label for="name">Name:</label>
+								<label for="name"><?php _e('Name <span class=\"required\">*Required</span>'); ?>:</label>
 								<input type="text" name="name" id="name" value="<?php echo $commenter_name; ?>" size="22" tabindex="2">
 							</p>
 							<p>
-								<label for="email">Email:</label>
+								<label for="email"><?php _e('Email <span class=\"required\">*Required</span>'); ?>:</label>
 								<input type="text" name="email" id="email" value="<?php echo $commenter_email; ?>" size="22" tabindex="3">
 							<p>
-								<label for="url">Website:</label>
+								<label for="url"><?php _e('Website'); ?>:</label>
 								<input type="text" name="url" id="url" value="<?php echo $commenter_url; ?>" size="22" tabindex="4">
 							</p>
 							<p>
-								<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment">
+								<input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit'); ?>">
 							</p>
 					</fieldset>
 				</form>
