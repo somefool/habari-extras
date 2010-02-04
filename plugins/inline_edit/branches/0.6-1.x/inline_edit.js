@@ -122,7 +122,7 @@ var inEdit = {
 					} );
 					inEdit.deactivate();
 
-					loupeInfo = timeline.getLoupeInfo();
+					loupeInfo = timelineHandle.getLoupeInfo();
 					itemManage.fetch( loupeInfo.offset, loupeInfo.limit, false );
 				}
 		});
