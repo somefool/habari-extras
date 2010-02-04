@@ -1,0 +1,7 @@
+#page .hidden, #page ul.dropbutton li.nodisplay {
+	display: none;
+}
+
+.editable:hover {
+	background: #FFFFCC;
+}
