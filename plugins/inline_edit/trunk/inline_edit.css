@@ -1,4 +1,4 @@
-ul .dropbutton li.nodisplay {
+#page .hidden, #page ul.dropbutton li.nodisplay {
 	display: none;
 }
 
