@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <pluggable type="plugin">
 	<name>Fontdeck</name>
-	<url>http://fontdeck.com/</url>
+	<url>http://www.fontdeck.com/</url>
 	<version>1.0</version>
 	<author url="http://habariproject.org/">The Habari Community</author>
-	<description><![CDATA[Embeds Fontdeck script in headers.]]></description>
+	<description><![CDATA[Embeds <a href="http://www.fontdeck.com" title="Fontdeck">Fontdeck</a> typefaces in headers without needing any theme modifications.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-	<copyright>2009</copyright>
+	<copyright>2010</copyright>
 	<help>
 		<value><![CDATA[Once configured, the CSS code generated for your Fontdeck fonts will be added to your headers, as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>]]></value>
 	</help> 
