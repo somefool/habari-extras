@@ -305,7 +305,9 @@ DRUPAL_IMPORT_STAGE3;
 				else {
 					$tags = array();
 				}
-				
+
+				$post->content = MultiByte::convert_encoding( $post->content );
+				$post->title = MultiByte::convert_encoding( $post->title );
 				$post_array = $post->to_array();
 				switch ( $post_array['post_status'] ) {
 					case '1':
@@ -530,6 +532,8 @@ DRUPAL_IMPORT_USERS1;
 			foreach ( $comments as $comment ) {
 				$comment->type = Comment::COMMENT;
 				$comment->status = $comment->status == '0' ? 1 : 0;
+				$comment->content = MultiByte::convert_encoding( $comment->content );
+				$comment->name = MultiByte::convert_encoding( $comment->name );
 				$carray = $comment->to_array();
 				if ( $carray['ip'] == '' ) {
 					$carray['ip'] = 0;
