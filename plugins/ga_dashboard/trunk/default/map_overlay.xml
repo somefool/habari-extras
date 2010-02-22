@@ -14,4 +14,4 @@
 		<row type="string">Country</row>
 		<row type="number">Visits</row>
 	</dataTypes>
-</report>
+</report> 
