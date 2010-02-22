@@ -8,4 +8,4 @@
 	<url>http://lab.morgante.net/goodcode</url>
 	<description><![CDATA[Attempts to make your html better and removes or replaces presentational markup, while also making Habari trust you to write good code.]]></description>
 	<copyright>2009</copyright>
-</pluggable>
+</pluggable> 
