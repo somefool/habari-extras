@@ -10,9 +10,9 @@
 
   <help>
   <value><![CDATA[
-  <p>Provides access to your <a href="http://www.youtube.com/">YouTube</a> videos, giving you a quick and easy
-  way to insert the YouTube video player directly into your blog post.
-  You'll need a YouTube account, or you can configure it to point to
+  <p>Provides access to your <a href="http://www.youtube.com/">YouTube</a> videos, 
+  giving you a quick and easy way to insert the YouTube video player directly into 
+  your blog post.  You'll need a YouTube account, or you can configure it to point to
   your favorite YouTube broadcaster.
   ]]></value>
   </help>
