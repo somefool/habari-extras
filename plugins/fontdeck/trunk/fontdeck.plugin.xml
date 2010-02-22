@@ -8,7 +8,7 @@
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<copyright>2010</copyright>
 	<help>
-		<value><![CDATA[Once configured, the CSS code generated for your Fontdeck fonts will be added to your headers, as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>]]></value>
+		<value><![CDATA[Once configured, the CSS code generated for your <a href="http://fontdeck.com/">Fontdeck</a> fonts will be added to your headers, as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>]]></value>
 	</help> 
 
 </pluggable>
