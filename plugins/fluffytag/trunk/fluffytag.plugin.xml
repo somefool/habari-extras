@@ -8,4 +8,4 @@
 	<url>http://broken8.se/projects/</url>
 	<description><![CDATA[Shows a Fluffy cloud of tags. Remember to add <code>&lt;?php $theme->fluffytag(); &gt;</code> somewhere in your theme.]]></description>
 	<copyright>2009</copyright>
-</pluggable> 
+</pluggable>  
