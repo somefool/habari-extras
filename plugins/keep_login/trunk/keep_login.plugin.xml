@@ -8,4 +8,4 @@
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Uses ajax to keep a session logged in to the admin.]]></description>
 	<copyright>2008</copyright>
-</pluggable>
+</pluggable> 
