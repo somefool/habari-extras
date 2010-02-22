@@ -13,8 +13,7 @@
     <p>By default, Habari will log you out after a period of inactivity.
     If you're using a computer in a trusted place, this plugin lets you
     extend that period indefinitely so that you don't get logged out in
-    the middle of writing that lengthy article about your favorite
-    pony.</p>
+    the middle of writing that lengthy article about your favorite pony.</p>
     ]]></value>
     </help>
 
