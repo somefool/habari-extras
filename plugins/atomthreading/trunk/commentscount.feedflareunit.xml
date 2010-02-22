@@ -7,4 +7,4 @@
 	<Text>${a:link[@rel='replies']/@thr:count} comments</Text>
 	<Link href="${link}#comments"/>
 </FeedFlare>
-</FeedFlareUnit>
+</FeedFlareUnit> 
