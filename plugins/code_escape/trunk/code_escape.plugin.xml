@@ -10,4 +10,4 @@
 	<description><![CDATA[Runs htmlspecialchars() on any &lt;code&gt; blocks in your post.]]></description>
 
 	<copyright>2009</copyright>
-</pluggable>
+</pluggable> 
