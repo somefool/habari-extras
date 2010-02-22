@@ -9,3 +9,4 @@
 	<description><![CDATA[Lets you define parent pages, so you can create an arbitrary page hierarchy. WARNING: This plugin is experimental and based on an unstable Habari API. Do not use in production. (Though if you wanted to test it and let report how it breaks, that would be grand :)]]></description>
 	<copyright>2009</copyright>
 </pluggable>
+ 
