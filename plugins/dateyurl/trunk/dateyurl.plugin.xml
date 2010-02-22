@@ -7,4 +7,4 @@
 	<url>http://morgante.net</url>
 	<description><![CDATA[Makes entry urls in the form /{year}/{month}/{day}/{slug} or /{year}/{month}/{slug}. <strong>Ensure the Route 301 plugin is not also attempting to rewrite your choice!</strong>]]></description>
 	<copyright>2009</copyright>
-</pluggable>
+</pluggable> 
