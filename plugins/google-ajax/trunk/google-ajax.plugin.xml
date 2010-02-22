@@ -17,3 +17,4 @@
 						<code>Stack::add( "template_header_javascript",  "http://example.com/scripts/jquery.js", "jquery" );</code></p>]]></value>
 	</help>
 </pluggable>
+ 
