@@ -7,4 +7,4 @@
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Provides an RSS 2.0 feed for entries and comments.]]></description>
 	<copyright>2009</copyright>
-</pluggable>
+</pluggable> 
