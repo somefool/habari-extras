@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<theme>
+<pluggable type="theme">
 	<name>Wings</name>
 	<author>Chase Crawford</author>
 	<url>http://chasecrawford.us/habari-theme-wings</url>
@@ -7,5 +7,4 @@
 	<template_engine>rawphpengine</template_engine>
 	<description>A simple two-column theme based on Wordpress's Cutline theme by Chris Pearson.</description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-</theme>
-
+</pluggable>
