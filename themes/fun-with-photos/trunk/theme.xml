@@ -2,7 +2,7 @@
 <pluggable type="theme">
         <name>Fun with Photoblogs</name>
         <author>Andrew Rickmann</author>
-		<description>A very simple photoblog theme</description>
+		<description>A very simple photoblog theme.</description>
         <url>http://www.wp-fun.co.uk</url>
         <version>1.0.1</version>
         <template_engine>rawphpengine</template_engine>
