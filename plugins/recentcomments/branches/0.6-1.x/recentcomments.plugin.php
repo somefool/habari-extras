@@ -15,13 +15,19 @@ Class RecentComments extends Plugin
 	{
 		return array(
 		'name'=>'Recent Comments',
-		'version'=>'1.4-alpha',
+		'version'=>'1.4',
 		'url'=>'http://habariproject.org/',
 		'author'=>'Habari Community',
 		'authorurl'=>'http://habariproject.org/',
 		'license'=>'Apache License 2.0',
 		'description'=>'Displays the most recent comments in your blog sidebar'
 		);
+	}
+
+	public function help()
+	{
+		$help = _t( '<p>To use: <code>&lt;?php $theme->show_recentcomments(); ?&gt;</code></p><p>A sample recentcomments.php template is included with the plugin.  This can be copied to your active theme and modified.</p>' );
+		return $help;
 	}
 	
 	/**
@@ -80,7 +86,7 @@ Class RecentComments extends Plugin
 			$form->append( 'text', 'title', 'option:recentcomments__title', 'Title: ' );
 			$form->append( 'text','format', 'option:recentcomments__format','List item format (use [[user]], [[post]] and/or [[date]]): ' );
 			$form->format->add_validator( 'validate_required' );
-			$form->append( 'text','dateformat', 'option:recentcomments__dateformat','Date fomrat <i>(if [[date]] is used)</i>: ' );
+			$form->append( 'text','dateformat', 'option:recentcomments__dateformat','Date format <i>(if [[date]] is used)</i>: ' );
 			$form->append( 'text','count', 'option:recentcomments__count','Number of comments to display:' );
 			$form->count->add_validator( 'validate_required' );
 			$form->append( 'submit', 'save', 'Save' );
@@ -111,7 +117,7 @@ Class RecentComments extends Plugin
 		$list = array();
 		foreach ($comments as $comment){
 			$name ='<a href="'.$comment->url.'" rel="external">'.$comment->name.'</a>';
-			$post ='<a href="'.$comment->post->permalink.'">'.$comment->post->title.'</a>';
+	 		$post = '<a href="'.$comment->post->permalink.'#comment-'.$comment->id.'">'.$comment->post->title.'</a>';
 			$datearray =date_parse($comment->date);
 			$date =date($dateformat,mktime($datearray['hour'],$datearray['minute'],0,$datearray['month'],$datearray['day'],$datearray['year']));
 			$list[]="<li>".str_replace('[[user]]',$name, str_replace('[[post]]',$post,str_replace('[[date]]',$date,$format)))."</li>\n";
