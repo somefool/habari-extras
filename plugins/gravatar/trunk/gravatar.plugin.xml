@@ -7,4 +7,12 @@
 	<url>http://habariproject.org</url>
 	<description><![CDATA[Gravatar plugin for Habari.]]></description>
 	<copyright>2008</copyright>
+
+    <help>
+    <value><![CDATA[
+    Adds a comment author's <a href="http://gravatar.com/">Gravatar</a>
+    by adding &lt;? echo $comment-&gt;gravatar ?&gt; to the relevant
+    file(s) in your theme.]]></value>
+    </value>
+    </help>
 </pluggable> 
