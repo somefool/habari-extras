@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>Recent Comments</name>
-	<author url="http://habariproject.org/">Habari Community</author>
-	<version>1.4.1-alpha</version>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<version>1.4.1</version>
 	<url>http://habariproject.org/</url>
-	<description><![CDATA[Displays the most recent comments in your blog sidebar.]]></description>
+	<description><![CDATA[Displays a customizable list of the most recent comments.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
-	<copyright>2009</copyright>
+	<copyright>2010</copyright>
+
+	<help>
+		<value>
+		<![CDATA[<p>To use: <code>&lt;?php $theme->show_recentcomments(); ?&gt;</code></p><p>A sample recentcomments.php template is included with the plugin.  This can be copied to your active theme and modified.</p>]]>
+		</value>
+	</help>
 </pluggable> 
  

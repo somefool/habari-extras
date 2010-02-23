@@ -36,40 +36,22 @@ Class RecentComments extends Plugin
 			}
 		}
 	}
-	/**
-	 * Adds a Configure action to the plugin
-	 * 
-	 * @param array $actions An array of actions that apply to this plugin
-	 * @param string $plugin_id The id of a plugin
-	 * @return array The array of actions
-	 */
-	public function filter_plugin_config( $actions, $plugin_id )
-	{
-		if ( $this->plugin_id() == $plugin_id ){
-			$actions[]= 'Configure';		
-		}
-		return $actions;
-	}
 	
 	/**
 	 * Creates a UI form to handle the plguin configurations
-	 *
-	 * @param string $plugin_id The id of a plugin
-	 * @param array $actions An array of actions that apply to this plugin
+	 * @return FormUI The configuration form
 	 */
-	public function action_plugin_ui( $plugin_id, $action )
+	public function configure()
 	{
-		if ( $this->plugin_id()==$plugin_id && $action=='Configure' ) {
-			$form = new FormUI( strtolower(get_class( $this ) ) );
-			$form->append( 'text', 'title', 'option:recentcomments__title', 'Title: ' );
-			$form->append( 'text','format', 'option:recentcomments__format','List item format (use [[user]], [[post]] and/or [[date]]): ' );
-			$form->format->add_validator( 'validate_required' );
-			$form->append( 'text','dateformat', 'option:recentcomments__dateformat','Date fomrat <i>(if [[date]] is used)</i>: ' );
-			$form->append( 'text','count', 'option:recentcomments__count','Number of comments to display:' );
-			$form->count->add_validator( 'validate_required' );
-			$form->append( 'submit', 'save', 'Save' );
-			$form->out();
-		}
+		$form = new FormUI( 'recentcomments' );
+		$form->append( 'text', 'title', 'option:recentcomments__title', 'Title: ' );
+		$form->append( 'text','format', 'option:recentcomments__format','List item format (use [[user]], [[post]] and/or [[date]]): ' );
+		$form->format->add_validator( 'validate_required' );
+		$form->append( 'text','dateformat', 'option:recentcomments__dateformat','Date format <i>(if [[date]] is used)</i>: ' );
+		$form->append( 'text','count', 'option:recentcomments__count','Number of comments to display:' );
+		$form->count->add_validator( 'validate_required' );
+		$form->append( 'submit', 'save', 'Save' );
+		return	$form;
 	}
 	
 	/**
@@ -83,10 +65,6 @@ Class RecentComments extends Plugin
 		$format = Options::get( strtolower(get_class( $this ) ) . '__format' );
 		$dateformat =Options::get(strtolower(get_class($this)) . '__dateformat' );
 		$theme->recentcomments_title = Options::get(strtolower(get_class($this)) . '__title' );
-		//Assign default values if options not set
-		if (empty($limit)) $limit ='5';
-		if (empty($format)) $format ='[[user]] on [[post]]';
-		if (empty($dateformat)) $dateformat ='Mj n:ia';
 		
 		$status =Comment::STATUS_APPROVED;
 		$commentarray =array('limit'=>$limit, 'status'=>$status, 'type'=>Comment::COMMENT, 'orderby'=>'date DESC');
