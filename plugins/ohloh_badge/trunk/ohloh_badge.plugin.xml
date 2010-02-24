@@ -14,10 +14,10 @@
 	</description>
 	<help>
 		<value>
-			<![CDATA[Configure, then use <code>&lt;?php $theme->ohloh_badge(); ?></code> in your theme to output the HTML image markup.]]>
+			<![CDATA[Configure, then use <code>&lt;?php $theme->ohloh_badge(); ?&gt;</code> in your theme to output the HTML image markup.]]>
 		</value>
 		<value xml:lang="es-es">
-			<![CDATA[Configurar, a continuacion, utilice <code>&lt;?php $theme->ohloh_badge(); ?></code> en su tema a la salida de la imagen de marcas HTML.]]>
+			<![CDATA[Configurar, a continuacion, utilice <code>&lt;?php $theme->ohloh_badge(); ?&gt;</code> en su tema a la salida de la imagen de marcas HTML.]]>
 		</value>
 	</help>
 	<help name="Configure">
