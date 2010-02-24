@@ -6,9 +6,7 @@
 	<url>http://habariproject.org/</url>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<copyright>2009</copyright>
-	<description>
-		<![CDATA[Display an ohloh badge within your blog]]>
-	</description>
+	<description><![CDATA[Display an ohloh badge within your blog]]></description>
 	<description xml:lang="es-es">
 		<![CDATA[Mostrar una placa ohloh en tu blog]]>
 	</description>
