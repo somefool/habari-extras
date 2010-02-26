@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<theme>
+<pluggable type="theme">
 	<name>Binadamu</name>
 	<author>Joel Lee</author>
 	<url>http://blog.bcse.info/</url>
@@ -7,4 +7,4 @@
 	<description>A theme which inspired by Sandbox.</description>
 	<template_engine>rawphpengine</template_engine>
 	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
-</theme>
+</pluggable>
