@@ -17,26 +17,6 @@ class RateIt extends Plugin
 	const DB_VERSION = 1;
 
 	/**
-	 * plugin information
-	 *
-	 * @access public
-	 * @retrun void
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Rate It!',
-			'version' => '0.01',
-			'url' => 'http://ayu.commun.jp/habari-rateit',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => 'adding Star Rating to your posts.',
-			'guid' => '5ffe55ac-2773-11dd-b5d6-001b210f913f'
-			);
-	}
-
-	/**
 	 * action: plugin_activation
 	 *
 	 * @access public
@@ -350,15 +330,7 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 	{
 		DB::register_table( 'rateit_log' );
 
-		$query = 'CREATE TABLE `' . DB::table( 'rateit_log' ) . '` (
-			`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-			`post_id` INT NOT NULL ,
-			`rating` TINYINT NOT NULL ,
-			`timestamp` DATETIME NOT NULL ,
-			`ip` INT( 10 ) NOT NULL ,
-			INDEX ( `post_id` , `ip` )
-			);';
-		return DB::dbdelta( $query );
+		return DB::dbdelta( $this->get_db_schema() );
 	}
 }
 ?>
