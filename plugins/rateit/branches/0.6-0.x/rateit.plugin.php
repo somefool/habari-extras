@@ -26,7 +26,7 @@ class RateIt extends Plugin
 	{
 		return array(
 			'name' => 'Rate It!',
-			'version' => '0.01',
+			'version' => '0.02',
 			'url' => 'http://ayu.commun.jp/habari-rateit',
 			'author' => 'ayunyan',
 			'authorurl' => 'http://ayu.commun.jp/',
@@ -350,15 +350,7 @@ Rate It! (Average ' . $rating . ', ' . $count . ' votes)
 	{
 		DB::register_table( 'rateit_log' );
 
-		$query = 'CREATE TABLE `' . DB::table( 'rateit_log' ) . '` (
-			`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-			`post_id` INT NOT NULL ,
-			`rating` TINYINT NOT NULL ,
-			`timestamp` DATETIME NOT NULL ,
-			`ip` INT( 10 ) NOT NULL ,
-			INDEX ( `post_id` , `ip` )
-			);';
-		return DB::dbdelta( $query );
+		return DB::dbdelta( $this->get_db_schema() );
 	}
 }
 ?>
