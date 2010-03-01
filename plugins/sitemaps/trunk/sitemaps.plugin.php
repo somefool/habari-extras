@@ -12,7 +12,7 @@ class Sitemaps extends Plugin {
 	 */
 	public function filter_rewrite_rules( $db_rules )
 	{
-		$db_rules[]= RewriteRule::create_url_rule( '"sitemap.xml"', 'Sitemaps', 'Sitemap' );
+		$db_rules[]= RewriteRule::create_url_rule( '"sitemap\.xml"', 'Sitemaps', 'Sitemap' );
 		return $db_rules;
 	}
 
