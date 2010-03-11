@@ -9,7 +9,7 @@ class URLBounce extends Plugin
 	{
 		return array(
 			'name' => 'URL Bouncer',
-			'version' => '0.1',
+			'version' => '0.2',
 			'url' => 'http://hacman.org.uk/urlbounce',
 			'author' => 'Bob Clough',
 			'authorurl' => 'http://thinkl33t.co.uk',
@@ -23,7 +23,7 @@ class URLBounce extends Plugin
 	 **/
 	public function action_update_check()
 	{
-	 	Update::add( 'URL Bounce', '7d09c910-b921-4958-9f02-c1e06a20b756', $this->info->version );
+	 	Update::add( $this->info->name, '7d09c910-b921-4958-9f02-c1e06a20b756', $this->info->version );
 	}
 
 	//when plugin is activated, create urlbounce type, let anon users access it
@@ -52,11 +52,29 @@ class URLBounce extends Plugin
 	{
 		if ($form->content_type->value == Post::type('urlbounce')) 
 		{
-			$form->insert('silos', 'text', 'url', 'null:null', _t('External URL'), 'admincontrol_text');
-			$form->url->value = $post->info->url;
-			$form->tags->template = 'hidden';
-			$form->silos->template = 'hidden';
-			$form->content->template = 'hidden';
+		        //add URL field
+		        $form->insert('silos', 'text', 'url', 'null:null', _t('External URL'), 'admincontrol_text');
+		        $form->url->value = $post->info->url;
+		        
+		        //disable comments by default
+		        $form->settings->comments_enabled->value = false;
+
+		        //hide tags
+		        $form->tags->template = 'hidden';
+
+		        //remove silos
+		        $form->silos->remove();
+
+		        //modify content to be hidden - it cant be done the same way as tags, form becomes unsubmittable
+		        $form->content->template = 'admincontrol_text';
+		        $form->content->class[] = 'hidden';
+		        $form->content->class = array_diff($form->content->class, array('resizable'));
+
+		        //promote post slug to main section
+		        $form->settings->newslug->move_after($form->url);
+		        $form->newslug->template = 'admincontrol_text';
+		        $form->newslug->caption = _t('Local URL');
+		        $form->newslug->tabindex = 3;
 		}
 	}
 
