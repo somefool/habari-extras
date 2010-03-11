@@ -48,7 +48,7 @@ class TwitterAvatar extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add($this->info->name, $this->info->guid, $this->info->version);
+		Update::add( 'Twitter Avatar', '3d327504-f01b-11dd-bd4c-001b210f913f', $this->info->version);
 	}
 
 	/**
