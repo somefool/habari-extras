@@ -125,6 +125,13 @@ class autoclose extends Plugin
 		return true;
 	}
 
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Autoclose', 'f63a1f56-0bc8-4b32-88cf-bc73fa51db7d', $this->info->version );
+	}
 }
 
 ?>
