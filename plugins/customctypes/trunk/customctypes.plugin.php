@@ -8,25 +8,7 @@
 class CustomCTypes extends Plugin
 {
 	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	function info()
-	{
-		return array (
-			'name' => 'Custom Content Types',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.0',
-			'description' => 'Allows admins to create new content types.',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
-	/**
-	 * Add the Custom Sontent Types page to the admin menu
+	 * Add the Custom Content Types page to the admin menu
 	 *
 	 * @param array $menus The main admin menu
 	 * @return array The altered admin menu
@@ -173,6 +155,14 @@ class CustomCTypes extends Plugin
 			// Utils::debug($form);
 			// Put custom data fields into $post->info here
 		}
+	}
+
+	/**
+	 * Add update beacon support
+	 **/
+	public function action_update_check()
+	{
+	 	Update::add( 'Custom Content Types', 'ed4d6659-cf5d-4772-bd78-9c1d164b4354', $this->info->version );
 	}
 
 }
