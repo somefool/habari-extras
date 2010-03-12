@@ -1,6 +1,3 @@
-<?php // Do not delete these lines
-if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directly. Thanks!') ); }
-?>
 	<div class="comments">
 		<h3><?php echo $post->comments->moderated->count; ?> Responses to <em><?php echo $post->title; ?></em></h3>
    		<ol id="commentlist">
@@ -29,3 +26,4 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 			<?php } ?>
     		</ol>
 <?php if ( ! $post->info->comments_disabled ) { include_once( 'commentform.php' ); } ?>    
+	</div>

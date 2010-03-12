@@ -409,27 +409,27 @@ body {
 					width:530px;
 				}
 				
-					.comments form #comment-personaldetails {
+					.comments form {
 						font-size:10px;
 						font-family:"Trebuchet MS", sans-serif;
 						text-transform:uppercase;
 						line-height:30px;
 					}
 					
-						.comments form #comment-personaldetails span {
+						.comments form span {
 							color:#999;
 							display:block;
 							float:left;
 							margin-left:10px;
 						}
 					
-						.comments form #comment-personaldetails label {
+						.comments form label {
 							display:block;
 							float:left;
 							width:60px;
 						}
 					
-						.comments form #comment-personaldetails input {
+						.comments form input[type=text] {
 							border:0;
 							width:250px;
 							height:20px;
@@ -444,7 +444,11 @@ body {
 							float:left;
 							background-image:url(img/form_bg.jpg);
 						}
-		
+
+					.comments form .hidden {
+						display:none;
+					}
+
 					.comments form textarea {
 						border:0;
 						padding:5px;
@@ -458,7 +462,8 @@ body {
 						line-height:18px;
 					}
 					
-					.comments form #submit {
+					.comments form #cf_submit {
+						margin-top:1em;
 						margin-left:60px;
 					}
 			

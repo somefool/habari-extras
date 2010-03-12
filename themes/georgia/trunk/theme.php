@@ -19,6 +19,10 @@ class Unknown extends Theme
 
 	public function add_template_vars()
 	{
+		$this->add_template('formcontrol_text', dirname(__FILE__).'/forms/formcontrol_text.php', true);
+		$this->add_template('formcontrol_textarea', dirname(__FILE__).'/forms/formcontrol_textarea.php', true);
+		$this->add_template('formcontrol_submit', dirname(__FILE__).'/forms/formcontrol_submit.php', true);
+
 		$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
 		$this->assign('recent_posts', Posts::get( array('limit'=>5, 'orderby'=>'pubdate DESC', 'content_type'=>1, 'status'=>2 ) ) );
 		
@@ -44,6 +48,12 @@ class Unknown extends Theme
 			Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 		}
 		return $return;
+	}
+
+	public function action_form_comment( $form ) { 
+		$form->cf_commenter->caption = 'Name';
+		$form->cf_email->caption = 'Mail';
+		$form->cf_url->caption = 'Website';
 	}
 
 }
