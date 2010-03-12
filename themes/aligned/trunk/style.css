@@ -485,29 +485,29 @@ a {
 								margin:0 0 15px 0;
 							}
 							
-			#commentform {
+			.comments form {
 				margin:0 0 0 10px;
 			}
-			
-				#commentform div {
+
+				.comments form div {
 					margin:0 0 7px 0;
 				}
-					
-				#comment_personaldetails {
+
+				.comments form {
 					text-transform:uppercase;
 					font-size:10px;
 					line-height:25px;
 				}
-					
-					#comment_personaldetails label {
+
+					.comments form label {
 						display:block;
 						float:left;
 						width:50px;
 						font-weight:bold;
 						text-align:right;
 					}
-					
-					#comment_personaldetails input {
+
+					.comments form input[type=text] {
 						float:left;
 						margin:0 0 0 10px;
 						background-image:url(img/form_bg.jpg);
@@ -523,17 +523,21 @@ a {
 						color:#8C1018;
 					}
 					
-						#comment_personaldetails input:hover {
+						.comments form input:hover {
 							background-color:#EEE;
 							background-image:none;
 						}
 					
-					#comment_personaldetails span {
+					.comments form span {
 						margin:0 0 0 10px;
 						color:#999;
 					}
-					
-				#commentform textarea {
+
+				.comments form .hidden {
+					display:none;
+				}
+	
+				.comments form textarea {
 					margin:0 0 0 60px;
 					background-image:url(img/form_bg.jpg);
 					width:580px;
@@ -546,18 +550,19 @@ a {
 					color:#8C1018;
 				}
 				
-					#commentform textarea:hover {
+					.commments form textarea:hover {
 						background-color:#EEE;
 						background-image:none;
 					}
 				
-				#commentform #submit_wrapper {
+				.comments #cf_submit {
+					margin-top: 1em;
 					background-image:url(img/dots.jpg);
 					background-repeat:repeat-x;
 					background-position:0px 27px;
 				}
 					
-					#commentform #submit_wrapper input {
+					.comments #cf_submit input {
 						background-color:#FFF;
 						background-image:url(img/form_bg.jpg);
 						border:0;
@@ -574,7 +579,7 @@ a {
 						margin:0 0 0 60px;
 					}
 
-						#commentform #submit_wrapper input:hover {
+						.comments #cf_submit input:hover {
 							color:#8C1018;
 						}
 					

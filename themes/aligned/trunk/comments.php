@@ -29,3 +29,4 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 			<?php } ?>
     		</ol>
 <?php if ( ! $post->info->comments_disabled ) { include_once( 'commentform.php' ); } ?>    
+	</div>
