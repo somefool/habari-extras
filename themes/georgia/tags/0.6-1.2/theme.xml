@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pluggable type="theme">
+	<name>Georgia</name>
+	<author>Thomas Silkjær</author>
+	<url>http://theundersigned.net/</url>
+	<version>1.2</version>
+	<description>A theme by Thomas Silkjær</description>
+	<template_engine>rawphpengine</template_engine>
+</pluggable>
