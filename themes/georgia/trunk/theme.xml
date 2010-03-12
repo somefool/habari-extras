@@ -4,6 +4,6 @@
 	<author>Thomas Silkjær</author>
 	<url>http://theundersigned.net/</url>
 	<version>1.2</version>
-	<description>A theme by Thomas Silkjær<descriptio>
+	<description>A theme by Thomas Silkjær</description>
 	<template_engine>rawphpengine</template_engine>
 </pluggable>
