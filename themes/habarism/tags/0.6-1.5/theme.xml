@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pluggable type="theme">
+	<name>Habarism</name>
+	<author>Thomas Silkjær</author>
+	<url>http://theundersigned.net/</url>
+	<version>1.5</version>
+	<template_engine>rawphpengine</template_engine>
+</pluggable>
