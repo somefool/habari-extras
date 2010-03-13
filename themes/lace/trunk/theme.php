@@ -23,6 +23,8 @@ Format::apply( 'nice_date', 'comment_date_out', 'F j, Y g:ia' );
 // Add calls for curvycorners and jquery
 Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 Stack::add( 'template_header_javascript', Site::get_url('theme') . '/js/jquery.curvycorners.js');
+Stack::add( 'template_stylesheet', array( Site::get_url('3rdparty') . '/blueprint/screen.css', 'screen,projection') );
+Stack::add( 'template_stylesheet', array( Site::get_url('3rdparty') . '/blueprint/print.css', 'print') );
 
 // Remove the comment on the following line to limit post length on the home page to 1 paragraph or 100 characters
 //Format::apply_with_hook_params( 'more', 'post_content_out', 'more', 100, 1 );
@@ -36,26 +38,28 @@ class MyTheme extends Theme
 	/**
 	 * Add additional template variables to the template output.
 	 *
-	 *  You can assign additional output values in the template here, instead of
-	 *  having the PHP execute directly in the template.  The advantage is that
-	 *  you would easily be able to switch between template types (RawPHP/Smarty)
-	 *  without having to port code from one to the other.
+	 *You can assign additional output values in the template here, instead of
+	 *having the PHP execute directly in the template.The advantage is that
+	 *you would easily be able to switch between template types (RawPHP/Smarty)
+	 *without having to port code from one to the other.
 	 *
-	 *  You could use this area to provide "recent comments" data to the template,
-	 *  for instance.
+	 *You could use this area to provide "recent comments" data to the template,
+	 *for instance.
 	 *
-	 *  Note that the variables added here should possibly *always* be added,
-	 *  especially 'user'.
+	 *Note that the variables added here should possibly *always* be added,
+	 *especially 'user'.
 	 *
-	 *  Also, this function gets executed *after* regular data is assigned to the
-	 *  template.  So the values here, unless checked, will overwrite any existing
-	 *  values.
+	 *Also, this function gets executed *after* regular data is assigned to the
+	 *template.So the values here, unless checked, will overwrite any existing
+	 *values.
 	 */
 	public function add_template_vars()
 	{
+		$this->add_template('formcontrol_text', dirname(__FILE__).'/forms/formcontrol_text.php', true);
+		$this->add_template('formcontrol_textarea', dirname(__FILE__).'/forms/formcontrol_textarea.php', true);
+
 		//Theme Options
 		$this->assign('home_tab','Home'); //Set to whatever you want your first tab text to be.
-		
 		
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
@@ -75,6 +79,11 @@ class MyTheme extends Theme
 			Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 					}
 		return $return;
+	}
+	public function action_form_comment( $form ) {
+		$form->cf_commenter->caption = 'Name (required)';
+		$form->cf_email->caption = 'Mail (will not be published) (required)';
+		$form->cf_submit->caption = 'Submit Comment';
 	}
 
 }

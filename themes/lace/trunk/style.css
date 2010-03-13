@@ -141,3 +141,5 @@ a:active{color:#FFFCF9; text-decoration: overline;}
 #pagenav a:hover.current-page {border:1px solid gray;color:gray;background:transparent;}
 
 #pagenav a:hover {border:1px solid gray;color:#29C0B3;background:gray;}
+
+.hidden {display:none;}
