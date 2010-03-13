@@ -1,12 +1,9 @@
 <!-- comments -->
-<?php // Do not delete these lines
-if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directly. Thanks!') ); }
-?>
 	<div id="comments">
-<?php if( $post->comments->moderated->count ) :
+<?php if( $post->comments->approved->count ) :
 $count= 0; ?>
 
-	<h4><?php echo $post->comments->moderated->count; ?> Responses to &#8220;<?php echo $post->title; ?>&#8221;</h4>
+	<h4><?php echo $post->comments->approved->count; ?> Responses to &#8220;<?php echo $post->title; ?>&#8221;</h4>
 	<ol class="commentlist">
 <?php foreach ( $post->comments->moderated as $comment ) :
 	$count++;
@@ -25,7 +22,7 @@ $count= 0; ?>
 	<li id="comment-<?php echo $comment->id; ?>" class="<?php echo $class; ?>">
 
 	   <span class="commentauthor"><a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a></span>
-	   <small class="commentmetadata"><a href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php echo $comment->date; ?></a> <?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) { ?><em>Your comment is awaiting moderation.</em><?php } ?></small>
+	   <small class="commentmetadata"><a href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php echo $comment->date_out; ?></a> <?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) { ?><em>Your comment is awaiting moderation.</em><?php } ?></small>
 
 	   <?php echo $comment->content_out; ?>
 

@@ -16,8 +16,9 @@ Format::apply( 'autop', 'post_content_out' );
 Format::apply( 'autop', 'comment_content_out' );
 // Apply Format::tag_and_list() to post tags...
 Format::apply( 'tag_and_list', 'post_tags_out' );
-// Apply Format::nice_date() to post date...
+// Apply Format::nice_date() to dates...
 Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y g:ia' );
+Format::apply( 'nice_date', 'comment_date_out', 'F j, Y g:ia' );
 
 // Add calls for curvycorners and jquery
 Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
