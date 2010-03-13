@@ -1,9 +1,9 @@
 <?php 
-if ( $post->comments->moderated->count ) {
-	foreach ( $post->comments->moderated as $comment ) {
+if ( $post->comments->moderated->count ) {?>
+<h2 id="comments"><?php echo $post->comments->moderated->count; ?> comments</h2>
+<?php	foreach ( $post->comments->moderated as $comment ) {
 ?>
 
-<h2 id="comments"><?php echo $post->comments->moderated->count; ?> comments</h2>
 
 <div class="comments_wrap" id="comment-<?php echo $comment->id; ?>">
 <div class="left">

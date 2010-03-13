@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<theme>
+<pluggable type="theme">
 	<name>Natural Power</name>
 	<author>David Peralty (original WordPress theme) and Marc Riera (Habari port)</author>
 	<url>http://webs.racocatala.cat/iesmou</url>
 	<version>0.1</version>
+	<description>A two-column theme using images</description>
 	<template_engine>rawphpengine</template_engine>
-</theme>
+</pluggable>
