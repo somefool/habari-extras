@@ -1,0 +1,243 @@
+* {
+	font-family: "Lucida Grande", Calibri, Verdana, Helvetica, Arial, sans-serif;
+}
+
+html {
+	background: #fff;
+	color: #333;
+	font-size: 0.8em;
+}
+
+body {
+	max-width: 750px;
+	margin: 10px auto;
+	text-align: left;
+}
+
+a:link, a:visited {
+	color: #0000CD;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #FF8C00;
+	text-decoration: none;
+	border-bottom: 1px solid #FF8C00;
+}
+
+a img {
+	border: 0;
+}
+
+#siteinfo {
+	float: left;
+	width: 40%;
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	font-weight: normal;
+	color: #FF8C00;
+	padding: 0;
+	margin: 0;
+}
+
+#tagline {
+	font-style: italic;
+}
+
+#search {
+	float: right;
+	width: 60%;
+	text-align: right;
+}
+
+#search input {
+	height: 1.5em;
+}
+
+#searchsubmit {
+	width: 50px;
+}
+
+#search p {
+	padding: 0;
+	margin: 0;
+}
+
+#search p * {
+	padding: 0;
+	margin: 0;
+}
+
+#menu {
+	text-align: left;
+	list-style-type: none;
+	float: left;
+	padding: 0;
+	clear: both;
+}
+
+#menu li {
+	float: left;
+}
+
+#menu li a, #menu li .current {
+	padding: 5px 10px;
+	text-decoration:none;
+	border: none;
+}
+
+#menu li a:hover {
+	background: #FF8C00;
+	color:#fff;
+}
+
+
+h2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h2 a {
+	font-weight: normal;
+}
+
+fieldset {
+	width: 720px;
+	padding: 15px;
+	padding-top: 0;
+	margin-top: 20px;
+}
+
+label {
+	width: 150px;
+	max-width: 150px;
+	display: block;
+	float: left;
+}
+
+input {
+	width: 250px;
+}
+
+textarea {
+	width: 99%;
+}
+
+pre, code {
+	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Courier New", Courier, Monospace;
+	overflow: auto;
+}
+
+.draft {
+	background-color: #efefef;
+}
+
+#content {
+	line-height: 1.5;
+	clear: both;
+}
+
+#content img {
+        max-width: 100%;
+}
+
+#bottom {
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+	width: 765px;
+}
+
+#bottom .column {
+	width: 245px;
+	float: left;
+	padding: 0;
+	margin-right: 7.5px;
+	text-align: left;
+}
+
+#bottom .column ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#bottom .column h2 {
+	font-size: 1.2em;
+	border-bottom: 1px solid #999;
+}
+
+#bottom br {
+	clear: both;
+	height: 0;
+	width: 0;
+}
+
+#footer {
+	width: 750px;
+	border-top: 1px solid #d5d5d5;
+	margin-top: 10px;
+	padding-top: 5px;
+	color: #999;
+}
+
+.post .meta, .paging {
+	text-align: right;
+}
+
+.post {
+	padding-top: 10px;
+	border-top: 1px solid #d5d5d5;
+	margin-top: 10px;
+	line-height: 1.5em;
+}
+
+.paging {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.paging a.current-page {
+	color: #000000;
+}
+
+#comments ol {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.response {
+	margin-left: 20px;
+}
+
+.alt {
+	background-color: #eee;
+}
+
+.alt a:link, .alt a:visited {
+	border-bottom: 1px solid #eee;
+}
+
+.alt a:hover, .alt a:active {
+	border-bottom: 1px solid #FF8C00;
+}
+
+.mycomment {
+	background-color: #fec;
+}
+
+.mycomment a:link, .mycomment a:visited {
+	border-bottom: 1px solid #fec;
+}
+
+.mycomment a:hover, .mycomment a:active {
+	border-bottom: 1px solid #FF8C00;
+}
+
+.center {
+	text-align: center;
+}
