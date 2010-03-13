@@ -1,6 +1,6 @@
 <?php 
 if ( $post->comments->moderated->count ) {?>
-<h2 id="comments"><?php echo $post->comments->moderated->count; ?> comments</h2>
+<h2 id="comments"><?php echo $post->comments->moderated->count; echo _n( ' comment', ' comments', $post->comments->moderated->count ); ?></h2>
 <?php	foreach ( $post->comments->moderated as $comment ) {
 ?>
 
@@ -31,38 +31,5 @@ if ( $post->comments->moderated->count ) {?>
 if ( Session::has_errors() ) {
 	Session::messages_out();
 }
+$post->comment_form()->out();
 ?>
-
-
-
-<form action="<?php URL::out( 'submit_feedback', array( 'id' => $post->id ) ); ?>" method="post" id="commentform">
-<div>
-
-
-
-<label for="name">Username :<br />
-<input type="text" name="name" id="author" value="<?php echo $commenter_name; ?>" size="27" tabindex="1" /></label> 
-
-
-
-<label for="email">Email :<br />
-<input type="text" name="email" id="email" value="<?php echo $commenter_email; ?>" size="27" tabindex="2" /></label> 
-
-
-
-<label for="url">Web Site :<br />
-<input type="text" name="url" id="url" value="<?php echo $commenter_url; ?>" size="27" tabindex="3" /></label> 
-
-
-
-<label for="comment">Comment :<br /></label> 
-<textarea name="content" id="comment" cols="50" rows="8" tabindex="4"><?php echo $commenter_content; ?></textarea>
-
-
-
-<input name="submit" type="submit" id="submit" tabindex="5" value="Submit" />
-
-
-
-</div>
-</form>

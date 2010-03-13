@@ -44,7 +44,7 @@ class MyTheme extends Theme
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'user' ) ) {
-			$this->assign('user', User::identify() );
+			$this->assign('user', User::identify()->loggedin );
 		}
 /*		if( !$this->template_engine->assigned( 'page' ) ) {
 			$this->assign('page', isset( $page ) ? $page : 1 );
@@ -53,16 +53,20 @@ class MyTheme extends Theme
 		if( !$this->template_engine->assigned( 'all_tags' ) ) {
 		
 		// List of all the tags
-		$tags= DB::get_results( 'SELECT tag_text as tag, tag_slug as slug FROM ' . DB::table('tags') . ' ORDER BY tag_text ASC' );
+		$tags = Tags::get();
 		$this->assign('all_tags', $tags);}
 
-		parent::add_template_vars();		
 		//visiting page/2, /3 will offset to the next page of posts in the sidebar
 		$page=Controller::get_var( 'page' );
 		$pagination=Options::get('pagination');
 		if ( $page == '' ) { $page= 1; }
 		$this->assign( 'more_posts', Posts::get(array ( 'status' => 'published','content_type' => 'entry','offset' => ($pagination)*($page), 'limit' => 5,  ) ) );
-			
+
+		parent::add_template_vars();		
+
+		$this->add_template('formcontrol_text', dirname(__FILE__).'/forms/formcontrol_text.php', true);
+		$this->add_template('formcontrol_textarea', dirname(__FILE__).'/forms/formcontrol_textarea.php', true);
+		
 	}
 
 	// called in theme template like so: $theme->monthly_archives_links_list(); 
@@ -72,6 +76,9 @@ class MyTheme extends Theme
  
 		$archives[] = '';
 		foreach ( $results as $result ) {
+			// add leading zeros
+                        $result->month= str_pad( $result->month, 2, 0, STR_PAD_LEFT );
+
 			// what format do we want to show the month in?
 			if( $full_names ) {
 				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1)->get( 'F' );
@@ -94,6 +101,15 @@ class MyTheme extends Theme
 		return implode( "\n", $archives );
 	}
 	
+	public function action_form_comment( $form ) { 
+		$form->cf_commenter->caption = 'Username :';
+		$form->cf_email->caption = 'Email :';
+		$form->cf_url->caption = 'Web Site :';
+		$form->cf_content->caption = 'Comment :';
+		$form->cf_content->cols = 50;
+		$form->cf_content->rows = 8;
+	}
+
 	/*public function gravatar($rating = false, $size = false, $default = false, $border = false) 
 	{
 		$out = "http://www.gravatar.com/avatar.php?gravatar_id=".md5( $posts->comments->moderated->email );
