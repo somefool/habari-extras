@@ -460,13 +460,13 @@ a:visited {
 						font-weight:normal;
 					}
 					
-			#content .comments form.#commentform {}
+			#content .comments form {}
 					
-				#commentform p {
+				.comments form p {
 					margin:0 0 9px 0;
 				}
 				
-				#commentform label {
+				.comments form label {
 					color:#A7A37E;
 					font-family:"Lucida Grande", "Trebuchet MS", Helvetica, Arial, sans-serif;
 					font-size:10px;
@@ -477,21 +477,25 @@ a:visited {
 					margin:0 0 0 10px;
 				}
 				
-				#commentform input {
+				.comments form input[type=text] {
 					width:170px;
 				}
 				
-				#commentform textarea {
+				.comments form textarea {
 					width:410px;
 					height:150px;
 					margin:0 0 9px 0;
 					display:block;
 				}
 				
-				#commentform #submit {
+				.comments form #cf_submit {
 					width:60px;
 				}
-					
+
+				.comments form .hidden {
+					display:none;
+				}
+
 		#content .page_navigation {
 			margin:-36px 0 0 0;
 			padding:0 10px;
