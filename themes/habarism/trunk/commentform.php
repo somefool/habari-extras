@@ -1,6 +1,3 @@
-<?php // Do not delete these lines
-if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directly. Thanks!') ); }
-?>
       <h3 id="respond" class="comment_title">Leave a Reply</h3>
 <?php
 if ( Session::has_errors() ) {
@@ -32,4 +29,3 @@ if ( Session::has_errors() ) {
        </p>
        <div class="clear"></div>
       </form>
-     </div>

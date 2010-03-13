@@ -1,7 +1,3 @@
-<?php // Do not delete these lines
-if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directly. Thanks!') ); }
-?>
-
 		<div class="comments">
 			<h3 class="comment_title"><?php echo $post->comments->moderated->count; ?> Responses to <?php echo $post->title; ?></h3>
      		<ol id="commentlist">
@@ -17,7 +13,7 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 						?>
       						<li id="comment-<?php echo $comment->id; ?>" <?php echo $class; ?>>
 								<h2 class="comment_author"><?php echo $comment_url; ?></h2>
-       							<h3 class="comment_meta"><a href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php $comment->date->out(); ?></a><?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) : ?> &midpoint; in moderation<?php endif; ?></h3>
+       							<h3 class="comment_meta"><a href="#comment-<?php echo $comment->id; ?>" title="Time of this comment"><?php $comment->date->out(); ?></a><?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) : ?> &middot; in moderation<?php endif; ?></h3>
        							<div class="comment_content">
         							<?php echo $comment->content_out; ?>
 								</div>
@@ -31,3 +27,4 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 				<?php } ?>
      		</ol>
 <?php if ( ! $post->info->comments_disabled ) { include_once( 'commentform.php' ); } ?>    
+	</div>
