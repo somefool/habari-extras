@@ -557,7 +557,7 @@ li.bypostauthor blockquote {
 .comments form {
 	clear: both;
 	padding: 1px 0 10px;
-	margin: 0;
+	margin: 1em 0 0;
 	}
 
 .comments input[type=text], .comments textarea {
@@ -583,8 +583,12 @@ input[type=text]:focus, textarea:focus {
 	margin: 10px 0;
 	}
 
-.comments form #submit {
-	margin: 0;
+.comments .hidden {
+	display: none; 
+	}
+
+.comments form #cf_submit {
+	margin: 0 0 1em 0;
 	float: right;
 	}
 

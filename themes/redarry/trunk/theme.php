@@ -52,6 +52,9 @@ class MyTheme extends Theme
 	 */	 	 	 	 	
 	public function add_template_vars() 
 	{
+ 		$this->add_template('formcontrol_text', dirname(__FILE__).'/forms/formcontrol_text.php', true);
+		$this->add_template('formcontrol_textarea', dirname(__FILE__).'/forms/formcontrol_textarea.php', true);
+
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
 		}
@@ -86,7 +89,13 @@ class MyTheme extends Theme
 			Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 		}
 	}
-	
+
+	public function action_form_comment( $form ) { 
+		$form->cf_commenter->caption = '<strong>Name</strong>';
+		$form->cf_email->caption = '<strong>Mail</strong> (will not be published)';
+		$form->cf_url->caption = '<strong>Website</strong>';
+	}
+
 }
 
 ?>
