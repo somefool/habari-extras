@@ -3,7 +3,7 @@
 	<name>Natural Power</name>
 	<author>David Peralty (original WordPress theme) and Marc Riera (Habari port)</author>
 	<url>http://webs.racocatala.cat/iesmou</url>
-	<version>0.1</version>
+	<version>0.2</version>
 	<description>A two-column theme using images</description>
 	<template_engine>rawphpengine</template_engine>
 </pluggable>
