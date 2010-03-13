@@ -2,18 +2,18 @@
 <pluggable type="theme">
 	<name>Simpler</name>
 	<license url="#">Do what you want with this theme. Linking to the original author would be appreciated but you don't have to.</license>
-	
-	<author url="http://habariproject.org/">Habari Community</author>
+
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<author url="http://randywalker.net/">Randy Walker</author>
 	<author url="http://chrismeller.com/">Chris Meller</author>
 
-	
-	<version>15</version>
+
+	<version>16</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[A simple theme. Original author Randy Walker.]]></description>
 
-	<copyright>2009</copyright>
-	
+	<copyright>2010</copyright>
+
 	<template_engine>rawphpengine</template_engine>
-	
+
 </pluggable>
