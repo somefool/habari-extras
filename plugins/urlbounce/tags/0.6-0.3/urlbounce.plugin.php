@@ -5,12 +5,25 @@
 
 class URLBounce extends Plugin
 {
+	function info()
+	{
+		return array(
+			'name' => 'URL Bouncer',
+			'version' => '0.3',
+			'url' => 'http://hacman.org.uk/urlbounce',
+			'author' => 'Bob Clough',
+			'authorurl' => 'http://thinkl33t.co.uk',
+			'license' => 'Apache License 2.0',
+			'description' => 'Allow user to set up URL bouncers, to forward local URLs on to remote URLs'
+		);
+	}
+
 	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
 	{
-	 	Update::add( $this->info->name, '7d09c910-b921-4958-9f02-c1e06a20b756', $this->info->version );
+	 	Update::add( 'URL Bounce', '7d09c910-b921-4958-9f02-c1e06a20b756', $this->info->version );
 	}
 
 	//when plugin is activated, create urlbounce type, let anon users access it

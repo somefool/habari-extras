@@ -3,7 +3,7 @@
 	<name>URL Bounce</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://thinkl33t.co.uk/">Bob Clough</author>
-	<version>0.1</version>
+	<version>0.3</version>
 	<url>http://hacman.org.uk/urlbounce</url>
 	<description><![CDATA[Allow user to set up URL bouncers, to forward local URLs on to remote URLs.]]></description>
 	<copyright>2010</copyright>
