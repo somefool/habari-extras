@@ -1,4 +1,5 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>passwd Logins</name>
 	<version>1.0</version>
 	<url>http://habariproject.org/</url>
@@ -6,6 +7,4 @@
 	<authorurl>http://habariproject.org/</authorurl>
 	<license>Apache License 2.0</license>
 	<description>Gets password information for users from a passwd-generated file.</description>
-</plugin>
-
- 
+</pluggable>
