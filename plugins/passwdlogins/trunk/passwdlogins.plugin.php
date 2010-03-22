@@ -2,20 +2,7 @@
 
 class PasswdLogins extends Plugin
 {
-	private $passwdfile = '/var/www/sites/habariproject/subversion/htpasswd';
-
-	public function info()
-	{
-		return array(
-			'name' => 'passwd Logins',
-			'version' => '1.0',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Gets password information for users from a passwd-generated file.',
-		);
-	}
+	private $passwdfile = '/home/habari/public_html/svn.habariproject.org/private/repos/htpasswd';
 
 	public function filter_user_authenticate($user, $username, $password)
 	{
@@ -25,12 +12,15 @@ class PasswdLogins extends Plugin
 
 		$users = array();
 
+		// @todo improve this so it handles line breaks at the end of the username (see comment below) - meller
 		$lines = preg_split('%[\n\r]+%', file_get_contents($this->passwdfile));
 		foreach($lines as $line) {
 			if(trim($line) == '') {
 				continue;
 			}
 			$parts = explode(':', $line, 2);
+			// this gets Notice: Undefined offset:  1 in user/plugins/passwdlogins/passwdlogins.plugin.php line 22 when user types the wrong password
+			// actually, that has nothing to do with passwords, it means a spammer has registered at Trac with a line break at the end of their username. i deleted one just now and the error went away. you only ever saw the error if login failed, so it was a natural conclusion - meller
 			$users[$parts[0]] = $parts[1];
 		}
 
@@ -55,7 +45,7 @@ class PasswdLogins extends Plugin
 			}
 
 	  	if ( $passok ) {
-	  		if ( $tuser = User::get_by_name( $username ) ) {
+			if ( $tuser = User::get_by_name( $username ) ) {
 	  			return $tuser;
 				}
 			}
