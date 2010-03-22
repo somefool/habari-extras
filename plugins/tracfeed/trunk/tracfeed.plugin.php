@@ -1,7 +1,5 @@
 <?php
 
-define('TRAC_DB_PATH', '/var/www/sites/habariproject/trac/habari/db/trac.db');
-
 class TracFeed extends Plugin
 {
 	public function filter_rewrite_rules( $rules ) {
@@ -20,14 +18,23 @@ class TracFeed extends Plugin
 
 	public function action_handler_dev_feed($handler_vars)
 	{
-		$xml= RSS::create_rss_wrapper();
-		
-		$db = DatabaseConnection::ConnectionFactory('sqlite:' . TRAC_DB_PATH);
-		$db->connect('sqlite:' . TRAC_DB_PATH, '', '');
+		$rss = Plugins::get_by_interface('RSS');
+		if(count($rss) !== 1) {
+			exit;
+		}
+
+		$xml= reset($rss)->create_rss_wrapper();
+
+		$connection_string = Options::get( 'tracfeed__connection_string' );
+		$username = Options::get( 'tracfeed__username' );
+		$password = Options::get( 'tracfeed__password' );
+
+		$db = DatabaseConnection::ConnectionFactory( $connection_string );
+		$db->connect( $connection_string, $username, $password );
 		
 		$times = $db->get_column('SELECT time from ticket_change group by time order by time desc limit 15;');
 		$mintime = array_reduce($times, 'min', reset($times));
-		
+
 		$comments = $db->get_results("
 			SELECT *, ticket_change.time as changetime from ticket_change 
 			INNER JOIN ticket on ticket.id = ticket_change.ticket
@@ -90,6 +97,24 @@ class TracFeed extends Plugin
 		return $permalink;
 	}
 
+	public function configure()
+	{
+		$ui = new FormUI( 'tracfeed' );
+
+		$connection_string = $ui->append( 'text', 'connection_string', 'tracfeed__connection_string', _t( 'Connection String:', 'tracfeed' ) );
+		$username = $ui->append( 'text', 'username', 'tracfeed__username', _t( 'Username (or blank for sqlite):', 'tracfeed' ) );
+		$password = $ui->append( 'password', 'password', 'tracfeed__password', _t( 'Password (or blank for sqlite):', 'tracfeed' ) );
+
+		$ui->on_success( array( $this, 'updated_config' ) );
+		$ui->append( 'submit', 'save', _t( 'Save', 'tracfeed' ) );
+		return $ui;
+	}
+
+	public function updated_config( FormUI $ui )
+	{
+		Session::notice( _t( 'Trac Feed options saved.', 'tracfeed' ) );
+		$ui->save();
+	}
 
 }
 
