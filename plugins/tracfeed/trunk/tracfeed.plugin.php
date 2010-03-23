@@ -16,6 +16,11 @@ class TracFeed extends Plugin
 		return $rules;
 	}
 
+	public function action_rss_create_wrapper( $xml ) {
+		// add a description when site tagline isn't set, to make the feed valid
+ 		$xml->channel->addChild( 'description', 'Habari Trac' );
+	}
+
 	public function action_handler_dev_feed($handler_vars)
 	{
 		$rss = Plugins::get_by_interface('RSS');
@@ -54,7 +59,7 @@ class TracFeed extends Plugin
 				$post->guid = 'tag:' . Site::get_url( 'hostname' ) . ',trac_comment,' . $post_id;
 				$post->content_type = 'dev_feed';
 				$post->slug = "http://trac.habariproject.org/habari/ticket/{$comment->ticket}";
-				$post->pubdate = date('Y-m-d H:i:s', $comment->changetime);
+				$post->pubdate = date( 'r', $comment->changetime );
 				$posts[$post_id] = $post;
 			}
 			else {
