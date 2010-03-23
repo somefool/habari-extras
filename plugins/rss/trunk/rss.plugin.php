@@ -41,7 +41,8 @@ class RSS extends Plugin {
 		if ( $tagline = Options::get( 'tagline' ) ) {
 			$description = $channel->addChild( 'description', htmlspecialchars( $tagline ) );
 		}
-		$pubDate = $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate ) ) );
+// 		$pubDate = $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate ) ) );
+		$pubDate = $channel->addChild( 'lastBuildDate', date( 'r', Post::get()->pubdate->int ) );
 		$generator = $channel->addChild( 'generator', 'Habari ' . Version::get_habariversion() . ' http://habariproject.org/' );
 
 		Plugins::act( 'rss_create_wrapper', $xml );
@@ -63,7 +64,8 @@ class RSS extends Plugin {
 				$title = $item->addChild( 'title', htmlspecialchars( $post->title ) );
 				$link = $item->addChild( 'link', $post->permalink );
 				$description = $item->addChild( 'description', htmlspecialchars( $post->content ) );
-				$pubdate = $item->addChild ( 'pubDate', date( DATE_RFC822, strtotime( $post->pubdate ) ) );
+// 				$pubdate = $item->addChild ( 'pubDate', date( DATE_RFC822, strtotime( $post->pubdate ) ) );
+				$pubdate = $item->addChild ( 'pubDate', date( 'r', $post->pubdate->int ) );
 				$guid = $item->addChild( 'guid', $post->guid );
 				$guid->addAttribute( 'isPermaLink', 'false' );
 				Plugins::act( 'rss_add_post', $item, $post );
