@@ -24,14 +24,6 @@ class SimpleBlock extends Plugin
 	}
 
 	/**
-	 * Doesn't need to do anything, yet
-	 **/
-	public function action_block_content_simpleblock($block, $theme)
-	{
-
-	}
-
-	/**
 	 * Configuration form with one big textarea. Raw to allow JS/HTML/etc. Insert them at your own peril.
 	 **/
 	public function action_block_form_simpleblock($form, $block)
@@ -39,7 +31,6 @@ class SimpleBlock extends Plugin
 		$content = $form->append('textarea', 'content', $block, _t( 'Content:' ) );
 		$content->raw = true;
 		$content->rows = 5;
-		$content->cols = 50;
 		$form->append('submit', 'save', 'Save');
 	}
 
