@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<name>Gray</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://asymptomatic.net/">Owen Winkler</author>
+	<url>http://asymptomatic.net</url>
+	<version>1.0</version>
+	<template_engine>rawphpengine</template_engine>
+	<description><![CDATA[A multi-column News theme for Habari, built in YUI grids.]]></description>
+	
+	
+	<areas>
+		<area name="nav">
+			<description><![CDATA[The navigation area]]></description>
+		</area>
+		<area name="primary">
+			<description><![CDATA[The primary article area]]></description>
+		</area>
+		<area name="recent">
+			<description><![CDATA[To the right of the primary area]]></description>
+		</area>
+		<area name="home_a">
+			<description><![CDATA[The left-side secondary column on the home page]]></description>
+		</area>
+		<area name="home_b">
+			<description><![CDATA[The center secondary column on the home page]]></description>
+		</area>
+		<area name="home_c">
+			<description><![CDATA[The right-side secondary column on the home page]]></description>
+		</area>
+	</areas>
+	
+</theme>
