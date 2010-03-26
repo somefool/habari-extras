@@ -1,1 +1,1 @@
-<?php $theme->content($content->content, $content->context); ?>
+<?php echo $content->content; ?>

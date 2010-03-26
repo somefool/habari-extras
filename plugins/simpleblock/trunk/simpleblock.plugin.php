@@ -24,11 +24,11 @@ class SimpleBlock extends Plugin
 	}
 
 	/**
-	 * Output the content of the block, and nothing else.
+	 * Doesn't need to do anything, yet
 	 **/
 	public function action_block_content_simpleblock($block, $theme)
 	{
-		echo $block->content;
+
 	}
 
 	/**
@@ -38,6 +38,8 @@ class SimpleBlock extends Plugin
 	{
 		$content = $form->append('textarea', 'content', $block, _t( 'Content:' ) );
 		$content->raw = true;
+		$content->rows = 5;
+		$content->cols = 50;
 		$form->append('submit', 'save', 'Save');
 	}
 
