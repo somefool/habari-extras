@@ -42,27 +42,22 @@ class URLBounce extends Plugin
 		        //add URL field
 		        $form->insert('content', 'text', 'url', 'null:null', _t('External URL'), 'admincontrol_text');
 		        $form->url->value = $post->info->url;
-		        $form->url->tabindex = 2;
+		        $form->url->tabindex = 1;
 		        
 		        //disable comments by default
 		        $form->settings->comments_enabled->value = false;
 
-		        //hide tags
-		        $form->tags->template = 'hidden';
-
-		        //remove silos
+		        //remove silos, content, tags, title
 		        if ($form->silos) $form->silos->remove();
-
-		        //modify content to be hidden - it cant be done the same way as tags, form becomes unsubmittable
-		        $form->content->template = 'admincontrol_text';
-		        $form->content->class[] = 'hidden';
-		        $form->content->class = array_diff($form->content->class, array('resizable'));
+			if ($form->content) $form->content->remove();
+			if ($form->tags) $form->tags->remove();
+			if ($form->title) $form->title->remove();
 
 		        //promote post slug to main section
 		        $form->settings->newslug->move_after($form->url);
 		        $form->newslug->template = 'admincontrol_text';
 		        $form->newslug->caption = _t('Local URL');
-		        $form->newslug->tabindex = 3;
+		        $form->newslug->tabindex = 2;
 		}
 	}
 
@@ -72,6 +67,7 @@ class URLBounce extends Plugin
 		if ($post->content_type == Post::type('urlbounce')) 
 		{
 			$post->info->url = $form->url->value;
+			$post->title = $form->slug->value;
 		}
 	}
 
