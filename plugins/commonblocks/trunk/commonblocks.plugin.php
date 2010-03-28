@@ -55,6 +55,23 @@ class CommonBlocks extends Plugin
 	}
 
 	/**
+	 * Supply data to the block templates for output
+	 **/
+	public function action_block_content_recent_comments($block, $theme)
+	{
+		if ( ! $limit = $block->quantity ) { 
+			$limit = 5;
+		};
+
+		$block->recent_comments = Comments::get( array(
+			'limit'=>$block->quantity, 
+			'status'=>Comment::STATUS_APPROVED, 
+			'type'=>Comment::COMMENT, 
+			'orderby'=>'date DESC',
+		) );
+	}
+	
+	/**
 	 * Add update beacon support
 	 **/
 	public function action_update_check()
