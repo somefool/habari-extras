@@ -8,7 +8,7 @@ class CommonBlocks extends Plugin
 {
 	private $allblocks = array(
 		'recent_comments' => 'Recent Comments',
-		'w3c_validators' => 'W3C Validators',
+		'validator_links' => 'Validator Links',
 //		'tag_cloud' => 'Tag Cloud',
 		'monthly_archives' => 'Monthly Archives',
 //		'category_archives' => 'Category Archives',
@@ -60,7 +60,7 @@ class CommonBlocks extends Plugin
 		$form->append('submit', 'save', 'Save');
 	}
 
-	public function action_block_form_w3c_validators( $form, $block )
+	public function action_block_form_validator_links( $form, $block )
 	{
 		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip($this->validation_urls) );
 		$form->append('submit', 'save', 'Save');
@@ -102,7 +102,7 @@ class CommonBlocks extends Plugin
 		) );
 	}
 	
-	public function action_block_content_w3c_validators( $block, $theme )
+	public function action_block_content_validator_links( $block, $theme )
 	{
 		$list = array();
 		$validation_urls = array_flip($this->validation_urls);
