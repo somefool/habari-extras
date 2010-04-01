@@ -23,7 +23,8 @@ class PostBlock extends Plugin
 			'status' => Post::status('published'), 
 		);
 		if($block->content_type != '') {
-			$criteria['content_type'] = $block->content_type;
+			$ctypes = array_flip(Post::list_active_post_types());
+			$criteria['content_type'] = $ctypes[$block->content_type];
 		}
 		if($block->limit != '') {
 			$criteria['limit'] = $block->limit;
@@ -38,8 +39,9 @@ class PostBlock extends Plugin
 	
 	public function action_block_form_postblock($form, $block)
 	{
-		$form->append('text', 'content_type', $block, 'Content Type:');
-		$form->append('text', 'limit', $block, 'Limit:');
+		$form->append('select', 'content_type', $block, 'Content Type:', array_flip(Post::list_active_post_types()));
+		$form->append('text', 'limit', $block, 'Limit:')
+			->add_validator('validate_regex', '%^(\d+)?$%', _t('Please enter a numeric value for the limit.'));
 		$form->append('text', 'tag', $block, 'Tag:');
 
 		$form->append('submit', 'save', 'Save');
