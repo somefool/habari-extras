@@ -12,7 +12,7 @@ class CommonBlocks extends Plugin
 //		'tag_cloud' => 'Tag Cloud',
 		'monthly_archives' => 'Monthly Archives',
 //		'category_archives' => 'Category Archives',
-//		'tag_archives' => 'Tag Archives',
+		'tag_archives' => 'Tag Archives',
 //		'search_form' => 'Search Form',
 //		'twitter_updates' => 'Twitter Updates',
 
@@ -69,6 +69,12 @@ class CommonBlocks extends Plugin
 	public function action_block_form_monthly_archives( $form, $block )
 	{
 		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
+		$form->append('submit', 'save', 'Save');
+	}
+
+	public function action_block_form_tag_archives( $form, $block )
+	{
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
 		$form->append('submit', 'save', 'Save');
 	}
@@ -139,6 +145,29 @@ class CommonBlocks extends Plugin
 		}
 
 		$block->months = $months;
+	}
+
+	public function action_block_content_tag_archives( $block, $theme )
+	{
+		$tags = array();
+		$results = Tags::get();
+
+		foreach( $results as $result ) {
+
+			$count = '';
+			if ( $block->show_counts ) {
+				$count = " (" . Posts::count_by_tag( $result->slug, "published") . ")";
+			}
+
+			$url = URL::get( 'display_entries_by_tag', array( 'tag' => $result->tag_slug ) );
+			$tags[] = array(
+				'tag' => $result->tag_text,
+				'count' => $count,
+				'url' => $url,
+				);
+		}
+
+		$block->tags = $tags;
 	}
 
 	/**
