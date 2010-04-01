@@ -1,3 +1,3 @@
-<?php foreach($content->posts as $post): ?>
+<?php foreach((array)$content->posts as $post): ?>
 <?php $theme->content($post, $content->context); ?>
 <?php endforeach; ?>

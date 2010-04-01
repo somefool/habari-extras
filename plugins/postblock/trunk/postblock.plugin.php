@@ -19,19 +19,25 @@ class PostBlock extends Plugin
 	
 	public function action_block_content_postblock($block, $theme)
 	{
-		$block->criteria = array(
-			'content_type' => Post::type($block->content_type), 
+		$criteria = array(
 			'status' => Post::status('published'), 
-			'limit' => $block->limit, 
-			'tag' => $block->tag
 		);
+		if($block->content_type != '') {
+			$criteria['content_type'] = $block->content_type;
+		}
+		if($block->limit != '') {
+			$criteria['limit'] = $block->limit;
+		}
+		if($block->tag != '') {
+			$criteria['tag'] = $block->tag;
+		}
 		
-		$block->posts = Posts::get($block->criteria);
+		$block->posts = Posts::get($criteria);
+		$block->criteria = $criteria;
 	}
 	
 	public function action_block_form_postblock($form, $block)
 	{
-		$form->append('text', 'context', $block, 'Context:');
 		$form->append('text', 'content_type', $block, 'Content Type:');
 		$form->append('text', 'limit', $block, 'Limit:');
 		$form->append('text', 'tag', $block, 'Tag:');
