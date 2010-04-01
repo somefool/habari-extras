@@ -10,7 +10,7 @@ class CommonBlocks extends Plugin
 		'recent_comments' => 'Recent Comments',
 		'w3c_validators' => 'W3C Validators',
 //		'tag_cloud' => 'Tag Cloud',
-//		'monthly_archives' => 'Monthly Archives',
+		'monthly_archives' => 'Monthly Archives',
 //		'category_archives' => 'Category Archives',
 //		'tag_archives' => 'Tag Archives',
 //		'search_form' => 'Search Form',
@@ -66,6 +66,13 @@ class CommonBlocks extends Plugin
 		$form->append('submit', 'save', 'Save');
 	}
 
+	public function action_block_form_monthly_archives( $form, $block )
+	{
+		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
+		$form->append('submit', 'save', 'Save');
+	}
+
 	public function action_block_form_twitter_updates( $form, $block )
 	{
 		$content = $form->append('text', 'quantity', $block, _t( 'Tweets to show:' ) );
@@ -75,30 +82,65 @@ class CommonBlocks extends Plugin
 	/**
 	 * Supply data to the block templates for output
 	 **/
-	public function action_block_content_recent_comments($block, $theme)
+	public function action_block_content_recent_comments( $block, $theme )
 	{
-		if ( ! $limit = $block->quantity ) { 
+		if ( ! $limit = $block->quantity ) {
 			$limit = 5;
 		};
 
 		$block->recent_comments = Comments::get( array(
-			'limit'=>$block->quantity, 
-			'status'=>Comment::STATUS_APPROVED, 
-			'type'=>Comment::COMMENT, 
+			'limit'=>$block->quantity,
+			'status'=>Comment::STATUS_APPROVED,
+			'type'=>Comment::COMMENT,
 			'orderby'=>'date DESC',
 		) );
 	}
 	
-	public function action_block_content_w3c_validators($block, $theme)
+	public function action_block_content_w3c_validators( $block, $theme )
 	{
 		$list = array();
 		$validation_urls = array_flip($this->validation_urls);
-		foreach($block->links as $link) {
+		foreach( $block->links as $link ) {
 			$list[$link] = $validation_urls[$link];
 		}
 		$block->list = $list;
 	}
-	
+
+	public function action_block_content_monthly_archives( $block, $theme )
+	{
+		$months = array();
+		$results = Posts::get( array(
+			'content_type' => 'entry',
+			'status' => 'published',
+			'month_cts' => 1 )
+			);
+
+		foreach( $results as $result ) {
+			if( $block->full_names ) {
+				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1)->get( 'F' );
+			}
+			else {
+				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1)->get( 'M' );
+			}
+
+			$count = '';
+			if ( $block->show_counts ) {
+				$count = " (" . $result->ct . ")";
+			}
+
+			$result->month = str_pad( $result->month, 2, 0, STR_PAD_LEFT );
+			$url = URL::get( 'display_entries_by_date', array( 'year' => $result->year, 'month' => $result->month ) );
+			$months[] = array(
+				'display_month' => $display_month,
+				'count' => $count,
+				'year' => $result->year,
+				'url' => $url,
+				);
+		}
+
+		$block->months = $months;
+	}
+
 	/**
 	 * Add update beacon support
 	 **/
