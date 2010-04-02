@@ -11,7 +11,7 @@ class CommonBlocks extends Plugin
 		'validator_links' => 'Validator Links',
 //		'tag_cloud' => 'Tag Cloud',
 		'monthly_archives' => 'Monthly Archives',
-//		'category_archives' => 'Category Archives',
+		'category_archives' => 'Category Archives',
 		'tag_archives' => 'Tag Archives',
 //		'search_form' => 'Search Form',
 //		'twitter_updates' => 'Twitter Updates',
@@ -69,6 +69,12 @@ class CommonBlocks extends Plugin
 	public function action_block_form_monthly_archives( $form, $block )
 	{
 		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
+		$form->append('submit', 'save', 'Save');
+	}
+
+	public function action_block_form_category_archives( $form, $block )
+	{
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
 		$form->append('submit', 'save', 'Save');
 	}
@@ -145,6 +151,31 @@ class CommonBlocks extends Plugin
 		}
 
 		$block->months = $months;
+	}
+
+	public function action_block_content_category_archives( $block, $theme )
+	{
+		$categories = array();
+		$v = Vocabulary::get( 'categories' );
+		if ( $v ) {
+			$results = $v->get_tree();
+			if ( count( $results ) > 0 ) { /* must we? Shouldn't the foreach just fail gracefully? */
+				foreach( $results as $result ) {
+				    $count = '';
+					if ( $block->show_counts ) {
+						$count = Posts::get( array( 'tag_slug' => $result->term, 'count' => 'term') );
+					}
+
+					$url = URL::get( 'display_entries_by_category', array( 'category_slug' => $result->term ) );
+					$categories[] = array(
+						'category' => $result->term_display,
+						'count' => $count,
+						'url' => $url,
+					);
+				}
+			}
+			$block->categories = $categories;
+		}
 	}
 
 	public function action_block_content_tag_archives( $block, $theme )
