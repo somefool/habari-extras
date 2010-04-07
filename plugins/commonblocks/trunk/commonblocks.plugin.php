@@ -45,7 +45,8 @@ class CommonBlocks extends Plugin
 	 **/
 	public function filter_block_list($block_list)
 	{
-		foreach ( $this->allblocks as $blockname => $nicename ) {
+		$allblocks = $this->allblocks;
+		foreach ( $allblocks as $blockname => $nicename ) {
 			$block_list[ $blockname ] = _t( $nicename, 'commonblocks' );
 		}
 		return $block_list;
