@@ -112,7 +112,8 @@ class CommonBlocks extends Plugin
 	{
 		$list = array();
 		$validation_urls = array_flip($this->validation_urls);
-		foreach( $block->links as $link ) {
+		$links = $block->links;
+		foreach( $links as $link ) {
 			$list[$link] = $validation_urls[$link];
 		}
 		$block->list = $list;

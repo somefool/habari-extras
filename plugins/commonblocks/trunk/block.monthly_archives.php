@@ -1,6 +1,6 @@
 <h3>Monthly Archives</h3>
 <ul>
-  <?php foreach( $content->months as $month ): ?>
+  <?php $months = $content->months; foreach( $months as $month ): ?>
     <li>
 	<a href="<?php echo $month[ 'url' ]; ?>" title="View entries in <?php
 		echo $month[ 'display_month' ] . ", " . $month[ 'year' ];

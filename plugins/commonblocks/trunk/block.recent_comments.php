@@ -1,6 +1,6 @@
 <h3>Recent Comments</h3>
 <ul>
-  <?php foreach($content->recent_comments as $comment): ?>
+  <?php $comments = $content->recent_comments; foreach( $comments as $comment): ?>
     <li>
       <a href="<?php echo $comment->url ?>">
         <?php echo $comment->name; ?>
