@@ -9,7 +9,7 @@ class CommonBlocks extends Plugin
 	private $allblocks = array(
 		'recent_comments' => 'Recent Comments',
 		'validator_links' => 'Validator Links',
-//		'tag_cloud' => 'Tag Cloud',
+		'tag_cloud' => 'Tag Cloud',
 		'monthly_archives' => 'Monthly Archives',
 		'category_archives' => 'Category Archives',
 		'tag_archives' => 'Tag Archives',
@@ -67,6 +67,12 @@ class CommonBlocks extends Plugin
 		$form->append('submit', 'save', 'Save');
 	}
 
+	public function action_block_form_tag_cloud( $form, $block )
+	{
+		$content = $form->append( 'text', 'minimum', $block, _t( 'Minimum entries to show tag (0 to show all):' ) );
+		$form->append('submit', 'save', 'Save');
+	}
+
 	public function action_block_form_monthly_archives( $form, $block )
 	{
 		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
@@ -118,6 +124,23 @@ class CommonBlocks extends Plugin
 			$list[$link] = $validation_urls[$link];
 		}
 		$block->list = $list;
+	}
+
+	public function action_block_content_tag_cloud( $block, $theme )
+	{
+		$minimum = ( isset( $block->minimum ) ? $block->minimum : 0 );
+		$items = '';
+		$tags = Tags::get(); // does this need to specify published?
+		$max = intval( Tags::max_count() );
+
+		foreach ( $tags as $tag ) {
+			if ( $tag->count > $minimum ) {
+			    $items .= '<li class="tag wt' . round( 10 * log( $tag->count + 1) / log( $max + 1 ) ) . '">' .
+				'<a href="' . URL::get('display_entries_by_tag', array('tag' => $tag->tag_slug)) . 
+				'" title="' . $tag->count . '">' . $tag->tag . "</a></li> ";
+			}
+		}
+		$block->cloud = $items;
 	}
 
 	public function action_block_content_monthly_archives( $block, $theme )
