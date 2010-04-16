@@ -135,9 +135,10 @@ class CommonBlocks extends Plugin
 
 		foreach ( $tags as $tag ) {
 			if ( $tag->count > $minimum ) {
-			    $items .= '<li class="tag wt' . round( 10 * log( $tag->count + 1) / log( $max + 1 ) ) . '">' .
+			    $size = $tag->count * 15 / $max + 10;
+			    $items .= 
 				'<a href="' . URL::get('display_entries_by_tag', array('tag' => $tag->tag_slug)) . 
-				'" title="' . $tag->count . '">' . $tag->tag . "</a></li> ";
+				'" title="' . $tag->count . "\" style=\"font-size:{$size}pt;\" >" . $tag->tag . "</a>\n";
 			}
 		}
 		$block->cloud = $items;
