@@ -32,19 +32,7 @@ class SimpleTagList extends Plugin
 	 **/
 	public function theme_tag_links( $theme )
 	{
-		$tags = Tag::get();
-		$tagarray = array();
-
-		if ( count( $theme->tags ) != 0 ) 
-		{ 
-			foreach ( $tags as $tag ) {
-				if( !empty( $tag->slug ) ) 
-				{
-					$tagarray[] = array( 'tag' => $tag->tag, 'slug' => $tag->slug );
-				}
-			}
-		}
-		$theme->tag_links = $tagarray;
+		$theme->tag_links = Tags::get();
 		return $theme->fetch( 'simpletaglist' );
 	}
 }

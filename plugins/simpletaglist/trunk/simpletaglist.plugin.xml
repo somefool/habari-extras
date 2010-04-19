@@ -2,7 +2,7 @@
 <pluggable type="plugin">
 	<name>Simple Tag List</name>
 	<url>http://mikelietz.org/code/habari/</url>
-	<version>0.1</version>
+	<version>0.2</version>
 	<author>Mike Lietz</author>
 	<authorurl>http://mikelietz.org</authorurl>
 	<description><![CDATA[Creates a simple list of links, by tag.]]></description>
