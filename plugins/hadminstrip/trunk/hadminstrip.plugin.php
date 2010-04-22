@@ -78,7 +78,7 @@ class HadminStrip extends Plugin
 				
 				<?php	if ( $spamnumber!=0) { ?> &middot; <a id="admincomments" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>?status=2" title="Spam Comments"><?php echo ($spamnumber) ?> spam</a><?php } ?>
 				 
-				&middot; There are <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagscount) ?> tags</a></a>
+				&middot; There are <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('entry')));?>" title="<?php echo($postnumber) ?> posts"><?php echo($postnumber) ?> posts</a>, <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=posts&type=' . Post::type('page')));?>" title="<?php echo($pagecount) ?> pages"><?php echo($pagecount) ?> pages</a> and <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=comments' )); ?>" title="Comments"><?php echo($commentnumber) ?> comments</a> within <a id="striplink" href="<?php echo (URL::get( 'admin', 'page=tags'));?>" Tags="Tags"><?php echo($tagscount) ?> tags</a>
 								
 				 </div>
 				
