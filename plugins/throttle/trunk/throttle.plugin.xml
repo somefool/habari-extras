@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+        <name>Throttle</name>
+        <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+
+        <author url="http://asymptomatic.net">Owen Winkler</author>
+
+        <version>1.0.1</version>
+        <url>http://redalt.com/Habari/plugins/Throttle</url>
+        <description><![CDATA[Turns off certain capabilities when the server load exceeds a certain number.]]></description>
+
+        <copyright>2009</copyright>
+</pluggable>
+ 
