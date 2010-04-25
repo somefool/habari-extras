@@ -30,6 +30,8 @@ class CommonBlocks extends Plugin
 		foreach ( array_keys( $this->allblocks ) as $blockname ) {
 			$this->add_template( "block.$blockname", dirname(__FILE__) . "/block.$blockname.php" );
 		}
+		$this->add_template( "block.dropdown.tag_archives", dirname(__FILE__) . "/block.dropdown.tag_archives.php" );
+		$this->add_template( "block.dropdown.monthly_archives", dirname(__FILE__) . "/block.dropdown.monthly_archives.php" );
 
 		// This is here because you can't init a URL with dynamic values in the declaration
 		$this->validation_urls = array(		
@@ -77,6 +79,7 @@ class CommonBlocks extends Plugin
 	{
 		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
+		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ), array('dropdown' => 'Dropdown', 'list' => 'List') );
 		$form->append('submit', 'save', 'Save');
 	}
 
@@ -89,6 +92,7 @@ class CommonBlocks extends Plugin
 	public function action_block_form_tag_archives( $form, $block )
 	{
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
+		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ), array('dropdown' => 'Dropdown', 'list' => 'List') );
 		$form->append('submit', 'save', 'Save');
 	}
 
@@ -225,6 +229,28 @@ class CommonBlocks extends Plugin
 		}
 
 		$block->tags = $tags;
+	}
+
+	/**
+	 * Provide more specific templates for archive output
+	 **/
+
+	function filter_block_content_type_monthly_archives($types, $block)
+	{
+		array_unshift($types, $newtype = "block.{$block->style}.{$block->type}");
+		if(isset($block->title)) {
+			array_unshift($types, "block.{$block->style}.{$block->type}." . Utils::slugify($block->title));
+		}
+		return $types;
+	}
+
+	function filter_block_content_type_tag_archives($types, $block)
+	{
+		array_unshift($types, $newtype = "block.{$block->style}.{$block->type}");
+		if(isset($block->title)) {
+			array_unshift($types, "block.{$block->style}.{$block->type}." . Utils::slugify($block->title));
+		}
+		return $types;
 	}
 
 	/**
