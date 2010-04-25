@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Mobile Theme</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://asymptomatic.net/">Owen Winkler</author>
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Allows the selection of a different theme to display for mobile browsers.  Includes functions to disable the theme if the visitor does not want the mobile version.]]></description>
+	<copyright>2009</copyright>
+</pluggable>  
