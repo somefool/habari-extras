@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+        <name>Prettify</name>
+        <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+
+        <author url="http://asymptomatic.net">Owen Winkler</author>
+
+        <version>1.0.1</version>
+        <url>http://redalt.com/Habari/plugins/Prettify</url>
+        <description><![CDATA[Uses teh Prettify Google Code project to make code appear more pleasant in output.]]></description>
+
+        <copyright>2009</copyright>
+</pluggable>
+ 
