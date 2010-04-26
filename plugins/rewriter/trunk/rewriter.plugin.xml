@@ -1,10 +1,14 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Rewriter</name>
-	<author>Habari Community</author>
-	<description>Allows you to change rewrite rules for custom permalinks.</description>
-	<url>http://habariproject.org</url>
-	<version>0.1</version>
-	<license>Apache License 2.0</license>
-</plugin>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+
+	<author url="http://habariproject.org/">The Habari Community</author>
+
+	<version>0.2</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Allows you to change rewrite rules for custom permalinks.]]></description>
+	<copyright>2010</copyright>
+</pluggable>
 
  

@@ -4,6 +4,18 @@ class Rewriter extends Plugin
 {
 	var $rules;
 
+	public function info()
+	{
+		return array(
+			'name' => 'Rewriter',
+			'author' => 'Habari Community',
+			'description' => 'Allows you to change rewrite rules for custom permalinks.',
+			'url' => 'http://habariproject.org',
+			'version' => '0.2',
+			'license' => 'Apache License 2.0'
+		);
+	}
+
 	public function action_init()
 	{
 		$this->add_template( 'rules', dirname(__FILE__) . '/rules.php' );
@@ -33,7 +45,7 @@ class Rewriter extends Plugin
 	}
 
 	function action_add_template_vars( $theme ) {
-		$theme->simple = Options::get('rewriter__simpleEntry');
+		$theme->simple = Options::get('rewriter:simpleEntry');
 
 		$theme->rules = self::get_rules();
 	}
