@@ -13,6 +13,7 @@ class CommonBlocks extends Plugin
 		'monthly_archives' => 'Monthly Archives',
 		'category_archives' => 'Category Archives',
 		'tag_archives' => 'Tag Archives',
+		'meta_links' => 'Meta Links',
 //		'search_form' => 'Search Form',
 //		'twitter_updates' => 'Twitter Updates',
 
@@ -35,11 +36,17 @@ class CommonBlocks extends Plugin
 		$this->add_template( "block.dropdown.monthly_archives", dirname(__FILE__) . "/block.dropdown.monthly_archives.php" );
 
 		// This is here because you can't init a URL with dynamic values in the declaration
-		$this->validation_urls = array(		
+		$this->validation_urls = array(
 			'XHTML 1.0 Transitional' => 'http://validator.w3.org/check?uri=referer',
 			'CSS level 3' => 'http://jigsaw.w3.org/css-validator/check/referer?profile=css3',
 			'HTML5' => 'http://html5.validator.nu/?doc=' . Site::get_url('habari'),
 			'Feed Validator' => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url('habari'),
+		);
+
+		$this->meta_urls = array(
+			_t( 'Site Feed', 'commonblocks' ) => URL::get( 'atom_feed', array( 'index' => '1' ) ),
+			_t( 'Comments Feed', 'commonblocks' ) => URL::get( 'atom_feed_comments' ),
+			_t( 'Habari', 'commonblocks' ) => 'http://habariproject.org/',
 		);
 	}
 
@@ -98,6 +105,12 @@ class CommonBlocks extends Plugin
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:', 'commonblocks' ) );
 		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:', 'commonblocks' ),
 			    array('dropdown' => _t( 'Dropdown', 'commonblocks' ), 'list' => _t( 'List', 'commonblocks' ) ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
+	}
+
+	public function action_block_form_meta_links( $form, $block )
+	{
+		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:', 'commonblocks' ), array_flip( $this->meta_urls ) );
 		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
@@ -236,6 +249,23 @@ class CommonBlocks extends Plugin
 		$block->tags = $tags;
 	}
 
+	public function action_block_content_meta_links( $block, $theme )
+	{
+		$list = array();
+		if ( User::identify()->loggedin ) {
+			$list[ Site::get_url( 'logout' ) ] = _t( 'Logout', 'commonblocks' );
+		}
+		else {
+			$list[ Site::get_url( 'login' ) ] = _t( 'Login', 'commonblocks' );
+		}
+		$meta_urls = array_flip( $this->meta_urls );
+		$links = $block->links;
+		foreach( $links as $link ) {
+			$list[ $link ] = $meta_urls[ $link ];
+		}
+		$block->list = $list;
+	}
+
 	/**
 	 * Provide more specific templates for archive output
 	 **/
@@ -252,7 +282,7 @@ class CommonBlocks extends Plugin
 	function filter_block_content_type_category_archives( $types, $block )
 	{
 		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
-		if( isset( $block->title ) ) {
+		if ( isset( $block->title ) ) {
 			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
 		}
 		return $types;
@@ -261,7 +291,7 @@ class CommonBlocks extends Plugin
 	function filter_block_content_type_tag_archives( $types, $block )
 	{
 		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
-		if( isset( $block->title ) ) {
+		if ( isset( $block->title ) ) {
 			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
 		}
 		return $types;

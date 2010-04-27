@@ -17,6 +17,8 @@
 		<li>Monthly Archives</li>
 		<li>Category Archives (requires a separate plugin providing a 'Categories' vocabulary)</li>
 		<li>Tag Archives</li>
+		<li>Tag Cloud</li>
+		<li>Meta Links</li>
 		</ul>
 		<p>Each one has a template file you can copy to your theme and customize.</p>]]></value>
 	</help>
