@@ -30,6 +30,7 @@ class CommonBlocks extends Plugin
 		foreach ( array_keys( $this->allblocks ) as $blockname ) {
 			$this->add_template( "block.$blockname", dirname(__FILE__) . "/block.$blockname.php" );
 		}
+		$this->add_template( "block.dropdown.category_archives", dirname(__FILE__) . "/block.dropdown.category_archives.php" );
 		$this->add_template( "block.dropdown.tag_archives", dirname(__FILE__) . "/block.dropdown.tag_archives.php" );
 		$this->add_template( "block.dropdown.monthly_archives", dirname(__FILE__) . "/block.dropdown.monthly_archives.php" );
 
@@ -59,47 +60,51 @@ class CommonBlocks extends Plugin
 	 **/
 	public function action_block_form_recent_comments( $form, $block )
 	{
-		$content = $form->append('text', 'quantity', $block, _t( 'Comments to show:' ) );
-		$form->append('submit', 'save', 'Save');
+		$content = $form->append('text', 'quantity', $block, _t( 'Comments to show:', 'commonblocks' ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	public function action_block_form_validator_links( $form, $block )
 	{
-		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip($this->validation_urls) );
-		$form->append('submit', 'save', 'Save');
+		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:', 'commonblocks' ), array_flip($this->validation_urls) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	public function action_block_form_tag_cloud( $form, $block )
 	{
-		$content = $form->append( 'text', 'minimum', $block, _t( 'Minimum entries to show tag (0 to show all):' ) );
-		$form->append('submit', 'save', 'Save');
+		$content = $form->append( 'text', 'minimum', $block, _t( 'Minimum entries to show tag (0 to show all):', 'commonblocks' ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	public function action_block_form_monthly_archives( $form, $block )
 	{
-		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
-		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
-		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ), array('dropdown' => 'Dropdown', 'list' => 'List') );
-		$form->append('submit', 'save', 'Save');
+		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:', 'commonblocks' ) );
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:', 'commonblocks' ) );
+		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:', 'commonblocks' ),
+			    array('dropdown' => _t( 'Dropdown', 'commonblocks' ), 'list' => _t( 'List', 'commonblocks' ) ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	public function action_block_form_category_archives( $form, $block )
 	{
-		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
-		$form->append('submit', 'save', 'Save');
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:', 'commonblocks' ) );
+		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:', 'commonblocks' ),
+			    array('dropdown' => _t( 'Dropdown', 'commonblocks' ), 'list' => _t( 'List', 'commonblocks' ) ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	public function action_block_form_tag_archives( $form, $block )
 	{
-		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
-		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ), array('dropdown' => 'Dropdown', 'list' => 'List') );
-		$form->append('submit', 'save', 'Save');
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:', 'commonblocks' ) );
+		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:', 'commonblocks' ),
+			    array('dropdown' => _t( 'Dropdown', 'commonblocks' ), 'list' => _t( 'List', 'commonblocks' ) ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	public function action_block_form_twitter_updates( $form, $block )
 	{
-		$content = $form->append('text', 'quantity', $block, _t( 'Tweets to show:' ) );
-		$form->append('submit', 'save', 'Save');
+		$content = $form->append('text', 'quantity', $block, _t( 'Tweets to show:', 'commonblocks' ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	/**
@@ -141,7 +146,7 @@ class CommonBlocks extends Plugin
 			if ( $tag->count > $minimum ) {
 			    $size = $tag->count * 15 / $max + 10;
 			    $items .= 
-				'<a href="' . URL::get('display_entries_by_tag', array('tag' => $tag->tag_slug)) . 
+				'<a href="' . URL::get( 'display_entries_by_tag', array( 'tag' => $tag->tag_slug ) ) .
 				'" title="' . $tag->count . "\" style=\"font-size:{$size}pt;\" >" . $tag->tag . "</a>\n";
 			}
 		}
@@ -159,10 +164,10 @@ class CommonBlocks extends Plugin
 
 		foreach( $results as $result ) {
 			if( $block->full_names ) {
-				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1)->get( 'F' );
+				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1 )->get( 'F' );
 			}
 			else {
-				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1)->get( 'M' );
+				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1 )->get( 'M' );
 			}
 
 			$count = '';
@@ -235,20 +240,29 @@ class CommonBlocks extends Plugin
 	 * Provide more specific templates for archive output
 	 **/
 
-	function filter_block_content_type_monthly_archives($types, $block)
+	function filter_block_content_type_monthly_archives( $types, $block )
 	{
-		array_unshift($types, $newtype = "block.{$block->style}.{$block->type}");
-		if(isset($block->title)) {
-			array_unshift($types, "block.{$block->style}.{$block->type}." . Utils::slugify($block->title));
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
+		if ( isset( $block->title ) ) {
+			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
 		}
 		return $types;
 	}
 
-	function filter_block_content_type_tag_archives($types, $block)
+	function filter_block_content_type_category_archives( $types, $block )
 	{
-		array_unshift($types, $newtype = "block.{$block->style}.{$block->type}");
-		if(isset($block->title)) {
-			array_unshift($types, "block.{$block->style}.{$block->type}." . Utils::slugify($block->title));
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
+		if( isset( $block->title ) ) {
+			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
+		}
+		return $types;
+	}
+
+	function filter_block_content_type_tag_archives( $types, $block )
+	{
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
+		if( isset( $block->title ) ) {
+			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
 		}
 		return $types;
 	}
