@@ -24,7 +24,7 @@ class AccountManager extends Plugin {
 	 */
 	public function action_init( )
 	{
-		if(User::identify()->logged_in) {
+		if(User::identify()->loggedin) {
 			header("X-Account-Management-Status: active; name='" . User::identify()->username . "'");
 		}
 		else {
@@ -69,6 +69,14 @@ class AccountManager extends Plugin {
 							'username' => 'habari_username',
 							'password' => 'habari_password',
 						),
+					),
+					'disconnect' => array(
+						'method' => 'POST',
+						'path' => URL::get('auth', array('page' => 'logout')),
+					),
+					'changepassword' => array(
+						'method' => 'POST',
+						'path' => URL::get('auth', array('page' => 'logout')),
 					),
 					'sessionstatus' => array(
 						'method' => 'GET',
