@@ -13,19 +13,23 @@ class AccountManager extends Plugin {
 	 */
 	public function filter_rewrite_rules( $db_rules )
 	{
-		$db_rules[]= RewriteRule::create_url_rule( '".well-known/host-meta"', 'AccountManager', 'host-meta' );
+		$db_rules[]= RewriteRule::create_url_rule( '".well-known"/"host-meta"', 'AccountManager', 'host-meta' );
 		$db_rules[]= RewriteRule::create_url_rule( '"amcd"', 'AccountManager', 'amcd' );
+		$db_rules[]= RewriteRule::create_url_rule( '"amcd"/method', 'AccountManager', 'amcd_method' );
 		return $db_rules;
 	}
 
 	/**
 	 *
 	 */
-	public function theme_header( $theme )
+	public function action_init( )
 	{
-		$this->theme = $theme;
-		// "X-Account-Management-Status: active; name='" . User::identify()->username . "'";
-		return $this->theme;	
+		if(User::identify()->logged_in) {
+			header("X-Account-Management-Status: active; name='" . User::identify()->username . "'");
+		}
+		else {
+			header("X-Account-Management-Status: passive");
+		}
 	}
 
 	/**
@@ -41,6 +45,9 @@ class AccountManager extends Plugin {
 			case 'amcd':
 				self::amcd();
 				break;
+			case 'amcd_method':
+				self::amcd_method();
+				break;
 			case 'host-meta':
 				self::hostmeta();
 				break;
@@ -53,24 +60,31 @@ class AccountManager extends Plugin {
 	{
 		// return cached hostmeta if it exists
 		if ( Cache::has( 'amcd' ) ){
-			$xml = Cache::get( 'amcd' );
+			$json = Cache::get( 'amcd' );
 		}
 		else {
 			//..or generate a new one
-			$xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
-	
-			$xml = new SimpleXMLElement( $xml );
-
-			/* create the XML */
-
-			$xml = $xml->asXML();
-			Cache::set( 'amcd', $xml );
+			
+			$json = array(
+				'username-password-form' => array ( // Username+Password profile
+					'connect' => array(
+						'method' => 'POST',
+						'path' => URL::get('auth', array('page' => 'login')),
+						'params' => array(
+							'username' => 'habari_username',
+							'password' => 'habari_password',
+						),
+					),
+				),
+			);
+			
+			Cache::set( 'amcd', $json );
 		}
 		
 		/* Clean the output buffer, so we can output from the header/scratch. */
 		ob_clean();
-		header( 'Content-Type: application/xml' );
-		print $xml;
+		header( 'Content-Type: application/json' );
+		echo json_encode($json);
 	}
 	
 	/**
@@ -83,10 +97,13 @@ class AccountManager extends Plugin {
 		}
 		else {
 			//..or generate a new one
+			
+			$amcd_url = URL::get('amcd');
+						
 			$xml =<<<EOD
 <?xml version="1.0" encoding="UTF-8"?>
 <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
-	<Link rel='http://services.mozilla.com/amcd/0.1' href="{Site::url_get( 'habari')}"/>
+	<Link rel='http://services.mozilla.com/amcd/0.1' href="{$amcd_url}"/>
 </XRD>
 EOD;
 			Cache::set( 'host-meta', $xml );
@@ -95,7 +112,7 @@ EOD;
 		/* Clean the output buffer, so we can output from the header/scratch. */
 		ob_clean();
 		header( 'Content-Type: application/xml' );
-		print $xml;
+		echo $xml;
 	}
 	
 	/**
