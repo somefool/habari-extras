@@ -13,8 +13,8 @@ class AccountManager extends Plugin {
 	 */
 	public function filter_rewrite_rules( $db_rules )
 	{
-		$db_rules[]= RewriteRule::create_url_rule( '".well-known"/"host-meta"', 'AccountManager', 'host-meta' );
 		$db_rules[]= RewriteRule::create_url_rule( '"amcd"', 'AccountManager', 'amcd' );
+		// This could be used for when the extant forms require extra values to work than what client-side AM provides, otherwise remove:
 		$db_rules[]= RewriteRule::create_url_rule( '"amcd"/method', 'AccountManager', 'amcd_method' );
 		return $db_rules;
 	}
@@ -30,6 +30,7 @@ class AccountManager extends Plugin {
 		else {
 			header("X-Account-Management-Status: passive");
 		}
+		header('X-Account-Management: ' . URL::get('amcd'));
 	}
 
 	/**
@@ -85,25 +86,6 @@ class AccountManager extends Plugin {
 		ob_clean();
 		header( 'Content-Type: application/json' );
 		echo json_encode($json);
-	}
-	
-	/**
-	 */
-	public function hostmeta()
-	{
-		$amcd_url = URL::get('amcd');
-					
-		$xml =<<<EOD
-<?xml version="1.0" encoding="UTF-8"?>
-<XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
-<Link rel='http://services.mozilla.com/amcd/0.1' href="{$amcd_url}"/>
-</XRD>
-EOD;
-		
-		/* Clean the output buffer, so we can output from the header/scratch. */
-		ob_clean();
-		header( 'Content-Type: application/xml' );
-		echo $xml;
 	}
 	
 	/**
