@@ -58,14 +58,8 @@ class AccountManager extends Plugin {
 	 */
 	public function amcd()
 	{
-		// return cached hostmeta if it exists
-		if ( Cache::has( 'amcd' ) ){
-			$json = Cache::get( 'amcd' );
-		}
-		else {
-			//..or generate a new one
-			
-			$json = array(
+		$json = array(
+			'methods' => array(
 				'username-password-form' => array ( // Username+Password profile
 					'connect' => array(
 						'method' => 'POST',
@@ -75,11 +69,17 @@ class AccountManager extends Plugin {
 							'password' => 'habari_password',
 						),
 					),
+					'sessionstatus' => array(
+						'method' => 'GET',
+						'path' => URL::get('auth', array('page' => 'login')),
+					),
+					'accountstatus' => array(
+						'method' => 'GET',
+						'path' => URL::get('auth', array('page' => 'login')),
+					),
 				),
-			);
-			
-			Cache::set( 'amcd', $json );
-		}
+			),
+		);
 		
 		/* Clean the output buffer, so we can output from the header/scratch. */
 		ob_clean();
@@ -91,23 +91,14 @@ class AccountManager extends Plugin {
 	 */
 	public function hostmeta()
 	{
-		// return cached hostmeta if it exists
-		if ( Cache::has( 'host-meta' ) ){
-			$xml = Cache::get( 'host-meta' );
-		}
-		else {
-			//..or generate a new one
-			
-			$amcd_url = URL::get('amcd');
-						
-			$xml =<<<EOD
+		$amcd_url = URL::get('amcd');
+					
+		$xml =<<<EOD
 <?xml version="1.0" encoding="UTF-8"?>
 <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
-	<Link rel='http://services.mozilla.com/amcd/0.1' href="{$amcd_url}"/>
+<Link rel='http://services.mozilla.com/amcd/0.1' href="{$amcd_url}"/>
 </XRD>
 EOD;
-			Cache::set( 'host-meta', $xml );
-		}
 		
 		/* Clean the output buffer, so we can output from the header/scratch. */
 		ob_clean();
