@@ -2,6 +2,22 @@
 class Sitemaps extends Plugin {
 
 	/**
+	 * Returns required plugin informations
+	 */
+	public function info() {
+		return array(
+			'name' => 'Sitemaps',
+			'version' => '0.6.4',
+			'url' => 'http://habariproject.org/',
+			'author' =>	'The Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Sitemaps plugin for Habari.',
+			'copyright' => '2010'
+		);
+	}
+	
+	/**
 	 * Filter function called by the plugin hook `rewrite_rules`
 	 * Add a new rewrite rule to the database's rules.
 	 *
@@ -52,8 +68,8 @@ class Sitemaps extends Plugin {
 		}
 		else {
 			//..or generate a new one
-			$xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
-	
+			$xml = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="'.$this->get_url() .'/sitemap.xsl"?><urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
+
 			$xml = new SimpleXMLElement( $xml );
 					
 			// Retreive all published posts and pages from the database
@@ -69,7 +85,7 @@ class Sitemaps extends Plugin {
 				foreach ( $entries as $entry ) {
 					$url = $xml->addChild( 'url' );
 					$url_loc = $url->addChild( 'loc', $entry->permalink );
-					$url_lastmod = $url->addChild( 'lastmod', $entry->updated->get( 'c' ) );
+					$url_lastmod = $url->addChild( 'lastmod', $entry->updated->format(DATE_ATOM) );
 				}
 			}
 			$xml = $xml->asXML();

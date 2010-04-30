@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>Sitemaps</name>
-	<version>0.6.3</version>
+	<version>0.6.4</version>
 	<url>http://habariproject.org/</url>
 	<author>Habari Community</author>
 	<authorurl>http://habariproject.org/</authorurl>
 	<license>Apache License 2.0</license>
 	<description><![CDATA[Sitemaps plugin for Habari.]]></description>
-	<copyright>2009</copyright>
+	<copyright>2010</copyright>
 </pluggable>
 
- 
