@@ -133,10 +133,12 @@ label {
 	max-width: 150px;
 	display: block;
 	float: left;
+	margin-top: 1em;
 }
 
 fieldset input {
 	width: 250px;
+	margin-top: 1em;
 }
 
 textarea {

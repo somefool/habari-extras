@@ -114,6 +114,22 @@ class MyTheme extends Theme
 
 		return true;
 	}
+
+	public function action_form_comment( $form ) {
+		$form->append( 'fieldset', 'cf_fieldset', 'Leave a comment' );
+		$form->cf_content->move_into( $form->cf_fieldset );
+		$form->cf_content->rows = 5;
+		$form->cf_content->tabindex = 1;
+		$form->cf_commenter->move_into( $form->cf_fieldset );
+		$form->cf_commenter->tabindex = 2;
+		$form->cf_email->move_into( $form->cf_fieldset );
+		$form->cf_email->tabindex = 3;
+		$form->cf_url->move_into( $form->cf_fieldset );
+		$form->cf_url->tabindex = 4;
+		$form->cf_submit->move_into( $form->cf_fieldset );
+		$form->cf_submit->tabindex = 5;
+
+	}
 }
 
 
