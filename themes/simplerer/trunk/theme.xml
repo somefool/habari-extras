@@ -13,4 +13,11 @@
 	<copyright>2010</copyright>
 	
 	<template_engine>rawphpengine</template_engine>
+
+	<areas>
+		<area name="sidebar">
+			<description><![CDATA[Sidebar]]></description>
+		</area>
+	</areas>
+
 </pluggable>

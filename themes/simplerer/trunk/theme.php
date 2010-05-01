@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MyTheme is a custom Theme class for the Simpler theme.
+ * MyTheme is a custom Theme class for the Simplerer theme.
  *
  * @package Habari
  */
@@ -62,7 +62,7 @@ class MyTheme extends Theme
 			$this->assign('page', isset( $page ) ? $page : 1 );
 		}
 
-		$copyright = Options::get( 'simpler__copyright_notice' );
+		$copyright = Options::get( 'simplerer__copyright_notice' );
 
 		if ( $copyright == null ) {
 			$copyright = '&copy; Copyright ' . date('Y') . '. All Rights Reserved.';
@@ -81,38 +81,23 @@ class MyTheme extends Theme
 		Update::add( 'Simpler Theme', 'b903172d-caa2-487a-81ec-e7a41dd76c5e', $this->version );
 	}
 
-	public function filter_theme_config($configurable)
-	{
-		$configurable = true;
-		return $configurable;
-	}
-
 	/**
 	* Respond to the user selecting 'configure' on the themes page
 	*
 	*/
 	public function action_theme_ui()
 	{
-		$form = new FormUI( 'simpler_theme' );
+		$form = new FormUI( 'simplerer_theme' );
 
-		$copyright_notice = $form->append('text', 'copyright_notice', 'simpler__copyright_notice', _t( 'Copyright Notice' ) );
+		$copyright_notice = $form->append('text', 'copyright_notice', 'simplerer__copyright_notice', _t( 'Copyright Notice' ) );
 		$copyright_notice->template = 'optionscontrol_text';
 		$copyright_notice->class = 'clear';
 		$copyright_notice->raw = true;
 		$copyright_notice->helptext = _t( 'Use %year to substitute in the current year.' );
 
 		$form->append('submit', 'save', 'Save');
-		$form->on_success( array( $this, 'save_config' ) );
+		$form->set_option( 'success_message', _t( 'Theme Settings Updated' ) );
 		$form->out();
-	}
-
-	public function save_config( $form ){
-
-		Session::notice( _t( 'Theme Settings Updated' ) );
-
-		$form->save();
-
-		return true;
 	}
 
 	public function action_form_comment( $form ) {
