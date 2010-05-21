@@ -67,7 +67,7 @@ class RateIt extends Plugin
 	 */
 	public function action_update_check()
 	{
-		Update::add('Rate It!', $this->info->guid, $this->info->version);
+		Update::add('Rate It!', '5ffe55ac-2773-11dd-b5d6-001b210f913f', $this->info->version);
 	}
 
 	/**
