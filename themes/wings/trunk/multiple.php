@@ -29,6 +29,7 @@
 						</p>
 					</div>
 					<?php } ?>
+					<div class="clear"></div>
 					<div id="page-selector">
 						<?php $theme->prev_page_link(); ?> <?php $theme->page_selector( null, array( 'leftSide' => 2, 'rightSide' => 2 ) ); ?> <?php $theme->next_page_link(); ?>
 					</div>

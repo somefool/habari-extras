@@ -3,8 +3,13 @@
 	<name>Wings</name>
 	<author>Chase Crawford</author>
 	<url>http://chasecrawford.us/habari-theme-wings</url>
-	<version>0.1</version>
+	<version>0.2</version>
 	<template_engine>rawphpengine</template_engine>
-	<description>A simple two-column theme based on Wordpress's Cutline theme by Chris Pearson.</description>
+	<description><![CDATA[A simple two-column theme based on Wordpress's Cutline theme by Chris Pearson.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<areas>
+		<area name="sidebar">
+			<description><![CDATA[Sidebar]]></description>
+		</area>
+	</areas>
 </pluggable>

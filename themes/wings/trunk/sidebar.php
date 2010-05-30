@@ -1,4 +1,4 @@
-<!-- sidebar -->				
+<!-- sidebar -->
 					<h3>Search</h3>
 					<div id="search">
 						<?php $theme->display ('searchform' ); ?>
@@ -17,4 +17,5 @@
 							?>
 						</ul>
 					</div>
+<?php					$theme->area( 'sidebar' ); ?>
 <!-- /sidebar -->

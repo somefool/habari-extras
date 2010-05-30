@@ -352,13 +352,13 @@ div#right-col div#search input:focus
 border-color:#666666 #DDDDDD #DDDDDD #666666;
 }
 
-div#right-col div#recent-entries ul
+div#right-col ul
 {
 list-style:square;
 margin:20px 30px 30px 30px;
 }
 
-div#right-col div#recent-entries ul li
+div#right-col ul li
 {
 margin:10px 0 0 0;
 }
@@ -462,7 +462,7 @@ div#comments textarea:focus
 border-color:#666666 #DDDDDD #DDDDDD #666666;
 }
 
-div#comments input#btn
+div#comments input[type=submit]
 {
 width:15%;
 cursor:pointer;
