@@ -1,0 +1,14 @@
+div#header
+{
+padding-bottom:174px;
+}
+
+div#header ul#nav
+{
+height:38px;
+}
+
+div#header ul#nav li.clear
+{
+display:none;
+}
