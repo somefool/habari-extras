@@ -10,8 +10,9 @@ Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y g:ia' );
 Format::apply( 'autop', 'post_content_excerpt' );
 Format::apply_with_hook_params( 'more', 'post_content_excerpt', '', 100, 1 );
 
-// Apply Format::nice_date() to post date...
+// Apply Format::nice_date() to post and comment date...
 Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y g:ia' );
+Format::apply( 'nice_date', 'comment_Xdate_out', 'F j, Y g:ia' );
 
 define( 'THEME_CLASS', 'wings' );
 

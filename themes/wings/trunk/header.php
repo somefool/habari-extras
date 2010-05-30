@@ -35,7 +35,7 @@
 					?>
     				<li><a href="<?php Site::out_url( 'habari' ); ?>/<?php echo $tab->slug; ?>" title="<?php echo $tab->title; ?>" <?php if($request->display_404 || $request->display_search) { } elseif($tab->slug == $post->slug) { ?> class="selected" <?php } ?>><?php echo $tab->title; ?></a></li>
 					<?php } ?>
-					<li id="rss"><a href="/atom/1">Atom</a></li>
+					<li id="rss"><a href="<?php $theme->feed_alternate(); ?>">Atom</a></li>
 					<li class="clear"></li>
    				</ul>
   			</div>

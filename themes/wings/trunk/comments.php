@@ -17,7 +17,7 @@ if ( ! defined('HABARI_PATH' ) ) { die( _t('Please do not load this page directl
 		?>
       		<li>
 				<span id="count"><?php $comment_count++; echo $comment_count; ?></span>
-       			<h6><a href="<?php echo $comment->url; ?>" rel="external" target="_blank"><?php echo $comment->name; ?></a><span> // <?php echo $comment->date; ?><?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) : ?> (In moderation)<?php endif; ?></span></h6>
+       			<h6><a href="<?php echo $comment->url; ?>" rel="external" target="_blank"><?php echo $comment->name; ?></a><span> // <?php echo $comment->date_out; ?><?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) : ?> (In moderation)<?php endif; ?></span></h6>
        			<div class="comment-content">
        	 		<?php echo $comment->content_out; ?>
         		</div>
