@@ -25,21 +25,6 @@ class wings extends Theme
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
 		}
 	}
-	
-	public function monthname($id)
-	{
-	
-		if($id == 1) { return "January"; }
-		elseif ($id == 2) { return "February"; }
-		elseif ($id == 3) { return "March"; }
-		elseif ($id == 4) { return "April"; }
-		elseif ($id == 5) { return "May"; }
-		elseif ($id == 6) { return "June"; }
-		elseif ($id = 10) { return "October"; }
-	
-	}
-	
-
 }
 
 ?>

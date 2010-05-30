@@ -8,7 +8,7 @@
 							
 						<?php } elseif($request->display_entries_by_date) { ?>
 						
-							Archives for <span><?php echo $theme->monthname($month)." ".$year; ?></span>
+							Archives for <span><?php echo date('F', mktime(0,0,0,$month,1))." ".$year; ?></span>
 						
 						<?php } elseif($request->display_search) { ?>
 						

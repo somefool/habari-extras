@@ -4,7 +4,8 @@
 		<title>
 		<?php 
 				
-			if($request->display_entry && isset($post)) { echo "{$post->title} | "; } elseif ($request->display_entries_by_tag) { echo "Tag Archives for '".str_replace("-","&nbsp;","$tag")."' | "; } elseif ($request->display_search) { echo "Search for '".$_GET['criteria']."' | "; } elseif ($request->display_entries_by_date) { echo "Archives for ".$theme->monthname($month)." $year | "; }
+			if($request->display_entry && isset($post)) { echo "{$post->title} | "; } elseif ($request->display_entries_by_tag) { echo "Tag Archives for '".str_replace("-","&nbsp;","$tag")."' | "; } elseif ($request->display_search) { echo "Search 
+for '".$_GET['criteria']."' | "; } elseif ($request->display_entries_by_date) { echo "Archives for " . date('F', mktime(0,0,0,$month,1)) . " $year | "; }
 
 			Options::out( 'title' );
 
