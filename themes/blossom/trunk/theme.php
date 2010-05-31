@@ -141,7 +141,7 @@ class Blossom extends Theme
 		$form->cf_commenter->caption = '<small>' . _t( 'Name' ) . '</small>';
 		$form->cf_email->caption = _t('Email (will not be published)');
 		$form->cf_url->caption = _t('Website');
-	        $form->cf_content->caption = '';
+		$form->cf_content->caption = '';
 		$form->append( 'static','disclaimer', _t( '<p>I reserve the right to delete any comments I don\'t like.</p>' ) );
 		$form->move_after( $form->disclaimer, $form->cf_content );
 		$form->cf_submit->caption = _t( 'Add your comment' );
