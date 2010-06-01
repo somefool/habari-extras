@@ -7,5 +7,10 @@
 	<url>http://wiki.habariproject.org/en/Brightkite</url>
 	<description><![CDATA[Show the current Checked in location from Brightkite.]]></description>
 	<copyright>2009</copyright>
+	<help>
+		<value><![CDATA[
+			<p>This plugin provides a block that shows your latest checked in location from Brightkite using Google Maps.  This plugin does require a Google Maps API Key to work properly.</p><p>A customizable block template for your theme is provided.</p>
+		]]></value>
+	</help>
 </pluggable>
  
