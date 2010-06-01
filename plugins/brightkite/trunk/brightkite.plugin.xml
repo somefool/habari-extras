@@ -3,7 +3,7 @@
 	<name>Brightkite Location</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://www.ciscomonkey.net/">Ryan Mullins</author>
-	<version>0.1.2</version>
+	<version>0.1.3</version>
 	<url>http://wiki.habariproject.org/en/Brightkite</url>
 	<description><![CDATA[Show the current Checked in location from Brightkite.]]></description>
 	<copyright>2009</copyright>

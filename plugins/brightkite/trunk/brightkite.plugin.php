@@ -10,8 +10,6 @@
 
 class Brightkite extends Plugin
 {
-	const VERSION = '0.1.2';
-	
 	private $config = array();
 	private $class_name = '';
 	
@@ -25,26 +23,6 @@ class Brightkite extends Plugin
 			);
 	}
 	
-	/**
-	 * Required plugin information
-	 * @return array The array of information
-	 **/
-	/*
-	 *  per r3624 removing this from the plugin for the 0.7 branch
-	public function info()
-	{
-		return array(
-			'name' => 'Brightkite',
-			'url' => 'http://www.ciscomonkey.net/',
-			'author' => 'Ryan Mullins',
-			'authorurl' => 'http://www.ciscomonkey.net',
-			'version' => self::VERSION,
-			'description' => _t('Display your latest checkedin info on your blog.', $this->class_name),
-			'license' => 'Apache License 2.0',
-			);
-	}
-	 *
-	 */
 	
 	/**
 	 * Add actions to the plugin page
@@ -149,7 +127,7 @@ class Brightkite extends Plugin
 			$this->config[$name] = Options::get( $this->class_name . '__' . $name );
 		}
 		
-		$this->add_template( 'brightkite', dirname( __FILE__ ) . '/brightkite.php' );
+		$this->add_template( 'block.brightkite', dirname( __FILE__ ) . '/block.brightkite.php' );
 	}
 	
 	/**
@@ -203,25 +181,56 @@ class Brightkite extends Plugin
 			}
 		}
 	}
+		
+	/**
+	 * Add Brightkite block to the list of selectable blocks
+	 **/ 
+	public function filter_block_list( $block_list )
+	{
+		$block_list[ 'brightkite' ] = _t( 'Brightkite', 'brightkite' );
+		return $block_list;
+	}
 	
 	/**
-	 * Add bk info to the available template vars
-	 * @param Theme $theme the theme that will display the template
+	 * Configuration block on the theme admin screen.
 	 **/
-	public function theme_bk_location( $theme, $params = array() )
+	public function action_block_form_brightkite( $form, $block )
 	{
-		$params = array_merge( $this->config, $params );
+
+		$user_id = $form->append( 'text', 'user_id', 'option:' . $this->class_name . '__user_id', _t( 'Brightkite Username', $this->class_name ) );
+		$user_id->add_validator( 'validate_bk_username' );
+		$user_id->add_validator( 'validate_required' );
 		
-		if ( $this->plugin_configured( $params ) ) {
-			$theme->bkinfo = $this->load_bk_info( $params );
-			$theme->gmapkey = $this->config['google_api_key'];
-			$theme->mapsize = $this->config['map_image_size'];
+		// Should we allow this here? Or only in the main form?!
+		$google_api_key = $form->append( 'text', 'google_api_key', 'option:' . $this->class_name . '__google_api_key', _t( 'Google Maps API Key', $this->class_name ) );
+		
+		$map_image_size = $form->append( 'text', 'map_image_size', 'option:' . $this->class_name . '__map_image_size', _t( 'Size of map image', $this->class_name ) );
+		$map_image_size->add_validator( 'validate_regex', '/\d+x\d+/' );
+		$map_image_size->add_validator( 'validate_required' );
+		
+		$cache_expiry = $form->append( 'text', 'cache_expiry', 'option:' . $this->class_name . '__cache_expiry', _t( 'Cache Expiry (in seconds)', $this->class_name ) );
+		$cache_expiry->add_validator( 'validate_uint' );
+		$cache_expiry->add_validator( 'validate_required' );
+		
+		$form->append( 'submit', 'save', _t( 'Save', $this->class_name ) );
+		
+	}
+	
+	/**
+	 * Populate the block
+	 **/
+	public function action_block_content_brightkite( $block, $theme )
+	{
+		if ( $this->plugin_configured( $this->config ) ) {
+			$block->bkinfo = $this->load_bk_info( $this->config );
+			$block->gmapkey = $this->config['google_api_key'];
+			$block->mapsize = $this->config['map_image_size'];
 		}
 		else {
-			$theme->bkinfo = _t( 'Brightkite Plugin is not configured properly.', $this->class_name );
+			$block->bkinfo = _t( 'Brightkite Plugin is not configured properly.', $this->class_name );
 		}
-		
-		return $theme->fetch( 'brightkite' );
 	}
+	
+	
 }
 ?>
