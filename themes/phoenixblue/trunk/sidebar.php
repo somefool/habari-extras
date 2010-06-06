@@ -32,14 +32,14 @@
     <?php
   endif;
 
-  if ( count( $tags ) != 0 ):
+  if ( $tags ):
     ?>
     <h2><?php _e('Tags:'); ?></h2>
     <ul>
       <?php
         foreach ( $tags as $tag ) {
-          $tag_count = Posts::count_by_tag( $tag->tag_text, 'published' );
-          echo "<li><a href=\"" . URL::get( 'display_entries_by_tag', 'tag=' . $tag->tag_slug ) . "\">{$tag->tag_text}</a> </li>";
+          $tag_count = Posts::count_by_tag( $tag->tag, 'published' );
+          echo "<li><a href=\"" . URL::get( 'display_entries_by_tag', 'tag=' . $tag->slug ) . "\">{$tag->tag}</a></li>";
           
         }
       ?>

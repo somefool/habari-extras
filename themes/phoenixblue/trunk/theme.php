@@ -62,6 +62,9 @@ class MyTheme extends Theme
         if( !$this->template_engine->assigned( 'user' ) ) {
             $this->assign('user', User::identify() );
         }
+        if( !$this->template_engine->assigned( 'tags' ) ) {
+            $this->assign('tags', Tags::get() );
+        }
         if( !$this->template_engine->assigned( 'page' ) ) {
             $this->assign('page', isset( $page ) ? $page : 1 );
         }
