@@ -95,6 +95,16 @@ class MyTheme extends Theme
             Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
         }
     }
+	public function action_form_comment( $form )
+	{
+		$this->add_template('formcontrol_text', dirname(__FILE__).'/forms/formcontrol_text.php', true);
+		$this->add_template('formcontrol_textarea', dirname(__FILE__).'/forms/formcontrol_textarea.php', true);
+		$form->cf_commenter->caption = 'Name';
+		$form->cf_email->caption = 'Mail (will not be published)';
+		$form->cf_submit->caption = 'Submit Comment';
+
+	}
+
 }
 
 ?>

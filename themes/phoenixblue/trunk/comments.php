@@ -63,26 +63,6 @@ if ( !$post->info->comment_disabled ):
   $commenter= User::commenter(); ?>
 
 <h3 id="respond">Leave a Reply</h3>
-
-<form action="<?php URL::out('submit_feedback', array('id'=>$post->id) ); ?>" method="post" id="commentform">
-  <p>
-    <input type="text" name="name" id="author" value="<?php echo $commenter['name']; ?>" size="22" tabindex="1" />
-    <label for="name"><small>Name</small></label>
-  </p>
-  <p>
-    <input type="text" name="email" id="email" value="<?php echo $commenter['email']; ?>" size="22" tabindex="2" />
-    <label for="email"><small>Mail (will not be published) </small></label>
-  </p>
-  <p>
-    <input type="text" name="url" id="url" value="<?php echo $commenter['url']; ?>" size="22" tabindex="3" />
-    <label for="url"><small>Website</small></label>
-  </p>
-  <p>
-    <textarea name="content" id="content" cols="100%" rows="10" tabindex="4"></textarea>
-  </p>
-  <p>
-    <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-  </p>
-</form>
+<?php $post->comment_form()->out(); ?>
 
 <?php endif; ?>
