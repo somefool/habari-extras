@@ -18,6 +18,8 @@ Format::apply( 'autop', 'comment_content_out' );
 Format::apply( 'tag_and_list', 'post_tags_out' );
 // Apply Format::nice_date() to post date...
 Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y g:ia' );
+// Apply Format::nice_date() to comment date...
+Format::apply( 'nice_date', 'comment_date_out', 'F jS, Y' );
 
 // Limit post length to 1 paragraph or 100 characters. As currently implemented
 // in home.php and entry.multiple.php, the first post will be displayed in full
@@ -62,11 +64,6 @@ class MyTheme extends Theme
         }
         if( !$this->template_engine->assigned( 'page' ) ) {
             $this->assign('page', isset( $page ) ? $page : 1 );
-        }
-        if( !$this->template_engine->assigned( 'tags' ) ) {
-            $tags= DB::get_results( 'SELECT * FROM ' . DB::table('tags') );
-            $tags= array_filter($tags, create_function('$tag', 'return (Posts::count_by_tag($tag->tag_slug, "published") > 0);'));
-            $this->assign('tags', $tags);
         }
         if( !$this->template_engine->assigned( 'feed_alternate' ) ) {
           $matched_rule= URL::get_matched_rule();

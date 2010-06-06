@@ -1,9 +1,9 @@
 <?php include 'header.php'; ?>
 
 
-		
+
 			<div class="post">
-	
+
 			 <?php
   $first= true;
   foreach ( $posts as $post ) {
@@ -11,14 +11,14 @@
     $first= false;
   }
   ?>
-			
+
 			</div>
-				
-		
+
+
 		<div class="footnav">
 			Page: <?php $theme->page_selector(); ?>
 		</div>
-	
+
 
 <?php include 'sidebar.php'; ?>
 

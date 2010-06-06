@@ -9,7 +9,7 @@
   }
   ?>
   <div class="navigation">
-    Page: <?php echo Utils::page_selector( $page, Utils::archive_pages( $posts->count_all() ) ); ?>
+    Page: <?php $theme->page_selector(); ?>
   </div>
 </div> <!-- #content -->
 

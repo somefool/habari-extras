@@ -1,11 +1,7 @@
-<?php // Do not delete these lines
-  if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-    die (_t('Please do not load this page directly. Thanks!'));
-
+<?php
     /* This variable is for alternating comment background */
     $oddcomment = 'alt';
 ?>
-
 <!-- You can start editing here. -->
 
 <?php if ( $comments_number= $post->comments->approved->count ): ?>
@@ -28,14 +24,14 @@
     <li class="<?php echo $oddcomment; ?>" id="comment-<?php echo $comment->id; ?>">
       <cite><a href="<?php echo $comment->url; ?>" rel="external"><?php echo $comment->name; ?></a></cite> Says:
       <?php
-      if ($comment->comment_approved == '0') { 
+      if ($comment->comment_approved == '0') {
         _e('<em>Your comment is awaiting moderation.</em>');
       }
       ?>
       <br />
 
       <small class="commentmetadata">
-        <a href="#comment-<?php echo $comment->id; ?>" title=""><?php echo $comment->date; //comment_date('F jS, Y') ?><!-- at <?php //comment_time() ?> --> </a> <?php //edit_comment_link('e','',''); ?>
+        <a href="#comment-<?php echo $comment->id; ?>" title=""><?php echo $comment->date_out; ?></a>
        </small>
 
       <?php echo $comment->content_out; ?>
