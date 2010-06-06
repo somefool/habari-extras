@@ -34,13 +34,13 @@
 
   if ( $tags ):
     ?>
-    <h2><?php _e('Tags:'); ?></h2>
+    <h2><?php _e('Tags'); ?></h2>
     <ul>
       <?php
         foreach ( $tags as $tag ) {
           $tag_count = Posts::count_by_tag( $tag->tag, 'published' );
           echo "<li><a href=\"" . URL::get( 'display_entries_by_tag', 'tag=' . $tag->slug ) . "\">{$tag->tag}</a></li>";
-          
+
         }
       ?>
    </ul>
@@ -54,11 +54,12 @@
     <?php else: ?>
       <li><a href="<?php URL::out( 'user', array( 'page' => 'login' ) ); ?>" title="login">Login</a></li>
     <?php endif; ?>
-  
+
     <li><a href="http://habariproject.org/" title="<?php _e('Powered by Habari'); ?>">Habari</a></li>
     <li><a title="Atom Feed for Posts" href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>">Posts Feed</a> </li> 
       <li><a title="Atom Feed for Comments" href="<?php URL::out( 'atom_feed_comments' ); ?>">Comments Feed</a></li>
   </ul>
+<?php $theme->area( 'sidebar' ); ?>
 </div> <!-- #sidebar -->
 <?php Plugins::act( 'theme_sidebar_bottom' ); ?>
 <!-- /sidebar -->

@@ -189,10 +189,12 @@ html>body #sidebar {
 	height: 47px;
 }
 
-#sidebar h2 {
+#sidebar h2,
+#sidebar h3 {
 	display: block;
 	margin: 1.2em 0 0.8em 0.2em;
 	padding: 0 10px 0 0;
+	color: #0a5989; 
 	
 	font-size: 1.1em;
 }

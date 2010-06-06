@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<theme>
+<pluggable type="theme">
 	<name>PhoenixBlue</name>
 	<author>David Peralty (original WordPress theme) and Mike Schepker (Habari port)</author>
 	<url>http://www.mikeschepker.com</url>
 	<version>0.4</version>
 	<template_engine>rawphpengine</template_engine>
-</theme>
+	<description><![CDATA[A modified version of the David Peralty's PhoenixTheme.]]></description>
+	<areas>
+		<area name="sidebar">
+			<description><![CDATA[Sidebar]]></description>
+		</area>
+	</areas>
+</pluggable>
