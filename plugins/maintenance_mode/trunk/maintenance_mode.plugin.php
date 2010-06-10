@@ -84,7 +84,9 @@ class Maintenance extends Plugin
 		}
 
 		if( ! User::identify()->loggedin ) {
-			if ( strpos( $start_url, 'user/login' ) === FALSE  && strpos( $start_url, 'admin' ) === FALSE  ) {
+			if ( strpos( $start_url, 'user/login' ) === FALSE &&
+					 strpos( $start_url, 'auth/login' ) === FALSE &&
+					 strpos( $start_url, 'admin' ) === FALSE  ) {
 				$start_url = 'maintenance';
 			}
 		}
