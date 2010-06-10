@@ -14,8 +14,7 @@ class CommonBlocks extends Plugin
 		'category_archives' => 'Category Archives',
 		'tag_archives' => 'Tag Archives',
 		'meta_links' => 'Meta Links',
-//		'search_form' => 'Search Form',
-//		'twitter_updates' => 'Twitter Updates',
+		'search_form' => 'Search Form',
 
 	);
 	
@@ -114,10 +113,9 @@ class CommonBlocks extends Plugin
 		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
-	public function action_block_form_twitter_updates( $form, $block )
+	public function action_block_form_search_form( $form, $block )
 	{
-		$content = $form->append('text', 'quantity', $block, _t( 'Tweets to show:', 'commonblocks' ) );
-		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
+		$content = $form->append('statictext', _t( 'This block has no options to configure', 'commonblocks' ) );
 	}
 
 	/**
@@ -264,6 +262,13 @@ class CommonBlocks extends Plugin
 			$list[ $link ] = $meta_urls[ $link ];
 		}
 		$block->list = $list;
+	}
+
+	public function action_block_content_search_form( $block, $theme )
+	{
+		$block->form = '<form method="get" id="searchform" action="' . URL::get('display_search') .
+			'"><p><input type="text" id="s" name="criteria" value="' . ( isset( $theme->criteria ) ? htmlentities( $theme->criteria, ENT_COMPAT, 'UTF-8' ) : '' ) .
+			'"><input type="submit" id="searchsubmit" value="Search"></p>';
 	}
 
 	/**
