@@ -115,7 +115,8 @@ class CommonBlocks extends Plugin
 
 	public function action_block_form_search_form( $form, $block )
 	{
-		$content = $form->append('statictext', _t( 'This block has no options to configure', 'commonblocks' ) );
+		$content = $form->append( 'text', 'button', $block, _t( 'Button:', 'commonblocks' ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
 	/**
@@ -268,7 +269,7 @@ class CommonBlocks extends Plugin
 	{
 		$block->form = '<form method="get" id="searchform" action="' . URL::get('display_search') .
 			'"><p><input type="text" id="s" name="criteria" value="' . ( isset( $theme->criteria ) ? htmlentities( $theme->criteria, ENT_COMPAT, 'UTF-8' ) : '' ) .
-			'"><input type="submit" id="searchsubmit" value="Search"></p>';
+			'"><input type="submit" id="searchsubmit" value="' . ( isset( $block->button ) ? $block->button : _t( 'Search', 'commonblocks' ) ) . '"></p>';
 	}
 
 	/**
