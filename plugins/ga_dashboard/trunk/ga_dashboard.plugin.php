@@ -115,6 +115,7 @@ class ga_dashboard extends Plugin
 	{
 		if ( $plugin_id === $this->plugin_id() ) {
 			$actions[] = _t( 'Configure', $this->class_name );
+			$actions[] = _t( 'Reset Configuration', $this->class_name );
 		}
 		return $actions;
 	}
@@ -153,6 +154,13 @@ class ga_dashboard extends Plugin
 					$ui->on_success( array( $this, 'updated_config' ) );
 					$ui->out();
 					
+					break;
+				
+				case _t( 'Reset Configuration', $this->class_name ):
+					
+					foreach ( $this->default_options as $name => $value ) {
+						Options::set( $this->class_name . '__' . $name, $value );
+					}
 					break;
 			}
 		}
