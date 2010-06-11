@@ -5,6 +5,37 @@
 	<author>Sean Coates</author>
 	<authorurl>http://seancoates.com/</authorurl>
 	<version stable="false">0.3-dev</version>
-	<description>Highlighter</description>
+	<description>Highlights code syntax using GeSHi</description>
 	<license>Apache License 2.0</license>
-</pluggable> 
+	<help>
+		<value>
+		<![CDATA[
+			<p>
+				To use: <code>&lt;div class="highlight php"&gt; ... &lt;/div&gt;</code>
+			</p>
+			<p>
+				Where 'php' could be any language supported by GeSHi.
+			</p>
+			<p class="warning">
+				Note, you'll also need to grab GeSHi from <a href="http://gbnz.com/highlighter">here</a> and
+				unpack the archive to: [habari directory]/3rdparty/geshi
+			</p>
+			<p>
+				It's recommended that you use CDATA blocks (which the plugin will automatically strip), 
+				just in case the plugin is ever disabled:
+			</p>
+			<p>
+<code>
+&lt;div class="highlight php"&gt;
+&lt;![CDATA[
+	&lt;?php
+		$foo = 'bar';
+	?>
+]]&gt;
+&lt;/div&gt;
+</code>
+			</p>
+		]]>
+		</value>
+	</help>
+</pluggable>
