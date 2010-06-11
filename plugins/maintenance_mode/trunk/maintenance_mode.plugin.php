@@ -10,6 +10,9 @@ class Maintenance extends Plugin
 
 	const OPTION_NAME = 'maint_mode';
 
+	/**
+	 * Set options when the plugin is activated
+	 */
 	public function action_plugin_activation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
@@ -19,6 +22,9 @@ class Maintenance extends Plugin
 		}
 	}
 
+	/**
+	 * Remove options when the plugin is deactivated
+	 */
 	public function action_plugin_deactivation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
@@ -28,39 +34,32 @@ class Maintenance extends Plugin
 		}
 	}
 
-	public function filter_plugin_config( $actions, $plugin_id )
+	/**
+	 * Implement the simple plugin configuration.
+	 * @return FormUI The configuration form
+	 */
+	public function configure()
 	{
-		if ( $plugin_id == $this->plugin_id() ) {
-			$actions[]= _t('Configure' );
-		}
-		return $actions;
+		$ui = new FormUI( 'maintenance_mode' );
+		// Add a text control for the maintenance mode text
+		$ui->append( 'textarea', 'mm_text', self::OPTION_NAME . '__text', _t('Display Text: ' ) );
+		// Add checkbox to put in/out of maintenance mode
+		$ui->append( 'checkbox', 'in_maintenance', self::OPTION_NAME . '__in_maintenance', _t( 'In Maintenance Mode' ) );
+		$ui->append( 'checkbox', 'display_feeds', self::OPTION_NAME . '__display_feeds', _t( 'Display Feeds When In Maintenance Mode' ) );
+
+		$ui->append( 'submit', 'save', _t( 'Save' ) );
+		$ui->on_success( array( $this, 'updated_config' ) );
+		$ui->out();
 	}
 
-	public function action_plugin_ui( $plugin_id, $action )
-	{
-		if ( $plugin_id == $this->plugin_id() ) {
-			switch ( $action ) {
-				case _t('Configure' ) :
-					$ui = new FormUI( 'maintenance_mode' );
-					// Add a text control for the maintenance mode text
-					$ui->append( 'textarea', 'mm_text', self::OPTION_NAME . '__text', _t('Display Text: ' ) );
-					// Add checkbox to put in/out of maintenance mode
-					$ui->append( 'checkbox', 'in_maintenance', self::OPTION_NAME . '__in_maintenance', _t( 'In Maintenance Mode' ) );
-					$ui->append( 'checkbox', 'display_feeds', self::OPTION_NAME . '__display_feeds', _t( 'Display Feeds When In Maintenance Mode' ) );
-
-					$ui->append( 'submit', 'save', _t( 'Save' ) );
-					$ui->on_success( array( $this, 'updated_config' ) );
-					$ui->out();
-					break;
-			}
-		}
-	}
-
+	/**
+	 * Save updated configuration
+	 */
 	public function updated_config( $ui )
 	{
 		$msg = _t( "Maintenance Mode configuration updated" );
 		$msg .= "<br/>";
-		if($ui->in_maintenance->value === FALSE ) {
+		if ( $ui->in_maintenance->value === FALSE ) {
 			$msg .= _t( "The site is not in maintenance mode" );
 		}
 		else {
@@ -71,19 +70,25 @@ class Maintenance extends Plugin
 	}
 
 
+	/**
+	 * Filter requests
+	 */
 	public function filter_rewrite_request( $start_url )
 	{
-		if( ! Options::get( self::OPTION_NAME . '__in_maintenance' ) ) {
+		// Just return if the site isn't maintenance mode
+		if ( ! Options::get( self::OPTION_NAME . '__in_maintenance' ) ) {
 			return $start_url;
 		}
 
-		if( Options::get( self::OPTION_NAME . '__display_feeds' ) ) {
-			if( strpos( $start_url, 'atom' ) !== FALSE || strpos( $start_url, 'rss' ) !== FALSE  || strpos( $start_url, 'rsd' ) !== FALSE ) {
+		// Display feeds if that option is checked
+		if ( Options::get( self::OPTION_NAME . '__display_feeds' ) ) {
+			if ( strpos( $start_url, 'atom' ) !== FALSE || strpos( $start_url, 'rss' ) !== FALSE  || strpos( $start_url, 'rsd' ) !== FALSE ) {
 				return $start_url;
 			}
 		}
 
-		if( ! User::identify()->loggedin ) {
+		// Put the site in maintenance mode, unless it's a request to login pages or the admin
+		if ( ! User::identify()->loggedin ) {
 			if ( strpos( $start_url, 'user/login' ) === FALSE &&
 					 strpos( $start_url, 'auth/login' ) === FALSE &&
 					 strpos( $start_url, 'admin' ) === FALSE  ) {
@@ -93,6 +98,9 @@ class Maintenance extends Plugin
 		return $start_url;
 	}
 
+	/**
+	 * Add a rule to respond to redirected requests when the site is in maintenance mode
+	 */
 	public function filter_rewrite_rules( $rules )
 	{
 		$rules[] = new RewriteRule ( array(
@@ -110,13 +118,16 @@ class Maintenance extends Plugin
 		return $rules;
 	}
 
+	/**
+	 * Respond to redirected requests when the site is in maintenance mode
+	 */
 	public function filter_theme_act_display_maintenance( $handled, $theme )
 	{
 
 		header("HTTP/1.1 503 Service Unavailable");
 		header('Retry-After: 900');
 
-		if ($theme->template_exists('maintenance')) {
+		if ( $theme->template_exists('maintenance') ) {
 			$theme->maintenance_text = Options::get( self::OPTION_NAME . '__text' );
 			$theme->display( 'maintenance' );
 		}
@@ -129,9 +140,21 @@ class Maintenance extends Plugin
 		return TRUE;
 	}
 
+	/**
+	 * Check for updates to the plugin
+	 */
 	public function action_update_check()
 	{
 		Update::add( 'Maintenance Mode', '1F66810A-6CD5-11DD-BC10-8E2156D89593', $this->info->version );
+	}
+
+	/**
+	 * Add help text to plugin configuration page
+	 */
+	public function help()
+	{
+		$help = _t( 'When \'In Maintenance Mode\' is checked, a maintenance message is displayed to anonymous users. The template named \'maintenance.php\' will be used to display the maintenance text, and if that template isn\'t found the plugin will try to incorporate the maintenance text into the site by inserting it between the theme\'s header and footer templates. Feeds can be excluded from maintenance mode by checking \'Display Feeds When In Maintenance Mode\'.' );
+		return $help;
 	}
 
 }
