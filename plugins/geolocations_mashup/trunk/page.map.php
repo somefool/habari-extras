@@ -1,10 +1,22 @@
 <?php $theme->display( 'header'); ?>
 
-<!-- plugin version -->
+<!-- to match charcoal theme -->
+</div></div>
 
-<div id="map" style="height: 500px; width: 972px;"></div>
+<div id="map" style="height: 500px;"></div>
+
+
+<!-- to match charcoal theme -->
+</div>
+
+
+
 <script type="text/javascript">
 $(function(){
+	// Get the current viewport width and set the map canvas to be the full width
+	var width = $(window).width();
+	$('#map').width( width );
+	
 	map = null;
 	infowindow = new google.maps.InfoWindow( );
 	
@@ -41,4 +53,8 @@ function new_marker( coords, message ) {
 	});
 }
 </script>
+
+<!-- to match charcoal theme -->
+<div id="page-bottom"><div id="wrapper-bottom"><div id="bottom-primary">
+
 <?php $theme->display( 'footer'); ?>
