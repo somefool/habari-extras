@@ -32,7 +32,7 @@ $(function(){
 		if ( $post->info->geolocation_enabled == 1 ) {
 			?>
 				new_marker( new google.maps.LatLng(<?php echo $post->info->geolocation_coords; ?>),
-							'<div><b><?php echo $post->title; ?></b></div><div><?php echo $post->content_excerpt; ?></div>' );
+							'<div><b><?php echo $post->title; ?></b></div><div><?php echo $post->content_excerpt; ?></div><div><a href="<?php echo $post->permalink; ?>">More...</a></div>' );
 				
 			<?php
 		}
