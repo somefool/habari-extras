@@ -7,9 +7,12 @@
 	<url>http://www.ciscomonkey.net</url>
 	<description><![CDATA[Adds Geolocation information to entries.]]></description>
 	<copyright>2010</copyright>
-	<help>
+	<help name="_help">
 		<value><![CDATA[
 			<p>This plugin adds the ability to add Geolocations to post entries.  It also provides a simple interface to get these coordinates.</p>
 		]]></value>
 	</help>
+	<provides>
+		<feature url="http://wiki.habariproject.org/en/feature/geolocation">geolocation</feature>
+	</provides>
 </pluggable>
