@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<pluggable type="plugin">
+	<name>GeoLocations Mashup</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://www.ciscomonkey.net/">Ryan Mullins</author>
+	<version>1.0</version>
+	<url>http://www.ciscomonkey.net</url>
+	<description><![CDATA[Adds Google maps mashup of Geolocation enabled content.]]></description>
+	<copyright>2010</copyright>
+	<help name="_help">
+		<value><![CDATA[
+			<p>This plugin adds a Google Map mashup of the Geolocation enabled content on your site.</p>
+			<p>This plugin highly recommends the <a href="http://svn.habariprojects.org/habari-extras/plugins/geolocations/">GeoLocations</a> plugin which enables the correct information for you content.</p>
+			<p>Without the information, this plugin will simply display a google map.</p>
+		]]></value>
+	</help>
+	<recommends>
+		<feature url="http://wiki.habariproject.org/en/feature/geolocation">geolocation</feature>
+	</recommends>
+</pluggable>
