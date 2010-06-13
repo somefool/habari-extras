@@ -99,43 +99,24 @@ class GeoLocations extends Plugin
 	}
 	
 	/**
-	 * Add actions to the plugin page
+	 * Respond to the user selecting configure on the plugin page
 	 **/
-	public function filter_plugin_config( $actions, $plugin_id )
+	public function configure()
 	{
-		if ( $plugin_id === $this->plugin_id() ) {
-			$actions[] = _t( 'Configure', $this->class_name );
-		}
-		
-		return $actions;
-	}
-	
-	/**
-	 * Respond to the user selecting an action on the plugin page
-	 **/
-	public function action_plugin_ui( $plugin_id, $action )
-	{
-		if ( $plugin_id === $this->plugin_id() ) {
-			switch ( $action ) {
-				case _t( 'Configure', $this->class_name ):
-					// @todo add some validators for these
-					$ui = new FormUI( $this->class_name );
-					$ui->append( 'text', 'coords', 'option:' . $this->class_name . '__coords', _t( 'Default Coordinates', $this->class_name ) );
-					$ui->append( 'text', 'zoom', 'option:' . $this->class_name . '__zoom', _t( 'Default Zoom', $this->class_name ) );
-					$ui->append( 'text', 'jumptoZoom', 'option:' . $this->class_name . '__jumptoZoom', _t( 'Jump to Zoom', $this->class_name ) );
-					$ui->append( 'select', 'mapTypeId', 'option:' . $this->class_name . '__mapTypeId', _t( 'Map Type' ), 'optionscontrol_select' );
-					$ui->mapTypeId->options = $this->arrMapTypeId;
-					$ui->append( 'select', 'mapControlType', 'option:' . $this->class_name . '__mapControlType', _t( 'Map Control Type' ) );
-					$ui->mapControlType->options = $this->arrMapControlType;
-					$ui->append( 'checkbox', 'mapNavControl', 'option:' . $this->class_name . '__mapNavControl', _t( 'Show Navigation Controls?' ) );
-					$ui->append( 'select', 'mapNavControlStyle', 'option:' . $this->class_name . '__mapNavControlStyle', _t( 'Navigation Control Style' ) );
-					$ui->mapNavControlStyle->options = $this->arrMapNavControlStyle;
-					$ui->append( 'submit', 'save', _t( 'Save', $this->class_name ) );
-					$ui->set_option( 'success_message', _t( 'Options saved', $this->class_name ) );
-					$ui->out();
-					break;
-			}
-		}
+		$ui = new FormUI( $this->class_name );
+		$ui->append( 'text', 'coords', 'option:' . $this->class_name . '__coords', _t( 'Default Coordinates', $this->class_name ) );
+		$ui->append( 'text', 'zoom', 'option:' . $this->class_name . '__zoom', _t( 'Default Zoom', $this->class_name ) );
+		$ui->append( 'text', 'jumptoZoom', 'option:' . $this->class_name . '__jumptoZoom', _t( 'Jump to Zoom', $this->class_name ) );
+		$ui->append( 'select', 'mapTypeId', 'option:' . $this->class_name . '__mapTypeId', _t( 'Map Type' ), 'optionscontrol_select' );
+		$ui->mapTypeId->options = $this->arrMapTypeId;
+		$ui->append( 'select', 'mapControlType', 'option:' . $this->class_name . '__mapControlType', _t( 'Map Control Type' ) );
+		$ui->mapControlType->options = $this->arrMapControlType;
+		$ui->append( 'checkbox', 'mapNavControl', 'option:' . $this->class_name . '__mapNavControl', _t( 'Show Navigation Controls?' ) );
+		$ui->append( 'select', 'mapNavControlStyle', 'option:' . $this->class_name . '__mapNavControlStyle', _t( 'Navigation Control Style' ) );
+		$ui->mapNavControlStyle->options = $this->arrMapNavControlStyle;
+		$ui->append( 'submit', 'save', _t( 'Save', $this->class_name ) );
+		$ui->set_option( 'success_message', _t( 'Options saved', $this->class_name ) );
+		return $ui;
 	}	
 	
 	/**
@@ -201,8 +182,8 @@ class GeoLocations extends Plugin
 		}
 		
 		if ( $theme->page == 'publish' ) {
-			// Load Google Maps API
-			Stack::add('admin_header_javascript', 'http://maps.google.com/maps/api/js?sensor=false', 'googlemaps_api_v3' );
+			// Load Google Maps API after jquery
+			Stack::add('admin_header_javascript', 'http://maps.google.com/maps/api/js?sensor=false', 'googlemaps_api_v3', 'jquery' );
 			
 			// Now create our page ready javascript
 			$coords = preg_split( '/,/', $this->config['coords'] );
@@ -216,10 +197,15 @@ class GeoLocations extends Plugin
 								( $this->config['mapNavControl'] ) ? 'true' : 'false',
 								'{ style: google.maps.NavigationControlStyle.' . $this->config['mapNavControlStyle'] . '}'
 								);
-			Stack::add('admin_header_javascript', $js_defaults, 'geolocation_defaults' );
+			// Load defaults after google api					
+			Stack::add('admin_header_javascript', $js_defaults, 'geolocation_defaults', 'googlemaps_api_v3' );
 			
-			// Load our other javascript
-			Stack::add('admin_header_javascript', $this->get_url(true) . 'geolocations.js', 'geolocations' );
+			// Load our other javascript after the defaults
+			Stack::add('admin_header_javascript', $this->get_url(true) . 'geolocations.js', 'geolocations', 'geolocation_defaults' );
+			/*
+			You can also load after a list by passing:
+			Stack::add( 'admin_header_javascript', $myscript, 'myscript_name', array( 'required1', required2 ) );
+			*/
 		}
 	}
 
