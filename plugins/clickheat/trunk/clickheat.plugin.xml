@@ -1,11 +1,18 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Clickheat</name>
-	<version>1.0</version>
+	<license url="http://opensource.org/licenses/mit-license.php">>MIT License</license>
 	<url>http://www.benhutchins.com/project/habari-clickheat/</url>
-	<author>Benjamin Hutchins</author>
-	<authorurl>http://www.benhutchins.com</authorurl>
-	<license>MIT License</license>
-	<description>Generate clickheat graphs based off your visitors.</description>
-</plugin>
-
- 
+	<author url="http://www.benhutchins.com/">Benjamin Hutchins</author>
+	<version>1.0</version>
+	<description><![CDATA[Generate clickheat graphs based off your visitors.]]></description>
+	<help>
+		<value>
+			<![CDATA[
+				<p>ONLY DO THE BELOW IF YOU DO NOT USE <code>$theme->header()</code> and <code>$theme->footer()</code></p>
+				<p>* Include this file in header: http://path/to/habari/scripts/clickheat.js</p>
+				<p>* And put this in the footer:  <code>&lt;script type="text/javascript">clickheat.init();&lt;/script&gt</code></p>
+			]]>
+		</value>
+	</help>
+</pluggable>

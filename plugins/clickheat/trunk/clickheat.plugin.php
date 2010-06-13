@@ -30,24 +30,6 @@ class Clickheat extends Plugin
 	private $is_clickheat= false;
 	private $logs, $cache;
 
-
-	/**
-	 * Plugin info
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Clickheat',
-			'version' => '1.0',
-			'url' => 'http://www.benhutchins.com/project/habari-clickheat/',
-			'author' => 'Benjamin Hutchins',
-			'authorurl' => 'http://www.benhutchins.com',
-			'license' => 'MIT License',
-			'description' => 'Generate clickheat graphs based off your visitors.'
-		);
-	}
-
-
 	/**
 	 * Initialize by added directory variables
 	 */
