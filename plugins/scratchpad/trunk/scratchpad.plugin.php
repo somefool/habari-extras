@@ -9,23 +9,6 @@ class ScratchPad extends Plugin implements MediaSilo
 {
 	const SILO_NAME = 'ScratchPad';
 
-	/**
-	* Provide plugin info to the system
-	*/
-	public function info()
-	{
-		return array(
-			'name' => 'ScratchPad',
-			'version' => '0.6-0.1.1',
-			'url' => 'http://habariproject.org/',
-			'author' =>	'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache Software License 2.0',
-			'description' => 'Provides an easy way to store links and quotes for use in your posts',
-			'copyright' => '2008',
-			);
-	}
-
 	public function is_auth()
 	{
 		return true;
