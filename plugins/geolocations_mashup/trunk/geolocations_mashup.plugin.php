@@ -6,8 +6,6 @@
  * Adds a Google Maps mashup consisting of geolocation enabled content.
  *
  * This is a work in progress, so expect this to be broken a lot.
- * @todo add in default map view options
- * @todo change javascript generation to support all of the configuration options
  * @todo filters on content_type to display
  * @todo custom markers based on content_type
  *
@@ -96,48 +94,28 @@ class GeoLocations_Mashup extends Plugin
 		$this->add_template( 'page.map', dirname(__FILE__) . '/page.map.php' );
 		$this->add_rule( '"' . $this->config['mapurl'] . '"', 'geolocation_mashup' );
 	}
-	
-	/**
-	 * Add actions to the plugin page
-	 **/
-	public function filter_plugin_config( $actions, $plugin_id )
-	{
-		if ( $plugin_id === $this->plugin_id() ) {
-			$actions[] = _t( 'Configure', $this->class_name );
-		}
 		
-		return $actions;
-	}
-	
 	/**
-	 * Respond to the user selecting an action on the plugin page
+	 * Respond to the user selecting configure on the plugin page
 	 **/
-	public function action_plugin_ui( $plugin_id, $action )
+	public function configure()
 	{
-		if ( $plugin_id === $this->plugin_id() ) {
-			switch ( $action ) {
-				case _t( 'Configure', $this->class_name ):
-					// @todo add some validators for these
-					$ui = new FormUI( $this->class_name );
-					$ui->append( 'text', 'mapurl', 'option:' . $this->class_name . '__mapurl', _t( 'Map URL' ) );
-					$ui->mapurl->add_validator('validate_required');
-					$ui->append( 'text', 'coords', 'option:' . $this->class_name . '__coords', _t( 'Default Coordinates', $this->class_name ) );
-					$ui->append( 'text', 'zoom', 'option:' . $this->class_name . '__zoom', _t( 'Default Zoom', $this->class_name ) );
-					$ui->append( 'text', 'jumptoZoom', 'option:' . $this->class_name . '__jumptoZoom', _t( 'Jump to Zoom', $this->class_name ) );
-					$ui->append( 'select', 'mapTypeId', 'option:' . $this->class_name . '__mapTypeId', _t( 'Map Type' ), 'optionscontrol_select' );
-					$ui->mapTypeId->options = $this->arrMapTypeId;
-					$ui->append( 'select', 'mapControlType', 'option:' . $this->class_name . '__mapControlType', _t( 'Map Control Type' ) );
-					$ui->mapControlType->options = $this->arrMapControlType;
-					$ui->append( 'checkbox', 'mapNavControl', 'option:' . $this->class_name . '__mapNavControl', _t( 'Show Navigation Controls?' ) );
-					$ui->append( 'select', 'mapNavControlStyle', 'option:' . $this->class_name . '__mapNavControlStyle', _t( 'Navigation Control Style' ) );
-					$ui->mapNavControlStyle->options = $this->arrMapNavControlStyle;
-					$ui->append( 'submit', 'save', _t( 'Save', $this->class_name ) );
-					$ui->set_option( 'success_message', _t( 'Options saved', $this->class_name ) );
-					
-					$ui->out();
-					break;
-			}
-		}
+		$ui = new FormUI( $this->class_name );
+		$ui->append( 'text', 'mapurl', 'option:' . $this->class_name . '__mapurl', _t( 'Map URL' ) );
+		$ui->mapurl->add_validator('validate_required');
+		$ui->append( 'text', 'coords', 'option:' . $this->class_name . '__coords', _t( 'Default Coordinates', $this->class_name ) );
+		$ui->append( 'text', 'zoom', 'option:' . $this->class_name . '__zoom', _t( 'Default Zoom', $this->class_name ) );
+		$ui->append( 'text', 'jumptoZoom', 'option:' . $this->class_name . '__jumptoZoom', _t( 'Jump to Zoom', $this->class_name ) );
+		$ui->append( 'select', 'mapTypeId', 'option:' . $this->class_name . '__mapTypeId', _t( 'Map Type' ), 'optionscontrol_select' );
+		$ui->mapTypeId->options = $this->arrMapTypeId;
+		$ui->append( 'select', 'mapControlType', 'option:' . $this->class_name . '__mapControlType', _t( 'Map Control Type' ) );
+		$ui->mapControlType->options = $this->arrMapControlType;
+		$ui->append( 'checkbox', 'mapNavControl', 'option:' . $this->class_name . '__mapNavControl', _t( 'Show Navigation Controls?' ) );
+		$ui->append( 'select', 'mapNavControlStyle', 'option:' . $this->class_name . '__mapNavControlStyle', _t( 'Navigation Control Style' ) );
+		$ui->mapNavControlStyle->options = $this->arrMapNavControlStyle;
+		$ui->append( 'submit', 'save', _t( 'Save', $this->class_name ) );
+		$ui->set_option( 'success_message', _t( 'Options saved', $this->class_name ) );
+		return $ui;
 	}	
 	
 	/**
