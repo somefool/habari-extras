@@ -20,11 +20,7 @@ $(function(){
 	map = null;
 	infowindow = new google.maps.InfoWindow( );
 	
-	defaults = {
-		center: new google.maps.LatLng( 43.05183,-87.913971 ),
-		zoom: 10,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	}
+	<?php echo $theme->js_defaults; ?>
 	
 	map = new google.maps.Map(document.getElementById("map"), defaults);
 	
