@@ -1,11 +1,26 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?> 
+<pluggable type="plugin">
 	<name>Socialink</name>
-	<version>0.2-alpha</version>
+	<version>0.2</version>
 	<url>http://ayu.commun.jp/habari-socialink</url>
-	<author>ayunyan</author>
-	<authorurl>http://ayu.commun.jp/</authorurl>
-	<license>Apache License 2.0</license>
-	<description>adding Social Bookmark Links to your posts.</description>
-</plugin>
-
- 
+	<author url="http://ayu.commun.jp/">ayunyan</author>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<description>Adds social bookmark links to your posts</description>
+	<help>
+		<value>
+			<![CDATA[
+				<p>
+					Enabling this plugin will insert social bookmarking links (w/ associated icons) to and for every post.
+					Readers may then click the links which will take them to the appropriate submission page for said entry.
+				</p>
+				<p>
+					While configuring:
+					<strong>Top</strong> inserts the links on top of each post,
+					<strong>Bottom</strong> on the bottom of each post, and
+					<strong>None</strong> will not display the links (i.e., disable).
+					Editing the theme is not required.
+				</p>
+			]]>
+		</value>
+	</help>
+</pluggable>

@@ -43,25 +43,6 @@ class Socialink extends Plugin
 		);
 
 	/**
-	 * plugin information
-	 *
-	 * @access public
-	 * @retrun void
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Socialink',
-			'version' => '0.2-alpha',
-			'url' => 'http://ayu.commun.jp/habari-socialink',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => 'adding Social Bookmark Links to your posts.',
-			);
-	}
-
-	/**
 	 * action: plugin_activation
 	 *
 	 * @access public
