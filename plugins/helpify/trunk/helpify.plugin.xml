@@ -8,4 +8,18 @@
 	<url>http://lab.morgante.net/helpify</url> 
 	<description><![CDATA[Helpify displays customizable help on the publish page.]]></description> 
 	<copyright>2009</copyright> 
+	<help>
+		<value>
+			<![CDATA[
+			<p>
+				This will display a single customized help text blurb within the publish (edit) pages,
+				in a similar fashion to the (?) drop downs seen for each plugin.
+			</p>
+			<p>
+				An example use: Helpful tips and reminders for people writing blog posts,
+				and/or markup convention examples.
+			</p>
+			]]>
+		</value>
+	</help>
 </pluggable> 
