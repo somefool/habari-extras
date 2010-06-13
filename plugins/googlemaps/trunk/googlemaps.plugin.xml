@@ -1,12 +1,21 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8"?>
+<pluggable type="plugin">
 	<name>Google Maps</name>
-	<version>0.01-alpha</version>
+	<version>0.1</version>
 	<url>http://ayu.commun.jp/habari-googlemaps</url>
-	<author>ayunyan</author>
-	<authorurl>http://ayu.commun.jp/</authorurl>
-	<license>Apache License 2.0</license>
+	<author url="http://ayu.commun.jp/">ayunyan</author>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<description>easily/quickly insert Google Maps into your posts.</description>
-	<guid>14c8414f-6cdf-11dd-b14a-001b210f913f</guid>
-</plugin>
-
- 
+	<copyright>2010</copyright>
+	<help>
+		<value>
+			<![CDATA[
+				<p>Maps are added while editing/adding blog posts. A maps configure tab will appear below the entry input box.</p>
+				<p>
+					A valid Google Maps API key is required, and must be specific to this domain.
+					See the <a href="http://code.google.com/apis/maps/signup.html" target="_blank">Google Maps API signup</a> page for details.
+				</p>
+			]]>
+		</value>
+	</help>
+</pluggable>

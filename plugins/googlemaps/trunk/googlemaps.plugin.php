@@ -12,26 +12,6 @@
 class GoogleMaps extends Plugin
 {
 	/**
-	 * plugin information
-	 *
-	 * @access public
-	 * @retrun void
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Google Maps',
-			'version' => '0.01-alpha',
-			'url' => 'http://ayu.commun.jp/habari-googlemaps',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => 'easily/quickly insert Google Maps into your posts.',
-			'guid' => '14c8414f-6cdf-11dd-b14a-001b210f913f'
-			);
-	}
-
-	/**
 	 * action: plugin_activation
 	 *
 	 * @access public
@@ -91,7 +71,6 @@ class GoogleMaps extends Plugin
 		if ($action == _t('Configure')) {
 			$form = new FormUI( strtolower(get_class($this)));
 			$form->append('text', 'api_key', 'googlemaps__api_key', _t('API Key: ', 'googlemaps'));
-            $form->append('static', 'static1', 'don\'t have API Key? <a href="http://code.google.com/apis/maps/signup.html" target="_blank">Signup!</a>');
 			$map_width = $form->append('text', 'map_width', 'googlemaps__map_width', _t('Map Width: ', 'googlemaps'));
 			$map_width->add_validator('validate_regex', '/^[0-9]+$/');
 			$map_height = $form->append('text', 'map_height', 'googlemaps__map_height', _t('Map Height: ', 'googlemaps'));
