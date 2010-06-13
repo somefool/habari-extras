@@ -1,11 +1,10 @@
-<plugin>
-	<url>http://iamgraham.net/plugins</url>
+<?xml version="1.0" encoding="utf-8"?>
+<pluggable type="plugin">
+	<url>http://habariproject.org/</url>
 	<name>GoogleAds</name>
-	<license>Apache License 2.0</license>
-	<author>Graham Christensen</author>
-	<authorurl>http://iamgraham.net/</authorurl>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<author url="http://iamgraham.net/">Graham Christensen</author>
 	<version>0.2</version>
-    <description>Insert Google Ads into your theme sidebar</description>
-</plugin>
-
- 
+	<copyright>2010</copyright>
+	<description><![CDATA[Insert Google Ads into your theme sidebar]]></description>
+</pluggable>
