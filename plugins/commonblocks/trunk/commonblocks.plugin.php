@@ -8,6 +8,7 @@ class CommonBlocks extends Plugin
 {
 	private $allblocks = array(
 		'recent_comments' => 'Recent Comments',
+		'recent_posts' => 'Recent Posts',
 		'validator_links' => 'Validator Links',
 		'tag_cloud' => 'Tag Cloud',
 		'monthly_archives' => 'Monthly Archives',
@@ -52,7 +53,7 @@ class CommonBlocks extends Plugin
 	/**
 	 * Add to the list of possible block types.
 	 **/
-	public function filter_block_list($block_list)
+	public function filter_block_list( $block_list )
 	{
 		$allblocks = $this->allblocks;
 		foreach ( $allblocks as $blockname => $nicename ) {
@@ -67,6 +68,13 @@ class CommonBlocks extends Plugin
 	public function action_block_form_recent_comments( $form, $block )
 	{
 		$content = $form->append('text', 'quantity', $block, _t( 'Comments to show:', 'commonblocks' ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
+	}
+
+	public function action_block_form_recent_posts( $form, $block )
+	{
+		$content = $form->append('text', 'quantity', $block, _t( 'Posts to show:', 'commonblocks' ) );
+		// Select content types to display ...
 		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
@@ -129,10 +137,24 @@ class CommonBlocks extends Plugin
 		};
 
 		$block->recent_comments = Comments::get( array(
-			'limit'=>$block->quantity,
+			'limit'=>$limit,
 			'status'=>Comment::STATUS_APPROVED,
 			'type'=>Comment::COMMENT,
 			'orderby'=>'date DESC',
+		) );
+	}
+
+	public function action_block_content_recent_posts( $block, $theme )
+	{
+		if ( ! $limit = $block->quantity ) {
+			$limit = 5;
+		};
+
+		$block->recent_posts = Posts::get( array(
+			'limit'=>$limit,
+			'status'=>Post::status( 'published' ),
+			'content_type'=>Post::type( 'entry' ), // extend to allow more types.
+			'orderby'=>'pubdate DESC',
 		) );
 	}
 	

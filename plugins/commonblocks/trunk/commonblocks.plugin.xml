@@ -13,6 +13,7 @@
 		<value><![CDATA[<p>After activating this plugin, these block types will be available for you to use and configure in the 'Areas' of the Theme admin page.</p>
 		<ul>
 		<li>Recent Comments</li>
+		<li>Recent Posts</li>
 		<li>Validator Links</li>
 		<li>Monthly Archives</li>
 		<li>Category Archives (requires a separate plugin providing a 'Categories' vocabulary)</li>
