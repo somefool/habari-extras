@@ -27,7 +27,13 @@ class PluginSubmenu extends Plugin
 					case _t('?'):
 						break;
 					default:
-						$menu['plugins']['submenu']['plugin_' . ++$submenu_count] = array( 'url' => $url, 'title' => _t( '%1$s: %2$s', array($pluginobj->info->name, $plugin_action_caption) ), 'text' => _t( '%1$s: %2$s', array($pluginobj->info->name, $plugin_action_caption) ), 'access' => true );
+						$menu['plugins']['submenu']['plugin_' . ++$submenu_count] = array( 
+							'url' => $url, 
+							'title' => _t( '%1$s: %2$s', array($pluginobj->info->name, $plugin_action_caption) ), 
+							'text' => _t( '%1$s: %2$s', array($pluginobj->info->name, $plugin_action_caption) ), 
+							'access' => true,
+							'hotkey' => $submenu_count, 
+						);
 						break;
 				}
 			}
