@@ -1,0 +1,409 @@
+/* simple reset */
+
+html, body, form, fieldset, legend { margin: 0; padding: 0;}
+fieldset, img { border: 0; }
+legend { color: #000000; }
+li { list-style: none; }
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+input, textarea, select {	font-size: 110%; line-height: 1.1; }
+abbr, acronym { border-bottom: .1em dotted; cursor: help; }
+
+/* primary layout structure (body, primary divs) */
+
+body {
+	background:	url( '../img/background.png' ) top left repeat;
+	color: #565656;
+	font: normal 100.1%/141%  Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: .875em;
+	line-height: 1.6;
+}
+
+#container {
+	background:	url( '../img/white-light.png' ) top center no-repeat;
+	min-width:800px;
+	margin: 0 auto;
+	max-width:1260px;
+	padding: 3em;
+	width: 80%;
+}
+
+#main {
+	float: left;
+	width: 60%;
+}
+
+#sidebar {
+	margin-left: 70%;
+}
+
+#footer {
+	clear: both;
+	color: #666;
+	font-size: 0.9em;
+	padding: 2em;
+	text-align: center;
+background-color: #f0f0f0;
+border-top: 1px solid #dedcdc
+	
+}
+
+
+/* secondary layout structure (posts, comments) */
+
+.post {
+	margin-bottom: 5em;
+}
+
+.post-date{font: italic 1em "times new roman", "Helvetica Neue", Helvetica, sans-serif;}
+
+
+.post-meta {
+	line-height: 2.5;
+}
+
+.comments {
+	margin-top: 5em;
+}
+
+.comment-meta {
+	background:#e3e3e3;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #ccc;
+	border-radius: 5px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #fff;
+	color:#888888;
+	font: normal 1em Georgia, "Helvetica Neue", Helvetica, sans-serif;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	letter-spacing: 2px;padding: .3em 1.2em;text-shadow: 1px 1px 0 #fff;
+	white-space:wrap;
+}
+
+.comment-meta a:link {color: #fff}
+
+.comments  ol li {
+	background: #f0f0f0;
+	border: 1px solid #c9c2c1;
+	margin-bottom: 1.5em;
+	padding: 1.5em;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#skiplinks a {
+	height: 1px;
+	left: -10000px;
+	overflow:hidden;
+	position: absolute;
+	top: auto;
+	width: 1px;
+}
+ 
+#skiplinks a:focus {
+	height:auto;
+	position:static;
+	width:auto;
+}
+
+/* headings and paragraphs */
+
+h1, h2, h3, h4, h5, h6 {
+	font: normal 200%/100% Arial, "Helvetica Neue", Helvetica, sans-serif;
+	line-height: inherit;
+	margin-bottom: .5em;
+}
+
+h1 {
+	font: normal 180%/100% Georgia, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing:1px;
+	margin: 2em 0;
+}
+
+h1 a:link, h1 a:visited {
+	color: #000;
+}
+
+h1 a:hover, h1 a:active, h1 a:focus  {
+	color: #000;
+}
+
+h2 {
+	font: bold 180%/100%  "Museo", Arial, "Helvetica Neue", Helvetica, sans-serif;
+	line-height: inherit;
+}
+
+h2 a:link, h2 a:visited {
+	color: #5b5b5b;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+h2 a:hover, h2 a:active {
+	color: #000000;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+h3 {
+	font: normal 160%/100% Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+h4 {
+	font: normal 140%/100% Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+h5 {
+	font: normal 120%/100% Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+h6 {
+	font: normal 110%/100% Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+p {
+	margin: 0 0 1em 0;
+}
+
+/* general links*/
+
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover, a:active, a:focus  {
+	color: #000000;
+	text-decoration: underline;
+}
+
+/* general styles */
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+	border-left: #cccccc 1px solid;
+	margin: 0;
+	margin-left: .5em;
+	padding-left: .5em;
+}
+
+cite {
+	font-style: normal;
+}
+
+code {
+    font-family: monospace, Courier, Lucida Console, sans-serif;
+}
+
+pre {
+    font-size: 1em;
+}
+
+pre code {
+    background: #111111;
+    color: #fff;
+    display: block;
+    margin-bottom: 1em;
+    padding: .5em .75em .35em;
+}
+
+small {
+	color: #6F6F6F;
+	font-size: .9em;
+}
+
+ul {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+ol {
+    margin-bottom: 1em;
+	margin-left: 0;
+    padding-left: 0;
+}
+
+ol li {
+    list-style: decimal;
+	margin-left: -1em;
+	padding-left: -1em;
+}
+
+/* forms */
+
+input[type="file"],
+input[type="text"],
+input[type="password"] {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    font-family: monospace, Courier, Lucida Console, sans-serif;
+    padding: .3em;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+		-moz-box-shadow: 0 -1px 6px rgba(153,153,153,0.3);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+textarea{
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    font-family: monospace, Courier, Lucida Console, sans-serif;
+    padding: .3em;
+	width: 80%;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+select {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    font-family: monospace, Courier, Lucida Console, sans-serif;
+    padding: .3em;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+label {
+	display: block;
+    font-weight: bold;
+    padding: 0 0 0.2em 0;
+}
+
+button {
+	font: bold 1.5em  Arial, "Helvetica Neue", Helvetica, sans-serif;
+	margin-top: 10px;
+	padding: 5px;
+}
+
+/* general classes (.clear, .center, .right, .left, etc.) */
+
+.clear {	clear:both }
+.left {	float: left }
+.right {	float: right }
+
+/* miscellaneous stuff and template code */
+
+.row {
+	margin: 1.5em 0:
+}
+
+.criteria {
+	color:#ff0000;
+}
+
+.pagination {
+	margin: 3em auto;
+	text-align: center;
+}
+
+.pagination a {
+	margin: auto .5em;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+.current-page {
+	display: inline-block;
+}
+
+.required {
+	color:#ff0000;
+	font-size: .9em;
+	font-weight: normal;
+	margin-left: .2em;
+}
+
+#navigation ul li {
+	margin: 1em 0;
+	padding: 0;
+}
+
+#navigation ul li a:link,
+#navigation ul li a:visited {
+	color:#7e8080;
+	font: normal 1em  Georgia, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	padding: .2em 1em;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+#navigation ul li a:hover,
+#navigation ul li a:active,
+#navigation ul li a:focus {
+	text-decoration: none;
+}
+
+ .nav-current{	
+	color: #a4b627;
+	border-radius: 15px;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #afafaf;
+	border-left: 1px solid #afafaf;
+	border-right: 1px solid #fff;
+	background:#e8f42a;
+	font: normal 1em  Georgia, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	padding: .3em 1.3em .4em 1.3em;
+	text-shadow: 1px 1px 0 #fff;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+}
+ 
+ .separator {
+	background: #ccc;
+	border-bottom: 1px solid #fff;
+	height: 1px;
+	margin: 4em auto;
+	width: 100%;
+}
+  
+ .separator-meta {
+	background: #ccc;
+	border-bottom: 1px solid #fff;
+	height: 1px;
+	margin: 1em auto;
+	width: 100%;
+}
+  
+ #main .post img {
+	background: #fff;
+	display: inline;
+	margin: 1em;
+	width: auto;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+	-moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+}
+
+ #main img.tags {
+	background: transparent;
+	border:0;margin:0;
+	margin-right: .5em;
+	padding:0;
+	vertical-align:middle;
+	-webkit-box-shadow:none;
+	-moz-box-shadow: none;
+}
+
+
+/* A font by Jos Buivenga (exljbris) -> www.exljbris.nl */
+@font-face {
+  font-family: "Museo";
+  src: url("type/Museo.eot");
+  src: local("?"),
+    url("type/Museo.woff") format("woff"),
+    url("type/Museo.otf") format("opentype"),
+    url("type/Museo.svg#Museo") format("svg");
+}
