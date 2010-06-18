@@ -162,10 +162,10 @@ class OptionsManager extends Plugin
 
 		// @todo better way to determine this? most likely
 		$this->opts_core = array(
-			'235381938', 'active_plugins', 'atom_entries', 'base_url', 'cron_running', 'comments_require_id',
+			'235381938', 'about', 'active_plugins', 'atom_entries', 'base_url', 'cron_running', 'comments_require_id',
 			'dash_available_modules', 'dateformat', 'db_version', 'db_upgrading', 'failed_plugins', 'GUID',
-			'import_errors', 'installed', 'import_errors', 'locale', 'next_cron', 'pagination', 'plugins_present',
-			'title', 'timeformat', 'timezone', 'theme_name', 'theme_dir', 'undelete__style',
+			'import_errors', 'installed', 'import_errors', 'locale', 'log_backtraces', 'next_cron', 'pagination', 'plugins_present',
+			'system_locale', 'tagline', 'title', 'timeformat', 'timezone', 'theme_name', 'theme_dir', 'undelete__style',
 		);
 
 		// Note: This strips the group prefix, so returns allow_delete_core and allow_delete_other
