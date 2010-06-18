@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Options Manager</name>
+	<author url="http://blog.roshambo.org/">Philip Olson</author>
+	<version>0.1</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Manages and exposes all Habari options within the habari options table. Note: This is powerful, with no undelete, so be careful!]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2010</copyright>
+	<guid>487f29f5-a156-41ae-8ba5-1c898341ec70</guid>
+	<help>
+		<value>
+		<![CDATA[
+		<p>
+			All options are exposed via this administration plugin. Edit wisely.
+		</p>
+		<p>
+			Choose <b>view options</b> to view all options, with the ability to edit
+			or add additional ones. Configure has a couple of safe guard options, which
+			by default disables delete/remove of both core and other options. Editing
+			is always allowed, except renaming an option name qualifies as deleting the
+			old one, so appropriate delete permissions are required for that.
+		</p>
+		<p>
+			You will have the power to damage your Habari setup, so, you have been warned.
+		</p>
+		]]>
+		</value>
+	</help>
+	<help name="Configure">
+		<value>
+		<![CDATA[
+		<p>
+			Remember:
+			These configure options are mainly here to help decrease (or increase) the
+			chances of you messing something up (e.g., accidentally delete a core option)
+			but they aren't 100% intelligent. In other words, this plugin makes guesses
+			regarding the option type (e.g., core, plugin, theme) and whether or not it's
+			active. Unfortunately [currently] Habari allows plugins to pollute the Options
+			namespace, so it's difficult to determine status with 100% accuracy.
+		</p>
+		<hr />
+		<p>
+			You can <strong>always</strong> edit options, even when none of the delete
+			checkboxes are checked.
+		</p>
+		]]>
+		</value>
+	</help>
+</pluggable>
