@@ -1,0 +1,31 @@
+body.page-options_view .head {
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 3px 0 3px 2px;
+}
+
+body.page-options_view .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.page-options_view .item select {
+    margin-right: 10px;
+}
+
+body.page-options_view .item {
+    padding: 3px 0 3px 2px;
+}
+
+body.page-options_view .item .message {
+    cursor: help;
+}
+
+body.page-options_view .item .more, body.page-options_view .item.expanded .less {
+    display: none;
+}
+
+body.page-options_view .item.expanded .more {
+    display: block;
+}

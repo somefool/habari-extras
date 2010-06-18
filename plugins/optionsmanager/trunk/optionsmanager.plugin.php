@@ -65,7 +65,17 @@ class OptionsManager extends Plugin
 		return $actions;
 	}
 
-	
+	/**
+	 * action: add custom css for this plugin
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function action_admin_header()
+	{
+		Stack::add( 'admin_stylesheet', array( $this->get_url() . '/css/view.css', 'all') );
+	}
+
 	/**
 	 *  Action: plugin user interface
 	 *
