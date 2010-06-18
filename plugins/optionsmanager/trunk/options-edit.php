@@ -21,5 +21,5 @@
 	</ul>
 </div>
 <?php endif; ?>
-<?php echo _t('About'); ?>
+
 <?php $theme->display('footer');?>
