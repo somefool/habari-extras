@@ -8,4 +8,18 @@
 	<?php echo $form; ?>
 </div>
 
+<?php if ( isset( $option['value_unserialized'] ) && count( $option['value_unserialized'] ) > 0): ?>
+<div class="container settings">
+	<h2>Unserialized version of the value</h2>
+	<ul>
+	<?php foreach ( $option['value_unserialized'] as $name => $value ): ?>
+		<li class="item clear">
+			<span class="message pct20 minor"><?php echo $name; ?></span>
+			<span class="message pct80 minor"><?php echo $value; ?></span>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+</div>
+<?php endif; ?>
+
 <?php $theme->display('footer');?>

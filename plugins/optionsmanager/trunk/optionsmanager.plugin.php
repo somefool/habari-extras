@@ -506,6 +506,10 @@ class OptionsManager extends Plugin
 				'type'  => $raw_option->type,
 				'value' => $raw_option->value,
 			);
+			
+			if ($raw_option->type) {
+				$options[$_name]['value_unserialized'] = unserialize( $raw_option->value );
+			}
 
 			$active = 'no';
 
