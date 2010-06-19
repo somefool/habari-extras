@@ -39,30 +39,31 @@ body {
 
 #footer {
 	clear: both;
-	color: #666;
+	color: #666666;
 	font-size: 0.9em;
 	padding: 2em;
 	text-align: center;
-background-color: #f0f0f0;
-border-top: 1px solid #dedcdc
-	
+	background-color: #ffffff;
+	border-top: 1px solid #dedcdc;
 }
 
 
 /* secondary layout structure (posts, comments) */
 
 .post {
-	margin-bottom: 5em;
+	margin-bottom: 5em
 }
 
-.post-date{font: italic 1em "times new roman", "Helvetica Neue", Helvetica, sans-serif;}
+.post-date {
+	font: italic 1em "times new roman", "Helvetica Neue", Helvetica, sans-serif;
+}
 
 
 .post-meta {
 	line-height: 2.5;
 }
 
-.comments {
+#comments {
 	margin-top: 5em;
 }
 
@@ -75,21 +76,30 @@ border-top: 1px solid #dedcdc
 	border-right: 1px solid #fff;
 	color:#888888;
 	font: normal 1em Georgia, "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: 2px;
+	padding: .3em 1.2em;
+	text-shadow: 1px 1px 0 #fff;
+	white-space:no-wrap;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	letter-spacing: 2px;padding: .3em 1.2em;text-shadow: 1px 1px 0 #fff;
-	white-space:wrap;
 }
 
-.comment-meta a:link {color: #fff}
+.comment-meta a:link {color: #ffffff}
 
-.comments  ol li {
-	background: #f0f0f0;
-	border: 1px solid #c9c2c1;
+#comments  ol li {
+	background:#e6e6e6;
+	border-bottom: 1px solid #ffffff;
+	border-left: 1px solid #dddddd;
+	border-radius: 5px;
+	border-top: 1px solid #dddddd;
+	border-right: 1px solid #ffffff;
+	color:#888888;
 	margin-bottom: 1.5em;
 	padding: 1.5em;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
+	text-shadow: 1px 1px 0 #f6f6f6;
+	white-space:wrap;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
 }
 
 #skiplinks a {
@@ -122,11 +132,11 @@ h1 {
 }
 
 h1 a:link, h1 a:visited {
-	color: #000;
+	color: #000000;
 }
 
 h1 a:hover, h1 a:active, h1 a:focus  {
-	color: #000;
+	color: #000000;
 }
 
 h2 {
@@ -136,13 +146,13 @@ h2 {
 
 h2 a:link, h2 a:visited {
 	color: #5b5b5b;
-	text-shadow: 1px 1px 0 #fff;
+	text-shadow: 1px 1px 0 #ffffff;
 }
 
 h2 a:hover, h2 a:active {
 	color: #000000;
 	text-decoration: none;
-	text-shadow: 1px 1px 0 #fff;
+	text-shadow: 1px 1px 0 #ffffff;
 }
 
 h3 {
@@ -248,18 +258,18 @@ input[type="file"],
 input[type="text"],
 input[type="password"] {
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     font-family: monospace, Courier, Lucida Console, sans-serif;
     padding: .3em;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-		-moz-box-shadow: 0 -1px 6px rgba(153,153,153,0.3);
+	-moz-box-shadow: 0 -1px 6px rgba(153,153,153,0.3);
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 textarea{
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     font-family: monospace, Courier, Lucida Console, sans-serif;
     padding: .3em;
 	width: 80%;
@@ -269,7 +279,7 @@ textarea{
 
 select {
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     font-family: monospace, Courier, Lucida Console, sans-serif;
     padding: .3em;
 	-moz-border-radius: 5px;
@@ -296,6 +306,16 @@ button {
 
 /* miscellaneous stuff and template code */
 
+/* A font by Jos Buivenga (exljbris) -> www.exljbris.nl */
+@font-face {
+  font-family: "Museo";
+  src: url("type/Museo.eot");
+  src: local("?"),
+    url("type/Museo.woff") format("woff"),
+    url("type/Museo.otf") format("opentype"),
+    url("type/Museo.svg#Museo") format("svg");
+}
+
 .row {
 	margin: 1.5em 0:
 }
@@ -311,7 +331,7 @@ button {
 
 .pagination a {
 	margin: auto .5em;
-	text-shadow: 1px 1px 0 #fff;
+	text-shadow: 1px 1px 0 #ffffff;
 }
 
 .current-page {
@@ -319,7 +339,7 @@ button {
 }
 
 .required {
-	color:#ff0000;
+	color:#ee4242;
 	font-size: .9em;
 	font-weight: normal;
 	margin-left: .2em;
@@ -335,7 +355,7 @@ button {
 	color:#7e8080;
 	font: normal 1em  Georgia, Arial, "Helvetica Neue", Helvetica, sans-serif;
 	padding: .2em 1em;
-	text-shadow: 1px 1px 0 #fff;
+	text-shadow: 1px 1px 0 #ffffff;
 }
 
 #navigation ul li a:hover,
@@ -344,39 +364,40 @@ button {
 	text-decoration: none;
 }
 
- .nav-current{	
-	color: #a4b627;
+.nav-current{	
+	background:#e8f42a;
 	border-radius: 15px;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #ffffff;
 	border-top: 1px solid #afafaf;
 	border-left: 1px solid #afafaf;
-	border-right: 1px solid #fff;
-	background:#e8f42a;
+	border-right: 1px solid #ffffff;
+	color: #a4b627;
 	font: normal 1em  Georgia, Arial, "Helvetica Neue", Helvetica, sans-serif;
 	padding: .3em 1.3em .4em 1.3em;
-	text-shadow: 1px 1px 0 #fff;
+	text-shadow: 1px 1px 0 #ffffff;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
 }
  
- .separator {
+.separator {
 	background: #ccc;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #ffffff;
 	height: 1px;
 	margin: 4em auto;
 	width: 100%;
 }
   
- .separator-meta {
-	background: #ccc;
-	border-bottom: 1px solid #fff;
+.separator-meta {
+	background: #cccccc;
+	border-bottom: 1px solid #ffffff;
 	height: 1px;
-	margin: 1em auto;
+	margin: 2em auto;
 	width: 100%;
 }
   
- #main .post img {
-	background: #fff;
+#main .post img,
+#main .page img {
+	background: #ffffff;
 	display: inline;
 	margin: 1em;
 	width: auto;
@@ -387,7 +408,7 @@ button {
 	-moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
 }
 
- #main img.tags {
+#main img.tags {
 	background: transparent;
 	border:0;margin:0;
 	margin-right: .5em;
@@ -397,13 +418,26 @@ button {
 	-moz-box-shadow: none;
 }
 
+#login-box {
+	float: right;
+	font-size: .9em;
+	width: 230px;
+}
 
-/* A font by Jos Buivenga (exljbris) -> www.exljbris.nl */
-@font-face {
-  font-family: "Museo";
-  src: url("type/Museo.eot");
-  src: local("?"),
-    url("type/Museo.woff") format("woff"),
-    url("type/Museo.otf") format("opentype"),
-    url("type/Museo.svg#Museo") format("svg");
+.login-button a {
+	color: #666666;
+	float: right;
+}
+
+.login-form {
+	background-color: #ededed;
+	border-radius: 15px;
+	display: none;
+	line-height: 2.5;
+	margin: 2em auto;
+	padding: 1.5em;	position:fixed;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	-webkit-box-shadow: 0 0 50px rgba(0,0,0,.25);
+	-moz-box-shadow: 0 0 50px rgba(0,0,0,.25);
 }

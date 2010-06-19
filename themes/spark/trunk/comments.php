@@ -15,12 +15,14 @@ $comment_url = '<a href="' . $comment->url_out . '" rel="external">' . $comment-
 <p>[<a href="#comment-<?php echo $comment->id; ?>" rel="bookmark"><?php echo $post->slug; ?>#comment<?php echo $comment->id; ?></a>]</p>
 <?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) : ?><p><em><?php _e('In moderation'); ?></em></p><?php endif; ?>
 <div class="comment"><?php echo $comment->content_out; ?></div>
-<p class="comment-meta">by <cite><?php echo $comment_url; ?></cite> on <?php $comment->date->out( 'M j, Y @ h:ia' ); ?></p>
+<p>by <cite><?php echo $comment_url; ?></cite> on <?php $comment->date->out( 'M j, Y @ h:ia' ); ?></p>
 </li>
 <?php } echo '</ol>' ?>
 <?php } ?>
 
 <?php if ( !$post->info->comments_disabled ) { ?>
+
+<div class="separator"></div>
 
 <h3>Add a comment</h3>
 

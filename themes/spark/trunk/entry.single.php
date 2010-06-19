@@ -13,7 +13,7 @@
 <?php if ( count( $post->tags ) > 0 ) { ?><p><img src="<?php Site::out_url( 'theme' ); ?>/img/tag.png" alt="tags" class="tags"> <?php echo $post->tags_out; ?></p><?php } ?>
 <?php if ( $loggedin ) { ?><a href="<?php echo $post->editlink; ?>"><?php _e('Edit'); ?> "<?php echo $post->title_out; ?>"</a><?php } ?>
 </div>
-<div class="comments"><?php $theme->display ( 'comments' ); ?></div>
+<div id="comments"><?php $theme->display ( 'comments' ); ?></div>
 </div>
 <div class="clear"></div>
 </div>
