@@ -2,7 +2,7 @@
 <pluggable type="plugin">
 	<name>Autoclose</name>
 	<author url="http://habariproject.org/">The Habari Community</author>
-	<version>0.2.0</version>
+	<version>0.3</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Automatically close comments on posts older than a given number of days.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>

@@ -3,6 +3,19 @@
 class autoclose extends Plugin
 {
 
+	public function info() {
+		return array(
+			'name' => 'Autoclose',
+			'version' => '0.3',
+			'url' => 'http://habariproject.org/',
+			'author' =>	'Habari Community',
+			'authorurl' => 'http://habariproject.org/',
+			'license' => 'Apache License 2.0',
+			'description' => 'Automatically close comments on posts older than a given number of days',
+			'copyright' => '2008'
+		);
+	}
+	
 	public function action_plugin_activation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
@@ -125,13 +138,6 @@ class autoclose extends Plugin
 		return true;
 	}
 
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-	 	Update::add( 'Autoclose', 'f63a1f56-0bc8-4b32-88cf-bc73fa51db7d', $this->info->version );
-	}
 }
 
 ?>
