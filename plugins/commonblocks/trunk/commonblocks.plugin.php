@@ -136,12 +136,29 @@ class CommonBlocks extends Plugin
 			$limit = 5;
 		};
 
-		$block->recent_comments = Comments::get( array(
-			'limit'=>$limit,
-			'status'=>Comment::STATUS_APPROVED,
-			'type'=>Comment::COMMENT,
-			'orderby'=>'date DESC',
-		) );
+		$offset = 0;
+		$published_posts = 0;
+		$valid_comments = array();
+
+		while ( $published_posts < $limit ) {
+			$comments = Comments::get( array(
+				'limit' => $limit - $published_posts,
+				'status' => Comment::STATUS_APPROVED,
+				'type' => Comment::COMMENT,
+				'offset' => $offset,
+				'orderby' => 'date DESC',
+			) );
+			// check the posts
+			foreach ($comments as $key => $comment ) {
+				if ( ( $comment->post->status ) == Post::status( 'published' ) ) {
+					$valid_comments[] = $comments[ $key ];
+					++$published_posts; 
+				}
+				++$offset;
+			}
+		}
+
+		$block->recent_comments = $valid_comments;
 	}
 
 	public function action_block_content_recent_posts( $block, $theme )
