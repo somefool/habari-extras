@@ -1,0 +1,246 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: De Morgan\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-28 01:15+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joel Lee <elohim@gmail.com>\n"
+"Language-Team: Joel Lee <elohim@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1?0:1;\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _n:1,2;_ne:1,2;_t;_e\n"
+"X-Poedit-Basepath: ../../../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:5
+msgid "Error!"
+msgstr ""
+
+#: 404.php:6
+msgid "The requested post was not found."
+msgstr ""
+
+#: admin.widget.php:2
+#: admin.widget.php:6
+msgid "Admin"
+msgstr ""
+
+#: admin.widget.php:5
+#, php-format
+msgid "You are logged in as %s."
+msgstr ""
+
+#: admin.widget.php:5
+msgid "Edit Your Profile"
+msgstr ""
+
+#: admin.widget.php:7
+msgid "Logout"
+msgstr ""
+
+#: admin.widget.php:9
+msgid "Login"
+msgstr ""
+
+#: audioscrobbler.php:2
+msgid "Listening"
+msgstr ""
+
+#: commentform.php:3
+msgid "Please do not load this page directly. Thanks!"
+msgstr ""
+
+#: commentform.php:6
+msgid "Leave a Reply"
+msgstr ""
+
+#: commentform.php:15
+msgid "Name"
+msgstr ""
+
+#: commentform.php:19
+msgid "E-mail"
+msgstr ""
+
+#: commentform.php:23
+msgid "Website"
+msgstr ""
+
+#: commentform.php:27
+msgid "Message"
+msgstr ""
+
+#: commentform.php:33
+msgid "Your comment may not display immediately due to spam filtering. Please wait for moderation."
+msgstr ""
+
+#: comments.php:6
+#, php-format
+msgid "%1$s Response"
+msgid_plural "%1$s Responses"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:42
+#: comments.php:63
+msgid "on"
+msgstr ""
+
+#: comments.php:43
+msgid "Permanent Link to this comment"
+msgstr ""
+
+#: comments.php:44
+msgid "In moderation"
+msgstr ""
+
+#: comments.php:64
+msgid "Permanent Link to this pingback"
+msgstr ""
+
+#: feedlink.widget.php:2
+msgid "Subscribe"
+msgstr ""
+
+#: feedlink.widget.php:4
+msgid "All posts"
+msgstr ""
+
+#: feedlink.widget.php:5
+msgid "All comments"
+msgstr ""
+
+#: flickrrss.widget.php:2
+msgid "Flickr"
+msgstr ""
+
+#: footer.php:7
+#, php-format
+msgid "%1$s is powered by %2$s and %3$s theme."
+msgstr ""
+
+#: freshcomments.php:2
+msgid "Comments"
+msgstr ""
+
+#: freshcomments.php:7
+#, php-format
+msgid "%1$d comment"
+msgid_plural "%1$d comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: freshcomments.php:10
+#, php-format
+msgid "Posted at %1$s"
+msgstr ""
+
+#: freshsurf.widget.php:2
+msgid "Notepad"
+msgstr ""
+
+#: home.php:11
+msgid "Comments to this post"
+msgstr ""
+
+#: home.php:11
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: home.php:16
+msgid "Edit post"
+msgstr ""
+
+#: home.php:16
+msgid "Edit"
+msgstr ""
+
+#: jaiku.php:2
+#: tweets.php:2
+#: twitterlitte.php:2
+msgid "Soliloquy"
+msgstr ""
+
+#: jaiku.php:9
+#: tweets.php:5
+#: twitterlitte.php:9
+msgid "Read more…"
+msgstr ""
+
+#: recententries.widget.php:2
+msgid "Recently"
+msgstr ""
+
+#: recententries.widget.php:13
+msgid "There are currently no posts in this blog."
+msgstr ""
+
+#: relatedposts.widget.php:2
+msgid "Related Posts"
+msgstr ""
+
+#: relatedtags.widget.php:2
+msgid "Related Tags"
+msgstr ""
+
+#: sidebar.php:6
+#: sidebar.single.php:6
+msgid "Search"
+msgstr ""
+
+#: sidebar.php:27
+#: sidebar.single.php:21
+msgid "About"
+msgstr ""
+
+#: tagcloud.widget.php:2
+msgid "Popular Tags"
+msgstr ""
+
+#: theme.php:158
+#, php-format
+msgid "%1$s &raquo; Chronological Archives of %2$s"
+msgstr ""
+
+#: theme.php:163
+#, php-format
+msgid "%1$s &raquo; Taxonomic Archives of %2$s"
+msgstr ""
+
+#: theme.php:167
+#, php-format
+msgid "%1$s ¶ %2$s"
+msgstr ""
+
+#: theme.php:171
+#, php-format
+msgid "%1$s &raquo; Search Results of %2$s"
+msgstr ""
+
+#: theme.php:179
+#, php-format
+msgid "%1$s &rsaquo; Page %2$s"
+msgstr ""
+
+#: theme.php:197
+#, php-format
+msgid "Posts written in %s"
+msgstr ""
+
+#: theme.php:202
+#, php-format
+msgid "Posts tagged with %s"
+msgstr ""
+
+#: theme.php:206
+#, php-format
+msgid "Search results for “%s”"
+msgstr ""
+
