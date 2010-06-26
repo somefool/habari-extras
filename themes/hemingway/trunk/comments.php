@@ -41,23 +41,16 @@
 
 <?php endif; ?>
 
-<?php if ($post->info->comments_disabled == false) : ?>
+
+<?php
+ 	if ( ! $post->info->comments_disabled ) { ?>
+	<div id="comment-form">
+	<h3 class="formhead">Have your say</h3>
 	<?php $commenter= User::commenter(); ?>
-
-  <div id="comment-form">
-      <h3 class="formhead">Have your say</h3>
-      
-      <form action="<?php URL::out('submit_feedback', array('id'=>$post->id) ); ?>" method="post" id="commentform">
-      <input type="text" name="name" id="author" value="<?php echo $commenter['name']; ?>" class="textfield" tabindex="1" /><label class="text">Name (required)</label><br />
-      <input type="text" name="email" id="email" value="<?php echo $commenter['email']; ?>" class="textfield" tabindex="2" /><label class="text">Email (required -  not published)</label><br />
-      <input type="text" name="url" id="url" value="<?php echo $commenter['url']; ?>" class="textfield" tabindex="3" /><label class="text">Website</label><br />
-      <textarea name="content" id="comment" class="commentbox" cols="100" rows="10" tabindex="4"></textarea>
-      
-      <div class="formactions">
-        <span style="visibility:hidden">Safari hates me</span>
-        <input type="submit" name="submit" id="submit" tabindex="5" class="submit" value="Add your comment" />
-      </div>
-      </form>
-	</div>
-
-<?php endif; ?>
+	<?php
+		if ( Session::has_messages() ) {
+			Session::messages_out();
+		}	
+	$post->comment_form()->out();
+	echo '</div>';
+} ?>

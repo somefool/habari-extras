@@ -1,4 +1,4 @@
-<hr class="hide" />
+<hr class="hide">
 <!-- ancillary.php -->
 <div id="ancillary">
 	<div class="inside">

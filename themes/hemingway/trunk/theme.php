@@ -80,7 +80,12 @@ class MyTheme extends Theme
 		$this->assign( 'nav_pages', Posts::get( array( 'limit' => 5, 'content_type' => 'page', 'status' => 'published', 'orderby' => 'slug ASC' )));
 		$this->assign( 'home_recent_posts', Posts::get(array ( 'limit' => 2, 'content_type' => 'entry', 'status' => 'published', 'orderby' => 'pubdate DESC' )));
 		$this->assign( 'recent_posts', Posts::get(array ( 'limit' => 3, 'content_type' => 'entry', 'status' => 'published', 'orderby' => 'pubdate DESC' )));
-
+		
+		// FormUI comment form
+		$this->add_template( 'formcontrol_text', dirname(__FILE__).'/forms/formcontrol_text.php', true);
+		$this->add_template( 'formcontrol_textarea', dirname(__FILE__).'/forms/formcontrol_textarea.php', true);
+		$this->add_template( 'formcontrol_submit', dirname(__FILE__).'/forms/formcontrol_submit.php', true);
+		
 		parent::add_template_vars();
 	}
 }

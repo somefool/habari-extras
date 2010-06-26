@@ -3,7 +3,7 @@
 	<name>Hemingway</name>
 	<author>Habari Community</author>
 	<url>http://habariproject.org</url>
-	<version>0.6</version>
+	<version>0.7</version>
 	<template_engine>rawphpengine</template_engine>
-	<description>This is a port of the popular &lt;a href=&quot;http://warpspire.com/hemingway&quot;&gt;Hemingway&lt;/a&gt; theme by &lt;a href=&quot;http://warpspire.com&quot;&gt;Kyle Neath&lt;/a&gt;, originally ported to Habari by &lt;a href=&quot;http://github.com/stan/habari-themes/tree/master&quot;&gt;Stanislas Mazurek&lt;/a&gt;.</description>
+	<description><![CDATA[This is a port of the popular <a href="http://warpspire.com/hemingway">Hemingway</a> theme by <a href="http://warpspire.com">Kyle Neath</a>, originally ported to Habari by <a href="http://github.com/stan/habari-themes/tree/master">Stanislas Mazurek</a>.]]></description>
 </pluggable>

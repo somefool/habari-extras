@@ -8,7 +8,7 @@
 				<h1><?php echo $post->title; ?></h1>
         <?php echo $post->content_out; ?>
 			</div>
-			<hr class="hide" />
+			<hr class="hide">
 			<div class="secondary">
 				<h2>About this entry</h2>
 				<div class="featured">
@@ -17,10 +17,12 @@
 						<dt>Published:</dt>
 						<dd><?php echo $post->pubdate->out(); ?></dd>
 					</dl>
+					<?php if ( count( $post->tags ) > 0 ) { ?>
 					<dl>
 						<dt>Tags:</dt>
 						<dd><?php echo $post->tags_out; ?></dd>
 					</dl>
+					<?php } ?>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -28,7 +30,7 @@
 	</div>
 	<!-- end primary -->
 	
-	<hr class="hide" />
+	<hr class="hide">
 	<div id="secondary">
 		<div class="inside">
       

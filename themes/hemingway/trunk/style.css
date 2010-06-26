@@ -405,7 +405,7 @@ label.text{
 }
 .formactions input.submit{ 
 	float:right; 
-	margin:-1em 0 0 0;
+	margin:0;
 	padding:0 0.5em;
 }
 .formactions .spinner{
