@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Dynamic style selector.</name>
+	<license>Squareweave Client License</license>
+	
+	<author url="http://www.squareweave.com.au">Squareweave Pty Ltd</author>
+	
+	<version>0.1</version>
+	<url>http://www.squareweave.com.au</url>
+	<description><![CDATA[Allow the selection of styles from a post edit screen.]]></description>
+
+	<copyright>2010</copyright>
+</pluggable>

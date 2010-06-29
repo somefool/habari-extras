@@ -16,22 +16,6 @@ class DynamicStyleSelecor extends Plugin
 	const DEFAULT_STYLE_SELECTION = '--Select a style--';
 	
 	/**
-	 * Required plugin info() implementation provides info to Habari about this plugin.
-	 */ 
-	public function info()
-	{
-		return array(
-			'name' => 'Dynamic style selector',
-			'version' => 0.8,
-			'url' => 'http://www.squareweave.com.au',
-			'author' => 'George @ Squareweave',
-			'authorurl' => 'http://www.squareweave.com.au',
-			'license' => 'Apache License 2.0',
-			'description' => 'Allows to select a CSS from a list of available styles in a given directory'
-		);
-	}
-	
-	/**
 	 * Add update beacon support
 	 */
 	public function action_update_check()
