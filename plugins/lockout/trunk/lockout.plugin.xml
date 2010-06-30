@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Lock Out</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+
+	<author url="http://habariproject.org/">The Habari Community</author>
+
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Redirect users not logged in to a login form.]]></description>
+	<copyright>2010</copyright>
+	<guid>cf0cdf1e-272e-43e6-8222-498b423798b4</guid>
+	<help>
+		<value><![CDATA[<p>After activating this, all users not yet logged in will be redirected to a login form. Note that you should still probably edit the Anonymous group permissions.</p>
+<p>Note also that users will not be able to retrieve your feeds. This may be addressed in a future version.</p>]]></value>
+	</help>
+</pluggable>
