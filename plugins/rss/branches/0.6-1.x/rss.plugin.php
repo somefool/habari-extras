@@ -13,7 +13,7 @@ class RSS extends Plugin {
 			'url' => 'http://habariproject.org/',
 			'author' => 'Habari Community',
 			'authorurl' => 'http://habariproject.org/',
-			'version' => '1.1',
+			'version' => '1.2',
 			'description' => 'Provides an RSS 2.0 feed for entries and comments.',
 			'license' => 'Apache License 2.0',
 		);
@@ -56,7 +56,7 @@ class RSS extends Plugin {
 		if ( $tagline = Options::get( 'tagline' ) ) {
 			$description = $channel->addChild( 'description', htmlspecialchars( $tagline ) );
 		}
-		$pubDate = $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate ) ) );
+		$pubDate = $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate->get( 'c' ) ) ) );
 		$generator = $channel->addChild( 'generator', 'Habari ' . Version::get_habariversion() . ' http://habariproject.org/' );
 
 		Plugins::act( 'rss_create_wrapper', $xml );
