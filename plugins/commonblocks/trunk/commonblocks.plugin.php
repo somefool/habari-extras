@@ -139,8 +139,10 @@ class CommonBlocks extends Plugin
 		$offset = 0;
 		$published_posts = 0;
 		$valid_comments = array();
+		// prevent endless looping if there are fewer comments than $limit
+		$comments_remain = true;
 
-		while ( $published_posts < $limit ) {
+		while ( $published_posts < $limit && $comments_remain ) {
 			$comments = Comments::get( array(
 				'limit' => $limit - $published_posts,
 				'status' => Comment::STATUS_APPROVED,
@@ -156,7 +158,11 @@ class CommonBlocks extends Plugin
 				}
 				++$offset;
 			}
-		}
+			// stop looping if out of comments
+			if ( count( $comments ) === 0 ) {
+				$comments_remain = false;
+			}
+		} 
 
 		$block->recent_comments = $valid_comments;
 	}
