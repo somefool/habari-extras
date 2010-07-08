@@ -3,7 +3,7 @@
 class StaticFront extends Plugin
 {
 
-	const VERSION= '0.2';
+	const VERSION= '0.3';
 
 	/**
 	 * Return plugin metadata for this plugin
@@ -16,7 +16,7 @@ class StaticFront extends Plugin
 			'url' => 'http://habariproject.org',
 			'name' => 'StaticFront',
 			'license' => 'Apache License 2.0',
-			'author' => 'Habari Community',
+			'author' => 'The Habari Community',
 			'version' => self::VERSION,
 			'description' => 'Allows you to set a page to show as the home page.'
 		);
@@ -85,7 +85,7 @@ class StaticFront extends Plugin
 		return $pages;
 	}
 
-	public function filter_theme_act_display_home( $handled, &$theme )
+	public function filter_theme_act_display_home( $handled, $theme )
 	{
 		$page= Options::get( 'staticfront__page' );
 		if ( $page && $page != 'none' ) {
@@ -96,7 +96,7 @@ class StaticFront extends Plugin
 		return FALSE;
 	}
 
-	public function filter_theme_act_display_blog_home( $handled, &$theme )
+	public function filter_theme_act_display_blog_home( $handled, $theme )
 	{
 		$page= Options::get( 'staticfront__page' );
 		if ( $page && $page != 'none' ) {
