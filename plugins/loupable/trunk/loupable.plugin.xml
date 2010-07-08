@@ -3,8 +3,9 @@
 	<name>Loupable</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://habariproject.org/">Habari Community</author>
+	<author url="http://morgante.net">Morgante Pell</author>
 	<version>1.0</version>
-	<url>http://habariproject.org/</url>
+	<url>http://lab.morgante.net/loupable</url>
 	<description><![CDATA[Allows you to insert an interactive loupe navigation on the front-end of your site.]]></description>
 	<copyright>2009</copyright>
 </pluggable> 

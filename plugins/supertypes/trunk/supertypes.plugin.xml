@@ -2,8 +2,9 @@
 <pluggable type="plugin">
 	<name>Super Types</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-	<url>http://habariproject.org/</url>
+	<url>http://lab.morgante.net/supertypes</url>
 	<author url="http://habariproject.org/">The Habari Community</author>
+	<author url="http://morgante.net">Morgante Pell</author>
 	<version>1.0</version>
 	<description><![CDATA[Extends Habari to allow for more advanced content types]]></description>
 	<copyright>2009</copyright>

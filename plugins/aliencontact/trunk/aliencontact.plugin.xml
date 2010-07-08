@@ -2,7 +2,7 @@
 <pluggable type="plugin">
 	<name>AlienContact</name>
 	<license>Creative Commons Attribution-Share Alike 3.0</license>
-	<url>http://myfla.ws/projects/contact/</url>
+	<url>http://lab.morgante.net/aliencontact/</url>
 	<author url="http://habariproject.org/">Habari Community</author>
 	<author url="http://morgante.net">Morgante Pell</author>
 	<version>1.0</version>
