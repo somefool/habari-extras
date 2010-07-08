@@ -2,9 +2,10 @@
 <pluggable type="plugin"> 
 	<name>Last.fm Media Silo</name> 
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license> 
-	<author url="ttp://habariproject.org/">Habari Community</author> 
+	<author url="ttp://habariproject.org/">Habari Community</author>
+	<author url="ttp://morgante.net">Morgante Pell</author> 
 	<version>1.0</version> 
-	<url>http://habariproject.org/d</url> 
+	<url>http://lab.morgante.net/lastfm</url> 
 	<description><![CDATA[Allows data from last.fm to be inserted into posts.]]></description> 
 	<copyright>2009</copyright>	
 </pluggable> 
