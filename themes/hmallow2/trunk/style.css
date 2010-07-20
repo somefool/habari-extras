@@ -650,9 +650,12 @@ body#archives .entry { width:530px; }
 
 
 .meta span {
-    font-style: italic;
+	color: #525253;
 }
 
+.meta span#thedate {
+	font-weight: bold;
+}
 
 .meta li, ul.post-meta li {
 	display: inline;
