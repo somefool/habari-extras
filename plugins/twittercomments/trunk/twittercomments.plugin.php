@@ -52,11 +52,13 @@ class TwitterComments extends Plugin
 	 * Add commentinfo for only these twitter comments
 	 *
 	 * @param Comment The comment that will be processed before storing it in the database.
+	 * @param Handler vars (not used)
+	 * @param Additional form fields
 	 * @return Comment The comment result to store.
 	 **/
-	function action_comment_insert_before ( Comment $comment )
+	function action_comment_accepted ( $comment, $handler_vars, $extra )
 	{
-		if ( isset( $_POST[ sprintf( '%x', crc32( 'twitter_comment' ) )] ) ) {
+		if ( isset( $extra[ 'twitter_comment' ] ) ) {
 			$comment->info->twitter_comment = true;
 		}
 		return $comment;
