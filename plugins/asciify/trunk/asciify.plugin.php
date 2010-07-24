@@ -1,7 +1,6 @@
 <?php
 /**
  * Asciify will make your titles and tags nicer for urls.
- * Doesn't handles tag-slugs since Tag isn't correctly implemented yet.
  *
  * Usage:
  * Enable and enjoy
@@ -15,7 +14,7 @@ class asciify extends Plugin
 	 **/
 	public function action_update_check()
 	{
-	 	Update::add( 'asciify', 'CBEC596E-9BBE-11DD-8801-147256D89593', $this->info->version );
+	 	Update::add( $this->info->name, $this->info->guid, $this->info->version );
 	}
 
 	/**
@@ -40,7 +39,7 @@ class asciify extends Plugin
 	/**
 	 * Filter that does all the magic
 	 */
-	public function filter_tag_setslug($tag)
+	public function filter_term_setslug($tag)
 	{
 		return $this->_asciize($tag);	
 	}

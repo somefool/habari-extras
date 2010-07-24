@@ -3,9 +3,11 @@
 	<name>Asciify</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://eighty4.se">eighty4</author>
-	<version>0.1</version>
+	<version>0.2</version>
 	<url>http://eighty4.se/projects/</url>
 	<description><![CDATA[Make urls more friendly]]></description>
 	<copyright>2009</copyright>
+	<guid>CBEC596E-9BBE-11DD-8801-147256D89593</guid>
+	<help><value><![CDATA[Once enabled, Asciify will make your titles and tags nicer for urls, by changing characters like å,ä,ö i a or o.]]></value></help>
 </pluggable> 
  
