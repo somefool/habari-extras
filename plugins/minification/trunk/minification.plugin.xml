@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Minification</name>
+	<version>0.1.0</version>
+	<url>http://broken8.se/</url>
+	<author>eighty4</author>
+	<authorurl>http://broken8.se/</authorurl>
+	<license>Apache License 2.0</license>
+	<description><![CDATA[Minifies html, css and js as well as combines all css and js files. Uses http://code.google.com/p/minify/]]></description>
+	<copyright>2010</copyright>
+	<help><value><![CDATA[Will only work on css and javascript files added using Stack::add( 'template_stylesheet') and Stack::add('template_header_javascript'). If you're using javascript that's depending on other javascript make sure it's loaded in the right order using <a href="http://wiki.habariproject.org/en/Dev:Adding_Javascript_and_CSS#Stack_Dependencies">Stack Dependencies</a>]]></value></help>
+</pluggable>
+
