@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+  <name>FileMan</name>
+  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+  <url>http://mattsd.com/</url>
+  <author url="http://mattsd.com/">Matt-SD</author>
+  <version>1.0</version>
+  <description><![CDATA[A File Manager for Habari and nothing else.]]></description>
+  <copyright>2010</copyright>
+  <help>
+    <value>
+      <![CDATA[
+       Chose the file to edit in the browser on the right and the file's content will be displayed in the textarea on the left for editing.<br />
+       If the File is not writable, open your FTP client and set the file to be writable.<br />
+       Saving files is done with AJAX and any errors will be returned and displayed in the Status bit.
+      ]]>
+    </value>
+  </help>
+</pluggable>
