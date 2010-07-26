@@ -28,6 +28,7 @@ class CommonBlocks extends Plugin
 	 **/
 	function action_init()
 	{
+		$this->load_text_domain( 'commonblocks' );
 		foreach ( array_keys( $this->allblocks ) as $blockname ) {
 			$this->add_template( "block.$blockname", dirname( __FILE__ ) . "/block.$blockname.php" );
 		}
@@ -37,16 +38,16 @@ class CommonBlocks extends Plugin
 
 		// This is here because you can't init a URL with dynamic values in the declaration
 		$this->validation_urls = array(
-			'XHTML 1.0 Transitional' => 'http://validator.w3.org/check?uri=referer',
-			'CSS level 3' => 'http://jigsaw.w3.org/css-validator/check/referer?profile=css3',
+			_t( 'XHTML 1.0 Transitional', 'commonblocks' ) => 'http://validator.w3.org/check?uri=referer',
+			_t( 'CSS level 3', 'commonblocks' ) => 'http://jigsaw.w3.org/css-validator/check/referer?profile=css3',
 			'HTML5' => 'http://html5.validator.nu/?doc=' . Site::get_url('habari'),
-			'Feed Validator' => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url( 'habari' ),
+			_t( 'Feed Validator', 'commonblocks' ) => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url( 'habari' ),
 		);
 
 		$this->meta_urls = array(
 			_t( 'Site Feed', 'commonblocks' ) => URL::get( 'atom_feed', array( 'index' => '1' ) ),
 			_t( 'Comments Feed', 'commonblocks' ) => URL::get( 'atom_feed_comments' ),
-			_t( 'Habari', 'commonblocks' ) => 'http://habariproject.org/',
+			'Habari' => 'http://habariproject.org/',
 		);
 	}
 
@@ -316,7 +317,7 @@ class CommonBlocks extends Plugin
 
 	public function action_block_content_search_form( $block, $theme )
 	{
-		$block->form = '<form method="get" id="searchform" action="' . URL::get('display_search') .
+		$block->form = '<form method="get" id="searchform" action="' . URL::get( 'display_search' ) .
 			'"><p><input type="text" id="s" name="criteria" value="' . ( isset( $theme->criteria ) ? htmlentities( $theme->criteria, ENT_COMPAT, 'UTF-8' ) : '' ) .
 			'"><input type="submit" id="searchsubmit" value="' . ( isset( $block->button ) ? $block->button : _t( 'Search', 'commonblocks' ) ) . '"></p></form>';
 	}
