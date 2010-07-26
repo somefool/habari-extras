@@ -32,6 +32,7 @@
    </td>
    <td class="browser">
     <div class="fileman">
+     <p>Base Dir: <?php Site::out_url("user"); ?></p><br />
      <div id="jQueryFileTree"></div>
     </div>
    </td>

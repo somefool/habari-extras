@@ -1,0 +1,39 @@
+
+--This line, and those below, will be ignored--
+
+A    jqueryFileTree
+A    jqueryFileTree/images
+AM   jqueryFileTree/images/folder_open.png
+AM   jqueryFileTree/images/flash.png
+AM   jqueryFileTree/images/spinner.gif
+AM   jqueryFileTree/images/linux.png
+AM   jqueryFileTree/images/zip.png
+AM   jqueryFileTree/images/ppt.png
+AM   jqueryFileTree/images/application.png
+AM   jqueryFileTree/images/html.png
+AM   jqueryFileTree/images/directory.png
+AM   jqueryFileTree/images/script.png
+AM   jqueryFileTree/images/doc.png
+AM   jqueryFileTree/images/xls.png
+AM   jqueryFileTree/images/pdf.png
+AM   jqueryFileTree/images/code.png
+AM   jqueryFileTree/images/picture.png
+AM   jqueryFileTree/images/file.png
+AM   jqueryFileTree/images/txt.png
+AM   jqueryFileTree/images/music.png
+AM   jqueryFileTree/images/java.png
+AM   jqueryFileTree/images/ruby.png
+AM   jqueryFileTree/images/db.png
+AM   jqueryFileTree/images/psd.png
+AM   jqueryFileTree/images/php.png
+AM   jqueryFileTree/images/film.png
+AM   jqueryFileTree/images/css.png
+AM   jqueryFileTree/jqueryFileTree.php
+AM   jqueryFileTree/jqueryFileTree.css
+AM   jqueryFileTree/jqueryFileTree.js
+A    fileman.php
+A    fileman.plugin.xml
+A    fileman.css.php
+A    submit.php
+A    fileman.js.php
+A    fileman.plugin.php

@@ -14,7 +14,7 @@
     });
     $('form.fileman').submit(function(){
      $.post(
-      '<?php Site::out_url("habari"); ?>/user/plugins/fileman/submit.php',
+      '<?php Site::out_url("habari"); ?>/user/plugins/fileman/save.php',
       'file='+$('form.fileman input.file').val()+'&contents='+$('form.fileman textarea').val(),
       function(data) {
        $('form.fileman p.status span').html(data);
