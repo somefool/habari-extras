@@ -29,18 +29,18 @@ class CommonBlocks extends Plugin
 	function action_init()
 	{
 		foreach ( array_keys( $this->allblocks ) as $blockname ) {
-			$this->add_template( "block.$blockname", dirname(__FILE__) . "/block.$blockname.php" );
+			$this->add_template( "block.$blockname", dirname( __FILE__ ) . "/block.$blockname.php" );
 		}
-		$this->add_template( "block.dropdown.category_archives", dirname(__FILE__) . "/block.dropdown.category_archives.php" );
-		$this->add_template( "block.dropdown.tag_archives", dirname(__FILE__) . "/block.dropdown.tag_archives.php" );
-		$this->add_template( "block.dropdown.monthly_archives", dirname(__FILE__) . "/block.dropdown.monthly_archives.php" );
+		$this->add_template( "block.dropdown.category_archives", dirname( __FILE__ ) . "/block.dropdown.category_archives.php" );
+		$this->add_template( "block.dropdown.tag_archives", dirname( __FILE__ ) . "/block.dropdown.tag_archives.php" );
+		$this->add_template( "block.dropdown.monthly_archives", dirname( __FILE__ ) . "/block.dropdown.monthly_archives.php" );
 
 		// This is here because you can't init a URL with dynamic values in the declaration
 		$this->validation_urls = array(
 			'XHTML 1.0 Transitional' => 'http://validator.w3.org/check?uri=referer',
 			'CSS level 3' => 'http://jigsaw.w3.org/css-validator/check/referer?profile=css3',
 			'HTML5' => 'http://html5.validator.nu/?doc=' . Site::get_url('habari'),
-			'Feed Validator' => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url('habari'),
+			'Feed Validator' => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url( 'habari' ),
 		);
 
 		$this->meta_urls = array(
@@ -80,7 +80,7 @@ class CommonBlocks extends Plugin
 
 	public function action_block_form_validator_links( $form, $block )
 	{
-		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:', 'commonblocks' ), array_flip($this->validation_urls) );
+		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:', 'commonblocks' ), array_flip( $this->validation_urls ) );
 		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
@@ -151,7 +151,7 @@ class CommonBlocks extends Plugin
 				'orderby' => 'date DESC',
 			) );
 			// check the posts
-			foreach ($comments as $key => $comment ) {
+			foreach ( $comments as $key => $comment ) {
 				if ( ( $comment->post->status ) == Post::status( 'published' ) ) {
 					$valid_comments[] = $comments[ $key ];
 					++$published_posts; 
@@ -184,7 +184,7 @@ class CommonBlocks extends Plugin
 	public function action_block_content_validator_links( $block, $theme )
 	{
 		$list = array();
-		$validation_urls = array_flip($this->validation_urls);
+		$validation_urls = array_flip( $this->validation_urls );
 		$links = $block->links;
 		if ( count( $links ) > 0 ) {
 			foreach( $links as $link ) {
@@ -327,7 +327,7 @@ class CommonBlocks extends Plugin
 
 	function filter_block_content_type_monthly_archives( $types, $block )
 	{
-		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
 		if ( isset( $block->title ) ) {
 			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
 		}
@@ -336,7 +336,7 @@ class CommonBlocks extends Plugin
 
 	function filter_block_content_type_category_archives( $types, $block )
 	{
-		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
 		if ( isset( $block->title ) ) {
 			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
 		}
@@ -345,7 +345,7 @@ class CommonBlocks extends Plugin
 
 	function filter_block_content_type_tag_archives( $types, $block )
 	{
-		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}");
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
 		if ( isset( $block->title ) ) {
 			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
 		}
