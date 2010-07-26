@@ -186,8 +186,10 @@ class CommonBlocks extends Plugin
 		$list = array();
 		$validation_urls = array_flip($this->validation_urls);
 		$links = $block->links;
-		foreach( $links as $link ) {
-			$list[$link] = $validation_urls[$link];
+		if ( count( $links ) > 0 ) {
+			foreach( $links as $link ) {
+				$list[$link] = $validation_urls[$link];
+			}
 		}
 		$block->list = $list;
 	}
@@ -304,8 +306,10 @@ class CommonBlocks extends Plugin
 		}
 		$meta_urls = array_flip( $this->meta_urls );
 		$links = $block->links;
-		foreach( $links as $link ) {
-			$list[ $link ] = $meta_urls[ $link ];
+		if ( count( $links ) > 0 ) {
+			foreach( $links as $link ) {
+				$list[ $link ] = $meta_urls[ $link ];
+			}
 		}
 		$block->list = $list;
 	}
@@ -314,7 +318,7 @@ class CommonBlocks extends Plugin
 	{
 		$block->form = '<form method="get" id="searchform" action="' . URL::get('display_search') .
 			'"><p><input type="text" id="s" name="criteria" value="' . ( isset( $theme->criteria ) ? htmlentities( $theme->criteria, ENT_COMPAT, 'UTF-8' ) : '' ) .
-			'"><input type="submit" id="searchsubmit" value="' . ( isset( $block->button ) ? $block->button : _t( 'Search', 'commonblocks' ) ) . '"></p>';
+			'"><input type="submit" id="searchsubmit" value="' . ( isset( $block->button ) ? $block->button : _t( 'Search', 'commonblocks' ) ) . '"></p></form>';
 	}
 
 	/**

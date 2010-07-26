@@ -1,6 +1,6 @@
-<h3>Category Archives</h3>
-<ul>
-  <?php $categories = $content->categories; foreach( $categories as $category ): ?>
+<h3><?php echo $content->title; ?></h3>
+<ul id="category_archives">
+  <?php $categories = $content->categories; if ( count( $categories ) > 0 ) foreach( $categories as $category ): ?>
     <li>
 	<a href="<?php echo $category[ 'url' ]; ?>" title="View entries in the '<?php
 		echo $category[ 'category' ];

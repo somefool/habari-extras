@@ -1,5 +1,5 @@
-<h3>Recent Comments</h3>
-<ul>
+<h3><?php echo $content->title; ?></h3>
+<ul id="recent_comments">
   <?php $comments = $content->recent_comments; foreach( $comments as $comment): ?>
     <li>
       <a href="<?php echo $comment->url ?>">

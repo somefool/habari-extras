@@ -1,5 +1,5 @@
-<h3>Monthly Archives</h3>
-<ul>
+<h3><?php echo $content->title; ?></h3>
+<ul id="monthly_archives">
   <?php $months = $content->months; foreach( $months as $month ): ?>
     <li>
 	<a href="<?php echo $month[ 'url' ]; ?>" title="View entries in <?php

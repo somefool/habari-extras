@@ -1,5 +1,5 @@
-<h3>Tag Archives</h3>
-<ul>
+<h3><?php echo $content->title; ?></h3>
+<ul id="tag_archives">
   <?php $tags = $content->tags; foreach( $tags as $tag ): ?>
     <li>
 	<a href="<?php echo $tag[ 'url' ]; ?>" title="View entries tagged '<?php
