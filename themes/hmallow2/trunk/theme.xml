@@ -5,8 +5,7 @@
 	<url>http://www.somefoolwitha.com/</url>
 	<version>1.0</version>
 	<template_engine>rawphpengine</template_engine>
-	<description><![CDATA[Very simple, clean theme based on K2 which comes with Habari and WP-Mallow2 - my WordPress theme which itself is based on Wp-Mallow and Kubrick.<br/><br/>
-	Supports many plugins, including: TagCloud, fluffytag, blogroll, deliciousfeed, audioscrobbler, lastrecent, flickrfeed, twitter, Brightkite, gravatar, twitteravatar, colophon, popular_posts, postwordcount, relatedtags
+	<description><![CDATA[Very simple, clean theme based on K2 which comes with Habari and WP-Mallow2 - my WordPress theme which itself is based on Wp-Mallow and Kubrick.
 	<br/><br/><br/>
 	]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
@@ -15,6 +14,9 @@
 		<areas>
 			<area name="sidebar">
 				<description><![CDATA[Sidebar]]></description>
+			</area>
+			<area name="footer">
+				<description><![CDATA[Footer]]></description>
 			</area>
 		</areas>
 		

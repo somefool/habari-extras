@@ -12,11 +12,19 @@ if(Version::is_devel()) {
 <br />
 Theme: <a href="http://www.somefoolwitha.com/hmallow2" title="hMallow2">hMallow2</a>. Administrator <a href="<?php Site::out_url( 'habari' ); ?>/admin"><?php _e('admin'); ?></a>.
 
+<div id="footer_area">
+<?php $theme->area('footer'); ?>
+</div>
+
+
 </div>
 
 
 <!-- http://www.somefoolwitha.com/hmallow2 Design by Matthew 
 & please dont delete this comment .... credit where credits due -->
+
+
+
 
 <?php $theme->footer(); ?>
 
