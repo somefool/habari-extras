@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pluggable type="theme">
+	<name>hMallow Mobile</name>
+	<author>MatthewM (somefool)</author>
+	<url>http://www.somefoolwitha.com/</url>
+	<version>1.0</version>
+	<template_engine>rawphpengine</template_engine>
+	<description><![CDATA[Attempt at a mobile theme for HAbari.<br/><br/>
+	<br/><br/><br/>
+	]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+		<copyright>2010</copyright>
+		
+		<areas>
+			<area name="sidebar">
+				<description><![CDATA[Sidebar]]></description>
+			</area>
+		</areas>
+		
+
+</pluggable>
