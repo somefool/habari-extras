@@ -57,7 +57,7 @@ class PostWordCount extends Plugin
 	public function filter_post_word_count( $word_count, $post ) 
 	{
 		$allcharacters = 'ÁÀÂÄǍĂĀÃÅǺĄƁĆĊĈČÇĎḌƊÉÈĖÊËĚĔĒĘẸƎƏƐĠĜǦĞĢƔĤḤĦIÍÌİÎÏǏĬĪĨĮỊĴĶƘĹĻŁĽĿŃŇÑŅÓÒÔÖǑŎŌÕŐỌØǾƠŔŘŖŚŜŠŞȘṢŤŢṬÚÙÛÜǓŬŪŨŰŮŲỤƯẂẀŴẄǷÝỲŶŸȲỸƳŹŻŽẒáàâäǎăāãåǻąɓćċĉčçďḍɗéèėêëěĕēęẹǝəɛġĝǧğģɣĥḥħıíìiîïǐĭīĩįịĵķƙĸĺļłľŀŉńňñņóòôöǒŏōõőọøǿơŕřŗśŝšşșṣſťţṭúùûüǔŭūũűůųụưẃẁŵẅƿýỳŷÿȳỹƴźżžẓΑΆΒΓΔΕΈΖΗΉΘΙΊΪΚΛΜΝΞΟΌΠΡΣΤΥΎΫΦΧΨΩΏαάβγδεέζηήθιίϊΐκλμνξοόπρσςτυύϋΰφχψωώÆǼǢÐĐĲŊŒÞŦæǽǣðđĳŋœßþŧ';
-		return str_word_count( strip_tags( ( $this->config[ 'add_title' ] ? $post->content_out . " {$post->title}" : $post->content_out ) ), 0, $allcharacters ); 	
+		return str_word_count( strip_tags( ( $this->config[ 'add_title' ] ? $post->content . " {$post->title}" : $post->content ) ), 0, $allcharacters ); 	
 	}
 }
 ?>
