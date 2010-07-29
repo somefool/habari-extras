@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>Monthly Archives</name>
-	<author url="http://habariproject.org/">Habari Community</author>
-	<version>0.9.2</version>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<version>0.9.3</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Shows archives grouped by month.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
-	<copyright>2009</copyright>
+	<copyright>2010</copyright>
 </pluggable> 
  

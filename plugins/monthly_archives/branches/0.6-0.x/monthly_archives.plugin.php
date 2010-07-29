@@ -11,7 +11,7 @@
 class Monthly_Archives extends Plugin
 {
 
-	const VERSION = '0.9.1';
+	const VERSION = '0.9.3';
 
 	private $monthly_archives = ''; // stores the actual archives list
 	private $config = array(); // stores our config options
@@ -116,7 +116,9 @@ class Monthly_Archives extends Plugin
 
 	protected function get_monthly_archives ( ) 
 	{
-		set_time_limit( ( 5 * 60 ) );
+	        if( !ini_get( 'safe_mode' ) ) {
+		  set_time_limit( ( 5 * 60 ) );
+	        }
 
 		if ( !empty( $this->num_month ) ) {
 			$limit = 'LIMIT 0, ' . $this->num_month;

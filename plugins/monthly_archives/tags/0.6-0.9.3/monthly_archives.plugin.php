@@ -10,10 +10,28 @@
 
 class Monthly_Archives extends Plugin
 {
+
+	const VERSION = '0.9.3';
+
 	private $monthly_archives = ''; // stores the actual archives list
 	private $config = array(); // stores our config options
 
 	private $cache_expiry = 604800; // one week, in seconds: 60 * 60 * 24 * 7
+
+
+	public function info ( ) {
+
+		return array(
+			'name' => 'Monthly Archives',
+			'url' => 'http://habariproject.org',
+			'author' => 'Habari Community',
+			'authorurl' => 'http://habariproject.org',
+			'version' => self::VERSION,
+			'description' => 'Shows archives grouped by month.',
+			'license' => 'Apache License 2.0'
+		);
+
+	}
 
 	public function action_update_check ( ) {
 
@@ -21,14 +39,6 @@ class Monthly_Archives extends Plugin
 
 	}
 
-	public function help() 
-	{
-		$help = _t( 'To use, insert <code>&lt;?php $theme->monthly_archives(); ?&gt;</code> in your theme.' );
-
-		return $help;
-
-	}
-	
 	public function action_plugin_deactivation ( $file = '' ) {
 
 		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
@@ -59,12 +69,11 @@ class Monthly_Archives extends Plugin
 	public function filter_plugin_config ( $actions, $plugin_id ) {
 
 		if ( $plugin_id == $this->plugin_id() ) {
-			$actions[] = _t( 'Configure' );
+			$actions[]= _t( 'Configure' );
 		}
 
 		return $actions;
 
-		
 	}
 
 	/*
@@ -107,7 +116,9 @@ class Monthly_Archives extends Plugin
 
 	protected function get_monthly_archives ( ) 
 	{
-		set_time_limit( ( 5 * 60 ) );
+	        if( !ini_get( 'safe_mode' ) ) {
+		  set_time_limit( ( 5 * 60 ) );
+	        }
 
 		if ( !empty( $this->num_month ) ) {
 			$limit = 'LIMIT 0, ' . $this->num_month;
@@ -121,18 +132,18 @@ class Monthly_Archives extends Plugin
 				WHERE content_type = ? AND status = ?
 				GROUP BY year, month
 				ORDER BY pubdate DESC {$limit}";
-		$p[] = Post::type( 'entry' );
-		$p[] = Post::status( 'published' );
+		$p[]= Post::type( 'entry' );
+		$p[]= Post::status( 'published' );
 		$results = DB::get_results( $q, $p );
 
 		if ( empty( $results ) ) {
-			$archives[] = '<ul id="monthly_archives">';
-			$archives[] = '  <li>No Archives Found</li>';
-			$archives[] = '</ul>';
+			$archives[]= '<ul id="monthly_archives">';
+			$archives[]= '  <li>No Archives Found</li>';
+			$archives[]= '</ul>';
 		}
 		else {
 
-			$archives[] = '<ul id="monthly_archives">';
+			$archives[]= '<ul id="monthly_archives">';
 
 			foreach ( $results as $result ) {
 
@@ -170,8 +181,8 @@ class Monthly_Archives extends Plugin
 					$result->the_count = '';
 				}
 
-				$archives[] = '  <li>';
-				$archives[] = '    <a href="' . URL::get( 'display_entries_by_date', array( 'year' => $result->year, 'month' => $result->month ) ) . '" title="View entries in ' . $result->display_month . '/' . $result->year . '">' . $result->display_month . ' ' . $result->year . '</a>' . $result->the_count;
+				$archives[]= '  <li>';
+				$archives[]= '    <a href="' . URL::get( 'display_entries_by_date', array( 'year' => $result->year, 'month' => $result->month ) ) . '" title="View entries in ' . $result->display_month . '/' . $result->year . '">' . $result->display_month . ' ' . $result->year . '</a>' . $result->the_count;
 
 				// do we want to show all the posts as well?
 				if ( $this->detail_view == 'Y' ) {
@@ -188,7 +199,7 @@ class Monthly_Archives extends Plugin
 
 					if ( $psts ) {
 
-						$archives[] = '    <ul class="archive_entry">';
+						$archives[]= '    <ul class="archive_entry">';
 
 						foreach ( $psts as $pst ) {
 
@@ -201,23 +212,23 @@ class Monthly_Archives extends Plugin
 								$delimiter = $this->delimiter;
 							}
 
-							$archives[] = '      <li>';
-							$archives[] = '        ' . $day . $delimiter . '<a href="' . $pst->permalink . '" title="View ' . $pst->title . '">' . $pst->title . '</a>';
-							$archives[] = '      </li>';
+							$archives[]= '      <li>';
+							$archives[]= '        ' . $day . $delimiter . '<a href="' . $pst->permalink . '" title="View ' . $pst->title . '">' . $pst->title . '</a>';
+							$archives[]= '      </li>';
 
 						}
 
-						$archives[] = '    </ul>';
+						$archives[]= '    </ul>';
 
 					}
 
 				}
 
-				$archives[] = '  </li>';
+				$archives[]= '  </li>';
 
 			}
 
-			$archives[] = '</ul>';
+			$archives[]= '</ul>';
 
 		}
 

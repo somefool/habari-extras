@@ -10,7 +10,6 @@
 
 class Monthly_Archives extends Plugin
 {
-	const VERSION = '0.9.2';
 	private $monthly_archives = ''; // stores the actual archives list
 	private $config = array(); // stores our config options
 
@@ -18,7 +17,7 @@ class Monthly_Archives extends Plugin
 
 	public function action_update_check ( ) {
 
-		Update::add( 'MonthlyArchives', '726F35A4-16C2-11DD-AF4E-A64656D89593', self::VERSION );
+		Update::add( 'MonthlyArchives', '726F35A4-16C2-11DD-AF4E-A64656D89593', $this->info->version );
 
 	}
 
@@ -99,7 +98,9 @@ class Monthly_Archives extends Plugin
 
 	protected function get_monthly_archives ( ) 
 	{
-		set_time_limit( ( 5 * 60 ) );
+	        if( !ini_get( 'safe_mode' ) ) {
+		  set_time_limit( ( 5 * 60 ) );
+	        }
 
 		if ( !empty( $this->num_month ) ) {
 			$limit = 'LIMIT 0, ' . $this->num_month;
