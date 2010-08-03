@@ -21,25 +21,12 @@
 				
 	
 
-	<div class="navigation">
-		<?php if ( $previous= $post->descend() ): ?>
-		<div class="alignleft"> &#x2190; <a href="<?php echo $previous->permalink ?>" title="<?php echo $previous->slug ?>"><?php echo $previous->title ?></a></div>
-		<?php endif; ?>
-		<?php if ( $next= $post->ascend() ): ?>
-		<div class="alignright"><a href="<?php echo $next->permalink ?>" title="<?php echo $next->slug ?>"><?php echo $next->title ?></a> &#x2192;</div>
-		<?php endif; ?>
-		
-		<div class="clear"></div>
-		</div>
-
-		
+			
 
 <div class="post">
 
 
-<div class="meta">
-	<span id="thedate"><?php echo date('j', strtotime($post->pubdate_out)); ?> <?php echo date('F', strtotime($post->pubdate_out)); ?>, <?php echo date('Y', strtotime($post->pubdate_out)); ?> <?php if ( $show_author ) { _e( '&middot; By %s', array( $post->author->displayname ) ); } ?></span> &middot; Word count: <?php echo $post->word_count; ?> &middot; <a href="http://twitter.com/home?status=<?php echo $post->title; ?>%20<?php echo $post->permalink; ?>" title="Tweet this">Tweet this</a> &middot; Related tags: <?php echo $related_tags; ?> &middot; Tagged: <?php echo $post->tags_out; ?>	
-</div>		
+
 <!-- Post title -->
 <?php if ( User::identify()->loggedin ) { ?>
 			        <span class="editbutton"><a href="<?php URL::out( 'admin', 'page=publish&id=' . $post->id); ?>" title="<?php _e('Edit post'); ?>"><?php _e('Edit &raquo;'); ?></a></span>
@@ -47,7 +34,9 @@
 
 			<a href="<?php echo $post->permalink; ?>" rel="bookmark" title="Permanent Link: <?php echo $post->title; ?>"><?php echo $post->title; ?></a></h3>
 
-
+<div class="meta">
+	<span id="thedate"><?php echo date('j', strtotime($post->pubdate_out)); ?> <?php echo date('F', strtotime($post->pubdate_out)); ?>, <?php echo date('Y', strtotime($post->pubdate_out)); ?> <?php if ( $show_author ) { _e( '&middot; By %s', array( $post->author->displayname ) ); } ?></span> &middot; Word count: <?php echo $post->word_count; ?> &middot; <a href="http://twitter.com/home?status=<?php echo $post->title; ?>%20<?php echo $post->permalink; ?>" title="Tweet this">Tweet this</a> &middot; Related tags: <?php echo $related_tags; ?> &middot; Tagged: <?php echo $post->tags_out; ?>	
+</div>		
 		
 		<!-- Actual post -->
 <div class="storycontent">

@@ -3,6 +3,8 @@
 	http://somefoolwitha.com/hmallow2_live/user/themes/hmallow_mobile/style.css
 */
 
+
+
 /*
 Theme Name: hmallow mobile
 Theme URI: http://somefoolwitha.com
@@ -330,6 +332,168 @@ font-family: Helvetica, Geneva, Arial, sans-serif;
 
 /* @end */
 
+/* @group SINGLE */
+
+
+
+#single .post {
+
+	width: 90%;
+   background: #ffffff;
+  	padding: 15px 0 20px 16px;
+	margin: 0;
+}
+
+#single .post h3 a {
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #004dbf;
+	text-shadow: #fff 0 -1px 0;
+	
+}
+
+
+#single .post .meta {
+	text-shadow: #fff 0 -1px 0;
+	width: 95%;
+	font-size: 12px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+
+
+#single .post .meta a {
+	text-decoration: none;
+}
+
+#single .post .meta ul, #single .post .meta ul li {
+	display: inline;
+}
+#single .post .meta ul li {
+	margin-right: 10px;
+}
+
+#single .post .meta #thedate {
+	font-weight: bold;
+}
+
+
+#single #content .post .storycontent {
+	line-height: 20px;
+	font-size: 16px;
+	margin-top: 5px;
+}
+
+#single #content .post .storycontent p {
+	margin-bottom: 10px;
+}
+
+#single #content .post .storycontent img {
+	max-width: 100%;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+
+/* @end */
+
+/* @group COMMENT */
+
+
+
+.twitter_avatar {
+	display: none;
+}
+
+#commentcontent .comments h4 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+}
+
+#commentcontent .comments .metalinks {
+	font-size: 12px;
+	margin-top: 4px;
+	margin-bottom: 8px;
+}
+
+#commentlist li {
+	margin-bottom: 10px;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+#commentarea a {
+	text-decoration: none;
+}
+
+#comment-54 span.commentauthor{
+	font-weight: bold;
+}
+
+.comment .counter {
+	display: none;
+}
+
+#comment-54 small.comment-meta {
+	font-size: 12px;
+}
+
+/* @end */
+
+/* @group FORM */
+
+
+
+
+
+#commentarea {
+	
+	width: 90%;
+   background: #ffffff;
+  	padding: 0px 0 20px 16px;
+	margin: 0;
+}
+
+#comment_content {
+	width: 96%;
+}
+
+
+
+/* @end */
+
+.navigation {
+	display: inline-block;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.navigation a {
+	text-decoration: none;
+}
+
+.navigation .alignleft, .navigation .alignright {
+	-webkit-box-shadow:0px 0px 4px rgba(0,0,0, .8);
+-moz-box-shadow:0px 0px 4px rgba(0,0,0, .8);
+   background: #d9e6fa;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ebf1fa), to(#d9e6fa));
+   background: -moz-linear-gradient(top, #ebf1fa, #d9e6fa);-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	color: #32459e;
+	text-shadow: #fff 0 -1px 0;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 4px 8px 6px;
+	margin: 5px 0 10px;
+	float: left;
+	display: inline-block;
+	width: 92%;
+}
+
 #bottommeta, #footer_area {
 	text-align: center;
 	margin-top: 10px;
@@ -337,5 +501,22 @@ font-family: Helvetica, Geneva, Arial, sans-serif;
 
 #page-selector a, #bottommeta a, #footer_area a{
 	text-decoration: none;
+}
+
+#footer_area #mobiletoggle a {
+	-webkit-box-shadow:0px 0px 4px rgba(0,0,0, .8);
+-moz-box-shadow:0px 0px 4px rgba(0,0,0, .8);
+   background: #d9e6fa;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ebf1fa), to(#d9e6fa));
+   background: -moz-linear-gradient(top, #ebf1fa, #d9e6fa);-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	color: #32459e;
+	text-shadow: #fff 0 -1px 0;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 3px 8px;
+	margin: 5px 0 10px;
+	display: inline;
 }
 
