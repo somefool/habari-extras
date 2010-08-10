@@ -3,7 +3,7 @@
 	<name>Habarism</name>
 	<author>Thomas Silkjær</author>
 	<url>http://theundersigned.net/</url>
-	<version>1.6</version>
+	<version>1.7</version>
 	<description>A theme by Thomas Silkjær</description>
 	<template_engine>rawphpengine</template_engine>
 </pluggable>
