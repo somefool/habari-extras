@@ -1,18 +1,6 @@
 <?php
 class MicroID extends Plugin {
 
-  function info() {
-    return array(
-      'name' => 'MicroID Generator Plugin',
-      'version' => '1.1.1',
-      'url' => 'http://digitalspaghetti.me.uk/',
-      'author' => 'Tane Piper (includes code by Will Norris)',
-      'authorurl' => 'http://digitalspaghetti.me.uk/',
-      'license' => 'Apache License 2.0',
-      'description' => 'Generates a MicroID for services such as ClaimID.  Includes generation code based on Will Norris\'s origional release.',
-    );
-  }
-
   public function action_plugin_activation( $file ) {
     if ( realpath( $file ) == __FILE__ ) {
       Modules::add( 'MicroID' );
