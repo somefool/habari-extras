@@ -23,7 +23,7 @@ class minification extends Plugin {
 					
 					$ui->append( 'text', 'cache_expire', 'option:' . 'minification__expire', _t( 'Time the cache should save the minified files (sec)' ) );
 
-					$ui->append( 'checkbox', 'extream_cache', 'minification__extreme', _t( 'ONLY reminify if the filenames have change.' ) );
+					//$ui->append( 'checkbox', 'extream_cache', 'minification__extreme', _t( 'ONLY reminify if the filenames have change.' ) );
 					
 					$ui->append( 'submit', 'save', _t( 'Save' ) );
 					$ui->out();
@@ -34,8 +34,8 @@ class minification extends Plugin {
 
 	public function action_template_header() {
 
-		Cache::expire( self::$cache_name . '_js' );
-		Cache::expire( self::$cache_name . '_css' );
+		//Cache::expire( self::$cache_name . '_js' );
+		//Cache::expire( self::$cache_name . '_css' );
 
 		// try to disable output_compression (may not have an effect)
 		ini_set('zlib.output_compression', '0');
@@ -55,6 +55,9 @@ class minification extends Plugin {
 		}
 		Stack::add('template_stylesheet', array( Site::get_url('user') . "/files/minified.css", 'screen'), 'style' );
 		
+		/*
+		 * If we have the files or the cache havent expired don't create new files.
+		 */
 		if ( !file_exists(site::get_dir('user') . '/files/minified.css') || 
 			 !file_exists(site::get_dir('user') . '/files/minified.js') ||
 			
@@ -106,7 +109,7 @@ class minification extends Plugin {
 				);
 				$result = Minify::serve('Files', $options);
 				file_put_contents( site::get_dir('user') . '/files/minified.js', $result['content']);
-				Cache::set( self::$cache_name . '_js', 'true', Options::get( 'fluffytag__expire' ) );
+				Cache::set( self::$cache_name . '_js', 'true', Options::get( 'minification__expire' ) );
 			}
 
 			/* CSS */
@@ -125,7 +128,7 @@ class minification extends Plugin {
 				$result = Minify::serve('Files', $options);
 				file_put_contents( site::get_dir('user') . '/files/minified.css', $result['content']);
 	
-				Cache::set( self::$cache_name . '_css', 'true', Options::get( 'fluffytag__expire' ) );
+				Cache::set( self::$cache_name . '_css', 'true', Options::get( 'minification__expire' ) );
 			}
 		}
 	}
