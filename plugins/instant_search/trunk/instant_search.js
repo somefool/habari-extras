@@ -11,7 +11,7 @@ var InstantSearch = {
 		$('input#q').keyup( function ( ) {
 			console.log('request: search: ' + $(this).val());
 			
-			InstantSearch.request( $(this).val() );
+			InstantSearch.search( $(this).val() );
 			
 			// prevent the browser from doing anything
 			return false;
@@ -19,7 +19,7 @@ var InstantSearch = {
 		
 		// also hook our ajax event when the instant search form is submitted (via button or 'enter')
 		$('form#instant_search').submit( function ( ) {
-			InstantSearch.request( $('input#q').val() );
+			InstantSearch.search( $('input#q').val() );
 			
 			// prevent the browser from doing anything
 			return false;
@@ -27,7 +27,7 @@ var InstantSearch = {
 
 	},
 	
-	request: function ( search_term ) {
+	search: function ( search_term ) {
 		
 		// cancel any previous requests
 		if ( InstantSearch.running ) {
@@ -65,7 +65,7 @@ var InstantSearch = {
 			// build the html for this post
 			snip += '<div class="result">';
 			snip += '	<h2><a href="#">' + item.title + '</a></h2>';
-			snip += '	<p>' + item.post.replace( search_term, '<span class="highlight">' + search_term + '</span>' ) + '</p>';
+			snip += '	<p>' + item.content.replace( search_term, '<span class="highlight">' + search_term + '</span>' ) + '</p>';
 			snip += '	<a href="#" class="read_more">Read more...</a>';
 			snip += '</div>';
 			
