@@ -1,47 +1,83 @@
-    var runningRequest = false;
-    var request;
-
-
-	instantSearch = function(){};
+var InstantSearch = {
 	
-//Identify the typing action
-    $('input#q').keyup(function(e){
-        e.preventDefault();
-        var $q = $(this);
+	running: false,
+	request: null,
+	
+	url: '',
+	
+	init: function () {
+		
+		// hook our ajax event when a key is released
+		$('input#q').keyup( function ( ) {
+			console.log('request: search: ' + $(this).val());
+			
+			InstantSearch.request( $(this).val() );
+			
+			// prevent the browser from doing anything
+			return false;
+		} );
+		
+		// also hook our ajax event when the instant search form is submitted (via button or 'enter')
+		$('form#instant_search').submit( function ( ) {
+			InstantSearch.request( $('input#q').val() );
+			
+			// prevent the browser from doing anything
+			return false;
+		} );
 
-        if($q.val() == ''){
-            $('div#results').html('');
-            return false;
-        }
+	},
+	
+	request: function ( search_term ) {
+		
+		// cancel any previous requests
+		if ( InstantSearch.running ) {
+			InstantSearch.request.abort();
+			InstantSearch.running = false;
+		}
+		
+		// if the search is blank, there is no point in making a request, display the blank results
+		if ( search_term == '' ) {
+			InstantSearch.show_results('', search_term);
+		}
+		
+		this.request = $.ajax({
+			method: 'GET',
+			url: this.url,
+			dataType: 'json',
+			data: { q: search_term },
+			success: function ( data ) {
+				InstantSearch.show_results(data, search_term);
+			}
+		});
+		
+	},
+	
+	show_results: function ( data, search_term ) {
+		
+		// the request has finished
+		InstantSearch.running = false;
+		
+		var html = '';
+		
+		$.each( data, function( i, item ) {
+			var snip = '';
+			
+			// build the html for this post
+			snip += '<div class="result">';
+			snip += '	<h2><a href="#">' + item.title + '</a></h2>';
+			snip += '	<p>' + item.post.replace( search_term, '<span class="highlight">' + search_term + '</span>' ) + '</p>';
+			snip += '	<a href="#" class="read_more">Read more...</a>';
+			snip += '</div>';
+			
+			// append it to the main html block we're building
+			html += snip;
+		} );
+		
+		// and stick the html we built into the results div
+		$('div#results').html( html );
+		
+	}
+		
+};
 
-        //Abort opened requests to speed it up
-        if(runningRequest){
-            request.abort();
-        }
-
-        runningRequest=true;
-        request = $.getJSON( instantSearch.url, {
-            q:$q.val()
-        },function(data){
-            showResults( data,$q.val() );
-            runningRequest=false;
-        });
-
-//Create HTML structure for the results and insert it on the result div
-function showResults(data, highlight){
-           var resultHtml = '';
-            $.each(data, function(i,item){
-                resultHtml+='<div class="result">';
-                resultHtml+='<h2><a href="#">'+item.title+'</a></h2>';
-                resultHtml+='<p>'+item.post.replace(highlight, '<span class="highlight">'+highlight+'</span>')+'</p>';
-                resultHtml+='<a href="#" class="readMore">Read more..</a>'
-                resultHtml+='</div>';
-            });
-
-            $('div#results').html(resultHtml);
-        }
-
-        $('form').submit(function(e){
-            e.preventDefault();
-        });
-    });
+$(document).ready( InstantSearch.init );
