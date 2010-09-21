@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Instant Search</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>0.1</version>
+	<description><![CDATA[Ajax, how do they work?]]></description>
+	<copyright>2010</copyright>
+	<guid>f1c99f3b-0f7d-460d-91ae-2fd71ae9a9ae</guid>
+</pluggable>
+ 
