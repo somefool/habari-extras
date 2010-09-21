@@ -32,25 +32,9 @@ class InstantSearch extends Plugin
 		// Add the jQuery library
 		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 		Stack::add( 'template_header_javascript', $this->get_url() . '/instant_search.js', 'instant_search', array( 'jquery' ) );
-/*
-		// Add Javascript to perform the AJAX.
-		// This would probably be done in an external file.
-$js = <<<JS
-			instantSearch = function(){};
-			$(document).ready(function(){
-				$.post(
-					instantSearch.url,
-					{'action': 'the'},
-					function(data){console.log(data);},
-					'json'
-				);
-			});
 
-JS;
-		Stack::add('template_header_javascript', $js, 'instant_search', 'instant_search');
-*/
 		// Add the callback URL.
-		$url = "instantSearch.url='" . URL::get( 'ajax', array( 'context' => 'instant_search' ) ) . "'";
+		$url = "InstantSearch.url = '" . URL::get( 'ajax', array( 'context' => 'instant_search') ) . "';";
 		Stack::add('template_header_javascript', $url, 'instant_search_url', 'instant_search');
 	}
 
@@ -67,12 +51,19 @@ JS;
 		ob_end_clean();
 
 		$new_response = Posts::get( array( "criteria"=>$response ) );
-
+		
 		$final_response = array();
-		foreach ( $new_response as $post ) { $final_response[] = array(
-			'title'=>$post->title,
-			'post'=>$post->content
-		); }
+		foreach ( $new_response as $post ) {
+						
+			$final_response[] = array(
+				'title' => $post->title,
+				'content' => $post->content,
+				'pubdate' => $post->pubdate->format(),
+				'updated' => $post->updated->format(),
+				'modified' => $post->modified->format(),
+				'url' => 'how do we get the post permalink?',
+			);
+		}
 		// Send the response
 		echo json_encode( $final_response );
 	}
