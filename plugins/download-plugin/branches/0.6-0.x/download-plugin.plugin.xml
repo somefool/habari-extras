@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin>
+	<name>Download Plugin</name>
+	<url>http://wiki.lulug.org/prog/habari/download-plugin</url>
+	<author>lifeisfoo</author>
+	<authorurl>http://lulug.org/~lifelog/</authorurl>
+	<version>0.1</version>
+	<description>Download and install plugins</description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<copyright>2010</copyright>
+</plugin>
