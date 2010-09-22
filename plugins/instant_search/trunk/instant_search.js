@@ -64,9 +64,9 @@ var InstantSearch = {
 			
 			// build the html for this post
 			snip += '<div class="result">';
-			snip += '	<h2><a href="#">' + item.title + '</a></h2>';
+			snip += '	<h2><a href="' + item.url + '">' + item.title + '</a></h2>';
 			snip += '	<p>' + item.content.replace( search_term, '<span class="highlight">' + search_term + '</span>' ) + '</p>';
-			snip += '	<a href="#" class="read_more">Read more...</a>';
+			snip += '	<a href="' + item.url + '" class="read_more">Read more...</a>';
 			snip += '</div>';
 			
 			// append it to the main html block we're building

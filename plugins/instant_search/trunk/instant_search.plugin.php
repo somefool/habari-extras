@@ -61,7 +61,7 @@ class InstantSearch extends Plugin
 				'pubdate' => $post->pubdate->format(),
 				'updated' => $post->updated->format(),
 				'modified' => $post->modified->format(),
-				'url' => 'how do we get the post permalink?',
+				'url' => $post->permalink,
 			);
 		}
 		// Send the response
