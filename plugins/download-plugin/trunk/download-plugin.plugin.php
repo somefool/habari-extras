@@ -15,19 +15,6 @@ class DownloadPlugin extends Plugin
 {
 	private $downloadplugin_pluginsPath;
 
-	function info()
-	{
-		return array (
-			'name' => 'Download Plugin',
-			'url' => 'http://wiki.lulug.org/prog/habari/download-plugin',
-			'author' => 'lifeisfoo',
-			'authorurl' => 'http://lulug.org/~lifelog/',
-			'version' => '0.1',
-			'description' => 'Download and install plugins',
-			'license' => 'Apache License 2.0',
-		);
-	}
-
 	public function formui_submit( FormUI $form )
 	{
 		$filename = basename($form->pluginurl);

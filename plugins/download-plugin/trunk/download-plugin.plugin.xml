@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<plugin>
+<pluggable type="plugin">
 	<name>Download Plugin</name>
 	<url>http://wiki.lulug.org/prog/habari/download-plugin</url>
-	<author>lifeisfoo</author>
-	<authorurl>http://lulug.org/~lifelog/</authorurl>
-	<version>0.1</version>
-	<description>Download and install plugins</description>
+	<author url="http://lulug.org/~lifelog/">lifeisfoo</author>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<version>0.1</version>
+	<description><![CDATA[Download and install plugins]]></description>
 	<copyright>2010</copyright>
+	<help>
+		<value><![CDATA[
+			<p>Download plugins and unzip in the plugins directory them from the Habari administration interface.</p>
+		]]></value>	
 </plugin>
