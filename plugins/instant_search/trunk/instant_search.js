@@ -8,9 +8,7 @@ var InstantSearch = {
 	init: function () {
 		
 		// hook our ajax event when a key is released
-		$('input#q').keyup( function ( ) {
-			console.log('request: search: ' + $(this).val());
-			
+		$('input#q').keyup( function ( ) {			
 			InstantSearch.search( $(this).val() );
 			
 			// prevent the browser from doing anything
