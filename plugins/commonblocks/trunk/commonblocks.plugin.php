@@ -41,7 +41,7 @@ class CommonBlocks extends Plugin
 			_t( 'XHTML 1.0 Transitional', 'commonblocks' ) => 'http://validator.w3.org/check?uri=referer',
 			_t( 'CSS level 3', 'commonblocks' ) => 'http://jigsaw.w3.org/css-validator/check/referer?profile=css3',
 			'HTML5' => 'http://html5.validator.nu/?doc=' . Site::get_url('habari'),
-			_t( 'Unicorn', 'commonblocks' ) => 'http://validator.w3.org/unicorn/check?ucn_task=conformance&ucn_uri=referer',
+ 			_t( 'Unicorn', 'commonblocks' ) => 'http://validator.w3.org/unicorn/check?ucn_task=conformance&amp;ucn_uri=referer',
 			_t( 'Feed Validator', 'commonblocks' ) => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url( 'habari' ),
 		);
 
