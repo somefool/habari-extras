@@ -8,7 +8,7 @@
  *
  * @todo Document methods
  * @todo gzip,bzip,tar support
- * @todo better filename and fletype recognition (e.g. from url like http://host/filenamewithourextension)
+ * @todo better filename and filetype recognition (e.g. from url like http://host/filenamewithourextension)
  **/
 
 class DownloadPlugin extends Plugin
@@ -20,9 +20,9 @@ class DownloadPlugin extends Plugin
 		return array (
 			'name' => 'Download Plugin',
 			'url' => 'http://wiki.lulug.org/prog/habari/download-plugin',
-			'author' => 'lifeisfoo',
-			'authorurl' => 'http://lulug.org/~lifelog/',
-			'version' => '0.1',
+			'author' => 'Alessandro Miliucci',
+			'authorurl' => 'http://forkwait.net/blog',
+			'version' => '0.1.1',
 			'description' => 'Download and install plugins',
 			'license' => 'Apache License 2.0',
 		);
@@ -64,7 +64,9 @@ class DownloadPlugin extends Plugin
 				break;
     		 	}
 		unlink($filePath);
+		$form->pluginurl->value = '';
 		$form->save();
+		Utils::redirect( URL::get( 'admin', 'page=plugins' ) );
 	}
 
 
@@ -72,10 +74,14 @@ class DownloadPlugin extends Plugin
 	public function action_plugin_ui( $plugin_id, $action )
 	{	
 		if ( $this->plugin_id() == $plugin_id ){
-			$this->downloadplugin_pluginsPath = HABARI_PATH . '/user/plugins/';
-	  		$ui = new FormUI( 'Plugin download' );
+			$this->downloadplugin_pluginsPath = HABARI_PATH . '/system/plugins/';
+	  		$ui = new FormUI( 'Download Plugin' );
 			if(is_writable($this->downloadplugin_pluginsPath)){
-		  		$url = $ui->append( 'text', 'pluginurl', 'download__pluginurl', _t('Plugin URL:', 'plugin_locale') );
+				/* in 0.6 texts aren't resizable; search 
+				 * "what are you trying to do with formui?" 
+				 * in http://drunkenmonkey.org/irc/habari/2010-09-23
+				 */
+		  		$url = $ui->append( 'textarea', 'pluginurl', 'null:null', _t('Plugin URL:', 'plugin_locale') );
 		  		$ui->append('submit', 'Download', _t('Download', 'plugin_locale'));
 				$url->add_validator('url_validator', _t('The plugin_url field value must be a valid URL'));
 		  		$ui->on_success( array($this, 'formui_submit') );
@@ -93,6 +99,12 @@ class DownloadPlugin extends Plugin
 	  }
 	  return $actions;
 	}
+
+	function action_update_check() 
+	{
+	  Update::add( 'Download Plugin', '2641A2EE-C7D1-11DF-AB1B-7133DFD72085', $this->info->version ); 
+	}
+
 }
 
 ?>
