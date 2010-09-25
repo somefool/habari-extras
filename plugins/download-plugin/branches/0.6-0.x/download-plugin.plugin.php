@@ -74,7 +74,7 @@ class DownloadPlugin extends Plugin
 	public function action_plugin_ui( $plugin_id, $action )
 	{	
 		if ( $this->plugin_id() == $plugin_id ){
-			$this->downloadplugin_pluginsPath = HABARI_PATH . '/system/plugins/';
+			$this->downloadplugin_pluginsPath = HABARI_PATH . '/user/plugins/';
 	  		$ui = new FormUI( 'Download Plugin' );
 			if(is_writable($this->downloadplugin_pluginsPath)){
 				/* in 0.6 texts aren't resizable; search 

@@ -69,7 +69,7 @@ class DownloadPlugin extends Plugin
 				$url->add_validator('url_validator', _t('The plugin_url field value must be a valid URL'));
 		  		$ui->on_success( array($this, 'formui_submit') );
 				//replace with width 100% when will be possible
-				$ui->pluginurl->size = 300;
+				$ui->pluginurl->size = 70;
 			}else{
 				$ui->append('static','disclaimer', _t( '<p><em><small>Plugins directory is not writable, check permissions and reload this page</small></em></p>') );
 			}

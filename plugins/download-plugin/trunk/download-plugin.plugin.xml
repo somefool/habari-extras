@@ -11,6 +11,7 @@
 		<value><![CDATA[
 			<p>Download plugins and unzip them in the plugins directory, from the Habari administration interface. Currently supports only zip archives.</p>
 		]]></value>	
-</plugin>
+	</help>
+</pluggable>
 
 
