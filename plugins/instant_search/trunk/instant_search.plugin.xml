@@ -6,7 +6,7 @@
 	<author url="http://habariproject.org/">Habari Community</author>
 	<version>0.1</version>
 	<description><![CDATA[
-	Provides a block with instant search results.
+	Provides a block with instant search results using jquery.
 	<copyright>2010</copyright>
 	<guid>f1c99f3b-0f7d-460d-91ae-2fd71ae9a9ae</guid>
 </pluggable>
