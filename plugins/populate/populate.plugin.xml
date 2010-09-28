@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Populate users, groups and tokens in the site</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Creates random users, groups and tokens to test Habari admin core and themeing.]]></description>
+	<copyright>2010</copyright>
+	<help>
+		<value><![CDATA[
+			<p>This is a development plugin. Limits in the number of tokens, users and groups are limited from 1 to 200.</p>
+		]]></value>
+	</help>
+</pluggable>
+
+ 
