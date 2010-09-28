@@ -9,7 +9,7 @@
 	<copyright>2010</copyright>
 	<help>
 		<value><![CDATA[
-			<p>This is a development plugin. When building plugins that interact with the database it is usefull to switch back to known states. Take and snapshots of the site so you can change things and revert the site to a known status. The snapshot and restore operations are done through copies of the sqlite database.db file.</p>
+			<p>This is a development plugin. When building plugins that interact with the database it is usefull to switch back to known states. Take and restore snapshots of the site so you can change things and revert the site to a known status. The snapshot and restore operations are done through copies of the sqlite database.db file.</p>
 		]]></value>
 	</help>
 </pluggable> 
