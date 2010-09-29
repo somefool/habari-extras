@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pluggable type="plugin">
+	<name>HTML Everywhere</name>
+	<url>http://forkwait.net/project/html-everywhere</url>
+	<downloadurl>http://habariproject.org/dist/plugins/htmleverywhere</downloadurl>
+	<author url="http://forkwait.net">Alessandro Miliucci</author>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<version>1.0</version>
+	<description><![CDATA[
+		<p>Insert HTML code directly in your theme header,sidebar and footer</p>
+	]]></description>
+	<copyright>2010</copyright>
+	<help name="Configure">
+		<value><![CDATA[
+			<p>The code you enter will <b>not</b> be escaped!
+			</p>
+		]]></value>	
+	</help>
+	<help>
+	<value>
+    <![CDATA[
+		<p>
+		Insert code in the plugin configuration form and <br/>
+			<code>&lt;?php echo $html_header;?&gt</code> in your header.php;<br/>
+			<code>&lt;?php echo $html_sidebar;?&gt</code> in your sidebar.php;<br/>
+			<code>&lt;?php echo $html_footer;?&gt</code> in your footer.php;</p>
+    ]]>
+   </value>
+	</help>
+</pluggable>
+
