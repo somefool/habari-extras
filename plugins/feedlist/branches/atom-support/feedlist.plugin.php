@@ -361,18 +361,24 @@ class FeedList extends Plugin
 		
 		$sql = 'replace into {feedlist} ( feed_id, guid, title, link, updated, description ) values ( ?, ?, ?, ?, ?, ? )';
 		
-		$params = array(
-			$feed_id,
-			$item['guid'],
-			$item['title'],
-			$item['link'],
-			HabariDateTime::date_create(),
-			$item['description'],
-		);
+		foreach ( $items as $item ) {
 		
-		$result = DB::query( $sql, $params );
-		
-		return $result;
+			$params = array(
+				$feed_id,
+				$item['guid'],
+				$item['title'],
+				$item['link'],
+				HabariDateTime::date_create(),
+				$item['description'],
+			);
+			
+			$result = DB::query( $sql, $params );
+			
+			if ( !$result ) {
+				EventLog::log( 'There was an error saving a feed item.', 'err', 'feedlist', 'feedlist' );
+			}
+			
+		}
 		
 	}
 
