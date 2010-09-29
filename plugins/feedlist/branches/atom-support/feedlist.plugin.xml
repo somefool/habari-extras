@@ -4,7 +4,7 @@
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">ASL</license>
 	<url>http://asymptomatic.net/</url>
 	<author url="http://asymptomatic.net/">Owen Winkler</author>
-	<version>0.3</version>
+	<version>0.4</version>
 	<description><![CDATA[Outputs an RSS feed as an unordered list.]]></description>
 </pluggable>
 
