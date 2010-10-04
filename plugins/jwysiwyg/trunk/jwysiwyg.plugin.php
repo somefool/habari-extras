@@ -14,27 +14,24 @@ class JWYSIWYG extends Plugin
 	public function action_admin_footer($theme)
 	{
 		if ( $theme->page == 'publish' ) {
-			
-			if( !User::identify()->info->jwysiwyg_activate )
+			echo <<<JWYSIWYG
+			<script type="text/javascript">
+			$('label[for=content]').hide();
+			$(function()
 			{
-				echo <<<JWYSIWYG
-				<script type="text/javascript">
-				$('label[for=content]').text('');
-				$(function()
-				{
-					$('#content').wysiwyg();
+				$('#content').wysiwyg(
+				    {resizeOptions: {},
+				    controls : {html : {visible: true}}
 				});
-				habari.editor = {
-					insertSelection: function(value) {
-						var instance = $.data($('#content')[0], 'wysiwyg');
-						instance.setContent(instance.getContent() + value);
-					}
+			});
+			habari.editor = {
+				insertSelection: function(value) {
+					var instance = $.data($('#content')[0], 'wysiwyg');
+					instance.setContent(instance.getContent() + value);
 				}
-				</script>
-JWYSIWYG;
 			}
-			
-			
+			</script>
+JWYSIWYG;
 		}
 	}
 
@@ -42,35 +39,6 @@ JWYSIWYG;
 	{
 		Update::add( 'JWYSIWYG', 'b5f0c17d-22e6-4d6c-8011-c79481d5efc7',  $this->info->version );
 	}
-	
-	/**
-	 * Add the configuration to the user page 
-	 **/
-		public function action_form_user( $form, $user )
-		{
-			$fieldset = $form->append( 'wrapper', 'jwysiwyg', 'JWYSIWYG' );
-			$fieldset->class = 'container settings';
-			$fieldset->append( 'static', 'jwysiwyg', '<h2>' . htmlentities( 'JWYSIWYG', ENT_COMPAT, 'UTF-8' ) . '</h2>' );
-
-			$activate = $fieldset->append( 'checkbox', 'jwysiwyg_activate', 'null:null', _t('Disable WYSIWYG:'), 'optionscontrol_checkbox' );
-			$activate->class[] = 'item clear';
-			$activate->value = $user->info->jwysiwyg_activate;
-
-			$form->move_before( $fieldset, $form->page_controls );
-
-		}
-
-		/**
-		 * Save authentication fields
-		 **/
-		public function filter_adminhandler_post_user_fields( $fields )
-		{
-			$fields[] = 'jwysiwyg_activate';
-
-			return $fields;
-		}
-	
-	
 }
 
 ?>
