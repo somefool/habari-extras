@@ -229,75 +229,157 @@ class FeedList extends Plugin
 	{
 		$feedurls = Options::get( 'feedlist__feedurl' );
 
-		foreach( $feedurls as $feed_id=>$feedurl ) {
-
-			// Fetch the feed from remote into an XML object
-			if($feedurl == '') {
-				echo "Could not update feed";
-			} else {
-
-				$xml = simplexml_load_string( RemoteRequest::get_contents( $feedurl ) );
-				$channel = $xml->channel;
-
-				// If there are feed items, cache them to the feedlist table
-				if ( ( $channel->item ) ) {
-					foreach( $channel->item as $item ) {
-						if( isset( $item->guid ) ) {
-							// doesn't work when guid is an array.
-							$guid = $item->guid;
-						} else {
-							$guid = md5( $item->asXML() );
-						}
-						DB::query('
-							REPLACE INTO {feedlist} (feed_id, guid, title, link, updated, description) 
-							VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, ?);',
-							array(
-								$feed_id,
-								$guid,
-								$item->title,
-								$item->link,
-								$item->description
-							) 
-						);
-					}
-
-				} else if ( ( $xml->item ) ) {
-					foreach( $xml->item as $item ) {
-						if( isset( $item->guid ) ) {
-							$guid = $item->guid;
-						} else {
-							$guid = md5( $item->asXML() );
-						}
-						DB::query('
-							REPLACE INTO {feedlist} (feed_id, guid, title, link, updated, description) 
-							VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, ?);',
-							array(
-								$feed_id,
-								$guid,
-								$item->title,
-								$item->link,
-								$item->description
-							) 
-						);
-}
-
-				} else {
-					// feed isn't currently readable.
-				}
-				// Log an event that the feed was updated
-				EventLog::log("Updated feed {$feedurl}");
-			}	
+		foreach( $feedurls as $feed_id => $feed_url ) {
+			
+			if ( $feed_url == '' ) {
+				EventLog::log( sprintf( _t('Feed ID %1$d has an invalid URL.'), $feed_id ), 'warning', 'feedlist', 'feedlist' );
+				continue;
+			}
+			
+			// load the XML data
+			$xml = RemoteRequest::get_contents( $feed_url );
+			
+			if ( !$xml ) {
+				EventLog::log( sprintf( _t('Unable to fetch feed %1$s data.'), $feed_url ), 'err', 'feedlist', 'feedlist' );
+			}
+			
+			$dom = new DOMDocument();
+			// @ to hide parse errors
+			@$dom->loadXML( $xml );
+			
+			if ( $dom->getElementsByTagName('rss')->length > 0 ) {
+				$items = $this->parse_rss( $dom );
+				$this->replace( $feed_id, $items );
+			}
+			else if ( $dom->getElementsByTagName('feed')->length > 0 ) {
+				$items = $this->parse_atom( $dom );
+				$this->replace( $feed_id, $items );
+			}
+			else {
+				// it's an unsupported format
+				EventLog::log( sprintf( _t('Feed %1$s is an unsupported format.'), $feed_url), 'err', 'feedlist', 'feedlist' );
+				continue;
+			}
+			
+			// log that the feed was updated
+			EventLog::log( sprintf( _t( 'Updated feed %1$s' ), $feed_url ), 'info', 'feedlist', 'feedlist' );
+			
 		}
-
-		$olddate = DB::get_value('SELECT updated FROM ' . DB::table('feedlist') . ' ORDER BY updated DESC LIMIT 10, 1');
-		DB::query('DELETE FROM ' . DB::table('feedlist') . ' WHERE updated < ?', array($olddate));
 		
-		return $result;// Only change a cron result to false when it fails.
+		// log that we finished
+		EventLog::log( sprintf( _t( 'Finished updating %1$d feed(s).' ), count( $feedurls ) ), 'info', 'feedlist', 'feedlist' );
+		
+		// clean up old feed items
+		$old_date = DB::get_value( 'select updated from {feedlist} order by updated desc limit 10, 1' );
+		DB::query( 'delete from {feedlist} where updated < ?', array( $old_date ) );
+		
+		EventLog::log( sprintf( _t( 'Old feed items purged.') ), 'info', 'feedlist', 'feedlist' );
+		
+		return $result;		// only change a cron result to false when it fails
+		
 	}
 	
-	public function xmlrpc_system__testme($input)
-	{
-		return $input[0];
+	/**
+	 * Parse out RSS 2.0 feed items.
+	 * 
+	 * See the example feed: http://www.rss-tools.com/rss-example.htm
+	 * 
+	 * @param DOMDocument $dom
+	 * @return array Array of items.
+	 */
+	private function parse_rss ( DOMDocument $dom ) {
+		
+		// each item is an 'item' tag in RSS2
+		$items = $dom->getElementsByTagName('item');
+		
+		$feed_items = array();
+		foreach ( $items as $item ) {
+			
+			$feed = array();
+			
+			// snag all the child tags we need
+			$feed['title'] = $item->getElementsByTagName('title')->item(0)->nodeValue;
+			$feed['description'] = $item->getElementsByTagName('description')->item(0)->nodeValue;
+			$feed['link'] = $item->getElementsByTagName('link')->item(0)->nodeValue;
+			$feed['guid'] = $item->getElementsByTagName('guid')->item(0)->nodeValue;
+			$feed['published'] = $item->getElementsByTagName('pubdate')->item(0)->nodeValue;
+			
+			// try to blindly make sure the date is a HDT object - it should be a pretty standard PHP-parseable format
+			$feed['published'] = HabariDateTime::date_create( $feed['published'] );
+			
+			$feed_items[] = $feed;
+			
+		}
+		
+		return $feed_items;
+		
+	}
+	
+	/**
+	 * Parse out ATOM feed items.
+	 * 
+	 * See the example feed: http://www.atomenabled.org/developers/syndication/#sampleFeed
+	 * 
+	 * @param DOMDocument $dom
+	 * @return array Array of items.
+	 */
+	private function parse_atom ( DOMDocument $dom ) {
+		
+		// each item is an 'entry' tag in ATOM
+		$items = $dom->getElementsByTagName('entry');
+		
+		$feed_items = array();
+		foreach ( $items as $item ) {
+			
+			$feed = array();
+			
+			// snag all the child tags we need
+			$feed['title'] = $item->getElementsByTagName('title')->item(0)->nodeValue;
+			$feed['description'] = $item->getElementsByTagName('summary')->item(0)->nodeValue;
+			$feed['link'] = $item->getElementsByTagName('link')->item(0)->nodeValue;
+			$feed['guid'] = $item->getElementsByTagName('id')->item(0)->nodeValue;
+			$feed['published'] = $item->getElementsByTagName('updated')->item(0)->nodeValue;
+			
+			// try to blindly make sure the date is a HDT object - it should be a pretty standard PHP-parseable format
+			$feed['published'] = HabariDateTime::date_create( $feed['published'] );
+			
+			$feed_items[] = $feed;
+			
+		}
+		
+		return $feed_items;
+		
+	}
+	
+	/**
+	 * Insert all the feed items into the database using REPLACE INTO, so we'll actually replace existing matched GUIDs.
+	 * 
+	 * @param int $feed_id The feed ID stored in the DB.
+	 * @param array $items Array of items parsed from the feed to add.
+	 */
+	private function replace ( $feed_id, $items ) {
+		
+		$sql = 'replace into {feedlist} ( feed_id, guid, title, link, updated, description ) values ( ?, ?, ?, ?, ?, ? )';
+		
+		foreach ( $items as $item ) {
+		
+			$params = array(
+				$feed_id,
+				$item['guid'],
+				$item['title'],
+				$item['link'],
+				HabariDateTime::date_create(),
+				$item['description'],
+			);
+			
+			$result = DB::query( $sql, $params );
+			
+			if ( !$result ) {
+				EventLog::log( 'There was an error saving a feed item.', 'err', 'feedlist', 'feedlist' );
+			}
+			
+		}
+		
 	}
 
 }	
