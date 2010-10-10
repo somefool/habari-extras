@@ -186,7 +186,7 @@
 			
 			Plugins::act('export_run_before');
 			
-			$export = new SimpleXMLElement( '<?xml version="1.0" encoding="utf-8"?><blog xmlns="http://www.blogml.com/2006/09/BlogML" xmlns:xs="http://www.w3.org/2001/XMLSchema" />' );
+			$export = new SimpleXMLElement( '<?xml version="1.0" encoding="utf-8"?><blog xmlns="http://schemas.habariproject.org/BlogML.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" />' );
 			$export->addAttribute( 'root-url', Site::get_url('habari') );
 			
 			$export->addChild( 'title', Options::get('title') )->addAttribute( 'type', 'text' );
