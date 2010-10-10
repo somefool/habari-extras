@@ -184,6 +184,8 @@
 				return false;
 			}
 			
+			Plugins::act('export_run_before');
+			
 			$export = new SimpleXMLElement( '<?xml version="1.0" encoding="utf-8"?><blog xmlns="http://www.blogml.com/2006/09/BlogML" xmlns:xs="http://www.w3.org/2001/XMLSchema" />' );
 			$export->addAttribute( 'root-url', Site::get_url('habari') );
 			
@@ -203,6 +205,10 @@
 			$this->export_posts( $export );
 			
 			EventLog::log( _t( 'Export completed!' ), 'info', 'export', 'export' );
+			
+			Plugins::act('export_run_after');
+			
+			$export = Plugins::filter('export_contents', $export);
 			
 			// clear out anything that may have been output before us and disable the buffer
 			ob_end_clean();
