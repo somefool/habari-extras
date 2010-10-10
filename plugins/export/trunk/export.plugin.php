@@ -63,6 +63,12 @@
 			
 		}
 		
+		/**
+		 * This is the beginnings of a DOM-based export implementation (instead of SimpleXML, as the real one is).
+		 * It got significanlty more difficult than I wanted to deal with, so I didn't worry about it at the time.
+		 * 
+		 * This was going to be preferred over SimpleXML because SimpleXML doesn't add CDATA blocks.
+		 */
 		public function run_dom ( ) {
 			
 			ob_end_clean();
