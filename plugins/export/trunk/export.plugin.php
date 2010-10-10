@@ -237,6 +237,12 @@
 			
 		}
 		
+		/**
+		 * Export all the authors / users on a blog to the SimpleXML object.
+		 * 
+		 * @param SimpleXMLElement $export The SimpleXML element we're using for our export.
+		 * @return void
+		 */
 		private function export_users( $export ) {
 			
 			$authors = $export->addChild( 'authors' );
@@ -254,6 +260,12 @@
 			
 		}
 		
+		/**
+		 * Export all the options stored on the blog to the SimpleXML object.
+		 * 
+		 * @param SimpleXMLElement $export The SimpleXML element we're using for our export.
+		 * @return void
+		 */
 		private function export_options ( $export ) {
 			
 			$properties = $export->addChild( 'extended-properties' );
@@ -269,6 +281,12 @@
 			
 		}
 		
+		/**
+		 * Export all the tags that exist on the blog to the SimpleXML object.
+		 * 
+		 * @param SimpleXMLElement $export The SimpleXML element we're using for our export.
+		 * @return void
+		 */
 		private function export_tags ( $export ) {
 			
 			$categories = $export->addChild( 'categories' );
@@ -284,6 +302,12 @@
 			
 		}
 		
+		/**
+		 * Export all the posts on the blog, including their tags, comments, and authors.
+		 * 
+		 * @param SimpleXMLElement $export The SimpleXML element we're using for our export.
+		 * @return void
+		 */
 		private function export_posts ( $export ) {
 			
 			$ps = $export->addChild( 'Posts' );
