@@ -11,8 +11,18 @@
 		public function action_plugin_activation ( $file = '' ) {
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
+
+				ACL::create_token( 'export now', 'Export the Habari database.', 'export' );
 				
-				ACL::create_token( 'export', 'Export the Habari database.', 'export' );
+			}
+			
+		}
+		
+		public function action_plugin_deactivation ( $file = '' ) {
+			
+			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
+				
+				ACL::destroy_token( 'export now' );
 				
 			}
 			
