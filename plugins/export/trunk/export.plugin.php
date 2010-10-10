@@ -292,7 +292,6 @@
 				}
 				
 				// now add the post comments
-				// @todo manually fetch unapproved comments for each post
 				// @todo add support for trackbacks from the pingback plugin?
 				$pc = $p->addChild( 'comments' );
 				
