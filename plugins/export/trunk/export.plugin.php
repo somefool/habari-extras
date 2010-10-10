@@ -215,19 +215,19 @@
 			
 			// filter the xml as well, just for good measure
 			$xml = Plugins::filter('export_contents_xml', $xml);
-			
-			$timestamp = HabariDateTime::date_create('now')->format('YmdHis');
-			
+						
 			// save the xml to the cache
-			Cache::set('export_xml_' . $timestamp, $xml);
+			Cache::set('export_xml', $xml);
 			
 			if ( $download ) {
-				$this->download( $timestamp );
+				$this->download();
 			}
 			
 		}
 		
-		private function download ( $timestamp ) {
+		private function download ( ) {
+			
+			$timestamp = HabariDateTime::date_create('now')->format('YmdHis');
 			
 			$filename = 'habari_' . $timestamp . '.xml';
 			
@@ -237,7 +237,7 @@
 			header('Content-Type: text/xml');
 			header('Content-disposition: attachment; filename=' . $filename);
 			
-			echo Cache::get( 'export_xml_' . $timestamp );
+			echo Cache::get( 'export_xml' );
 			
 			die();
 			
