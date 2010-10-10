@@ -109,10 +109,6 @@
 		
 		public function run ( $download = false ) {
 			
-			if ( !$this->test_cache() ) {
-				return false;
-			}
-			
 			Plugins::act('export_run_before');
 			
 			$export = new SimpleXMLElement( '<?xml version="1.0" encoding="utf-8"?><blog xmlns="http://schemas.habariproject.org/BlogML.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" />' );
@@ -144,17 +140,14 @@
 			
 			// filter the xml as well, just for good measure
 			$xml = Plugins::filter('export_contents_xml', $xml);
-						
-			// save the xml to the cache
-			Cache::set('export_xml', $xml);
 			
 			if ( $download ) {
-				$this->download();
+				$this->download( $xml );
 			}
 			
 		}
 		
-		private function download ( ) {
+		private function download ( $xml ) {
 			
 			$timestamp = HabariDateTime::date_create('now')->format('YmdHis');
 			
@@ -166,33 +159,9 @@
 			header('Content-Type: text/xml');
 			header('Content-disposition: attachment; filename=' . $filename);
 			
-			echo Cache::get( 'export_xml' );
+			echo $xml;
 			
 			die();
-			
-		}
-		
-		private function test_cache ( ) {
-			
-			// test the cache
-			$cache = Cache::set('export_test', 'test');
-			
-			if ( $cache == null ) {
-				// we can't export!
-				EventLog::log( _t( 'Unable to write to the cache, export failed!' ), 'critical', 'export', 'export' );
-				
-				if ( User::identify() ) {
-					Session::error( _t( 'Unable to write to the cache, export failed!' ) );
-				}
-				
-				return false;
-			}
-			else {
-				
-				Cache::expire( 'export_test' );
-				return true;
-				
-			}
 			
 		}
 		
