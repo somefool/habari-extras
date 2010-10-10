@@ -210,9 +210,6 @@
 			
 			$export = Plugins::filter('export_contents', $export);
 			
-			// clear out anything that may have been output before us and disable the buffer
-			ob_end_clean();
-			
 			// output the xml!
 			$xml = $export->asXML();
 			
@@ -233,6 +230,9 @@
 		private function download ( $timestamp ) {
 			
 			$filename = 'habari_' . $timestamp . '.xml';
+			
+			// clear out anything that may have been output before us and disable the buffer
+			ob_end_clean();
 			
 			header('Content-Type: text/xml');
 			header('Content-disposition: attachment; filename=' . $filename);
