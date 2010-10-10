@@ -12,11 +12,7 @@
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 
-				ACL::create_token( 'export now', 'Export the Habari database.', 'export' );
-				
-				// save the default options
-				//Options::set( 'export__path', '' );
-				Options::set( 'export__frequency', 'manually' );
+				ACL::create_token( 'export now', 'Export the Habari database.', 'Export' );
 				
 			}
 			
@@ -27,10 +23,6 @@
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 				
 				ACL::destroy_token( 'export now' );
-				
-				// wipe out the default options we added
-				//Options::delete( 'export__path' );
-				Options::delete( 'export__frequency' );
 				
 			}
 			
