@@ -13,6 +13,6 @@
 		]]></value>
 	</help>
 	<provides>
-		<feature url="http://wiki.habariproject.org/en/Plugin:BlogML_Export">BlogML Export</feature>
+		<feature url="http://wiki.habariproject.org/en/feature/blogml_export">blogml_export</feature>
 	</provides>
 </pluggable>
