@@ -144,6 +144,9 @@
 			if ( $download ) {
 				$this->download( $xml );
 			}
+			else {
+				return $xml;
+			}
 			
 		}
 		
