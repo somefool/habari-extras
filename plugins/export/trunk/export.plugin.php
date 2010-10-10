@@ -84,7 +84,7 @@
 						
 					case _t('Export'):
 						
-						$this->run();
+						$this->run(true);
 						
 						Utils::redirect( URL::get( 'admin', 'page=plugins' ) );
 						
@@ -178,7 +178,7 @@
 			
 		}
 		
-		public function run ( ) {
+		public function run ( $download = false ) {
 			
 			if ( !$this->test_cache() ) {
 				return false;
@@ -214,7 +214,31 @@
 			ob_end_clean();
 			
 			// output the xml!
-			echo $export->asXML();
+			$xml = $export->asXML();
+			
+			// filter the xml as well, just for good measure
+			$xml = Plugins::filter('export_contents_xml', $xml);
+			
+			$timestamp = HabariDateTime::date_create('now')->format('YmdHis');
+			
+			// save the xml to the cache
+			Cache::set('export_xml_' . $timestamp, $xml);
+			
+			if ( $download ) {
+				$this->download( $timestamp );
+			}
+			
+		}
+		
+		private function download ( $timestamp ) {
+			
+			$filename = 'habari_' . $timestamp . '.xml';
+			
+			header('Content-Type: text/xml');
+			header('Content-disposition: attachment; filename=' . $filename);
+			
+			echo Cache::get( 'export_xml_' . $timestamp );
+			
 			die();
 			
 		}
@@ -308,6 +332,19 @@
 			
 		}
 		
+		private function format_permalink ( $url ) {
+			
+			// get the base url to trim off
+			$base_url = Site::get_url( 'habari' );
+			
+			if ( MultiByte::strpos( $url, $base_url ) !== false ) {
+				$url = MultiByte::substr( $url, MultiByte::strlen( $base_url ) );
+			}
+			
+			return $url;
+			
+		}
+		
 		/**
 		 * Export all the posts on the blog, including their tags, comments, and authors.
 		 * 
@@ -316,7 +353,7 @@
 		 */
 		private function export_posts ( $export ) {
 			
-			$ps = $export->addChild( 'Posts' );
+			$ps = $export->addChild( 'posts' );
 			
 			$posts = Posts::get( array( 'limit' => null ) );
 			foreach ( $posts as $post ) {
@@ -329,7 +366,7 @@
 				$p->addAttribute( 'date-created', $post->pubdate->format('c') );
 				$p->addAttribute( 'date-modified', $post->pubdate->format('c') );
 				$p->addAttribute( 'approved', $post->status == Post::status('published') ? 'true' : 'false' );
-				$p->addAttribute( 'post-url', $post->permalink );	// @todo this has to be relative!
+				$p->addAttribute( 'post-url', $this->format_permalink( $post->permalink ) );
 				$p->addAttribute( 'type', $post->content_type );
 				$p->addChild( 'title', $post->title );
 				$p->addChild( 'content', $post->content );
