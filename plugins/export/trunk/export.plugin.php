@@ -43,6 +43,39 @@
 			
 		}
 		
+		public function action_plugin_ui ( $plugin_id, $action ) {
+			
+			if ( $plugin_id == $this->plugin_id() ) {
+				
+				switch ( $action ) {
+					
+					case _t('Configure'):
+						
+						$ui = new FormUI( 'export' );
+						$ui->append( 'text', 'export_path', 'option:export__export_path', _t('Export path:'));
+						$ui->export_path->add_validator( 'validate_required' );
+						
+						$ui->append( 'submit', 'save', _t( 'Save' ) );
+						$ui->on_success( array( $this, 'updated_config' ) );
+						
+						$ui->out();
+						
+						break;
+						
+					case _t('Export'):
+						
+						$this->export();
+						
+						Utils::redirect( URL::get( 'admin', 'page=plugins' ) );
+						
+						break;
+					
+				}
+				
+			}
+			
+		}
+		
 	}
 
 ?>
