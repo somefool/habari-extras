@@ -1,11 +1,14 @@
-<plugin>
-	<name>Poll</name>
-	<version>0.52</version>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Polls</name>
+	<license url="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0</license>
 	<url>http://www.thebigsqueak.com/pluginspolls</url>
-	<author>Bigsqueak Studios</author>
-	<authorurl>http://www.thebigsqueak.com</authorurl>
-	<licence>Creative Commons Attribution-Share Alike 3.0</licence>
-	<description>A flexible polling plugin for habari</description>
-</plugin>
-
- 
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<author url="http://www.thebigsqueak.com/">Bigsqueak Studios</author>
+	<version>0.52</version>
+	<description><![CDATA[A flexible polling plugin for Habari.]]></description>
+	<copyright>2008</copyright>
+	<guid>2dae9566-e47e-497b-b4f7-f00348235e7b</guid>
+<help><value><![CDATA[<code>&lt;php $theme->poll( arguments ); &gt;</code> with no arguments to display most recent poll. Create a poll.single.php to show by itself.]]></value>
+</help>
+</pluggable>

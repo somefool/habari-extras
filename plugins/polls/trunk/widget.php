@@ -1,5 +1,3 @@
-
-
 <?php
 //Getting result of of theme function
 if ($pollid == null) { 
@@ -39,22 +37,22 @@ $form->append('radio', 'entry', 'null:null', 'poll this');
 	</div>
 
 	<?php if (!Session::get_set('votes', false)) { ?>
-		<a submitt="<?php if (Session::get_set('votes', false)) { echo 'off'; } ?>"> <span id="veiw_results"> Veiw resutls </span> </a>
+		<a submitt="<?php if (Session::get_set('votes', false)) { echo 'off'; } ?>"> <span id="view_results"> View results </span> </a>
 	<?php } ?>
 
 <script type="text/javascript">
 
 
-$('#veiw_results').click(function() {
-	if($('#veiw_results').text() == "go back to poll") {
+$('#view_results').click(function() {
+	if($('#view_results').text() == "go back to poll") {
 		$('#votesubmitt').show();
-		$('#veiw_results').text("Veiw resutls");
+		$('#view_results').text("View results");
 		$('#vote').css({display: "block"});
 		$('#results').css({display: "none"});
 	} else {
 		//results
 		$('#votesubmitt').hide();
-		$('#veiw_results').text("go back to poll")
+		$('#view_results').text("go back to poll")
 		$('#vote').css({display: "none"});
 		$('#results').css({display: "block"});
 		
@@ -85,7 +83,7 @@ $('#votesubmitt').click(function() {
 
 
 function lockdown() {
-$('#veiw_results').hide();
+$('#view_results').hide();
 $('#votesubmitt').hide();
 $('#vote').hide();
 }

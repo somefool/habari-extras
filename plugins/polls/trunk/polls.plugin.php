@@ -1,18 +1,7 @@
 <?php
 
 class Polls extends Plugin {
-	function info() {
-		return array(
-			'name' => 'Poll',
-			'version' => '0.52',
-			'url' => 'http://www.thebigsqueak.com/pluginspolls',
-			'author' => 'Bigsqueak Studios',
-			'authorurl' => 'http://www.thebigsqueak.com',
-			'licence' => 'Creative Commons Attribution-Share Alike 3.0',
-			'description' => 'A flexible polling plugin for habari'
-		);
-	}
-	
+
 	//initilization
 	public function action_init() {
 		Post::add_new_type('poll');
