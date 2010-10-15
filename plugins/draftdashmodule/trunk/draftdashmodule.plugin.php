@@ -51,8 +51,6 @@ class DraftDashModule extends Plugin
 	 */
 	public function filter_dash_module_latest_drafts( $module, $module_id, $theme )
 	{
-		$user = User::identify();
-// 		Utils::debug( $user ); die();
 		$theme->recent_posts = Posts::get( array( 'status' => 'draft', 'limit' => 8, 'type' => Post::type( 'entry' ), 'user_id' => User::identify()->id ) );
 		
 		$module[ 'title' ] = ( User::identify()->can( 'manage_entries' ) ? '<a href="' . Utils::htmlspecialchars( URL::get( 'admin', array( 'page' => 'posts', 'type' => Post::type( 'entry' ), 'status' => Post::status( 'draft' ), 'user_id' => User::identify()->id ) ) ) . '">' . _t( 'Latest Drafts', 'draftdashmodule' ) . '</a>' : _t( 'Latest Drafts', 'draftdashmodule' ) );
@@ -76,11 +74,15 @@ class DraftDashModule extends Plugin
 			return sprintf( _t( '%d minutes ago', 'draftdashmodule' ), round( $difference / 60 ) );
 		}
 		if ( $difference < 86400 ) { // within the last day
-		$difference = round( $difference / 3600 );
+			$difference = round( $difference / 3600 );
 			return sprintf( _n( '%d hour ago', '%d hours ago', $difference, 'draftdashmodule'), $difference );
 		}
-		$difference = round( $difference / 86400 );
-		return sprintf( _n( 'yesterday', '%d days ago', $difference, 'draftdashmodule' ), $difference );
+		if ( $difference < 2629744 ) { // within the last month
+			$difference = round( $difference / 86400 );
+			return sprintf( _n( 'yesterday', '%d days ago', $difference, 'draftdashmodule' ), $difference );
+		}
+		$difference = round( $difference / 2629744 );
+		return sprintf( _n( 'last month', '%d months ago', $difference, 'draftdashmodule' ), $difference );
 	}
 
 	/**
