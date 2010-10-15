@@ -31,7 +31,7 @@ class Gravatar extends Plugin {
 		// The Gravar ID is an hexadecimal md5 hash of the author's e-mail address.
 		$query_arguments= array( 'gravatar_id' => md5( $comment->email ) );
 		// Retrieve the Gravatar options.
-		$options= Options::get( 'gravatar__default', 'gravatar__size', 'gravatar__rating' );
+		$options= Options::get( array( 'gravatar__default', 'gravatar__size', 'gravatar__rating' ) );
 		foreach ( $options as $key => $value ) {
 			if ( $value != '' ) {
 				// We only want "default, size, rating".
