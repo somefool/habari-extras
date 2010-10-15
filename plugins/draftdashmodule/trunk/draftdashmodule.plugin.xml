@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Draft Dash Module</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://habariproject.org/">The Habari Community</author>
+	
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Provides a dashboard modules showing drafts.]]></description>
+
+	<copyright>2010</copyright>
+	<guid>3fbab8b5-ef6d-486e-a82c-a8ec53cf51f3</guid>
+
+	<help>
+	<value><![CDATA[
+	<p>Activate to add <strong>Latest Drafts</strong> to your admin dashboard.</p>
+	]]></value>
+	</help>
+</pluggable>
