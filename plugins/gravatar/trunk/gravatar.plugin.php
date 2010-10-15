@@ -34,8 +34,6 @@ class Gravatar extends Plugin {
 		$options= Options::get( array( 'gravatar__default', 'gravatar__size', 'gravatar__rating' ) );
 		foreach ( $options as $key => $value ) {
 			if ( $value != '' ) {
-				// We only want "default, size, rating".
-				list( $junk, $key )= explode( '__', $key );
 				$query_arguments[$key]= $value;
 			}
 		}
