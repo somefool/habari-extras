@@ -68,7 +68,7 @@ class DraftDashModule extends Plugin
 	 */
 	public static function nice_time( $time )
 	{
-		$difference = HabariDateTime::date_create()->getTimestamp() - $time->getTimestamp();
+		$difference = HabariDateTime::date_create()->int - $time->int;
 		if ( $difference < 60 ) { // within the last minute
 			return _t( 'just now', 'draftdashmodule' );
 		}
