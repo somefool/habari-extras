@@ -4,7 +4,7 @@
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<url>http://habariproject.org</url>
 	<author url="http://chrismeller.com/">Chris Meller</author>
-	<version>0.1</version>
+	<version>0.2</version>
 	<description><![CDATA[Exports your Habari blog into the BlogML XML format. Includes: Users, Posts, Tags, Comments, and Options.]]></description>
 	<help name="main">
 		<value><![CDATA[
