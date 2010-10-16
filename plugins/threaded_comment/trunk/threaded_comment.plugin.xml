@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Threaded Comments</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://gopherwood.info/">wayne</author>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	
+	<version>0.1</version>
+	<url>http://gopherwood.info/</url>
+	<description><![CDATA[Adds comment threading and email notifications.]]></description>
+
+	<copyright>2010</copyright>
+</pluggable>
