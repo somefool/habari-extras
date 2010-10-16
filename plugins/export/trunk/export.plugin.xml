@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<pluggable type="plugin">
+<pluggable type="plugin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schemas.habariproject.org/Pluggable-1.3.xsd">
 	<name>Export</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<url>http://habariproject.org</url>
 	<author url="http://chrismeller.com/">Chris Meller</author>
 	<version>0.1</version>
 	<description><![CDATA[Exports your Habari blog into the BlogML XML format. Includes: Users, Posts, Tags, Comments, and Options.]]></description>
-	<help>
+	<help name="main">
 		<value><![CDATA[
 			<p>If you would like to have your export cron'd and automatically emailed to you, check out the ExportEmailer plugin.</p>
 			<p>If you would like to have your cron'd exports stored perpetually to allow point-in-time snapshot restores, try the ExportSnapshot plugin.</p>
