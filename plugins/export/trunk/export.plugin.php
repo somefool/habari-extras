@@ -277,7 +277,7 @@
 				$p->addAttribute( 'date-modified', $post->pubdate->format('c') );
 				$p->addAttribute( 'approved', $post->status == Post::status('published') ? 'true' : 'false' );
 				$p->addAttribute( 'post-url', $this->format_permalink( $post->permalink ) );
-				$p->addAttribute( 'type', $post->content_type );
+				$p->addAttribute( 'type', Post::type_name( $post->content_type ) );
 				$p->addChild( 'title', $post->title );
 				$p->addChild( 'content', $post->content );
 				$p->addChild( 'post-name', $post->slug );
