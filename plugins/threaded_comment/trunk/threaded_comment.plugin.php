@@ -53,9 +53,14 @@ class ThreadedComment extends Plugin
 	/* Adds the subscribe button to the comment form
 	 *
 	 */
-	public function action_comment_form( $form )
+	public function action_form_comment( $form, $post, $context )
 	{
-
+		$form->insert( $form->cf_submit, 'checkbox', 'cf_emailnotify', 'null:null', _t( 'Receive email notification if someone replies to my comment', 'formcontrol_checkbox' ) );
+		$form->cf_emailnotify->id = 'cf_emailnotify';
+		$form->append( 'static', 'cancel_reply', '<a href="javascript:void(0)" onclick="movecfm(null,0,1,null);" style="color:red;">' . _t( 'Cancel Reply' ) . '</a>' );
+		$form->append( 'hidden', 'cf_commentparent', 'null:null' );
+		$form->cf_commentparent->id = 'cf_commentparent';
+		$form->cf_commentparent->value = -1;
 	}
 
 	/* Email notify to subscribed user */
