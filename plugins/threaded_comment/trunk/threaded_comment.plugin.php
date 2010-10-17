@@ -41,17 +41,17 @@ class ThreadedComment extends Plugin
 	/* Add comment parent field to comment */
 	public function action_comment_accepted( $comment, $handlervars, $extra )
 	{
-		if( isset( $handlervars['commentparent'] ) && $handlervars['commentparent'] != '-1' ) {
-			$comment->info->comment_parent = $handlervars['commentparent'];
+		if( isset( $extra['cf_commentparent'] ) && $extra['cf_commentparent'] != '-1' ) {
+			$comment->info->comment_parent = $extra['cf_commentparent'];
 		}
 
-		if( isset( $handlervars['emailnotify'] ) ) {
+		if( isset( $extra['cf_emailnotify'] ) ) {
 			$comment->info->email_notify = 1;
 		}
 	}
 
 	/* Adds the subscribe button to the comment form
-	 * 
+	 *
 	 */
 	public function action_comment_form( $form )
 	{
