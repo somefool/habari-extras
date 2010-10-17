@@ -8,24 +8,28 @@ class ThreadedComment extends Plugin
 	const HTML_DEL = '====== HTML ======';
 	const END_DEL = '====== End ======';
 
-	public function action_plugin_activation( $file ) {
-		if( realpath( $file ) == __FILE__ ) {
+	public function action_plugin_activation( $file )
+	{
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 			EventLog::register_type( 'ThreadedComment' );
 		}
 	}
 	
-	public function action_plugin_deactivation( $file ) {
-		if(realpath($file) == __FILE__) {
+	public function action_plugin_deactivation( $file )
+	{
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 			EventLog::unregister_type( 'ThreadedComment' );
 		}
 	}
 	
 	/* Add threaded_comment.js to header */
-	public function action_init() {
+	public function action_init()
+	{
 		Stack::add( 'template_header_javascript', $this->get_url( true ) . 'threaded_comment.js', 'threaded_comment' );
 	}
 	
-	public function configure() {
+	public function configure()
+	{
 		$form = new FormUI( 'threaded_comment' );
 		$depth = $form->append( 'text', 'threaded_depth', 'threaded_comment__depth', _t( 'Max depth of thread:' ) );
 		$depth->add_validator( 'validate_regex', '/^[0-9]*$/', _t( 'Please enter a valid positive integer.' ) );
@@ -35,7 +39,8 @@ class ThreadedComment extends Plugin
 	}
 	
 	/* Add comment parent field to comment */
-	public function filter_spam_filter( $spam_rating, $comment, $handlervars) {
+	public function action_comment_accepted( $comment, $handlervars, $extra )
+	{
 		if( isset( $handlervars['commentparent'] ) && $handlervars['commentparent'] != '-1' ) {
 			$comment->info->comment_parent = $handlervars['commentparent'];
 		}
@@ -43,12 +48,19 @@ class ThreadedComment extends Plugin
 		if( isset( $handlervars['emailnotify'] ) ) {
 			$comment->info->email_notify = 1;
 		}
-	
-		return $spam_rating;
 	}
-	
+
+	/* Adds the subscribe button to the comment form
+	 * 
+	 */
+	public function action_comment_form( $form )
+	{
+
+	}
+
 	/* Email notify to subscribed user */
-	public function action_comment_insert_after($comment) {
+	public function action_comment_insert_after($comment)
+	{
 		if( ( $comment->type != Comment::COMMENT ) || ( $comment->status == Comment::STATUS_SPAM ) ) {
 			return;
 		}
@@ -71,11 +83,12 @@ class ThreadedComment extends Plugin
 				}
 			}
 
-		$c = $cc;
+			$c = $cc;
 		}
 	}
 
-	public function action_admin_moderate_comments( $action, $comments ) {
+	public function action_admin_moderate_comments( $action, $comments )
+	{
 		if( 'approved' == $action ) {
 			foreach( $comments as $c ) {
 				$this->action_comment_insert_after( $c );
@@ -83,7 +96,8 @@ class ThreadedComment extends Plugin
 		}
 	}
 
-	public function filter_post_threadedComments( $out, $post ) {
+	public function filter_post_threadedComments( $out, $post )
+	{
 		$ret = null;
 
 		if( $post->comments->moderated->count ) {
@@ -117,10 +131,11 @@ class ThreadedComment extends Plugin
 			}
 		}
 	
-	return $ret; 
+		return $ret;
 	}
 	
-	public function action_add_template_vars( $theme, $handler_vars ) {
+	public function action_add_template_vars( $theme, $handler_vars )
+	{
 		if( !$theme->template_engine->assigned( 'commentThreadMaxDepth' ) ) {
 			$depth = Options::get( 'threaded_comment__depth', 5 ); // default value is 5.
  
@@ -132,12 +147,14 @@ class ThreadedComment extends Plugin
 		}
 	}
 
-	public function filter_rewrite_rules( $db_rules ) {
+	public function filter_rewrite_rules( $db_rules )
+	{
 		$db_rules[]= RewriteRule::create_url_rule( '"tc_unsubscribe"', 'ThreadedComment', 'unsubscribe' );
 		return $db_rules;
 	}
 
-	public function action_handler_unsubscribe( $handler_vars ) {
+	public function action_handler_unsubscribe( $handler_vars )
+	{
 		$key = $handler_vars['id'];
 		if( $key != null) {
 			$key_text = base64_decode( $key );
@@ -157,7 +174,8 @@ class ThreadedComment extends Plugin
 		die( 'Invalid Request' );
 	}
 
-	private function get_comment_by_id($comments, $id ) {
+	private function get_comment_by_id($comments, $id )
+	{
 		$ret = null;
 
 		$begin = 0;
@@ -180,7 +198,8 @@ class ThreadedComment extends Plugin
 		return $ret;
 	}
 	
-	private function mail_notify( $email, $comment, $reply ) {
+	private function mail_notify( $email, $comment, $reply )
+	{
 		EventLog::log( 'Email notify ' . $email, 'info', 'ThreadedComment', 'ThreadedComment' );
 		$post = Post::get( array( 'id' => $comment->post_id ) );
 		$author = User::get_by_id( $post->user_id );
@@ -208,7 +227,8 @@ class ThreadedComment extends Plugin
 		mail( $email, $this->mh_utf8( $mail_data['subject'] ), $message, implode( PHP_EOL, $headers ) );
 	}
 	
-	private function get_mail_data($comment, $reply) {
+	private function get_mail_data($comment, $reply)
+	{
 		$ret = array();
 		$eol_tag = '--EOL--';
 		
@@ -230,7 +250,7 @@ class ThreadedComment extends Plugin
 		$reply_content = str_replace("\r\n", "\n", $reply->content);
 		$reply_content = str_replace("\n", $eol_tag, $reply_content);
 		
-		$unsubscribe_link = $site_link . '/tc_unsubscribe?id=' . base64_encode($comment->email. ',' . $comment_id . ',' . Utils::crypt($comment->email . $comment_id ) );
+		$unsubscribe_link = $site_link . '/tc_unsubscribe?id=' . base64_encode( $comment->email. ',' . $comment_id . ',' . Utils::crypt($comment->email . $comment_id ) );
 		
 		ob_start();
 		include($fp);
@@ -255,11 +275,13 @@ class ThreadedComment extends Plugin
 		return $ret;
 		}
 	
-	private function mh_utf8($str) {
+	private function mh_utf8($str)
+	{
 		return '=?UTF-8?B?' . base64_encode($str) . '?=';
 	}
 	
-	private function find_file($filename) {
+	private function find_file($filename)
+	{
 		$theme_dir = Site::get_dir( 'theme', true);
 		$fp = $theme_dir . $filename;
 		
