@@ -298,5 +298,80 @@ class ThreadedComment extends Plugin
 
 		return $fp;
 	}
+
+	public function theme_output_comment( $theme, $post, $comment, $level, $maxdepth )
+	{
+		if ( '' == $comment->url_out ) {
+			$comment_url = $comment->name_out;
+		}
+		else {
+			$comment_url = '<a href="' . $comment->url_out . '" rel="external nofollow">' . $comment->name_out . '</a>';
+		}
+
+		$class = 'class="comment';
+		if ( Comment::STATUS_UNAPPROVED == $comment->status ) {
+			$class .= '-unapproved';
+		}
+
+		// check to see if the comment is by a registered user
+		if ( $u = User::get( $comment->email ) ) {
+			$class .= ' byuser comment-author-' . Utils::slugify ($u->displayname);
+		}
+
+		if ( $comment->email == $post->author->email ) {
+			$class .= ' bypostauthor';
+		}
+
+		if ( $level > 1 ) {
+			$class .= ' comment-reply';
+		}
+
+		if ( $level % 2 ) {
+			$class .= ' odd';
+		} else {
+			$class .= ' even';
+		}
+
+		$class.= '"';
+
+		echo '<';
+		if( 1 == $level ) {
+			echo 'li';
+		}
+		else {
+			echo 'div';
+		}
+		echo 'id="comment-"' . $comment->id;
+		echo $class .  '>';
+
+		echo '<h3>' . $comment_url . '</h3>';
+		echo '<div class="comment-date">';
+		echo '<a href="#comment-' . $comment->id . '" title="' . _t( 'Time of this Comment' ) . '">' . $comment->date->out() . '</a>';
+		if ( Comment::STATUS_UNAPPROVED == $comment->status ) {
+			echo '<em>' . _t( 'In moderation' ) . '</em>';
+		}
+		echo '</div>';
+
+		echo '<div class="comment-content">' . $comment->content_out . '</div>';
+
+		if( $level < $max_depth ) {
+			$this->output_reply_link( $comment );
+		}
+
+		if ( isset( $comment->children ) ) {
+			foreach ( $comment->children as $child ) {
+				$this->theme_output_comment( $post, $child, $level + 1, $max_depth );
+			}
+		}
+		echo ( $level == 1 ? '</li>' : '</div>' );
+	}
+
+	private function output_reply_link( $comment )
+	{
+		echo '<div class="reply-link">';
+		echo '<a href="#" onclick="movecfm (event, ' . $comment->id . ', 1, "' . $comment->name  . '"); return false;">' . _t( 'Reply' ) . '</a>';
+		echo '</div>';
+	}
+
 }
 ?>
