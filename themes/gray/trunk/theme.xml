@@ -17,7 +17,7 @@
 		<area name="primary">
 			<description><![CDATA[The primary article area]]></description>
 		</area>
-		<area name="recent">
+		<area name="sidebar">
 			<description><![CDATA[To the right of the primary area]]></description>
 		</area>
 		<area name="home_a">

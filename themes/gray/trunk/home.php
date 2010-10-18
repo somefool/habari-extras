@@ -7,7 +7,7 @@
 				<?php $theme->area('primary'); ?>
 		  </div>
 	    <div class="yui-u">
-				<?php $theme->area('recent'); ?>
+				<?php $theme->area('sidebar'); ?>
 		  </div>
 		</div>
     <div class="yui-gb">
