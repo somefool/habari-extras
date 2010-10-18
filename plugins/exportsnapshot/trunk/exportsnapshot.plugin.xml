@@ -7,7 +7,7 @@
 	<version>0.1</version>
 	<description><![CDATA[Save Exports as snapshots for easy point-in-time restores.]]></description>
 	<requires>
-		<feature url="http://wiki.habariproject.org/en/feature/blogml_export">blogml_export</feature>
+		<!-- <feature url="http://wiki.habariproject.org/en/feature/blogml_export">blogml_export</feature> -->
 	</requires>
 	<provides>
 		<feature url="http://wiki.habariproject.org/en/feature/blogml_export_snapshots">blogml_export_snapshots</feature>
