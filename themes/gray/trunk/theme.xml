@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<theme>
+<pluggable type="theme">
 	<name>Gray</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	
@@ -31,4 +31,4 @@
 		</area>
 	</areas>
 	
-</theme>
+</pluggable>
