@@ -369,7 +369,7 @@ class ThreadedComment extends Plugin
 	private function output_reply_link( $comment )
 	{
 		echo '<div class="reply-link">';
-		echo '<a href="#" onclick="movecfm (event, ' . $comment->id . ', 1, "' . $comment->name  . '"); return false;">' . _t( 'Reply' ) . '</a>';
+		echo '<a href="#" onclick="movecfm (event, ' . $comment->id . ', 1, \'' . $comment->name  . '\'); return false;">' . _t( 'Reply' ) . '</a>';
 		echo '</div>';
 	}
 
