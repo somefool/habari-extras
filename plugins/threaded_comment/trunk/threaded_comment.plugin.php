@@ -41,14 +41,13 @@ class ThreadedComment extends Plugin
 	/* Add comment parent field to comment */
 	public function action_comment_accepted( $comment, $handlervars, $extra )
 	{
-		if( isset( $extra['cf_commentparent'] ) && $extra['cf_commentparent'] != '-1' ) {
-			$comment->info->comment_parent = $extra['cf_commentparent'];
+		if( isset( $handlervars['parent-id'] ) && $handlervars['parent-id'] != '-1' ) {
+			$comment->info->comment_parent = $handlervars['parent-id'];
 		}
 
 		if( isset( $extra['cf_emailnotify'] ) ) {
 			$comment->info->email_notify = 1;
 		}
-		return $comment;
 	}
 
 	/* Adds the subscribe button to the comment form
@@ -342,7 +341,7 @@ class ThreadedComment extends Plugin
 		else {
 			echo 'div ';
 		}
-		echo "id=\"comment-{$comment->id}\"";
+		echo "id=\"comment-$comment->id\"";
 		echo $class .  '>';
 
 		echo '<h3>' . $comment_url . '</h3>';
@@ -361,7 +360,7 @@ class ThreadedComment extends Plugin
 
 		if ( isset( $comment->children ) ) {
 			foreach ( $comment->children as $child ) {
-				$this->theme_output_comment( $post, $child, $level + 1, $max_depth );
+				$theme->output_comment( $post, $child, $level + 1, $max_depth );
 			}
 		}
 		echo ( $level == 1 ? "</li>\n" : "</div>\n" );

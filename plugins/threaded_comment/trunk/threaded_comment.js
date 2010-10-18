@@ -1,6 +1,6 @@
 var rpPel = null;
 var Commentarea = null;
-var commentformid = 'comment-public';
+//var commentformid = 'comment-public';
 
 function $s(){
 	if(arguments.length == 1)
@@ -14,7 +14,7 @@ function $s(){
 
 function get$(el){
 	if(typeof el == 'string')
-		el = document.getElementsByName(el);
+		el = document.getElementById(el);
 	return el;
 }
 
@@ -25,7 +25,7 @@ function $c(array){
 }
 
 function commentarea(){
-	var fi = $s(commentformid).getElementsByTagName('textarea');
+	var fi = $s(commentformid).getElementsByName('textarea');
 	for(var i=0; i<fi.length; i++ ){
 		if(fi[i].name == 'comment_content'){
 			return fi[i];
@@ -35,7 +35,8 @@ function commentarea(){
 }
 
 function movecfm(event,Id,dp,author){
-	var cfm = $s(commentformid);
+//	var cfm = $s(commentformid);
+	var cfm = $s('comment-public');
 
 	if(cfm == null){
 		alert("ERROR:\nCan't find the '"+commentformid+"' div.");
@@ -49,7 +50,7 @@ function movecfm(event,Id,dp,author){
 		return false;
 	}
 
-	var replyId = $s("cf_commentparent");
+	var replyId = document.getElementsByName("cf_commentparent");
 
 	if(replyId == null){
 		alert("Error:\nNo form field called 'cf_commentparent'.");
@@ -59,7 +60,7 @@ function movecfm(event,Id,dp,author){
 	var dpId = $s("comment_reply_dp");
 
 	if(Commentarea == null)
-		Commentarea = commentarea();
+		Commentarea = $s('comment_content');
 
 	if(parseInt(Id)){
 		if(cfm.style.display == "none"){
@@ -93,6 +94,11 @@ function movecfm(event,Id,dp,author){
 		}
 		cfm.parentNode.removeChild(cfm);
 		OId.appendChild(cfm);
+		var h = document.createElement('input');
+		h.type = 'hidden';
+		h.name = 'parent-id';
+		h.value = Id;
+		cfm.appendChild(h);
 
 		if(Commentarea && Commentarea.display != "none"){
 			Commentarea.focus();
@@ -111,10 +117,15 @@ function movecfm(event,Id,dp,author){
 			cfm.parentNode.removeChild(cfm);
 			c.parentNode.insertBefore(cfm,c);
 		}
+		var h = document.createElement('input');
+		h.type = 'hidden';
+		h.name = 'parent-id';
+		h.value = -1;
+		cfm.appendChild(h);
 
 		if(parseInt(dp) && Commentarea && Commentarea.display != "none"){
 			Commentarea.focus();
-			//Commentarea.value = '';
+			Commentarea.value = '';
 		}
 	}
 	return true;
