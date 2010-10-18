@@ -62,9 +62,10 @@
 			$snapshots = Options::get( 'exportsnapshot__snapshots', array() );
 			
 			$s = array();
-			foreach ( $snapshots as $snapshot ) {
+			foreach ( $snapshots as $ts => $size ) {
 				$t = new stdClass();
-				$t->date = HabariDateTime::date_create( $snapshot );
+				$t->date = HabariDateTime::date_create( $ts );
+				$t->size = $size;
 				
 				$s[] = $t;
 			}
@@ -124,8 +125,11 @@
 						
 					case _t('Take Snapshot'):
 						
-						CronTab::add_single_cron('snapshot_single', array( 'ExportSnapshot', 'run' ), HabariDateTime::date_create(), 'Run a single snapshot.' );
-						Session::notice( _t( 'Snapshot scheduled for next cron run.' ) );
+						self::run();
+						Session::notice( _t('Snapshot saved!') );
+						
+						//CronTab::add_single_cron('snapshot_single', array( 'ExportSnapshot', 'run' ), HabariDateTime::date_create(), 'Run a single snapshot.' );
+						//Session::notice( _t( 'Snapshot scheduled for next cron run.' ) );
 						
 						// don't display the configuration page, just redirect back to the plugin page
 						Utils::redirect( URL::get( 'admin', 'page=plugins' ) );
@@ -176,7 +180,7 @@
 			
 		}
 		
-		private function test_cache ( ) {
+		private static function test_cache ( ) {
 			
 			// test the cache
 			$cache = Cache::set('export_test', 'test');
@@ -206,7 +210,7 @@
 			Plugins::act('exportsnapshot_run_before');
 			
 			// if we can't save the file, throw an error and bail
-			if ( !$this->test_cache() ) {
+			if ( !self::test_cache() ) {
 				return false;
 			}
 			
@@ -220,12 +224,12 @@
 			$xml = Plugins::filter('exportsnapshot_contents', $xml);
 			
 			// save the snapshot
-			$save_result = $this->save( $xml );
+			$save_result = self::save( $xml );
 			
 			// cleanup old snapshots
-			$clean_result = $this->cleanup();
+			$clean_result = self::cleanup();
 			
-			if ( $result ) {
+			if ( $save_result && $clean_result ) {
 				return true;
 			}
 			else {
@@ -234,20 +238,31 @@
 			
 		}
 		
-		private function save ( $xml ) {
+		private static function save ( $xml ) {
 			
 			$timestamp = HabariDateTime::date_create('now')->format('YmdHis');
 			
-			Cache::set( 'exportsnapshot__' . $timestamp, $xml, 0, true );	// 0s expiration, but keep it forever
+			$result = Cache::set( 'exportsnapshot__' . $timestamp, $xml, 0, true );	// 0s expiration, but keep it forever
 			
-			$snapshots = Options::get( 'exportsnapshot__snapshots', array() );
-			$snapshots[] = $timestamp;
+			if ( $result ) {
 			
-			Options::set( 'exportsnapshot__snapshots', $snapshots );
+				$snapshots = Options::get( 'exportsnapshot__snapshots', array() );
+				$snapshots[ $timestamp ] = mb_strlen( $xml, '8bit' );
+			
+				Options::set( 'exportsnapshot__snapshots', $snapshots );
+				
+				return true;
+				
+			}
+			else {
+				return false;
+			}
 			
 		}
 		
-		private function cleanup ( ) {
+		private static function cleanup ( ) {
+			
+			return true;
 			
 			// the limit on the number of snapshots to retain
 			$max_snapshots = Options::get( 'exportsnapshot__max_snapshots' );
@@ -255,22 +270,22 @@
 			$snapshots = Options::get( 'exportsnapshot__snapshots', array() );
 			
 			// they should be in timestamp order, but make sure
-			sort( $snapshots );
+			ksort( $snapshots );
 			
 			if ( $max_snapshots != null ) {
 				
 				// get the oldest snapshots - we need to dump these
-				$old = array_slice( $snapshots, 0, $max_snapshots );
+				$old = array_slice( $snapshots, 0, $max_snapshots, true );
 				
 				// get the newest snapshots - these are the ones we'll save
-				$snapshots = array_slice( $snapshots, $max_snapshots );
+				$snapshots = array_slice( $snapshots, $max_snapshots, null, true );
 				
 				// if we've got things to clean up
 				if ( !empty( $old ) ) {
 					
-					foreach ( $old as $o ) {
+					foreach ( $old as $ts => $size ) {
 						// expire the entries we don't want to keep any longer
-						Cache::expire( 'exportsnapshot__' . $o );
+						Cache::expire( 'exportsnapshot__' . $ts );
 					}
 					
 				}
@@ -279,6 +294,8 @@
 			
 			// save it again
 			Options::set( 'exportsnapshot__snapshots', $snapshots );
+			
+			return true;
 			
 		}
 		
