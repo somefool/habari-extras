@@ -1,6 +1,6 @@
 var rpPel = null;
 var Commentarea = null;
-var commentformid = 'comment-public'
+var commentformid = 'comment-public';
 
 function $s(){
 	if(arguments.length == 1)
@@ -14,7 +14,7 @@ function $s(){
 
 function get$(el){
 	if(typeof el == 'string')
-		el = document.getElementById(el);
+		el = document.getElementsByName(el);
 	return el;
 }
 
@@ -27,7 +27,7 @@ function $c(array){
 function commentarea(){
 	var fi = $s(commentformid).getElementsByTagName('textarea');
 	for(var i=0; i<fi.length; i++ ){
-		if(fi[i].name == 'content'){
+		if(fi[i].name == 'comment_content'){
 			return fi[i];
 		}
 	}
@@ -49,10 +49,10 @@ function movecfm(event,Id,dp,author){
 		return false;
 	}
 
-	var replyId = $s("commentparent");
+	var replyId = $s("cf_commentparent");
 
 	if(replyId == null){
-		alert("Error:\nNo form field called 'commentparent'.");
+		alert("Error:\nNo form field called 'cf_commentparent'.");
 		return false;
 	}
 
@@ -63,7 +63,7 @@ function movecfm(event,Id,dp,author){
 
 	if(parseInt(Id)){
 		if(cfm.style.display == "none"){
-			alert("New Comment is submiting, please wait a moment");
+			alert("New Comment is submitting, please wait a moment");
 			return false;
 		}
 
