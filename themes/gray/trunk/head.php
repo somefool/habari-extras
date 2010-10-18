@@ -5,7 +5,7 @@
 	<?php $theme->header(); ?>
 </head>
 <body class="<?php $theme->body_class(); ?>">
-<div id="doc2" class="yui-t7">
+<div id="doc2" class="<?php echo $yui_class; ?>">
 	<div id="hd">
 		<h1><a href="/"><?php echo $site_title; ?></a></h1>
 		<?php $theme->area('nav'); ?>

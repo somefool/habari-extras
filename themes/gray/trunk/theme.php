@@ -124,6 +124,10 @@ class ResurrectionTheme extends Theme
 		// Set the site title
 		$this->site_title = Options::get('title');
 
+		// Set the YUI class for layout		
+		$this->yui_class = Options::get('yui_class', 'yui-t1');
+
+
 		// Show ads on google referers
 		$this->assign('ads', !( !isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] == '' || strpos(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST), 'asymptomatic.net') !== false ));
 		$this->assign('ads', false);
@@ -148,7 +152,7 @@ class ResurrectionTheme extends Theme
 		*/
 
 		// Add the stylesheets
-		Stack::add('template_stylesheet', array('http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css', 'screen,projection'), 'yahoo');
+		Stack::add('template_stylesheet', array('http://yui.yahooapis.com/2.8.1/build/reset-fonts-grids/reset-fonts-grids.css', 'screen,projection'), 'yahoo');
 		Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/print.css' ) , 'print'), 'print');
 		Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/style.css' ) , 'screen,projection'), 'theme', 'yahoo');
 		//Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/fancybox.css' ) , 'screen,projection'), 'fancybox', 'theme');
@@ -169,15 +173,18 @@ class ResurrectionTheme extends Theme
 	 */
 	public function action_theme_ui()
 	{
-		$form = new FormUI( 'blossom_theme' );
-		$form->append('text', 'delicious_username', 'blossom_delicious_username', _t('Delicious Username:'));
-		$form->append( 'select', 'date_format', 'blossom_date_format', 'Date format:' );
-		$form->date_format->options = array('european' => 'European', 'american' => 'American');
+		$form = new FormUI( 'gray_theme' );
 
-		$form->append('fieldset', 'show_interests_fs', 'Show "Interests"?');
-		$form->show_interests_fs->append('radio', 'show_interests', 'option:show_interests', 'Show "Interests"?', array("1" => "Yes", "0" => "No"));
-		$form->append('fieldset', 'show_other_news_fs', 'Show "Other News"?');
-		$form->show_other_news_fs->append('radio', 'show_other_news', 'option:show_other_news', 'Show "Other News"?', array("1" => "Yes", "0" => "No"));
+		$form->append('fieldset', 'yui_fs', 'YUI Grid Settings');
+		$form->yui_fs->append( 'select', 'yui_class', 'yui_class', 'Sidebar size and position:' );
+		$form->yui_class->options = array(
+			'yui-t1' => _t('160px on left', 'gray'), 
+			'yui-t2' => _t('180px on left', 'gray'), 
+			'yui-t3' => _t('300px on left', 'gray'), 
+			'yui-t4' => _t('180px on right', 'gray'), 
+			'yui-t5' => _t('240px on right', 'gray'), 
+			'yui-t6' => _t('300px on right', 'gray'), 
+		);
 
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 

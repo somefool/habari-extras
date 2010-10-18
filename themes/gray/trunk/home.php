@@ -1,15 +1,14 @@
 <?php $theme->display('head'); ?>
-
 	<div id="bd">
-		<div class="yui-gc">
-	    <div class="yui-u first">
+		<div id="yui-main">
+	    <div class="yui-b">
 				<?php Session::messages_out(); ?>
 				<?php $theme->area('primary'); ?>
 		  </div>
-	    <div class="yui-u">
-				<?php $theme->area('sidebar'); ?>
-		  </div>
 		</div>
+    <div class="yui-b">
+			<?php $theme->area('sidebar'); ?>
+	  </div>
     <div class="yui-gb">
 			<div class="yui-u first">
 				<?php $theme->area('home_a'); ?>
