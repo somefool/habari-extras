@@ -17,6 +17,9 @@
 				// save the default options
 				Options::set( 'exportsnapshot__frequency', 'manually' );
 				
+				// add the module
+				Modules::add( _t('Snapshots') );
+				
 			}
 			
 		}
@@ -30,10 +33,48 @@
 				// wipe out the default options we added
 				Options::delete( 'exportsnapshot__frequency' );
 				
+				// remove the module
+				Modules::remove_by_name( _t('Snapshots') );
+				
 				// @todo what about the snapshots option and deleting those cached items?
 				// probably an uninstall method too?
 				
 			}
+			
+		}
+		
+		public function filter_dash_modules ( $modules ) {
+			
+			if ( User::identify()->can( 'snapshot', 'read' ) ) {
+				
+				$modules[] = _t('Snapshots');
+				
+				$this->add_template( 'dash_snapshots', dirname( __FILE__ ) . '/dash_snapshots.php' );
+				
+			}
+			
+			return $modules;
+			
+		}
+		
+		public function filter_dash_module_snapshots ( $module, $module_id, $theme ) {
+			
+			$snapshots = Options::get( 'exportsnapshot__snapshots', array() );
+			
+			$s = array();
+			foreach ( $snapshots as $snapshot ) {
+				$t = new stdClass();
+				$t->date = HabariDateTime::date_create( $snapshot );
+				
+				$s[] = $t;
+			}
+			
+			$theme->snapshots = $s;
+			
+			$module['title'] = _t('Snapshots');
+			$module['content'] = $theme->fetch('dash_snapshots');
+			
+			return $module;
 			
 		}
 		
@@ -216,7 +257,7 @@
 			// they should be in timestamp order, but make sure
 			sort( $snapshots );
 			
-			if ( $max_snapshots ) {
+			if ( $max_snapshots != null ) {
 				
 				// get the oldest snapshots - we need to dump these
 				$old = array_slice( $snapshots, 0, $max_snapshots );
