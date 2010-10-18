@@ -48,6 +48,7 @@ class ThreadedComment extends Plugin
 		if( isset( $extra['cf_emailnotify'] ) ) {
 			$comment->info->email_notify = 1;
 		}
+		return $comment;
 	}
 
 	/* Adds the subscribe button to the comment form
@@ -57,7 +58,7 @@ class ThreadedComment extends Plugin
 	{
 		$form->insert( $form->cf_submit, 'checkbox', 'cf_emailnotify', 'null:null', _t( 'Receive email notification if someone replies to my comment', 'formcontrol_checkbox' ) );
 		$form->cf_emailnotify->id = 'cf_emailnotify';
-		$form->append( 'static', 'cf_cancel_reply', '<p id="cancel_reply" style="display:none;" ><a href="javascript:void(0)" onclick="movecfm(null,0,1,null);" style="color:red;">' . _t( 'Cancel Reply' ) . '</a></p>' );
+		$form->append( 'static', 'cf_cancel_reply', '<p id="cancel_reply" style="display:none;" ><a href="javascript:void(0)" onclick="movecfm(null,0,1,null);" style="color:red;">' . _t( 'Cancel Reply' ) . "</a></p>\n" );
 		$form->append( 'hidden', 'cf_commentparent', 'null:null' );
 		$form->cf_commentparent->id = 'cf_commentparent';
 		$form->cf_commentparent->value = -1;
@@ -119,7 +120,7 @@ class ThreadedComment extends Plugin
 					if( $p != null ) {
 						if( !isset( $p->children ) ) {
 							$children = array();
-						} 
+						}
 						else {
 							$children = $p->children;
 						}
