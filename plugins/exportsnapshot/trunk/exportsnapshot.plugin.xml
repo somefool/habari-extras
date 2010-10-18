@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Export Snapshot</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org</url>
+	<author url="http://chrismeller.com/">Chris Meller</author>
+	<version>0.1</version>
+	<description><![CDATA[Save Exports as snapshots for easy point-in-time restores.]]></description>
+	<requires>
+		<feature url="http://wiki.habariproject.org/en/feature/blogml_export">blogml_export</feature>
+	</requires>
+	<provides>
+		<feature url="http://wiki.habariproject.org/en/feature/blogml_export_snapshots">blogml_export_snapshots</feature>
+	</provides>
+</pluggable>
