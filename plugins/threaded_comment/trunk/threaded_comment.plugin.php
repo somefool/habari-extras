@@ -299,7 +299,7 @@ class ThreadedComment extends Plugin
 		return $fp;
 	}
 
-	public function theme_output_comment( $theme, $post, $comment, $level, $maxdepth )
+	public function theme_output_comment( $theme, $post, $comment, $level, $max_depth )
 	{
 		if ( '' == $comment->url_out ) {
 			$comment_url = $comment->name_out;
@@ -308,14 +308,14 @@ class ThreadedComment extends Plugin
 			$comment_url = '<a href="' . $comment->url_out . '" rel="external nofollow">' . $comment->name_out . '</a>';
 		}
 
-		$class = 'class="comment';
+		$class = ' class="comment';
 		if ( Comment::STATUS_UNAPPROVED == $comment->status ) {
 			$class .= '-unapproved';
 		}
 
 		// check to see if the comment is by a registered user
 		if ( $u = User::get( $comment->email ) ) {
-			$class .= ' byuser comment-author-' . Utils::slugify ($u->displayname);
+			$class .= ' byuser comment-author-' . Utils::slugify ( $u->displayname );
 		}
 
 		if ( $comment->email == $post->author->email ) {
@@ -332,16 +332,16 @@ class ThreadedComment extends Plugin
 			$class .= ' even';
 		}
 
-		$class.= '"';
+		$class .= " depth-$level\"";
 
 		echo '<';
 		if( 1 == $level ) {
-			echo 'li';
+			echo 'li ';
 		}
 		else {
-			echo 'div';
+			echo 'div ';
 		}
-		echo 'id="comment-"' . $comment->id;
+		echo "id=\"comment-{$comment->id}\"";
 		echo $class .  '>';
 
 		echo '<h3>' . $comment_url . '</h3>';
@@ -363,7 +363,7 @@ class ThreadedComment extends Plugin
 				$this->theme_output_comment( $post, $child, $level + 1, $max_depth );
 			}
 		}
-		echo ( $level == 1 ? '</li>' : '</div>' );
+		echo ( $level == 1 ? "</li>\n" : "</div>\n" );
 	}
 
 	private function output_reply_link( $comment )
