@@ -123,6 +123,7 @@ class GrayTheme extends Theme
 		// Set the YUI class for layout		
 		$this->yui_class = Options::get('yui_class', 'yui-t1');
 		$this->yui_id = Options::get('yui_id', 'doc');
+		$this->align_class = Options::get('align_class', 'doc-center');
 
 		// Show ads on google referers
 		$this->assign('ads', !( !isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] == '' || strpos(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST), 'asymptomatic.net') !== false ));
@@ -188,6 +189,12 @@ class GrayTheme extends Theme
 			'yui-t4' => _t('180px on right', 'gray'), 
 			'yui-t5' => _t('240px on right', 'gray'), 
 			'yui-t6' => _t('300px on right', 'gray'), 
+		);
+		$form->yui_fs->append( 'select', 'align_class', 'align_class', 'Page Alignment:' );
+		$form->align_class->options = array(
+			'doc-left' => _t('Left', 'gray'), 
+			'doc-center' => _t('Centered', 'gray'), 
+			'doc-right' => _t('Right', 'gray'), 
 		);
 
 		$form->append( 'submit', 'save', _t( 'Save' ) );

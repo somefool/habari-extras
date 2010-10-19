@@ -4,8 +4,8 @@
 	<title><?php echo $page_title; ?></title>
 	<?php $theme->header(); ?>
 </head>
-<body class="<?php $theme->body_class(); ?>">
-<div id="<?php echo $yui_id; ?>" class="<?php echo $yui_class; ?>">
+<body id="body" class="<?php $theme->body_class(); ?>">
+<div id="<?php echo $yui_id; ?>" class="<?php echo $yui_class; ?> <?php echo $align_class; ?>">
 	<div id="hd">
 		<h1><a href="/"><?php echo $site_title; ?></a></h1>
 		<?php $theme->area('nav'); ?>

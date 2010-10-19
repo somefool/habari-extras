@@ -29,6 +29,16 @@ body {
 	font-family: Times New Roman, Serif;
 }
 
+body#body .doc-left {
+	margin: 0px 20px;
+	float: left;
+}
+
+body#body .doc-right {
+	margin: 0px 20px;
+	float: right;
+}
+
 #hd {
 	height: 140px;
 	padding-top: 20px;
