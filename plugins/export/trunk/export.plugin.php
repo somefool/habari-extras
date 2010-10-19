@@ -12,7 +12,7 @@
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
 
-				ACL::create_token( 'export now', 'Export the Habari database.', 'Export' );
+				ACL::create_token( 'export now', 'Export the Habari database', 'Export' );
 				
 			}
 			
