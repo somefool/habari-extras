@@ -286,9 +286,7 @@
 				$pt = $p->addChild( 'categories' );
 				
 				$tags = $post->tags;
-				foreach ( $tags as $t_term => $t_slug ) {
-					
-					$tag = Tag::get( $t_term );
+				foreach ( $tags as $tag ) {
 					
 					$pt->addChild( 'category' )->addAttribute( 'ref', $tag->id );
 					
