@@ -124,6 +124,9 @@ class GrayTheme extends Theme
 		$this->yui_class = Options::get('yui_class', 'yui-t1');
 		$this->yui_id = Options::get('yui_id', 'doc');
 		$this->align_class = Options::get('align_class', 'doc-center');
+		if($this->yui_id == 'doc3') {
+			$this->align_class = 'doc-center';
+		}
 
 		// Show ads on google referers
 		$this->assign('ads', !( !isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] == '' || strpos(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST), 'asymptomatic.net') !== false ));
