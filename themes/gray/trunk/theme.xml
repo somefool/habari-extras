@@ -9,6 +9,9 @@
 	<template_engine>rawphpengine</template_engine>
 	<description><![CDATA[A multi-column News theme for Habari, built in YUI grids.]]></description>
 	
+	<recommends>
+		<feature url="http://wiki.habariproject.org/features/sass">sass</feature>
+	</recommends>
 	
 	<areas>
 		<area name="nav">

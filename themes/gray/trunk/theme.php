@@ -8,12 +8,12 @@
 
 
 // We must tell Habari to use ResurrectionTheme as the custom theme class:
-define( 'THEME_CLASS', 'ResurrectionTheme' );
+define( 'THEME_CLASS', 'GrayTheme' );
 
 /**
  * A custom theme for Resurrection output
  */
-class ResurrectionTheme extends Theme
+class GrayTheme extends Theme
 {
 
 	/**
@@ -109,10 +109,6 @@ class ResurrectionTheme extends Theme
 	 */
 	public function action_add_template_vars($theme)
 	{
-//		if($theme != $this) {
-//			return;
-//		}
-
 		// Add a list of Pages to the $pages variable
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published') ) ) );
@@ -126,7 +122,7 @@ class ResurrectionTheme extends Theme
 
 		// Set the YUI class for layout		
 		$this->yui_class = Options::get('yui_class', 'yui-t1');
-
+		$this->yui_id = Options::get('yui_id', 'doc');
 
 		// Show ads on google referers
 		$this->assign('ads', !( !isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] == '' || strpos(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST), 'asymptomatic.net') !== false ));
@@ -154,6 +150,7 @@ class ResurrectionTheme extends Theme
 		// Add the stylesheets
 		Stack::add('template_stylesheet', array('http://yui.yahooapis.com/2.8.1/build/reset-fonts-grids/reset-fonts-grids.css', 'screen,projection'), 'yahoo');
 		Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/print.css' ) , 'print'), 'print');
+		Stack::add('template_stylesheet', array('@import url(http://fonts.googleapis.com/css?family=Vollkorn&subset=latin);' , 'screen,projection'), 'font', 'yahoo');
 		Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/style.css' ) , 'screen,projection'), 'theme', 'yahoo');
 		//Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/fancybox.css' ) , 'screen,projection'), 'fancybox', 'theme');
 		
@@ -176,6 +173,13 @@ class ResurrectionTheme extends Theme
 		$form = new FormUI( 'gray_theme' );
 
 		$form->append('fieldset', 'yui_fs', 'YUI Grid Settings');
+		$form->yui_fs->append( 'select', 'yui_id', 'yui_id', 'Page width:' );
+		$form->yui_id->options = array(
+			'doc' => _t('750px', 'gray'), 
+			'doc2' => _t('950px', 'gray'), 
+			'doc3' => _t('100%', 'gray'), 
+			'doc4' => _t('974px', 'gray'), 
+		);
 		$form->yui_fs->append( 'select', 'yui_class', 'yui_class', 'Sidebar size and position:' );
 		$form->yui_class->options = array(
 			'yui-t1' => _t('160px on left', 'gray'), 
@@ -188,7 +192,7 @@ class ResurrectionTheme extends Theme
 
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 
-		$form->set_option( 'success_message', _t( 'Configuration saved' ) );
+		$form->set_option( 'success_message', _t( 'Configuration saved.', 'gray' ) );
 		$form->out();
 	}
 	

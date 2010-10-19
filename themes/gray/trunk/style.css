@@ -1,15 +1,22 @@
 
-#demo1 {font-size:85%;}  /*renders 11px */
-#demo2 {font-size:100%;} /*renders 13px */
-#demo3 {font-size:108%;} /*renders 14px */
-#demo4 {font-size:123.1%;} /*renders 16px */
-#demo5 {font-size:138.5%;} /*renders 18px */
+/* Scalable Font Sizes */
 
+.smaller {font-size:85%;}  /*renders 11px */
+.small {font-size:100%;} /*renders 13px */
+.normal {font-size:108%;} /*renders 14px */
+.big {font-size:123.1%;} /*renders 16px */
+.bigger {font-size:138.5%;} /*renders 18px */
+
+/* Update and uncomment this block to add a background image to the header */ 
 /*
-red: #BFA486
-green: #B8BF86
-blue: #91A4B4
+#hd h1 a {
+	text-indent: -30000px;
+	background: transparent url("images/masthead.png") scroll no-repeat;
+	height: 38px;
+	width: 100%;
+}
 */
+
 
 html {
 	background-color: #F5F5F5;
@@ -19,7 +26,7 @@ body {
 	margin: 0px;
 	padding:0px;
 	background: #F5F5F5 url("images/hd.png") scroll repeat-x;
-	font-family: Calibri, Arial, Helvetica;
+	font-family: Arial, Helvetica;
 }
 
 #hd {
@@ -29,15 +36,12 @@ body {
 
 #hd h1 a {
 	display: block;
-	/*text-indent: -3000px;
-	background: transparent url("images/masthead.png") scroll no-repeat;
-	height: 38px;
-	width: 289px;*/
 	outline: none;
 	float: right;
-	color: #BFA486;
+	color: #AAAAAA;
 	font-size: 275%;
 	font-weight: bold;
+	font-family: Vollkorn;
 }
 
 #nav {
@@ -52,24 +56,24 @@ body {
 
 a {
 	text-decoration: none;
-	color: #91A4B4;
+	color: #AAAAAA;
 }
 a:hover {
-	color: #41568C;
+	color: #888888;
 	text-decoration: underline;
 }
 
 input.error,
 textarea.error {
-	border: 1px solid #f88;
+	border: 1px solid #FF8888;
 }
 
 #yui-main ul.error {
-	border: 1px solid #BFA486;
+	border: 1px solid #BBBBBB;
 	padding: 20px;
 	margin: 0px 0px 20px;
 	background: #DACAB9 url('images/error.png') scroll no-repeat;
-	color: #666;
+	color: #666666;
 }
 #yui-main ul.error li {
 	list-style-type: square;
@@ -77,11 +81,11 @@ textarea.error {
 }
 
 #yui-main ul.success {
-	border: 1px solid #B8BF86;
+	border: 1px solid #BBBBBB;
 	padding: 20px;
 	margin: 0px 0px 20px;
-	background-color: #EAECDB;
-	color: #666;
+	background-color: #EEEEEE;
+	color: #666666;
 }
 #yui-main ul.success li {
 	list-style-type: square;
@@ -117,7 +121,7 @@ textarea.error {
 	text-decoration: none;
 }
 .moreanchor:target {
-	color: #B8BF86;
+	color: #BBBBBB;
 	display: block;
 	margin-left: -5em;
 	position: absolute;
@@ -153,8 +157,8 @@ html[xmlns] .clearfix {
 #sidebar h3 {
 	font-size: 138%;
 	margin: 1.0em 0em 0.15em;
-	color: #B8BF86;
-	text-align: right;
+	color: #BBBBBBS;
+	font-family: Vollkorn;
 }
 
 #bd {
@@ -181,15 +185,17 @@ html[xmlns] .clearfix {
 #bd h2 {
 	font-size: 200%;
 	margin: 0em 0em 0.5em;
-	color: #B8BF86;
+	color: #BBBBBB;
 	letter-spacing: 0.1em;
+	font-family: Vollkorn;
 }
 
 #bd h3 {
 	font-size: 138%;
 	margin: 1.0em 0em 0.15em;
-	color: #B8BF86;
+	color: #BBBBBB;
 	letter-spacing: 0.1em;
+	font-family: Vollkorn;
 }
 
 
@@ -208,24 +214,24 @@ strong {
 }
 
 .entry-meta {
-	border-bottom: 1px solid #E3D7CA;
-	border-top: 1px solid #E3D7CA;
+	border-bottom: 1px solid #DDDDDD;
+	border-top: 1px solid #DDDDDD;
 	color: #cccccc;
 }
 .entry-meta a {
-	color: #BEC9D2;
+	color: #CCCCCCS;
 }
 
 /* comments */
 
 .entry-comments {
-	border-top: 5px solid #BFA486;
+	border-top: 5px solid #BBBBBB;
 }
 
 #yui-main .entry-comments li {
 	list-style-type: none;
 	margin: 1em 0em;
-	border-bottom: 1px solid #BFA486;
+	border-bottom: 1px solid #BBBBBB;
 	padding: 1em 0em;
 }
 
@@ -254,7 +260,7 @@ strong {
 }
 
 .commentform label .required {
-	color: #BFA486;
+	color: #AAAAAAS;
 	margin-left: 20px;
 }
 
@@ -319,18 +325,15 @@ img.media.thumbnail {
 
 em {
 	font-style: italic;
-	color: #91704D;
 }
 
-/** cufon fix for IE
-*/
+/** cufon fix for IE */
 .entry-title,#nav a,h3,#hd h1 a {zoom:1;}
 
-/** other posts
-*/
+/** other posts */
 
 #bd .other_posts {
-	border-top: 5px solid #BFA486;
+	border-top: 5px solid #BBBBBB;
 	line-height: 1.5em;
 	margin-left: 0px;
 	padding-top: 1em;
