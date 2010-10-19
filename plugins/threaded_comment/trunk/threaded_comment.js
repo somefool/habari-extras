@@ -1,6 +1,6 @@
 var rpPel = null;
 var Commentarea = null;
-//var commentformid = 'comment-public';
+var commentformid = 'comment-public';
 
 function $s(){
 	if(arguments.length == 1)
@@ -35,8 +35,7 @@ function commentarea(){
 }
 
 function movecfm(event,Id,dp,author){
-//	var cfm = $s(commentformid);
-	var cfm = $s('comment-public');
+	var cfm = $s(commentformid);
 
 	if(cfm == null){
 		alert("ERROR:\nCan't find the '"+commentformid+"' div.");
@@ -55,6 +54,9 @@ function movecfm(event,Id,dp,author){
 	if(replyId == null){
 		alert("Error:\nNo form field called 'cf_commentparent'.");
 		return false;
+	}
+	else {
+		replyId = replyId[0];
 	}
 
 	var dpId = $s("comment_reply_dp");
@@ -94,11 +96,6 @@ function movecfm(event,Id,dp,author){
 		}
 		cfm.parentNode.removeChild(cfm);
 		OId.appendChild(cfm);
-		var h = document.createElement('input');
-		h.type = 'hidden';
-		h.name = 'parent-id';
-		h.value = Id;
-		cfm.appendChild(h);
 
 		if(Commentarea && Commentarea.display != "none"){
 			Commentarea.focus();
@@ -117,11 +114,6 @@ function movecfm(event,Id,dp,author){
 			cfm.parentNode.removeChild(cfm);
 			c.parentNode.insertBefore(cfm,c);
 		}
-		var h = document.createElement('input');
-		h.type = 'hidden';
-		h.name = 'parent-id';
-		h.value = -1;
-		cfm.appendChild(h);
 
 		if(parseInt(dp) && Commentarea && Commentarea.display != "none"){
 			Commentarea.focus();

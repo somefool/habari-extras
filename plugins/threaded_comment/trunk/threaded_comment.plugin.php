@@ -41,8 +41,8 @@ class ThreadedComment extends Plugin
 	/* Add comment parent field to comment */
 	public function action_comment_accepted( $comment, $handlervars, $extra )
 	{
-		if( isset( $handlervars['parent-id'] ) && $handlervars['parent-id'] != '-1' ) {
-			$comment->info->comment_parent = $handlervars['parent-id'];
+		if( isset( $extra['cf_commentparent'] ) && $extra['cf_commentparent'] != '-1' ) {
+			$comment->info->comment_parent = $extra['cf_commentparent'];
 		}
 
 		if( isset( $extra['cf_emailnotify'] ) ) {
