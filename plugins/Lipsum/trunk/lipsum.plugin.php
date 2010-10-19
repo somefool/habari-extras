@@ -16,10 +16,10 @@ class Lipsum extends Plugin
 	 * @param string $plugin_id The id of a plugin
 	 * @return array The array of actions
 	 */
-	public function filter_plugin_config( $actions, $plugin_id )
+	public function filter_plugin_config ( $actions, $plugin_id )
 	{
 		if ( $this->plugin_id() == $plugin_id ){
-			$actions[]= 'Configure';		
+			$actions[]= _t('Configure');		
 		}
 		return $actions;
 	}
@@ -30,97 +30,154 @@ class Lipsum extends Plugin
 	 * @param string $plugin_id The id of a plugin
 	 * @param array $actions An array of actions that apply to this plugin
 	 */
-	public function action_plugin_ui( $plugin_id, $action )
+	public function action_plugin_ui ( $plugin_id, $action )
 	{
-		if ( $this->plugin_id()==$plugin_id && $action=='Configure' )
-			{
-			$form = new FormUI( strtolower(get_class( $this ) ) );
-			$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:'));
-			$form->num_posts->add_validator( 'validate_required' );
-			$form->append( 'submit', 'save', _t( 'Save' ) );
-			$form->on_success( array( $this, 'update_num_posts' ) );
-			$form->out();
-			}
-	}
-
-	function action_plugin_activation( $file )
-	{
-		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
-			set_time_limit(0);
-			$user = User::get_by_name( 'lipsum' );
-			if ( !$user ) {
-				$user = User::create(array (
-					'username'=>'lipsum',
-					'email'=>'lipsum@example.com',
-					'password'=>md5('q' . rand(0,65535)),
-				));
-			}
-
-			$time = time() - 160;
+		
+		if ( $this->plugin_id() == $plugin_id ) {
 			
-			$num_posts = Options::get( 'lipsum__num_posts' );
-			if ( ! $num_posts ) {
-				Options::set( 'lipsum__num_posts', 20);
-				$num_posts = 20;
+			switch ( $action ) {
+				
+				case _t( 'Configure' ):
+					$form = new FormUI( strtolower(get_class( $this ) ) );
+					
+					$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:', 'Lipsum'));
+					$form->num_posts->add_validator( 'validate_required' );
+					
+					$form->append( 'submit', 'save', _t( 'Save' ) );
+					
+					$form->on_success( array( $this, 'updated_config' ) );
+					$form->out();
+				
+					break;
+				
 			}
-
-			for($z = 0; $z < $num_posts; $z++) {
-                $this->make_post( $user, $time = $time - rand(3600, 3600*36) );
-			}
-
-			Session::notice("Created {$num_posts} sample posts with random comments.");
+			
 		}
+		
 	}
 
-	function action_plugin_deactivation( $file )
+	public function action_plugin_activation ( $file )
 	{
-		if(Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__)) {
-			set_time_limit(0);
-			$posts = Posts::get(array('info'=>array('lipsum' => true), 'nolimit'=>true));
-			$count = 0;
-			foreach($posts as $post) {
-				$post->delete();
-				$count++;
-			}
-			Session::notice("Removed {$count} sample posts and their comments.");
+		
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
+			
+			// create the default option
+			Options::set( 'lipsum__num_posts', 20 );
+			
+			// create initial posts
+			$this->update_num_posts( 20 );
+			
 		}
+		
+	}
+
+	public function action_plugin_deactivation ( $file )
+	{
+		
+		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
+			
+			// remove all the posts
+			$this->update_num_posts( 0 );
+			
+			// delete the option
+			Options::delete( 'lipsum__num_posts' );
+			
+		}
+		
 	}
 	
-	function update_num_posts( $form )
+	public function updated_config ( $form ) {
+		
+		$form->save();
+		
+		$num_posts = Options::get( 'lispum__num_posts' );
+		
+		$this->update_num_posts( $num_posts );
+		
+		return $form->get( false );
+		
+	}
+	
+	public function update_num_posts ( $num_posts )
 	{
-		$num_posts = $form->num_posts->value;
-		$num_posts = is_numeric($num_posts) ? (int) $num_posts : 20;
 
-		$current_count = (int) Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) );
-
+		// get the current number of posts created by lipsum
+		$current_count = Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) );
+		
+		echo 'Current: ' . $current_count. ' Num: ' . $num_posts . '<br />';
+		
+		// if we've already got the right number, just return the form
 		if ( $num_posts == $current_count ) {
 			return $form->get( false );
 		}
-		// remove some posts if the $num_posts is less than the current count
-		if ( $num_posts < $current_count ) {
+		
+		// if we've got too many posts, we need to remove some
+		if ( $current_count > $num_posts ) {
+			
+			// how many do we need to dump?
 			$limit = $current_count - $num_posts;
-			$posts = Posts::get( array( 'info' => array('lipsum' => true), 'limit' => $limit ) );
+			
+			// get the posts we're going to delete
+			$posts = Posts::get( array( 'info' => array( 'lipsum' => true ), 'limit' => $limit ) );
+			
 			$count = 0;
-			foreach( $posts as $post) {
+			foreach ( $posts as $post ) {
 				$post->delete();
 				$count++;
 			}
-			Session::notice("Removed {$count} sample posts and their comments.");
+			
+			Session::notice( _t( 'Removed %d sample posts and their comments.', array( $count ), 'Lipsum' ) );
+			
 		}
-		// otherwise, we need to add some posts
-		else {
-			$user = User::get_by_name( 'lipsum' );
+		
+		// if we don't have enough posts, we need to create some
+		if ( $current_count < $num_posts ) {
+			
+			// how many do we need to create?
+			$limit = $num_posts - $current_count;
+			
+			// check for and get the user, creating it if needed
+			$user = $this->get_user();
+			
+			// the initial time we'll start from
 			$time = time() - 160;
+			
 			$count = 0;
-			for ( $i = $current_count + 1; $i <= $num_posts; $i++ ) {
-                $this->make_post( $user,  $time = $time - rand(3600, 3600*36) );
+			for ( $i = 0; $i < $limit; $i++ ) {
+				
+				// calculate a random time in the past
+				$time = $time - mt_rand( 3600, 3600 * 36 );
+				
+				$this->make_post( $user, $time );
+				
 				$count++;
+				
 			}
-			Session::notice( "Created {$count} sample posts with random comments.");
+			
+			Session::notice( _t( 'Created %d sample posts with random comments.', array( $count ), 'Lipsum' ) );
+			
 		}
-
-		// return the form to redisplay it
-		return $form->get( false );
+		
+	}
+	
+	private function get_user ( ) {
+		
+		$user = User::get_by_name( 'lipsum' );
+		
+		// if it doesn't exist, create it
+		if ( !$user ) {
+			
+			$user = User::create( array(
+				'username' => 'lipsum',
+				'email' => 'lipsum@example.com',
+				'password' => md5( mt_rand() ),
+			) );
+			
+		}
+		
+		// return the user object
+		return $user;
+		
 	}
 	
 	/**
@@ -130,35 +187,47 @@ class Lipsum extends Plugin
 	 * @param object $user The Lipsum user
 	 * @param timestamp $time The published timestamp of the new posts
 	 */
-	private function make_post( $user, $time )
+	private function make_post ( $user, $time )
 	{
-		$post = Post::create(array(
+		
+		$post = Post::create( array(
 			'title' => $this->get_title(),
-			'content' => $this->get_content(1, 3, 'some', array('thumb'=>1, 'ol'=>1, 'ul'=>1), 'cat'),
+			'content' => $this->get_content( 1, 3, 'some', array( 'thumb' => 1, 'ol' => 1, 'ul' => 1 ), 'cat' ),
 			'user_id' => $user->id,
 			'status' => Post::status('published'),
 			'content_type' => Post::type('entry'),
 			'tags' => 'lipsum',
-			'pubdate' => HabariDateTime::date_create( $time++ ),
-		));
+			'pubdate' => HabariDateTime::date_create( $time ),
+		) );
+		
 		$post->info->lipsum = true;
 		$post->info->commit();
-
-		$addcomments = mt_rand(0,6);
-        $comment_time = $time;
-		for($q = 0; $q < $addcomments; $q++) {
-			$comment = Comment::create(array(
+		
+		// how many comments to create
+		$comments = mt_rand( 0, 6 );
+		
+		// the initial time we'll start with
+		$comment_time = time() - 160;
+		
+		for ( $i = 0; $i < $comments; $i++ ) {
+			
+			$comment_time = $comment_time + rand( 3600, 3600 * 24 );
+			
+			$comment = Comment::create( array(
 				'post_id' => $post->id,
-				'name' => $this->num2word(rand(1, 9999)),
+				'name' => $this->num2word( rand( 1, 9999 ) ),
 				'url' => 'http://example.com/',
-				'content' => $this->get_content(1, 2, 'none', array(), 'cat'),
+				'content' => $this->get_content( 1, 2, 'none', array(), 'cat' ),
 				'status' => Comment::STATUS_APPROVED,
 				'type' => Comment::COMMENT,
-                'date' => HabariDateTime::date_create( $comment_time = $comment_time + rand(3600, 3600*24) ),
-			));
+				'date' => HabariDateTime::date_create( $comment_time ),
+			) );
+			
 			$comment->info->lipsum = true;
 			$comment->info->commit();
+			
 		}
+		
 	}
 
 	private function get_pgraph()
