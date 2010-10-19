@@ -61,6 +61,14 @@
 			
 			$snapshots = Options::get( 'exportsnapshot__snapshots', array() );
 			
+			// reverse sort by key (ie: newest timestamp first)
+			krsort( $snapshots );
+			
+			// a max of 8, or the number we have
+			$count = ( count( $snapshots ) > 8 ) ? 8 : count( $snapshots );
+			
+			$snapshots = array_slice( $snapshots, 0, $count, true );
+			
 			$s = array();
 			foreach ( $snapshots as $ts => $size ) {
 				$t = new stdClass();
@@ -240,14 +248,14 @@
 		
 		private static function save ( $xml ) {
 			
-			$timestamp = HabariDateTime::date_create('now')->format('YmdHis');
+			$timestamp = HabariDateTime::date_create('now');
 			
-			$result = Cache::set( 'exportsnapshot__' . $timestamp, $xml, 0, true );	// 0s expiration, but keep it forever
+			$result = Cache::set( 'exportsnapshot__' . $timestamp->int, $xml, 0, true );	// 0s expiration, but keep it forever
 			
 			if ( $result ) {
 			
 				$snapshots = Options::get( 'exportsnapshot__snapshots', array() );
-				$snapshots[ $timestamp ] = mb_strlen( $xml, '8bit' );
+				$snapshots[ $timestamp->int ] = MultiByte::strlen( $xml );
 			
 				Options::set( 'exportsnapshot__snapshots', $snapshots );
 				
