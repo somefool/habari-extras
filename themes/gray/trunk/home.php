@@ -9,7 +9,7 @@
     <div id="sidebar" class="yui-b">
 			<?php $theme->area('sidebar'); ?>
 	  </div>
-    <div class="yui-gb">
+    <div id="columns" class="yui-gb">
 			<div id="home_a" class="yui-u first">
 				<?php $theme->area('home_a'); ?>
 			</div>

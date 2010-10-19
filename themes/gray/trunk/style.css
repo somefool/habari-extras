@@ -26,7 +26,7 @@ body {
 	margin: 0px;
 	padding:0px;
 	background: #F5F5F5 url("images/hd.png") scroll repeat-x;
-	font-family: Arial, Helvetica;
+	font-family: Times New Roman, Serif;
 }
 
 #hd {
@@ -52,6 +52,10 @@ body {
 	display: inline;
 	float: left;
 	margin-right: 20px;
+}
+
+#columns {
+	clear: both;
 }
 
 a {
