@@ -265,7 +265,7 @@ class GrayTheme extends Theme
 	public function filter_get_scopes($scopes)
 	{
 		$scope = new StdClass();
-		$scope->id = -1;
+		$scope->id = 40000;
 		$scope->name = 'Home Page';
 		$scope->priority = 16;
 		$scope->criteria = array(
@@ -273,7 +273,7 @@ class GrayTheme extends Theme
 		);
 		$scopes[] = $scope;
 		$scope = new StdClass();
-		$scope->id = -2;
+		$scope->id = 40001;
 		$scope->name = 'Single Page';
 		$scope->priority = 15;
 		$scope->criteria = array(
