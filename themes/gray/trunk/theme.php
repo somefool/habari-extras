@@ -227,6 +227,9 @@ class GrayTheme extends Theme
 		if($block->limit != '') {
 			$criteria['limit'] = $block->limit;
 		}
+		if($block->offset != '') {
+			$criteria['offset'] = $block->offset;
+		}
 		if($block->tag != '') {
 			$criteria['tag'] = $block->tag;
 		}
@@ -250,6 +253,9 @@ class GrayTheme extends Theme
 	{
 		$form->append('select', 'content_type', $block, 'Content Type:', array_flip(Post::list_active_post_types()));
 		$form->append('text', 'limit', $block, 'Limit:');
+		$form->limit->add_validator('validate_range', 1, 999);
+		$form->append('text', 'offset', $block, 'Offset:');
+		$form->offset->add_validator('validate_range', 0, 999);
 		$form->append('text', 'tag', $block, 'Tag:');
 		$form->append('checkbox', 'main', $block, 'This block changes based on URL paramters.');
 

@@ -282,6 +282,12 @@ strong {
 	margin-bottom: 1.0em;
 }
 
+/* sidebar */
+#sidebar .block-is_first h3 {
+	margin: 0em 0em 0.15em;
+}
+
+
 /* Twitter */
 
 #twitter img {
