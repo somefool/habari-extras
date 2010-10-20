@@ -262,6 +262,25 @@ class GrayTheme extends Theme
 		$form->append('submit', 'save', 'Save');
 	}
 	
+	public function filter_get_scopes($scopes)
+	{
+		$scope = new StdClass();
+		$scope->id = -1;
+		$scope->name = 'Home Page';
+		$scope->criteria = array(
+			array('request', 'display_home'),
+		);
+		$scopes[] = $scope;
+		$scope = new StdClass();
+		$scope->id = -2;
+		$scope->name = 'Single Page';
+		$scope->criteria = array(
+			array('request', 'display_post'),
+		);
+		$scopes[] = $scope;
+
+		return $scopes;
+	}
 	
 }
 
