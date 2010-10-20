@@ -267,6 +267,7 @@ class GrayTheme extends Theme
 		$scope = new StdClass();
 		$scope->id = -1;
 		$scope->name = 'Home Page';
+		$scope->priority = 16;
 		$scope->criteria = array(
 			array('request', 'display_home'),
 		);
@@ -274,6 +275,7 @@ class GrayTheme extends Theme
 		$scope = new StdClass();
 		$scope->id = -2;
 		$scope->name = 'Single Page';
+		$scope->priority = 15;
 		$scope->criteria = array(
 			array('request', 'display_post'),
 		);
