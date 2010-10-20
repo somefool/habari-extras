@@ -1,4 +1,3 @@
-<h3><?php echo $content->title; ?></h3>
 <ul id="recent_comments">
   <?php $comments = $content->recent_comments; foreach( $comments as $comment): ?>
     <li>

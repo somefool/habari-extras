@@ -1,4 +1,3 @@
-<h3><?php echo $content->title; ?></h3>
 <ul id="category_archives">
   <?php $categories = $content->categories; if ( count( $categories ) > 0 ) foreach( $categories as $category ): ?>
     <li>

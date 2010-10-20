@@ -1,4 +1,3 @@
-<h3><?php echo $content->title; ?></h3>
 <ul id="tag_archives">
   <?php $tags = $content->tags; foreach( $tags as $tag ): ?>
     <li>

@@ -1,4 +1,3 @@
-<h3><?php echo $content->title; ?></h3>
 <ul id="recent_posts">
   <?php $posts = $content->recent_posts; foreach( $posts as $post): ?>
     <li>

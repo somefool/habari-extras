@@ -1,4 +1,3 @@
-<h3><?php echo $content->title; ?></h3>
 <ul id="monthly_archives">
   <?php $months = $content->months; foreach( $months as $month ): ?>
     <li>
