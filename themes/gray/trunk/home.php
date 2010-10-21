@@ -1,14 +1,29 @@
 <?php $theme->display('head'); ?>
+<?php
+
+$primary = implode( '', ( array ) $theme->area_return('primary') );
+$sidebar = implode( '', ( array ) $theme->area_return('sidebar') );
+
+$primary_class = 'yui-b';
+$show_sidebar = true;
+if($sidebar == '') {
+	$show_sidebar = false;
+	$primary_class = '';
+}
+
+?>
 	<div id="bd">
 		<div id="yui-main">
-	    <div id="primary" class="yui-b">
+			<div id="primary" class="<?php echo $primary_class; ?>">
 				<?php Session::messages_out(); ?>
-				<?php $theme->area('primary'); ?>
+				<?php echo $primary ?>
 		  </div>
 		</div>
-    <div id="sidebar" class="yui-b">
-			<?php $theme->area('sidebar'); ?>
+		<?php if($show_sidebar): ?>
+		<div id="sidebar" class="yui-b">
+			<?php echo $sidebar; ?>
 	  </div>
+	  <?php endif; ?>
     <div id="columns" class="yui-gb">
 			<div id="home_a" class="yui-u first">
 				<?php $theme->area('home_a'); ?>
