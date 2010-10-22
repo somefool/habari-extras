@@ -214,13 +214,18 @@
 			
 		}
 		
-		public static function run ( $type = 'cron' ) {
+		public static function run ( $type = 'manual' ) {
 			
 			Plugins::act('exportsnapshot_run_before');
 			
 			// if we can't save the file, throw an error and bail
 			if ( !self::test_cache() ) {
 				return false;
+			}
+			
+			// crontab hands us the cron object as the first param, filter for that
+			if ( is_array( $type ) ) {
+				$type = 'cron';
 			}
 			
 			$export = new Export();
