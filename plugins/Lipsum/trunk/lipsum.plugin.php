@@ -32,16 +32,13 @@ class Lipsum extends Plugin
 	 */
 	public function action_plugin_ui ( $plugin_id, $action )
 	{
-		
 		if ( $this->plugin_id() == $plugin_id ) {
-			
 			switch ( $action ) {
-				
 				case _t( 'Configure' ):
 					$form = new FormUI( strtolower(get_class( $this ) ) );
 					
-					$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to create:', 'Lipsum'));
-					$form->num_posts->add_validator( 'validate_required' );
+					$form->append( 'text', 'num_posts', 'option:lipsum__num_posts', _t('Number of posts to have present:', 'Lipsum'));
+					$form->num_posts->add_validator( 'validate_lipsum_posts' );
 					
 					$form->append( 'submit', 'save', _t( 'Save' ) );
 					
@@ -49,71 +46,60 @@ class Lipsum extends Plugin
 					$form->out();
 				
 					break;
-				
 			}
-			
 		}
-		
+	}
+	
+	public function filter_validate_lipsum_posts ( $valid, $value, $form, $container )
+	{
+		if(!is_numeric($value) || intval($value) != $value || $value < 0 ) {
+			$valid[] = _t('This value must be a non-negative integer.', 'Lipsum');
+		}
+		return $valid;
 	}
 
 	public function action_plugin_activation ( $file )
 	{
-		
 		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
-			
 			// create the default option
 			Options::set( 'lipsum__num_posts', 20 );
 			
 			// create initial posts
 			$this->update_num_posts( 20 );
-			
 		}
-		
 	}
 
 	public function action_plugin_deactivation ( $file )
 	{
-		
 		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
-			
 			// remove all the posts
 			$this->update_num_posts( 0 );
 			
 			// delete the option
 			Options::delete( 'lipsum__num_posts' );
-			
 		}
-		
 	}
 	
 	public function updated_config ( $form ) {
-		
 		$form->save();
 		
-		$num_posts = Options::get( 'lispum__num_posts' );
+		$this->update_num_posts( $form->num_posts->value );
 		
-		$this->update_num_posts( $num_posts );
-		
-		return $form->get( false );
-		
+		return $form->get( null, false );
 	}
 	
 	public function update_num_posts ( $num_posts )
 	{
-
 		// get the current number of posts created by lipsum
-		$current_count = Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) );
+		$current_count = intval( Posts::get( array( 'info' => array( 'lipsum' => true ), 'count' => true ) ) );
 		
-		echo 'Current: ' . $current_count. ' Num: ' . $num_posts . '<br />';
-		
-		// if we've already got the right number, just return the form
+		// if we've already got the right number, do nothing
 		if ( $num_posts == $current_count ) {
-			return $form->get( false );
+			Session::notice( _t( 'Did not change Lipsum post count from %d.  Nothing to do.', array( $current_count ), 'Lipsum' ) );
 		}
 		
 		// if we've got too many posts, we need to remove some
 		if ( $current_count > $num_posts ) {
-			
 			// how many do we need to dump?
 			$limit = $current_count - $num_posts;
 			
@@ -127,12 +113,10 @@ class Lipsum extends Plugin
 			}
 			
 			Session::notice( _t( 'Removed %d sample posts and their comments.', array( $count ), 'Lipsum' ) );
-			
 		}
 		
 		// if we don't have enough posts, we need to create some
 		if ( $current_count < $num_posts ) {
-			
 			// how many do we need to create?
 			$limit = $num_posts - $current_count;
 			
@@ -144,40 +128,32 @@ class Lipsum extends Plugin
 			
 			$count = 0;
 			for ( $i = 0; $i < $limit; $i++ ) {
-				
 				// calculate a random time in the past
 				$time = $time - mt_rand( 3600, 3600 * 36 );
 				
 				$this->make_post( $user, $time );
 				
 				$count++;
-				
 			}
 			
 			Session::notice( _t( 'Created %d sample posts with random comments.', array( $count ), 'Lipsum' ) );
-			
 		}
-		
 	}
 	
 	private function get_user ( ) {
-		
 		$user = User::get_by_name( 'lipsum' );
 		
 		// if it doesn't exist, create it
 		if ( !$user ) {
-			
 			$user = User::create( array(
 				'username' => 'lipsum',
 				'email' => 'lipsum@example.com',
 				'password' => md5( mt_rand() ),
 			) );
-			
 		}
 		
 		// return the user object
 		return $user;
-		
 	}
 	
 	/**
@@ -189,7 +165,6 @@ class Lipsum extends Plugin
 	 */
 	private function make_post ( $user, $time )
 	{
-		
 		$post = Post::create( array(
 			'title' => $this->get_title(),
 			'content' => $this->get_content( 1, 3, 'some', array( 'thumb' => 1, 'ol' => 1, 'ul' => 1 ), 'cat' ),
@@ -225,9 +200,7 @@ class Lipsum extends Plugin
 			
 			$comment->info->lipsum = true;
 			$comment->info->commit();
-			
 		}
-		
 	}
 
 	private function get_pgraph()
