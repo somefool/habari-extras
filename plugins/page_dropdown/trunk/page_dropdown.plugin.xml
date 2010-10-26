@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Page Dropdown</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<version>0.1</version>
+	<description><![CDATA[A different way of looking at pagination.]]></description>
+	<copyright>2010</copyright>
+	<guid>798b8588-e554-4070-8bb5-c7ed01b1d169</guid>
+	<help>
+		<value><![CDATA[<p>Using this is less than straightforward, though someday it may be a drop-in replacement for Theme::page_selector.</p>
+<hr><p>Until then, to show a dropdown of all page numbers that redirects to the selected page, call <code>&lt;php $theme->page_dropdown(); ?&gt;</code>.</p>
+<p>Currently, this will not work without javascript enabled in the browser.</p>]]></value>
+	</help>
+</pluggable>
+ 
