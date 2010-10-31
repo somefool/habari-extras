@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Spam Cron Delete</name>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Periodically delete all spam comments that are older than a certain age]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2010</copyright>
+</pluggable> 
+ 
