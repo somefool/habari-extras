@@ -1,1869 +1,1619 @@
-# Simplified Chinese translation for habari
-# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
-# This file is distributed under the same license as the habari package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2008-07-11 15:21-0500\n"
-"PO-Revision-Date: 2008-06-27 09:09+0000\n"
-"Last-Translator: fireyy <fireyy@gmail.com>\n"
+"POT-Creation-Date: 2010-10-28 15:51+0000\n"
+"PO-Revision-Date: 2009-12-21 17:21+0000\n"
+"Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
 "Language-Team: Simplified Chinese <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2008-09-19 20:00+0000\n"
+"X-Launchpad-Export-Date: 2010-10-29 05:21+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-
-#: system/admin/user.php:15
-msgid "No such user!"
-msgstr ""
-
-#: system/admin/user.php:33
-#: system/admin/options.php:7
-msgid "All options"
-msgstr ""
-
-#: system/admin/user.php:38
-#: system/admin/tags.php:23
-#: system/admin/options.php:14
-#: system/admin/users.php:26
-msgid "or"
-msgstr ""
-
-#: system/admin/user.php:41
-#: system/admin/users.php:29
-msgid "search users"
-msgstr ""
-
-#: system/admin/user.php:55
-#: system/admin/users_items.php:28
-msgid " post"
-msgstr ""
-
-#: system/admin/user.php:55
-#: system/admin/users_items.php:28
-msgid " posts"
-msgstr ""
-
-#: system/admin/user.php:68
-msgid "User Information"
-msgstr ""
-
-#: system/admin/user.php:74
-msgid "Display Name"
-msgstr ""
-
-#: system/admin/user.php:83
-msgid "User Name"
-msgstr ""
-
-#: system/admin/user.php:92
-msgid "E-Mail"
-msgstr ""
-
-#: system/admin/user.php:101
-msgid "Portrait URL"
-msgstr ""
-
-#: system/admin/user.php:112
-msgid "Change Password"
-msgstr ""
-
-#: system/admin/user.php:116
-#: system/admin/login.php:47
-#: system/installer/db_setup.php:72
-#: system/installer/db_setup.php:122
-#: system/installer/db_setup.php:205
-msgid "Password"
-msgstr ""
-
-#: system/admin/user.php:125
-msgid "Password Again"
-msgstr ""
-
-#: system/admin/user.php:135
-msgid "Additional User Information"
-msgstr ""
-
-#. #-#-#-#-#  poeditA2QcZo (PACKAGE VERSION)  #-#-#-#-#
-#. @todo: filter for additional options from plugins
-#. * We could either use existing config forms and simply extract
-#. * the form controls, or we could create something different
-#. 
-#: system/admin/user.php:143
-#: system/classes/adminhandler.php:249
-msgid "Apply"
-msgstr ""
-
-#: system/admin/user.php:146
-#: system/admin/user.php:196
-#: system/admin/users.php:51
-#, php-format
-msgid "Reassign posts to: %s"
-msgstr ""
-
-#: system/admin/user.php:149
-#: system/themes/k2/footer.php:11
-msgid "and"
-msgstr ""
-
-#: system/admin/user.php:152
-#: system/admin/posts_items.php:16
-#: system/admin/publish.php:23
-#: system/admin/comments_items.php:27
-#: system/admin/logs.php:82
-#: system/admin/comments.php:50
-#: system/admin/comments.php:70
-#: system/admin/groups.php:18
-msgid "Delete"
-msgstr "删除"
-
-#: system/admin/user.php:161
-msgid " five most recent published posts:"
-msgstr ""
-
-#: system/admin/user.php:172
-msgid "No published posts."
-msgstr ""
-
-#: system/admin/user.php:175
-msgid " five most recent draft posts:"
-msgstr ""
-
-#: system/admin/user.php:190
-msgid "Delete posts"
-msgstr ""
-
-#: system/admin/user.php:198
-msgid "DELETE USER"
-msgstr ""
-
-#: system/admin/posts_items.php:7
-#: system/admin/posts_items.php:15
-msgid "Edit '"
-msgstr ""
-
-#: system/admin/posts_items.php:9
-msgid "Search for other "
-msgstr ""
-
-#: system/admin/posts_items.php:10
-#: system/admin/themes.php:8
-#: system/admin/themes.php:45
-#: system/plugins/coredashmodules/dash_latestentries.php:6
-#: system/themes/k2/home.php:12
-#: system/themes/k2/tag.php:12
-msgid "by"
-msgstr ""
-
-#: system/admin/posts_items.php:10
-msgid "Search for other items by "
-msgstr ""
-
-#: system/admin/posts_items.php:11
-#: system/admin/comments_items.php:14
-#: system/themes/mzingi/sidebar.php:44
-#: system/themes/mzingi/commentform.php:48
-msgid "on"
-msgstr ""
-
-#: system/admin/posts_items.php:11
-msgid "Search for other items from "
-msgstr ""
-
-#: system/admin/posts_items.php:12
-#: system/admin/comments_items.php:15
-msgid "at"
-msgstr ""
-
-#: system/admin/posts_items.php:15
-#: system/admin/comments_items.php:30
-#: system/admin/groups.php:19
-#: system/themes/k2/page.single.php:14
-#: system/themes/k2/search.php:17
-#: system/themes/k2/home.php:16
-#: system/themes/k2/tag.php:16
-#: system/themes/k2/entry.multiple.php:16
-#: system/themes/k2/entry.single.php:25
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:32
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:20
-#: system/themes/mzingi/search.php:23
-#: system/themes/mzingi/home.php:25
-#: system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:23
-#: system/themes/mzingi/entry.single.php:30
-msgid "Edit"
-msgstr ""
-
-#: system/admin/posts_items.php:16
-msgid "Delete this item"
-msgstr ""
 
 #: system/admin/tags.php:4
 msgid "Type and wait to search tags"
-msgstr ""
+msgstr "搜索标签"
 
-#: system/admin/tags.php:15
-#: system/admin/logs.php:76
-#: system/admin/users.php:44
-#: system/admin/comments.php:44
-#: system/admin/comments.php:64
-#: system/admin/posts.php:51
+#: system/admin/tags.php:21 system/admin/users.php:61
+#: system/admin/posts.php:42 system/admin/posts.php:68
+#: system/admin/logs.php:37 system/admin/logs.php:100
+#: system/admin/comments.php:45 system/admin/comments.php:69
 msgid "None selected"
-msgstr ""
+msgstr "尚未选择任何项目"
 
-#: system/admin/tags.php:20
+#: system/admin/tags.php:26 system/admin/tags.php:137
+#: system/admin/tags.php:140
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
-#: system/admin/tags.php:25
-#: system/admin/users.php:53
-#: system/admin/posts.php:53
+#: system/admin/tags.php:28 system/admin/user.php:12 system/admin/users.php:26
+#: system/admin/options.php:11 system/admin/plugins.php:19
+#: system/admin/groups.php:12 system/admin/group.php:12
+msgid "or"
+msgstr "或"
+
+#: system/admin/tags.php:30 system/admin/users.php:70
+#: system/admin/posts.php:46 system/admin/posts.php:72
+#: system/admin/logs.php:41 system/admin/logs.php:104
+#: system/admin/comments.php:48 system/admin/comments.php:72
 msgid "Delete Selected"
+msgstr "删除所选项目"
+
+#: system/admin/tags.php:39 system/admin/tags.php:87
+msgid "Error: No tags selected."
+msgstr "错误: 未选择任何标签。"
+
+#: system/admin/tags.php:91
+msgid "Error: New name not specified."
+msgstr "错误: 未输入新的名称。"
+
+#: system/admin/tags.php:143
+msgid "Merge"
 msgstr ""
 
-#: system/admin/tags.php:38
-msgid "You need to select some tags before you can delete them."
-msgstr ""
+#: system/admin/groups_item.php:3 system/admin/groups_item.php:6
+msgid "Edit group"
+msgstr "编辑群组"
 
-#: system/admin/tags.php:81
-msgid "You need to select some tags before you can rename them."
-msgstr ""
+#: system/admin/groups_item.php:6 system/admin/posts_items.php:26
+#: system/themes/charcoal/page.single.php:21
+#: system/themes/charcoal/home.php:33
+#: system/themes/charcoal/entry.single.php:39
+#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
+#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
+#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
+#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
+#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
+#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
+#: system/classes/adminhandler.php:1780
+msgid "Edit"
+msgstr "编辑"
 
-#: system/admin/tags.php:85
-msgid "You need to enter a new tag to rename tags."
-msgstr ""
+#: system/admin/groups_item.php:7
+msgid "Delete this group"
+msgstr "删除此群组"
 
-#: system/admin/import.php:5
-#: system/classes/adminhandler.php:2068
-msgid "Import"
-msgstr ""
+#: system/admin/groups_item.php:7 system/admin/block_instances.php:17
+#: system/admin/publish.php:14 system/admin/posts_items.php:28
+#: system/admin/group.php:126 system/classes/adminhandler.php:858
+#: system/classes/adminhandler.php:1779
+#: system/plugins/habarisilo/habarisilo.plugin.php:484
+#: system/plugins/habarisilo/habarisilo.plugin.php:501
+msgid "Delete"
+msgstr "删除"
 
-#: system/admin/import.php:13
-msgid "You do not currently have any import plugins installed."
-msgstr ""
+#: system/admin/groups_item.php:17
+msgid "Members: "
+msgstr "成员: "
 
-#: system/admin/import.php:14
-msgid "Please "
-msgstr ""
+#: system/admin/groups_item.php:19
+msgid "No members"
+msgstr "尚无成员"
 
-#: system/admin/import.php:14
-msgid "activate an import plugin</a> to enable importing."
-msgstr ""
+#: system/admin/dashboard_modules.php:4 system/classes/adminhandler.php:3803
+msgid "Add Item"
+msgstr "加入项目"
 
-#: system/admin/import.php:16
-msgid "Please choose the type of import to perform:"
-msgstr ""
-
-#: system/admin/import.php:25
-msgid "Select"
-msgstr ""
-
-#: system/admin/options.php:17
-msgid "search settings"
-msgstr ""
-
-#: system/admin/login.php:4
-msgid "Login to "
-msgstr ""
-
-#: system/admin/login.php:37
-#: system/admin/header.php:64
-msgid "Go to Site"
-msgstr ""
-
-#: system/admin/login.php:44
-#: system/themes/k2/commentform.php:17
-#: system/themes/charcoal/commentform.php:11
-msgid "Name"
-msgstr ""
-
-#: system/admin/login.php:51
-msgid "Remember Me"
-msgstr ""
-
-#: system/admin/login.php:52
-#: system/themes/charcoal/header.php:50
-msgid "Login"
-msgstr ""
-
-#: system/admin/plugins.php:7
-msgid "Active Plugins"
-msgstr ""
-
-#: system/admin/plugins.php:12
-#: system/admin/plugins.php:81
-msgid "The plugin file "
-msgstr ""
-
-#: system/admin/plugins.php:12
-#: system/admin/plugins.php:81
-msgid " had syntax errors and could not load."
-msgstr ""
-
-#: system/admin/plugins.php:15
-#: system/admin/plugins.php:84
-msgid "Show Error"
-msgstr ""
-
-#: system/admin/plugins.php:50
-#: system/admin/plugins.php:100
-msgid "v1.1 Update Available Now"
-msgstr ""
-
-#: system/admin/plugins.php:61
-msgid "close"
-msgstr ""
-
-#: system/admin/plugins.php:76
-msgid "Inactive Plugins"
-msgstr ""
-
-#: system/admin/plugins.php:116
-msgid "Upload Plugin Package"
-msgstr ""
-
-#: system/admin/plugins.php:119
-#: system/admin/formcontrols/formcontrol_silos.php:16
-msgid "Upload"
-msgstr ""
-
-#: system/admin/users_items.php:13
+#: system/admin/users_items.php:16
 #, php-format
 msgid "Open %s's user page"
-msgstr ""
+msgstr "打开 %s 的用户页面"
 
-#: system/admin/users_items.php:18
-msgid "was not logged in yet."
-msgstr ""
+#: system/admin/users_items.php:26
+msgid "has not logged in yet"
+msgstr "尚未登陆"
 
-#: system/admin/users_items.php:34
+#: system/admin/users_items.php:30
 #, php-format
-msgid "was last seen %1$s at %2$s and currently has %3$s"
-msgstr ""
+msgid "was last seen %1$s at %2$s"
+msgstr "上次登陆时间为 %1$s %2$s"
 
-#: system/admin/publish.php:10
-msgid "View Post"
-msgstr ""
+#: system/admin/users_items.php:49 system/admin/user.php:29
+msgid " post"
+msgstr " 篇文章"
 
-#: system/admin/publish.php:31
-msgid "Publish"
-msgstr "发布"
+#: system/admin/users_items.php:49 system/admin/user.php:29
+msgid " posts"
+msgstr " 篇文章"
 
-#: system/admin/footer.php:3
-msgid "Go to the Habari site"
-msgstr ""
-
-#: system/admin/footer.php:4
-msgid "Logged in as"
-msgstr ""
-
-#: system/admin/footer.php:4
-msgid "Go to your user page"
-msgstr ""
-
-#: system/admin/footer.php:5
-msgid "Open the Habari manual in a new window"
-msgstr ""
-
-#: system/admin/footer.php:5
-#: system/installer/db_setup.php:19
-msgid "Manual"
-msgstr ""
-
-#: system/admin/comments_items.php:13
-msgid "in"
-msgstr ""
-
-#: system/admin/comments_items.php:13
-msgid "Go to '"
-msgstr ""
-
-#: system/admin/comments_items.php:14
-msgid "Search for other comments from "
-msgstr ""
-
-#: system/admin/comments_items.php:19
-msgid "Approve this comment"
-msgstr ""
-
-#: system/admin/comments_items.php:19
-#: system/admin/comments.php:47
-#: system/admin/comments.php:67
-msgid "Approve"
-msgstr ""
-
-#: system/admin/comments_items.php:22
-msgid "Unapprove this comment"
-msgstr ""
-
-#: system/admin/comments_items.php:22
-#: system/admin/comments.php:48
-#: system/admin/comments.php:68
-msgid "Unapprove"
-msgstr ""
-
-#: system/admin/comments_items.php:25
-msgid "Spam this comment"
-msgstr ""
-
-#: system/admin/comments_items.php:25
-#: system/admin/comments.php:49
-#: system/admin/comments.php:69
-msgid "Spam"
-msgstr ""
-
-#: system/admin/comments_items.php:27
-msgid "Delete this Comment"
-msgstr ""
-
-#: system/admin/comments_items.php:28
-msgid "Submit changes"
-msgstr ""
-
-#: system/admin/comments_items.php:28
-msgid "Update"
-msgstr ""
-
-#: system/admin/comments_items.php:29
-msgid "Cancel changes"
-msgstr ""
-
-#: system/admin/comments_items.php:29
-msgid "Cancel"
-msgstr ""
-
-#: system/admin/logs.php:8
-#: system/admin/comments.php:4
-#: system/admin/posts.php:5
-msgid "Older"
-msgstr ""
-
-#: system/admin/logs.php:9
-#: system/admin/posts.php:6
-msgid "0-0 of 0"
-msgstr ""
-
-#: system/admin/logs.php:10
-msgid "Type and wait to search any log entry component"
-msgstr ""
-
-#: system/admin/logs.php:12
-#: system/admin/comments.php:10
-#: system/admin/posts.php:11
-msgid "Newer"
-msgstr ""
-
-#: system/admin/logs.php:36
-msgid "Date &amp; Time"
-msgstr ""
-
-#: system/admin/logs.php:37
-#: system/themes/k2/sidebar.php:15
-msgid "User"
-msgstr ""
-
-#: system/admin/logs.php:38
-msgid "IP"
-msgstr ""
-
-#: system/admin/logs.php:39
-msgid "Module"
-msgstr ""
-
-#: system/admin/logs.php:40
-msgid "Type"
-msgstr ""
-
-#: system/admin/logs.php:41
-msgid "Severity"
-msgstr ""
-
-#: system/admin/logs.php:42
-msgid "Message"
-msgstr ""
-
-#: system/admin/logs.php:56
-msgid "Filter"
-msgstr "筛选"
-
-#: system/admin/logs.php:64
-msgid "There are no logs to be displayed at this time."
-msgstr ""
-
-#: system/admin/dashboard.php:8
-msgid "year"
-msgstr ""
-
-#: system/admin/dashboard.php:8
-msgid "years"
-msgstr ""
-
-#: system/admin/dashboard.php:8
-#: system/admin/dashboard.php:12
-#: system/admin/dashboard.php:16
+#: system/admin/users_items.php:57
 #, php-format
-msgid "%1$d "
-msgid_plural "%1$d "
-msgstr[0] ""
-msgstr[1] ""
+msgid "%1$s and currently has %2$s"
+msgstr "%1$s，目前已撰写 %2$s"
 
-#: system/admin/dashboard.php:12
-msgid "month"
-msgstr ""
-
-#: system/admin/dashboard.php:12
-msgid "months"
-msgstr ""
-
-#: system/admin/dashboard.php:16
-#: system/admin/dashboard.php:21
-msgid "day"
-msgstr ""
-
-#: system/admin/dashboard.php:16
-msgid "days"
-msgstr ""
-
-#: system/admin/dashboard.php:20
-msgid " has been active for "
-msgstr ""
-
-#: system/admin/dashboard.php:29
-msgid "page"
-msgstr ""
-
-#: system/admin/dashboard.php:29
-msgid "pages"
-msgstr ""
-
-#: system/admin/dashboard.php:29
-#: system/admin/dashboard.php:35
-#: system/admin/dashboard.php:43
-#: system/admin/dashboard.php:49
-#: system/admin/dashboard.php:70
-#: system/admin/dashboard.php:76
-#: system/admin/dashboard.php:82
-#: system/admin/dashboard.php:88
-#, php-format
-msgid "%d "
-msgid_plural "%d "
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:35
-msgid "entry"
-msgstr ""
-
-#: system/admin/dashboard.php:35
-msgid "entries"
-msgstr ""
-
-#: system/admin/dashboard.php:43
-msgid "comment"
-msgstr ""
-
-#: system/admin/dashboard.php:43
-msgid "comments"
-msgstr ""
-
-#: system/admin/dashboard.php:49
-msgid "tag"
-msgstr ""
-
-#: system/admin/dashboard.php:49
-msgid "tags"
-msgstr ""
-
-#: system/admin/dashboard.php:56
-msgid "You"
-msgstr ""
-
-#: system/admin/dashboard.php:56
-msgid "The"
-msgstr ""
-
-#: system/admin/dashboard.php:56
-msgid "authors"
-msgstr ""
-
-#: system/admin/dashboard.php:56
-#, php-format
-msgid "<a href=\"%2$s\">"
-msgid_plural " <a href=\"%2$s\">%1$d "
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:57
-msgid " have published "
-msgstr ""
-
-#: system/admin/dashboard.php:61
-msgid " with "
-msgstr ""
-
-#: system/admin/dashboard.php:70
-msgid "entry draft"
-msgstr ""
-
-#: system/admin/dashboard.php:70
-msgid "entry drafts"
-msgstr ""
-
-#: system/admin/dashboard.php:76
-msgid "scheduled post"
-msgstr ""
-
-#: system/admin/dashboard.php:76
-msgid "scheduled posts"
-msgstr ""
-
-#: system/admin/dashboard.php:82
-msgid "page draft"
-msgstr ""
-
-#: system/admin/dashboard.php:82
-msgid "page drafts"
-msgstr ""
-
-#: system/admin/dashboard.php:88
-msgid "comment awaiting approval"
-msgstr ""
-
-#: system/admin/dashboard.php:88
-msgid "comments awaiting approval"
-msgstr ""
-
-#: system/admin/dashboard.php:94
-msgid "You have "
-msgstr ""
-
-#: system/admin/dashboard.php:107
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
-msgstr ""
-
-#: system/admin/dashboard.php:110
-#, php-format
-msgid ""
-"<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
-msgstr ""
-
-#: system/admin/dashboard.php:113
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
-msgstr ""
-
-#: system/admin/dashboard.php:116
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
-msgstr ""
-
-#. 
-#. foreach ( Users::get_all() as $user ) {
-#. if ( $user->username == $currentuser->username ) {
-#. $url = Url::get( 'admin', 'page=user' );
-#. }
-#. else {
-#. $url = Url::get( 'user_profile', array( 'page' => 'user', 'user' => $user->username ) );
-#. }
-#. echo '<option id="' . $user->id . '" value="' . $url . '">' . $user->displayname . '</option>';
-#. }
-#: system/admin/users.php:21
-msgid "Complete User List"
-msgstr ""
-
-#: system/admin/users.php:61
-msgid "Add New User"
-msgstr ""
-
-#: system/admin/users.php:84
-msgid "Add User"
-msgstr ""
-
-#: system/admin/comments.php:5
-msgid "0 of 0"
-msgstr ""
-
-#: system/admin/comments.php:7
-#: system/admin/posts.php:8
-msgid "Type and wait to search for any entry component"
-msgstr ""
-
-#: system/admin/db_profiling.php:39
-#: system/themes/k2/db_profiling.php:31
+#: system/admin/db_profiling.php:39 system/themes/k2/db_profiling.php:31
 msgid "DB Profiling"
-msgstr ""
+msgstr "SQL 性能诊断"
 
-#: system/admin/db_profiling.php:47
-#: system/themes/k2/db_profiling.php:42
+#: system/admin/db_profiling.php:47 system/themes/k2/db_profiling.php:42
 msgid "Time to Execute:"
-msgstr ""
+msgstr "执行耗时:"
 
 #: system/admin/db_profiling.php:49
 msgid "BACKTRACE:"
-msgstr ""
+msgstr "逆向追踪:"
 
-#: system/admin/db_profiling.php:56
-#: system/themes/k2/db_profiling.php:56
+#: system/admin/db_profiling.php:56 system/themes/k2/db_profiling.php:56
 msgid "Total Time Executing Queries:"
+msgstr "数据库查询耗时:"
+
+#: system/admin/user.php:7 system/admin/options.php:7
+msgid "All options"
+msgstr "所有选项"
+
+#: system/admin/user.php:15 system/admin/users.php:29
+msgid "search users"
+msgstr "搜索用户"
+
+#: system/admin/user.php:35
+msgid "No published posts."
+msgstr "尚无已发表的文章。"
+
+#: system/admin/block_instances.php:1
+msgid "New Block Type:"
 msgstr ""
 
-#: system/admin/groups.php:7
-msgid "Group Management"
+#: system/admin/block_instances.php:6 system/themes/mzingi/loginform.php:18
+#: system/themes/mzingi/theme.php:90 system/themes/k2/loginform.php:20
+msgid "Name:"
+msgstr "账号:"
+
+#: system/admin/block_instances.php:15 system/classes/pluggable.php:182
+#: system/plugins/undelete/undelete.plugin.php:163
+#: system/plugins/undelete/undelete.plugin.php:175
+msgid "Configure"
+msgstr "设定"
+
+#: system/admin/formcontrols/formcontrol_textmulti.php:14
+#: system/classes/formui.php:1591
+msgid "remove"
+msgstr "删除"
+
+#: system/admin/formcontrols/formcontrol_textmulti.php:18
+msgid "add"
+msgstr "新增"
+
+#: system/admin/comments_items.php:16
+msgid "in"
+msgstr "于"
+
+#: system/admin/comments_items.php:16
+#, php-format
+msgid "Go to %s"
+msgstr "%s"
+
+#: system/admin/comments_items.php:17 system/admin/posts_items.php:21
+#: system/themes/mzingi/commentform.php:46 system/themes/mzingi/sidebar.php:44
+msgid "on"
+msgstr "于"
+
+#: system/admin/comments_items.php:17
+#, php-format
+msgid "Search for other comments from %s"
 msgstr ""
 
-#: system/admin/groups.php:9
-msgid "Groups"
+#: system/admin/comments_items.php:18 system/admin/posts_items.php:22
+msgid "at"
+msgstr "于"
+
+#: system/admin/comments_items.php:51
+msgid "Marked as spam"
+msgstr "已标示为垃圾评论"
+
+#: system/admin/comments_items.php:63
+msgid "this post contains text in an invalid encoding"
 msgstr ""
 
-#: system/admin/groups.php:12
-msgid "Add"
+#: system/admin/comments_items.php:72
+msgid "No comments could be found to match the query criteria."
+msgstr "找不到符合条件的评论。"
+
+#: system/admin/comment.overview.php:5
+#, php-format
+msgid ""
+"<a href=\"%1$s\">Comment</a> by <a href=\"%2$s\" title=\"Visit "
+"%3$s\">%3$s</a> posted on <a href=\"%4$s\" title=\"View post\">%5$s</a> at "
+"<strong>%6$s</strong> on <strong>%7$s</strong>"
 msgstr ""
 
-#: system/admin/groups.php:27
-msgid "Members"
+#: system/admin/comment.overview.php:19
+#, php-format
+msgid ""
+"<a href=\"%1$s\">Comment</a> by <strong>%2$s</strong> posted on <a "
+"href=\"%3$s\" title=\"View post\">%4$s</a> at <strong>%5$s</strong> on "
+"<strong>%6$s</strong>"
 msgstr ""
 
-#: system/admin/groups.php:31
-msgid "Editing members of "
+#: system/admin/users.php:21
+msgid "Complete User List"
+msgstr "完整用户列表"
+
+#: system/admin/users.php:38 system/installer/db_setup.php:50
+#: system/installer/db_setup.php:97 system/installer/db_setup.php:180
+msgid "Username"
+msgstr "账号"
+
+#: system/admin/users.php:41
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: system/admin/users.php:44 system/admin/login.php:42
+#: system/installer/db_setup.php:61 system/installer/db_setup.php:108
+#: system/installer/db_setup.php:190
+msgid "Password"
+msgstr "密码"
+
+#: system/admin/users.php:47
+msgid "Password Again"
+msgstr "再次输入密码"
+
+#: system/admin/users.php:50
+msgid "Add User"
+msgstr "新增用户"
+
+#: system/admin/users.php:69
+#, php-format
+msgid "Reassign posts to %s"
+msgstr "将文章移交给 %s"
+
+#: system/admin/block_areas.php:1
+msgid "Scope:"
 msgstr ""
 
-#: system/admin/groups.php:41
-#: system/admin/groups.php:75
-#: system/plugins/coredashmodules/coredashmodules.plugin.php:98
-#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:370
-#: system/themes/k2/commentform.php:34
-#: system/themes/charcoal/commentform.php:28
-#: system/themes/mzingi/commentform.php:94
-msgid "Submit"
+#: system/admin/block_areas.php:2
+msgid "Default"
 msgstr ""
 
-#: system/admin/groups.php:43
-msgid "No members."
+#: system/admin/block_areas.php:24
+msgid "drag here to remove"
 msgstr ""
 
-#: system/admin/groups.php:49
-msgid "Permissions"
+#: system/admin/publish.php:28
+msgid "Publish"
+msgstr "发表"
+
+#: system/admin/publish.php:60
+msgid ""
+"You did not save the changes you made. \\nLeaving this page will result in "
+"the lose of data."
+msgstr "您尚未保存，直接离开本页将丢失您所做的更改。"
+
+#: system/admin/header.php:64 system/admin/login.php:32
+msgid "Go to Site"
+msgstr "查看博客"
+
+#: system/admin/plugin.php:5
+#, php-format
+msgid "The plugin file %s had syntax errors and could not load."
+msgstr "插件文件 %s 存在语法错误，无法加载。"
+
+#: system/admin/plugin.php:8
+msgid "Show Error"
+msgstr "显示错误信息"
+
+#: system/admin/plugin.php:17 system/installer/db_setup.php:227
+#, php-format
+msgid ""
+"The plugin file %s is a legacy plugin, and does not include an XML info file."
 msgstr ""
 
-#: system/admin/groups.php:53
-msgid "Editing Permissions of "
+#: system/admin/plugin.php:26 system/admin/posts_items.php:20
+#: system/admin/themes.php:8 system/admin/themes.php:163
+#: system/plugins/coredashmodules/dash_latestentries.php:6
+msgid "by"
+msgstr "由"
+
+#: system/admin/plugin.php:33 system/themes/charcoal/footer.php:9
+#: system/classes/format.php:247 system/classes/format.php:276
+msgid " and "
+msgstr " 及 "
+
+#: system/admin/plugin.php:48
+msgid "v1.1 Update Available Now"
+msgstr "已有 1.1 版可供更新"
+
+#: system/admin/plugin.php:53
+msgid ""
+"This plugin cannot be activated because the following features were not "
+"present:"
 msgstr ""
 
-#: system/admin/groups.php:56
-msgid "Granted"
-msgstr ""
+#: system/admin/plugin.php:82
+msgid "Close"
+msgstr "关闭"
 
-#: system/admin/groups.php:56
-msgid "Permission"
-msgstr ""
+#: system/admin/options.php:14 system/admin/groups.php:15
+#: system/admin/group.php:15
+msgid "search settings"
+msgstr "搜索选项"
 
-#: system/admin/groups.php:56
-msgid "Denied"
-msgstr ""
+#: system/admin/posts_items.php:14 system/admin/posts_items.php:26
+#: system/plugins/coredashmodules/dash_latestentries.php:6
+#, php-format
+msgid "Edit '%s'"
+msgstr "编辑 ‘%s’"
 
-#: system/admin/groups.php:78
-msgid "No permissions."
-msgstr ""
+#: system/admin/posts_items.php:19
+#, php-format
+msgid "Search for other %s items"
+msgstr "寻找其它 %s 的文章"
 
-#: system/admin/header.php:55
-msgid "Submenu"
-msgstr ""
+#: system/admin/posts_items.php:20
+#, php-format
+msgid "Search for other items by %s"
+msgstr "寻找其它由 %s 撰写的文章"
+
+#: system/admin/posts_items.php:21
+#, php-format
+msgid "Search for other items from %s"
+msgstr "寻找其它于 %s 撰写的文章"
+
+#: system/admin/posts_items.php:27
+#, php-format
+msgid "View '%s'"
+msgstr "查看 ‘%s’"
+
+#: system/admin/posts_items.php:27
+msgid "View"
+msgstr "查看"
+
+#: system/admin/posts_items.php:28
+msgid "Delete this item"
+msgstr "删除这个项目"
+
+#: system/admin/posts_items.php:46
+msgid "No posts could be found to match the query criteria."
+msgstr "找不到符合条件的文章。"
+
+#: system/admin/posts.php:5 system/admin/logs.php:8
+#: system/admin/comments.php:4
+msgid "Older"
+msgstr "较旧"
+
+#: system/admin/posts.php:6
+msgid "no results"
+msgstr "查无结果"
+
+#: system/admin/posts.php:8 system/admin/comments.php:7
+msgid "Type and wait to search"
+msgstr "实时搜索"
+
+#: system/admin/posts.php:13 system/admin/comments.php:12
+#, php-format
+msgid "Filter results for '%s'"
+msgstr "符合 ‘%s’ 的查询结果"
+
+#: system/admin/posts.php:17 system/admin/logs.php:12
+#: system/admin/comments.php:16
+msgid "Newer"
+msgstr "较新"
+
+#: system/admin/import.php:5 system/classes/adminhandler.php:3259
+#: system/plugins/wpimport/wpimport.plugin.php:134
+msgid "Import"
+msgstr "导入"
+
+#: system/admin/import.php:13
+msgid "You do not currently have any import plugins installed."
+msgstr "您尚未安装任何导入插件。"
+
+#: system/admin/import.php:14
+#, php-format
+msgid ""
+"Please <a href=\"%1$s\">activate an import plugin</a> to enable importing."
+msgstr "请至少<a href=\\\"%1$s\\\">启用一个导入插件</a>，才能进行导入。"
+
+#: system/admin/import.php:16
+msgid "Please choose the type of import to perform:"
+msgstr "请选择您的导入格式:"
+
+#: system/admin/import.php:24
+msgid "Select"
+msgstr "选择"
 
 #: system/admin/themes.php:5
 msgid "Current Theme"
-msgstr ""
+msgstr "使用中的主题"
 
-#: system/admin/themes.php:12
-#: system/classes/adminhandler.php:486
+#: system/admin/themes.php:12 system/classes/post.php:825
+#: system/classes/adminhandler.php:1400
 msgid "Settings"
-msgstr ""
+msgstr "设定"
 
 #: system/admin/themes.php:18
 msgid "v"
-msgstr ""
+msgstr "✔"
 
 #: system/admin/themes.php:18
 msgid "Update Available"
-msgstr ""
+msgstr "已有更新版"
 
-#: system/admin/themes.php:28
-#: system/admin/themes.php:57
-msgid "is licensed under the"
-msgstr ""
-
-#: system/admin/themes.php:39
-msgid "Available Themes"
-msgstr ""
-
-#: system/admin/themes.php:48
-#: system/classes/adminhandler.php:1179
-msgid "Activate"
-msgstr ""
-
-#: system/admin/formcontrols/formcontrol_silos.php:12
-msgid "Search descriptions, names and tags"
-msgstr ""
-
-#: system/admin/formcontrols/formcontrol_silos.php:14
-msgid "Root"
-msgstr ""
-
-#: system/admin/formcontrols/formcontrol_textmulti.php:12
-#: system/classes/formui.php:1268
-msgid "remove"
-msgstr ""
-
-#: system/admin/formcontrols/formcontrol_textmulti.php:16
-msgid "add"
-msgstr ""
-
-#: system/plugins/coredashmodules/dash_latestcomments.php:6
+#: system/admin/themes.php:28 system/admin/themes.php:172
 #, php-format
-msgid "%1$d comment"
-msgid_plural "%1$d comments"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%1$s is licensed under the %2$s"
+msgstr "%1$s 采用 %2$s 授权"
 
-#: system/plugins/coredashmodules/dash_latestcomments.php:14
-#: system/plugins/coredashmodules/dash_latestentries.php:5
-#, php-format
-msgid "Posted at %1$s"
-msgstr "发表于 %1$s"
-
-#: system/plugins/coredashmodules/coredashmodules.plugin.php:97
-msgid "Number of items"
-msgstr ""
-
-#: system/plugins/coredashmodules/coredashmodules.plugin.php:101
-msgid "Latest Log Activity"
-msgstr ""
-
-#: system/plugins/coredashmodules/coredashmodules.plugin.php:117
-msgid "Latest Entries"
-msgstr ""
-
-#: system/plugins/coredashmodules/coredashmodules.plugin.php:144
-msgid "Latest Comments"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:20
-msgid "WordPress Database"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:81
-msgid ""
-"Could not connect to the WordPress database using the values supplied. "
-"Please correct them and try again."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:168
-#, php-format
-msgid "Starting import from \"%s\""
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:419
-#: system/plugins/wpimport/wpimport.plugin.php:507
-#: system/plugins/wpimport/wpimport.plugin.php:638
-#, php-format
-msgid "Failed to import from \"%s\""
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:420
-msgid "The database connection details have failed to connect."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:454
-msgid "<p>Importing users...</p>"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:508
-#: system/plugins/wpimport/wpimport.plugin.php:639
-msgid "Failed to connect using the given database connection details."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:622
-msgid "Import is complete."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:626
-msgid "There were errors during import:"
-msgstr ""
-
-#: system/plugins/s9yimport/s9yimport.plugin.php:32
-msgid "Serendipity Database"
-msgstr ""
-
-#: system/plugins/s9yimport/s9yimport.plugin.php:890
-msgid "succeeded"
-msgstr ""
-
-#: system/plugins/s9yimport/s9yimport.plugin.php:894
-msgid "failed"
-msgstr ""
-
-#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:364
-msgid "Parent Directory:"
-msgstr ""
-
-#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:368
-msgid "Enter the name of the new directory to create here"
-msgstr ""
-
-#: system/plugins/simplefilesilo/simplefilesilo.plugin.php:477
-msgid "Directory Created:"
-msgstr ""
-
-#: system/plugins/themehelper/themehelper.plugin.php:45
-msgid "Read Comments"
-msgstr ""
-
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:736
-msgid "This photo has no title"
-msgstr ""
-
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:822
-msgid "Default size for images in Posts:"
-msgstr ""
-
-#. #-#-#-#-#  poeditA2QcZo (PACKAGE VERSION)  #-#-#-#-#
-#. Create the Save button
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
-#: system/classes/adminhandler.php:508
+#: system/admin/themes.php:134 system/classes/post.php:863
+#: system/plugins/undelete/undelete.plugin.php:178
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:872
 msgid "Save"
 msgstr "保存"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
-msgid "Options saved"
+#: system/admin/themes.php:156
+msgid "Available Themes"
+msgstr "已安装的主题"
+
+#: system/admin/themes.php:178
+msgid "Legacy theme."
 msgstr ""
 
-#: system/plugins/viddlersilo/viddlersilo.plugin.php:870
-msgid "The username and password you supplied failed to log in to Viddler."
+#: system/admin/themes.php:182
+msgid "End Preview"
 msgstr ""
 
-#: system/plugins/viddlersilo/viddlersilo.plugin.php:876
-msgid "You have logged in to Viddler."
+#: system/admin/themes.php:184
+msgid "Preview"
 msgstr ""
 
-#: system/plugins/undelete/undelete.plugin.php:100
-#: system/plugins/undelete/undelete.plugin.php:109
-msgid "Configure"
-msgstr ""
+#: system/admin/themes.php:186 system/classes/installhandler.php:220
+#: system/classes/adminhandler.php:1902 system/classes/adminhandler.php:1906
+msgid "Activate"
+msgstr "启用"
 
-#: system/plugins/undelete/undelete.plugin.php:111
-msgid "Style declaration for deleted content:"
-msgstr ""
+#: system/admin/footer.php:3
+msgid "Go to the Habari site"
+msgstr "访问 Habari 网站"
 
-#: system/plugins/pingback/pingback.plugin.php:272
-#, php-format
-msgid "Sent pingbacks for \"%1$s\", target: %2$s"
-msgstr ""
+#: system/admin/footer.php:11
+msgid "Logged in as"
+msgstr "已登陆为"
 
-#: system/plugins/spamchecker/spamchecker.plugin.php:58
-msgid "Commenters with numeric names are spammy."
-msgstr ""
+#: system/admin/footer.php:13
+msgid "Go to your user page"
+msgstr "转到您的用户页面"
 
-#: system/plugins/spamchecker/spamchecker.plugin.php:67
-msgid "Comments that are only numeric are spammy."
-msgstr ""
+#: system/admin/footer.php:18
+msgid "Open the Habari manual in a new window"
+msgstr "在新窗口打开 Habari 使用说明"
 
-#: system/plugins/spamchecker/spamchecker.plugin.php:73
-msgid "Comments that are only \"array\" are spammy."
-msgstr ""
+#: system/admin/footer.php:18 system/installer/header.php:18
+msgid "Manual"
+msgstr "使用说明"
 
-#: system/plugins/spamchecker/spamchecker.plugin.php:79
-msgid "Comments that consist of only the commenters name are spammy."
-msgstr ""
+#: system/admin/footer.php:23 system/admin/sysinfo.php:1
+#: system/admin/sysinfo.php:6
+msgid "System Information"
+msgstr "服务器信息"
 
-#: system/plugins/spamchecker/spamchecker.plugin.php:86
-msgid "Comments that start with strong text are spammy."
+#: system/admin/sysinfo.php:7
+msgid "SYSTEM INFORMATION\n"
 msgstr ""
+"服务器信息\n"
+"==========\n"
 
-#: system/plugins/spamchecker/spamchecker.plugin.php:92
-msgid "There is a 3 URL limit in comments."
-msgstr ""
+#: system/admin/sysinfo.php:23
+msgid "Site Information"
+msgstr "网站信息"
 
-#: system/plugins/spamchecker/spamchecker.plugin.php:98
-msgid "There is a 3 URL-encoded character limit in comments."
-msgstr ""
-
-#: system/plugins/spamchecker/spamchecker.plugin.php:112
-msgid "We do not accept BBCode here."
-msgstr ""
-
-#: system/plugins/spamchecker/spamchecker.plugin.php:120
-msgid "Too much text that is a link compared to that which is not."
-msgstr ""
-
-#: system/plugins/spamchecker/spamchecker.plugin.php:129
-#, php-format
-msgid "Too many existing spams from this IP: %s"
-msgstr ""
-
-#: system/plugins/spamchecker/spamchecker.plugin.php:209
-#: system/plugins/spamchecker/spamchecker.plugin.php:214
-msgid "The selected action is forbidden."
-msgstr ""
-
-#: system/classes/adminhandler.php:21
-msgid "Your session expired."
-msgstr ""
-
-#: system/classes/adminhandler.php:29
-#: system/classes/adminhandler.php:33
+#: system/admin/sysinfo.php:24
 msgid ""
-"We saved the last form you posted. Log back in to continue its submission."
+"\n"
+"SITE INFORMATION\n"
+msgstr ""
+"\n"
+"网站信息\n"
+"========\n"
+
+#: system/admin/sysinfo.php:40
+msgid "User Classes"
+msgstr "用户自定义类别"
+
+#: system/admin/sysinfo.php:41
+msgid ""
+"\n"
+"USER CLASSES\n"
+msgstr ""
+"\n"
+"用户自定义类别\n"
+"==============\n"
+
+#: system/admin/sysinfo.php:52 system/admin/sysinfo.php:77
+msgid "None found"
+msgstr "无"
+
+#: system/admin/sysinfo.php:53 system/admin/sysinfo.php:78
+msgid "None found\n"
+msgstr "无\n"
+
+#: system/admin/sysinfo.php:59
+msgid "Plugin Information"
+msgstr "插件信息"
+
+#: system/admin/sysinfo.php:60
+msgid ""
+"\n"
+"PLUGIN INFORMATION"
+msgstr ""
+"\n"
+"插件信息\n"
+"============"
+
+#: system/admin/sysinfo.php:85
+msgid "All Results"
+msgstr "所有信息"
+
+#: system/admin/logs.php:9
+msgid "0-0 of 0"
+msgstr "0-0 of 0"
+
+#: system/admin/logs.php:10
+msgid "Type and wait to search any log entry component"
+msgstr "搜索系统日志"
+
+#: system/admin/logs.php:42 system/admin/logs.php:105
+msgid "Purge Logs"
 msgstr ""
 
-#: system/classes/adminhandler.php:40
-msgid "Permission denied."
+#: system/admin/logs.php:57
+msgid "Date &amp; Time"
+msgstr "日期/时间"
+
+#: system/admin/logs.php:58 system/themes/k2/sidebar.php:17
+msgid "User"
+msgstr "用户"
+
+#: system/admin/logs.php:59
+msgid "IP"
+msgstr "IP"
+
+#: system/admin/logs.php:60
+msgid "Module"
+msgstr "模块"
+
+#: system/admin/logs.php:61
+msgid "Type"
+msgstr "类型"
+
+#: system/admin/logs.php:62
+msgid "Severity"
+msgstr "严重性"
+
+#: system/admin/logs.php:63
+msgid "Message"
+msgstr "错误信息"
+
+#: system/admin/logs.php:75
+msgid "Filter"
+msgstr "筛选"
+
+#: system/admin/logs.php:89
+msgid "There are no logs to be displayed at this time."
+msgstr "目前没有任何系统日志。"
+
+#: system/admin/dashboard.php:6
+msgid ""
+"Oh, great!\tYou're using IE6!  I've finally found someone I can pawn this "
+"old betamax player off on!<br />\n"
+"If you're reading this, you're surfing using Internet Explorer 6, an eight-"
+"year-old browser that cannot cope with the demands of the modern internet.\n"
+"<a href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
+"href=\"http://www.google.com/chrome\">Google Chrome</a>, or a more recent "
+"version of \n"
+"<a href=\"http://www.microsoft.com/windows/Internet-"
+"explorer/default.aspx\">Internet Explorer</a>."
 msgstr ""
 
-#: system/classes/adminhandler.php:90
+#: system/admin/dashboard.php:17
 #, php-format
-msgid "%1$s->%2$s() does not exist."
-msgstr ""
-
-#: system/classes/adminhandler.php:111
-msgid "Whooops!"
-msgstr ""
-
-#: system/classes/adminhandler.php:148
-msgid "Name & Tagline"
-msgstr ""
-
-#: system/classes/adminhandler.php:150
-#: system/installer/db_setup.php:184
-msgid "Site Name"
-msgstr ""
-
-#: system/classes/adminhandler.php:155
-msgid "Site Tagline"
-msgstr ""
-
-#: system/classes/adminhandler.php:161
-msgid "Publishing"
-msgstr ""
-
-#: system/classes/adminhandler.php:163
-msgid "Items per Page"
-msgstr ""
-
-#: system/classes/adminhandler.php:168
-msgid "Send Pingbacks to Links"
-msgstr ""
-
-#: system/classes/adminhandler.php:173
-msgid "Require Comment Author Info"
-msgstr ""
-
-#: system/classes/adminhandler.php:250
-msgid "Successfully updated options"
-msgstr ""
-
-#: system/classes/adminhandler.php:403
-#, php-format
-msgid "The post %1$s has been saved as %2$s."
-msgstr ""
-
-#. Create the Title field
-#: system/classes/adminhandler.php:438
-msgid "Title"
-msgstr "标题"
-
-#: system/classes/adminhandler.php:442
-#, php-format
-msgid "Publish %s"
-msgstr ""
-
-#. Create the Content field
-#: system/classes/adminhandler.php:448
-msgid "Content"
-msgstr "内容"
-
-#. Create the tags field
-#: system/classes/adminhandler.php:454
-msgid "Tags, separated by, commas"
-msgstr ""
-
-#. Create the tags selector
-#: system/classes/adminhandler.php:462
-#: system/classes/adminhandler.php:2063
-msgid "Tags"
-msgstr ""
-
-#: system/classes/adminhandler.php:466
-msgid "Clear"
-msgstr ""
-
-#: system/classes/adminhandler.php:488
-msgid "Content State"
-msgstr ""
-
-#: system/classes/adminhandler.php:491
-msgid "Comments Allowed"
-msgstr ""
-
-#: system/classes/adminhandler.php:494
-msgid "Publication Time"
-msgstr ""
-
-#: system/classes/adminhandler.php:497
-msgid "Content Address"
-msgstr ""
-
-#: system/classes/adminhandler.php:544
-#, php-format
-msgid "Deleted the %1$s titled \"%2$s\"."
-msgstr ""
-
-#: system/classes/adminhandler.php:552
-#: system/classes/adminhandler.php:769
-msgid "nobody"
-msgstr ""
-
-#: system/classes/adminhandler.php:606
-#, php-format
-msgid "%s has been deleted"
-msgstr ""
-
-#: system/classes/adminhandler.php:616
-msgid "That username is already in use!"
-msgstr ""
-
-#: system/classes/adminhandler.php:621
-#, php-format
-msgid "%1$s has been renamed to %2$s."
-msgstr ""
-
-#: system/classes/adminhandler.php:629
-#, php-format
-msgid "%1$s email has been changed to %2$s"
-msgstr ""
-
-#: system/classes/adminhandler.php:640
-msgid "Password changed successfully."
-msgstr ""
-
-#: system/classes/adminhandler.php:644
-msgid "The passwords did not match, and were not changed."
-msgstr ""
-
-#: system/classes/adminhandler.php:651
-msgid "Userinfo updated!"
-msgstr ""
-
-#: system/classes/adminhandler.php:683
-#: system/classes/adminhandler.php:1457
-#: system/classes/adminhandler.php:1496
-#: system/classes/adminhandler.php:1527
-#: system/classes/adminhandler.php:1564
-#: system/classes/adminhandler.php:1962
-msgid "WSSE authentication failed."
-msgstr ""
-
-#: system/classes/adminhandler.php:710
-msgid "No users deleted."
-msgstr ""
-
-#: system/classes/adminhandler.php:735
-msgid "You cannot delete yourself."
-msgstr ""
-
-#: system/classes/adminhandler.php:742
-#, php-format
-msgid "Deleted %d users."
-msgstr ""
-
-#: system/classes/adminhandler.php:793
-msgid "Password is required."
-msgstr ""
-
-#: system/classes/adminhandler.php:796
-#: system/classes/installhandler.php:130
-msgid "Password mis-match."
-msgstr ""
-
-#: system/classes/adminhandler.php:799
-msgid "Please supply a valid email address."
-msgstr ""
-
-#: system/classes/adminhandler.php:802
-msgid "Please supply a user name."
-msgstr ""
-
-#: system/classes/adminhandler.php:807
-msgid "That username is already assigned."
-msgstr ""
-
-#: system/classes/adminhandler.php:812
-#, php-format
-msgid "Added user '%s'"
-msgstr ""
-
-#: system/classes/adminhandler.php:850
-#, php-format
-msgid "Activated plugin '%s'"
-msgstr ""
-
-#: system/classes/adminhandler.php:854
-#, php-format
-msgid "Deactivated plugin '%s'"
-msgstr ""
-
-#: system/classes/adminhandler.php:912
-#, php-format
-msgid "Activated theme '%s'"
-msgstr ""
-
-#: system/classes/adminhandler.php:998
-msgid "Deleted all spam comments"
-msgstr ""
-
-#: system/classes/adminhandler.php:1005
-msgid "Deleted all unapproved comments"
-msgstr ""
-
-#: system/classes/adminhandler.php:1166
-msgid "Deactivate"
-msgstr ""
-
-#: system/classes/adminhandler.php:1354
-#: system/classes/adminhandler.php:1355
-msgid "Manage Posts"
-msgstr ""
-
-#: system/classes/adminhandler.php:1484
-msgid "Updated 1 comment."
-msgstr ""
-
-#: system/classes/adminhandler.php:1513
-#, php-format
-msgid "Deleted %d entries."
-msgstr ""
-
-#: system/classes/adminhandler.php:1555
-#, php-format
-msgid "Deleted %d logs."
-msgstr ""
-
-#: system/classes/adminhandler.php:1580
-msgid "No comments selected."
-msgstr ""
-
-#: system/classes/adminhandler.php:1586
-msgid "Unknown action"
-msgstr ""
-
-#: system/classes/adminhandler.php:1592
-#, php-format
-msgid "Deleted %d comment"
-msgid_plural "Deleted %d comments"
+msgid "%d year"
+msgid_plural "%d years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:1597
+#: system/admin/dashboard.php:21
 #, php-format
-msgid "Marked %d comment as spam"
-msgid_plural "Marked %d comments as spam"
+msgid "%d month"
+msgid_plural "%d months"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:1602
+#: system/admin/dashboard.php:25
 #, php-format
-msgid "Approved %d comment"
-msgid_plural "Approved %d comments"
+msgid "%d day"
+msgid_plural "%d days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:1607
+#: system/admin/dashboard.php:29
 #, php-format
-msgid "Unapproved %d comment"
-msgid_plural "Unapproved %d comments"
+msgid "%1$s has been active for %2$s"
+msgstr "%1$s 已经成立了 %2$s"
+
+#: system/admin/dashboard.php:31
+msgid "days"
+msgstr "天"
+
+#: system/admin/dashboard.php:39
+#, php-format
+msgid "%d page"
+msgid_plural "%d pages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:1816
+#: system/admin/dashboard.php:51
 #, php-format
-msgid "The group %s already exists"
-msgstr ""
-
-#: system/classes/adminhandler.php:1823
-#, php-format
-msgid "Added group %s"
-msgstr ""
-
-#: system/classes/adminhandler.php:1832
-#: system/classes/adminhandler.php:1846
-#: system/classes/adminhandler.php:1862
-#: system/classes/adminhandler.php:1896
-#, php-format
-msgid "The group %s does not exist"
-msgstr ""
-
-#: system/classes/adminhandler.php:1837
-#, php-format
-msgid "Removed group %s"
-msgstr ""
-
-#: system/classes/adminhandler.php:1887
-#, php-format
-msgid "Modified membership of group %s"
-msgstr ""
-
-#: system/classes/adminhandler.php:1936
-#, php-format
-msgid "Granted the permission to group %s"
-msgstr ""
-
-#: system/classes/adminhandler.php:1981
-#, php-format
-msgid "Tag %s has been deleted."
-msgid_plural "Tags %s have been deleted."
+msgid "%d entry"
+msgid_plural "%d entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2005
-#: system/classes/tags.php:132
+#: system/admin/dashboard.php:65
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:73
+#, php-format
+msgid "%d tag"
+msgid_plural "%d tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:81
+#, php-format
+msgid "[You] have published %1$s%2$s"
+msgid_plural "The [%3$d authors] have published %1$s%2$s"
+msgstr[0] "[[%3$d authors]共发表了 %1$s%2$s"
+
+#: system/admin/dashboard.php:83
+msgid " with "
+msgstr " ，并有 "
+
+#: system/admin/dashboard.php:103
+#, php-format
+msgid "%d entry draft"
+msgid_plural "%d entry drafts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:115
+#, php-format
+msgid "%d scheduled post"
+msgid_plural "%d scheduled posts"
+msgstr[0] "%d 篇预定发表的文章"
+
+#: system/admin/dashboard.php:127
+#, php-format
+msgid "%d page draft"
+msgid_plural "%d page drafts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:141
+#, php-format
+msgid "%d comment awaiting approval"
+msgid_plural "%d comments awaiting approval"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:148
+#, php-format
+msgid "%d spam comment awaiting moderation"
+msgid_plural "%d spam comments awaiting moderation"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:154
+#, php-format
+msgid "You have %s"
+msgstr "您有 %s"
+
+#: system/admin/dashboard.php:167
+#, php-format
+msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
+msgstr "<a href=\"%1s\">%2s %3s</a> 是一个重大更新。"
+
+#: system/admin/dashboard.php:170
+#, php-format
+msgid ""
+"<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+msgstr "<a href=\"%1s\">%2s %3s</a> 包含错误修正和新增功能。"
+
+#: system/admin/dashboard.php:173
+#, php-format
+msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
+msgstr "<a href=\"%1s\">%2s %3s</a> 包含错误修正及新增功能。"
+
+#: system/admin/dashboard.php:176
+#, php-format
+msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
+msgstr "<a href=\"%1s\">%2s %3s</a> 包含新增功能。"
+
+#: system/admin/dashboard.php:179
+#, php-format
+msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
+msgstr "<a href=\"%1s\">%2s %3s</a> 是一个新版本。"
+
+#: system/admin/dashboard.php:194
+msgid ""
+"Welcome to Habari! We hope that you will jump right in and start exploring. "
+"If you get stuck or want to learn more about some of the advanced features, "
+"we encourage you to read the [manual], which is bundled with every Habari "
+"install. This link also appears at the bottom of every page in the admin "
+"area."
+msgstr ""
+"欢迎使用 Habari，祝您使用愉快！如果您在使用上发生问题或想要知道如何使用进阶功能，请参考附带的[使用说明]，您可以在管理界面的页面底部找到它的链接。"
+
+#: system/admin/dashboard.php:195
+msgid "Habari Manual"
+msgstr "Habari 使用说明"
+
+#: system/admin/dashboard.php:201
+msgid "This message will disappear next time you visit."
+msgstr "您下次进入此页时将不会再看到这段信息。"
+
+#: system/admin/plugins.php:6
+msgid "All plugins"
+msgstr "所有插件"
+
+#: system/admin/plugins.php:11 system/admin/plugins.php:52
+msgid "Active Plugins"
+msgstr "已启用的插件"
+
+#: system/admin/plugins.php:14 system/admin/plugins.php:67
+msgid "Inactive Plugins"
+msgstr "已停用的插件"
+
+#: system/admin/plugins.php:22
+msgid "search plugins"
+msgstr "搜索已安装的插件"
+
+#: system/admin/plugins.php:84
+msgid "Upload Plugin Package"
+msgstr "上传插件"
+
+#: system/admin/plugins.php:87
+#: system/plugins/habarisilo/habarisilo.plugin.php:417
+#: system/plugins/habarisilo/habarisilo.plugin.php:555
+msgid "Upload"
+msgstr "上传"
+
+#: system/admin/groups.php:5 system/admin/group.php:5
+msgid "All Groups"
+msgstr "所有群组"
+
+#: system/admin/groups.php:21
+msgid "Group Management"
+msgstr "群组管理"
+
+#: system/admin/groups.php:42 system/admin/groups.php:59
+msgid "Add Group"
+msgstr "新增群组"
+
+#: system/admin/groups.php:46
+msgid "Group Name"
+msgstr "群组名称"
+
+#: system/admin/comments.php:5
+msgid "0 of 0"
+msgstr "0 of 0"
+
+#: system/admin/comments.php:48 system/admin/comments.php:72
+msgid "Delete selected comments"
+msgstr ""
+
+#: system/admin/comments.php:49 system/admin/comments.php:73
+msgid "Delete all spam comments"
+msgstr ""
+
+#: system/admin/comments.php:49 system/admin/comments.php:73
+msgid "Delete All Spam"
+msgstr ""
+
+#: system/admin/comments.php:50 system/admin/comments.php:74
+msgid "Delete all unapproved comments"
+msgstr ""
+
+#: system/admin/comments.php:50 system/admin/comments.php:74
+msgid "Delete All Unapproved"
+msgstr ""
+
+#: system/admin/comments.php:53 system/admin/comments.php:77
+msgid "Approve selected comments"
+msgstr ""
+
+#: system/admin/comments.php:53 system/admin/comments.php:77
+msgid "Mark selected approved"
+msgstr ""
+
+#: system/admin/comments.php:54 system/admin/comments.php:78
+msgid "Unapprove selected comments"
+msgstr ""
+
+#: system/admin/comments.php:54 system/admin/comments.php:78
+msgid "Mark selected unapproved"
+msgstr ""
+
+#: system/admin/comments.php:55 system/admin/comments.php:79
+msgid "Mark selected comments as spam"
+msgstr ""
+
+#: system/admin/comments.php:55 system/admin/comments.php:79
+msgid "Mark selected spam"
+msgstr ""
+
+#: system/admin/group.php:20
+#, php-format
+msgid "Group %1$s has <strong>%2$d</strong> member"
+msgid_plural "Group %1$s has <strong>%2$d</strong> members"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/group.php:26
+msgid "Group Members"
+msgstr ""
+
+#: system/admin/group.php:31
+msgid "Members"
+msgstr "成员"
+
+#: system/admin/group.php:37
+msgid "Members To Add"
+msgstr "新增成员"
+
+#: system/admin/group.php:47
+msgid "Add"
+msgstr "新增"
+
+#: system/admin/group.php:52
+msgid "Members To Remove"
+msgstr "清算成员"
+
+#: system/admin/group.php:65
+msgid "Group Permissions"
+msgstr "群组权限"
+
+#: system/admin/group.php:77 system/admin/group.php:100
+msgid "Token Description"
+msgstr ""
+
+#: system/admin/group.php:101
+msgid "allow"
+msgstr ""
+
+#: system/admin/group.php:102
+msgid "deny"
+msgstr ""
+
+#: system/admin/group.php:129 system/classes/adminhandler.php:333
+#: system/classes/adminhandler.php:855
+msgid "Apply"
+msgstr "应用"
+
+#: system/admin/login.php:4
+#, php-format
+msgid "Login to %s"
+msgstr "登陆 %s"
+
+#: system/admin/login.php:39 system/themes/charcoal/theme.php:164
+#: system/themes/k2/theme.php:122
+msgid "Name"
+msgstr "名称"
+
+#: system/admin/login.php:39
+msgid "name"
+msgstr "账号"
+
+#: system/admin/login.php:42
+msgid "password"
+msgstr "密码"
+
+#: system/admin/login.php:46 system/themes/charcoal/header.php:50
+msgid "Login"
+msgstr "登陆"
+
+#: system/admin/login.php:50 system/themes/mzingi/loginform.php:30
+#: system/classes/userhandler.php:21
+msgid "Reset password"
+msgstr ""
+
+#: system/admin/tag_collection.php:10
+#, php-format
+msgid "Manage posts tagged %1$s"
+msgstr ""
+
+#: system/schema/mysql/connection.php:246
+#: system/schema/pgsql/connection.php:345
+msgid "No Upgrades"
+msgstr "没有更新"
+
+#: system/schema/sqlite/connection.php:70
+#, php-format
+msgid "Database file \"%s\" must be writable."
+msgstr ""
+
+#: system/schema/sqlite/connection.php:197
+msgid "not yet supported on SQLite"
+msgstr "尚未支持 SQLite"
+
+#: system/themes/charcoal/page.single.php:21
+#: system/themes/charcoal/home.php:33
+#: system/themes/charcoal/entry.single.php:39
+#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
+#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
+#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
+#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
+#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
+#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
+msgid "Edit post"
+msgstr "编辑文章"
+
+#: system/themes/charcoal/tag.php:4
+#, php-format
+msgid "Displaying posts tagged: %s"
+msgstr "列出标签为 %s 的文章"
+
+#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
+#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
+#: system/themes/charcoal/entry.single.php:29 system/themes/k2/theme.php:99
+msgid "Comments on this post"
+msgstr "这篇文章的评论"
+
+#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
+#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
+#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+msgid "No Comments"
+msgstr "尚无评论"
+
+#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
+#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
+#: system/themes/charcoal/entry.single.php:29
+#: system/themes/mzingi/commentform.php:27 system/themes/k2/theme.php:99
+#: system/classes/post.php:965 system/classes/adminhandler.php:1376
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
+#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
+#: system/themes/charcoal/entry.single.php:29 system/classes/acl.php:785
+#: system/classes/adminhandler.php:3253
+msgid "Comments"
+msgstr "评论"
+
+#: system/themes/charcoal/tag.php:39 system/themes/charcoal/home.php:70
+#: system/themes/charcoal/multiple.php:40 system/themes/charcoal/search.php:47
+#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+msgid "Newer Posts"
+msgstr "较新"
+
+#: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
+#: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
+#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+msgid "Older Posts"
+msgstr "较旧"
+
+#: system/themes/charcoal/commentform.php:8
+msgid "Comments are closed for this post"
+msgstr "这篇文章不允许访客评论。"
+
+#: system/themes/charcoal/404.php:6
+msgid "Whoops! 404"
+msgstr "404 错误！"
+
+#: system/themes/charcoal/404.php:9
+msgid ""
+"The page you were trying to access is not really there. Please try again."
+msgstr "您要查看的页面不存在，请稍后再试。"
+
+#: system/themes/charcoal/searchform.php:2
+#, php-format
+msgid "Search %s"
+msgstr "搜索 %s"
+
+#: system/themes/charcoal/searchform.php:3
+msgid "Go"
+msgstr "搜索"
+
+#: system/themes/charcoal/sidebar.php:6
+msgid "{blog entries}"
+msgstr "{博客文章}"
+
+#: system/themes/charcoal/sidebar.php:7
+msgid "{comments}"
+msgstr "{评论}"
+
+#: system/themes/charcoal/sidebar.php:11
+msgid "Powered by Habari"
+msgstr "基于 Habari"
+
+#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+msgid "Admin area"
+msgstr "管理界面"
+
+#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+msgid "Admin"
+msgstr "管理界面"
+
+#: system/themes/charcoal/home.php:39
+msgid "No posts published, yet."
+msgstr "尚无已发表文章。"
+
+#: system/themes/charcoal/home.php:63
+#, php-format
+msgid "Continue reading %s"
+msgstr "继续阅读 %s"
+
+#: system/themes/charcoal/home.php:63
+msgid "more"
+msgstr "更多"
+
+#: system/themes/charcoal/footer.php:7
+#, php-format
+msgid "%1$s is powered by %2$s"
+msgstr "%1$s 基于 %2$s"
+
+#: system/themes/charcoal/footer.php:9 system/themes/k2/footer.php:11
+msgid "Atom Entries"
+msgstr "订阅文章"
+
+#: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:11
+msgid "Atom Comments"
+msgstr "订阅评论"
+
+#: system/themes/charcoal/theme.php:110
+msgid "Search for "
+msgstr "搜索 "
+
+#: system/themes/charcoal/theme.php:115 system/themes/charcoal/theme.php:121
+#, php-format
+msgid "Search results for '%s'"
+msgstr "符合 ‘%s’ 的查询结果"
+
+#: system/themes/charcoal/theme.php:118
+#, php-format
+msgid "No results found for your search '%1$s'"
+msgstr "找不到符合 ‘%s’ 的文章"
+
+#: system/themes/charcoal/theme.php:118
+#, php-format
+msgid "You can try searching for '%2$s'"
+msgstr "您可以试着搜索 ‘%2$s’"
+
+#: system/themes/charcoal/theme.php:124
+#, php-format
+msgid "No results found for your search '%s'"
+msgstr "找不到符合 ‘%s’ 的文章"
+
+#: system/themes/charcoal/theme.php:164
+msgid "(Required)"
+msgstr "(必填)"
+
+#: system/themes/charcoal/theme.php:166 system/themes/k2/theme.php:124
+msgid "Mail"
+msgstr "E-mail"
+
+#: system/themes/charcoal/theme.php:166
+msgid "(will not be published"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:166
+msgid "- Required)"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:168 system/themes/k2/theme.php:126
+#: system/classes/post.php:953
+msgid "Website"
+msgstr "网址"
+
+#: system/themes/charcoal/theme.php:171 system/themes/mzingi/theme.php:107
+#: system/themes/k2/theme.php:129 system/classes/post.php:973
+#: system/plugins/habarisilo/habarisilo.plugin.php:466
+msgid "Submit"
+msgstr "提交"
+
+#: system/themes/charcoal/comments.php:26
+msgid "Time of this comment - Click for comment permalink"
+msgstr ""
+
+#: system/themes/charcoal/comments.php:28
+msgid "Your comment is awaiting moderation"
+msgstr "您的评论尚待审核"
+
+#: system/themes/charcoal/comments.php:34
+msgid "Be the first to write a comment!"
+msgstr "留下第一则评论！"
+
+#: system/themes/mzingi/tag.php:8
+msgid "Posts Tagged with"
+msgstr "文章标签为"
+
+#: system/themes/mzingi/tag.php:18 system/themes/mzingi/entry.multiple.php:16
+#: system/themes/mzingi/home.php:18 system/themes/mzingi/search.php:18
+#: system/themes/mzingi/entry.single.php:24
+msgid "Tagged:"
+msgstr "标签:"
+
+#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+msgid "Newer Results"
+msgstr "较新"
+
+#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+msgid "Older Results"
+msgstr "较旧"
+
+#: system/themes/mzingi/commentform.php:7
+msgid "to"
+msgstr "于"
+
+#: system/themes/mzingi/commentform.php:8 system/themes/k2/comments.php:7
+msgid "Feed for this Entry"
+msgstr "订阅这篇文章"
+
+#: system/themes/mzingi/commentform.php:44 system/themes/k2/comments.php:24
+msgid "Permanent Link to this Comment"
+msgstr "这则评论的易记网址"
+
+#: system/themes/mzingi/commentform.php:45
+msgid "Comment by"
+msgstr "评论由"
+
+#: system/themes/mzingi/commentform.php:46
+msgid "Time of this comment"
+msgstr "评论发表时间"
+
+#: system/themes/mzingi/commentform.php:46 system/themes/k2/comments.php:26
+msgid "In moderation"
+msgstr "审核中"
+
+#: system/themes/mzingi/commentform.php:56 system/themes/k2/comments.php:38
+msgid "There are currently no comments."
+msgstr "目前未有任何评论。"
+
+#: system/themes/mzingi/404.php:7
+msgid "It seems you couldn't find what you are looking for."
+msgstr "找不到您要求的文章。"
+
+#: system/themes/mzingi/404.php:7
+msgid "Perhaps you can try searching."
+msgstr "请尝试使用搜索。"
+
+#: system/themes/mzingi/searchform.php:4 system/themes/k2/sidebar.php:5
+msgid "Search"
+msgstr "搜索"
+
+#: system/themes/mzingi/searchform.php:4 system/themes/k2/searchform.php:4
+msgid "Go!"
+msgstr "搜索"
+
+#: system/themes/mzingi/sidebar.php:4
+msgid "Subscribe to Feed"
+msgstr "订阅"
+
+#: system/themes/mzingi/sidebar.php:5
+msgid "Navigation"
+msgstr "导览"
+
+#: system/themes/mzingi/sidebar.php:7
+msgid "Home"
+msgstr "首页"
+
+#: system/themes/mzingi/sidebar.php:16
+msgid "Asides"
+msgstr "短文"
+
+#: system/themes/mzingi/sidebar.php:29
+msgid "More Posts"
+msgstr "更多文章"
+
+#: system/themes/mzingi/sidebar.php:40
+msgid "Recent Comments"
+msgstr "近期评论"
+
+#: system/themes/mzingi/sidebar.php:47
+msgid "User Login"
+msgstr "用户登陆"
+
+#: system/themes/mzingi/search.php:7
+msgid "Results for search of"
+msgstr "搜索结果:"
+
+#: system/themes/mzingi/search.php:31
+msgid "No results for"
+msgstr "查无结果:"
+
+#: system/themes/mzingi/footer.php:3
+msgid "is powered by"
+msgstr "基于"
+
+#: system/themes/mzingi/loginform.php:4 system/themes/k2/loginform.php:5
+msgid "That login is incorrect."
+msgstr "登陆失败。"
+
+#: system/themes/mzingi/loginform.php:9 system/themes/k2/loginform.php:11
+msgid "You are logged in as"
+msgstr "您已登陆为"
+
+#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+msgid "Want to"
+msgstr "想要"
+
+#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+msgid "log out"
+msgstr "注销"
+
+#: system/themes/mzingi/loginform.php:22 system/themes/k2/loginform.php:24
+msgid "Password:"
+msgstr "密码:"
+
+#: system/themes/mzingi/loginform.php:27
+msgid "GO!"
+msgstr "登陆"
+
+#: system/themes/mzingi/theme.php:86
+msgid "About You"
+msgstr "关于您"
+
+#: system/themes/mzingi/theme.php:90 system/themes/mzingi/theme.php:93
+#: system/themes/k2/theme.php:122 system/themes/k2/theme.php:124
+msgid "Required"
+msgstr "必填"
+
+#: system/themes/mzingi/theme.php:93
+msgid "Email Address:"
+msgstr "E-mail:"
+
+#: system/themes/mzingi/theme.php:96
+msgid "Web Address:"
+msgstr "网址:"
+
+#: system/themes/mzingi/theme.php:98
+msgid "<p><em><small>Email address is not published</small></em></p>"
+msgstr ""
+
+#: system/themes/mzingi/theme.php:101
+msgid "Add to the Discussion"
+msgstr "参与讨论"
+
+#: system/themes/mzingi/theme.php:105
+msgid "Message: (Required)"
+msgstr ""
+
+#: system/themes/k2/page.single.php:8
+msgid "Page:"
+msgstr "页:"
+
+#: system/themes/k2/page.single.php:10 system/themes/k2/tag.php:12
+#: system/themes/k2/entry.multiple.php:12 system/themes/k2/home.php:12
+#: system/themes/k2/search.php:13 system/themes/k2/entry.single.php:21
+#, php-format
+msgid "by %s"
+msgstr "由 %s"
+
+#: system/themes/k2/404.php:8
+msgid "Error!"
+msgstr "错误！"
+
+#: system/themes/k2/404.php:12
+msgid "The requested post was not found."
+msgstr "找不到要求的文章。"
+
+#: system/themes/k2/sidebar.php:10 system/classes/adminhandler.php:212
+msgid "About"
+msgstr "关于"
+
+#: system/themes/k2/search.php:6
+#, php-format
+msgid "Search results for %s"
+msgstr "符合 %s 的查询结果"
+
+#: system/themes/k2/footer.php:9
+msgid " is powered by"
+msgstr " 基于"
+
+#: system/themes/k2/footer.php:9
+msgid "and a huge amount of "
+msgstr ""
+
+#: system/themes/k2/footer.php:10
+msgid "Caffeine"
+msgstr "咖啡因"
+
+#: system/themes/k2/footer.php:11 system/classes/adminhandler.php:858
+msgid "and"
+msgstr "及"
+
+#: system/themes/k2/loginform.php:11
+msgid "Edit Your Profile"
+msgstr "编辑您的个人信息"
+
+#: system/themes/k2/loginform.php:29
+msgid "Sign in"
+msgstr "登陆"
+
+#: system/themes/k2/theme.php:124
+msgid "(will not be published)"
+msgstr ""
+
+#: system/themes/k2/comments.php:5
+msgid "Responses to"
+msgstr "回应"
+
+#: system/themes/k2/comments.php:26
+msgid "Time of this Comment"
+msgstr "这则评论的发表时间"
+
+#: system/themes/k2/comments.php:44
+msgid "Leave a Reply"
+msgstr "留下回应"
+
+#: system/classes/tags.php:133
 #, php-format
 msgid "Tag %s has been renamed to %s."
 msgid_plural "Tags %s have been renamed to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s 标签已更名为 %s 。"
 
-#: system/classes/adminhandler.php:2035
+#: system/classes/acl.php:147
 #, php-format
-msgid "Create a new %s"
-msgstr ""
+msgid "Permission token deleted: %s"
+msgstr "已删除权限 Token: %s"
 
-#: system/classes/adminhandler.php:2035
+#: system/classes/acl.php:611
 #, php-format
-msgid "Create %s"
-msgstr ""
+msgid "Group %1$s: Access to %2$s changed to %3$s"
+msgstr "%1$s 组访问 %2$s 的权限已更改为 %3$s"
 
-#: system/classes/adminhandler.php:2036
+#: system/classes/acl.php:701
 #, php-format
-msgid "Manage %s"
+msgid "Group %1$s: Permission to %2$s revoked."
+msgstr "已撤销 %1$s 组对于 %2$s 的权限。"
+
+#: system/classes/acl.php:763
+msgid "Manage comments on all posts"
+msgstr "管理所有文章的评论"
+
+#: system/classes/acl.php:764
+msgid "Manage comments on one's own posts"
+msgstr "管理自己文章的评论"
+
+#: system/classes/acl.php:765 system/classes/adminhandler.php:3254
+msgid "Manage tags"
+msgstr "管理标签"
+
+#: system/classes/acl.php:766
+msgid "Manage options"
+msgstr "管理选项"
+
+#: system/classes/acl.php:767
+msgid "Change theme"
+msgstr "更改主题"
+
+#: system/classes/acl.php:768
+msgid "Configure the active theme"
+msgstr "设定使用中的主题"
+
+#: system/classes/acl.php:769
+msgid "Activate/deactivate plugins"
+msgstr "启用/停用插件"
+
+#: system/classes/acl.php:770
+msgid "Configure active plugins"
+msgstr "设定已启用的插件"
+
+#: system/classes/acl.php:771
+msgid "Use the importer"
+msgstr "使用导入程序"
+
+#: system/classes/acl.php:772
+msgid "Add, remove, and edit users"
+msgstr "新增、删除与编辑用户"
+
+#: system/classes/acl.php:773 system/classes/installhandler.php:1559
+msgid "Edit own profile"
 msgstr ""
 
-#. 'create' => array( 'url' => URL::get( 'admin', 'page=comments' ), 'title' => _t('Content'), 'text' => _t('Comments'), 'submenu' => array($createmenu) ),
-#: system/classes/adminhandler.php:2062
-msgid "Manage blog comments"
-msgstr ""
+#: system/classes/acl.php:774
+msgid "Manage groups and permissions"
+msgstr "管理组与权限"
 
-#: system/classes/adminhandler.php:2062
-msgid "Comments"
-msgstr ""
+#: system/classes/acl.php:775
+msgid "Manage logs"
+msgstr "管理系统日志"
 
-#: system/classes/adminhandler.php:2063
-msgid "Manage blog tags"
-msgstr ""
+#: system/classes/acl.php:778 system/classes/installhandler.php:1510
+msgid "Permissions on one's own posts"
+msgstr "对于自己的文章权限"
 
-#: system/classes/adminhandler.php:2064
-msgid "View your user dashboard"
-msgstr ""
+#: system/classes/acl.php:778 system/classes/acl.php:779
+#: system/classes/acl.php:781 system/classes/post.php:237
+#: system/classes/post.php:802
+msgid "Content"
+msgstr "内容"
 
-#: system/classes/adminhandler.php:2064
-msgid "Dashboard"
-msgstr ""
+#: system/classes/acl.php:779
+msgid "Permissions to all posts"
+msgstr "对于所有文章的权限"
 
-#: system/classes/adminhandler.php:2065
-msgid "View and configure blog options"
-msgstr ""
-
-#: system/classes/adminhandler.php:2065
-msgid "Options"
-msgstr ""
-
-#: system/classes/adminhandler.php:2066
-msgid "Preview and activate themes"
-msgstr ""
-
-#: system/classes/adminhandler.php:2066
-msgid "Themes"
-msgstr ""
-
-#: system/classes/adminhandler.php:2067
-msgid "Activate, deactivate, and configure plugins"
-msgstr ""
-
-#: system/classes/adminhandler.php:2067
-msgid "Plugins"
-msgstr ""
-
-#: system/classes/adminhandler.php:2068
-msgid "Import content from another blog"
-msgstr ""
-
-#: system/classes/adminhandler.php:2069
-msgid "View and manage users"
-msgstr ""
-
-#: system/classes/adminhandler.php:2069
-msgid "Users"
-msgstr ""
-
-#: system/classes/adminhandler.php:2070
-msgid "View system log messages"
-msgstr ""
-
-#: system/classes/adminhandler.php:2070
-msgid "Logs"
-msgstr ""
-
-#: system/classes/adminhandler.php:2071
-msgid "Log out of the administration interface"
-msgstr ""
-
-#: system/classes/adminhandler.php:2071
-msgid "Logout"
-msgstr ""
-
-#: system/classes/adminhandler.php:2173
-msgid "+"
-msgstr ""
-
-#: system/classes/atomhandler.php:117
-msgid "First Page"
-msgstr ""
-
-#: system/classes/atomhandler.php:125
-msgid "Previous Page"
-msgstr ""
-
-#: system/classes/atomhandler.php:134
-msgid "Next Page"
-msgstr ""
-
-#: system/classes/atomhandler.php:142
-msgid "Last Page"
-msgstr ""
-
-#: system/classes/atomhandler.php:213
+#: system/classes/acl.php:781 system/classes/post.php:237
 #, php-format
-msgid "%1$s on \"%2$s\""
-msgstr ""
+msgid "Permissions to posts of type \"%s\""
+msgstr "对于 %s 类型文章的权限"
 
-#: system/classes/atomhandler.php:214
-msgid "Comment on "
-msgstr ""
+#: system/classes/acl.php:802 system/classes/acl.php:804
+#: system/classes/installhandler.php:694
+msgid "admin"
+msgstr "管理员"
 
-#: system/classes/atomhandler.php:214
-msgid " by "
-msgstr ""
+#: system/classes/acl.php:807 system/classes/acl.php:809
+#: system/classes/installhandler.php:705
+msgid "anonymous"
+msgstr "访客"
 
-#: system/classes/user.php:120
-#, php-format
-msgid "New user created: %s"
-msgstr ""
+#: system/classes/acl.php:838 system/classes/acl.php:840
+#: system/classes/installhandler.php:1521
+#: system/classes/installhandler.php:1523
+msgid "authenticated"
+msgstr "已验证"
 
-#: system/classes/user.php:157
-#, php-format
-msgid "User deleted: %s"
-msgstr ""
-
-#: system/classes/user.php:214
-#: system/classes/user.php:244
-#, php-format
-msgid "Successful login for %s"
-msgstr ""
-
-#: system/classes/user.php:220
-#, php-format
-msgid "Login attempt (via authentication plugin) for non-existant user %s"
-msgstr ""
-
-#. No such user.
-#: system/classes/user.php:235
-#, php-format
-msgid "Login attempt for non-existant user %s"
-msgstr ""
-
-#. Wrong password.
-#: system/classes/user.php:251
-#, php-format
-msgid "Wrong password for user %s"
-msgstr ""
-
-#: system/classes/htmltokenizer.php:74
+#: system/classes/htmltokenizer.php:81
 #, php-format
 msgid "Invalid state %d in %s->parse()"
-msgstr ""
+msgstr "不正确的状态 %d 于 %s->parse()"
 
-#: system/classes/locale.php:73
-#, php-format
-msgid "No translations found for locale %s, domain %s!"
-msgstr ""
-
-#: system/classes/locale.php:77
-#, php-format
-msgid "Invalid .MO file for locale %s, domain %s!"
-msgstr ""
-
-#: system/classes/locale.php:97
-#, php-format
-msgid "Invalid magic number 0x%08x in %s!"
-msgstr ""
-
-#: system/classes/locale.php:103
-#, php-format
-msgid "Unknown revision number %d in %s!"
-msgstr ""
-
-#: system/classes/locale.php:114
-#, php-format
-msgid "Message count (%d) out of bounds in %s!"
-msgstr ""
-
-#: system/classes/usergroup.php:94
-#, php-format
-msgid "New group created: %s"
-msgstr ""
-
-#: system/classes/usergroup.php:114
-#, php-format
-msgid "User Group updated: %s"
-msgstr ""
-
-#: system/classes/error.php:71
-#, php-format
-msgid "%1$s in %2$s line %3$s on request of \"%4$s\""
-msgstr ""
-
-#: system/classes/error.php:163
-#, php-format
-msgid " ...%d arg... "
-msgid_plural " ...%d args... "
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/classes/error.php:167
-#, php-format
-msgid ""
-"%s line %d:\n"
-"  %s(%s)\n"
-msgstr ""
-
-#: system/classes/logentry.php:156
-#: system/classes/logentry.php:238
-#: system/classes/logentry.php:250
-msgid "Unknown"
-msgstr ""
-
-#: system/classes/tags.php:46
-#, php-format
-msgid "Tag deleted: %s"
-msgstr ""
-
-#: system/classes/url.php:199
-#, php-format
-msgid ""
-"Could not find a rule matching the following names: %s. File: %s (line %s)"
-msgstr ""
-
-#: system/classes/socketrequestprocessor.php:58
+#: system/classes/socketrequestprocessor.php:75
 #, php-format
 msgid "%s: Error %d: %s while connecting to %s:%d"
-msgstr ""
+msgstr "%1$s: 错误 %2$d: 尝试连接到 %4$s:%5$d 时，%3$s"
 
-#: system/classes/socketrequestprocessor.php:96
+#: system/classes/socketrequestprocessor.php:113
 msgid "Error writing to socket."
-msgstr ""
+msgstr "写入套接字时发生错误。"
 
-#: system/classes/socketrequestprocessor.php:128
+#: system/classes/socketrequestprocessor.php:145
 msgid "Maximum number of redirections exceeded."
-msgstr ""
+msgstr "到达重定向最大次数上限。"
 
-#: system/classes/socketrequestprocessor.php:134
+#: system/classes/socketrequestprocessor.php:151
 msgid "Redirection response without Location: header."
-msgstr ""
+msgstr "重定向的响应未包含 Location: 标头。"
 
-#: system/classes/socketrequestprocessor.php:170
-#: system/classes/socketrequestprocessor.php:179
-#: system/classes/curlrequestprocessor.php:94
-#: system/classes/curlrequestprocessor.php:103
+#: system/classes/socketrequestprocessor.php:187
+#: system/classes/socketrequestprocessor.php:196
+#: system/classes/curlrequestprocessor.php:132
+#: system/classes/curlrequestprocessor.php:141
 msgid "Request did not yet execute."
-msgstr ""
+msgstr "请求尚未执行。"
 
-#. Die gracefully before the segfault occurs
-#: system/classes/databaseconnection.php:248
-msgid "Attempt to fetch in class mode with a non-included class"
-msgstr ""
+#: system/classes/xmlrpcclient.php:101
+msgid "Invalid XML response."
+msgstr "不正确的 XML 回应。"
 
-#: system/classes/databaseconnection.php:322
-#, php-format
-msgid "not yet supported on %s"
-msgstr ""
-
-#: system/classes/rpcclient.php:21
-msgid "xmlrpc extension not found"
-msgstr ""
-
-#: system/classes/inputfilter.php:383
-#, php-format
-msgid "Unkown attribute type \"%s\" in %s"
-msgstr ""
-
-#: system/classes/inputfilter.php:493
-#, php-format
-msgid "Undead token \"%s\" (%d) in %s"
-msgstr ""
-
-#: system/classes/site.php:56
-msgid "Could not determine script name."
-msgstr ""
-
-#: system/classes/remoterequest.php:109
-msgid "Trying to add a request body to a non-POST request"
-msgstr ""
-
-#: system/classes/remoterequest.php:192
-msgid "Trying to fetch response headers for a pending request."
-msgstr ""
-
-#: system/classes/remoterequest.php:203
-msgid "Trying to fetch response body for a pending request."
-msgstr ""
-
-#: system/classes/userhandler.php:67
-msgid "Bad credentials"
-msgstr ""
-
-#: system/classes/plugins.php:453
-#, php-format
-msgid ""
-"Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
-"<div class=\"reveal\">%s</div>"
-msgstr ""
-
-#: system/classes/bitmask.php:18
-msgid ""
-"Bitmask constructor expects either no arguments or an array as a first "
-"argument"
-msgstr ""
-
-#: system/classes/formui.php:621
-msgid "Value must be a valid URL."
-msgstr ""
-
-#: system/classes/formui.php:637
-msgid "Value must be a valid Email Address."
-msgstr ""
-
-#: system/classes/formui.php:651
-msgid "A value for this field is required."
-msgstr ""
-
-#: system/classes/formui.php:673
-msgid "The value does not meet submission requirements"
-msgstr ""
-
-#: system/classes/formui.php:1272
-msgid "Remove this item?"
-msgstr ""
-
-#: system/classes/tag.php:151
+#: system/classes/tag.php:215
 #, php-format
 msgid "New tag %1$s (%2$s);  Slug: %3$s"
-msgstr ""
+msgstr "新的标签 %1$s (%2$s);  代称: %3$s"
 
-#: system/classes/tag.php:213
+#: system/classes/tag.php:261
 #, php-format
 msgid "Tag %1$s (%2$s) deleted."
+msgstr "已删除标签 %1$s (%2$s)。"
+
+#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1114
+msgid "Password mis-match."
+msgstr "密码错误。"
+
+#: system/classes/installhandler.php:153
+#: system/classes/installhandler.php:1663
+#: system/classes/installhandler.php:1734
+msgid "Allowed characters are A-Z, a-z and \"_\"."
 msgstr ""
 
-#: system/classes/xmlrpcexception.php:33
-msgid "parse error. not well formed"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:35
-msgid "parse error. unsupported encoding"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:37
-msgid "parse error. invalid character for encoding"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:39
-msgid "server error. invalid xml-rpc. not conforming to spec."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:41
-msgid "server error. requested method not found"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:43
-msgid "server error. invalid method parameters"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:45
-msgid "server error. internal xml-rpc error"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:47
-msgid "application error"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:49
-msgid "system error"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:51
-msgid "transport error"
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:55
-msgid "The source URI does not exist."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:57
-msgid ""
-"The source URI does not contain a link to the target URI, and so cannot be "
-"used as a source."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:59
-msgid "The specified target URI does not exist."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:61
-msgid "The specified target URI cannot be used as a target."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:63
-msgid "The pingback has already been registered."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:65
-msgid "Access denied."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:67
-msgid ""
-"The server could not communicate with an upstream server, or received an "
-"error from an upstream server, and therefore could not complete the request."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:71
-msgid "This XMLRPC server only accepts POST requests."
-msgstr ""
-
-#: system/classes/xmlrpcexception.php:74
-msgid "Unknown XMLRPC Exception"
-msgstr ""
-
-#: system/classes/colorutils.php:31
-msgid "Not a valid hex color."
-msgstr ""
-
-#: system/classes/colorutils.php:53
-msgid "Not a valid color format."
-msgstr ""
-
-#: system/classes/colorutils.php:104
-msgid "Something went terribly wrong here."
-msgstr ""
-
-#. do some error handling here. The connect string does not have a corresponding DB connection object
-#: system/classes/db.php:61
-msgid ""
-"Panic! No database connection class appears to be found for the connection "
-"string specified. Please check config.php"
-msgstr ""
-
-#: system/classes/apccache.php:20
-#: system/classes/apccache.php:21
-msgid "The APC Cache PHP module is not loaded - the cache is disabled."
-msgstr ""
-
-#: system/classes/theme.php:211
-msgid ""
-"Whoops! 404. The page you were trying to access is not really there. Please "
-"try again."
-msgstr ""
-
-#: system/classes/theme.php:728
-msgid "Previous"
-msgstr ""
-
-#: system/classes/theme.php:751
-msgid "Next"
-msgstr ""
-
-#: system/classes/installhandler.php:136
+#: system/classes/installhandler.php:164
 msgid "Could not write config.php file..."
-msgstr ""
+msgstr "无法写入 config.php 文件..."
 
-#: system/classes/installhandler.php:177
+#: system/classes/installhandler.php:190
 msgid "Habari successfully installed."
-msgstr ""
+msgstr "Habari 已成功安装。"
 
-#: system/classes/installhandler.php:311
+#: system/classes/installhandler.php:401
 msgid "User is required."
-msgstr ""
+msgstr "账号为必填项。"
 
-#: system/classes/installhandler.php:315
+#: system/classes/installhandler.php:405
 msgid "Name for database is required."
-msgstr ""
+msgstr "数据库名称为必填项。"
 
-#: system/classes/installhandler.php:319
+#: system/classes/installhandler.php:409
 msgid "Host is required."
-msgstr ""
+msgstr "服务器地址为必填项。"
 
-#: system/classes/installhandler.php:333
+#: system/classes/installhandler.php:428 system/classes/installhandler.php:639
 msgid "Problem connecting to supplied database credentials"
-msgstr ""
+msgstr "数据库连接发生问题"
 
-#: system/classes/installhandler.php:349
+#: system/classes/installhandler.php:444
 #, php-format
 msgid "Could not create schema tables... %s"
-msgstr ""
+msgstr "无法建立表格... %s"
 
-#: system/classes/installhandler.php:358
+#: system/classes/installhandler.php:453
 msgid "Problem creating default options"
+msgstr "加载默认选项时发生问题"
+
+#: system/classes/installhandler.php:461
+msgid "Problem creating tags vocabulary"
 msgstr ""
 
-#: system/classes/installhandler.php:369
+#: system/classes/installhandler.php:468
+msgid "Problem creating base post types"
+msgstr "建立基本文章类型时发生问题"
+
+#: system/classes/installhandler.php:479
 msgid "Problem creating admin user."
-msgstr ""
+msgstr "建立管理员账号时发生问题。"
 
-#: system/classes/installhandler.php:378
+#: system/classes/installhandler.php:485
+msgid "Problem creating admin group."
+msgstr "建立管理员组时出错。"
+
+#: system/classes/installhandler.php:496
 msgid "Problem creating first post."
-msgstr ""
+msgstr "建立第一篇文章时发生问题。"
 
-#: system/classes/installhandler.php:412
-#: system/classes/installhandler.php:1135
-msgid "The SQLite data file is not writable by the web server."
-msgstr ""
+#: system/classes/installhandler.php:533 system/classes/installhandler.php:566
+#: system/classes/installhandler.php:1678
+#: system/classes/installhandler.php:1749
+msgid "Access denied. Make sure these credentials are valid."
+msgstr "访问遭拒，请确认您提供的数据是否正确。"
 
-#: system/classes/installhandler.php:416
-#: system/classes/installhandler.php:1129
+#: system/classes/installhandler.php:536 system/classes/installhandler.php:569
+#: system/classes/installhandler.php:1682
+#: system/classes/installhandler.php:1753
+msgid "That database does not exist."
+msgstr "数据库不存在。"
+
+#: system/classes/installhandler.php:539 system/classes/installhandler.php:572
+#: system/classes/installhandler.php:1686
+#: system/classes/installhandler.php:1757
+msgid "Could not connect to host."
+msgstr "无法连接至服务器。"
+
+#: system/classes/installhandler.php:600
+#: system/classes/installhandler.php:1805
+#, php-format
 msgid ""
-"SQLite requires that the directory that holds the DB file be writable by the "
-"web server."
+"Cannot write to %s. The SQLite data file is not writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:425
+#: system/classes/installhandler.php:604
+#: system/classes/installhandler.php:1798
+#, php-format
 msgid ""
-"The SQLite data file does not exist, and it cannot be created in the "
-"specified directory.  SQLite requires that the directory containing the "
-"database file be writable by the web server."
+"Cannot write to %s directory. SQLite requires that the directory that holds "
+"the DB file be writable by the web server."
 msgstr ""
 
-#. Add the cronjob to truncate the log so that it doesn't get too big
-#: system/classes/installhandler.php:518
-#: system/classes/installhandler.php:958
+#: system/classes/installhandler.php:613
+#, php-format
+msgid ""
+"Cannot write to %s directory. The SQLite data file does not exist, and it "
+"cannot be created in the specified directory. SQLite requires that the "
+"directory containing the database file be writable by the web server."
+msgstr ""
+
+#: system/classes/installhandler.php:751
+#: system/classes/installhandler.php:1386
 msgid "Truncate the log table"
-msgstr ""
+msgstr "清空系统日志"
 
-#: system/classes/installhandler.php:543
+#: system/classes/installhandler.php:795
 msgid ""
 "This site is running <a href=\"http://habariproject.org/\">Habari</a>, a "
 "state-of-the-art publishing platform!  Habari is a community-driven project "
@@ -1871,100 +1621,52 @@ msgid ""
 "href=\"http://habariproject.org/\">http://habariproject.org/</a> to find out "
 "more!"
 msgstr ""
+"这个网站基于 <a href=\"http://habariproject.org/\">Habari</a> "
+"，它是一个现代的内容发表平台。Habari 是一个以社区为中心的项目，由世界各地的人们创造与支持。请访问 <a "
+"href=\"http://habariproject.org/\">http://habariproject.org/</a> 以深入了解。"
 
-#: system/classes/installhandler.php:606
+#: system/classes/installhandler.php:858
 msgid "currently unsupported."
+msgstr "目前未支持。"
+
+#: system/classes/installhandler.php:972
+msgid "No admin user found"
 msgstr ""
 
-#: system/classes/installhandler.php:993
-#: system/classes/installhandler.php:1057
+#: system/classes/installhandler.php:1371
+msgid "Site Maintenance"
+msgstr ""
+
+#: system/classes/installhandler.php:1372
+msgid "Habari is currently being upgraded."
+msgstr ""
+
+#: system/classes/installhandler.php:1373
+msgid "Try again in a little while."
+msgstr ""
+
+#: system/classes/installhandler.php:1564
+msgid "Manage dashboard modules"
+msgstr ""
+
+#: system/classes/installhandler.php:1645
+#: system/classes/installhandler.php:1716
 msgid "The database host field was left empty."
-msgstr ""
+msgstr "数据库服务器地址为空白。"
 
-#: system/classes/installhandler.php:999
-#: system/classes/installhandler.php:1063
+#: system/classes/installhandler.php:1651
+#: system/classes/installhandler.php:1722
 msgid "The database name field was left empty."
-msgstr ""
+msgstr "数据库名称为空白。"
 
-#: system/classes/installhandler.php:1005
-#: system/classes/installhandler.php:1069
+#: system/classes/installhandler.php:1657
+#: system/classes/installhandler.php:1728
 msgid "The database user field was left empty."
-msgstr ""
+msgstr "数据库账号为空白。"
 
-#: system/classes/installhandler.php:1020
-#: system/classes/installhandler.php:1084
-msgid "Access denied. Make sure these credentials are valid."
-msgstr ""
-
-#: system/classes/installhandler.php:1024
-#: system/classes/installhandler.php:1088
-msgid "That database does not exist."
-msgstr ""
-
-#: system/classes/installhandler.php:1028
-#: system/classes/installhandler.php:1092
-msgid "Could not connect to host."
-msgstr ""
-
-#: system/classes/installhandler.php:1122
+#: system/classes/installhandler.php:1788
 msgid "The database file was left empty."
-msgstr ""
-
-#: system/classes/post.php:606
-#, php-format
-msgid "New post %1$s (%2$s);  Type: %3$s; Status: %4$s"
-msgstr ""
-
-#: system/classes/post.php:692
-#, php-format
-msgid "Post %1$s (%2$s) deleted."
-msgstr ""
-
-#: system/classes/post.php:727
-#, php-format
-msgid "Scheduled Post %1$s (%2$s) published at %3$s."
-msgstr ""
-
-#: system/classes/post.php:730
-#, php-format
-msgid "Post %1$s (%2$s) published."
-msgstr ""
-
-#: system/classes/comments.php:268
-#: system/classes/comments.php:280
-#: system/classes/comments.php:512
-#, php-format
-msgid "Comment %1$s deleted from %2$s"
-msgstr ""
-
-#: system/classes/comments.php:309
-#, php-format
-msgid "Comment %1$s moderated from %2$s"
-msgstr ""
-
-#: system/classes/comments.php:316
-#, php-format
-msgid "Comment Moderated on %s"
-msgstr ""
-
-#. 
-#. * It is important to note that subclasses MUST override this
-#. * method, as get_class will ALWAYS return 'Singleton' when
-#. * subclasses call this method through inheritance
-#. * return self::getInstanceOf( get_class() );
-#. 
-#: system/classes/singleton.php:25
-msgid "Not implemented: instance"
-msgstr ""
-
-#: system/classes/acl.php:88
-#, php-format
-msgid "Permission deleted: %s"
-msgstr ""
-
-#: system/classes/xmlrpcclient.php:95
-msgid "Invalid XML response."
-msgstr ""
+msgstr "数据库是空的。"
 
 #: system/classes/filecache.php:39
 #, php-format
@@ -1972,994 +1674,2642 @@ msgid ""
 "The cache directory '%s' is not writable - the cache is disabled. The user, "
 "or group, which your web server is running as, needs to have read, write, "
 "and execute permissions on this directory."
-msgstr ""
+msgstr "缓存目录 <code>%s</code> 无法写入，缓存功能已停用。服务器的用户或组必须要有在此目录中读取、写入及执行文件的权限。"
 
 #: system/classes/filecache.php:40
 #, php-format
 msgid "The cache directory '%s' is not writable - the cache is disabled."
+msgstr "缓存目录 <code>%s</code> 无法写入，缓存功能已停用。"
+
+#: system/classes/post.php:520
+#, php-format
+msgid "New post %1$s (%2$s);  Type: %3$s; Status: %4$s"
+msgstr "新文章 %1$s (%2$s); 类型: %3$s; 状态: %4$s"
+
+#: system/classes/post.php:615
+#, php-format
+msgid "Post %1$s (%2$s) deleted."
+msgstr "已删除文章 %1$s (%2$s)。"
+
+#: system/classes/post.php:649
+#, php-format
+msgid "Scheduled Post %1$s (%2$s) published at %3$s."
+msgstr "文章 %1$s (%2$s) 已预定于 %3$s 发表。"
+
+#: system/classes/post.php:652
+#, php-format
+msgid "Post %1$s (%2$s) published."
+msgstr "已发表文章 %1$s (%2$s)。"
+
+#: system/classes/post.php:784
+msgid "Preview Post"
+msgstr "预览文章"
+
+#: system/classes/post.php:784
+msgid "View Post"
+msgstr "查看文章"
+
+#: system/classes/post.php:789
+msgid "Title"
+msgstr "标题"
+
+#: system/classes/post.php:810
+msgid "Tags, separated by, commas"
+msgstr "以逗号, 分隔, 标签"
+
+#: system/classes/post.php:827
+msgid "Content State"
+msgstr "状态"
+
+#: system/classes/post.php:836
+msgid "Minor Edit"
+msgstr "小修改"
+
+#: system/classes/post.php:841
+msgid "Comments Allowed"
+msgstr "允许评论"
+
+#: system/classes/post.php:844
+msgid "Publication Time"
+msgstr "发表时间"
+
+#: system/classes/post.php:850
+msgid "Content Address"
+msgstr "易记网址"
+
+#: system/classes/post.php:926
+msgid "Name <span class=\"required\">*Required</span>"
 msgstr ""
 
-#: system/classes/themes.php:82
-msgid "There is no valid theme currently installed."
+#: system/classes/post.php:928
+msgid "The Name field value is required"
 msgstr ""
 
-#: system/classes/themes.php:165
-#: system/classes/themes.php:174
-msgid "Theme not installed."
+#: system/classes/post.php:938 system/classes/adminhandler.php:788
+msgid "Email"
+msgstr "E-mail"
+
+#: system/classes/post.php:940
+msgid "The Email field value must be a valid email address"
 msgstr ""
 
-#: system/classes/comment.php:196
+#: system/classes/post.php:944
+msgid "Email <span class=\"required\">*Required</span>"
+msgstr ""
+
+#: system/classes/post.php:955
+msgid "The Web Site field value must be a valid URL"
+msgstr ""
+
+#: system/classes/post.php:967
+msgid "The Content field value is required"
+msgstr ""
+
+#: system/classes/xmlrpcexception.php:37
+msgid "parse error. not well formed"
+msgstr "XML 解析错误: 格式不良 (Not well formed)。"
+
+#: system/classes/xmlrpcexception.php:39
+msgid "parse error. unsupported encoding"
+msgstr "XML 解析错误: 字符编码未支持。"
+
+#: system/classes/xmlrpcexception.php:41
+msgid "parse error. invalid character for encoding"
+msgstr "XML 解析错误: 不正确或不存在于指定字符编码中的字符。"
+
+#: system/classes/xmlrpcexception.php:43
+msgid "server error. invalid xml-rpc. not conforming to spec."
+msgstr "服务器错误: XML-RPC 呼叫不符合规范。"
+
+#: system/classes/xmlrpcexception.php:45
+msgid "server error. requested method not found"
+msgstr "服务器错误: 请求的方式不存在"
+
+#: system/classes/xmlrpcexception.php:47
+msgid "server error. invalid method parameters"
+msgstr "服务器错误: 不正确的方式参数"
+
+#: system/classes/xmlrpcexception.php:49
+msgid "server error. internal xml-rpc error"
+msgstr "服务器错误: XML-RPC 内部错误"
+
+#: system/classes/xmlrpcexception.php:51
+msgid "application error"
+msgstr "程序错误"
+
+#: system/classes/xmlrpcexception.php:53
+msgid "system error"
+msgstr "系统错误"
+
+#: system/classes/xmlrpcexception.php:55
+msgid "transport error"
+msgstr "传输错误"
+
+#: system/classes/xmlrpcexception.php:59
+msgid "The source URI does not exist."
+msgstr "来源网页不存在。"
+
+#: system/classes/xmlrpcexception.php:61
+msgid ""
+"The source URI does not contain a link to the target URI, and so cannot be "
+"used as a source."
+msgstr "来源地址未包含目标地址链接，无法作为来源。"
+
+#: system/classes/xmlrpcexception.php:63
+msgid "The specified target URI does not exist."
+msgstr "指定的目标网页不存在"
+
+#: system/classes/xmlrpcexception.php:65
+msgid "The specified target URI cannot be used as a target."
+msgstr "指定的目标地址无法作为目标。"
+
+#: system/classes/xmlrpcexception.php:67
+msgid "The pingback has already been registered."
+msgstr "该引用通告已记录过。"
+
+#: system/classes/xmlrpcexception.php:69
+msgid "Access denied."
+msgstr "禁止访问。"
+
+#: system/classes/xmlrpcexception.php:71
+msgid ""
+"The server could not communicate with an upstream server, or received an "
+"error from an upstream server, and therefore could not complete the request."
+msgstr "服务器无法连接上游服务器或从上游服务器收到错误信息，无法完成这项请求。"
+
+#: system/classes/xmlrpcexception.php:75
+msgid "This XMLRPC server only accepts POST requests."
+msgstr "此 XML-RPC 服务器只接受 POST 请求。"
+
+#: system/classes/xmlrpcexception.php:78
+msgid "Unknown XMLRPC Exception"
+msgstr "不明的 XML-RPC 例外"
+
+#: system/classes/error.php:83
+#, php-format
+msgid "%1$s in %2$s line %3$s on request of \"%4$s\""
+msgstr "用户读取 “%4$s”时，于 %2$s 的第 %3$s 行发生 %1$s"
+
+#: system/classes/error.php:103
+msgid "Error"
+msgstr ""
+
+#: system/classes/error.php:104
+msgid "Warning"
+msgstr ""
+
+#: system/classes/error.php:105
+msgid "Parse Error"
+msgstr ""
+
+#: system/classes/error.php:106
+msgid "Notice"
+msgstr ""
+
+#: system/classes/error.php:107
+msgid "Core Error"
+msgstr ""
+
+#: system/classes/error.php:108
+msgid "Core Warning"
+msgstr ""
+
+#: system/classes/error.php:109
+msgid "Compile Error"
+msgstr ""
+
+#: system/classes/error.php:110
+msgid "Compile Warning"
+msgstr ""
+
+#: system/classes/error.php:111
+msgid "User Error"
+msgstr ""
+
+#: system/classes/error.php:112
+msgid "User Warning"
+msgstr ""
+
+#: system/classes/error.php:113
+msgid "User Notice"
+msgstr ""
+
+#: system/classes/error.php:114
+msgid "Strict Notice"
+msgstr ""
+
+#: system/classes/error.php:115
+msgid "Recoverable Error"
+msgstr ""
+
+#: system/classes/error.php:118
+msgid "Deprecated violation"
+msgstr ""
+
+#: system/classes/error.php:119
+msgid "User deprecated violation"
+msgstr ""
+
+#: system/classes/error.php:200
+#, php-format
+msgid " ...%d arg... "
+msgid_plural " ...%d args... "
+msgstr[0] " ...%d 个参数... "
+
+#: system/classes/error.php:204
+#, php-format
+msgid ""
+"%s line %d:\n"
+"  %s(%s)\n"
+msgstr ""
+"%s 行 %d:\n"
+"  %s(%s)\n"
+
+#: system/classes/session.php:102
+msgid "Your session expired."
+msgstr "您的登陆阶段已超时。"
+
+#: system/classes/user.php:77 system/classes/comment.php:199
 msgid "Anonymous"
-msgstr ""
+msgstr "访客"
 
-#: system/classes/curlrequestprocessor.php:60
+#: system/classes/user.php:153
 #, php-format
-msgid "%s: CURL Error %d: %s"
-msgstr ""
+msgid "New user created: %s"
+msgstr "已新增用户 %s"
 
-#: system/classes/curlrequestprocessor.php:65
+#: system/classes/user.php:195
 #, php-format
-msgid "Bad return code (%1$d) for: %2$s"
+msgid "User deleted: %s"
+msgstr "已删除用户 %s"
+
+#: system/classes/user.php:253 system/classes/user.php:282
+#, php-format
+msgid "Successful login for %s"
+msgstr "%s 成功登陆"
+
+#: system/classes/user.php:260
+#, php-format
+msgid "Login attempt (via authentication plugin) for non-existent user %s"
+msgstr "不存在的用户 %s 尝试通过认证插件登陆。"
+
+#: system/classes/user.php:261 system/classes/user.php:273
+#: system/classes/user.php:291
+msgid "Invalid username/password"
 msgstr ""
 
-#: system/classes/utils.php:419
+#: system/classes/user.php:272
+#, php-format
+msgid "Login attempt for non-existent user %s"
+msgstr "不存在的用户 %s 尝试登陆。"
+
+#: system/classes/user.php:290
+#, php-format
+msgid "Wrong password for user %s"
+msgstr "账号 %s 的密码错误"
+
+#: system/classes/user.php:508
+#, php-format
+msgid "User %1$s: Access to %2$s changed to %3$s"
+msgstr "用户 %1$s 访问 %2$s 的权限更改为 %3$s"
+
+#: system/classes/user.php:532
+#, php-format
+msgid "User %1$s: Permission to %2$s revoked."
+msgstr "已撤回用户 %1$s 对于 %2$s 的权限"
+
+#: system/classes/user.php:571
+#, php-format
+msgid " User %1$s: Added to %2$s group."
+msgstr " 用户 %1$s 已加入 %2$s 群组。"
+
+#: system/classes/user.php:585
+#, php-format
+msgid " User %1$s: Removed from %2$s group."
+msgstr " 用户 %1$s 已退出 %2$s 群组。"
+
+#: system/classes/modules.php:220 system/classes/modules.php:221
+#: system/classes/modules.php:222
+msgid "System Status"
+msgstr "系统状态"
+
+#: system/classes/apccache.php:25 system/classes/apccache.php:26
+msgid "The APC Cache PHP module is not loaded - the cache is disabled."
+msgstr "PHP APC 缓存模块未加载，缓存已停用。"
+
+#: system/classes/url.php:219
+#, php-format
+msgid ""
+"Could not find a rule matching the following names: %s. File: %s (line %s)"
+msgstr "找不到符合条件的文件: %s。 文件: %s (第 %s 行)"
+
+#: system/classes/db.php:65
+msgid ""
+"Panic! No database connection class appears to be found for the connection "
+"string specified. Please check config.php"
+msgstr "发生严重错误！找不到连接字符串对应的数据库连接类别，请检查 config.php。"
+
+#: system/classes/userhandler.php:31
+#, php-format
+msgid "Please visit %1$s to reset your password."
+msgstr "请点击 %1$s 以重设您的密码。"
+
+#: system/classes/userhandler.php:33
+#, php-format
+msgid "[%1$s] Password reset request for %2$s"
+msgstr "[%1$s] %2$s 提交的密码重设请求"
+
+#: system/classes/userhandler.php:36
+msgid "A password reset request has been sent to the user."
+msgstr "密码重设请求已发送至用户信箱。"
+
+#: system/classes/userhandler.php:98
+msgid "Bad credentials"
+msgstr "错误的登陆信息"
+
+#: system/classes/userhandler.php:184
+#, php-format
+msgid ""
+"Your password for %1$s has been reset.  Your credentials are as follows---\n"
+"Username: %2$s\n"
+"Password: %3$s"
+msgstr ""
+"%1$s 的密码已被重设，请使用下列信息重新登陆\n"
+"账号: %2$s\n"
+"密码: %3$s"
+
+#: system/classes/userhandler.php:186
+#, php-format
+msgid "[%1$s] Password has been reset for %2$s"
+msgstr "[%1$s] %2$s 的密码已被重设"
+
+#: system/classes/userhandler.php:187
+msgid "A new password has been sent to the user."
+msgstr "新的密码已发送至用户信箱。"
+
+#: system/classes/userhandler.php:190
+msgid "There was a problem resetting the password.  It was not reset."
+msgstr "重设密码时发生错误，密码未重设。"
+
+#: system/classes/userhandler.php:200
+msgid "The supplied password reset token has expired or is invalid."
+msgstr "此密码重设请求不正确或已超时。"
+
+#: system/classes/block.php:201
+#, php-format
+msgid "New block %1$s: %2$s"
+msgstr ""
+
+#: system/classes/block.php:249
+#, php-format
+msgid "Block %1$s (%2$s) deleted."
+msgstr ""
+
+#: system/classes/block.php:265
+msgid "Saved block configuration."
+msgstr ""
+
+#: system/classes/rpcclient.php:26
+msgid "xmlrpc extension not found"
+msgstr "找不到 XMLRPC 模块"
+
+#: system/classes/vocabulary.php:222
+#, php-format
+msgid "New vocabulary %1$s (%2$s)"
+msgstr ""
+
+#: system/classes/vocabulary.php:294
+#, php-format
+msgid "Vocabulary %1$s (%2$s) deleted."
+msgstr ""
+
+#: system/classes/plugin.php:62 system/classes/adminhandler.php:1867
+#: system/classes/adminhandler.php:1917 system/classes/pluggable.php:148
+msgid "?"
+msgstr "说明"
+
+#: system/classes/utils.php:417
 #, php-format
 msgid "Unsupported digest algorithm \"%s\""
-msgstr ""
+msgstr "不支持此信息摘要算法: %s"
 
-#: system/classes/utils.php:429
-#: system/classes/utils.php:488
+#: system/classes/utils.php:427 system/classes/utils.php:488
 #: system/classes/utils.php:527
 msgid "Invalid hash"
-msgstr ""
+msgstr "不正确的哈希值"
 
 #: system/classes/utils.php:713
 msgid "Unbalanced braces."
+msgstr "引号不平衡。"
+
+#: system/classes/adminhandler.php:37 system/classes/adminhandler.php:42
+msgid ""
+"We saved the last form you posted. Log back in to continue its submission."
+msgstr "您的最后一次编辑已自动保存，请在登陆后继续编辑。"
+
+#: system/classes/adminhandler.php:121 system/classes/adminhandler.php:731
+msgid "Access to that page has been denied by the administrator."
+msgstr "该页面已被管理员设定为禁止进入。"
+
+#: system/classes/adminhandler.php:136
+#, php-format
+msgid "%1$s->%2$s() does not exist."
+msgstr "%1$s->%2$s() 不存在。"
+
+#: system/classes/adminhandler.php:157
+msgid "The page you were looking for was not found."
+msgstr "找不到您所要找的页面。"
+
+#: system/classes/adminhandler.php:200
+msgid "Name & Tagline"
+msgstr "标题与副标题"
+
+#: system/classes/adminhandler.php:202 system/installer/db_setup.php:169
+msgid "Site Name"
+msgstr "网站名称"
+
+#: system/classes/adminhandler.php:207
+msgid "Site Tagline"
+msgstr "副标题"
+
+#: system/classes/adminhandler.php:218
+#: system/plugins/pingback/pingback.plugin.php:307
+msgid "Publishing"
+msgstr "发布"
+
+#: system/classes/adminhandler.php:220
+msgid "Items per Page"
+msgstr "每页几篇文章"
+
+#: system/classes/adminhandler.php:225
+msgid "Entries to show in Atom feed"
+msgstr "在 Atom 中显示文章数量"
+
+#: system/classes/adminhandler.php:230
+msgid "Require Comment Author Info"
+msgstr "要求留言者输入个人信息"
+
+#: system/classes/adminhandler.php:236
+msgid "Time & Date"
+msgstr "时间与日期"
+
+#: system/classes/adminhandler.php:246
+msgid "Time Zone"
+msgstr "时区"
+
+#: system/classes/adminhandler.php:249
+#, php-format
+msgid "Current Date Time: %s"
 msgstr ""
 
-#: system/classes/feedbackhandler.php:28
+#: system/classes/adminhandler.php:252 system/classes/adminhandler.php:822
+msgid "Date Format"
+msgstr "日期格式"
+
+#: system/classes/adminhandler.php:254
+#, php-format
+msgid "Current Date: %s"
+msgstr ""
+
+#: system/classes/adminhandler.php:257 system/classes/adminhandler.php:833
+msgid "Time Format"
+msgstr "时间格式"
+
+#: system/classes/adminhandler.php:259
+#, php-format
+msgid "Current Time: %s"
+msgstr ""
+
+#: system/classes/adminhandler.php:263 system/installer/locale_dropdown.php:6
+msgid "Language"
+msgstr "语言"
+
+#: system/classes/adminhandler.php:265 system/installer/locale_dropdown.php:2
+msgid "Locale"
+msgstr "语系"
+
+#: system/classes/adminhandler.php:268
+msgid "International language code"
+msgstr ""
+
+#: system/classes/adminhandler.php:271
+msgid "System Locale"
+msgstr "系统语系"
+
+#: system/classes/adminhandler.php:273
+msgid "The appropriate locale code for your server"
+msgstr ""
+
+#: system/classes/adminhandler.php:277
+msgid "Troubleshooting"
+msgstr "疑难解答"
+
+#: system/classes/adminhandler.php:279
+msgid "Minimum Severity"
+msgstr ""
+
+#: system/classes/adminhandler.php:282
+msgid "Only log entries with a this or higher severity."
+msgstr ""
+
+#: system/classes/adminhandler.php:285
+msgid "Log Backtraces"
+msgstr "记录逆向追踪"
+
+#: system/classes/adminhandler.php:287
+msgid ""
+"Logs error backtraces to the log table's data column. Can drastically "
+"increase log size!"
+msgstr ""
+
+#: system/classes/adminhandler.php:349
+msgid "Successfully updated options"
+msgstr "设定已更新"
+
+#: system/classes/adminhandler.php:503 system/classes/adminhandler.php:657
+#: system/classes/adminhandler.php:658
+#, php-format
+msgid "Publish %s"
+msgstr "发表%s"
+
+#: system/classes/adminhandler.php:507
+#, php-format
+msgid ""
+"The post %1$s was updated since you made changes.  Please review those "
+"changes before overwriting them."
+msgstr ""
+
+#: system/classes/adminhandler.php:522
+msgid "A post slug cannot be empty. Keeping old slug."
+msgstr "文章代称不可为空白，将保留旧的代称。"
+
+#: system/classes/adminhandler.php:532 system/classes/adminhandler.php:634
+#: system/classes/adminhandler.php:638
+msgid "You don't have permission to edit that post"
+msgstr ""
+
+#: system/classes/adminhandler.php:539
+msgid "Changing content types is not allowed"
+msgstr ""
+
+#: system/classes/adminhandler.php:568
+msgid "Creating that post type is denied"
+msgstr ""
+
+#: system/classes/adminhandler.php:616
+#, php-format
+msgid "The post %1$s has been saved as %2$s."
+msgstr "文章 %1$s 已保存为 %2$s。"
+
+#: system/classes/adminhandler.php:652
+#, php-format
+msgid "Access to create posts of type %s is denied"
+msgstr ""
+
+#: system/classes/adminhandler.php:701
+#, php-format
+msgid "Deleted the %1$s titled \"%2$s\"."
+msgstr "已删除 %1$s ‘%2$s’。"
+
+#: system/classes/adminhandler.php:718
+msgid "You"
+msgstr "您"
+
+#: system/classes/adminhandler.php:719
+msgid "Your User Information"
+msgstr "您的用户信息"
+
+#: system/classes/adminhandler.php:727
+#, php-format
+msgid "%s's User Information"
+msgstr "%s 的用户信息"
+
+#: system/classes/adminhandler.php:738 system/classes/adminhandler.php:1072
+msgid "nobody"
+msgstr "无"
+
+#: system/classes/adminhandler.php:752
+msgid "No such user!"
+msgstr "没有符合描述的用户。"
+
+#: system/classes/adminhandler.php:760
+msgid "Change Password"
+msgstr "更改密码"
+
+#: system/classes/adminhandler.php:761
+msgid "Regional Settings"
+msgstr "地区选项"
+
+#: system/classes/adminhandler.php:762 system/classes/adminhandler.php:3255
+msgid "Dashboard"
+msgstr "控制中心"
+
+#: system/classes/adminhandler.php:779
+msgid "Display Name"
+msgstr "显示名称"
+
+#: system/classes/adminhandler.php:783
+msgid "User Name"
+msgstr "用户名称"
+
+#: system/classes/adminhandler.php:793
+msgid "Portrait URL"
+msgstr "个人图像网址"
+
+#: system/classes/adminhandler.php:798
+msgid "New Password"
+msgstr "新密码"
+
+#: system/classes/adminhandler.php:803
+msgid "New Password Again"
+msgstr "再次输入新密码"
+
+#: system/classes/adminhandler.php:810
+msgid "Passwords must match."
+msgstr "密码不一致。"
+
+#: system/classes/adminhandler.php:816
+msgid "Timezone"
+msgstr "时区"
+
+#: system/classes/adminhandler.php:831 system/classes/adminhandler.php:842
+#, php-format
+msgid "See <a href=\"%s\">php.net/date</a> for details. Current format: %s"
+msgstr "设定方法请参阅 <a href=\"%s\">php.net/date</a> 。目前格式: %s"
+
+#: system/classes/adminhandler.php:845
+msgid "Hide Spam Count"
+msgstr "不显示垃圾评论数量"
+
+#: system/classes/adminhandler.php:847
+msgid "Hide the number of SPAM comments on your dashboard."
+msgstr "不要在控制中心显示垃圾评论数量"
+
+#: system/classes/adminhandler.php:858
+#, php-format
+msgid "Reassign posts to: %s"
+msgstr "将文章移交给 %s"
+
+#: system/classes/adminhandler.php:904
+#, php-format
+msgid "%s has been deleted"
+msgstr "%s 已删除"
+
+#: system/classes/adminhandler.php:909 system/classes/adminhandler.php:1047
+msgid "You cannot delete yourself."
+msgstr "您不能删除自己。"
+
+#: system/classes/adminhandler.php:917
+#, php-format
+msgid "%1$s has been renamed to %2$s."
+msgstr "%1$s 已更名为 %2$s。"
+
+#: system/classes/adminhandler.php:930
+msgid "Password changed."
+msgstr "密码已更改。"
+
+#: system/classes/adminhandler.php:953
+msgid "User updated."
+msgstr "用户数据已更新。"
+
+#: system/classes/adminhandler.php:989 system/classes/adminhandler.php:2291
+#: system/classes/adminhandler.php:2350 system/classes/adminhandler.php:2397
+#: system/classes/adminhandler.php:2764 system/classes/adminhandler.php:2975
+#: system/classes/adminhandler.php:3050
+msgid "WSSE authentication failed."
+msgstr "WSSE 身份验证失败。"
+
+#: system/classes/adminhandler.php:1017
+msgid "No users deleted."
+msgstr "未删除任何用户。"
+
+#: system/classes/adminhandler.php:1054
+#, php-format
+msgid "Deleted %d users."
+msgstr "已更新 %d 位用户。"
+
+#: system/classes/adminhandler.php:1111
+msgid "Password is required."
+msgstr "请填写密码。"
+
+#: system/classes/adminhandler.php:1117
+msgid "Please supply a valid email address."
+msgstr "请输入正确的 E-mail。"
+
+#: system/classes/adminhandler.php:1120
+msgid "Please supply a user name."
+msgstr "请输入用户名称。"
+
+#: system/classes/adminhandler.php:1125
+msgid "That username is already assigned."
+msgstr "用户名称与他人重复。"
+
+#: system/classes/adminhandler.php:1130
+#, php-format
+msgid "Added user '%s'"
+msgstr "用户「%s」已新增"
+
+#: system/classes/adminhandler.php:1175
+#, php-format
+msgid "Activated plugin '%s'"
+msgstr "已启用插件「%s」"
+
+#: system/classes/adminhandler.php:1184
+#, php-format
+msgid "Deactivated plugin '%s'"
+msgstr "已停用插件「%s」"
+
+#: system/classes/adminhandler.php:1284
+#, php-format
+msgid "Activated theme '%s'"
+msgstr "已启用主题「%s」"
+
+#: system/classes/adminhandler.php:1298
+#, php-format
+msgid "Ended the preview of the theme '%s'"
+msgstr ""
+
+#: system/classes/adminhandler.php:1302
+#, php-format
+msgid "Previewing theme '%s'"
+msgstr ""
+
+#: system/classes/adminhandler.php:1384
+msgid "Author"
+msgstr "作者"
+
+#: system/classes/adminhandler.php:1386
+msgid "Author Name"
+msgstr "作者姓名"
+
+#: system/classes/adminhandler.php:1389
+msgid "Author Email"
+msgstr "作者 E-mail"
+
+#: system/classes/adminhandler.php:1392
+msgid "Author URL"
+msgstr "作者网站"
+
+#: system/classes/adminhandler.php:1395
+msgid "IP Address:"
+msgstr "IP 地址:"
+
+#: system/classes/adminhandler.php:1402
+msgid "Date:"
+msgstr "日期:"
+
+#: system/classes/adminhandler.php:1407
+msgid "Post ID:"
+msgstr "文章编号:"
+
+#: system/classes/adminhandler.php:1412
+msgid "Status"
+msgstr "状态"
+
+#: system/classes/adminhandler.php:1601 system/classes/adminhandler.php:2424
+msgid "Deleted all spam comments"
+msgstr "已删除所有垃圾评论"
+
+#: system/classes/adminhandler.php:1607 system/classes/adminhandler.php:2428
+msgid "Deleted all unapproved comments"
+msgstr "已删除所有未批准的评论"
+
+#: system/classes/adminhandler.php:1641 system/classes/adminhandler.php:1655
+#, php-format
+msgid "Deleted %d comments"
+msgstr ""
+
+#: system/classes/adminhandler.php:1642 system/classes/adminhandler.php:1662
+#, php-format
+msgid "Marked %d comments as spam"
+msgstr ""
+
+#: system/classes/adminhandler.php:1643 system/classes/adminhandler.php:1670
+#, php-format
+msgid "Approved %d comments"
+msgstr ""
+
+#: system/classes/adminhandler.php:1644 system/classes/adminhandler.php:1681
+#, php-format
+msgid "Unapproved %d comments"
+msgstr ""
+
+#: system/classes/adminhandler.php:1645 system/classes/adminhandler.php:1704
+#, php-format
+msgid "Edited %d comments"
+msgstr ""
+
+#: system/classes/adminhandler.php:1672
+#, php-format
+msgid "Approved comments on these posts: %s"
+msgstr ""
+
+#: system/classes/adminhandler.php:1775
+#, php-format
+msgid "Change this comment's status to %s"
+msgstr "将这则评论的状态更改为 %s"
+
+#: system/classes/adminhandler.php:1779
+msgid "Delete this comment"
+msgstr "删除这则评论"
+
+#: system/classes/adminhandler.php:1780
+msgid "Edit this comment"
+msgstr "编辑这则评论"
+
+#: system/classes/adminhandler.php:1850 system/classes/adminhandler.php:1888
+msgid "Deactivate"
+msgstr "停用"
+
+#: system/classes/adminhandler.php:1932 system/installer/db_setup.php:10
+#: system/installer/db_setup.php:165 system/installer/db_setup.php:220
+msgid "Help"
+msgstr "说明"
+
+#: system/classes/adminhandler.php:2148 system/classes/adminhandler.php:2149
+msgid "Manage Posts"
+msgstr "文章管理"
+
+#: system/classes/adminhandler.php:2179
+msgid "Modules updated."
+msgstr ""
+
+#: system/classes/adminhandler.php:2184
+#, php-format
+msgid "Added module %s."
+msgstr ""
+
+#: system/classes/adminhandler.php:2190
+msgid "Removed module."
+msgstr ""
+
+#: system/classes/adminhandler.php:2311 system/classes/adminhandler.php:2419
+#, php-format
+msgid "Unknown action \"%s\""
+msgstr "未知的操作 “%s”"
+
+#: system/classes/adminhandler.php:2322
+msgid "You did not have permission to delete some entries."
+msgstr ""
+
+#: system/classes/adminhandler.php:2325
+#, php-format
+msgid "Deleted %d post"
+msgid_plural "Deleted %d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/adminhandler.php:2363
+msgid "No logs selected."
+msgstr ""
+
+#: system/classes/adminhandler.php:2375
+#, php-format
+msgid "Deleted %d logs."
+msgstr "已删除 %d 则系统日志。"
+
+#: system/classes/adminhandler.php:2379
+msgid "Logs purged."
+msgstr ""
+
+#: system/classes/adminhandler.php:2412
+msgid "No comments selected."
+msgstr "未选择任何评论。"
+
+#: system/classes/adminhandler.php:2433
+#, php-format
+msgid "Deleted %d comment"
+msgid_plural "Deleted %d comments"
+msgstr[0] "已删除 %d 则评论"
+
+#: system/classes/adminhandler.php:2438
+#, php-format
+msgid "Marked %d comment as spam"
+msgid_plural "Marked %d comments as spam"
+msgstr[0] "已将 %d 则评论标记为垃圾"
+
+#: system/classes/adminhandler.php:2444
+#, php-format
+msgid "Approved %d comment"
+msgid_plural "Approved %d comments"
+msgstr[0] "已批准 %d 则评论"
+
+#: system/classes/adminhandler.php:2450
+#, php-format
+msgid "Unapproved %d comment"
+msgid_plural "Unapproved %d comments"
+msgstr[0] "已将 %d 则评论标记为待审核"
+
+#: system/classes/adminhandler.php:2783
+#, php-format
+msgid "The group %s already exists"
+msgstr "%s 群组已存在"
+
+#: system/classes/adminhandler.php:2792
+msgid "The group must have a name"
+msgstr "组必须有名称"
+
+#: system/classes/adminhandler.php:2805
+#, php-format
+msgid "Added group %s"
+msgstr "%s 群组已建立"
+
+#: system/classes/adminhandler.php:2842
+msgid "No groups deleted."
+msgstr "未删除任何群组。"
+
+#: system/classes/adminhandler.php:2856
+#, php-format
+msgid "Deleted %d groups."
+msgstr "已删除 %d 个群组。"
+
+#: system/classes/adminhandler.php:3021
+msgid "Updated permissions."
+msgstr "权限已更新。"
+
+#: system/classes/adminhandler.php:3069
+#, php-format
+msgid "Tag %s has been deleted."
+msgid_plural "Tags %s have been deleted."
+msgstr[0] "已删除 %s 标签"
+
+#: system/classes/adminhandler.php:3094
+#, php-format
+msgid "Tag %1$s has been renamed to %2$s."
+msgid_plural "Tags %1$s have been renamed to %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/adminhandler.php:3120 system/classes/adminhandler.php:3122
+msgid "Habari Version"
+msgstr "Habari 版本"
+
+#: system/classes/adminhandler.php:3125
+msgid "Habari API Version"
+msgstr "Habari API 版本"
+
+#: system/classes/adminhandler.php:3126
+msgid "Habari DB Version"
+msgstr "Habari DB 版本"
+
+#: system/classes/adminhandler.php:3127
+msgid "Active Theme"
+msgstr "使用中的主题"
+
+#: system/classes/adminhandler.php:3128
+msgid "Site Language"
+msgstr "网站语系"
+
+#: system/classes/adminhandler.php:3132
+msgid "PHP Version"
+msgstr "PHP 版本"
+
+#: system/classes/adminhandler.php:3133
+msgid "Server Software"
+msgstr "服务器软件"
+
+#: system/classes/adminhandler.php:3134
+msgid "Database"
+msgstr "数据库"
+
+#: system/classes/adminhandler.php:3135
+msgid "PHP Extensions"
+msgstr "PHP 模块"
+
+#: system/classes/adminhandler.php:3137 system/classes/adminhandler.php:3146
+msgid "PCRE Version"
+msgstr "PCRE 版本"
+
+#: system/classes/adminhandler.php:3148
+msgid "Browser"
+msgstr "浏览器"
+
+#: system/classes/adminhandler.php:3228
+#, php-format
+msgid "Create a new %s"
+msgstr "建立新的 %s"
+
+#: system/classes/adminhandler.php:3232
+#, php-format
+msgid "Manage %s"
+msgstr "管理 %s"
+
+#: system/classes/adminhandler.php:3251
+msgid "Create content"
+msgstr "建立新的内容"
+
+#: system/classes/adminhandler.php:3251
+msgid "New"
+msgstr "新增"
+
+#: system/classes/adminhandler.php:3252
+msgid "Manage content"
+msgstr "管理内容"
+
+#: system/classes/adminhandler.php:3252
+msgid "Manage"
+msgstr "管理"
+
+#: system/classes/adminhandler.php:3253
+msgid "Manage comments"
+msgstr ""
+
+#: system/classes/adminhandler.php:3254
+msgid "Tags"
+msgstr "标签"
+
+#: system/classes/adminhandler.php:3255
+msgid "View your user dashboard"
+msgstr "查看您的用户控制中心"
+
+#: system/classes/adminhandler.php:3256
+msgid "View and configure site options"
+msgstr ""
+
+#: system/classes/adminhandler.php:3256
+msgid "Options"
+msgstr "选项"
+
+#: system/classes/adminhandler.php:3257
+msgid "Preview and activate themes"
+msgstr "预览与启用主题"
+
+#: system/classes/adminhandler.php:3257
+msgid "Themes"
+msgstr "主题"
+
+#: system/classes/adminhandler.php:3258
+msgid "Activate, deactivate, and configure plugins"
+msgstr "启用、停用与设定插件"
+
+#: system/classes/adminhandler.php:3258
+msgid "Plugins"
+msgstr "插件"
+
+#: system/classes/adminhandler.php:3259
+msgid "Import content from another site"
+msgstr ""
+
+#: system/classes/adminhandler.php:3260
+msgid "View and manage users"
+msgstr "查看与管理用户"
+
+#: system/classes/adminhandler.php:3260
+msgid "Users"
+msgstr "用户"
+
+#: system/classes/adminhandler.php:3261
+msgid "Manage your user profile"
+msgstr ""
+
+#: system/classes/adminhandler.php:3261
+msgid "My Profile"
+msgstr ""
+
+#: system/classes/adminhandler.php:3262
+msgid "View and manage groups"
+msgstr "查看与管理群组"
+
+#: system/classes/adminhandler.php:3262
+msgid "Groups"
+msgstr "群组集"
+
+#: system/classes/adminhandler.php:3263
+msgid "View system log messages"
+msgstr "查看系统日志"
+
+#: system/classes/adminhandler.php:3263
+msgid "Logs"
+msgstr "系统日志"
+
+#: system/classes/adminhandler.php:3264
+msgid "Log out of the administration interface"
+msgstr "注销管理界面"
+
+#: system/classes/adminhandler.php:3264
+msgid "Logout"
+msgstr "注销"
+
+#: system/classes/adminhandler.php:3499
+msgid "Entry"
+msgstr "文章"
+
+#: system/classes/adminhandler.php:3500
+msgid "Entries"
+msgstr "文章"
+
+#: system/classes/adminhandler.php:3503
+msgid "Page"
+msgstr "页面"
+
+#: system/classes/adminhandler.php:3504
+msgid "Pages"
+msgstr "页面"
+
+#: system/classes/adminhandler.php:3553
+msgid "Root"
+msgstr "根目录"
+
+#: system/classes/adminhandler.php:3669
+msgid "A new block must first have a name."
+msgstr ""
+
+#: system/classes/adminhandler.php:3685
+#, php-format
+msgid "Added new block \"%1s\" of type \"%2s\"."
+msgstr ""
+
+#: system/classes/adminhandler.php:3709
+#, php-format
+msgid "Deleted block \"%1s\" of type \"%2s\"."
+msgstr ""
+
+#: system/classes/adminhandler.php:3712
+#, php-format
+msgid "Failed to delete block \"%1s\" of type \"%2s\"."
+msgstr ""
+
+#: system/classes/adminhandler.php:3753
+msgid "Saved block areas settings."
+msgstr ""
+
+#: system/classes/adminhandler.php:3797
+msgid "+"
+msgstr "+"
+
+#: system/classes/remoterequest.php:112
+msgid "Trying to add a request body to a non-POST request"
+msgstr "正在尝试新增非 POST 请求的请求内容。"
+
+#: system/classes/remoterequest.php:168
+#, php-format
+msgid "File %s not found."
+msgstr ""
+
+#: system/classes/remoterequest.php:266
+msgid "Trying to fetch response headers for a pending request."
+msgstr "正在尝试取得待办请求的响应档头。"
+
+#: system/classes/remoterequest.php:277
+msgid "Trying to fetch response body for a pending request."
+msgstr "正在尝试取得待办请求的响应内容。"
+
+#: system/classes/update.php:36
+msgid "Invalid Beacon information added"
+msgstr ""
+
+#: system/classes/colorutils.php:35
+msgid "Not a valid hex color."
+msgstr "不正确的16进位色码。"
+
+#: system/classes/colorutils.php:57
+msgid "Not a valid color format."
+msgstr "不正确的颜色格式。"
+
+#: system/classes/colorutils.php:108
+msgid "Something went terribly wrong here."
+msgstr "发生未定义的错误。"
+
+#: system/classes/habarilocale.php:138
+#, php-format
+msgid "No translations found for locale %s, domain %s!"
+msgstr "找不到 %2$s 的 %1$s 语系！"
+
+#: system/classes/habarilocale.php:142
+#, php-format
+msgid "Invalid .MO file for locale %s, domain %s!"
+msgstr "%2$s 的 %1$s 语言包不是正确的 .MO 格式！"
+
+#: system/classes/habarilocale.php:162
+#, php-format
+msgid "Invalid magic number 0x%08x in %s!"
+msgstr "不正确的幻数 0x%08x 于 %s！"
+
+#: system/classes/habarilocale.php:168
+#, php-format
+msgid "Unknown revision number %d in %s!"
+msgstr "不明的修订版本 %d 于 %s！"
+
+#: system/classes/habarilocale.php:179
+#, php-format
+msgid "Message count (%d) out of bounds in %s!"
+msgstr "信息数量 (%d) 超过上限于 %s！"
+
+#: system/classes/habaridatetime.php:374
+msgid "just now"
+msgstr ""
+
+#: system/classes/habaridatetime.php:377
+#, php-format
+msgid "%d minutes ago"
+msgstr ""
+
+#: system/classes/habaridatetime.php:381
+#, php-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:385
+#, php-format
+msgid "yesterday"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:389
+#, php-format
+msgid "last week"
+msgid_plural "%d weeks ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:392
+#, php-format
+msgid "last month"
+msgid_plural "%d months ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/themes.php:54
+msgid "This theme is a legacy theme that is not compatible with Habari "
+msgstr ""
+
+#: system/classes/themes.php:111
+msgid "There is no valid theme currently installed."
+msgstr "目前尚未安装任何可用的主题。"
+
+#: system/classes/themes.php:157
+#, php-format
+msgid "Activated Theme: %s"
+msgstr "已启用 %s 主题"
+
+#: system/classes/themes.php:170
+#, php-format
+msgid "Previewed Theme: %s"
+msgstr ""
+
+#: system/classes/themes.php:179
+#, php-format
+msgid "Canceled Theme Preview: %s"
+msgstr ""
+
+#: system/classes/themes.php:222 system/classes/themes.php:231
+msgid "Theme not installed."
+msgstr "主题未安装。"
+
+#: system/classes/site.php:63
+msgid "Could not determine script name."
+msgstr "无法获得脚本名称"
+
+#: system/classes/hiengine.php:33
+msgid "Failed to register HiEngine stream protocol"
+msgstr "HiEngine 串流通讯协议注册失败"
+
+#: system/classes/comment.php:381
+msgid "Unapprove"
+msgstr "待批准"
+
+#: system/classes/comment.php:382
+msgid "Approve"
+msgstr "批准"
+
+#: system/classes/comment.php:383
+msgid "Spam"
+msgstr "垃圾"
+
+#: system/classes/feedbackhandler.php:58
+msgid "There was a problem submitting your comment."
+msgstr ""
+
+#: system/classes/feedbackhandler.php:91
 msgid "Both name and e-mail address must be provided."
-msgstr ""
+msgstr "请输入您的昵称及 E-mail。"
 
-#: system/classes/feedbackhandler.php:32
+#: system/classes/feedbackhandler.php:95
 msgid "You did not provide any content for your comment!"
-msgstr ""
+msgstr "请填写您的评论。"
 
-#. comments are disabled, so let's just send
-#. them back to the post's permalink
-#: system/classes/feedbackhandler.php:49
+#: system/classes/feedbackhandler.php:111
 msgid "Comments on this post are disabled!"
-msgstr ""
+msgstr "这篇文章不允许评论。"
 
-#: system/classes/feedbackhandler.php:87
+#: system/classes/feedbackhandler.php:145
 msgid "Comment contains only whitespace/empty comment"
+msgstr "评论内容不可留白"
+
+#: system/classes/feedbackhandler.php:171
+msgid "You do not have permission to create comments."
 msgstr ""
 
-#: system/classes/feedbackhandler.php:126
+#: system/classes/feedbackhandler.php:193
 msgid "Your comment is pending moderation."
+msgstr "您的评论正在等待审核。"
+
+#: system/classes/curlrequestprocessor.php:74
+#, php-format
+msgid " %s: CURL Error. Unable to create temporary file name."
 msgstr ""
 
-#: system/classes/feedbackhandler.php:140
-msgid "Setting the cookie."
+#: system/classes/curlrequestprocessor.php:79
+#, php-format
+msgid " %s: CURL Error. Unable to open temporary file."
 msgstr ""
 
-#: system/installer/requirements.php:9
-#: system/installer/sqlite.php:9
-#: system/installer/config.php:9
-#: system/installer/db_setup.php:4
-#: system/installer/db_setup.php:240
-#: system/installer/htaccess.php:9
+#: system/classes/curlrequestprocessor.php:98
+#, php-format
+msgid "%s: CURL Error %d: %s"
+msgstr "%s: CURL 错误 %d: %s"
+
+#: system/classes/curlrequestprocessor.php:103
+#, php-format
+msgid "Bad return code (%1$d) for: %2$s"
+msgstr "尝试连接至 %2$s 时发生 %1$d 错误。"
+
+#: system/classes/logentry.php:172 system/classes/logentry.php:263
+#: system/classes/logentry.php:275
+msgid "Unknown"
+msgstr "未知"
+
+#: system/classes/singleton.php:32
+msgid "Not implemented: instance"
+msgstr "未执行 instance 实例"
+
+#: system/classes/bitmask.php:26
+msgid ""
+"Bitmask constructor expects either no arguments or an array as a first "
+"argument"
+msgstr "Bitmask 建构式不需任何参数或第一个参数必须为数组。"
+
+#: system/classes/bitmask.php:30
+msgid "Bitmask can have max PHP_INT_MAX >> 1 flags"
+msgstr ""
+
+#: system/classes/bitmask.php:49
+msgid ""
+"Bitmask constructor second argument must either be an integer within the "
+"valid range, the name of a flag, or full"
+msgstr ""
+
+#: system/classes/bitmask.php:66
+msgid "Bitmask full toggle must be boolean"
+msgstr ""
+
+#: system/classes/bitmask.php:79
+msgid ""
+"Setting bitmask value by array must use array with same length as number of "
+"flags"
+msgstr ""
+
+#: system/classes/bitmask.php:84 system/classes/bitmask.php:102
+msgid "Bitmask values must be boolean"
+msgstr "Bitmask 必须为布尔值。"
+
+#: system/classes/bitmask.php:97
+msgid ""
+"Bitmask value must either be an integer within the valid range or an array "
+"of booleans"
+msgstr ""
+
+#: system/classes/bitmask.php:108
+msgid "Bitmask cannot set non-existent flag"
+msgstr ""
+
+#: system/classes/bitmask.php:140
+msgid "Bitmask cannot get non-existent flag"
+msgstr ""
+
+#: system/classes/bitmask.php:158
+msgid "full"
+msgstr "完整"
+
+#: system/classes/bitmask.php:167
+msgid "none"
+msgstr "无"
+
+#: system/classes/term.php:163
+#, php-format
+msgid "New term %1$s: %2$s"
+msgstr ""
+
+#: system/classes/term.php:216
+#, php-format
+msgid "Term %1$s (%2$s) deleted."
+msgstr ""
+
+#: system/classes/plugins.php:411
+#, php-format
+msgid "Activated Plugin: %s"
+msgstr "%s 插件已启用"
+
+#: system/classes/plugins.php:441
+#, php-format
+msgid "Deactivated Plugin: %s"
+msgstr "%s 插件已停用"
+
+#: system/classes/plugins.php:541
+#, php-format
+msgid ""
+"Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
+"<div class=\"reveal\">%s</div>"
+msgstr "加载插件时，于 %s 发现语法错误: <div class=\"reveal\">%s</div>"
+
+#: system/classes/formui.php:771
+msgid "Value must be a valid URL."
+msgstr "请输入一个有效的网址。"
+
+#: system/classes/formui.php:791
+msgid "Value must be a valid Email Address."
+msgstr "请输入正确的 E-mail。"
+
+#: system/classes/formui.php:809
+msgid "A value for this field is required."
+msgstr "此字段为必填项。"
+
+#: system/classes/formui.php:831
+msgid "That username is already in use!"
+msgstr "用户名称与他人重复！"
+
+#: system/classes/formui.php:851
+#, php-format
+msgid "The value of this field must match the value of %s."
+msgstr "此字段的值必须与 %s 相同。"
+
+#: system/classes/formui.php:874
+msgid "The value does not meet submission requirements"
+msgstr "输入的值格式有误"
+
+#: system/classes/formui.php:895
+#, php-format
+msgid "The value entered is lesser than the minimum of %d."
+msgstr "输入的值小于最小值 %d。"
+
+#: system/classes/formui.php:901
+#, php-format
+msgid "The value entered is greater than the maximum of %d."
+msgstr "输入的值大于最大值 %d。"
+
+#: system/classes/formui.php:1595
+msgid "Remove this item?"
+msgstr "您确定要删除这个项目？"
+
+#: system/classes/theme.php:259
+msgid ""
+"Whoops! 404. The page you were trying to access is not really there. Please "
+"try again."
+msgstr "您要查看的页面不存在，请稍后再试。"
+
+#: system/classes/theme.php:780
+msgid "Previous"
+msgstr "上一页"
+
+#: system/classes/theme.php:807
+msgid "Next"
+msgstr "下一页"
+
+#: system/classes/theme.php:833
+msgid "Read Comments"
+msgstr "阅读评论"
+
+#: system/classes/theme.php:859
+#, php-format
+msgid "%s Comment"
+msgid_plural "%s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/comments.php:437
+#, php-format
+msgid "Comment %1$s moderated from %2$s"
+msgstr "已审核 %2$s 文章的评论 %1$s"
+
+#: system/classes/comments.php:444
+#, php-format
+msgid "Comment Moderated on %s"
+msgstr "已审核 %s 的评论"
+
+#: system/classes/comments.php:640
+#, php-format
+msgid "Comment %1$s deleted from %2$s"
+msgstr "已删除 %2$s 的评论 %1$s"
+
+#: system/classes/usergroup.php:93
+#, php-format
+msgid "New group created: %s"
+msgstr "已建立新群组: %s"
+
+#: system/classes/usergroup.php:113
+#, php-format
+msgid "User Group updated: %s"
+msgstr "已更新 %s 群组"
+
+#: system/classes/usergroup.php:130
+#, php-format
+msgid "User Group %s: Member list reset"
+msgstr "已重设 %s 群组成员列表"
+
+#: system/classes/usergroup.php:154
+#, php-format
+msgid "User Group %s: Group deleted."
+msgstr "已删除 %s 组。"
+
+#: system/classes/usergroup.php:204
+#, php-format
+msgid "User Group %1$s: Users were added to the group."
+msgstr "用户加入了 %1$s 组。"
+
+#: system/classes/usergroup.php:221
+#, php-format
+msgid "User Group %1$s: Users were removed from the group."
+msgstr "用户退出了 %s 组。"
+
+#: system/classes/atomhandler.php:139
+msgid "First Page"
+msgstr "第一页"
+
+#: system/classes/atomhandler.php:147
+msgid "Previous Page"
+msgstr "上一页"
+
+#: system/classes/atomhandler.php:156
+msgid "Next Page"
+msgstr "下一页"
+
+#: system/classes/atomhandler.php:164
+msgid "Last Page"
+msgstr "最后一页"
+
+#: system/classes/atomhandler.php:237
+#, php-format
+msgid "%1$s on \"%2$s\""
+msgstr "%1$s 于 “%2$s”"
+
+#: system/classes/databaseconnection.php:256
+msgid "Attempt to fetch in class mode with a non-included class"
+msgstr "试图将数据对映至不存在的类别"
+
+#: system/classes/inputfilter.php:372
+#, php-format
+msgid "Unkown attribute type \"%s\" in %s"
+msgstr "未知的属性类型 %s 于 %s"
+
+#: system/plugins/wpimport/wpimport.plugin.php:20
+msgid "WordPress Database"
+msgstr "WordPress 数据库"
+
+#: system/plugins/wpimport/wpimport.plugin.php:62
+msgid ""
+"Could not connect to the WordPress database using the values supplied. "
+"Please correct them and try again."
+msgstr "无法连接到指定的 WordPress 数据库，请修正信息后再试一次。"
+
+#: system/plugins/wpimport/wpimport.plugin.php:105
+msgid "Habari will attempt to import from a WordPress Database."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:107
+msgid ""
+"Please provide the connection details for an existing WordPress database:"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:109
+#: system/installer/db_setup.php:72 system/installer/db_setup.php:119
+msgid "Database Name"
+msgstr "数据库名称"
+
+#: system/plugins/wpimport/wpimport.plugin.php:112
+#: system/installer/db_setup.php:39 system/installer/db_setup.php:86
+msgid "Database Host"
+msgstr "数据库主机"
+
+#: system/plugins/wpimport/wpimport.plugin.php:115
+msgid "Database User"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:118
+msgid "Database Password"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:121
+#: system/installer/db_setup.php:145
+msgid "Table Prefix"
+msgstr "表前缀"
+
+#: system/plugins/wpimport/wpimport.plugin.php:124
+msgid "Import Category as Tag"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:128
+msgid "Extras - additional data from WordPress plugins"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:130
+msgid "Import tags from Ultimate Tag Warrior"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:158
+#, php-format
+msgid "Starting import from \"%s\""
+msgstr "开始从 %s 导入数据"
+
+#: system/plugins/wpimport/wpimport.plugin.php:163
+msgid "Import In Progress"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:164
+msgid "Starting Import..."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:245
+#, php-format
+msgid "Importing posts %1$d - %2$d of %3$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:358
+#, php-format
+msgid ""
+"Post author id %1$s was not found in WP database, assigning post \"%2$s\" "
+"(WP post id #%3$d) to current user."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:436
+#: system/plugins/wpimport/wpimport.plugin.php:533
+#: system/plugins/wpimport/wpimport.plugin.php:672
+#, php-format
+msgid "Failed to import from \"%s\""
+msgstr "从 %s 导入数据失败"
+
+#: system/plugins/wpimport/wpimport.plugin.php:438
+msgid "The database connection details have failed to connect."
+msgstr "数据库连接失败。"
+
+#: system/plugins/wpimport/wpimport.plugin.php:473
+msgid "Importing users..."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:535
+#: system/plugins/wpimport/wpimport.plugin.php:674
+msgid "Failed to connect using the given database connection details."
+msgstr "数据库连接失败。"
+
+#: system/plugins/wpimport/wpimport.plugin.php:559
+#, php-format
+msgid "Importing comments %1$d - %2$d of %3$d"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:655
+#, php-format
+msgid "Import complete from \"%s\""
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:656
+msgid "Import is complete."
+msgstr "导入已完成。"
+
+#: system/plugins/wpimport/wpimport.plugin.php:660
+msgid "There were errors during import:"
+msgstr "导入过程发生以下错误:"
+
+#: system/plugins/coredashmodules/dash_latestcomments.php:5
+#, php-format
+msgid "%1$d comment"
+msgid_plural "%1$d comments"
+msgstr[0] "%1$d 则评论"
+
+#: system/plugins/coredashmodules/dash_latestcomments.php:14
+#: system/plugins/coredashmodules/dash_latestentries.php:5
+#, php-format
+msgid "Posted at %1$s"
+msgstr "发表于 %1$s"
+
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:91
+msgid "Latest Log Activity"
+msgstr "近期系统日志"
+
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:107
+msgid "Latest Entries"
+msgstr "最新日志"
+
+#: system/plugins/coredashmodules/coredashmodules.plugin.php:134
+msgid "Latest Comments"
+msgstr "近期评论"
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:32
+#: system/plugins/habarisilo/habarisilo.plugin.php:33
+msgid ""
+"Habari Silo activation failed. The web server does not have permission to "
+"create the 'files' directory for the Habari Media Silo."
+msgstr "网页服务器没有建立 files 目录的权限，因此无法启用 Habari Media Silo。"
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:38
+#: system/plugins/habarisilo/habarisilo.plugin.php:39
+msgid ""
+"Habari Silo activation failed. PHP has not loaded the gd imaging library."
+msgstr "PHP 未安装 GD 模块，因此无法启用 Habari Media Silo。"
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:49
+msgid "Create media silo directories"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:50
+msgid "Delete media silo directories"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:51
+msgid "Upload files to media silos"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:52
+msgid "Delete files from media silos"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:415
+msgid "Browse"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:420
+msgid "Create Directory"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:423
+msgid "Delete Directory"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:459
+msgid "Parent Directory:"
+msgstr "上层资料夹:"
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:464
+msgid "What would you like to call the new directory?"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:478
+msgid "Directory:"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:483
+msgid "Are you sure you want to delete this directory?"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:496
+msgid "File:"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:500
+msgid "Are you sure you want to delete this file?"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:511
+msgid "File Uploaded: "
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:518
+msgid "File added successfully."
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:521
+msgid "File could not be added to the silo."
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:524
+#: system/plugins/habarisilo/habarisilo.plugin.php:633
+msgid "Browse the current silo path."
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:555
+msgid "Upload to:"
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:573
+#, php-format
+msgid "The directory name contains invalid characters: %s."
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:580
+#, php-format
+msgid "Webserver does not have permission to create directory: %s."
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:583
+#, php-format
+msgid "Directory: %s already exists."
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:628
+msgid "File deleted successfully."
+msgstr ""
+
+#: system/plugins/habarisilo/habarisilo.plugin.php:630
+msgid "Failed to delete file."
+msgstr ""
+
+#: system/plugins/undelete/undelete.plugin.php:57
+msgid "Delete forever"
+msgstr "永久删除"
+
+#: system/plugins/undelete/undelete.plugin.php:58
+msgid "Permanently delete this post"
+msgstr "永久删除这篇文章"
+
+#: system/plugins/undelete/undelete.plugin.php:62
+msgid "Restore this item"
+msgstr "还原此项目"
+
+#: system/plugins/undelete/undelete.plugin.php:63
+msgid "Restore"
+msgstr "还原"
+
+#: system/plugins/undelete/undelete.plugin.php:80
+msgid "Restore Selected Entries"
+msgstr ""
+
+#: system/plugins/undelete/undelete.plugin.php:80
+msgid "Restore Selected"
+msgstr ""
+
+#: system/plugins/undelete/undelete.plugin.php:98
+#, php-format
+msgid "Restored %d post"
+msgid_plural "Restored %d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/plugins/undelete/undelete.plugin.php:101
+msgid "You did not have permission to restore some entries."
+msgstr ""
+
+#: system/plugins/undelete/undelete.plugin.php:123
+#, php-format
+msgid "Post %1$s (%2$s) restored."
+msgstr "文章 %1$s (%2$s) 已还原。"
+
+#: system/plugins/undelete/undelete.plugin.php:140
+#, php-format
+msgid "Restored post %d"
+msgstr "已还原文章 %d"
+
+#: system/plugins/undelete/undelete.plugin.php:143
+#, php-format
+msgid "Could not restore post %d"
+msgstr "无法还原文章 %d"
+
+#: system/plugins/undelete/undelete.plugin.php:165
+#: system/plugins/undelete/undelete.plugin.php:183
+msgid "Empty Trash"
+msgstr "清空回收站"
+
+#: system/plugins/undelete/undelete.plugin.php:177
+msgid "Style declaration for deleted content:"
+msgstr "为已删除的文章加上 CSS 样式:"
+
+#: system/plugins/undelete/undelete.plugin.php:185
+msgid ""
+"Pressing this button will permanently delete all posts from the virtual "
+"trash can. You cannot undo this."
+msgstr "按下这个按钮将会永久删除回收站中的文章，该动作无法还原。"
+
+#: system/plugins/undelete/undelete.plugin.php:186
+msgid "Delete All"
+msgstr ""
+
+#: system/plugins/undelete/undelete.plugin.php:205
+#, php-format
+msgid "Permanently deleted %d posts"
+msgstr "已永久删除 %d 篇文章"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:40
+msgid "Commenters with numeric names are spammy."
+msgstr "评论人昵称为数字的评论可能为垃圾评论。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:49
+msgid "Comments that are only numeric are spammy."
+msgstr "留言内容为数字的评论可能为垃圾评论。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:55
+msgid "Comments that are only whitespace characters are spammy."
+msgstr "只有空格符的评论可能为垃圾评论。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:61
+msgid "Comments that are only \"array\" are spammy."
+msgstr "留言内容为 \"array\" 的评论可能为垃圾评论。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:67
+msgid "Comments that consist of only the commenters name are spammy."
+msgstr "留言内容中只有评论人昵称的评论可能为垃圾评论。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:74
+msgid "Comments that start with strong text are spammy."
+msgstr "以粗体字开头的评论可能为垃圾评论。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:80
+msgid "There is a 3 URL limit in comments."
+msgstr "评论中最多只能出现三个网址。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:86
+msgid "There is a 3 URL-encoded character limit in comments."
+msgstr "评论中最多只能有三个 URL-encoded 字符。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:100
+msgid "We do not accept BBCode here."
+msgstr "本站不支持 BBCode 。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:108
+msgid "Too much text that is a link compared to that which is not."
+msgstr "评论中超链接的比例过高。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:117
+#, php-format
+msgid "Too many existing spams from this IP: %s"
+msgstr "IP %s 的用户已发表过多垃圾评论。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:124
+msgid "The commenter's session timed out."
+msgstr "评论人的作业阶段超时。"
+
+#: system/plugins/spamchecker/spamchecker.plugin.php:203
+msgid "The selected action is forbidden."
+msgstr "您没有进行这项操作的权限。"
+
+#: system/plugins/simple_private_posts/simple_private_posts.plugin.php:27
+msgid "Private Post"
+msgstr "私密文章"
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:784
+msgid "This photo has no title"
+msgstr "无标题照片"
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:870
+msgid "Default size for images in Posts:"
+msgstr "文章中图片的默认大小:"
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:873
+msgid "Options saved"
+msgstr "设定已保存"
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:974
+msgid "Search for photos"
+msgstr "搜索照片"
+
+#: system/plugins/viddlersilo/viddlersilo.plugin.php:854
+msgid "The username and password you supplied failed to log in to Viddler."
+msgstr "您提供的账号和密码无法登陆至 Viddler。"
+
+#: system/plugins/viddlersilo/viddlersilo.plugin.php:860
+msgid "You have logged in to Viddler."
+msgstr "您已登陆至 Viddler。"
+
+#: system/plugins/pingback/pingback.plugin.php:295
+#, php-format
+msgid "Sent pingbacks for \"%1$s\", target: %2$s"
+msgstr "发送 ‘%1$s’ 的引用通告至 %2$s"
+
+#: system/plugins/pingback/pingback.plugin.php:308
+msgid "Send Pingbacks to Links"
+msgstr "发送引用通告至文章中的链接"
+
+#: system/plugins/pingback/pingback.plugin.php:334
+#, php-format
+msgid "%d Pingbacks"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:337
+#, php-format
+msgid "%d Pingback"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:340
+#, php-format
+msgid "%d Pingabcks"
+msgstr ""
+
+#: system/installer/htaccess.php:7 system/installer/config.php:13
+#: system/installer/sqlite.php:7
+msgid "help"
+msgstr "说明"
+
+#: system/installer/htaccess.php:10
+msgid ""
+"Your <strong>.htaccess</strong> file is not writable. In order to "
+"successfully install Habari, please paste the following into"
+msgstr "Habari 无法写入 <strong>.htaccess</strong> 文件。为了完成安装，请自行复制下列文字贴至"
+
+#: system/installer/htaccess.php:13
+msgid ""
+"<strong>.htaccess</strong> is a file that tells your Apache web server to "
+"send requests to Habari for handling. Habari is not able to write this file "
+"to your server automatically, so you must create this file yourself to "
+"continue the installation."
+msgstr ""
+"<strong>.htaccess</strong> 文件中记录了 Apache 网页服务器如何处理送给 Habari 的请求。Habari "
+"无法自动为您产生这个文件，您必须自行建立这个文件以继续安装。"
+
+#: system/installer/htaccess.php:14 system/installer/db_setup.php:31
+#: system/installer/db_setup.php:45 system/installer/db_setup.php:56
+#: system/installer/db_setup.php:67 system/installer/db_setup.php:78
+#: system/installer/db_setup.php:92 system/installer/db_setup.php:103
+#: system/installer/db_setup.php:114 system/installer/db_setup.php:125
+#: system/installer/db_setup.php:138 system/installer/db_setup.php:151
+#: system/installer/db_setup.php:175 system/installer/db_setup.php:185
+#: system/installer/db_setup.php:197 system/installer/db_setup.php:208
+#: system/installer/config.php:20 system/installer/sqlite.php:14
+msgid "Learn More..."
+msgstr "了解更多..."
+
+#: system/installer/htaccess.php:24 system/installer/db_setup.php:252
+#: system/installer/config.php:30 system/installer/sqlite.php:24
+msgid "Install"
+msgstr "安装"
+
+#: system/installer/htaccess.php:27 system/installer/sqlite.php:27
+msgid ""
+"When you have successfully placed the .htaccess file, run the installer "
+"again."
+msgstr "请于您完成放置 .htaccess 文件后重新执行安装程序。"
+
+#: system/installer/htaccess.php:28 system/installer/config.php:34
+#: system/installer/sqlite.php:28
+msgid "Restart Installer"
+msgstr "重新安装"
+
+#: system/installer/db_setup.php:9
+msgid "Database Setup"
+msgstr "数据库设定"
+
+#: system/installer/db_setup.php:14
+msgid "Database Type"
+msgstr "数据库类型"
+
+#: system/installer/db_setup.php:25
+#, php-format
+msgid "%1$s - missing PDO driver, see help"
+msgstr "%1$s - 缺少 PDO 驱动程序，详情请见说明"
+
+#: system/installer/db_setup.php:30
+msgid ""
+"<strong>Database Type</strong> specifies the type of database to which "
+"Habari will connect.  Changing this setting may affect the other fields that "
+"are available here.  If the database engine that you wanted to use is not in "
+"this list, you may need to install a PDO driver to enable it."
+msgstr ""
+"<strong>数据库类型</strong>记录 Habari "
+"将连接至何种数据库软件。更改本字段可能导致其它字段同时更动，如果您要使用的数据库引擎不在列表上，意味您可能需要安装对应的 PDO 驱动程序以启用它。"
+
+#: system/installer/db_setup.php:35
+msgid "MySQL Settings"
+msgstr "MySQL 设定"
+
+#: system/installer/db_setup.php:36
+msgid ""
+"Use the settings below only if you have selected MySQL as your database "
+"engine."
+msgstr "当您选用 MySQL 作为您的数据库引擎时，才使用以下设定。"
+
+#: system/installer/db_setup.php:44
+msgid ""
+"<strong>Database Host</strong> is the host (domain) name or server IP "
+"address of the server that runs the MySQL database to which Habari will "
+"connect.  If MySQL is running on your web server, and most of the time it "
+"is, \"localhost\" is usually a good value for this field."
+msgstr ""
+"<strong>数据库主机</strong>记录您的 MySQL 主机的地址或 IP。通常您的 MySQL "
+"服务器与网页服务器会在同一台主机上，如果是这样的话，您可以在此字段输入 \"localhost\"。"
+
+#: system/installer/db_setup.php:55
+msgid ""
+"<strong>Database User</strong> is the username used to connect Habari to the "
+"MySQL database."
+msgstr "<strong>数据库账号</strong>记录 Habari 连接至您的 MySQL 服务器时使用的账号。"
+
+#: system/installer/db_setup.php:66
+msgid ""
+"<strong>Database Password</strong> is the password used to connect the "
+"specified user to the MySQL database."
+msgstr "<strong>数据库密码</strong>记录指定的数据库账号连接至您的 MySQL 服务器时使用的密码。"
+
+#: system/installer/db_setup.php:77
+msgid ""
+"<strong>Database Name</strong> is the name of the MySQL database to which "
+"Habari will connect."
+msgstr "<strong>数据库名称</strong>记录 Habari 将使用的 MySQL 数据库名称。"
+
+#: system/installer/db_setup.php:82
+msgid "PostgreSQL Settings"
+msgstr "PostgreSQL 设定"
+
+#: system/installer/db_setup.php:83
+msgid ""
+"Use the settings below only if you have selected PostgreSQL as your database "
+"engine."
+msgstr "当您选用 PostgreSQL 作为您的数据库引擎时，才使用以下设定。"
+
+#: system/installer/db_setup.php:91
+msgid ""
+"<strong>Database Host</strong> is the host (domain) name or server IP "
+"address of the server that runs the PostgreSQL database to which Habari will "
+"connect.  If PostgreSQL is running on your web server, and most of the time "
+"it is, \"localhost\" is usually a good value for this field."
+msgstr ""
+"<strong>数据库主机</strong>记录您的 PostgreSQL 主机的地址或 IP。通常您的 PostgreSQL "
+"服务器与网页服务器会在同一台主机上，如果是这样的话，您可以在此字段输入 \"localhost\"。"
+
+#: system/installer/db_setup.php:102
+msgid ""
+"<strong>Database User</strong> is the username used to connect Habari to the "
+"PostgreSQL database."
+msgstr "<strong>数据库账号</strong>记录 Habari 连接至您的 PostgreSQL 服务器时使用的账号。"
+
+#: system/installer/db_setup.php:113
+msgid ""
+"<strong>Database Password</strong> is the password used to connect the "
+"specified user to the PostgreSQL database."
+msgstr "<strong>数据库密码</strong>记录指定的数据库账号连接至您的 PostgreSQL 服务器时使用的密码。"
+
+#: system/installer/db_setup.php:124
+msgid ""
+"<strong>Database Name</strong> is the name of the PostgreSQL database to "
+"which Habari will connect."
+msgstr "<strong>数据库名称</strong>记录 Habari 将使用的 PostgreSQL 数据库名称。"
+
+#: system/installer/db_setup.php:129
+msgid "SQLite Settings"
+msgstr "SQLite 设定"
+
+#: system/installer/db_setup.php:130
+msgid ""
+"Use the settings below only if you have selected SQLite as your database "
+"engine."
+msgstr "当您选用 SQLite 作为您的数据库引擎时，才使用以下设定。"
+
+#: system/installer/db_setup.php:133
+msgid "Data file"
+msgstr "资料文件"
+
+#: system/installer/db_setup.php:138
+msgid ""
+"<strong>Data file</strong> is the SQLite file that will store your Habari "
+"data.  This should be the path to where your data file resides, relative to "
+"the Habari user directory."
+msgstr "<strong>数据文件</strong>中 SQLite 存储 Habari 数据的文件，此字段必须填入数据文件相对于安装目录的路径。"
+
+#: system/installer/db_setup.php:150
+msgid ""
+"<strong>Table Prefix</strong> is a prefix that will be appended to each "
+"table that Habari creates in the database, making it easy to distinguish "
+"those tables in the database from those of other installations."
+msgstr "<strong>数据表前缀</strong>将会附加于所有的 Habari 表格名称前，用以识别不同的 Habari 网站。"
+
+#: system/installer/db_setup.php:155
+msgid "Check Database Connection"
+msgstr ""
+
+#: system/installer/db_setup.php:164
+msgid "Site Configuration"
+msgstr "网站设定"
+
+#: system/installer/db_setup.php:174
+msgid ""
+"<strong>Site Name</strong> is the name of your site as it will appear\n"
+"\t\t\t\tto your visitors."
+msgstr "<strong>网站名称</strong>: 您的新网站的名称。"
+
+#: system/installer/db_setup.php:185
+msgid ""
+"<strong>Username</strong> is the username of the initial user in Habari."
+msgstr "<strong>账号</strong>: 您的 Habari 中第一位用户的账号。"
+
+#: system/installer/db_setup.php:192
+msgid "Password (again)"
+msgstr "再次输入密码"
+
+#: system/installer/db_setup.php:197
+msgid ""
+"<strong>Password</strong> is the password of the initial user in Habari. "
+"Both password fields must match."
+msgstr ""
+
+#: system/installer/db_setup.php:202
+msgid "Admin Email"
+msgstr "管理员 E-mail"
+
+#: system/installer/db_setup.php:207
+msgid ""
+"<strong>Admin Email</strong> is the email address of the first user account."
+msgstr "<strong>管理员 E-mail</strong>: 第一位用户的 E-mail。"
+
+#: system/installer/db_setup.php:219
+msgid "Plugin Activation"
+msgstr "启用插件"
+
+#: system/installer/db_setup.php:255
+msgid ""
+"Habari now has all of the information needed to install itself on your "
+"server."
+msgstr "安装 Habari 所需的信息已经备齐。"
+
+#: system/installer/db_setup.php:256 system/installer/header.php:10
 msgid "Install Habari"
-msgstr ""
+msgstr "安装 Habari"
 
-#: system/installer/requirements.php:14
-msgid "Before you install"
-msgstr ""
+#: system/installer/config.php:16
+msgid ""
+"Your <strong>config.php</strong> file is not writable. In order to "
+"successfully install Habari, please paste the following into"
+msgstr "Habari 无法写入 <strong>config.php</strong> 文件，请自行复制下列文字贴上"
 
-#: system/installer/requirements.php:18
+#: system/installer/config.php:19
+msgid ""
+"<strong>config.php</strong> is a file that tells Habari how to connect to "
+"your database. Habari is not able to write this file to your server "
+"automatically, so you must create this file yourself to continute the "
+"installation."
+msgstr ""
+"<strong>config.php</strong> 文件中记录了 Habari 连接数据库所需的信息。Habari "
+"无法自动为您产生这个文件，您必须自行建立这个文件以继续安装。"
+
+#: system/installer/config.php:33
+msgid ""
+"When you have successfully placed the config file, run the installer again."
+msgstr "请于您完成放置 config.php 文件后重新执行安装程序。"
+
+#: system/installer/header.php:18
+msgid "Read the user manual"
+msgstr "阅读使用说明"
+
+#: system/installer/header.php:19
+msgid "Read the Habari wiki"
+msgstr "阅读 Habari 百科"
+
+#: system/installer/header.php:20
+msgid "Ask the community"
+msgstr "询问社区"
+
+#: system/installer/header.php:20
+msgid "Mailing List"
+msgstr "邮件论坛"
+
+#: system/installer/sqlite.php:10
+#, php-format
+msgid ""
+"Your <b>.htaccess</b> file is not writable. In order to secure your SQLite "
+"database, please paste the following into <b>%s</b>:"
+msgstr ""
+"您的 <b>.htaccess</b> 文件无法写入。为了保护您的 SQLite 数据库的安全，请复制下面文字并粘贴至 <b>%s</b> 文件中:"
+
+#: system/installer/sqlite.php:13
+msgid ""
+"Your SQLite database is a file on your server like any other file. You can "
+"enhance it's security by including a section in your .htaccess file that "
+"disallows access to it by readers on the web. Habari is not able to write "
+"this section in your .htaccess file automatically, so you must add this "
+"section yourself to gain the enhanced security it offers you."
+msgstr ""
+"您的 SQL 数据库实际上是一个文件，您可以修改 .htaccess 禁止访客通过网络直接取得这个文件，以此来提升其安全性。Habari "
+"无法自动为您完成这个步骤，请自行手动执行。"
+
+#: system/installer/requirements.php:4
+msgid "Before you install <em>Habari</em>..."
+msgstr "安装 <em>Habari</em> 前..."
+
+#: system/installer/requirements.php:7
 msgid "Writable directory needed"
-msgstr ""
+msgstr "目录必须为可写入"
 
-#: system/installer/requirements.php:21
+#: system/installer/requirements.php:10
 msgid ""
-"Before you can install habari, you first need to make the install\n"
-"              directory writable by php, so that the installation script "
-"can\n"
-"              write your configuration information properly. The exact "
-"process of\n"
-"              doing this will vary depending on the configuration of your "
-"web\n"
-"              server and the ownership of the directory."
+"Before you can install Habari, you first need to make the install directory "
+"writable by php, so that the installation script can write your "
+"configuration information properly. The exact process depends on the web "
+"server and the ownership of the directory."
 msgstr ""
 
-#: system/installer/requirements.php:28
+#: system/installer/requirements.php:13
 msgid ""
-"If your webserver is part of the group which owns the\n"
-"              directory, you'll need to add group write permissions to\n"
-"              the directory. The procedure for this is as follows:"
+"If your web server is part of the group which owns the directory, you'll "
+"need to add group write permissions to the directory. The procedure for this "
+"is as follows:"
 msgstr ""
 
-#: system/installer/requirements.php:34
+#: system/installer/requirements.php:17
 msgid ""
 "Open a terminal window, and then change to the installation directory:"
-msgstr ""
+msgstr "打开终端窗口，移动至安装目录。"
 
-#: system/installer/requirements.php:38
+#: system/installer/requirements.php:21
 msgid "Change the <em>mode</em> (permissions) of the current directory:"
-msgstr ""
+msgstr "使用下列指令修改目前目录的 <em>mode</em> (权限):"
 
-#: system/installer/requirements.php:42
-msgid "Note"
-msgstr ""
-
-#: system/installer/requirements.php:42
-msgid "You may need to use"
-msgstr ""
-
-#: system/installer/requirements.php:42
+#: system/installer/requirements.php:25
 msgid ""
-"and enter\n"
-"                  an administrator password if you do not own the directory."
-msgstr ""
+"<em>Note</em>: You may need to use <strong>sudo</strong> and enter an "
+"administrator password if you do not own the directory."
+msgstr "<em>提示</em>: 如果该目录并非您所拥有，您可能需要使用 <strong>sudo</strong> 指令并输入管理员密码。"
 
-#: system/installer/requirements.php:48
+#: system/installer/requirements.php:30
 msgid ""
-"If the webserver is not part of the group which owns the\n"
-"              directory, you will need to <strong>temporarily</strong>\n"
-"              grant world write permissions to the directory:"
+"If the web server is not part of the group which owns the directory, you "
+"will need to <strong>temporarily</strong> grant world write permissions to "
+"the directory:"
 msgstr ""
 
-#: system/installer/requirements.php:59
+#: system/installer/requirements.php:39
 msgid ""
-"Be sure to remove the write permissions on the directory\n"
-"              as soon as the installation is completed."
-msgstr ""
+"Be sure to remove the write permissions on the directory as soon as the "
+"installation is completed."
+msgstr "当安装完成后，请务必记得撤销写入该目录的权限。"
 
-#: system/installer/requirements.php:67
+#: system/installer/requirements.php:47
 msgid "PHP Upgrade needed..."
-msgstr ""
+msgstr "PHP 需要升级..."
 
-#: system/installer/requirements.php:69
-msgid "requires PHP 5.2 or newer. Your current PHP version is"
-msgstr ""
+#: system/installer/requirements.php:49
+#, php-format
+msgid "requires PHP 5.2 or newer. Your current PHP version is %s."
+msgstr "必须使用 PHP 5.2 以上版本，您目前的 PHP 版本为 %s。"
 
-#: system/installer/requirements.php:79
+#: system/installer/requirements.php:60
 msgid "Missing Extensions"
+msgstr "缺少的模块"
+
+#: system/installer/requirements.php:62
+msgid "requires the following PHP extensions to be installed:"
 msgstr ""
 
-#: system/installer/requirements.php:81
-msgid "requires that the following PHP extensions to be installed:"
-msgstr ""
-
-#: system/installer/requirements.php:81
+#: system/installer/requirements.php:62
 msgid ""
 "Please contact your web hosting provider if you do not have access to your "
 "server."
+msgstr "如果您没有操作服务器的权限，请联络您的网站服务器管理员。"
+
+#: system/installer/requirements.php:69
+msgid ""
+"requires PHP's PCRE extension to have Unicode support enabled. Please "
+"contact your web hosting provider if you do not have access to your server."
 msgstr ""
 
-#: system/installer/requirements.php:85
+#: system/installer/requirements.php:75
 msgid "No PDO drivers enabled"
-msgstr ""
+msgstr "没有任何已启用的 PDO 驱动程序"
 
-#: system/installer/requirements.php:86
+#: system/installer/requirements.php:76
 msgid ""
 "requires that at least one <a href=\"http://www.php.net/pdo\">PDO driver</a> "
 "be installed. Please ask your hosting provider to enable one of the PDO "
 "drivers supported by Habari."
 msgstr ""
+"必须安装至少一个 <a href=\"http://www.php.net/pdo\">PDO "
+"驱动程序</a>。如果您没有安装模块的权限或不知道该如何操作，请洽询您的系统管理员或主机服务提供商。"
 
-#: system/installer/sqlite.php:29
-#: system/installer/config.php:29
-#: system/installer/htaccess.php:29
-msgid "Developer Review"
+#: system/installer/requirements.php:80
+msgid "mod_rewrite not enabled"
 msgstr ""
 
-#: system/installer/sqlite.php:32
-#: system/installer/config.php:32
-#: system/installer/db_setup.php:180
-#: system/installer/htaccess.php:32
-msgid "help"
-msgstr ""
-
-#: system/installer/sqlite.php:35
+#: system/installer/requirements.php:81
 msgid ""
-"Your <strong>.htaccess</strong> file is not writable. In order to secure "
-"your SQLite database, please paste the following into"
+"You have Apache, but mod_rewrite is not enabled. To use Habari, you must "
+"enable mod_rewrite in your server configuration. "
+"<strong>mod_rewrite</strong> is an Apache module that allows Habari (and "
+"other software) to handle URLs dynamically. You need a <code>LoadModule "
+"rewrite_module</code> line in your <code>httpd.conf</code>. Please ask your "
+"systems administrator or hosting provider to enable mod_rewrite."
 msgstr ""
 
-#: system/installer/sqlite.php:38
-msgid ""
-"Your SQLite database is a file on your server like\n"
-"\t\t\t\tany other file. You can enhance it's security by including a "
-"section\n"
-"\t\t\t\tin your .htaccess file that disallows access to it by readers on the "
-"web.\n"
-"\t\t\t\tHabari is not able to write this section in your .htaccess file\n"
-"\t\t\t\tautomatically, so you must add this section yourself to gain the "
-"enhanced\n"
-"\t\t\t\tsecurity it offers you."
-msgstr ""
-
-#: system/installer/sqlite.php:43
-#: system/installer/config.php:41
-#: system/installer/db_setup.php:39
-#: system/installer/db_setup.php:56
-#: system/installer/db_setup.php:67
-#: system/installer/db_setup.php:78
-#: system/installer/db_setup.php:89
-#: system/installer/db_setup.php:106
-#: system/installer/db_setup.php:117
-#: system/installer/db_setup.php:128
-#: system/installer/db_setup.php:139
-#: system/installer/db_setup.php:152
-#: system/installer/db_setup.php:168
-#: system/installer/db_setup.php:190
-#: system/installer/db_setup.php:200
-#: system/installer/db_setup.php:212
-#: system/installer/db_setup.php:223
-#: system/installer/htaccess.php:42
-msgid "Learn More..."
-msgstr ""
-
-#: system/installer/sqlite.php:54
-#: system/installer/config.php:52
-#: system/installer/db_setup.php:235
-#: system/installer/htaccess.php:53
-msgid "Install"
-msgstr ""
-
-#: system/installer/sqlite.php:58
-#: system/installer/htaccess.php:57
-msgid ""
-"When you have successfully placed the .htaccess file, run the installer "
-"again."
-msgstr ""
-
-#: system/installer/sqlite.php:59
-#: system/installer/config.php:57
-#: system/installer/htaccess.php:58
-msgid "Restart Installer"
-msgstr ""
-
-#: system/installer/config.php:35
-msgid ""
-"Your <strong>config.php</strong> file is not writable. In order to "
-"successfully install Habari, please paste the following into"
-msgstr ""
-
-#: system/installer/config.php:38
-msgid ""
-"<strong>config.php</strong> is a file that tells Habari how to connect\n"
-"\t\t\t\tto your database. Habari is not able to write this file to your "
-"server\n"
-"\t\t\t\tautomatically, so you must create this file yourself to continute\n"
-"\t\t\t\tthe installation."
-msgstr ""
-
-#: system/installer/config.php:56
-msgid ""
-"When you have successfully placed the config file, run the installer again."
-msgstr ""
-
-#: system/installer/db_setup.php:19
-msgid "Read the user manual"
-msgstr ""
-
-#: system/installer/db_setup.php:20
-msgid "Read the Habari wiki"
-msgstr ""
-
-#: system/installer/db_setup.php:21
-msgid "Ask the community"
-msgstr ""
-
-#: system/installer/db_setup.php:21
-msgid "Mailing List"
-msgstr ""
-
-#: system/installer/db_setup.php:28
-msgid "Database Setup"
-msgstr ""
-
-#: system/installer/db_setup.php:29
-msgid "Help"
-msgstr ""
-
-#: system/installer/db_setup.php:33
-msgid "Database Type"
-msgstr ""
-
-#: system/installer/db_setup.php:36
-msgid ""
-"<strong>Database Type</strong> specifies the type of database to which\n"
-"\t\t\t\t\t\tHabari will connect.  Changing this setting may affect the other "
-"fields\n"
-"\t\t\t\t\t\tthat are available here.  If the database engine that you wanted "
-"to use\n"
-"\t\t\t\t\t\tis not in this list, you may need to install a PDO driver to "
-"enable it."
-msgstr ""
-
-#: system/installer/db_setup.php:43
-msgid "MySQL Settings"
-msgstr ""
-
-#: system/installer/db_setup.php:44
-msgid ""
-"Use the settings below only if you have selected MySQL as your database "
-"engine."
-msgstr ""
-
-#: system/installer/db_setup.php:47
-#: system/installer/db_setup.php:97
-msgid "Database Host"
-msgstr ""
-
-#: system/installer/db_setup.php:52
-msgid ""
-"<strong>Database Host</strong> is the host (domain) name or server IP\n"
-"\t\t\t\t\t\taddress of the server that runs the MySQL database to\n"
-"\t\t\t\t\t\twhich Habari will connect.  If MySQL is running on your web "
-"server,\n"
-"\t\t\t\t\t\tand most of the time it is, \"localhost\" is usually a good "
-"value\n"
-"\t\t\t\t\t\tfor this field."
-msgstr ""
-
-#: system/installer/db_setup.php:61
-#: system/installer/db_setup.php:111
-#: system/installer/db_setup.php:195
-msgid "Username"
-msgstr ""
-
-#: system/installer/db_setup.php:66
-msgid ""
-"<strong>Database User</strong> is the username used to connect Habari\n"
-"\t\t\t\t\t\tto the MySQL database."
-msgstr ""
-
-#. echo $db_pass;
-#: system/installer/db_setup.php:77
-msgid ""
-"<strong>Database Password</strong> is the password used to connect\n"
-"\t\t\t\t\t\tthe specified user to the MySQL database."
-msgstr ""
-
-#: system/installer/db_setup.php:83
-#: system/installer/db_setup.php:133
-msgid "Database Name"
-msgstr ""
-
-#: system/installer/db_setup.php:88
-msgid ""
-"<strong>Database Name</strong> is the name of the MySQL database to\n"
-"\t\t\t\t\t\twhich Habari will connect."
-msgstr ""
-
-#: system/installer/db_setup.php:93
-msgid "PostgreSQL Settings"
-msgstr ""
-
-#: system/installer/db_setup.php:94
-msgid ""
-"Use the settings below only if you have selected PostgreSQL as your database "
-"engine."
-msgstr ""
-
-#: system/installer/db_setup.php:102
-msgid ""
-"<strong>Database Host</strong> is the host (domain) name or server IP\n"
-"\t\t\t\t\t\taddress of the server that runs the PostgreSQL database to\n"
-"\t\t\t\t\t\twhich Habari will connect.  If PostgreSQL is running on your web "
-"server,\n"
-"\t\t\t\t\t\tand most of the time it is, \"localhost\" is usually a good "
-"value\n"
-"\t\t\t\t\t\tfor this field."
-msgstr ""
-
-#: system/installer/db_setup.php:116
-msgid ""
-"<strong>Database User</strong> is the username used to connect Habari\n"
-"\t\t\t\t\t\tto the PostgreSQL database."
-msgstr ""
-
-#. echo $db_pass;
-#: system/installer/db_setup.php:127
-msgid ""
-"<strong>Database Password</strong> is the password used to connect\n"
-"\t\t\t\t\t\tthe specified user to the PostgreSQL database."
-msgstr ""
-
-#: system/installer/db_setup.php:138
-msgid ""
-"<strong>Database Name</strong> is the name of the PostgreSQL database to\n"
-"\t\t\t\t\t\twhich Habari will connect."
-msgstr ""
-
-#: system/installer/db_setup.php:143
-msgid "SQLite Settings"
-msgstr ""
-
-#: system/installer/db_setup.php:144
-msgid ""
-"Use the settings below only if you have selected SQLite as your database "
-"engine."
-msgstr ""
-
-#: system/installer/db_setup.php:147
-msgid "Data file"
-msgstr ""
-
-#: system/installer/db_setup.php:152
-msgid ""
-"<strong>Data file</strong> is the SQLite file that will store your Habari "
-"data.  This should be the complete path to where your data file resides."
-msgstr ""
-
-#: system/installer/db_setup.php:161
-msgid "Table Prefix"
-msgstr ""
-
-#: system/installer/db_setup.php:165
-msgid ""
-"<strong>Table Prefix</strong> is a prefix that will be appended to\n"
-"\t\t\t\t\t\teach table that Habari creates in the database, making it easy "
-"to\n"
-"\t\t\t\t\t\tdistinguish thode tables in the database from those of other\n"
-"\t\t\t\t\t\tinstallations."
-msgstr ""
-
-#: system/installer/db_setup.php:180
-msgid "Site Configuration"
-msgstr ""
-
-#: system/installer/db_setup.php:189
-msgid ""
-"<strong>Site Name</strong> is the name of your site as it will appear\n"
-"\t\t\t\t\t\tto your visitors."
-msgstr ""
-
-#: system/installer/db_setup.php:200
-msgid ""
-"<strong>Username</strong> is the username of the initial user in Habari."
-msgstr ""
-
-#: system/installer/db_setup.php:207
-msgid "Password (again)"
-msgstr ""
-
-#: system/installer/db_setup.php:212
-msgid ""
-"<strong>Password</strong> is the password of the initial user in Habari."
-msgstr ""
-
-#: system/installer/db_setup.php:217
-msgid "Admin Email"
-msgstr ""
-
-#: system/installer/db_setup.php:222
-msgid ""
-"<strong>Admin Email</strong> is the email address of the first user\n"
-"\t\t\t\t\t\taccount."
-msgstr ""
-
-#: system/installer/db_setup.php:239
-msgid ""
-"Habari now has all of the information needed to install itself on your "
-"server."
-msgstr ""
-
-#: system/installer/htaccess.php:35
-msgid ""
-"Your <strong>.htaccess</strong> file is not writable. In order to "
-"successfully install Habari, please paste the following into"
-msgstr ""
-
-#: system/installer/htaccess.php:38
-msgid ""
-"is a file that tells your Apache web server\n"
-"\t\t\t\tto send requests to Habari for handling.\n"
-"\t\t\t\tHabari is not able to write this file to your server\n"
-"\t\t\t\tautomatically, so you must create this file yourself to continue\n"
-"\t\t\t\tthe installation."
-msgstr ""
-
-#: system/themes/k2/sidebar.php:5
-#: system/themes/mzingi/searchform.php:4
-msgid "Search"
-msgstr "搜索"
-
-#: system/themes/k2/sidebar.php:10
-msgid "About"
-msgstr ""
-
-#: system/themes/k2/404.php:8
-msgid "Error!"
-msgstr ""
-
-#: system/themes/k2/404.php:12
-msgid "The requested post was not found."
-msgstr ""
-
-#: system/themes/k2/page.single.php:8
-msgid "Page:"
-msgstr ""
-
-#: system/themes/k2/page.single.php:11
-#: system/themes/k2/search.php:14
-#: system/themes/k2/home.php:13
-#: system/themes/k2/tag.php:13
-#: system/themes/k2/entry.multiple.php:13
-#: system/themes/k2/entry.single.php:22
-msgid "Comments to this post"
-msgstr ""
-
-#: system/themes/k2/page.single.php:12
-#: system/themes/k2/search.php:15
-#: system/themes/k2/home.php:14
-#: system/themes/k2/tag.php:14
-#: system/themes/k2/entry.multiple.php:14
-#: system/themes/k2/entry.single.php:23
-#: system/themes/mzingi/search.php:20
-#: system/themes/mzingi/home.php:22
-#: system/themes/mzingi/tag.php:20
-#: system/themes/mzingi/entry.multiple.php:20
-msgid "Comment"
-msgid_plural "Comments"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/themes/k2/page.single.php:14
-#: system/themes/k2/search.php:17
-#: system/themes/k2/home.php:16
-#: system/themes/k2/tag.php:16
-#: system/themes/k2/entry.multiple.php:16
-#: system/themes/k2/entry.single.php:25
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:32
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:20
-#: system/themes/mzingi/search.php:23
-#: system/themes/mzingi/home.php:25
-#: system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:23
-#: system/themes/mzingi/entry.single.php:30
-msgid "Edit post"
-msgstr ""
-
-#: system/themes/k2/search.php:6
-msgid "Search results for"
-msgstr ""
-
-#: system/themes/k2/loginform.php:5
-#: system/themes/mzingi/loginform.php:4
-msgid "That login is incorrect."
-msgstr ""
-
-#: system/themes/k2/loginform.php:11
-#: system/themes/mzingi/loginform.php:9
-msgid "You are logged in as"
-msgstr ""
-
-#: system/themes/k2/loginform.php:11
-msgid "Edit Your Profile"
-msgstr ""
-
-#: system/themes/k2/loginform.php:12
-#: system/themes/mzingi/loginform.php:10
-msgid "Want to"
-msgstr ""
-
-#: system/themes/k2/loginform.php:12
-#: system/themes/mzingi/loginform.php:10
-msgid "log out"
-msgstr ""
-
-#: system/themes/k2/loginform.php:20
-#: system/themes/mzingi/loginform.php:17
-#: system/themes/mzingi/commentform.php:70
-msgid "Name:"
-msgstr ""
-
-#: system/themes/k2/loginform.php:24
-#: system/themes/mzingi/loginform.php:21
-msgid "Password:"
-msgstr ""
-
-#: system/themes/k2/loginform.php:29
-msgid "Sign in"
-msgstr ""
-
-#: system/themes/k2/footer.php:9
-msgid " is powered by"
-msgstr ""
-
-#: system/themes/k2/footer.php:9
-msgid "and a huge amount of"
-msgstr ""
+#: system/index.php:110
+msgid "Habari General Error"
+msgstr "Habari 一般性错误"
 
-#: system/themes/k2/footer.php:10
-msgid "Caffeine"
-msgstr ""
-
-#: system/themes/k2/footer.php:11
-msgid "Atom Entries"
-msgstr ""
-
-#: system/themes/k2/footer.php:11
-#: system/themes/charcoal/footer.php:10
-msgid "Atom Comments"
-msgstr ""
-
-#. #-#-#-#-#  poeditWbsJXR (PACKAGE VERSION)  #-#-#-#-#
-#. Do not delete these lines
-#. #-#-#-#-#  poeditB5kK2r (PACKAGE VERSION)  #-#-#-#-#
-#. Do not delete these lines
-#. #-#-#-#-#  poeditiDjfe2 (PACKAGE VERSION)  #-#-#-#-#
-#. Do not delete these lines
-#: system/themes/k2/commentform.php:3
-#: system/themes/k2/comments.php:3
-#: system/themes/charcoal/commentform.php:2
-#: system/themes/charcoal/comments.php:2
-#: system/themes/mzingi/commentform.php:2
-msgid "Please do not load this page directly. Thanks!"
-msgstr ""
-
-#: system/themes/k2/commentform.php:6
-msgid "Leave a Reply"
-msgstr ""
-
-#: system/themes/k2/commentform.php:17
-#: system/themes/k2/commentform.php:21
-#: system/themes/mzingi/commentform.php:70
-#: system/themes/mzingi/commentform.php:75
-#: system/themes/mzingi/commentform.php:89
-msgid "Required"
-msgstr ""
-
-#: system/themes/k2/commentform.php:21
-#: system/themes/charcoal/commentform.php:15
-msgid "Mail"
-msgstr ""
-
-#: system/themes/k2/commentform.php:21
-msgid "will not be published"
-msgstr ""
-
-#: system/themes/k2/commentform.php:25
-#: system/themes/charcoal/commentform.php:19
-msgid "Website"
-msgstr ""
-
-#: system/themes/k2/comments.php:8
-msgid "Responses to"
-msgstr ""
-
-#: system/themes/k2/comments.php:10
-#: system/themes/mzingi/commentform.php:10
-msgid "Feed for this Entry"
-msgstr ""
-
-#: system/themes/k2/comments.php:20
-#: system/themes/mzingi/commentform.php:46
-msgid "Permanent Link to this Comment"
-msgstr ""
-
-#: system/themes/k2/comments.php:22
-msgid "Time of this Comment"
-msgstr ""
-
-#: system/themes/k2/comments.php:22
-#: system/themes/mzingi/commentform.php:48
-msgid "In moderation"
-msgstr ""
-
-#: system/themes/k2/comments.php:34
-#: system/themes/mzingi/commentform.php:58
-msgid "There are currently no comments."
-msgstr ""
-
-#: system/themes/k2/searchform.php:4
-#: system/themes/mzingi/searchform.php:4
-msgid "Go!"
-msgstr ""
-
-#: system/themes/k2/header.php:34
-#: system/themes/charcoal/header.php:48
-msgid "Admin area"
-msgstr ""
+#: system/index.php:111
+msgid "An error occurred"
+msgstr "发生错误"
 
-#: system/themes/k2/header.php:34
-#: system/themes/charcoal/header.php:48
-msgid "Admin"
-msgstr ""
-
-#: system/themes/charcoal/sidebar.php:6
-msgid "{blog entries}"
-msgstr ""
-
-#: system/themes/charcoal/sidebar.php:7
-msgid "{comments}"
-msgstr ""
+#: system/index.php:112
+msgid "Unable to connect to database."
+msgstr "无法连接数据库。"
 
-#: system/themes/charcoal/sidebar.php:11
-msgid "Powered by Habari"
-msgstr ""
-
-#: system/themes/charcoal/404.php:6
-msgid "Whoops! 404"
-msgstr ""
+#~ msgid "year"
+#~ msgstr "年"
 
-#: system/themes/charcoal/404.php:9
-msgid ""
-"The page you were trying to access is not really there. Please try again."
-msgstr ""
+#~ msgid "years"
+#~ msgstr "年"
 
-#: system/themes/charcoal/search.php:21
-#: system/themes/charcoal/home.php:22
-#: system/themes/charcoal/tag.php:20
-#: system/themes/charcoal/multiple.php:19
-#: system/themes/charcoal/entry.single.php:29
-#: system/themes/mzingi/search.php:20
-#: system/themes/mzingi/home.php:22
-#: system/themes/mzingi/tag.php:20
-#: system/themes/mzingi/entry.multiple.php:20
-msgid "Comments on this post"
-msgstr ""
+#~ msgid "month"
+#~ msgstr "月"
 
-#: system/themes/charcoal/search.php:21
-#: system/themes/charcoal/home.php:22
-#: system/themes/charcoal/tag.php:20
-#: system/themes/charcoal/multiple.php:19
-#: system/themes/charcoal/entry.single.php:29
-msgid "No Comments"
-msgstr ""
+#~ msgid "months"
+#~ msgstr "月"
 
-#: system/themes/charcoal/search.php:21
-#: system/themes/charcoal/home.php:22
-#: system/themes/charcoal/tag.php:20
-#: system/themes/charcoal/multiple.php:19
-#: system/themes/charcoal/entry.single.php:29
 #, php-format
-msgid "%s Comment"
-msgstr ""
+#~ msgid "%1$d "
+#~ msgid_plural "%1$d "
+#~ msgstr[0] "%1$d "
 
-#: system/themes/charcoal/search.php:21
-#: system/themes/charcoal/home.php:22
-#: system/themes/charcoal/tag.php:20
-#: system/themes/charcoal/multiple.php:19
-#: system/themes/charcoal/entry.single.php:29
+#~ msgid "day"
+#~ msgstr "天"
+
+#~ msgid "page"
+#~ msgstr "个页面"
+
+#~ msgid "pages"
+#~ msgstr "个页面"
+
 #, php-format
-msgid "%s Comments"
-msgstr ""
+#~ msgid "%d "
+#~ msgid_plural "%d "
+#~ msgstr[0] "%d "
 
-#: system/themes/charcoal/search.php:47
-#: system/themes/charcoal/home.php:69
-#: system/themes/charcoal/tag.php:39
-#: system/themes/charcoal/multiple.php:40
-#: system/themes/mzingi/home.php:33
-#: system/themes/mzingi/entry.multiple.php:29
-msgid "Newer Posts"
-msgstr ""
+#~ msgid "tag"
+#~ msgstr "个标签"
 
-#: system/themes/charcoal/search.php:48
-#: system/themes/charcoal/home.php:70
-#: system/themes/charcoal/tag.php:40
-#: system/themes/charcoal/multiple.php:41
-#: system/themes/mzingi/home.php:33
-#: system/themes/mzingi/entry.multiple.php:29
-msgid "Older Posts"
-msgstr ""
+#~ msgid "tags"
+#~ msgstr "个标签"
 
-#: system/themes/charcoal/home.php:38
-msgid "No posts published, yet."
-msgstr ""
+#~ msgid "close"
+#~ msgstr "关闭"
 
-#: system/themes/charcoal/home.php:62
+#~ msgid "Web Address"
+#~ msgstr "网址"
+
+#~ msgid "Update"
+#~ msgstr "更新"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "Number of items"
+#~ msgstr "项目数量"
+
 #, php-format
-msgid "Continue reading %s"
-msgstr ""
+#~ msgid "Deleted %d entries."
+#~ msgstr "已删除 %d 篇文章。"
 
-#: system/themes/charcoal/home.php:62
-msgid "more"
-msgstr ""
+#~ msgid "Bitmask names must be pre-defined strings or bitmask indexes"
+#~ msgstr "Bitmask 名称必须为预定义的字符串或 bitmask 索引值。"
 
-#: system/themes/charcoal/footer.php:7
+#~ msgid "requires that the following PHP extensions to be installed:"
+#~ msgstr "必须安装下列 PHP 模块:"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "忘记密码"
+
+#~ msgid "Search for other comments from "
+#~ msgstr "搜索其它评论自从 "
+
+#~ msgid "entry"
+#~ msgstr "篇文章"
+
+#~ msgid "entries"
+#~ msgstr "篇文章"
+
+#~ msgid "comment"
+#~ msgstr "则评论"
+
+#~ msgid "comments"
+#~ msgstr "则评论"
+
+#~ msgid "entry draft"
+#~ msgstr "篇文章尚未定稿"
+
+#~ msgid "entry drafts"
+#~ msgstr "篇文章尚未定稿"
+
+#~ msgid "page draft"
+#~ msgstr "个页面尚未定稿"
+
+#~ msgid "page drafts"
+#~ msgstr "个页面尚未定稿"
+
+#~ msgid "comment awaiting approval"
+#~ msgstr "则评论尚待审核"
+
+#~ msgid "comments awaiting approval"
+#~ msgstr "则评论尚待审核"
+
+#~ msgid "spam comment awaiting moderation"
+#~ msgstr "则垃圾评论尚待审核"
+
+#~ msgid "spam comments awaiting moderation"
+#~ msgstr "则垃圾评论尚待审核"
+
 #, php-format
-msgid "%1$s is powered by %2$s"
-msgstr ""
+#~ msgid ""
+#~ "Post author id %s was not found in WP database, assigning post \"%s\" (WP "
+#~ "post id #%d) to current user."
+#~ msgstr "在 WordPress 数据库中找不到指定的作者账号 %s，将把 “%s” (文章编号 #%d) 的权限移交给目前的用户。"
 
-#: system/themes/charcoal/footer.php:9
-msgid "AtomEntries"
-msgstr ""
+#~ msgid "<p>Importing users...</p>"
+#~ msgstr "<p>用户数据导入中…</p>"
 
-#: system/themes/charcoal/footer.php:9
-msgid " and "
-msgstr ""
+#~ msgid "Required - not published"
+#~ msgstr "必填 (不公开)"
 
-#: system/themes/charcoal/tag.php:4
+#~ msgid "Say It"
+#~ msgstr "提交评论"
+
+#~ msgid "Enter the name of the new directory to create here"
+#~ msgstr "请输入新目录的名称"
+
+#~ msgid "Directory Created:"
+#~ msgstr "目录已建立:"
+
+#~ msgid ""
+#~ "Logs error backtraces to the log tables' data column. Can drastically "
+#~ "increase log size!"
+#~ msgstr "在系统日志中记录完整的错误逆向追踪，将会大幅增加记录文件的大小。"
+
+#~ msgid "Access to that post id is denied"
+#~ msgstr "禁止访问该篇文章"
+
+#~ msgid "Permission Denied"
+#~ msgstr "禁止访问"
+
+#~ msgid "Submit changes"
+#~ msgstr "确定修改"
+
+#~ msgid "Cancel changes"
+#~ msgstr "取消修改"
+
+#~ msgid "Updated 1 comment."
+#~ msgstr "已更新一则评论。"
+
+#~ msgid "Manage blog comments"
+#~ msgstr "管理博客评论"
+
+#~ msgid "Manage blog tags"
+#~ msgstr "管理博客标签"
+
+#~ msgid "View and configure blog options"
+#~ msgstr "查看及修改博客设定"
+
+#~ msgid "Import content from another blog"
+#~ msgstr "从其它博客导入文章"
+
 #, php-format
-msgid "Displaying posts tagged: %s"
-msgstr ""
+#~ msgid "Tag deleted: %s"
+#~ msgstr "已删除 %s 标签"
 
-#: system/themes/charcoal/commentform.php:11
-msgid "(Required)"
-msgstr ""
+#~ msgid "The SQLite data file is not writable by the web server."
+#~ msgstr "服务器没有写入 SQLite 数据库的权限。"
 
-#: system/themes/charcoal/commentform.php:15
-msgid "(will not be published - Required)"
-msgstr ""
+#~ msgid ""
+#~ "SQLite requires that the directory that holds the DB file be writable by the "
+#~ "web server."
+#~ msgstr "SQLite 需要一个允许服务器写入的目录来存放数据库。"
 
-#: system/themes/charcoal/commentform.php:35
-msgid "Comments are closed for this post"
-msgstr ""
+#~ msgid ""
+#~ "The SQLite data file does not exist, and it cannot be created in the "
+#~ "specified directory.  SQLite requires that the directory containing the "
+#~ "database file be writable by the web server."
+#~ msgstr "SQLite 数据库不存在，并且无法建立新的数据库。SQLite 数据库必须置于网页服务器能够写入的目录中。"
 
-#: system/themes/charcoal/theme.php:121
-msgid "Search for "
-msgstr ""
+#~ msgid ""
+#~ "Before you can install Habari, you first need to make the install directory "
+#~ "writable by php, so that the installation script can write your "
+#~ "configuration information properly. The exact process of server and the "
+#~ "ownership of the directory."
+#~ msgstr "在您安装 Habari 以前，请先确认 PHP 有写入安装目录的权限，这样 Habari 才能正确产生配置文件。"
 
-#: system/themes/charcoal/theme.php:126
-#: system/themes/charcoal/theme.php:132
+#~ msgid ""
+#~ "If your webserver is part of the group which owns the directory, you'll need "
+#~ "to add group write permissions to the directory. The procedure for this is "
+#~ "as follows:"
+#~ msgstr "如果您的服务器位于拥有该目录的组中，您将需要新增写入的权限至该目录。操作流程如下:"
+
+#~ msgid ""
+#~ "If the webserver is not part of the group which owns the directory, you will "
+#~ "need to <strong>temporarily</strong> grant world write permissions to the "
+#~ "directory:"
+#~ msgstr "如果您的服务器不在拥有该目录的组中，您将需要<strong>暂时</strong>允许所有人写入该目录:"
+
+#~ msgid ""
+#~ "<strong>Password</strong> is the password of the initial user in Habari."
+#~ msgstr "<strong>密码</strong>: 您的 Habari 中的第一位用户的密码。"
+
+#~ msgid "and a huge amount of"
+#~ msgstr "以及大量的"
+
+#~ msgid "Please do not load this page directly. Thanks!"
+#~ msgstr "请勿直接加载此页。"
+
+#~ msgid "will not be published"
+#~ msgstr "不会公开"
+
 #, php-format
-msgid "Search results for '%s'"
-msgstr ""
+#~ msgid "%s Comments"
+#~ msgstr "%s 则评论"
 
-#: system/themes/charcoal/theme.php:129
-#, php-format
-msgid "No results found for your search '%1$s'"
-msgstr ""
+#~ msgid "(will not be published - Required)"
+#~ msgstr "(不会公开 - 必填)"
 
-#: system/themes/charcoal/theme.php:129
-#, php-format
-msgid "You can try searching for '%2$s'"
-msgstr ""
+#~ msgid "Pingback"
+#~ msgid_plural "Pingbacks"
+#~ msgstr[0] "个引用通告"
 
-#: system/themes/charcoal/theme.php:135
-#, php-format
-msgid "No results found for your search '%s'"
-msgstr ""
+#~ msgid "Response"
+#~ msgid_plural "Responses"
+#~ msgstr[0] "则回应"
 
-#: system/themes/charcoal/comments.php:20
-msgid "Your comment is awaiting moderation"
-msgstr ""
+#~ msgid "Email address is not published"
+#~ msgstr "E-mail 不会被公开"
 
-#: system/themes/charcoal/comments.php:26
-msgid "Be the first to write a comment!"
-msgstr ""
-
-#: system/themes/charcoal/searchform.php:2
-#, php-format
-msgid "Search %s"
-msgstr ""
-
-#: system/themes/charcoal/searchform.php:3
-msgid "Go"
-msgstr ""
-
-#: system/themes/mzingi/sidebar.php:4
-msgid "Subscribe to Feed"
-msgstr ""
-
-#: system/themes/mzingi/sidebar.php:5
-msgid "Navigation"
-msgstr ""
-
-#: system/themes/mzingi/sidebar.php:7
-msgid "Home"
-msgstr ""
-
-#: system/themes/mzingi/sidebar.php:16
-msgid "Asides"
-msgstr ""
-
-#: system/themes/mzingi/sidebar.php:29
-msgid "More Posts"
-msgstr ""
-
-#: system/themes/mzingi/sidebar.php:40
-msgid "Recent Comments"
-msgstr ""
-
-#: system/themes/mzingi/sidebar.php:47
-msgid "User Login"
-msgstr ""
-
-#: system/themes/mzingi/404.php:7
-msgid "It seems you couldn't find what you are looking for."
-msgstr ""
-
-#: system/themes/mzingi/404.php:7
-msgid "Perhaps you can try searching."
-msgstr ""
-
-#: system/themes/mzingi/search.php:7
-msgid "Results for search of"
-msgstr ""
-
-#: system/themes/mzingi/search.php:18
-#: system/themes/mzingi/home.php:20
-#: system/themes/mzingi/tag.php:18
-#: system/themes/mzingi/entry.multiple.php:18
-#: system/themes/mzingi/entry.single.php:26
-msgid "Tagged:"
-msgstr ""
-
-#: system/themes/mzingi/search.php:29
-#: system/themes/mzingi/tag.php:29
-msgid "Newer Results"
-msgstr ""
-
-#: system/themes/mzingi/search.php:29
-#: system/themes/mzingi/tag.php:29
-msgid "Older Results"
-msgstr ""
-
-#: system/themes/mzingi/search.php:31
-msgid "No results for"
-msgstr ""
-
-#: system/themes/mzingi/loginform.php:25
-msgid "GO!"
-msgstr ""
-
-#: system/themes/mzingi/footer.php:3
-msgid "is powered by"
-msgstr ""
-
-#: system/themes/mzingi/tag.php:8
-msgid "Posts Tagged with"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:13
-msgid "Pingback"
-msgid_plural "Pingbacks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/themes/mzingi/commentform.php:13
-#: system/themes/mzingi/commentform.php:29
-msgid "to"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:29
-msgid "Response"
-msgid_plural "Responses"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/themes/mzingi/commentform.php:47
-msgid "Comment by"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:48
-msgid "Time of this comment"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:68
-msgid "About You"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:75
-msgid "Email Address:"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:80
-msgid "Web Address:"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:83
-msgid "Email address is not published"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:87
-msgid "Add to the Discussion"
-msgstr ""
-
-#: system/themes/mzingi/commentform.php:89
-msgid "Message:"
-msgstr ""
-
-#: system/schema/pgsql/connection.php:322
-#: system/schema/mysql/connection.php:244
-msgid "No Upgrades"
-msgstr ""
+#~ msgid "Message:"
+#~ msgstr "留言:"
