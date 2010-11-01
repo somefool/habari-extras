@@ -28,7 +28,7 @@ done
 # remove tmp files
 rm -rf tmp
 
-#svn ci -m"launchpad sync"
+svn ci -m"launchpad sync"
 
 echo "done!"
 
