@@ -2,6 +2,6 @@
 		<p><a href="http://habariproject.org">Habari</a> {hi:"under the hood"}.</p>
 		{hi:@footer}
 	</div>
-</div>
+</div><!-- end wrapper -->
 </body>
 </html>

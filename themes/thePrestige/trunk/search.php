@@ -1,7 +1,7 @@
 {hi:display:header}
 		<div id="content">
 			<div id="primaryContent">
-			<h2 class="pageTitle">{hi:"Search results for: "}{hi:escape:criteria}</h2>
+			<h2 class="pageTitle">{hi:"Search results for: "}{hi:criteria}</h2>
 				{hi:posts}
 				<div class="post {hi:statusname}">
 					
