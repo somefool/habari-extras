@@ -26,7 +26,7 @@
 			$other = Post::get(
 				array(
 					'limit' => 1,
-					'tag' => $tag,
+					'vocabulary' => array('tags:id' => $tag->id),
 					'before' => $post->pubdate,
 				)
 			);
