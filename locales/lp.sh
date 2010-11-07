@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # setup tmp files from tar.gz's
+cd /home/matt/habari-locales
 bzr update bzr
 
 # check fo .po
