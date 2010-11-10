@@ -5,6 +5,8 @@
 class TwitterSilo extends Plugin implements MediaSilo
 {
 	const SILO_NAME = 'Twitter';
+	const CONSUMER_KEY = 'xBsV65xckJicZlcjHorQ';
+	const CONSUMER_SECRET = 'm6HEFdJBYAd45mbo33GIgnSmmcbyx3Wo1YCymgUlc';
 
 	protected $Twitter;
 	/**
@@ -12,7 +14,8 @@ class TwitterSilo extends Plugin implements MediaSilo
 	*     name- The name of the silo, used as the root directory for media in this silo
 	*	  icon- An icon to represent the silo
 	*/
-	public function silo_info() {
+	public function silo_info()
+	{
 		return array( 'name' => self::SILO_NAME );
 	}
 	
@@ -21,13 +24,14 @@ class TwitterSilo extends Plugin implements MediaSilo
 	 * @param string $path The path to retrieve the contents of
 	 * @return array An array of MediaAssets describing the contents of the directory
 	 **/
-	public function silo_dir( $path ) {
+	public function silo_dir( $path )
+	{
 		switch ( strtok( $path, '/' ) ) {
 			case '':
 				return array(
-					new MediaAsset(self::SILO_NAME . '/mine/', true),
-					new MediaAsset(self::SILO_NAME . '/friends/', true),
-					new MediaAsset(self::SILO_NAME . '/custom/', true),
+					new MediaAsset( self::SILO_NAME . '/mine/', true ),
+					new MediaAsset( self::SILO_NAME . '/friends/', true ),
+					new MediaAsset( self::SILO_NAME . '/custom/', true ),
 				);
 				break; // (for good measure)
 			
@@ -52,7 +56,8 @@ class TwitterSilo extends Plugin implements MediaSilo
 				$friend = strtok( '/' );
 				if ( $friend === false ) {
 					return $this->get_friends();
-				} else {
+				}
+				else {
 					return $this->get_friend_tweets( $friend );
 				}
 				break; // (for good measure)
@@ -65,8 +70,9 @@ class TwitterSilo extends Plugin implements MediaSilo
 	 * @param array $qualities Qualities that specify the version of the file to retrieve.
 	 * @return MediaAsset The requested asset
 	 **/
-	public function silo_get( $path, $qualities = null ) {
-		return MediaAsset('foo', false);
+	public function silo_get( $path, $qualities = null )
+	{
+		return MediaAsset( 'foo', false );
 	}
 
 	/**
@@ -97,8 +103,8 @@ class TwitterSilo extends Plugin implements MediaSilo
 	public function silo_permissions( $path ) {}
 
 
-	public function action_admin_footer( $theme ) {
-
+	public function action_admin_footer( $theme )
+	{
 		if ( Controller::get_var( 'page' ) == 'publish' ) {
 			?><script type="text/javascript">
 				function inject_tweet(text, url, user, img) {
@@ -112,8 +118,8 @@ class TwitterSilo extends Plugin implements MediaSilo
 					return '<div class="mediatitle"><a href="' + fileobj.url + '" target="_new" class="medialink">media</a>' + fileobj.tweet_user_screen_name + '</div>' + fileobj.tweet_text_short;
 				}
 				habari.media.output.twittertweetcustom = {'Insert': function(fileindex, fileobj) {
-					$.get("/auth_ajax/tweetcustom?tweet=" + escape($('#tweetcustom').val()), function( data ){
-						if (data) {
+					$.get("<?php echo Site::get_url('habari'); ?>/auth_ajax/tweetcustom?tweet=" + escape($('#tweetcustom').val()), function( data ){
+						if (data.text) {
 							inject_tweet(data.text, 'http://twitter.com/' + escape(data.user.screen_name) + '/statuses/' + escape(data.id), data.user.screen_name, data.user.profile_image_url);
 						}
 					}, {}, 'json' );
@@ -126,41 +132,50 @@ class TwitterSilo extends Plugin implements MediaSilo
 	}
 	
 	
-	public function action_auth_ajax_tweetcustom( $handler ) {
+	public function action_auth_ajax_tweetcustom( $handler )
+	{
 		$tweet = isset( $_GET['tweet'] ) ? $_GET['tweet'] : '';
 		$tweet = preg_replace( '@http://(www\.)?twitter.com/([^/]+)/([^/]+)/([0-9]+)@', '$4', $tweet );
 		if ( ctype_digit( $tweet ) ) {
 			$ret = self::twitter_status( $tweet );
-		} else {
+		}
+		else {
 			$ret = false;
 		}
 		echo json_encode( $ret );
 	}
 
-	public function theme_header() {
+	public function theme_header()
+	{
 		// add CSS
 		return '<link rel="stylesheet" type="text/css" media="screen" href="'
 					. $this->get_url( true ) . 'twittersilo.css" />';
 	}
 	
-	protected function get_mine() {
+	protected function get_mine()
+	{
 		return $this->to_assets( self::twitter_mine(), 'mine' );
 	}
 
-	protected function get_friend_tweets ( $id ) {
+	protected function get_friend_tweets ( $id )
+	{
 		return $this->to_assets( self::twitter_friend_tweets( $id ), 'friends' );
 	}
 	
-	protected function get_friends() {
+	protected function get_friends()
+	{
 		$friends = array();
 		$friendsObj = self::twitter_friends();
-		foreach ($friendsObj as $friend) {
-			$friends[] = new MediaAsset(self::SILO_NAME . '/friends/' . $friend->screen_name, true);
+		if ( ! empty( $friendsObj ) ) {
+			foreach ( $friendsObj as $friend ) {
+				$friends[] = new MediaAsset( self::SILO_NAME . '/friends/' . $friend->screen_name, true );
+			}
 		}
 		return $friends;
 	}
 	
-	protected function to_assets( $objs, $type ) {
+	protected function to_assets( $objs, $type )
+	{
 		foreach ($objs as $obj) {
 			$tweets[] = new MediaAsset(
 				self::SILO_NAME . '/' . $type . '/' . $obj->user->name . '/' . $obj->id,
@@ -188,9 +203,14 @@ class TwitterSilo extends Plugin implements MediaSilo
 	* @param string $plugin_id The string id of a plugin, generated by the system
 	* @return array The array of actions to attach to the specified $plugin_id
 	*/
-	public function filter_plugin_config($actions, $plugin_id)
+	public function filter_plugin_config( $actions, $plugin_id )
 	{
-		$actions[] = 'Configure';
+		if ( User::identify()->info->twittersilo__access_token  ) {
+			$actions['deauthorize'] = _t( 'De-Authorize' );
+		}
+		else {
+			$actions['authorize'] = _t( 'Authorize' );
+		}
 		return $actions;
 	}
 
@@ -200,54 +220,105 @@ class TwitterSilo extends Plugin implements MediaSilo
 	* @param string $plugin_id The string id of the acted-upon plugin
 	* @param string $action The action string supplied via the filter_plugin_config hook
 	*/
-	public function action_plugin_ui($plugin_id, $action)
+	public function action_plugin_ui( $plugin_id, $action )
 	{
-		if ($plugin_id == $this->plugin_id()){
-			switch ($action){
-				case 'Configure':
-					$ui = new FormUI( strtolower( get_class( $this ) ) );
-					$ui->append( 'text', 'twitter_user', 'option:twittersilo__user', _t( 'Twitter Username:' ) );
-					$ui->append( 'password', 'twitter_pass', 'option:twittersilo__pass', _t( 'Twitter Password:' ) );
-					$ui->append('submit', 'save', _t( 'Save' ) );
-					$ui->set_option('success_message', _t('Options saved'));
+		$ui = new FormUI( strtolower( __CLASS__ ) );
+		$user = User::identify();
+		require_once dirname( __FILE__ ) . '/lib/twitteroauth/twitteroauth.php';
+
+		switch ( $action ){
+			case 'authorize':
+				unset( $_SESSION['TwitterSiloReqToken'] ); // Just being safe.
+				$oauth = new TwitterOAuth(TwitterSilo::CONSUMER_KEY, TwitterSilo::CONSUMER_SECRET );
+				$oauth_token = $oauth->getRequestToken( URL::get( 'admin', array( 'page' => 'plugins', 'configure' => $this->plugin_id(), 'configaction' => 'confirm' ) ) );
+				$request_link = $oauth->getAuthorizeURL( $oauth_token );
+				$reqToken = array( "request_link" => $request_link, "request_token" => $oauth_token['oauth_token'], "request_token_secret" => $oauth_token['oauth_token_secret'] );
+				$_SESSION['TwitterSiloReqToken'] = serialize( $reqToken );
+				$ui->append( 'static', 'nocontent', '<h3>Authorize the Habari TwitterSilo Plugin</h3>
+													 <p>Authorize your blog to have access to your Twitter account.</p>
+													 <p>Click the button below, and you will be taken to Twitter.com. If you\'re already logged in, you will be presented with the option to authorize your blog. Press the "Allow" button to do so, and you will come right back here.</p>
+													 <br><p style="text-align:center"><a href="'.$reqToken['request_link'].'"><img src="'. URL::get_from_filesystem( __FILE__ ) .'/lib/twitter_connect.png" alt="Sign in with Twitter" /></a></p>
+							');
+				$ui->out();
+				break;
+
+			case 'confirm':
+				if( !isset( $_SESSION['TwitterSiloReqToken'] ) ){
+					$auth_url = URL::get( 'admin', array( 'page' => 'plugins', 'configure' => $this->plugin_id(), 'configaction' => 'authorize' ) );
+					$ui->append( 'static', 'nocontent', '<p>'._t( 'Either you have already authorized Habari to access your Twitter account, or you have not yet done so.  Please ' ).'<strong><a href="' . $auth_url . '">'._t( 'try again' ).'</a></strong>.</p>');
 					$ui->out();
-					break;
-			}
+				}
+				else {
+					$reqToken = unserialize( $_SESSION['TwitterSiloReqToken'] );
+					$oauth = new TwitterOAuth( TwitterSilo::CONSUMER_KEY, TwitterSilo::CONSUMER_SECRET, $reqToken['request_token'], $reqToken['request_token_secret'] );
+					$token = $oauth->getAccessToken($_GET['oauth_verifier']);
+					//$config_url = URL::get( 'admin', array( 'page' => 'plugins', 'configure' => $this->plugin_id(), 'configaction' => 'Configure' ) );
+
+					if( ! empty( $token ) && isset( $token['oauth_token'] ) ){
+						$user->info->twittersilo__access_token = $token['oauth_token'];
+						$user->info->twittersilo__access_token_secret = $token['oauth_token_secret'];
+						$user->info->twittersilo__user_id = $token['user_id'];
+						$user->info->commit();
+						echo '<form><p>'._t( 'Habari TwitterSilo plugin successfully authorized.' ).'</p></form>';
+						Session::notice( _t( 'Habari TwitterSilo plugin successfully authorized.', 'twittersilo' ) );
+						//Utils::redirect( $config_url );
+					}
+					else{
+						// TODO: We need to fudge something to report the error in the event something fails.  Sadly, the Twitter OAuth class we use doesn't seem to cater for errors very well and returns the Twitter XML response as an array key.
+						// TODO: Also need to gracefully cater for when users click "Deny"
+						echo '<form><p>'._t( 'There was a problem with your authorization.' ).'</p></form>';
+					}
+					unset( $_SESSION['TwitterSiloReqToken'] );
+				}
+				break;
+			case 'deauthorize':
+				$user->info->twittersilo__user_id = '';
+				$user->info->twittersilo__access_token = '';
+				$user->info->twittersilo__access_token_secret = '';
+				$user->info->commit();
+				$reauth_url = URL::get( 'admin', array( 'page' => 'plugins', 'configure' => $this->plugin_id(), 'configaction' => 'authorize' ) ) . '#plugin_options';
+				$ui->append( 'static', 'nocontent', '<p>'._t( 'The Twitter Plugin authorization has been deleted. Please ensure you ' ) . '<a href="http://twitter.com/settings/connections" target="_blank">' . _t( 'revoke access ' ).'</a>'._t( 'from your Twitter account too.' ).'<p><p>'._t( 'Do you want to ' ).'<b><a href="'.$reauth_url.'">'._t( 're-authorize this plugin' ).'</a></b>?<p>' );
+				Session::notice( _t( 'Habari TwitterSilo plugin authorization revoked. <br>Don\'t forget to revoke access on Twitter itself.', 'twitter' ) );
+				//Utils::redirect( $reauth_url );
+				$ui->out();
+				break;
 		}
 	}
 	
-	protected static function twitter_fetch ( $url ) {
-		if ( $user = Options::get( 'twittersilo__user' ) ) {
-			// cheap hack:
-			$tweetURL = preg_replace(
-				'@^(https?)://@',
-				'$1://' . urlencode( $user ) . ':' . Options::get('twittersilo__pass') .'@',
-				$url
-			);
-		} else {
-			$tweetURL = $url;
+	protected static function twitter_fetch ( $url )
+	{
+		$user = User::identify();
+		require_once dirname( __FILE__ ) . '/lib/twitteroauth/twitteroauth.php';
+
+		$connection = new TwitterOAuth( TwitterSilo::CONSUMER_KEY, TwitterSilo::CONSUMER_SECRET, $user->info->twittersilo__access_token, $user->info->twittersilo__access_token_secret );
+		$connection->useragent = 'Habari Twitter Silo - 1.1';
+			
+		if ( $result = $connection->get( $url ) ) {
+			return $result;
 		}
-		if ( $result = @file_get_contents( $tweetURL ) ) {
-			return json_decode( $result );
-		} else {
+		else {
 			return false;
 		}
 	}
 	
-	protected static function twitter_status( $id ) {
-		return self::twitter_fetch( 'http://twitter.com/statuses/show/' . ((int)$id) . '.json' );
-	}
-	
-	protected static function twitter_mine( ) {
-		return self::twitter_fetch( 'http://twitter.com/statuses/user_timeline.json' );
-	}
-	
-	protected static function twitter_friend_tweets( $id ) {
-		return self::twitter_fetch( 'http://twitter.com/statuses/user_timeline/'. urlencode( $id ) .'.json' );
+	protected static function twitter_status( $id )
+	{
+		return self::twitter_fetch( 'statuses/show/' . $id );
 	}
 
-	protected static function twitter_friends( ) {
-		return self::twitter_fetch( 'http://twitter.com/statuses/friends.json' );
+	protected static function twitter_mine( )
+	{
+		return self::twitter_fetch( 'statuses/user_timeline' );
+	}
+
+	protected static function twitter_friend_tweets( $id )
+	{
+		return self::twitter_fetch( 'statuses/user_timeline/'. urlencode( $id ) );
+	}
+
+	protected static function twitter_friends( )
+	{
+		return self::twitter_fetch( 'statuses/friends' );
 	}
 
 }
