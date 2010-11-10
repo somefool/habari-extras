@@ -21,10 +21,10 @@ class TagTray extends Plugin
 		$tags_list->class = ' container';
 		$tags_list->append('static', 'tagsliststart', '<ul id="tag-list" class="span-19">');
 
-		$tags = Tags::get();
-		$max = Tags::max_count();
+		$tags = Tags::vocabulary()->get_tree( 'term_display ASC' );
+		$max = Tags::vocabulary()->max_count();
 		foreach ($tags as $tag) {
-			$tags_list->append('tag', 'tag_'.$tag->slug, $tag, 'tabcontrol_text');
+			$tags_list->append('tag', 'tag_'.$tag->term, $tag, 'tabcontrol_text');
 		}
 
 		$tags_list->append('static', 'tagslistend', '</ul>');
