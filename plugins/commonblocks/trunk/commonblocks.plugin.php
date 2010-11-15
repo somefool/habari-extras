@@ -200,15 +200,14 @@ class CommonBlocks extends Plugin
 	{
 		$minimum = ( isset( $block->minimum ) ? $block->minimum : 0 );
 		$items = '';
-		$tags = Tags::get(); // does this need to specify published?
-		$max = intval( Tags::max_count() );
-
+		$tags = Tags::vocabulary()->get_tree(); // does this need to specify published?
+		$max = intval( Tags::vocabulary()->max_count() );
 		foreach ( $tags as $tag ) {
 			if ( $tag->count > $minimum ) {
 			    $size = $tag->count * 15 / $max + 10;
 			    $items .= 
-				'<a href="' . URL::get( 'display_entries_by_tag', array( 'tag' => $tag->tag_slug ) ) .
-				'" title="' . $tag->count . "\" style=\"font-size:{$size}pt;\" >" . $tag->tag . "</a>\n";
+				'<a href="' . URL::get( 'display_entries_by_tag', array( 'tag' => $tag->term ) ) .
+				'" title="' . $tag->count . "\" style=\"font-size:{$size}pt;\" >" . $tag->term_display . "</a>\n";
 			}
 		}
 		$block->cloud = $items;
