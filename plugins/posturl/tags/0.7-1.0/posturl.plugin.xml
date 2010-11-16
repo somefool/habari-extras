@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+  <name>PostURL</name>
+  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+  <url>http://mattsd.com/</url>
+  <author url="http://mattsd.com/">Matt-SD</author>
+  <version>1.0</version>
+  <description><![CDATA[Change a posts URL to anything you want.]]></description>
+  <copyright>2010</copyright>
+</pluggable>
