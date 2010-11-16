@@ -1,0 +1,33 @@
+id: 0-2.0.r2/0
+type: dir
+count: 0
+cpath: /trunk
+copyroot: 0 /
+
+PLAIN
+K 18
+posturl.plugin.php
+V 18
+file 3-1.0.r1/1127
+K 18
+posturl.plugin.xml
+V 17
+file 0-1.0.r1/856
+K 5
+trunk
+V 14
+dir 0-2.0.r2/0
+END
+ENDREP
+id: 0.0.r2/205
+type: dir
+pred: 0.0.r1/1472
+count: 2
+text: 2 63 129 129 5316891742fc0a199438acb6719d1fab
+cpath: /
+copyroot: 0 /
+
+_0.0.t1-1 add-dir false false /trunk
+
+
+205 333
