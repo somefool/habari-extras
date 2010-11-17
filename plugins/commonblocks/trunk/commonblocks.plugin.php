@@ -276,7 +276,7 @@ class CommonBlocks extends Plugin
 	public function action_block_content_tag_archives( $block, $theme )
 	{
 		$tags = array();
-		$results = Tags::get();
+		$results = Tags::vocabulary()->get_tree();
 
 		foreach( $results as $result ) {
 
@@ -285,9 +285,9 @@ class CommonBlocks extends Plugin
 				$count = " (" . Posts::count_by_tag( $result->slug, "published") . ")";
 			}
 
-			$url = URL::get( 'display_entries_by_tag', array( 'tag' => $result->tag_slug ) );
+			$url = URL::get( 'display_entries_by_tag', array( 'tag' => $result->term ) );
 			$tags[] = array(
-				'tag' => $result->tag_text,
+				'tag' => $result->term_display,
 				'count' => $count,
 				'url' => $url,
 				);
