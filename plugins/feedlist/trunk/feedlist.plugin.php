@@ -302,7 +302,7 @@ class FeedList extends Plugin
 			$feed['description'] = $item->getElementsByTagName('description')->item(0)->nodeValue;
 			$feed['link'] = $item->getElementsByTagName('link')->item(0)->nodeValue;
 			$feed['guid'] = $item->getElementsByTagName('guid')->item(0)->nodeValue;
-			$feed['published'] = $item->getElementsByTagName('pubdate')->item(0)->nodeValue;
+			$feed['published'] = $item->getElementsByTagName('pubDate')->item(0)->nodeValue;
 			
 			// try to blindly make sure the date is a HDT object - it should be a pretty standard PHP-parseable format
 			$feed['published'] = HabariDateTime::date_create( $feed['published'] );
@@ -336,7 +336,7 @@ class FeedList extends Plugin
 			// snag all the child tags we need
 			$feed['title'] = $item->getElementsByTagName('title')->item(0)->nodeValue;
 			$feed['description'] = $item->getElementsByTagName('summary')->item(0)->nodeValue;
-			$feed['link'] = $item->getElementsByTagName('link')->item(0)->nodeValue;
+			$feed['link'] = $item->getElementsByTagName('link')->item(0)->getAttribute('href');
 			$feed['guid'] = $item->getElementsByTagName('id')->item(0)->nodeValue;
 			$feed['published'] = $item->getElementsByTagName('updated')->item(0)->nodeValue;
 			
