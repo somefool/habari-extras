@@ -3,7 +3,8 @@
 	<name>RSS 2.0</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://habariproject.org/">Habari Community</author>
-	<version>1.1</version>
+	<version>1.2</version>
+	<guid>80544095-2acd-4cc9-aa65-08676448b3a7</guid>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Provides an RSS 2.0 feed for entries and comments.]]></description>
 	<copyright>2009</copyright>

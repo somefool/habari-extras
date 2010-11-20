@@ -38,9 +38,8 @@ class RSS extends Plugin {
 		$channel = $xml->addChild( 'channel' );
 		$title = $channel->addChild( 'title', htmlspecialchars( Options::get('title') ) );
 		$link = $channel->addChild( 'link', Site::get_url('habari') );
-		if ( $tagline = Options::get( 'tagline' ) ) {
-			$description = $channel->addChild( 'description', htmlspecialchars( $tagline ) );
-		}
+		$tagline = Options::get( 'tagline', '' );		// get the tagline or an empty string if it doesn't exist - the description tag is required
+		$description = $channel->addChild( 'description', htmlspecialchars( $tagline ) );
 // 		$pubDate = $channel->addChild( 'lastBuildDate', date( DATE_RFC822, strtotime( Post::get()->pubdate ) ) );
 		$pubDate = $channel->addChild( 'lastBuildDate', date( 'r', Post::get()->pubdate->int ) );
 		$generator = $channel->addChild( 'generator', 'Habari ' . Version::get_habariversion() . ' http://habariproject.org/' );
@@ -102,7 +101,7 @@ class RSS extends Plugin {
 	public function action_handler_rss_collection()
 	{
 		$xml = $this->create_rss_wrapper();
-		$posts = Posts::get( array( 'status' => Post::status( 'published' ) ) );
+		$posts = Posts::get( array( 'status' => Post::status( 'published' ), 'limit' => Options::get('atom_entries') ) );
 		$xml = $this->add_posts($xml, $posts );
 		Plugins::act( 'rss_collection', $xml, $posts );
 		ob_clean();
@@ -236,5 +235,14 @@ class RSS extends Plugin {
 		$content_type = Post::type_name( $post->content_type );
 		return URL::get( array( "rss_feed_{$content_type}_comments" ), $post, false );
 	}
+	
+	public function action_template_header ( $theme ) {
+		
+		$url = URL::get( 'rss_feed', array( 'index' => '1' ) );
+		
+		echo '<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="' . $url . '">';
+		
+	}
+	
 }
 ?>
