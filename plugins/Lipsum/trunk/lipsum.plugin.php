@@ -165,6 +165,10 @@ class Lipsum extends Plugin
 	 */
 	private function make_post ( $user, $time )
 	{
+		
+		// start a transaction, so if we die due to a timeout (like in meller's php-cgi environment) we don't end up with broken posts and post info
+		DB::begin_transaction();
+		
 		$post = Post::create( array(
 			'title' => $this->get_title(),
 			'content' => $this->get_content( 1, 3, 'some', array( 'thumb' => 1, 'ol' => 1, 'ul' => 1 ), 'cat' ),
@@ -201,6 +205,9 @@ class Lipsum extends Plugin
 			$comment->info->lipsum = true;
 			$comment->info->commit();
 		}
+		
+		// commit the transaction, we're done!
+		DB::commit();
 	}
 
 	private function get_pgraph()
