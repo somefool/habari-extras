@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # setup tmp files from tar.gz's
-cd /home/matt/habari-locales
-bzr update bzr
+cd /home/matt/habari-locales/bzr
+bzr pull
+cd ../
 
 # check fo .po
 for d in `ls bzr/system/locale/*.po`;
