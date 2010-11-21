@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # setup tmp files from tar.gz's
-cd /home/matt/habari-locales/bzr
+cd /home/matt/habari-locales/bzr/
 bzr pull
 cd ../
 

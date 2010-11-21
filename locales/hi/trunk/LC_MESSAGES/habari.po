@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-01 13:46+0000\n"
-"PO-Revision-Date: 2010-11-04 01:16+0000\n"
+"POT-Creation-Date: 2010-11-08 14:08+0000\n"
+"PO-Revision-Date: 2010-11-10 13:15+0000\n"
 "Last-Translator: Nitin Reddy Katkam <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2010-11-05 04:44+0000\n"
+"X-Launchpad-Export-Date: 2010-11-11 04:37+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: system/admin/tags.php:4
@@ -327,13 +327,13 @@ msgstr " और "
 msgid "v1.1 Update Available Now"
 msgstr "1.1 उपलब्ध है"
 
-#: system/admin/plugin.php:53
+#: system/admin/plugin.php:61
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
 msgstr ""
 
-#: system/admin/plugin.php:82
+#: system/admin/plugin.php:106
 msgid "Close"
 msgstr "बांध करो"
 
@@ -907,11 +907,11 @@ msgstr "%s में प्रवेश"
 #: system/admin/login.php:39 system/themes/charcoal/theme.php:164
 #: system/themes/k2/theme.php:122
 msgid "Name"
-msgstr "नामे"
+msgstr "नाम"
 
 #: system/admin/login.php:39
 msgid "name"
-msgstr "नामे"
+msgstr "नाम"
 
 #: system/admin/login.php:42
 msgid "password"
@@ -970,7 +970,7 @@ msgstr "इस लेख पैर टिप्पणियाँ"
 
 #: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
 #: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:855
 msgid "No Comments"
 msgstr "कोई टिप्पणी नहीं"
 
@@ -3148,12 +3148,12 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: system/classes/term.php:163
+#: system/classes/term.php:160
 #, php-format
 msgid "New term %1$s: %2$s"
 msgstr ""
 
-#: system/classes/term.php:216
+#: system/classes/term.php:213
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
 msgstr ""
@@ -3214,25 +3214,25 @@ msgstr ""
 msgid "Remove this item?"
 msgstr ""
 
-#: system/classes/theme.php:259
+#: system/classes/theme.php:260
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
 msgstr ""
 
-#: system/classes/theme.php:780
+#: system/classes/theme.php:781
 msgid "Previous"
 msgstr ""
 
-#: system/classes/theme.php:807
+#: system/classes/theme.php:808
 msgid "Next"
 msgstr ""
 
-#: system/classes/theme.php:833
+#: system/classes/theme.php:834
 msgid "Read Comments"
 msgstr ""
 
-#: system/classes/theme.php:859
+#: system/classes/theme.php:860
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"

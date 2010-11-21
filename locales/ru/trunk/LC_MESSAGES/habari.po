@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-01 13:46+0000\n"
-"PO-Revision-Date: 2010-11-03 20:09+0000\n"
-"Last-Translator: Ivan Y <Unknown>\n"
+"POT-Creation-Date: 2010-11-14 00:00+0000\n"
+"PO-Revision-Date: 2010-11-17 09:39+0000\n"
+"Last-Translator: Alexey Ivanov <alexey.ivanes@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2010-11-04 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-18 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: system/admin/tags.php:4
@@ -58,7 +58,7 @@ msgstr "Ошибка: Новое имя не задано."
 
 #: system/admin/tags.php:143
 msgid "Merge"
-msgstr ""
+msgstr "Разделить"
 
 #: system/admin/groups_item.php:3 system/admin/groups_item.php:6
 msgid "Edit group"
@@ -160,7 +160,7 @@ msgstr "Нет опубликованных сообщений."
 
 #: system/admin/block_instances.php:1
 msgid "New Block Type:"
-msgstr ""
+msgstr "Новый тип блока:"
 
 #: system/admin/block_instances.php:6 system/themes/mzingi/loginform.php:18
 #: system/themes/mzingi/theme.php:90 system/themes/k2/loginform.php:20
@@ -199,7 +199,7 @@ msgstr "в"
 #: system/admin/comments_items.php:17
 #, php-format
 msgid "Search for other comments from %s"
-msgstr ""
+msgstr "Поиск других комментариев из %s"
 
 #: system/admin/comments_items.php:18 system/admin/posts_items.php:22
 msgid "at"
@@ -211,7 +211,7 @@ msgstr "Отмечено как спам"
 
 #: system/admin/comments_items.php:63
 msgid "this post contains text in an invalid encoding"
-msgstr ""
+msgstr "запись содержит текст в неправильной кодировке"
 
 #: system/admin/comments_items.php:72
 msgid "No comments could be found to match the query criteria."
@@ -316,7 +316,7 @@ msgstr "от"
 
 #: system/admin/plugin.php:33 system/admin/themes.php:15
 #: system/admin/themes.php:177 system/themes/charcoal/footer.php:9
-#: system/classes/format.php:247 system/classes/format.php:276
+#: system/classes/format.php:247 system/classes/format.php:277
 msgid " and "
 msgstr " и "
 
@@ -324,7 +324,7 @@ msgstr " и "
 msgid "v1.1 Update Available Now"
 msgstr "v1.1 Обновление Доступно"
 
-#: system/admin/plugin.php:53
+#: system/admin/plugin.php:61
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
@@ -332,7 +332,7 @@ msgstr ""
 "Данный плагин не может быть активирован, т.к. следующие функции не были "
 "представлены:"
 
-#: system/admin/plugin.php:82
+#: system/admin/plugin.php:106
 msgid "Close"
 msgstr "Закрыть"
 
@@ -563,7 +563,7 @@ msgstr "Введите и ждите для поиска любого компо
 
 #: system/admin/logs.php:42 system/admin/logs.php:105
 msgid "Purge Logs"
-msgstr ""
+msgstr "Удалить Журналы"
 
 #: system/admin/logs.php:57
 msgid "Date &amp; Time"
@@ -610,8 +610,9 @@ msgstr ""
 #: system/admin/dashboard.php:10 system/classes/habaridatetime.php:389
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "год"
+msgstr[1] "года"
+msgstr[2] "лет"
 
 #: system/admin/dashboard.php:10
 #, php-format
@@ -638,29 +639,33 @@ msgstr ""
 #, php-format
 msgid "%d page"
 msgid_plural "%d pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d страница"
+msgstr[1] "%d страницы"
+msgstr[2] "%d страниц"
 
 #: system/admin/dashboard.php:36
 #, php-format
 msgid "%d entry"
 msgid_plural "%d entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d запись"
+msgstr[1] "%d записи"
+msgstr[2] "%d записей"
 
 #: system/admin/dashboard.php:50
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d комментарий"
+msgstr[1] "%d комментария"
+msgstr[2] "%d комментариев"
 
 #: system/admin/dashboard.php:58
 #, php-format
 msgid "%d tag"
 msgid_plural "%d tags"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d метка"
+msgstr[1] "%d метки"
+msgstr[2] "%d меток"
 
 #: system/admin/dashboard.php:66
 #, php-format
@@ -678,8 +683,9 @@ msgstr " с "
 #, php-format
 msgid "%d entry draft"
 msgid_plural "%d entry drafts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d черновая записей"
+msgstr[1] "%d черновых записей"
+msgstr[2] "%d черновых записей"
 
 #: system/admin/dashboard.php:100
 #, php-format
@@ -693,15 +699,17 @@ msgstr[2] "%d запланированных статей"
 #, php-format
 msgid "%d page draft"
 msgid_plural "%d page drafts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d черновая страница"
+msgstr[1] "%d черновых страниц"
+msgstr[2] "%d черновых страниц"
 
 #: system/admin/dashboard.php:126
 #, php-format
 msgid "%d comment awaiting approval"
 msgid_plural "%d comments awaiting approval"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d комментарий ожидает проверки"
+msgstr[1] "%d комментария ожидает проверки"
+msgstr[2] "%d комментариев ожидает проверки"
 
 #: system/admin/dashboard.php:133
 #, php-format
@@ -825,7 +833,7 @@ msgstr "Удалить Весь спам"
 
 #: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete all unapproved comments"
-msgstr ""
+msgstr "Удалить все неподтвержденные комментарии"
 
 #: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete All Unapproved"
@@ -837,11 +845,11 @@ msgstr "Подтвердить выделенные комментарии"
 
 #: system/admin/comments.php:53 system/admin/comments.php:77
 msgid "Mark selected approved"
-msgstr ""
+msgstr "Отметить выбранное утвержденным"
 
 #: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Unapprove selected comments"
-msgstr ""
+msgstr "Отклонить выделенные комментарии"
 
 #: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Mark selected unapproved"
@@ -974,7 +982,7 @@ msgstr "Комментарии к записи"
 
 #: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
 #: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:855
 msgid "No Comments"
 msgstr ""
 
@@ -1009,7 +1017,7 @@ msgstr "Старые записи"
 
 #: system/themes/charcoal/commentform.php:8
 msgid "Comments are closed for this post"
-msgstr ""
+msgstr "Комментарии закрыты для этой темы"
 
 #: system/themes/charcoal/404.php:6
 msgid "Whoops! 404"
@@ -1361,14 +1369,6 @@ msgstr ""
 msgid "Leave a Reply"
 msgstr ""
 
-#: system/classes/tags.php:133
-#, php-format
-msgid "Tag %s has been renamed to %s."
-msgid_plural "Tags %s have been renamed to %s."
-msgstr[0] "Метка %s была переименована в %s."
-msgstr[1] "Метка %s была переименована в %s."
-msgstr[2] "Метки %s были переименованы в %s."
-
 #: system/classes/acl.php:147
 #, php-format
 msgid "Permission token deleted: %s"
@@ -1476,10 +1476,10 @@ msgstr ""
 msgid "Invalid state %d in %s->parse()"
 msgstr ""
 
-#: system/classes/socketrequestprocessor.php:75
+#: system/classes/socketrequestprocessor.php:76
 #, php-format
-msgid "%s: Error %d: %s while connecting to %s:%d"
-msgstr "%s: Ошибка %d: %s во время соединения с %s:%d"
+msgid "Error %d: %s while connecting to %s:%d"
+msgstr ""
 
 #: system/classes/socketrequestprocessor.php:113
 msgid "Error writing to socket."
@@ -1494,25 +1494,18 @@ msgid "Redirection response without Location: header."
 msgstr ""
 
 #: system/classes/socketrequestprocessor.php:187
+#: system/classes/curlrequestprocessor.php:129
+msgid "Unable to get response body. Request did not yet execute."
+msgstr ""
+
 #: system/classes/socketrequestprocessor.php:196
-#: system/classes/curlrequestprocessor.php:132
-#: system/classes/curlrequestprocessor.php:141
-msgid "Request did not yet execute."
-msgstr "Запрос еще не выполнен."
+#: system/classes/curlrequestprocessor.php:138
+msgid "Unable to get response headers. Request did not yet execute."
+msgstr ""
 
 #: system/classes/xmlrpcclient.php:101
 msgid "Invalid XML response."
 msgstr ""
-
-#: system/classes/tag.php:215
-#, php-format
-msgid "New tag %1$s (%2$s);  Slug: %3$s"
-msgstr ""
-
-#: system/classes/tag.php:261
-#, php-format
-msgid "Tag %1$s (%2$s) deleted."
-msgstr "Тег %1$s (%2$s) удален."
 
 #: system/classes/installhandler.php:147 system/classes/adminhandler.php:1109
 msgid "Password mis-match."
@@ -2083,15 +2076,22 @@ msgstr ""
 msgid "xmlrpc extension not found"
 msgstr "не найдено раширение xmlrpc"
 
-#: system/classes/vocabulary.php:222
+#: system/classes/vocabulary.php:221
 #, php-format
 msgid "New vocabulary %1$s (%2$s)"
 msgstr "Новый словарь %1$s (%2$s)"
 
-#: system/classes/vocabulary.php:294
+#: system/classes/vocabulary.php:293
 #, php-format
 msgid "Vocabulary %1$s (%2$s) deleted."
 msgstr "Словарь %1$s (%2$s) удалён."
+
+#: system/classes/vocabulary.php:818
+#, php-format
+msgid "Term %1$s in the %2$s vocabulary has been renamed to %3$s."
+msgid_plural "Terms %1$s in the %2$s vocabulary have been renamed to %3$s."
+msgstr[0] ""
+msgstr[1] ""
 
 #: system/classes/plugin.php:62 system/classes/adminhandler.php:1863
 #: system/classes/adminhandler.php:1913 system/classes/pluggable.php:153
@@ -2861,20 +2861,20 @@ msgid "+"
 msgstr "+"
 
 #: system/classes/remoterequest.php:112
-msgid "Trying to add a request body to a non-POST request"
-msgstr "Попытка добавить тело запроса в не-POST запрос"
+msgid "Trying to add a request body to a GET request."
+msgstr ""
 
-#: system/classes/remoterequest.php:168
+#: system/classes/remoterequest.php:169
 #, php-format
 msgid "File %s not found."
 msgstr ""
 
-#: system/classes/remoterequest.php:266
-msgid "Trying to fetch response headers for a pending request."
+#: system/classes/remoterequest.php:269
+msgid "Unable to fetch response headers for a pending request."
 msgstr ""
 
-#: system/classes/remoterequest.php:277
-msgid "Trying to fetch response body for a pending request."
+#: system/classes/remoterequest.php:282
+msgid "Unable to fetch response body for a pending request."
 msgstr ""
 
 #: system/classes/update.php:36
@@ -3087,24 +3087,22 @@ msgstr ""
 msgid "Your comment is pending moderation."
 msgstr "Ващ комментарий ожидает модерации"
 
-#: system/classes/curlrequestprocessor.php:74
-#, php-format
-msgid " %s: CURL Error. Unable to create temporary file name."
+#: system/classes/curlrequestprocessor.php:76
+msgid "CURL Error. Unable to create temporary file name."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:79
-#, php-format
-msgid " %s: CURL Error. Unable to open temporary file."
+#: system/classes/curlrequestprocessor.php:81
+msgid "CURL Error. Unable to open temporary file."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:98
+#: system/classes/curlrequestprocessor.php:100
 #, php-format
-msgid "%s: CURL Error %d: %s"
+msgid "CURL Error %d: %s"
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:103
+#: system/classes/curlrequestprocessor.php:104
 #, php-format
-msgid "Bad return code (%1$d) for: %2$s"
+msgid "Bad return code (%d) for: %s"
 msgstr ""
 
 #: system/classes/logentry.php:172 system/classes/logentry.php:263
@@ -3168,12 +3166,12 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: system/classes/term.php:163
+#: system/classes/term.php:133
 #, php-format
 msgid "New term %1$s: %2$s"
 msgstr ""
 
-#: system/classes/term.php:216
+#: system/classes/term.php:187
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
 msgstr ""
@@ -3236,7 +3234,7 @@ msgstr ""
 msgid "Remove this item?"
 msgstr "Удалить это?"
 
-#: system/classes/theme.php:259
+#: system/classes/theme.php:260
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
@@ -3244,19 +3242,19 @@ msgstr ""
 "Ой! 404. Страницы, которую вы пытаетесь открыть, на самом деле здесь нет. "
 "Пожалуйста, попытайтесь еще раз позже."
 
-#: system/classes/theme.php:780
+#: system/classes/theme.php:781
 msgid "Previous"
 msgstr "Предыдущий"
 
-#: system/classes/theme.php:807
+#: system/classes/theme.php:808
 msgid "Next"
 msgstr "Следующий"
 
-#: system/classes/theme.php:833
+#: system/classes/theme.php:834
 msgid "Read Comments"
 msgstr "Читать комментарии"
 
-#: system/classes/theme.php:859
+#: system/classes/theme.php:860
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"

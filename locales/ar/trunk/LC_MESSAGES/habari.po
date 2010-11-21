@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-10-28 15:51+0000\n"
-"PO-Revision-Date: 2010-02-24 11:26+0000\n"
-"Last-Translator: iMagdy <magdy@imagdy.us>\n"
+"POT-Creation-Date: 2010-11-14 00:00+0000\n"
+"PO-Revision-Date: 2010-11-12 23:47+0000\n"
+"Last-Translator: Xees <Unknown>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n % 100 >= "
 "3 && n % 100 <= 10 ? 3 : n % 100 >= 11 && n % 100 <= 99 ? 4 : 5;\n"
-"X-Launchpad-Export-Date: 2010-10-29 05:18+0000\n"
+"X-Launchpad-Export-Date: 2010-11-14 05:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: system/admin/tags.php:4
@@ -58,7 +58,7 @@ msgstr "خطأ: لم يتم تحديد الأسم الجديد"
 
 #: system/admin/tags.php:143
 msgid "Merge"
-msgstr ""
+msgstr "دمج"
 
 #: system/admin/groups_item.php:3 system/admin/groups_item.php:6
 msgid "Edit group"
@@ -74,7 +74,7 @@ msgstr "تعديل مجموعه"
 #: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
 #: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
 #: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
-#: system/classes/adminhandler.php:1780
+#: system/classes/adminhandler.php:1775
 msgid "Edit"
 msgstr "تحرير"
 
@@ -84,8 +84,8 @@ msgstr "حذف هذه المجموعه"
 
 #: system/admin/groups_item.php:7 system/admin/block_instances.php:17
 #: system/admin/publish.php:14 system/admin/posts_items.php:28
-#: system/admin/group.php:126 system/classes/adminhandler.php:858
-#: system/classes/adminhandler.php:1779
+#: system/admin/group.php:126 system/classes/adminhandler.php:853
+#: system/classes/adminhandler.php:1774
 #: system/plugins/habarisilo/habarisilo.plugin.php:484
 #: system/plugins/habarisilo/habarisilo.plugin.php:501
 msgid "Delete"
@@ -99,7 +99,7 @@ msgstr "الأعضاء: "
 msgid "No members"
 msgstr "لايوجد أعضاء"
 
-#: system/admin/dashboard_modules.php:4 system/classes/adminhandler.php:3803
+#: system/admin/dashboard_modules.php:4 system/classes/adminhandler.php:3799
 msgid "Add Item"
 msgstr "إضافة ماده"
 
@@ -110,7 +110,7 @@ msgstr "فتح صفحة المستخدم %s"
 
 #: system/admin/users_items.php:26
 msgid "has not logged in yet"
-msgstr "لم يلج لحد الآن"
+msgstr "لم يتم تسجيل دخوله حتى الان"
 
 #: system/admin/users_items.php:30
 #, php-format
@@ -119,11 +119,11 @@ msgstr "شوهِد آخرا %1$s في %2$s"
 
 #: system/admin/users_items.php:49 system/admin/user.php:29
 msgid " post"
-msgstr " مقاله"
+msgstr " مشاركة"
 
 #: system/admin/users_items.php:49 system/admin/user.php:29
 msgid " posts"
-msgstr " مقالات"
+msgstr " مشاركات"
 
 #: system/admin/users_items.php:57
 #, php-format
@@ -132,7 +132,7 @@ msgstr "%1$s وحالياً يملك %2$s"
 
 #: system/admin/db_profiling.php:39 system/themes/k2/db_profiling.php:31
 msgid "DB Profiling"
-msgstr ""
+msgstr "التعريف بواسطة قاعدة البيانات"
 
 #: system/admin/db_profiling.php:47 system/themes/k2/db_profiling.php:42
 msgid "Time to Execute:"
@@ -140,15 +140,15 @@ msgstr "وقت التنفيذ:"
 
 #: system/admin/db_profiling.php:49
 msgid "BACKTRACE:"
-msgstr ""
+msgstr "التتبع المعاكس"
 
 #: system/admin/db_profiling.php:56 system/themes/k2/db_profiling.php:56
 msgid "Total Time Executing Queries:"
-msgstr ""
+msgstr "الوقت الكلي لتنفيذ العمليات :"
 
 #: system/admin/user.php:7 system/admin/options.php:7
 msgid "All options"
-msgstr "جميع التخصيصات"
+msgstr "جميع الخيارات"
 
 #: system/admin/user.php:15 system/admin/users.php:29
 msgid "search users"
@@ -156,18 +156,18 @@ msgstr "بحث المستخدمين"
 
 #: system/admin/user.php:35
 msgid "No published posts."
-msgstr "لا يوجد مقالات منشوره"
+msgstr "لايوجد مشاركات منشورة."
 
 #: system/admin/block_instances.php:1
 msgid "New Block Type:"
-msgstr ""
+msgstr "نوع خانة جديدة :"
 
 #: system/admin/block_instances.php:6 system/themes/mzingi/loginform.php:18
 #: system/themes/mzingi/theme.php:90 system/themes/k2/loginform.php:20
 msgid "Name:"
-msgstr ""
+msgstr "الإسم :"
 
-#: system/admin/block_instances.php:15 system/classes/pluggable.php:182
+#: system/admin/block_instances.php:15 system/classes/pluggable.php:187
 #: system/plugins/undelete/undelete.plugin.php:163
 #: system/plugins/undelete/undelete.plugin.php:175
 msgid "Configure"
@@ -176,7 +176,7 @@ msgstr "إعدادات"
 #: system/admin/formcontrols/formcontrol_textmulti.php:14
 #: system/classes/formui.php:1591
 msgid "remove"
-msgstr "رفع"
+msgstr "إزالة"
 
 #: system/admin/formcontrols/formcontrol_textmulti.php:18
 msgid "add"
@@ -199,7 +199,7 @@ msgstr "على"
 #: system/admin/comments_items.php:17
 #, php-format
 msgid "Search for other comments from %s"
-msgstr ""
+msgstr "البحث عن مشاركات أخرى من %s"
 
 #: system/admin/comments_items.php:18 system/admin/posts_items.php:22
 msgid "at"
@@ -211,7 +211,7 @@ msgstr "معلَّمه كبريد مزعج"
 
 #: system/admin/comments_items.php:63
 msgid "this post contains text in an invalid encoding"
-msgstr ""
+msgstr "هذه المشاركة تحتوي على نص بترميز خاطئ"
 
 #: system/admin/comments_items.php:72
 msgid "No comments could be found to match the query criteria."
@@ -224,6 +224,9 @@ msgid ""
 "%3$s\">%3$s</a> posted on <a href=\"%4$s\" title=\"View post\">%5$s</a> at "
 "<strong>%6$s</strong> on <strong>%7$s</strong>"
 msgstr ""
+"<a href=\"%1$s\">التعليق</a> بواسطة <a href=\"%2$s\" title=\"زيارة "
+"%3$s\">%3$s</a> كتب في <a href=\"%4$s\" title=\"رؤية المشاركة\">%5$s</a> في "
+"<strong>%6$s</strong> على <strong>%7$s</strong>"
 
 #: system/admin/comment.overview.php:19
 #, php-format
@@ -232,6 +235,9 @@ msgid ""
 "href=\"%3$s\" title=\"View post\">%4$s</a> at <strong>%5$s</strong> on "
 "<strong>%6$s</strong>"
 msgstr ""
+"<a href=\"%1$s\">التعليق</a> من <strong>%2$s</strong> كتب في <a "
+"href=\"%3$s\" title=\"رؤية المشاركة\">%4$s</a> في <strong>%5$s</strong>على "
+"<strong>%6$s</strong>"
 
 #: system/admin/users.php:21
 msgid "Complete User List"
@@ -267,15 +273,15 @@ msgstr "إسناد المقالات الى %s"
 
 #: system/admin/block_areas.php:1
 msgid "Scope:"
-msgstr ""
+msgstr "النطاق :"
 
 #: system/admin/block_areas.php:2
 msgid "Default"
-msgstr ""
+msgstr "الإفتراضي"
 
 #: system/admin/block_areas.php:24
 msgid "drag here to remove"
-msgstr ""
+msgstr "إسحب الى هنا للإزالة"
 
 #: system/admin/publish.php:28
 msgid "Publish"
@@ -286,7 +292,8 @@ msgid ""
 "You did not save the changes you made. \\nLeaving this page will result in "
 "the lose of data."
 msgstr ""
-"لم تخزن التعديلات التي قمت بها./nسيتم خسارة التعديلات عند ترك هذه الصفحه."
+"لم يتم تخزين التعديلات التي قمت بها \\nسيتم خسارة التعديلات عند ترك هذه "
+"الصفحة ."
 
 #: system/admin/header.php:64 system/admin/login.php:32
 msgid "Go to Site"
@@ -305,30 +312,31 @@ msgstr "إظهار الخطأ"
 #, php-format
 msgid ""
 "The plugin file %s is a legacy plugin, and does not include an XML info file."
-msgstr ""
+msgstr "ملف الملحق %s هو ملف نضام و لا يحتوي على ملف معلومات XML."
 
 #: system/admin/plugin.php:26 system/admin/posts_items.php:20
-#: system/admin/themes.php:8 system/admin/themes.php:163
+#: system/admin/themes.php:9 system/admin/themes.php:171
 #: system/plugins/coredashmodules/dash_latestentries.php:6
 msgid "by"
 msgstr "بواسطة"
 
-#: system/admin/plugin.php:33 system/themes/charcoal/footer.php:9
-#: system/classes/format.php:247 system/classes/format.php:276
+#: system/admin/plugin.php:33 system/admin/themes.php:15
+#: system/admin/themes.php:177 system/themes/charcoal/footer.php:9
+#: system/classes/format.php:247 system/classes/format.php:277
 msgid " and "
-msgstr ""
+msgstr " و "
 
 #: system/admin/plugin.php:48
 msgid "v1.1 Update Available Now"
 msgstr "التحديث الى الإصدار 1.1 متاح الآن"
 
-#: system/admin/plugin.php:53
+#: system/admin/plugin.php:61
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
-msgstr ""
+msgstr "الملف الملحق لم يتم تفعيلة لأن الخصائص التالية لم تكن موجودة :"
 
-#: system/admin/plugin.php:82
+#: system/admin/plugin.php:106
 msgid "Close"
 msgstr "إغلاق"
 
@@ -346,7 +354,7 @@ msgstr "تحرير’%s’"
 #: system/admin/posts_items.php:19
 #, php-format
 msgid "Search for other %s items"
-msgstr "بحث عن %s أخرى"
+msgstr "بحث عن مواد %s اخرى"
 
 #: system/admin/posts_items.php:20
 #, php-format
@@ -373,7 +381,7 @@ msgstr "حذف هذه الماده"
 
 #: system/admin/posts_items.php:46
 msgid "No posts could be found to match the query criteria."
-msgstr "لا توجد مقاله تطابق صيغة البحث"
+msgstr "لا توجد مشاركات تطابق معايير البحث ."
 
 #: system/admin/posts.php:5 system/admin/logs.php:8
 #: system/admin/comments.php:4
@@ -398,7 +406,7 @@ msgstr "ترشيح النتائج الى ’%s’"
 msgid "Newer"
 msgstr "أحدث"
 
-#: system/admin/import.php:5 system/classes/adminhandler.php:3259
+#: system/admin/import.php:5 system/classes/adminhandler.php:3255
 #: system/plugins/wpimport/wpimport.plugin.php:134
 msgid "Import"
 msgstr "إستيراد"
@@ -426,48 +434,48 @@ msgstr "إختر"
 msgid "Current Theme"
 msgstr "السمة الحالية"
 
-#: system/admin/themes.php:12 system/classes/post.php:825
-#: system/classes/adminhandler.php:1400
+#: system/admin/themes.php:20 system/classes/post.php:825
+#: system/classes/adminhandler.php:1395
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:26
 msgid "v"
 msgstr ""
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:26
 msgid "Update Available"
 msgstr "التحديث متوفّر"
 
-#: system/admin/themes.php:28 system/admin/themes.php:172
+#: system/admin/themes.php:36 system/admin/themes.php:187
 #, php-format
 msgid "%1$s is licensed under the %2$s"
-msgstr ""
+msgstr "%1$s مرخص بواسطة %2$s"
 
-#: system/admin/themes.php:134 system/classes/post.php:863
+#: system/admin/themes.php:142 system/classes/post.php:863
 #: system/plugins/undelete/undelete.plugin.php:178
 #: system/plugins/flickrsilo/flickrsilo.plugin.php:872
 msgid "Save"
 msgstr "حفظ"
 
-#: system/admin/themes.php:156
+#: system/admin/themes.php:164
 msgid "Available Themes"
 msgstr "السمات المتوفره"
 
-#: system/admin/themes.php:178
+#: system/admin/themes.php:193
 msgid "Legacy theme."
-msgstr ""
+msgstr "الشكل النضامي"
 
-#: system/admin/themes.php:182
+#: system/admin/themes.php:197
 msgid "End Preview"
-msgstr ""
+msgstr "إنهاء العرض"
 
-#: system/admin/themes.php:184
+#: system/admin/themes.php:199
 msgid "Preview"
-msgstr ""
+msgstr "العرض"
 
-#: system/admin/themes.php:186 system/classes/installhandler.php:220
-#: system/classes/adminhandler.php:1902 system/classes/adminhandler.php:1906
+#: system/admin/themes.php:201 system/classes/installhandler.php:220
+#: system/classes/adminhandler.php:1898 system/classes/adminhandler.php:1902
 msgid "Activate"
 msgstr "تفعيل"
 
@@ -514,13 +522,15 @@ msgstr ""
 
 #: system/admin/sysinfo.php:40
 msgid "User Classes"
-msgstr ""
+msgstr "فئات المستخدم"
 
 #: system/admin/sysinfo.php:41
 msgid ""
 "\n"
 "USER CLASSES\n"
 msgstr ""
+"\n"
+"فئات المستخدم\n"
 
 #: system/admin/sysinfo.php:52 system/admin/sysinfo.php:77
 msgid "None found"
@@ -552,11 +562,11 @@ msgstr "0 الى 0 من 0"
 
 #: system/admin/logs.php:10
 msgid "Type and wait to search any log entry component"
-msgstr ""
+msgstr "اكتب و إنتضر للبحث عن أي عنصر إدخال السجل"
 
 #: system/admin/logs.php:42 system/admin/logs.php:105
 msgid "Purge Logs"
-msgstr ""
+msgstr "تنضيف السجل"
 
 #: system/admin/logs.php:57
 msgid "Date &amp; Time"
@@ -594,155 +604,152 @@ msgstr "مرشِّح"
 msgid "There are no logs to be displayed at this time."
 msgstr "لا توجد سجلات لعرضها في هذا الوقت."
 
-#: system/admin/dashboard.php:6
+#: system/admin/dashboard.php:9
 msgid ""
-"Oh, great!\tYou're using IE6!  I've finally found someone I can pawn this "
-"old betamax player off on!<br />\n"
-"If you're reading this, you're surfing using Internet Explorer 6, an eight-"
-"year-old browser that cannot cope with the demands of the modern internet.\n"
-"<a href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
+"Oh, great! You're using IE6! I've finally found someone I can pawn this old "
+"betamax player off on!"
+msgstr ""
+"انت تستخدم متصفح IE6 , انترنت اكبلورير 6 , هذا اسوء انواع المتصفحات , الرجاء "
+"تغيرة , لإنة لا يدعم الكثير من الخصائص الحديثة ."
+
+#: system/admin/dashboard.php:10 system/classes/habaridatetime.php:389
+msgid "year"
+msgid_plural "years"
+msgstr[0] "سنة"
+msgstr[1] "سنوات"
+
+#: system/admin/dashboard.php:10
+#, php-format
+msgid ""
+"If you're reading this you're surfing using Internet Explorer 6, a browser "
+"that is %d %s old and cannot cope with the demands of the modern internet."
+msgstr ""
+
+#: system/admin/dashboard.php:11
+msgid ""
+"Consider switching to <a href=\"http://mozilla.com\">Mozilla Firefox</a>, <a "
+"href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
 "href=\"http://www.google.com/chrome\">Google Chrome</a>, or a more recent "
-"version of \n"
-"<a href=\"http://www.microsoft.com/windows/Internet-"
+"version of <a href=\"http://www.microsoft.com/windows/Internet-"
 "explorer/default.aspx\">Internet Explorer</a>."
 msgstr ""
+"الرجاء التحويل الى  <a href=\"http://mozilla.com\">موزيلا فايرفوكس</a>, <a "
+"href=\"http://www.apple.com/safari/download/\">سفاري</a>, <a "
+"href=\"http://www.google.com/chrome\">قوقل شورم</a>, أو نسخة حديثة من  <a "
+"href=\"http://www.microsoft.com/windows/Internet-"
+"explorer/default.aspx\">انترنت اكسبلورير</a>."
 
 #: system/admin/dashboard.php:17
 #, php-format
-msgid "%d year"
-msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%s has been active for %s"
+msgstr "%s قيد التشغيل منذ %s"
 
-#: system/admin/dashboard.php:21
-#, php-format
-msgid "%d month"
-msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:25
-#, php-format
-msgid "%d day"
-msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:29
-#, php-format
-msgid "%1$s has been active for %2$s"
-msgstr "%1$s فعال لمدة %2$s"
-
-#: system/admin/dashboard.php:31
-msgid "days"
-msgstr "أيّام"
-
-#: system/admin/dashboard.php:39
+#: system/admin/dashboard.php:24
 #, php-format
 msgid "%d page"
 msgid_plural "%d pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d صفحة"
+msgstr[1] "%d صفحات"
 
-#: system/admin/dashboard.php:51
+#: system/admin/dashboard.php:36
 #, php-format
 msgid "%d entry"
 msgid_plural "%d entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d مدخلة"
+msgstr[1] "%d مدخلات"
 
-#: system/admin/dashboard.php:65
+#: system/admin/dashboard.php:50
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d تعليق"
+msgstr[1] "%d تعليقات"
 
-#: system/admin/dashboard.php:73
+#: system/admin/dashboard.php:58
 #, php-format
 msgid "%d tag"
 msgid_plural "%d tags"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d وسام"
+msgstr[1] "%d وسامات"
 
-#: system/admin/dashboard.php:81
+#: system/admin/dashboard.php:66
 #, php-format
 msgid "[You] have published %1$s%2$s"
 msgid_plural "The [%3$d authors] have published %1$s%2$s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "[انت] قد نشرت %1$s%2$s"
+msgstr[1] "ال [%3$d كاتبين] قد نشروا %1$s%2$s"
 
-#: system/admin/dashboard.php:83
+#: system/admin/dashboard.php:68
 msgid " with "
 msgstr " مع "
 
-#: system/admin/dashboard.php:103
+#: system/admin/dashboard.php:88
 #, php-format
 msgid "%d entry draft"
 msgid_plural "%d entry drafts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d مدخلة مؤقتة"
+msgstr[1] "%d مدخلات مؤقتة"
 
-#: system/admin/dashboard.php:115
+#: system/admin/dashboard.php:100
 #, php-format
 msgid "%d scheduled post"
 msgid_plural "%d scheduled posts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d المشاركة المجدولة"
+msgstr[1] "%d المشاركات المجدولة"
 
-#: system/admin/dashboard.php:127
+#: system/admin/dashboard.php:112
 #, php-format
 msgid "%d page draft"
 msgid_plural "%d page drafts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d الصفحة المؤقتة"
+msgstr[1] "%d الصفحات المؤقتة"
 
-#: system/admin/dashboard.php:141
+#: system/admin/dashboard.php:126
 #, php-format
 msgid "%d comment awaiting approval"
 msgid_plural "%d comments awaiting approval"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d التعليق منتظر الموافقة"
+msgstr[1] "%d التعليقات منتظرة الموافقة"
 
-#: system/admin/dashboard.php:148
+#: system/admin/dashboard.php:133
 #, php-format
 msgid "%d spam comment awaiting moderation"
 msgid_plural "%d spam comments awaiting moderation"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d تعليق إزعاج منتظر الموافقة"
+msgstr[1] "%d تعليقات إزعاج منتظرة الموافقة"
 
-#: system/admin/dashboard.php:154
+#: system/admin/dashboard.php:139
 #, php-format
 msgid "You have %s"
 msgstr "لديك %s"
 
-#: system/admin/dashboard.php:167
+#: system/admin/dashboard.php:152
 #, php-format
 msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
-msgstr ""
+msgstr "<a href=\"%1s\">%2s %3s</a> هو تحديث مهم ."
 
-#: system/admin/dashboard.php:170
+#: system/admin/dashboard.php:155
 #, php-format
 msgid ""
 "<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
-msgstr ""
+msgstr "<a href=\"%1s\">%2s %3s</a> يحتوي على تحديثات مهمة , و خصائص جديدة ."
 
-#: system/admin/dashboard.php:173
+#: system/admin/dashboard.php:158
 #, php-format
 msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
-msgstr ""
+msgstr "<a href=\"%1s\">%2s %3s</a> يحتوي على تحديثات مهمة ."
 
-#: system/admin/dashboard.php:176
+#: system/admin/dashboard.php:161
 #, php-format
 msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
-msgstr ""
+msgstr "<a href=\"%1s\">%2s %3s</a> يحتوي على خصائص جديدة ."
 
-#: system/admin/dashboard.php:179
+#: system/admin/dashboard.php:164
 #, php-format
 msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
-msgstr ""
+msgstr "<a href=\"%1s\">%2s %3s</a> إطلاق جديد ."
 
-#: system/admin/dashboard.php:194
+#: system/admin/dashboard.php:179
 msgid ""
 "Welcome to Habari! We hope that you will jump right in and start exploring. "
 "If you get stuck or want to learn more about some of the advanced features, "
@@ -750,18 +757,22 @@ msgid ""
 "install. This link also appears at the bottom of every page in the admin "
 "area."
 msgstr ""
+"مرحبا بكم في Habari! نتمنى ان يكون لك الحق في الانتقال والبدء في استكشاف. "
+"إذا واجهتك مشكلة أو تريد معرفة المزيد عن بعض الميزات المتقدمة ، ونحن نشجعكم "
+"على قراءة [دليل] ، والتي يتم واحدة مع كل تثبيت Habari. هذا الرابط يظهر أيضا "
+"في أسفل كل صفحة في منطقة المشرف."
 
-#: system/admin/dashboard.php:195
+#: system/admin/dashboard.php:180
 msgid "Habari Manual"
 msgstr "دليل إستخدام Habari"
 
-#: system/admin/dashboard.php:201
+#: system/admin/dashboard.php:186
 msgid "This message will disappear next time you visit."
 msgstr "هذه الرساله ستختفي عندما تزور الصفحه مره ثانيه."
 
 #: system/admin/plugins.php:6
 msgid "All plugins"
-msgstr ""
+msgstr "جميع الملحقات"
 
 #: system/admin/plugins.php:11 system/admin/plugins.php:52
 msgid "Active Plugins"
@@ -815,50 +826,50 @@ msgstr ""
 
 #: system/admin/comments.php:49 system/admin/comments.php:73
 msgid "Delete All Spam"
-msgstr ""
+msgstr "مسح جميع الإزعاجات"
 
 #: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete all unapproved comments"
-msgstr ""
+msgstr "مسح جميع التعليقات المرفوضة"
 
 #: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete All Unapproved"
-msgstr ""
+msgstr "مسح جميع المرفوض"
 
 #: system/admin/comments.php:53 system/admin/comments.php:77
 msgid "Approve selected comments"
-msgstr ""
+msgstr "قبول التعليقات المختارة"
 
 #: system/admin/comments.php:53 system/admin/comments.php:77
 msgid "Mark selected approved"
-msgstr ""
+msgstr "تحديد الإختيارات مقبولة"
 
 #: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Unapprove selected comments"
-msgstr ""
+msgstr "رفض التعليقات المحددة"
 
 #: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Mark selected unapproved"
-msgstr ""
+msgstr "تحديد الإختيارات مرفوضة"
 
 #: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Mark selected comments as spam"
-msgstr ""
+msgstr "تحديد التعليقات المختارة كإزعاج"
 
 #: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Mark selected spam"
-msgstr ""
+msgstr "تحديد الإختيارات كإزعاج"
 
 #: system/admin/group.php:20
 #, php-format
 msgid "Group %1$s has <strong>%2$d</strong> member"
 msgid_plural "Group %1$s has <strong>%2$d</strong> members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "المجموعة %1$s لديها <strong>%2$d</strong> عضو"
+msgstr[1] "المجموعة %1$s لديها <strong>%2$d</strong> أعضاء"
 
 #: system/admin/group.php:26
 msgid "Group Members"
-msgstr ""
+msgstr "أعضاء المجموعة"
 
 #: system/admin/group.php:31
 msgid "Members"
@@ -882,25 +893,25 @@ msgstr "سماحات المجموعه"
 
 #: system/admin/group.php:77 system/admin/group.php:100
 msgid "Token Description"
-msgstr ""
+msgstr "شرح الرمز"
 
 #: system/admin/group.php:101
 msgid "allow"
-msgstr ""
+msgstr "سماح"
 
 #: system/admin/group.php:102
 msgid "deny"
-msgstr ""
+msgstr "رفض"
 
 #: system/admin/group.php:129 system/classes/adminhandler.php:333
-#: system/classes/adminhandler.php:855
+#: system/classes/adminhandler.php:850
 msgid "Apply"
 msgstr "تطبيق"
 
 #: system/admin/login.php:4
 #, php-format
 msgid "Login to %s"
-msgstr "الولوج إلى %s"
+msgstr "الدخول الى %s"
 
 #: system/admin/login.php:39 system/themes/charcoal/theme.php:164
 #: system/themes/k2/theme.php:122
@@ -917,31 +928,31 @@ msgstr "كلمة المرور"
 
 #: system/admin/login.php:46 system/themes/charcoal/header.php:50
 msgid "Login"
-msgstr "ولوج"
+msgstr "الدخول"
 
 #: system/admin/login.php:50 system/themes/mzingi/loginform.php:30
 #: system/classes/userhandler.php:21
 msgid "Reset password"
-msgstr ""
+msgstr "إعادة كلمة المرور"
 
 #: system/admin/tag_collection.php:10
 #, php-format
 msgid "Manage posts tagged %1$s"
-msgstr ""
+msgstr "التحكم بالمشاركات الموسومة %1$s"
 
 #: system/schema/mysql/connection.php:246
 #: system/schema/pgsql/connection.php:345
 msgid "No Upgrades"
-msgstr ""
+msgstr "لا يوجد تحديثات"
 
 #: system/schema/sqlite/connection.php:70
 #, php-format
 msgid "Database file \"%s\" must be writable."
-msgstr ""
+msgstr "ملف قاعدة البيانات \"%s\" يجب ان يكون قابل للكتابة ."
 
 #: system/schema/sqlite/connection.php:197
 msgid "not yet supported on SQLite"
-msgstr ""
+msgstr "ليست مدعومة على قاعدة بيانات  SQLite"
 
 #: system/themes/charcoal/page.single.php:21
 #: system/themes/charcoal/home.php:33
@@ -953,166 +964,166 @@ msgstr ""
 #: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
 #: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
 msgid "Edit post"
-msgstr ""
+msgstr "تعديل المشاركة"
 
 #: system/themes/charcoal/tag.php:4
 #, php-format
 msgid "Displaying posts tagged: %s"
-msgstr ""
+msgstr "عرض المشاركات الموسومة :  %s"
 
 #: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
 #: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
 #: system/themes/charcoal/entry.single.php:29 system/themes/k2/theme.php:99
 msgid "Comments on this post"
-msgstr ""
+msgstr "التعليقات على هذه المشاركة"
 
 #: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
 #: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:855
 msgid "No Comments"
-msgstr ""
+msgstr "لا تعليقات"
 
 #: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
 #: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
 #: system/themes/charcoal/entry.single.php:29
 #: system/themes/mzingi/commentform.php:27 system/themes/k2/theme.php:99
-#: system/classes/post.php:965 system/classes/adminhandler.php:1376
+#: system/classes/post.php:965 system/classes/adminhandler.php:1371
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "تعليق"
+msgstr[1] "تعليقات"
 
 #: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
 #: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
 #: system/themes/charcoal/entry.single.php:29 system/classes/acl.php:785
-#: system/classes/adminhandler.php:3253
+#: system/classes/adminhandler.php:3249
 msgid "Comments"
-msgstr "التعليقات"
+msgstr "تعليقات"
 
 #: system/themes/charcoal/tag.php:39 system/themes/charcoal/home.php:70
 #: system/themes/charcoal/multiple.php:40 system/themes/charcoal/search.php:47
 #: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
 msgid "Newer Posts"
-msgstr ""
+msgstr "مشاركات أجدد"
 
 #: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
 #: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
 #: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
 msgid "Older Posts"
-msgstr ""
+msgstr "مشاركات أقدم"
 
 #: system/themes/charcoal/commentform.php:8
 msgid "Comments are closed for this post"
-msgstr ""
+msgstr "التعليقات مغلقة لهذه المشاركة"
 
 #: system/themes/charcoal/404.php:6
 msgid "Whoops! 404"
-msgstr ""
+msgstr "خطأ 404"
 
 #: system/themes/charcoal/404.php:9
 msgid ""
 "The page you were trying to access is not really there. Please try again."
-msgstr ""
+msgstr "الصفحة التي تبحث عنها ليست موجودة , الرجاء المحاولة مرة أخرى ."
 
 #: system/themes/charcoal/searchform.php:2
 #, php-format
 msgid "Search %s"
-msgstr ""
+msgstr "بحث %s"
 
 #: system/themes/charcoal/searchform.php:3
 msgid "Go"
-msgstr ""
+msgstr "إذهب"
 
 #: system/themes/charcoal/sidebar.php:6
 msgid "{blog entries}"
-msgstr ""
+msgstr "{المدونات مدخلات}"
 
 #: system/themes/charcoal/sidebar.php:7
 msgid "{comments}"
-msgstr ""
+msgstr "{التعليقات}"
 
 #: system/themes/charcoal/sidebar.php:11
 msgid "Powered by Habari"
-msgstr ""
+msgstr "مدعم من E-School"
 
 #: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
 msgid "Admin area"
-msgstr ""
+msgstr "منطقة المدير العام"
 
 #: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
 msgid "Admin"
-msgstr ""
+msgstr "المدير العام"
 
 #: system/themes/charcoal/home.php:39
 msgid "No posts published, yet."
-msgstr ""
+msgstr "لا يوجد مشاركات منشورة بعد ."
 
 #: system/themes/charcoal/home.php:63
 #, php-format
 msgid "Continue reading %s"
-msgstr ""
+msgstr "اكمل القراءة %s"
 
 #: system/themes/charcoal/home.php:63
 msgid "more"
-msgstr ""
+msgstr "المزيد"
 
 #: system/themes/charcoal/footer.php:7
 #, php-format
 msgid "%1$s is powered by %2$s"
-msgstr ""
+msgstr "%1$s مطور بواسطة %2$s"
 
 #: system/themes/charcoal/footer.php:9 system/themes/k2/footer.php:11
 msgid "Atom Entries"
-msgstr ""
+msgstr "RSS المشاركات"
 
 #: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:11
 msgid "Atom Comments"
-msgstr ""
+msgstr "RSS التعليقات"
 
 #: system/themes/charcoal/theme.php:110
 msgid "Search for "
-msgstr ""
+msgstr "البحث عن "
 
 #: system/themes/charcoal/theme.php:115 system/themes/charcoal/theme.php:121
 #, php-format
 msgid "Search results for '%s'"
-msgstr ""
+msgstr "نتائج البحث عن '%s'"
 
 #: system/themes/charcoal/theme.php:118
 #, php-format
 msgid "No results found for your search '%1$s'"
-msgstr ""
+msgstr "لا يوجد نتائج لبحثك '%1$s'"
 
 #: system/themes/charcoal/theme.php:118
 #, php-format
 msgid "You can try searching for '%2$s'"
-msgstr ""
+msgstr "يمكنك البحث عن '%2$s'"
 
 #: system/themes/charcoal/theme.php:124
 #, php-format
 msgid "No results found for your search '%s'"
-msgstr ""
+msgstr "لا يوجد نتائج لبحثك '%s'"
 
 #: system/themes/charcoal/theme.php:164
 msgid "(Required)"
-msgstr ""
+msgstr "(مطلوب)"
 
 #: system/themes/charcoal/theme.php:166 system/themes/k2/theme.php:124
 msgid "Mail"
-msgstr ""
+msgstr "البريد"
 
 #: system/themes/charcoal/theme.php:166
 msgid "(will not be published"
-msgstr ""
+msgstr "(لن يتم نشره"
 
 #: system/themes/charcoal/theme.php:166
 msgid "- Required)"
-msgstr ""
+msgstr "- مطلوب)"
 
 #: system/themes/charcoal/theme.php:168 system/themes/k2/theme.php:126
 #: system/classes/post.php:953
 msgid "Website"
-msgstr ""
+msgstr "الموقع"
 
 #: system/themes/charcoal/theme.php:171 system/themes/mzingi/theme.php:107
 #: system/themes/k2/theme.php:129 system/classes/post.php:973
@@ -1122,57 +1133,57 @@ msgstr "إرسال"
 
 #: system/themes/charcoal/comments.php:26
 msgid "Time of this comment - Click for comment permalink"
-msgstr ""
+msgstr "الوقت لهذا التعليق - الحصول على رابط دائم"
 
 #: system/themes/charcoal/comments.php:28
 msgid "Your comment is awaiting moderation"
-msgstr ""
+msgstr "تعليقك ينتضر القبول"
 
 #: system/themes/charcoal/comments.php:34
 msgid "Be the first to write a comment!"
-msgstr ""
+msgstr "كن اول من يكتب تعليق !"
 
 #: system/themes/mzingi/tag.php:8
 msgid "Posts Tagged with"
-msgstr ""
+msgstr "المشاركات الموسومة بــ"
 
 #: system/themes/mzingi/tag.php:18 system/themes/mzingi/entry.multiple.php:16
 #: system/themes/mzingi/home.php:18 system/themes/mzingi/search.php:18
 #: system/themes/mzingi/entry.single.php:24
 msgid "Tagged:"
-msgstr ""
+msgstr "الموسومة :"
 
 #: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
 msgid "Newer Results"
-msgstr ""
+msgstr "نتائج أجدد"
 
 #: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
 msgid "Older Results"
-msgstr ""
+msgstr "نتائج أقدم"
 
 #: system/themes/mzingi/commentform.php:7
 msgid "to"
-msgstr ""
+msgstr "الى"
 
 #: system/themes/mzingi/commentform.php:8 system/themes/k2/comments.php:7
 msgid "Feed for this Entry"
-msgstr ""
+msgstr "الموفود لهذه المدخلة"
 
 #: system/themes/mzingi/commentform.php:44 system/themes/k2/comments.php:24
 msgid "Permanent Link to this Comment"
-msgstr ""
+msgstr "الرابط الدائم الى هذه المشاركة"
 
 #: system/themes/mzingi/commentform.php:45
 msgid "Comment by"
-msgstr ""
+msgstr "التعليق بواسطة"
 
 #: system/themes/mzingi/commentform.php:46
 msgid "Time of this comment"
-msgstr ""
+msgstr "الوقت لهذا التعليق"
 
 #: system/themes/mzingi/commentform.php:46 system/themes/k2/comments.php:26
 msgid "In moderation"
-msgstr ""
+msgstr "تحت الإشراف"
 
 #: system/themes/mzingi/commentform.php:56 system/themes/k2/comments.php:38
 msgid "There are currently no comments."
@@ -1180,11 +1191,11 @@ msgstr "لا يوجد تعليقات حاليا."
 
 #: system/themes/mzingi/404.php:7
 msgid "It seems you couldn't find what you are looking for."
-msgstr ""
+msgstr "الظاهر انك لم تستطيع إيجاد ما تبحث عنة ."
 
 #: system/themes/mzingi/404.php:7
 msgid "Perhaps you can try searching."
-msgstr ""
+msgstr "يمكنك محاولة البحث."
 
 #: system/themes/mzingi/searchform.php:4 system/themes/k2/sidebar.php:5
 msgid "Search"
@@ -1192,75 +1203,75 @@ msgstr "بحث"
 
 #: system/themes/mzingi/searchform.php:4 system/themes/k2/searchform.php:4
 msgid "Go!"
-msgstr ""
+msgstr "إذهب !"
 
 #: system/themes/mzingi/sidebar.php:4
 msgid "Subscribe to Feed"
-msgstr ""
+msgstr "التسجيل للموفود"
 
 #: system/themes/mzingi/sidebar.php:5
 msgid "Navigation"
-msgstr ""
+msgstr "التصفح"
 
 #: system/themes/mzingi/sidebar.php:7
 msgid "Home"
-msgstr ""
+msgstr "المنزل"
 
 #: system/themes/mzingi/sidebar.php:16
 msgid "Asides"
-msgstr ""
+msgstr "التعليقات الجانبية"
 
 #: system/themes/mzingi/sidebar.php:29
 msgid "More Posts"
-msgstr ""
+msgstr "المزيد من المشاركات"
 
 #: system/themes/mzingi/sidebar.php:40
 msgid "Recent Comments"
-msgstr ""
+msgstr "التعليقات الجديدة"
 
 #: system/themes/mzingi/sidebar.php:47
 msgid "User Login"
-msgstr ""
+msgstr "دخول المستخدم"
 
 #: system/themes/mzingi/search.php:7
 msgid "Results for search of"
-msgstr ""
+msgstr "نتائج هذا البحث"
 
 #: system/themes/mzingi/search.php:31
 msgid "No results for"
-msgstr ""
+msgstr "لا نتائج لــ"
 
 #: system/themes/mzingi/footer.php:3
 msgid "is powered by"
-msgstr ""
+msgstr "مدعم من"
 
 #: system/themes/mzingi/loginform.php:4 system/themes/k2/loginform.php:5
 msgid "That login is incorrect."
-msgstr ""
+msgstr "الدخول غير صحيح"
 
 #: system/themes/mzingi/loginform.php:9 system/themes/k2/loginform.php:11
 msgid "You are logged in as"
-msgstr ""
+msgstr "انت مسجل الدخول كـــ"
 
 #: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
 msgid "Want to"
-msgstr ""
+msgstr "اريد ان"
 
 #: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
 msgid "log out"
-msgstr ""
+msgstr "سجل الخروج"
 
 #: system/themes/mzingi/loginform.php:22 system/themes/k2/loginform.php:24
 msgid "Password:"
-msgstr ""
+msgstr "كلمة المرور :"
 
 #: system/themes/mzingi/loginform.php:27
 msgid "GO!"
-msgstr ""
+msgstr "إذهب !"
 
 #: system/themes/mzingi/theme.php:86
 msgid "About You"
-msgstr ""
+msgstr "عنك"
 
 #: system/themes/mzingi/theme.php:90 system/themes/mzingi/theme.php:93
 #: system/themes/k2/theme.php:122 system/themes/k2/theme.php:124
@@ -1269,169 +1280,162 @@ msgstr "مطلوب"
 
 #: system/themes/mzingi/theme.php:93
 msgid "Email Address:"
-msgstr ""
+msgstr "الإيميل الإلكتروني :"
 
 #: system/themes/mzingi/theme.php:96
 msgid "Web Address:"
-msgstr ""
+msgstr "الموقع :"
 
 #: system/themes/mzingi/theme.php:98
 msgid "<p><em><small>Email address is not published</small></em></p>"
-msgstr ""
+msgstr "<p><em><small>الإيميل الإلكتروني ليس منشور</small></em></p>"
 
 #: system/themes/mzingi/theme.php:101
 msgid "Add to the Discussion"
-msgstr ""
+msgstr "إضافة الى المحادثة"
 
 #: system/themes/mzingi/theme.php:105
 msgid "Message: (Required)"
-msgstr ""
+msgstr "الرسالة : (مطلوب)"
 
 #: system/themes/k2/page.single.php:8
 msgid "Page:"
-msgstr ""
+msgstr "الصفحة :"
 
 #: system/themes/k2/page.single.php:10 system/themes/k2/tag.php:12
 #: system/themes/k2/entry.multiple.php:12 system/themes/k2/home.php:12
 #: system/themes/k2/search.php:13 system/themes/k2/entry.single.php:21
 #, php-format
 msgid "by %s"
-msgstr ""
+msgstr "من %s"
 
 #: system/themes/k2/404.php:8
 msgid "Error!"
-msgstr ""
+msgstr "خطأ !"
 
 #: system/themes/k2/404.php:12
 msgid "The requested post was not found."
-msgstr ""
+msgstr "المشاركة المطلوبة ليست موجودة ."
 
 #: system/themes/k2/sidebar.php:10 system/classes/adminhandler.php:212
 msgid "About"
-msgstr ""
+msgstr "عن"
 
 #: system/themes/k2/search.php:6
 #, php-format
 msgid "Search results for %s"
-msgstr ""
+msgstr "نتائج البحث عن  %s"
 
 #: system/themes/k2/footer.php:9
 msgid " is powered by"
-msgstr ""
+msgstr " مدعم من"
 
 #: system/themes/k2/footer.php:9
 msgid "and a huge amount of "
-msgstr ""
+msgstr "و عدد كبير من "
 
 #: system/themes/k2/footer.php:10
 msgid "Caffeine"
-msgstr ""
+msgstr "كافيين"
 
-#: system/themes/k2/footer.php:11 system/classes/adminhandler.php:858
+#: system/themes/k2/footer.php:11 system/classes/adminhandler.php:853
 msgid "and"
 msgstr "و"
 
 #: system/themes/k2/loginform.php:11
 msgid "Edit Your Profile"
-msgstr ""
+msgstr "تعديل ملفك الشخصي"
 
 #: system/themes/k2/loginform.php:29
 msgid "Sign in"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: system/themes/k2/theme.php:124
 msgid "(will not be published)"
-msgstr ""
+msgstr "(لن يتم نشرة)"
 
 #: system/themes/k2/comments.php:5
 msgid "Responses to"
-msgstr ""
+msgstr "الردود لــ"
 
 #: system/themes/k2/comments.php:26
 msgid "Time of this Comment"
-msgstr ""
+msgstr "الوقت لهذا التعليق"
 
 #: system/themes/k2/comments.php:44
 msgid "Leave a Reply"
-msgstr ""
-
-#: system/classes/tags.php:133
-#, php-format
-msgid "Tag %s has been renamed to %s."
-msgid_plural "Tags %s have been renamed to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr "ترك تعليق"
 
 #: system/classes/acl.php:147
 #, php-format
 msgid "Permission token deleted: %s"
-msgstr ""
+msgstr "رمز الإذن تم مسحة : %s"
 
 #: system/classes/acl.php:611
 #, php-format
 msgid "Group %1$s: Access to %2$s changed to %3$s"
-msgstr ""
+msgstr "المجموعة %1$s: إذنها  %2$s تم تغييرة الى %3$s"
 
 #: system/classes/acl.php:701
 #, php-format
 msgid "Group %1$s: Permission to %2$s revoked."
-msgstr ""
+msgstr "المجموعة %1$s: إذنها الى  %2$s تم إلغائه."
 
 #: system/classes/acl.php:763
 msgid "Manage comments on all posts"
-msgstr ""
+msgstr "إدارة التعليقات على جميع المشاركات"
 
 #: system/classes/acl.php:764
 msgid "Manage comments on one's own posts"
-msgstr ""
+msgstr "إدارة التعليقات على مشاركاتك"
 
-#: system/classes/acl.php:765 system/classes/adminhandler.php:3254
+#: system/classes/acl.php:765 system/classes/adminhandler.php:3250
 msgid "Manage tags"
-msgstr ""
+msgstr "إدارة الوسوم"
 
 #: system/classes/acl.php:766
 msgid "Manage options"
-msgstr ""
+msgstr "إدارة الخيارات"
 
 #: system/classes/acl.php:767
 msgid "Change theme"
-msgstr ""
+msgstr "تعديل الثيم"
 
 #: system/classes/acl.php:768
 msgid "Configure the active theme"
-msgstr ""
+msgstr "تعديل الثيم المفعلة"
 
 #: system/classes/acl.php:769
 msgid "Activate/deactivate plugins"
-msgstr ""
+msgstr "تفعيل \\ إلغاء تفعيل الملعقات"
 
 #: system/classes/acl.php:770
 msgid "Configure active plugins"
-msgstr ""
+msgstr "تعديل الملحقات المفعلة"
 
 #: system/classes/acl.php:771
 msgid "Use the importer"
-msgstr ""
+msgstr "إستخدم المستورد"
 
 #: system/classes/acl.php:772
 msgid "Add, remove, and edit users"
-msgstr ""
+msgstr "أضف , إزل , و عدل المستخدمين"
 
 #: system/classes/acl.php:773 system/classes/installhandler.php:1559
 msgid "Edit own profile"
-msgstr ""
+msgstr "تعديل ملفك الشخصي"
 
 #: system/classes/acl.php:774
 msgid "Manage groups and permissions"
-msgstr ""
+msgstr "إدارة المجموعات و الإذون"
 
 #: system/classes/acl.php:775
 msgid "Manage logs"
-msgstr ""
+msgstr "إدارة السجلات"
 
 #: system/classes/acl.php:778 system/classes/installhandler.php:1510
 msgid "Permissions on one's own posts"
-msgstr ""
+msgstr "أذون المستخدم على مشاركاتة !"
 
 #: system/classes/acl.php:778 system/classes/acl.php:779
 #: system/classes/acl.php:781 system/classes/post.php:237
@@ -1469,9 +1473,9 @@ msgstr ""
 msgid "Invalid state %d in %s->parse()"
 msgstr ""
 
-#: system/classes/socketrequestprocessor.php:75
+#: system/classes/socketrequestprocessor.php:76
 #, php-format
-msgid "%s: Error %d: %s while connecting to %s:%d"
+msgid "Error %d: %s while connecting to %s:%d"
 msgstr ""
 
 #: system/classes/socketrequestprocessor.php:113
@@ -1487,27 +1491,20 @@ msgid "Redirection response without Location: header."
 msgstr ""
 
 #: system/classes/socketrequestprocessor.php:187
+#: system/classes/curlrequestprocessor.php:129
+msgid "Unable to get response body. Request did not yet execute."
+msgstr ""
+
 #: system/classes/socketrequestprocessor.php:196
-#: system/classes/curlrequestprocessor.php:132
-#: system/classes/curlrequestprocessor.php:141
-msgid "Request did not yet execute."
+#: system/classes/curlrequestprocessor.php:138
+msgid "Unable to get response headers. Request did not yet execute."
 msgstr ""
 
 #: system/classes/xmlrpcclient.php:101
 msgid "Invalid XML response."
 msgstr ""
 
-#: system/classes/tag.php:215
-#, php-format
-msgid "New tag %1$s (%2$s);  Slug: %3$s"
-msgstr ""
-
-#: system/classes/tag.php:261
-#, php-format
-msgid "Tag %1$s (%2$s) deleted."
-msgstr ""
-
-#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1114
+#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1109
 msgid "Password mis-match."
 msgstr "كلمة المرور غير مطابقة."
 
@@ -1745,7 +1742,7 @@ msgstr ""
 msgid "The Name field value is required"
 msgstr ""
 
-#: system/classes/post.php:938 system/classes/adminhandler.php:788
+#: system/classes/post.php:938 system/classes/adminhandler.php:783
 msgid "Email"
 msgstr "البريد الإلكتروني"
 
@@ -2069,18 +2066,25 @@ msgstr ""
 msgid "xmlrpc extension not found"
 msgstr ""
 
-#: system/classes/vocabulary.php:222
+#: system/classes/vocabulary.php:221
 #, php-format
 msgid "New vocabulary %1$s (%2$s)"
 msgstr ""
 
-#: system/classes/vocabulary.php:294
+#: system/classes/vocabulary.php:293
 #, php-format
 msgid "Vocabulary %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugin.php:62 system/classes/adminhandler.php:1867
-#: system/classes/adminhandler.php:1917 system/classes/pluggable.php:148
+#: system/classes/vocabulary.php:818
+#, php-format
+msgid "Term %1$s in the %2$s vocabulary has been renamed to %3$s."
+msgid_plural "Terms %1$s in the %2$s vocabulary have been renamed to %3$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/plugin.php:62 system/classes/adminhandler.php:1863
+#: system/classes/adminhandler.php:1913 system/classes/pluggable.php:153
 msgid "?"
 msgstr ""
 
@@ -2103,7 +2107,7 @@ msgid ""
 "We saved the last form you posted. Log back in to continue its submission."
 msgstr "تم خزن المعلومات التي أدخلتها. إدخل مرة أخرى ليتم ارسالها."
 
-#: system/classes/adminhandler.php:121 system/classes/adminhandler.php:731
+#: system/classes/adminhandler.php:121 system/classes/adminhandler.php:726
 msgid "Access to that page has been denied by the administrator."
 msgstr ""
 
@@ -2158,7 +2162,7 @@ msgstr "المنطقة الزمنية"
 msgid "Current Date Time: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:252 system/classes/adminhandler.php:822
+#: system/classes/adminhandler.php:252 system/classes/adminhandler.php:817
 msgid "Date Format"
 msgstr "صيغة التاريخ"
 
@@ -2167,7 +2171,7 @@ msgstr "صيغة التاريخ"
 msgid "Current Date: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:257 system/classes/adminhandler.php:833
+#: system/classes/adminhandler.php:257 system/classes/adminhandler.php:828
 msgid "Time Format"
 msgstr "صيغة التوقيت"
 
@@ -2222,637 +2226,637 @@ msgstr ""
 msgid "Successfully updated options"
 msgstr "تم تعديل الخيارات بنجاح"
 
-#: system/classes/adminhandler.php:503 system/classes/adminhandler.php:657
-#: system/classes/adminhandler.php:658
+#: system/classes/adminhandler.php:498 system/classes/adminhandler.php:652
+#: system/classes/adminhandler.php:653
 #, php-format
 msgid "Publish %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:507
+#: system/classes/adminhandler.php:502
 #, php-format
 msgid ""
 "The post %1$s was updated since you made changes.  Please review those "
 "changes before overwriting them."
 msgstr ""
 
-#: system/classes/adminhandler.php:522
+#: system/classes/adminhandler.php:517
 msgid "A post slug cannot be empty. Keeping old slug."
 msgstr ""
 
-#: system/classes/adminhandler.php:532 system/classes/adminhandler.php:634
-#: system/classes/adminhandler.php:638
+#: system/classes/adminhandler.php:527 system/classes/adminhandler.php:629
+#: system/classes/adminhandler.php:633
 msgid "You don't have permission to edit that post"
 msgstr ""
 
-#: system/classes/adminhandler.php:539
+#: system/classes/adminhandler.php:534
 msgid "Changing content types is not allowed"
 msgstr ""
 
-#: system/classes/adminhandler.php:568
+#: system/classes/adminhandler.php:563
 msgid "Creating that post type is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:616
+#: system/classes/adminhandler.php:611
 #, php-format
 msgid "The post %1$s has been saved as %2$s."
 msgstr ""
 
-#: system/classes/adminhandler.php:652
+#: system/classes/adminhandler.php:647
 #, php-format
 msgid "Access to create posts of type %s is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:701
+#: system/classes/adminhandler.php:696
 #, php-format
 msgid "Deleted the %1$s titled \"%2$s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:718
+#: system/classes/adminhandler.php:713
 msgid "You"
 msgstr ""
 
-#: system/classes/adminhandler.php:719
+#: system/classes/adminhandler.php:714
 msgid "Your User Information"
 msgstr ""
 
-#: system/classes/adminhandler.php:727
+#: system/classes/adminhandler.php:722
 #, php-format
 msgid "%s's User Information"
 msgstr ""
 
-#: system/classes/adminhandler.php:738 system/classes/adminhandler.php:1072
+#: system/classes/adminhandler.php:733 system/classes/adminhandler.php:1067
 msgid "nobody"
 msgstr ""
 
-#: system/classes/adminhandler.php:752
+#: system/classes/adminhandler.php:747
 msgid "No such user!"
 msgstr "المستخدم غير موجود!"
 
-#: system/classes/adminhandler.php:760
+#: system/classes/adminhandler.php:755
 msgid "Change Password"
 msgstr "تغيير كلمة المرور"
 
-#: system/classes/adminhandler.php:761
+#: system/classes/adminhandler.php:756
 msgid "Regional Settings"
 msgstr ""
 
-#: system/classes/adminhandler.php:762 system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:757 system/classes/adminhandler.php:3251
 msgid "Dashboard"
 msgstr "لوحة التحكم"
 
-#: system/classes/adminhandler.php:779
+#: system/classes/adminhandler.php:774
 msgid "Display Name"
 msgstr "إسم العرض"
 
-#: system/classes/adminhandler.php:783
+#: system/classes/adminhandler.php:778
 msgid "User Name"
 msgstr "إسم المستخدم"
 
-#: system/classes/adminhandler.php:793
+#: system/classes/adminhandler.php:788
 msgid "Portrait URL"
 msgstr "رابط الصورة"
 
-#: system/classes/adminhandler.php:798
+#: system/classes/adminhandler.php:793
 msgid "New Password"
 msgstr "كلمة سر جديدة"
 
-#: system/classes/adminhandler.php:803
+#: system/classes/adminhandler.php:798
 msgid "New Password Again"
 msgstr ""
 
-#: system/classes/adminhandler.php:810
+#: system/classes/adminhandler.php:805
 msgid "Passwords must match."
 msgstr ""
 
-#: system/classes/adminhandler.php:816
+#: system/classes/adminhandler.php:811
 msgid "Timezone"
 msgstr "النطاق الزّمني"
 
-#: system/classes/adminhandler.php:831 system/classes/adminhandler.php:842
+#: system/classes/adminhandler.php:826 system/classes/adminhandler.php:837
 #, php-format
 msgid "See <a href=\"%s\">php.net/date</a> for details. Current format: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:845
+#: system/classes/adminhandler.php:840
 msgid "Hide Spam Count"
 msgstr ""
 
-#: system/classes/adminhandler.php:847
+#: system/classes/adminhandler.php:842
 msgid "Hide the number of SPAM comments on your dashboard."
 msgstr ""
 
-#: system/classes/adminhandler.php:858
+#: system/classes/adminhandler.php:853
 #, php-format
 msgid "Reassign posts to: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:904
+#: system/classes/adminhandler.php:899
 #, php-format
 msgid "%s has been deleted"
 msgstr "تم حذف %s"
 
-#: system/classes/adminhandler.php:909 system/classes/adminhandler.php:1047
+#: system/classes/adminhandler.php:904 system/classes/adminhandler.php:1042
 msgid "You cannot delete yourself."
 msgstr ""
 
-#: system/classes/adminhandler.php:917
+#: system/classes/adminhandler.php:912
 #, php-format
 msgid "%1$s has been renamed to %2$s."
 msgstr "تم إعادة تسمية %1$s الى %2$s."
 
-#: system/classes/adminhandler.php:930
+#: system/classes/adminhandler.php:925
 msgid "Password changed."
 msgstr ""
 
-#: system/classes/adminhandler.php:953
+#: system/classes/adminhandler.php:948
 msgid "User updated."
 msgstr "تم تحديث المستخدم."
 
-#: system/classes/adminhandler.php:989 system/classes/adminhandler.php:2291
-#: system/classes/adminhandler.php:2350 system/classes/adminhandler.php:2397
-#: system/classes/adminhandler.php:2764 system/classes/adminhandler.php:2975
-#: system/classes/adminhandler.php:3050
+#: system/classes/adminhandler.php:984 system/classes/adminhandler.php:2287
+#: system/classes/adminhandler.php:2346 system/classes/adminhandler.php:2393
+#: system/classes/adminhandler.php:2760 system/classes/adminhandler.php:2971
+#: system/classes/adminhandler.php:3046
 msgid "WSSE authentication failed."
 msgstr ""
 
-#: system/classes/adminhandler.php:1017
+#: system/classes/adminhandler.php:1012
 msgid "No users deleted."
 msgstr ""
 
-#: system/classes/adminhandler.php:1054
+#: system/classes/adminhandler.php:1049
 #, php-format
 msgid "Deleted %d users."
 msgstr ""
 
-#: system/classes/adminhandler.php:1111
+#: system/classes/adminhandler.php:1106
 msgid "Password is required."
 msgstr "كلمة المرور مطلوبه."
 
-#: system/classes/adminhandler.php:1117
+#: system/classes/adminhandler.php:1112
 msgid "Please supply a valid email address."
 msgstr "الرجاء إدخال بريد الكتروني صحيح."
 
-#: system/classes/adminhandler.php:1120
+#: system/classes/adminhandler.php:1115
 msgid "Please supply a user name."
 msgstr "الرجاء إدخال إسم المستخدم."
 
-#: system/classes/adminhandler.php:1125
+#: system/classes/adminhandler.php:1120
 msgid "That username is already assigned."
 msgstr "أسم المستخدم المطلوب مستعمل."
 
-#: system/classes/adminhandler.php:1130
+#: system/classes/adminhandler.php:1125
 #, php-format
 msgid "Added user '%s'"
 msgstr "إضافة مستخدم ‘%s‘"
 
-#: system/classes/adminhandler.php:1175
+#: system/classes/adminhandler.php:1170
 #, php-format
 msgid "Activated plugin '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1184
+#: system/classes/adminhandler.php:1179
 #, php-format
 msgid "Deactivated plugin '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1284
+#: system/classes/adminhandler.php:1279
 #, php-format
 msgid "Activated theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1298
+#: system/classes/adminhandler.php:1293
 #, php-format
 msgid "Ended the preview of the theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1302
+#: system/classes/adminhandler.php:1297
 #, php-format
 msgid "Previewing theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1384
+#: system/classes/adminhandler.php:1379
 msgid "Author"
 msgstr ""
 
-#: system/classes/adminhandler.php:1386
+#: system/classes/adminhandler.php:1381
 msgid "Author Name"
 msgstr ""
 
-#: system/classes/adminhandler.php:1389
+#: system/classes/adminhandler.php:1384
 msgid "Author Email"
 msgstr ""
 
-#: system/classes/adminhandler.php:1392
+#: system/classes/adminhandler.php:1387
 msgid "Author URL"
 msgstr ""
 
-#: system/classes/adminhandler.php:1395
+#: system/classes/adminhandler.php:1390
 msgid "IP Address:"
 msgstr ""
 
-#: system/classes/adminhandler.php:1402
+#: system/classes/adminhandler.php:1397
 msgid "Date:"
 msgstr ""
 
-#: system/classes/adminhandler.php:1407
+#: system/classes/adminhandler.php:1402
 msgid "Post ID:"
 msgstr ""
 
-#: system/classes/adminhandler.php:1412
+#: system/classes/adminhandler.php:1407
 msgid "Status"
 msgstr ""
 
-#: system/classes/adminhandler.php:1601 system/classes/adminhandler.php:2424
+#: system/classes/adminhandler.php:1596 system/classes/adminhandler.php:2420
 msgid "Deleted all spam comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1607 system/classes/adminhandler.php:2428
+#: system/classes/adminhandler.php:1602 system/classes/adminhandler.php:2424
 msgid "Deleted all unapproved comments"
 msgstr "مسح جميع التعليقات الغير موافق عليها"
 
-#: system/classes/adminhandler.php:1641 system/classes/adminhandler.php:1655
+#: system/classes/adminhandler.php:1636 system/classes/adminhandler.php:1650
 #, php-format
 msgid "Deleted %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1642 system/classes/adminhandler.php:1662
+#: system/classes/adminhandler.php:1637 system/classes/adminhandler.php:1657
 #, php-format
 msgid "Marked %d comments as spam"
 msgstr ""
 
-#: system/classes/adminhandler.php:1643 system/classes/adminhandler.php:1670
+#: system/classes/adminhandler.php:1638 system/classes/adminhandler.php:1665
 #, php-format
 msgid "Approved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1644 system/classes/adminhandler.php:1681
+#: system/classes/adminhandler.php:1639 system/classes/adminhandler.php:1676
 #, php-format
 msgid "Unapproved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1645 system/classes/adminhandler.php:1704
+#: system/classes/adminhandler.php:1640 system/classes/adminhandler.php:1699
 #, php-format
 msgid "Edited %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1672
+#: system/classes/adminhandler.php:1667
 #, php-format
 msgid "Approved comments on these posts: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:1775
+#: system/classes/adminhandler.php:1770
 #, php-format
 msgid "Change this comment's status to %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:1779
+#: system/classes/adminhandler.php:1774
 msgid "Delete this comment"
 msgstr ""
 
-#: system/classes/adminhandler.php:1780
+#: system/classes/adminhandler.php:1775
 msgid "Edit this comment"
 msgstr ""
 
-#: system/classes/adminhandler.php:1850 system/classes/adminhandler.php:1888
+#: system/classes/adminhandler.php:1845 system/classes/adminhandler.php:1884
 msgid "Deactivate"
 msgstr "تعطيل"
 
-#: system/classes/adminhandler.php:1932 system/installer/db_setup.php:10
+#: system/classes/adminhandler.php:1928 system/installer/db_setup.php:10
 #: system/installer/db_setup.php:165 system/installer/db_setup.php:220
 msgid "Help"
 msgstr ""
 
-#: system/classes/adminhandler.php:2148 system/classes/adminhandler.php:2149
+#: system/classes/adminhandler.php:2144 system/classes/adminhandler.php:2145
 msgid "Manage Posts"
 msgstr ""
 
-#: system/classes/adminhandler.php:2179
+#: system/classes/adminhandler.php:2175
 msgid "Modules updated."
 msgstr ""
 
-#: system/classes/adminhandler.php:2184
+#: system/classes/adminhandler.php:2180
 #, php-format
 msgid "Added module %s."
 msgstr ""
 
-#: system/classes/adminhandler.php:2190
+#: system/classes/adminhandler.php:2186
 msgid "Removed module."
 msgstr ""
 
-#: system/classes/adminhandler.php:2311 system/classes/adminhandler.php:2419
+#: system/classes/adminhandler.php:2307 system/classes/adminhandler.php:2415
 #, php-format
 msgid "Unknown action \"%s\""
 msgstr ""
 
-#: system/classes/adminhandler.php:2322
+#: system/classes/adminhandler.php:2318
 msgid "You did not have permission to delete some entries."
 msgstr ""
 
-#: system/classes/adminhandler.php:2325
+#: system/classes/adminhandler.php:2321
 #, php-format
 msgid "Deleted %d post"
 msgid_plural "Deleted %d posts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2363
+#: system/classes/adminhandler.php:2359
 msgid "No logs selected."
 msgstr ""
 
-#: system/classes/adminhandler.php:2375
+#: system/classes/adminhandler.php:2371
 #, php-format
 msgid "Deleted %d logs."
 msgstr ""
 
-#: system/classes/adminhandler.php:2379
+#: system/classes/adminhandler.php:2375
 msgid "Logs purged."
 msgstr ""
 
-#: system/classes/adminhandler.php:2412
+#: system/classes/adminhandler.php:2408
 msgid "No comments selected."
 msgstr ""
 
-#: system/classes/adminhandler.php:2433
+#: system/classes/adminhandler.php:2429
 #, php-format
 msgid "Deleted %d comment"
 msgid_plural "Deleted %d comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2438
+#: system/classes/adminhandler.php:2434
 #, php-format
 msgid "Marked %d comment as spam"
 msgid_plural "Marked %d comments as spam"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2444
+#: system/classes/adminhandler.php:2440
 #, php-format
 msgid "Approved %d comment"
 msgid_plural "Approved %d comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2450
+#: system/classes/adminhandler.php:2446
 #, php-format
 msgid "Unapproved %d comment"
 msgid_plural "Unapproved %d comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2783
+#: system/classes/adminhandler.php:2779
 #, php-format
 msgid "The group %s already exists"
 msgstr "المجموعه ‘%s‘ موجودة مسبقاً"
 
-#: system/classes/adminhandler.php:2792
+#: system/classes/adminhandler.php:2788
 msgid "The group must have a name"
 msgstr ""
 
-#: system/classes/adminhandler.php:2805
+#: system/classes/adminhandler.php:2801
 #, php-format
 msgid "Added group %s"
 msgstr "تم إضافة المجموعه %s"
 
-#: system/classes/adminhandler.php:2842
+#: system/classes/adminhandler.php:2838
 msgid "No groups deleted."
 msgstr ""
 
-#: system/classes/adminhandler.php:2856
+#: system/classes/adminhandler.php:2852
 #, php-format
 msgid "Deleted %d groups."
 msgstr ""
 
-#: system/classes/adminhandler.php:3021
+#: system/classes/adminhandler.php:3017
 msgid "Updated permissions."
 msgstr ""
 
-#: system/classes/adminhandler.php:3069
+#: system/classes/adminhandler.php:3065
 #, php-format
 msgid "Tag %s has been deleted."
 msgid_plural "Tags %s have been deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:3094
+#: system/classes/adminhandler.php:3090
 #, php-format
 msgid "Tag %1$s has been renamed to %2$s."
 msgid_plural "Tags %1$s have been renamed to %2$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:3120 system/classes/adminhandler.php:3122
+#: system/classes/adminhandler.php:3116 system/classes/adminhandler.php:3118
 msgid "Habari Version"
 msgstr ""
 
-#: system/classes/adminhandler.php:3125
+#: system/classes/adminhandler.php:3121
 msgid "Habari API Version"
 msgstr ""
 
-#: system/classes/adminhandler.php:3126
+#: system/classes/adminhandler.php:3122
 msgid "Habari DB Version"
 msgstr ""
 
-#: system/classes/adminhandler.php:3127
+#: system/classes/adminhandler.php:3123
 msgid "Active Theme"
 msgstr ""
 
-#: system/classes/adminhandler.php:3128
+#: system/classes/adminhandler.php:3124
 msgid "Site Language"
 msgstr ""
 
-#: system/classes/adminhandler.php:3132
+#: system/classes/adminhandler.php:3128
 msgid "PHP Version"
 msgstr ""
 
-#: system/classes/adminhandler.php:3133
+#: system/classes/adminhandler.php:3129
 msgid "Server Software"
 msgstr ""
 
-#: system/classes/adminhandler.php:3134
+#: system/classes/adminhandler.php:3130
 msgid "Database"
 msgstr ""
 
-#: system/classes/adminhandler.php:3135
+#: system/classes/adminhandler.php:3131
 msgid "PHP Extensions"
 msgstr ""
 
-#: system/classes/adminhandler.php:3137 system/classes/adminhandler.php:3146
+#: system/classes/adminhandler.php:3133 system/classes/adminhandler.php:3142
 msgid "PCRE Version"
 msgstr ""
 
-#: system/classes/adminhandler.php:3148
+#: system/classes/adminhandler.php:3144
 msgid "Browser"
 msgstr ""
 
-#: system/classes/adminhandler.php:3228
+#: system/classes/adminhandler.php:3224
 #, php-format
 msgid "Create a new %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:3232
+#: system/classes/adminhandler.php:3228
 #, php-format
 msgid "Manage %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3247
 msgid "Create content"
 msgstr ""
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3247
 msgid "New"
 msgstr ""
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3248
 msgid "Manage content"
 msgstr ""
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3248
 msgid "Manage"
 msgstr ""
 
-#: system/classes/adminhandler.php:3253
+#: system/classes/adminhandler.php:3249
 msgid "Manage comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:3254
+#: system/classes/adminhandler.php:3250
 msgid "Tags"
 msgstr "وسوم"
 
-#: system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:3251
 msgid "View your user dashboard"
 msgstr ""
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3252
 msgid "View and configure site options"
 msgstr ""
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3252
 msgid "Options"
 msgstr "الخيارات"
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3253
 msgid "Preview and activate themes"
 msgstr ""
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3253
 msgid "Themes"
 msgstr "السمات"
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3254
 msgid "Activate, deactivate, and configure plugins"
 msgstr ""
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3254
 msgid "Plugins"
 msgstr "المقابس"
 
-#: system/classes/adminhandler.php:3259
+#: system/classes/adminhandler.php:3255
 msgid "Import content from another site"
 msgstr ""
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3256
 msgid "View and manage users"
 msgstr ""
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3256
 msgid "Users"
 msgstr "المستخدمون"
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3257
 msgid "Manage your user profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3257
 msgid "My Profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3258
 msgid "View and manage groups"
 msgstr ""
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3258
 msgid "Groups"
 msgstr ""
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3259
 msgid "View system log messages"
 msgstr "عرض سجلات النظام"
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3259
 msgid "Logs"
 msgstr "السجلات"
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3260
 msgid "Log out of the administration interface"
 msgstr ""
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3260
 msgid "Logout"
 msgstr ""
 
-#: system/classes/adminhandler.php:3499
+#: system/classes/adminhandler.php:3495
 msgid "Entry"
 msgstr ""
 
-#: system/classes/adminhandler.php:3500
+#: system/classes/adminhandler.php:3496
 msgid "Entries"
 msgstr ""
 
-#: system/classes/adminhandler.php:3503
+#: system/classes/adminhandler.php:3499
 msgid "Page"
 msgstr ""
 
-#: system/classes/adminhandler.php:3504
+#: system/classes/adminhandler.php:3500
 msgid "Pages"
 msgstr ""
 
-#: system/classes/adminhandler.php:3553
+#: system/classes/adminhandler.php:3549
 msgid "Root"
 msgstr ""
 
-#: system/classes/adminhandler.php:3669
+#: system/classes/adminhandler.php:3665
 msgid "A new block must first have a name."
 msgstr ""
 
-#: system/classes/adminhandler.php:3685
+#: system/classes/adminhandler.php:3681
 #, php-format
 msgid "Added new block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3709
+#: system/classes/adminhandler.php:3705
 #, php-format
 msgid "Deleted block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3712
+#: system/classes/adminhandler.php:3708
 #, php-format
 msgid "Failed to delete block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3753
+#: system/classes/adminhandler.php:3749
 msgid "Saved block areas settings."
 msgstr ""
 
-#: system/classes/adminhandler.php:3797
+#: system/classes/adminhandler.php:3793
 msgid "+"
 msgstr ""
 
 #: system/classes/remoterequest.php:112
-msgid "Trying to add a request body to a non-POST request"
+msgid "Trying to add a request body to a GET request."
 msgstr ""
 
-#: system/classes/remoterequest.php:168
+#: system/classes/remoterequest.php:169
 #, php-format
 msgid "File %s not found."
 msgstr ""
 
-#: system/classes/remoterequest.php:266
-msgid "Trying to fetch response headers for a pending request."
+#: system/classes/remoterequest.php:269
+msgid "Unable to fetch response headers for a pending request."
 msgstr ""
 
-#: system/classes/remoterequest.php:277
-msgid "Trying to fetch response body for a pending request."
+#: system/classes/remoterequest.php:282
+msgid "Unable to fetch response body for a pending request."
 msgstr ""
 
 #: system/classes/update.php:36
@@ -2896,40 +2900,97 @@ msgstr ""
 msgid "Message count (%d) out of bounds in %s!"
 msgstr ""
 
-#: system/classes/habaridatetime.php:374
+#: system/classes/habaridatetime.php:393
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:397
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:401
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:405
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:409
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:413
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:426
+msgid "and "
+msgstr ""
+
+#: system/classes/habaridatetime.php:440
+msgid "from now"
+msgstr ""
+
+#: system/classes/habaridatetime.php:443
+msgid "ago"
+msgstr ""
+
+#: system/classes/habaridatetime.php:464
 msgid "just now"
 msgstr ""
 
-#: system/classes/habaridatetime.php:377
+#: system/classes/habaridatetime.php:468
 #, php-format
-msgid "%d minutes ago"
-msgstr ""
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: system/classes/habaridatetime.php:381
+#: system/classes/habaridatetime.php:472
 #, php-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:385
+#: system/classes/habaridatetime.php:476
 #, php-format
 msgid "yesterday"
 msgid_plural "%d days ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:389
+#: system/classes/habaridatetime.php:480
 #, php-format
 msgid "last week"
 msgid_plural "%d weeks ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:392
+#: system/classes/habaridatetime.php:484
 #, php-format
 msgid "last month"
 msgid_plural "%d months ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:488
+#, php-format
+msgid "last year"
+msgid_plural "%d years ago"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3008,24 +3069,22 @@ msgstr ""
 msgid "Your comment is pending moderation."
 msgstr "تعليقك في إنتظار الموافقه."
 
-#: system/classes/curlrequestprocessor.php:74
-#, php-format
-msgid " %s: CURL Error. Unable to create temporary file name."
+#: system/classes/curlrequestprocessor.php:76
+msgid "CURL Error. Unable to create temporary file name."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:79
-#, php-format
-msgid " %s: CURL Error. Unable to open temporary file."
+#: system/classes/curlrequestprocessor.php:81
+msgid "CURL Error. Unable to open temporary file."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:98
+#: system/classes/curlrequestprocessor.php:100
 #, php-format
-msgid "%s: CURL Error %d: %s"
+msgid "CURL Error %d: %s"
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:103
+#: system/classes/curlrequestprocessor.php:104
 #, php-format
-msgid "Bad return code (%1$d) for: %2$s"
+msgid "Bad return code (%d) for: %s"
 msgstr ""
 
 #: system/classes/logentry.php:172 system/classes/logentry.php:263
@@ -3089,27 +3148,27 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: system/classes/term.php:163
+#: system/classes/term.php:133
 #, php-format
 msgid "New term %1$s: %2$s"
 msgstr ""
 
-#: system/classes/term.php:216
+#: system/classes/term.php:187
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugins.php:411
+#: system/classes/plugins.php:459
 #, php-format
 msgid "Activated Plugin: %s"
 msgstr ""
 
-#: system/classes/plugins.php:441
+#: system/classes/plugins.php:489
 #, php-format
 msgid "Deactivated Plugin: %s"
 msgstr ""
 
-#: system/classes/plugins.php:541
+#: system/classes/plugins.php:589
 #, php-format
 msgid ""
 "Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
@@ -3155,25 +3214,25 @@ msgstr ""
 msgid "Remove this item?"
 msgstr ""
 
-#: system/classes/theme.php:259
+#: system/classes/theme.php:260
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
 msgstr ""
 
-#: system/classes/theme.php:780
+#: system/classes/theme.php:781
 msgid "Previous"
 msgstr "السابقة"
 
-#: system/classes/theme.php:807
+#: system/classes/theme.php:808
 msgid "Next"
 msgstr "اللاحقة"
 
-#: system/classes/theme.php:833
+#: system/classes/theme.php:834
 msgid "Read Comments"
 msgstr "قراءة التليقات"
 
-#: system/classes/theme.php:859
+#: system/classes/theme.php:860
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-01 13:46+0000\n"
-"PO-Revision-Date: 2010-11-06 10:01+0000\n"
+"POT-Creation-Date: 2010-11-14 00:00+0000\n"
+"PO-Revision-Date: 2010-11-14 09:27+0000\n"
 "Last-Translator: Massimiliano <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2010-11-07 04:42+0000\n"
+"X-Launchpad-Export-Date: 2010-11-15 04:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: system/admin/tags.php:4
@@ -324,7 +324,7 @@ msgstr "di"
 
 #: system/admin/plugin.php:33 system/admin/themes.php:15
 #: system/admin/themes.php:177 system/themes/charcoal/footer.php:9
-#: system/classes/format.php:247 system/classes/format.php:276
+#: system/classes/format.php:247 system/classes/format.php:277
 msgid " and "
 msgstr " e "
 
@@ -332,7 +332,7 @@ msgstr " e "
 msgid "v1.1 Update Available Now"
 msgstr "L'aggiornamento v1.1 è ora disponibile"
 
-#: system/admin/plugin.php:53
+#: system/admin/plugin.php:61
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
@@ -340,7 +340,7 @@ msgstr ""
 "Il plugin non è stato attivato perché le seguenti funzionalità non erano "
 "presenti:"
 
-#: system/admin/plugin.php:82
+#: system/admin/plugin.php:106
 msgid "Close"
 msgstr "Chiudi"
 
@@ -988,7 +988,7 @@ msgstr "Commenti a questo post"
 
 #: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
 #: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:855
 msgid "No Comments"
 msgstr "Nessun commento"
 
@@ -1376,13 +1376,6 @@ msgstr "Ora di questo commento"
 msgid "Leave a Reply"
 msgstr "Scrivi un commento"
 
-#: system/classes/tags.php:133
-#, php-format
-msgid "Tag %s has been renamed to %s."
-msgid_plural "Tags %s have been renamed to %s."
-msgstr[0] "La tag %s è stata rinominata come %s."
-msgstr[1] "Le tag %s sono state rinominate come %s."
-
 #: system/classes/acl.php:147
 #, php-format
 msgid "Permission token deleted: %s"
@@ -1490,10 +1483,10 @@ msgstr "autenticato"
 msgid "Invalid state %d in %s->parse()"
 msgstr "Invalid state %d in %s->parse()"
 
-#: system/classes/socketrequestprocessor.php:75
+#: system/classes/socketrequestprocessor.php:76
 #, php-format
-msgid "%s: Error %d: %s while connecting to %s:%d"
-msgstr "%s: Error %d: %s while connecting to %s:%d"
+msgid "Error %d: %s while connecting to %s:%d"
+msgstr "Error %d: %s while connecting to %s:%d"
 
 #: system/classes/socketrequestprocessor.php:113
 msgid "Error writing to socket."
@@ -1508,25 +1501,18 @@ msgid "Redirection response without Location: header."
 msgstr "Redirection response without Location: header."
 
 #: system/classes/socketrequestprocessor.php:187
+#: system/classes/curlrequestprocessor.php:129
+msgid "Unable to get response body. Request did not yet execute."
+msgstr "Unable to get response body. Request did not yet execute."
+
 #: system/classes/socketrequestprocessor.php:196
-#: system/classes/curlrequestprocessor.php:132
-#: system/classes/curlrequestprocessor.php:141
-msgid "Request did not yet execute."
-msgstr "Request did not yet execute."
+#: system/classes/curlrequestprocessor.php:138
+msgid "Unable to get response headers. Request did not yet execute."
+msgstr "Unable to get response headers. Request did not yet execute."
 
 #: system/classes/xmlrpcclient.php:101
 msgid "Invalid XML response."
 msgstr "Invalid XML response."
-
-#: system/classes/tag.php:215
-#, php-format
-msgid "New tag %1$s (%2$s);  Slug: %3$s"
-msgstr "Nuova tag %1$s (%2$s); Slug: %3$s"
-
-#: system/classes/tag.php:261
-#, php-format
-msgid "Tag %1$s (%2$s) deleted."
-msgstr "La tag %1$s (%2$s) è stata eliminata."
 
 #: system/classes/installhandler.php:147 system/classes/adminhandler.php:1109
 msgid "Password mis-match."
@@ -1711,7 +1697,7 @@ msgid ""
 "and execute permissions on this directory."
 msgstr ""
 "La cartella di cache '%s' non è scrivibile - la cache è disabilitata. "
-"L'utente, o gruppo, che sta gestendo il web server, necessita dei permessi "
+"L'utente, o gruppo, che sta gestendo il server web, necessita dei permessi "
 "di lettura, scrittura ed esecuzione su questa cartella."
 
 #: system/classes/filecache.php:40
@@ -2129,15 +2115,24 @@ msgstr "La configurazione del blocco è stata salvata."
 msgid "xmlrpc extension not found"
 msgstr "xmlrpc extension not found"
 
-#: system/classes/vocabulary.php:222
+#: system/classes/vocabulary.php:221
 #, php-format
 msgid "New vocabulary %1$s (%2$s)"
 msgstr "Nuovo vocabolario %1$s (%2$s)"
 
-#: system/classes/vocabulary.php:294
+#: system/classes/vocabulary.php:293
 #, php-format
 msgid "Vocabulary %1$s (%2$s) deleted."
 msgstr "Il vocabolario %1$s (%2$s) è stato eliminato."
+
+#: system/classes/vocabulary.php:818
+#, php-format
+msgid "Term %1$s in the %2$s vocabulary has been renamed to %3$s."
+msgid_plural "Terms %1$s in the %2$s vocabulary have been renamed to %3$s."
+msgstr[0] ""
+"Il termine %1$s nel vocabolario %2$s è stato rinominato come %3$s."
+msgstr[1] ""
+"I termini %1$s nel vocabolario %2$s sono stati rinominati come %3$s."
 
 #: system/classes/plugin.php:62 system/classes/adminhandler.php:1863
 #: system/classes/adminhandler.php:1913 system/classes/pluggable.php:153
@@ -2907,21 +2902,21 @@ msgid "+"
 msgstr "+"
 
 #: system/classes/remoterequest.php:112
-msgid "Trying to add a request body to a non-POST request"
-msgstr "Trying to add a request body to a non-POST request"
+msgid "Trying to add a request body to a GET request."
+msgstr "Trying to add a request body to a GET request."
 
-#: system/classes/remoterequest.php:168
+#: system/classes/remoterequest.php:169
 #, php-format
 msgid "File %s not found."
 msgstr "Il file %s non è stato trovato."
 
-#: system/classes/remoterequest.php:266
-msgid "Trying to fetch response headers for a pending request."
-msgstr "Trying to fetch response headers for a pending request."
+#: system/classes/remoterequest.php:269
+msgid "Unable to fetch response headers for a pending request."
+msgstr "Unable to fetch response headers for a pending request."
 
-#: system/classes/remoterequest.php:277
-msgid "Trying to fetch response body for a pending request."
-msgstr "Trying to fetch response body for a pending request."
+#: system/classes/remoterequest.php:282
+msgid "Unable to fetch response body for a pending request."
+msgstr "Unable to fetch response body for a pending request."
 
 #: system/classes/update.php:36
 msgid "Invalid Beacon information added"
@@ -3133,25 +3128,23 @@ msgstr "Non ci sono i permessi per creare commenti."
 msgid "Your comment is pending moderation."
 msgstr "Il tuo commento è in attesa di moderazione."
 
-#: system/classes/curlrequestprocessor.php:74
-#, php-format
-msgid " %s: CURL Error. Unable to create temporary file name."
-msgstr " %s: Errore CURL. Impossibile creare un nome temporaneo per il file."
+#: system/classes/curlrequestprocessor.php:76
+msgid "CURL Error. Unable to create temporary file name."
+msgstr "CURL Error. Unable to create temporary file name."
 
-#: system/classes/curlrequestprocessor.php:79
-#, php-format
-msgid " %s: CURL Error. Unable to open temporary file."
-msgstr " %s: Errore CURL. Impossibile aprire il file temporaneo."
+#: system/classes/curlrequestprocessor.php:81
+msgid "CURL Error. Unable to open temporary file."
+msgstr "CURL Error. Unable to open temporary file."
 
-#: system/classes/curlrequestprocessor.php:98
+#: system/classes/curlrequestprocessor.php:100
 #, php-format
-msgid "%s: CURL Error %d: %s"
-msgstr "%s: Errore CURL %d: %s"
+msgid "CURL Error %d: %s"
+msgstr "CURL Error %d: %s"
 
-#: system/classes/curlrequestprocessor.php:103
+#: system/classes/curlrequestprocessor.php:104
 #, php-format
-msgid "Bad return code (%1$d) for: %2$s"
-msgstr "Bad return code (%1$d) for: %2$s"
+msgid "Bad return code (%d) for: %s"
+msgstr "Bad return code (%d) for: %s"
 
 #: system/classes/logentry.php:172 system/classes/logentry.php:263
 #: system/classes/logentry.php:275
@@ -3222,12 +3215,12 @@ msgstr "completo"
 msgid "none"
 msgstr "nessuno"
 
-#: system/classes/term.php:163
+#: system/classes/term.php:133
 #, php-format
 msgid "New term %1$s: %2$s"
 msgstr "Nuovo termine %1$s: %2$s"
 
-#: system/classes/term.php:216
+#: system/classes/term.php:187
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
 msgstr "Il termine %1$s (%2$s) è stato eliminato."
@@ -3290,25 +3283,25 @@ msgstr "Il valore immesso è maggiore del massimo di %d."
 msgid "Remove this item?"
 msgstr "Rimuovere questo elemento?"
 
-#: system/classes/theme.php:259
+#: system/classes/theme.php:260
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
 msgstr "Oops! 404. La pagina a cui tentavi di accedere non è qui. Riprova."
 
-#: system/classes/theme.php:780
+#: system/classes/theme.php:781
 msgid "Previous"
 msgstr "Precedente"
 
-#: system/classes/theme.php:807
+#: system/classes/theme.php:808
 msgid "Next"
 msgstr "Successivo"
 
-#: system/classes/theme.php:833
+#: system/classes/theme.php:834
 msgid "Read Comments"
 msgstr "Leggi i commenti"
 
-#: system/classes/theme.php:859
+#: system/classes/theme.php:860
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"
@@ -3548,7 +3541,7 @@ msgid ""
 "Habari Silo activation failed. The web server does not have permission to "
 "create the 'files' directory for the Habari Media Silo."
 msgstr ""
-"L'attivazione di Habari Silo non è riuscita. Il web server non ha il "
+"L'attivazione di Habari Silo non è riuscita. Il server web non ha il "
 "permesso per creare la directory 'files' per Habari Media Silo."
 
 #: system/plugins/habarisilo/habarisilo.plugin.php:38
@@ -3617,11 +3610,11 @@ msgstr "File caricato: "
 
 #: system/plugins/habarisilo/habarisilo.plugin.php:518
 msgid "File added successfully."
-msgstr "File aggiunto con successo."
+msgstr "Il file è stato aggiunto con successo."
 
 #: system/plugins/habarisilo/habarisilo.plugin.php:521
 msgid "File could not be added to the silo."
-msgstr "Impossibile aggiungere il file al silo."
+msgstr "Non è stato possibile aggiungere il file al silo."
 
 #: system/plugins/habarisilo/habarisilo.plugin.php:524
 #: system/plugins/habarisilo/habarisilo.plugin.php:633
@@ -3630,7 +3623,7 @@ msgstr "Visualizza la finestra corrente del silo."
 
 #: system/plugins/habarisilo/habarisilo.plugin.php:555
 msgid "Upload to:"
-msgstr "Invia a:"
+msgstr "Carica in:"
 
 #: system/plugins/habarisilo/habarisilo.plugin.php:573
 #, php-format
@@ -3657,7 +3650,7 @@ msgstr "Non è stato possibile eliminare il file."
 
 #: system/plugins/undelete/undelete.plugin.php:57
 msgid "Delete forever"
-msgstr "Elimina per sempre"
+msgstr "Elimina definitivamente"
 
 #: system/plugins/undelete/undelete.plugin.php:58
 msgid "Permanently delete this post"
@@ -3762,7 +3755,7 @@ msgstr "C'è un limite di 3 URL nei commenti."
 
 #: system/plugins/spamchecker/spamchecker.plugin.php:86
 msgid "There is a 3 URL-encoded character limit in comments."
-msgstr "C'è un limite di 3 caratteri URL-encoded nei commenti."
+msgstr "C'è un limite di 3 caratteri con codifica URL nei commenti."
 
 #: system/plugins/spamchecker/spamchecker.plugin.php:100
 msgid "We do not accept BBCode here."
@@ -3858,7 +3851,7 @@ msgid ""
 "to your server automatically, so you must create this file yourself to "
 "continue the installation."
 msgstr ""
-"<strong>.htaccess</strong> è un file che dice al tuo web server Apache di "
+"<strong>.htaccess</strong> è un file che dice al tuo server web Apache di "
 "inviare richieste di gestione a Habari. Habari non è in grado di scrivere "
 "automaticamente questo file sul tuo server, perciò devi creare da solo "
 "questo file per continuare l'installazione."
@@ -3940,7 +3933,7 @@ msgid ""
 msgstr ""
 "<strong>Host del database</strong> è il nome dell'host (dominio) o indirizzo "
 "IP del server su cui è attivo il database MySQL a cui Habari si connetterà. "
-"Se MySQL è attivo sul tuo web server, cosa che accade spesso, \"localhost\" "
+"Se MySQL è attivo sul tuo server web, cosa che accade spesso, \"localhost\" "
 "è un buon valore per questo campo."
 
 #: system/installer/db_setup.php:55
@@ -3988,7 +3981,7 @@ msgid ""
 msgstr ""
 "<strong>Host del database</strong> è il nome dell'host (dominio) o indirizzo "
 "IP del server su cui è attivo il database PostgreSQL a cui Habari si "
-"connetterà. Se PostgreSQL è attivo sul tuo web server, cosa che accade "
+"connetterà. Se PostgreSQL è attivo sul tuo server web, cosa che accade "
 "spesso, \"localhost\" è un buon valore per questo campo."
 
 #: system/installer/db_setup.php:102
@@ -4075,15 +4068,15 @@ msgstr ""
 
 #: system/installer/db_setup.php:192
 msgid "Password (again)"
-msgstr "Password (di nuovo)"
+msgstr "Ridigita la password"
 
 #: system/installer/db_setup.php:197
 msgid ""
 "<strong>Password</strong> is the password of the initial user in Habari. "
 "Both password fields must match."
 msgstr ""
-"<strong>Password</strong> è la password dell'utente che usa Habari per la "
-"prima volta. Entrambi i campi per la password devono corrispondere."
+"<strong>Password</strong> è la password dell'utente iniziale di Habari. "
+"Entrambi i campi della password devono coincidere."
 
 #: system/installer/db_setup.php:202
 msgid "Admin Email"
@@ -4105,7 +4098,7 @@ msgid ""
 "Habari now has all of the information needed to install itself on your "
 "server."
 msgstr ""
-"Habari ora ha tutte le informazioni necessarie per installarsi sul tuo "
+"Habari ha ora tutte le informazioni necessarie per installarsi sul tuo "
 "server."
 
 #: system/installer/db_setup.php:256 system/installer/header.php:10
@@ -4184,7 +4177,7 @@ msgstr "Prima di installare <em>Habari</em>..."
 
 #: system/installer/requirements.php:7
 msgid "Writable directory needed"
-msgstr "È necessaria una cartella inscrivibile"
+msgstr "È necessaria una cartella scrivibile"
 
 #: system/installer/requirements.php:10
 msgid ""
@@ -4194,10 +4187,10 @@ msgid ""
 "server and the ownership of the directory."
 msgstr ""
 "Prima di installare Habari assicurati che la cartella in cui si trova sia "
-"scrivibile da php in modo che lo script di installazione possa compilare "
-"correttamente le informazioni per la configurazione. \r\n"
-"Il processo di estrazione dipende dal server web e da chi è il proprietario "
-"della cartella."
+"scrivibile da PHP, così che lo script di installazione possa compilare "
+"correttamente le informazioni per la configurazione.\r\n"
+"L'esatto processo dipende dal server web e da chi è il proprietario della "
+"cartella."
 
 #: system/installer/requirements.php:13
 msgid ""
@@ -4212,8 +4205,7 @@ msgstr ""
 #: system/installer/requirements.php:17
 msgid ""
 "Open a terminal window, and then change to the installation directory:"
-msgstr ""
-"Apri una finestra di terminale, e vai alla cartella di installazione:"
+msgstr "Apri una finestra di terminale e vai alla cartella di installazione:"
 
 #: system/installer/requirements.php:21
 msgid "Change the <em>mode</em> (permissions) of the current directory:"
@@ -4256,7 +4248,7 @@ msgstr "richiede PHP 5.2 o superiore. La tua versione attuale di PHP è %s."
 
 #: system/installer/requirements.php:60
 msgid "Missing Extensions"
-msgstr "Mancano le estensioni"
+msgstr "Estensioni mancanti"
 
 #: system/installer/requirements.php:62
 msgid "requires the following PHP extensions to be installed:"
@@ -4266,7 +4258,7 @@ msgstr "È richiesta l'installazione delle seguenti estensioni PHP:"
 msgid ""
 "Please contact your web hosting provider if you do not have access to your "
 "server."
-msgstr "Contatta l'hosting provider se non hai accesso al server."
+msgstr "Contatta il tuo hosting provider se non hai accesso al tuo server."
 
 #: system/installer/requirements.php:69
 msgid ""
@@ -4278,7 +4270,7 @@ msgstr ""
 
 #: system/installer/requirements.php:75
 msgid "No PDO drivers enabled"
-msgstr "Nessun driver PDO è stato abilitato"
+msgstr "Nessun driver PDO è abilitato"
 
 #: system/installer/requirements.php:76
 msgid ""
@@ -4287,12 +4279,12 @@ msgid ""
 "drivers supported by Habari."
 msgstr ""
 "richiede che almeno un <a href=\"http://www.php.net/pdo\">driver PDO</a> sia "
-"installato. Chiedi all'hosting provider di abilitare uno dei driver PDO "
+"installato. Chiedi al tuo hosting provider di abilitare uno dei driver PDO "
 "supportati da Habari."
 
 #: system/installer/requirements.php:80
 msgid "mod_rewrite not enabled"
-msgstr "mod_rewrite non attivato"
+msgstr "mod_rewrite non abilitato"
 
 #: system/installer/requirements.php:81
 msgid ""
