@@ -33,7 +33,7 @@
 		'html' : {name : 'Edit HTML', type : 'nicEditorHTMLButton', tile : 16},
 		'link' : {name : 'Add Link', type : 'nicEditorLinkButton', tile : 17}
 	},
-	iconsPath : 'http://h0bbel.p0ggel.org/user/plugins/NicEdit/nicEditor/nicEditorIcons.gif',
+	iconsPath : '/user/plugins/NicEdit/nicEditor/nicEditorIcons.gif', // this likely won't work so we set it in the plugin itself
 	fullPanel : false,
 	onSubmit : null,
 	buttonList : ['bold','italic','underline','left','center','right','ol','ul','indent','unindent','fontSize','fontFamily','image','link'],
