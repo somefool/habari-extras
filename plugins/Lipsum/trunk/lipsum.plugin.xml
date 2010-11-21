@@ -3,10 +3,10 @@
 	<name>Lipsum</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://habariproject.org/">Habari Community</author>
-	<version>1.0</version>
+	<version>1.5</version>
 	<guid>933bcd46-abc4-4909-bcde-c2aeb284d4dd</guid>
 	<url>http://habariproject.org/</url>
-	<description><![CDATA[Creates random sample data to test themes and plugins.]]></description>
+	<description><![CDATA[Creates random sample data to test themes and plugins. Includes random posts, comments, and tags.]]></description>
 	<copyright>2009</copyright>
 </pluggable>
 
