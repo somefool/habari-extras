@@ -2,17 +2,6 @@
 
 class postPass extends Plugin
 {
-	public function info()
-	{
-		return array (
-			'name' => 'Post Pass',
-			'version' => '0.1',
-			'author' => 'Habari Community',
-			'license' => 'Apache License 2.0',
-			'description' => 'Allows you to password protect your entries.',
-		);
-	}
-	
 	public function set_priorities()
 	{
 		return array(
