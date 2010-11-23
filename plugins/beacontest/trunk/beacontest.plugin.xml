@@ -5,6 +5,6 @@
 	<url>http://habariproject.org</url>
 	<author url="http://chrismeller.com/">Chris Meller</author>
 	<version>0.1</version>
-	<guid>7a0313be-d8e3-11d1-8314-0800200c9a66</guid>
+	<guid>c492ecda-1931-44d3-b15c-61524333ce5b</guid>
 	<description><![CDATA[Provides an easy way to test the update beacon. There are always updates available!]]></description>
 </pluggable>
