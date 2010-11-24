@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>passwd Logins</name>
-	<version>1.0</version>
+	<version>1.5</version>
 	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<license>Apache License 2.0</license>
-	<description>Gets password information for users from a passwd-generated file.</description>
+	<author url="http://habariproject.org">Habari Community</author>
+	<author url="http://chrismeller.com">Chris Meller</author>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<guid>11f6ec41-d54f-442f-928c-ddcef2699706</guid>
+	<description><![CDATA[Gets password information for users from a passwd-generated file.]]></description>
 </pluggable>

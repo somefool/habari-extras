@@ -2,55 +2,199 @@
 
 class PasswdLogins extends Plugin
 {
-	private $passwdfile = '/home/habari/public_html/svn.habariproject.org/private/repos/htpasswd';
 
+	public function filter_plugin_config ( $actions, $plugin_id ) {
+			
+		$actions['configure'] = _t('Configure', 'passwdlogins');
+		
+		return $actions;
+		
+	}
+	
+	public function action_plugin_ui_configure ( ) {
+		
+		// get the groups list for the drop-down
+		$ugs = UserGroups::get_all();
+		
+		$groups = array();
+		foreach ( $ugs as $group ) {
+			
+			$groups[ $group->name ] = $group->name;
+			
+		}
+		
+		// remove anonymous - that would be pointless
+		unset( $groups['anonymous'] );
+		
+		$ui = new FormUI('plugin_directory');
+			
+		$ui->append( 'text', 'passwdfile', 'passwdlogins__file', _t( 'Passwd File', 'passwdlogins' ) );
+		$ui->append( 'checkbox', 'createusers', 'passwdlogins__create', _t( 'Create users on successful login', 'passwdlogins' ) );
+		$select = $ui->append( 'select', 'defaultgroup', 'passwdlogins__group', _t( 'Group to create new users in', 'passwdlogins' ) );
+		$select->default = 'authenticated';
+		// emulate $default until it actually works
+		if ( $select->value == null ) {
+			$select->value = $select->default;
+		}
+		$select->options = $groups;
+		
+		
+		$ui->append( 'submit', 'save', _t( 'Save' ) );
+		
+		$ui->out();
+		
+	}
+	
 	public function filter_user_authenticate($user, $username, $password)
 	{
-		if($username == '' || $password == '' || !file_exists($this->passwdfile)) {
+		
+		$passwdfile = Options::get('passwdlogins__file');
+		
+		if ( !$passwdfile ) {
+			EventLog::log( _t('No passwd file configured!'), 'err', 'passwdlogins', 'passwdlogins' );
 			return false;
 		}
-
-		$users = array();
-
-		// @todo improve this so it handles line breaks at the end of the username (see comment below) - meller
-		$lines = preg_split('%[\n\r]+%', file_get_contents($this->passwdfile));
-		foreach($lines as $line) {
-			if(trim($line) == '') {
-				continue;
-			}
-			$parts = explode(':', $line, 2);
-			// this gets Notice: Undefined offset:  1 in user/plugins/passwdlogins/passwdlogins.plugin.php line 22 when user types the wrong password
-			// actually, that has nothing to do with passwords, it means a spammer has registered at Trac with a line break at the end of their username. i deleted one just now and the error went away. you only ever saw the error if login failed, so it was a natural conclusion - meller
-			$users[$parts[0]] = $parts[1];
+		
+		if ( !file_exists( $passwdfile ) ) {
+			EventLog::log( _t('Passwd file does not exist: %1$s', array( $passwdfile ) ), 'err', 'passwdlogins', 'passwdlogins' );
+			return false;
 		}
-
-	  if ( isset( $users[$username] ) ) {
-	  	$crypt_pass = $users[$username];
+		
+		// go ahead and trim the user and password
+		$username = trim( $username );
+		$password = trim( $password );
+		
+		// blank usernames and passwords are not allowed
+		if ( $username == '' || $password == '' ) {
+			return false;
+		}
+		
+		$users = $this->parse_htpasswd( $passwdfile );
+		
+		if ( isset( $users[ $username ] ) ) {
+			
+			$crypt_pass = $users[ $username ];
+			
 			if ( $crypt_pass{0} == '{' ) {
-				$algo = strtolower( substr( $hash, 1, strpos( $hash, '}', 1 ) - 1 ) );
+				
+				// figure out the algorithm used for this password
+				$algo = MultiByte::strtolower( MultiByte::substr( $crypt_pass, 1, MultiByte::strpos( $crypt_pass, '}', 1 ) - 1 ) );
+				
 				$passok = false;
+				
 				switch ( $algo ) {
+					
 					case 'ssha':
-				    $hash = base64_decode(substr($crypt_pass, 6));
-				    $passok = substr($hash, 0, 20) == pack("H*", sha1($password . substr($hash, 20)));
-				    break;
-
-					case 'sha':
-						$passok = "{SHA}" . base64_encode(pack("H*", sha1($password))) == $crypt_pass;
+						$hash = base64_decode( MultiByte::substr( $crypt_pass, 6 ) );
+						$passok = MultiByte::substr( $hash, 0, 20 ) == pack( "H*", sha1( $password . MultiByte::substr( $hash, 20 ) ) );
+						
 						break;
+						
+					case 'sha':
+						$passok = '{SHA}' . base64_encode( pack( "H*", sha1( $password ) ) ) == $crypt_pass;
+						
+						break;
+					
 				}
+				
 			}
 			else {
-		    $passok = crypt( $password, substr($crypt_pass, 0, CRYPT_SALT_LENGTH) ) == $crypt_pass;
+				
+				// it's plain crypt
+				$passok = crypt( $password, MultiByte::substr( $crypt_pass, 0, CRYPT_SALT_LENGTH ) ) == $crypt_pass;
+				
 			}
-
-	  	if ( $passok ) {
-			if ( $tuser = User::get_by_name( $username ) ) {
-	  			return $tuser;
+			
+			if ( $passok == true ) {
+				return $this->get_user( $username );
+			}
+			
+		}
+		
+		// returning $user would continue the login check through other plugins and core - we want to force passwd logins
+		return false;
+		
+		
+	}
+	
+	public function parse_htpasswd ( $passwdfile ) {
+		
+		$lines = file( $passwdfile );
+		
+		$users = array();
+		
+		$i = 0;
+		foreach ( $lines as $line ) {
+			
+			// if there is no :, assume this is a username with a newline
+			if ( MultiByte::strpos( $line, ':' ) === false ) {
+				// append the next line to it
+				$line = $line . $lines[ $i + 1 ];
+				
+				// unset the next line
+				unset( $lines[ $i + 1 ] );
+			}
+			
+			list( $username, $password ) = explode( ':', $line );
+			
+			// trim the username and password
+			$username = trim( $username );
+			$password = trim( $password );
+			
+			if ( $username == '' || $password == '' ) {
+				continue;
+			}
+			
+			$users[ $username ] = $password;
+			
+			$i++;
+			
+		}
+		
+		return $users;
+		
+	}
+	
+	private function get_user ( $username ) {
+		
+		// should we create users if they don't exist? default to false
+		$create = Options::get( 'passwdlogins__create', false );
+		$group = Options::get( 'passwdlogins__group' );
+		
+		$user = User::get_by_name( $username );
+		
+		// if the user doesn't exist
+		if ( $user == false ) {
+			
+			// do we want to create it?
+			if ( $create == true ) {
+				
+				$user = User::create( array(
+					'username' => $username,
+					'password' => Utils::random_password( 200 ),
+				) );
+				
+				// add them to the default group, if one has been selected - otherwise it'll just default to authenticated anyway
+				if ( $group ) {
+					$user->add_to_group( $group );
 				}
+				
+				return $user;
+				
 			}
-	  }
-  	return false; // Returning $user would allow other plugins and the core to process the login, too.
+			else {
+				// don't create it, it doesn't exist, so fail
+				return false;
+			}
+			
+		}
+		else {
+			
+			// the user already exists, return it
+			return $user;
+			
+		}
+		
 	}
 
 }
