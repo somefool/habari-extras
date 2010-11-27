@@ -225,12 +225,13 @@
 			
 			$categories = $export->addChild( 'categories' );
 			
-			$tags = Tags::get();
+			$tags = Tags::vocabulary()->get_tree();
 			foreach ( $tags as $tag ) {
 				
 				$category = $categories->addChild( 'category' );
 				$category->addAttribute( 'id', $tag->id );
-				$category->addChild( 'title', $tag->tag_text )->addAttribute( 'type', 'text' );
+				$category->addAttribute( 'description', $tag->term_display );
+				$category->addChild( 'title', $tag->term )->addAttribute( 'type', 'text' );
 				
 			}
 			
