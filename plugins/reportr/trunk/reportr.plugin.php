@@ -116,12 +116,16 @@ class Reportr extends Plugin
 			
 			$file= $form->append('file', 'file', 'null:null', _t('URL'), 'scribdr');
 			$form->move_after($file, $form->title);
-			
+
+			$id= $form->append('text', 'report_id', 'null:null', _t('ID'), 'admincontrol_text');
+			$form->move_after($id, $form->file);		
+	
 			if( $post->report != NULL ) {
 				
 				
 				// Scribd revisions seem to be buggy
 				$file->remove();
+				$id->remove();
 				
 				// Utils::debug( $post->report );
 				
@@ -147,10 +151,11 @@ class Reportr extends Plugin
 			
 			$api = new ScribdAPI;
 			
-			$pathinfo = pathinfo( $_FILES[$form->file->field]['name'] );
+			// $pathinfo = pathinfo( $_FILES[$form->file->field]['name'] );
 			
 			if( $form->file->tmp_file != '' ) {
-				// We have an upload
+				$pathinfo = pathinfo( $_FILES[$form->file->field]['name'] );					
+	// We have an upload
 								
 				if( $post->report == NULL) {
 					// New report
@@ -177,6 +182,20 @@ class Reportr extends Plugin
 					}
 				}
 			}
+			
+			// Utils::debug( $form->report_id != '' );
+
+			if( $form->report_id->value != '' )
+			{
+				$results = $api->get_info ( $form->report_id->value );
+				
+				$post->info->report_id = $form->report_id->value;
+				$post->info->report_key = $results['access_key'];
+					
+				// Utils::debug( $results );
+
+			}
+			// exit;
 			
 			$post->save();
 			
@@ -428,13 +447,18 @@ class ScribdAPI
 			
 			$settings["tags"] = explode(",", (string) $result->tags);
 			$settings["download_formats"] = explode(",", (string) $result->download_formats);
-			
+			$settings["access_key"] = (string) $result->access_key;			
+
 			return $settings;
 		}
 		else {
 			return false;
 		}
 		
+	}
+
+	function get_info( $doc_id ) {
+		return $this->getSettings( $doc_id );
 	}
 	
 	function upload( $file, $pathinfo = array(), $replace = FALSE ) {
