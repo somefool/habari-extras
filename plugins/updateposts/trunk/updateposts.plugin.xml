@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>UpdatePosts</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://konzertheld.de/">Christian Gredig</author>
+	<version>0.1</version>
+
+	<description><![CDATA[Posts a new entry when another entry is edited.]]></description>
+	<copyright>2010</copyright>
+</pluggable>
