@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Trac Dash Module</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://habariproject.org/">The Habari Community</author>
+	
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Provides a dashboard module showing trac tickets.]]></description>
+
+	<copyright>2010</copyright>
+	<guid>85d51710-00aa-11e0-a976-0800200c9a66</guid>
+	
+	<help>
+	<value><![CDATA[
+	<p>Activate to add custom trac ticket queries to your admin dashboard (as a consolidated and scrollable list). <a href="http://rynodivino.com/habari-trac-dashboard-module">Documentation</a></p>
+	]]></value>
+	</help>
+</pluggable>
