@@ -23,7 +23,16 @@ class PageMenuPlugin extends Plugin
 	public function show_form()
 	{
 		$candidates = Posts::get(array('content_type'=>'page', 'status'=>'published', 'nolimit'=>true));
-		usort($candidates, array($this, 'sort_candidates'));
+		$candidates = (array) $candidates;
+		
+		// prepend a fake page for home
+		$home = new stdClass();
+		$home->id = 0;
+		$home->title = 'Home';
+		
+		array_unshift( $candidates, $home );
+		
+		usort( $candidates, array($this, 'sort_candidates'));
 		$menuids = (array)Options::get('pagemenu__ids');
 		
 		echo '<form action="" method="post">';
@@ -184,7 +193,16 @@ END_HELP;
 			}
 			$orderby = implode(',', $orderbys);
 	
-			$menupages = Posts::get(array('content_type'=>'page', 'id'=>$menuids, 'orderby' => $orderby));
+			$menupages = (array)Posts::get(array('content_type'=>'page', 'id'=>$menuids, 'orderby' => $orderby));
+			
+			if ( in_array( 0, $menuids ) ) {
+				$home = new stdClass();
+				$home->id = 0;
+				$home->title = _t('Home');
+				$home->permalink = Site::get_url('habari');
+				array_unshift( $menupages, $home);
+			}
+			
 			foreach($menupages as $key => $page) {
 				if(isset($theme->post) && $theme->post->id == $page->id) {
 					$block->activemenu = $page;
