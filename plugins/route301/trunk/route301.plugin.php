@@ -79,7 +79,7 @@
 				$option_name = 'route301__' . $rule_name;
 
 				// a turned off option is an empty string. 1 == enabled, null == no actual options value (for backwards compatibility)
-				if ( Options::get( $option_name ) !== '' ) {
+				if ( Options::get( $option_name ) == 1 ) {
 					$paramarray = array_merge( $defaults, $paramarray );
 					$db_rules[] = new RewriteRule( $paramarray );
 				}
