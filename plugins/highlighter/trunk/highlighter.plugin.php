@@ -59,7 +59,7 @@ class HighlighterFormatPlugin extends Format
 			$classAttr = $slice[0]['attrs']['class'];
 			
 			// unique name to use in the cache for this slice/markup
-			$sliceCacheName = 'plugin.highlight.' . md5( (string)$slice );
+			$sliceCacheName = 'plugin.highlight.' . md5( (string)$slice ) . filemtime( __FILE__ );
 			
 			// trim off the div, and determine the value
 			$slice->trim_container();
