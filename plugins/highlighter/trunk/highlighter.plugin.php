@@ -35,7 +35,17 @@ class HighlightPlugin extends Plugin
 
 	public static function _autoload( $class_name ) {
 		if ( strtolower( $class_name ) == 'geshi' ) {
-			require HABARI_PATH . "/3rdparty/geshi/geshi.php";
+			if ( file_exists( dirname( __FILE__ ) . '/geshi/geshi.php' ) ) {
+				// is there a geshi directory in our plugin?
+				require dirname( __FILE__ ) . '/geshi/geshi.php';
+			}
+			else if ( file_exists( HABARI_PATH . '/3rdparty/geshi/geshi.php' ) ) {
+				// check the old 3rdparty path first
+				require HABARI_PATH . '/3rdparty/geshi/geshi.php';
+			}
+			else {
+				require Site::get_dir('vendor') . '/geshi/geshi.php';
+			}
 		}
 	}
 }
