@@ -7,19 +7,6 @@ class HabariAkismet extends Plugin
     const SERVER_AKISMET = 'rest.akismet.com';
     const SERVER_TYPEPAD = 'api.antispam.typepad.com';
 
-    public function info()
-    {
-        return array(
-            'url' => 'http://andrewhutchings.com/projects',
-            'name' => 'Habari Akismet',
-            'description' => 'Provides the Akismet and TypePad AntiSpam spam filter webservices to Habari comments.',
-            'license' => 'Apache License 2.0',
-            'author' => 'Andrew Hutchings',
-            'authorurl' => 'http://andrewhutchings.com/',
-            'version' => '0.1.1'
-        );
-    }
-
     public function action_plugin_activation($file)
     {
         if (realpath($file) == __FILE__) {
