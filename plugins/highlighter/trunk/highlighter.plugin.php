@@ -26,6 +26,8 @@
 
 class HighlightPlugin extends Plugin
 {
+	
+	public static $geshi_path = null;
 
 	public function action_init() {
 		spl_autoload_register( array( __CLASS__, '_autoload') );
@@ -34,20 +36,26 @@ class HighlightPlugin extends Plugin
 	}
 
 	public static function _autoload( $class_name ) {
+		
 		if ( strtolower( $class_name ) == 'geshi' ) {
-			if ( file_exists( dirname( __FILE__ ) . '/geshi/geshi.php' ) ) {
-				// is there a geshi directory in our plugin?
-				require dirname( __FILE__ ) . '/geshi/geshi.php';
+			
+			$geshi_paths = array(
+				dirname( __FILE__ ) . '/geshi',		// is there a geshi directory in our plugin?
+				HABARI_PATH . '/3rdparty/geshi',		// check the old 3rdparty path first
+				Site::get_dir('vendor') . '/geshi'	// fallback to the new vendor
+			);
+			
+			foreach ( $geshi_paths as $gp ) {
+				if ( file_exists( $gp . '/geshi.php' ) ) {
+					self::$geshi_path = $gp;
+					require( $gp . '/geshi.php' );
+					return;
+				}
 			}
-			else if ( file_exists( HABARI_PATH . '/3rdparty/geshi/geshi.php' ) ) {
-				// check the old 3rdparty path first
-				require HABARI_PATH . '/3rdparty/geshi/geshi.php';
-			}
-			else {
-				require Site::get_dir('vendor') . '/geshi/geshi.php';
-			}
+			
 		}
 	}
+	
 }
 
 class HighlighterFormatPlugin extends Format
@@ -86,7 +94,7 @@ class HighlighterFormatPlugin extends Format
 				
 				$classes = array_filter( explode( ' ', trim( str_replace( 'highlight', '', $classAttr ) ) ) ); // ugly, refactor
 				
-				$geshi = new Geshi( trim( $sliceValue ), isset( $classes[0] ) ? $classes[0] : 'php', HABARI_PATH . '/3rdparty/geshi/geshi/' );
+				$geshi = new Geshi( trim( $sliceValue ), isset( $classes[0] ) ? $classes[0] : 'php', HighlightPlugin::$geshi_path . '/geshi/' );
 				$geshi->set_header_type( GESHI_HEADER_PRE );
 				$geshi->set_overall_class( 'geshicode' );
 				$output = @$geshi->parse_code(); // @ is slow, but geshi is full of E_NOTICE
