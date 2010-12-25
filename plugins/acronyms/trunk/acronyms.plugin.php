@@ -143,7 +143,7 @@
 			$content = " $content ";
 			foreach ( $this->acronyms as $acronym => $text ) {
 								
-				$content = preg_replace( "|(?!<[^<>]*?)(?<![?.&])\b$acronym\b(?!:)(?![^<>]*?>)|msU", "<acronym title=\"$text\">$acronym</acronym>" , $content );
+				$content = preg_replace( "|(?!<[^<>]*?)(?<![?.&])\b$acronym\b(?!:)(?![^<>]*?>)|msU", "<abbr title=\"$text\">$acronym</abbr>" , $content );
 				
 			}
 			$content = trim( $content );
