@@ -152,14 +152,6 @@
 			
 		}
 
-		/**
-		 * Add update beacon support
-		 **/
-		public function action_update_check()
-		{
-		 	Update::add( 'Acronyms', '7ff3ba3b-6461-47f7-98cf-cf26a2c675ea', $this->info->version );
-		}
-
 	}
 
 ?>
