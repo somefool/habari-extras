@@ -13,25 +13,6 @@ require_once( 'revision_diff.php');
 
 class Revision extends Plugin
 {
-	/**
-	 * plugin information
-	 *
-	 * @access public
-	 * @retrun void
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Revision',
-			'version' => '0.02',
-			'url' => 'http://ayu.commun.jp/habari-postrevision',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => '',
-			'guid' => '01bcbf1c-2958-11dd-b5d6-001b210f913f'
-			);
-	}
 
 	/**
 	 * action: plugin_activation
@@ -59,17 +40,6 @@ class Revision extends Plugin
 
 		$this->add_template( 'revision', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'index.php' );
 		$this->add_template( 'revision_diff', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'diff.php' );
-	}
-
-	/**
-	 * action: update_check
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function action_update_check()
-	{
-		Update::add($this->info->name, $this->info->guid, $this->info->version);
 	}
 
 	/**

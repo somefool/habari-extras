@@ -1,11 +1,12 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schemas.habariproject.org/Pluggable-1.3.xsd">
 	<name>Revision</name>
 	<version>0.02</version>
-	<url>http://ayu.commun.jp/habari-postrevision</url>
-	<author>ayunyan</author>
-	<authorurl>http://ayu.commun.jp/</authorurl>
-	<license>Apache License 2.0</license>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org</url>
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<guid>01bcbf1c-2958-11dd-b5d6-001b210f913f</guid>
-</plugin>
+	<description><![CDATA[Saves revisions of posts and diff's changes.]]></description>
+</pluggable>
 
  
