@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Bricks</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://konzertheld.de/">Christian Gredig</author>
+	<version>0.1</version>
+	<description><![CDATA[A plugin to use predefined and user-generated text bricks.]]></description>
+	<copyright>2010-2011</copyright>
+</pluggable>
+ 
