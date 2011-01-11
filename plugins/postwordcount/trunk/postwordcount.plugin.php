@@ -16,19 +16,6 @@ class PostWordCount extends Plugin
 		return $help;
 	}
 
-	public function action_update_check()
-	{
-	 	Update::add( $this->info->name, $this->info->guid, $this->info->version );
-	}
-
-        public function filter_plugin_config( $actions, $plugin_id )
-        {
-                if ( $plugin_id == $this->plugin_id() ) {
-                        $actions[]= _t( 'Configure' );
-                }
-                return $actions;
-        }
-
 	public function action_post_update_after( $post )
 	{
 		$allcharacters = 'ÁÀÂÄǍĂĀÃÅǺĄƁĆĊĈČÇĎḌƊÉÈĖÊËĚĔĒĘẸƎƏƐĠĜǦĞĢƔĤḤĦIÍÌİÎÏǏĬĪĨĮỊĴĶƘĹĻŁĽĿŃŇÑŅÓÒÔÖǑŎŌÕŐỌØǾƠŔŘŖŚŜŠŞȘṢŤŢṬÚÙÛÜǓŬŪŨŰŮŲỤƯẂẀŴẄǷÝỲŶŸȲỸƳŹŻŽẒáàâäǎăāãåǻąɓćċĉčçďḍɗéèėêëěĕēęẹǝəɛġĝǧğģɣĥḥħıíìiîïǐĭīĩįịĵķƙĸĺļłľŀŉńňñņóòôöǒŏōõőọøǿơŕřŗśŝšşșṣſťţṭúùûüǔŭūũűůųụưẃẁŵẅƿýỳŷÿȳỹƴźżžẓΑΆΒΓΔΕΈΖΗΉΘΙΊΪΚΛΜΝΞΟΌΠΡΣΤΥΎΫΦΧΨΩΏαάβγδεέζηήθιίϊΐκλμνξοόπρσςτυύϋΰφχψωώÆǼǢÐĐĲŊŒÞŦæǽǣðđĳŋœßþŧ';
@@ -36,11 +23,8 @@ class PostWordCount extends Plugin
 		$post->info->commit();
 	}
 	
-        public function action_plugin_ui( $plugin_id, $action )
+	public function configure()
         {
-                if ( $plugin_id == $this->plugin_id() ) {
-                        switch ( $action ) {
-                                case _t( 'Configure' ):
                                         $class_name= strtolower( get_class( $this ) );
                                         $ui= new FormUI( $class_name );
 
@@ -48,17 +32,13 @@ class PostWordCount extends Plugin
                                                 $class_name . '__add_title', _t( 'Include title words in count?' ) );
 
                                         $ui->append( 'submit', 'save', 'save' );
-                                        $ui->out();
-                                        break;
-                        }
-                }
+                                        return $ui;
         }
 
 	public function action_init()
 	{
 		$class_name= strtolower( get_class( $this ) );
                 $this->config[ 'add_title' ]= Options::get( $class_name . '__add_title' );
-
 	}
 	
 	public function filter_post_word_count( $word_count, $post ) 

@@ -4,9 +4,9 @@
 	<url>http://mikelietz.org/code/habari/counters.php</url>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://mikelietz.org/">Mike Lietz</author>
-	<version>0.4</version>
+	<version>0.5</version>
 	<description><![CDATA[Counts words in a single post.]]></description>
 	<guid>a0a50d90-6e0b-11dd-ad8b-0800200c9a66</guid>
-	<copyright>2009</copyright>
+	<copyright>2011</copyright>
 </pluggable>
  
