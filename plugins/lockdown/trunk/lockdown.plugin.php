@@ -48,17 +48,28 @@ class LockdownPlugin extends Plugin
 	 */
 	function filter_option_set_value( $value, $name, $oldvalue )
 	{
-		switch($name) {
-			case 'theme_dir':
-			case 'theme_name':
-			case 'cron_running':
-				return $value;
-				break;
-			default:
-				Session::notice('To maintain the integrity of the demo, option values can\'t be set.', 'lockdown_options');
-				Session::notice('Option to set: '.$name);
-				return $oldvalue;
+		
+		// the only options allowed to be changed
+		if ( in_array( $name, array( 'theme_dir', 'theme_name', 'cron_running' ) ) ) {
+			return $value;
 		}
+		
+		// only allow active_plugins to change if this class is the only thing being added
+		if ( $name == 'active_plugins' && is_array( $value ) ) {
+			$diff = array_diff_key( $value, $oldvalue );
+		
+			if ( count( $diff ) == 1 && isset( $diff[ __CLASS__ ] ) ) {
+				return $value;
+			}
+		}
+		
+		// otherwise, we throw our error and don't let the option change
+		Session::notice('To maintain the integrity of the demo, option values can\'t be set.', 'lockdown_options');
+		Session::notice('Option to set: '.$name);
+		
+		return $oldvalue;
+		
+		
 	}
 
 	/**
@@ -70,6 +81,12 @@ class LockdownPlugin extends Plugin
 	 */
 	function filter_activate_plugin( $ok, $file )
 	{
+		
+		// allow the lockdown plugin to be activated
+		if ( $file == __FILE__ ) {
+			return true;
+		}
+		
 		Session::notice('To maintain the integrity of the demo, plugins can\'t be activated.', 'lockdown_plugin');
 		return false;
 	}
