@@ -12,6 +12,13 @@
   <help>
     <value><![CDATA[
       <p>This plugin pings the Bit.ly API to generate a short URL for each published post. A template is also provided to display the short URL within the HTML header, for autodiscovery.</p>
+      <p>To use, put code like this in the header of your theme:
+        <pre>
+        if ($request->display_entry && isset($post)) {
+          $theme->show_bitly_shorturl($post);
+          }
+        </pre>
+      </p>
       ]]></value>
   </help>
 </pluggable>
