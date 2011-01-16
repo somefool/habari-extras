@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+  <name>Bit.ly</name>
+  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+  <author url="http://mgdm.net/">Michael Maclean</author>
+  <version>0.1</version>
+  <url>http://mgdm.net/</url>
+
+  <description><![CDATA[Bit.ly plugin for Habari.]]></description>
+  <copyright>2010</copyright>
+  <guid>6C935C68-21B5-11E0-AC90-F74CE0D72085</guid>
+  <help>
+    <value><![CDATA[
+      <p>This plugin pings the Bit.ly API to generate a short URL for each published post. A template is also provided to display the short URL within the HTML header, for autodiscovery.</p>
+      ]]></value>
+  </help>
+</pluggable>
+
+
