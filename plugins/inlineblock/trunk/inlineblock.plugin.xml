@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Inline Block</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+
+	<author url="http://habariproject.org/">The Habari Community</author>
+
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Outputs editing buttons near blocks in the output that link to the block editing form.]]></description>
+	<copyright>2011</copyright>
+	
+	<guid>0cb05458-d915-4de3-9265-f314406c1c0b</guid>
+
+</pluggable>
