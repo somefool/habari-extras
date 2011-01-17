@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>prettyPhoto</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<author url="http://www.no-margin-for-errors.com">Stephane Caron</author>
+
+	<version>1.0</version>
+	<url>http://habariproject.org/</url>
+	<description><![CDATA[Adds the <a href="http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/">prettyPhoto</a> jQuery plugin to the template output.]]></description>
+	<copyright>2011 Stephane Caron</copyright>
+	
+	<guid>d6cce503-b0a7-41f4-a861-874c9968202c</guid>
+
+	<provides>
+		<feature>add_prettyphoto_admin</feature>
+		<feature>add_prettyphoto_template</feature>
+	</provides>
+
+</pluggable>
