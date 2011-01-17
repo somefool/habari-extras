@@ -1,6 +1,6 @@
 <?php
 
-/** 
+/**
  * Create a block with arbitrary content.
  *
  */
@@ -21,6 +21,14 @@ class SimpleBlock extends Plugin
 	{
 		$block_list['simpleblock'] = _t('Simple Block');
 		return $block_list;
+	}
+
+	/**
+	 * Output the content of the block, and nothing else.
+	 **/
+	public function action_block_content_simpleblock($block, $theme)
+	{
+		return $block;
 	}
 
 	/**
