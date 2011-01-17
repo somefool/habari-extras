@@ -8,12 +8,18 @@
 	<description><![CDATA[Publish posts using the jwysiwyg editor.]]></description>
 	<copyright>2009</copyright>
 
-    <help>
-    <value><![CDATA[
-    Provides a rich editing environment using the jwysiwyg JQuery Javascript
-    plugin. Find out more about jwysiwyg at
-    <a href="http://code.google.com/p/jwysiwyg/">http://code.google.com/p/jwysiwyg/</a>
-    ]]></value>
-    </help>
+   <help>
+   <value><![CDATA[
+   Provides a rich editing environment using the jwysiwyg JQuery Javascript
+   plugin. Find out more about jwysiwyg at
+   <a href="http://code.google.com/p/jwysiwyg/">http://code.google.com/p/jwysiwyg/</a>
+   ]]></value>
+   </help>
+
+	<provides>
+		<feature>add_jwysiwyg_admin</feature>
+		<feature>add_jwysiwyg_template</feature>
+	</provides>
+    
 </pluggable>
  
