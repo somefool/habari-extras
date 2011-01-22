@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>PrePublish</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<guid>29270613-c036-4ee0-8205-5abb65962885</guid>
+	<version>1.0</version>
+	<description><![CDATA[Publish all "published" posts, regardless of pubdate.]]></description>
+	<copyright>2011</copyright>
+	<help><value><![CDATA[<p>Once activated, this plugin sets all posts you Publish to "published", even if their date is in the future.</p><p>They will also appear on your site and in its feeds.</p>]]></value></help>
+</pluggable>
+ 
