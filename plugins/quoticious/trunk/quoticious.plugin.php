@@ -1,25 +1,6 @@
 <?php
-class Quoticious extends Plugin {
-	function info() {
-		return array(
-			'name' => 'Quoticious',
-			'version' => '1.0',
-			'url' => 'http://habariproject.org',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'license' => 'Apache License 2.0',
-			'description' => 'Allows quotes to be collected'
-		);
-	}
-	
-	/**
-	* Registers this plugin for updates against the beacon
-	*/
-	public function action_update_check()
-	{
-		Update::add('Quoticious', 'cffb07c5-ab53-42e7-b42d-08133097244c', $this->info->version);
-	}
-	
+class Quoticious extends Plugin
+{
 	public function action_init() {		
 		Post::add_new_type('quote');
 	}
