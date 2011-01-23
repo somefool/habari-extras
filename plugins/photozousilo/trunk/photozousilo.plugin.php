@@ -12,26 +12,6 @@ class PhotozouSilo extends Plugin implements MediaSilo
 	const SILO_NAME = 'Photozou';
 
 	/**
-	 * info
-	 *
-	 * @access public
-	 * @return array
-	 */
-	function info()
-	{
-		return array(
-			'name' => 'Photozou Silo',
-			'version' => '0.02-alpha',
-			'url' => 'http://ayu.commun.jp/',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Photozou silo (http://photozou.jp/)',
-			'guid' => 'a290a808-1fc2-11dd-b5d6-001b210f913f'
-		);
-	}
-
-	/**
 	 * action: plugin_activation
 	 *
 	 * @access public
@@ -43,17 +23,6 @@ class PhotozouSilo extends Plugin implements MediaSilo
 
 		Options::set('photozousilo__username', '');
 		Options::set('photozousilo__password', '');
-	}
-
-	/**
-	 * action: update_check
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function action_update_check()
-	{
-		Update::add('Photozou Silo', $this->info->guid, $this->info->version);
 	}
 
 	/**
