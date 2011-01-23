@@ -2,7 +2,7 @@
 <pluggable type="plugin">
 	<name>Populate users, groups and tokens in the site</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-	<author url="http://habariproject.org/">Habari Community</author>
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<version>1.0</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Creates random users, groups and tokens to test Habari admin core and themeing.]]></description>
