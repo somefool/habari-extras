@@ -1,0 +1,12 @@
+<plugin>
+	<name>Photozou Silo</name>
+	<version>0.02-alpha</version>
+	<url>http://ayu.commun.jp/</url>
+	<author>ayunyan</author>
+	<authorurl>http://ayu.commun.jp/</authorurl>
+	<license>Apache License 2.0</license>
+	<description>Photozou silo (http://photozou.jp/)</description>
+	<guid>a290a808-1fc2-11dd-b5d6-001b210f913f</guid>
+</plugin>
+
+ 
