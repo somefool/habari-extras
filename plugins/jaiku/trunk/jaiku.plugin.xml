@@ -1,12 +1,12 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Jaiku</name>
 	<version>0.6</version>
 	<url>http://code.google.com/p/bcse/wiki/Jaiku</url>
 	<author>Joel Lee</author>
 	<authorurl>http://blog.bcse.info/</authorurl>
 	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
-	<description>Display your latest presences on your blog.</description>
+	<guid>8d803db0-2d48-11dd-bd0b-0800200c9a66</guid>
 	<copyright>2008</copyright>
-</plugin>
-
- 
+	<description><![CDATA[Display your latest presences on your blog.]]></description>
+</pluggable> 
