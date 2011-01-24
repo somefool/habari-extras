@@ -1,11 +1,13 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Page Subtitle</name>
 	<version>0.3</version>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<url>http://habariproject.org/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org/</authorurl>
-	<license>Apache License 2.0</license>
-	<description>Allows a user to add a subtitle to pages.</description>
-</plugin>
+	<description><![CDATA[Allows a user to add a subtitle to pages.]]></description>
+	<guid>f5afa528-3b71-422f-bfd7-f361e3d54bda</guid>
+	<help><value><![CDATA[The subtitle added to a page using the page's Publish form can be displayed with <code>&lt;?php echo $post->info->subtitle; ?&gt;</code>.]]></value></help>
+</pluggable>
 
  

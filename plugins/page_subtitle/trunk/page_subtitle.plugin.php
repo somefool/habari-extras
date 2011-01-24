@@ -2,21 +2,6 @@
 class PageSubtitle extends Plugin
 {
 	/**
-	 * Required plugin information
-	 **/
-	function info() {
-		return array(
-			'name' => 'Page Subtitle',
-			'version' => '0.3',
-			'url' => 'http://habariproject.org/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Allows a user to add a subtitle to pages.'
-		);
-	}
-
-	/**
 	 * Add the subtitle control to the publish page
 	 *
 	 * @param FormUI $form The publish page form
@@ -42,14 +27,5 @@ class PageSubtitle extends Plugin
 			$post->info->subtitle = $form->subtitle->value;
 		}
 	}
-
-	/**
-	 * Enable update notices to be sent using the Habari beacon
-	 **/
-	public function action_update_check()
-	{
-		Update::add( 'PageSubtitle', 'f5afa528-3b71-422f-bfd7-f361e3d54bda',  $this->info->version );
-	}
-
 }
 ?>
