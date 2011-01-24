@@ -9,5 +9,3 @@
 	<guid>f5afa528-3b71-422f-bfd7-f361e3d54bda</guid>
 	<help><value><![CDATA[The subtitle added to a page using the page's Publish form can be displayed with <code>&lt;?php echo $post->info->subtitle; ?&gt;</code>.]]></value></help>
 </pluggable>
-
- 
