@@ -55,7 +55,7 @@ class PrestigeTheme extends Theme
 		}
 		if( !$this->template_engine->assigned( 'asides' ) ) {
 			//For Asides loop in sidebar.php
-			$this->assign( 'asides', Posts::get( array( 'tag'=>'aside', 'limit'=>5) ) );
+			$this->assign( 'asides', Posts::get( array( 'vocabulary' => array( 'tags:tag' => 'aside' ), 'limit'=>5) ) );
 		}
 		if( !$this->template_engine->assigned( 'recent_comments' ) ) {
 			//for recent comments loop in sidebar.php
@@ -67,11 +67,11 @@ class PrestigeTheme extends Theme
 			$page=Controller::get_var( 'page' );
 			$pagination=Options::get('pagination');
 			if ( $page == '' ) { $page= 1; }
-			$this->assign( 'more_posts', Posts::get(array ( 'content_type' => 'entry', 'status' => Post::status('published'), 'not:tag' => 'asides','offset' => ($pagination)*($page), 'limit' => 5 ) ) );
+			$this->assign( 'more_posts', Posts::get(array ( 'content_type' => 'entry', 'status' => Post::status('published'), 'vocabulary' => array( 'tags:not:tag' => 'asides' ),'offset' => ($pagination)*($page), 'limit' => 5 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'all_tags' ) ) {
 			// List of all the tags
-			$this->assign('all_tags', Tags::get() );
+			$this->assign('all_tags', Tags::vocabulary()->get_tree() );
 		}
 		if( !$this->template_engine->assigned( 'all_entries' ) ) {
 			$this->assign( 'all_entries', Posts::get( array( 
@@ -140,41 +140,68 @@ class PrestigeTheme extends Theme
 			return URL::get( 'atom_feed', array( 'index' => '1' ) );
 		}
 
+	public function action_form_comment( $form, $post, $context )
+	{
+		$form->append( 'fieldset', 'content_box', _t( 'Add To The Discussion' ) );
+		$form->cf_content->move_into( $form->content_box );
+		$form->cf_content->cols = 70;
+		$form->cf_content->control_title = 'Add to the discussion. Required.';
+
+		$form->append('fieldset', 'commenter_info', _t( 'A Little Info About You' ) );
+
+		$form->cf_commenter->move_into( $form->commenter_info );
+		$form->cf_commenter->control_title = 'Your name. Required';
+		$form->cf_commenter->caption = _t( 'Name' );
+
+		$form->cf_email->move_into( $form->commenter_info );
+		$form->cf_email->control_title = "Your email address. Required, but not published";
+		$form->cf_email->caption = _t( 'Email' );
+
+		$form->cf_url->move_into( $form->commenter_info );
+		$form->cf_url->control_title = 'Enter your homepage.';
+		$form->cf_url->caption = _t( 'Web Address' );
+
+		$form->cf_submit->move_after( $form->commenter_info );
+		$form->cf_submit->caption = _t( 'Say It' );
+
+	}
+
 	public function theme_comment_form( $theme )
-		{
-			$ui = new FormUI( 'comments_form' );
-			$ui->set_option( 'form_action',  URL::get( 'submit_feedback', array( 'id' => $theme->post->id ) ) );
+	{
+		$theme->post->comment_form()->out();
+//		$ui = new FormUI( 'comments_form' );
+//		$ui->set_option( 'form_action',  URL::get( 'submit_feedback', array( 'id' => $theme->post->id ) ) );
 
-			$comment_fieldset = $ui->append( 'fieldset', 'content_box', _t( 'Add To The Discussion' ) );
-			$commentContent = $comment_fieldset->append( 'textarea', 'commentContent', 'null:null', _t( 'Comment' ));
-			$commentContent->value = $theme->commenter_content;
-			$commentContent->id = 'comment_content';
-			$commentContent->control_title = 'Add to the discussion. Required.';
-			$commentContent->cols = 70;
+//		$comment_fieldset = $ui->append( 'fieldset', 'content_box', _t( 'Add To The Discussion' ) );
+//		$commentContent = $comment_fieldset->append( 'textarea', 'commentContent', 'null:null', _t( 'Comment' ));
+//		$commentContent->value = $theme->commenter_content;
+//		$commentContent->id = 'comment_content';
+//		$commentContent->control_title = 'Add to the discussion. Required.';
+//		$commentContent->cols = 70;
 
-			$comment_info_fieldset = $ui->append('fieldset', 'commenter_info', _t( 'A Little Info About You' ) );
-			$name = $comment_info_fieldset->append( 'text', 'ename', 'null:null', _t( 'Name' ) );
-			$name->value = $theme->commenter_name;
-			$name->id = 'name';
-			$name->control_title = 'Your name. Required';
+//		$comment_info_fieldset = $ui->append('fieldset', 'commenter_info', _t( 'A Little Info About You' ) );
+//		$name = $comment_info_fieldset->append( 'text', 'ename', 'null:null', _t( 'Name' ) );
+//		$name->value = $theme->commenter_name;
+//		$name->id = 'name';
+//		$name->control_title = 'Your name. Required';
 
-			$email = $comment_info_fieldset->append( 'text', 'email', 'null:null', _t('Email' ));
-			$email->value = $theme->commenter_email;
-			$email->id = $email->name;
-	        $email->control_title = "Your email address. Required, but not published";
+//		$email = $comment_info_fieldset->append( 'text', 'email', 'null:null', _t('Email' ));
+//		$email->value = $theme->commenter_email;
+//		$email->id = $email->name;
+//		$email->control_title = "Your email address. Required, but not published";
 
-			$url = $comment_info_fieldset->append( 'text', 'url', 'null:null', _t( 'Web Address' ) );
-			$url->value = $theme->commenter_url;
-			$url->id = $url->name;
-	        $url->control_title = 'Enter your homepage.';
+//		$url = $comment_info_fieldset->append( 'text', 'url', 'null:null', _t( 'Web Address' ) );
+//		$url->value = $theme->commenter_url;
+//		$url->id = $url->name;
+//		$url->control_title = 'Enter your homepage.';
 
 
-			$submit = $ui->append( 'submit', 'submit', _t( 'Say It' ) );
-			$submit->id = $submit->name;
+//		$submit = $ui->append( 'submit', 'submit', _t( 'Say It' ) );
+//		$submit->id = $submit->name;
 
-			$ui->out();
+//		$ui->out();
 
-		}
+	}
 
 }
 

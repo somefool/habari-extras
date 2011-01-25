@@ -22,7 +22,7 @@
 					
 						<p class="author">{hi:"By"} {hi:author.displayname}</p>
 					
-						<p class="tags">{hi:"Tagged"}—{hi:?count(tags)}{hi:tags_out}{/hi:?}</p>
+						{hi:?count(tags)}<p class="tags">{hi:"Tagged"}—{hi:tags_out}</p>{/hi:?}
 						
 						<p class="comments"><a href="{hi:permalink}#comments" title="{hi:"Comments on this post"}">{hi:"{hi:comments.approved.count} Comment" "{hi:comments.approved.count} Comments" comments.approved.count}</a></p>
 					

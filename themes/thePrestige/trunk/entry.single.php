@@ -15,7 +15,7 @@
 					
 							<p class="author">{hi:"By"} {hi:post.author.displayname}</p>
 					
-							<p class="tags">{hi:"Tagged"}-{hi:?count(post.tags)}{hi:post.tags_out}{/hi:?}</p>
+							{hi:?count(post.tags)}<p class="tags">{hi:"Tagged"}-{hi:post.tags_out}</p>{/hi:?}
 						
 						</div>
 			</div>
