@@ -45,7 +45,7 @@ class ArcticIceTheme extends Theme
 	public function add_template_vars() 
 	{
 		if( !$this->template_engine->assigned( 'pages' ) ) {
-			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'not:tag' => 'site-policy', 'nolimit' => 1 ) ) );
+			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'vocabulary' => array( 'tags:not:tag' => 'site-policy' ), 'nolimit' => 1 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'recent_comments' ) ) {
 			//for recent comments loop in sidebar.php
@@ -57,11 +57,11 @@ class ArcticIceTheme extends Theme
 			$page=Controller::get_var( 'page' );
 			$pagination=Options::get('pagination');
 			if ( $page == '' ) { $page= 1; }
-			$this->assign( 'more_posts', Posts::get(array ( 'content_type' => 'entry', 'status' => Post::status('published'), 'not:tag' => 'asides','offset' => ($pagination)*($page), 'limit' => 5 ) ) );
+			$this->assign( 'more_posts', Posts::get(array ( 'content_type' => 'entry', 'status' => Post::status('published'), 'vocabulary' => array( 'tags:not:tag' => 'asides' ),'offset' => ($pagination)*($page), 'limit' => 5 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'all_tags' ) ) {
 			// List of all the tags
-			$this->assign('all_tags', Tags::get() );
+			$this->assign('all_tags', Tags::vocabulary()->get_tree() );
 		}
 		if( !$this->template_engine->assigned( 'all_entries' ) ) {
 			$this->assign( 'all_entries', Posts::get( array( 
