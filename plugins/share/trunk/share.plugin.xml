@@ -20,7 +20,7 @@
             </pre>
             <p>To display the Facebook and Twitter widgets, add code like this to the single entry part of the theme:</p>
             <pre>
-              &lt;?php $theme->show_share_ui($post); ?$gt;
+              &lt;?php $theme->show_share_ui($post); ?&gt;
             </pre>
             ]]></value>
     </help>
