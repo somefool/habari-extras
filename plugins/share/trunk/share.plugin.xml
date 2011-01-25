@@ -14,13 +14,13 @@
             <p>This plugin generates Facebook OpenGraph data, and adds it to the header of posts. It can also embed a Facebook 'Like' button, and a Twitter 'Share' button to the bottom of posts.</p>
             <p>To use, add code like this to the header of your theme:</p>
             <pre>
-              <?php if ($request->display_entry && isset($post)) {
+              &lt;?php if ($request->display_entry && isset($post)) {
                   $theme->show_share_metadata($post);
-              } ?>
+              } ?&gt;
             </pre>
             <p>To display the Facebook and Twitter widgets, add code like this to the single entry part of the theme:</p>
             <pre>
-              <?php $theme->show_share_ui($post); ?>
+              &lt;?php $theme->show_share_ui($post); ?$gt;
             </pre>
             ]]></value>
     </help>
