@@ -34,7 +34,7 @@
 		<h3>{hi:"Tags"}</h3>
 		<ul class="tags">
 			{hi:all_tags}
-				<li><a href="{hi:siteurl:habari}/tag/{hi:slug}/" rel="tag" title="{hi:tag}" >{hi:tag}</a></li>
+				<li><a href="{hi:siteurl:habari}/tag/{hi:term}/" rel="tag" title="{hi:term_display}" >{hi:term_display}</a></li>
 			{/hi:all_tags}
 		</ul>
 	{/hi:?}
