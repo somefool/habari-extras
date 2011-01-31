@@ -54,33 +54,7 @@ class BinadamuTheme extends Theme
 			$this->assign('recent_entries', Posts::get(array('limit' => 10, 'content_type' => 'entry', 'status' => Post::status('published'), 'orderby' => 'pubdate DESC')));
 		}
 
-		$cookie = 'comment_' . Options::get( 'GUID' );
-        $commenter_name = '';
-        $commenter_email = '';
-        $commenter_url = '';
-        $commenter_content = '';
-		$user = User::identify();
-
-	    if ( isset( $_SESSION['comment'] ) ) {
-            $details = Session::get_set( 'comment' );
-            $commenter_name = $details['name'];
-            $commenter_email = $details['email'];
-            $commenter_url = $details['url'];
-            $commenter_content = $details['content'];
-	    }
-        elseif ( $user->loggedin ) {
-            $commenter_name = $user->displayname;
-            $commenter_email = $user->email;
-            $commenter_url = Site::get_url( 'habari' );
-        }
-        elseif ( isset( $_COOKIE[$cookie] ) ) {
-            list( $commenter_name, $commenter_email, $commenter_url )= explode( '#', $_COOKIE[$cookie] );
-        }
-
-        $this->assign('commenter_content', $commenter_content);
-        $this->assign('commenter_name', $commenter_name);
-        $this->assign('commenter_email', $commenter_email);
-        $this->assign('commenter_url', $commenter_url);
+		$this->add_template( 'binadamu_submit', dirname(__FILE__) . '/formcontrol_submit.php' );
 
 		parent::add_template_vars();
 	}
@@ -98,70 +72,12 @@ class BinadamuTheme extends Theme
 
 	public function filter_post_tags_class($tags)
 	{
-		if (!is_array($tags))
-			$tags = array($tags);
-		return count($tags) > 0 ? 'tag-' . implode(' tag-', array_keys($tags)) : 'no-tags';
-	}
-
-	public function binadamu_body_class()
-	{
-		// Assigning <body> class(es)
-		$body_class = array();
-		if ($this->request->display_home) {
-			$body_class[] = 'home';
-			$body_class[] = 'multiple';
-		}
-		else
-		if ($this->request->display_entries) {
-			$body_class[] = 'multiple';
-		}
-		else
-		if ($this->request->display_entries_by_date) {
-			$body_class[] = 'date-archive';
-			$body_class[] = 'archive';
-			$body_class[] = 'multiple';
-		}
-		else
-		if ($this->request->display_entries_by_tag) {
-			$body_class[] = 'tag-archive';
-			$body_class[] = 'archive';
-			$body_class[] = 'multiple';
-		}
-		else
-		if ($this->request->display_entry) {
-			$body_class[] =  'entry-' . $this->posts->slug;
-			$body_class[] =  'entry';
-			$body_class[] = 'single';
-		}
-		else
-		if ($this->request->display_page) {
-			$body_class[] =  'page-' . $this->posts->slug;
-			$body_class[] =  'page';
-			$body_class[] = 'single';
-		}
-		else
-		if ($this->request->display_post) { // Other content-types
-			$post_type_name = Post::type_name($this->posts->content_type);
-			$body_class[] =  $post_type_name . '-' . $this->posts->slug;
-			$body_class[] =  $post_type_name;
-			$body_class[] = 'single';
-		}
-		else
-		if ($this->request->display_search) {
-			$body_class[] = 'search';
-			$body_class[] = 'multiple';
-		}
-		else
-		if ($this->request->display_404) {
-			$body_class[] = 'four04';
-		}
-
-		//Get unique items
-		$body_class = array_flip(array_flip($body_class));
-
-		echo count($body_class) > 0 ?
-			' class="' . implode(' ', $body_class) . '"' :
-			'';
+		if (!$tags)
+			return;
+		$rt = array();
+		foreach ($tags as $t)
+			$rt[] = 'tag-' . $t->term;
+		return count($rt) > 0 ? implode(' ', $rt) : 'no-tags';
 	}
 
 	public function theme_title($theme)
@@ -180,7 +96,7 @@ class BinadamuTheme extends Theme
 		}
 		else
 		if ($this->request->display_entries_by_tag && isset($this->handler_vars['tag'])) {
-			$tag = (count($this->posts) > 0) ? $this->posts[0]->tags[$this->handler_vars['tag']] : $this->handler_vars['tag'] ;
+			$tag = (count($this->posts) > 0) ? Tags::get_by_slug($this->handler_vars['tag'])->term_display : $this->handler_vars['tag'] ;
 			$title = sprintf(_t('%1$s &raquo; Taxonomic Archives of %2$s', 'binadamu'), htmlspecialchars($tag), Options::get('title'));
 		}
 		else
@@ -219,7 +135,7 @@ class BinadamuTheme extends Theme
 		}
 		else
 		if ($this->request->display_entries_by_tag && isset($this->handler_vars['tag'])) {
-			$tag = (count($this->posts) > 0) ? $this->posts[0]->tags[$this->handler_vars['tag']] : $this->handler_vars['tag'] ;
+			$tag = (count($this->posts) > 0) ? Tags::get_by_slug($this->handler_vars['tag'])->term_display : $this->handler_vars['tag'] ;
 			$h1 = '<h1>' . sprintf(_t('Posts tagged with %s', 'binadamu'), htmlspecialchars($tag)) . '</h1>';
 		}
 		else
@@ -228,6 +144,30 @@ class BinadamuTheme extends Theme
 		}
 		return $h1;
 	}
-}
 
+	public function action_form_comment($form) {
+		$form->append('static', 'cf_header', '<h2>' . _t('Leave a Reply', 'binadamu') . '</h2>');
+
+		$form->append('wrapper', 'cf_commenter_info');
+		$form->append('wrapper', 'cf_response');
+
+		$form->cf_commenter->move_into($form->cf_commenter_info);
+		$form->cf_commenter->caption = _t('Name', 'binadamu');
+
+		$form->cf_email->move_into($form->cf_commenter_info);
+		$form->cf_email->caption = _t('E-mail', 'binadamu');
+
+		$form->cf_url->move_into($form->cf_commenter_info);
+		$form->cf_url->caption = _t('Website', 'binadamu');
+
+		$form->cf_content->move_into($form->cf_response);
+		$form->cf_content->caption = _t('Your Comments', 'binadamu');
+
+		$form->cf_submit->move_into($form->cf_response);
+		$form->cf_submit->caption = _t('Send', 'binadamu');
+		$form->cf_submit->template = 'binadamu_submit';
+
+		$form->append('static', 'cf_notice', '<p id="cf_notice">' . _t('Your comment may not display immediately due to spam filtering. Please wait for moderation.', 'binadamu') . '</p>');
+	}
+}
 ?>

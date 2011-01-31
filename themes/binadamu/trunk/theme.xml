@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pluggable type="theme">
 	<name>Binadamu</name>
-	<author>Joel Lee</author>
-	<url>http://blog.bcse.info/</url>
-	<version>1.2-pre</version>
-	<description>A theme which was inspired by Sandbox.</description>
+	<author url="http://blog.bcse.info">Joel Lee</author>
+	<version>1.2</version>
+	<url>http://blog.bcse.info/binadamu</url>
+	<description><![CDATA[A theme which inspired by Sandbox.]]></description>
+	<copyright>2010</copyright>
 	<template_engine>rawphpengine</template_engine>
-	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 </pluggable>

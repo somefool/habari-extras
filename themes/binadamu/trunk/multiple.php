@@ -10,7 +10,7 @@
 					<li class="entry-date"><abbr class="published" title="<?php echo $post->pubdate->out(HabariDateTime::ISO8601); ?>"><?php echo $post->pubdate->out('F j, Y'); ?></abbr></li>
 					<li class="entry-time"><abbr class="published" title="<?php echo $post->pubdate->out(HabariDateTime::ISO8601); ?>"><?php echo $post->pubdate->out('g:i a'); ?></abbr></li>
 					<li class="comments-link"><a href="<?php echo $post->permalink; ?>#comments" title="<?php _e('Comments to this post', 'binadamu') ?>"><?php printf(_n('%1$d Comment', '%1$d Comments', $post->comments->approved->count, 'binadamu'), $post->comments->approved->count); ?></a></li>
-<?php if (is_array($post->tags)) { ?>
+<?php if ($post->tags) { ?>
 					<li class="entry-tags"><?php echo $post->tags_out; ?></li>
 <?php } ?>
 <?php if ($loggedin) { ?>

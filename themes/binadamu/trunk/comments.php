@@ -76,4 +76,4 @@
 	} ?>
 		</div>
 <!-- /comments -->
-<?php if (!$post->info->comments_disabled) { $theme->display('commentform'); } ?>
+<?php $post->comment_form()->out(); ?>
