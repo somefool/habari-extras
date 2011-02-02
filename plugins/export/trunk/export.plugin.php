@@ -126,11 +126,8 @@
 			// export all the blog's tags
 			$this->export_tags( $export );
 			
-			// export all the blog's posts
-			$this->export_posts( $export );
-			
-			// export all the blog's pages
-			$this->export_posts( $export, 'page' );
+			// export all the blog's posts and pages
+			$this->export_posts( $export, array( 'entry', 'page' ) );
 			
 			EventLog::log( _t( 'Export completed!' ), 'info', 'export', 'export' );
 			
@@ -256,11 +253,11 @@
 		 * @param SimpleXMLElement $export The SimpleXML element we're using for our export.
 		 * @return void
 		 */
-		private function export_posts ( $export, $content_type = 'entry' ) {
+		private function export_posts ( $export, $content_type = array( 'entry', 'page' ) ) {
 			
 			$ps = $export->addChild( 'posts' );
 			
-			$posts = Posts::get( array( 'limit' => null, 'content_type' => Post::type( $content_type ) ) );
+			$posts = Posts::get( array( 'limit' => null, 'content_type' => $content_type ) );
 			foreach ( $posts as $post ) {
 				
 				// create the post object
