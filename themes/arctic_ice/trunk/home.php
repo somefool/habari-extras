@@ -2,16 +2,14 @@
 <!--begin content-->
 <div id="content">
 	{hi:posts}
-		<div id="post-{hi:id}" class="{hi:statusname}">
-			<h1><a href="{hi:permalink}" rel="bookmark" title="{hi:title}">{hi:title_out}</a></h1>
-
-			<div class="pubMeta">{hi:pubdate_out}</div>
-
-			{hi:?loggedin}
-				<div class="edit">
-					<a href="{hi:editlink}" title="{hi:"Edit post"}" >{hi:"Edit Post"}</a>
-				</div>
-			{/hi:?}
+		<article id="post-{hi:id}" class="{hi:statusname}">
+			<header class="pubMeta">
+				<h1><a href="{hi:permalink}" rel="bookmark" title="{hi:title}">{hi:title_out}</a></h1>
+				<time class="pubmeta" datetime="{hi:pubdate_datetime}" pubdate >{hi:pubdate_out}</time>
+				{hi:?loggedin}
+					<div class="edit"><a href="{hi:editlink}" title="{hi:"Edit post"}" >{hi:"Edit Post"}</a></div>
+				{/hi:?}
+			</header>
 
 			<div class="entry">
 				{hi:?posts_index = 0}
@@ -21,7 +19,7 @@
 				{/hi:?}
 			</div>
 
-			<div class="meta">
+			<footer class="meta">
 				<div class="tags">
 					{hi:?count(tags)}
 						{hi:"Filed under"} {hi:tags_out}
@@ -30,8 +28,8 @@
 				<div class="commentCount">
 					<a href="{hi:permalink}#comments" title="{hi:"Comments on this post"}">{hi:"{hi:comments.approved.count} Comment" "{hi:comments.approved.count} Comments" comments.approved.count}</a>
 				</div>
-			</div>
-		</div>
+			</footer>
+		</article>
 	{/hi:posts}
 
 	<div id="pagenav">

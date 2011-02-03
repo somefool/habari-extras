@@ -20,6 +20,11 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, fieldset, table, ul {
   margin: .5em 0;
 }
 
+/* Preset new html5 tags for a block display */
+article, aside, footer, header, nav, section {
+	display: block;
+}
+
 em {
 	font-style: italic;
 }
@@ -380,14 +385,6 @@ blockquote.left {
 	border: 1px solid #ccc;
 	padding: 0.4em;
 	margin-bottom: 1.5em;
-}
-
-ul#pings-list {
-	list-style-type: none;
-}
-
-ul#commentlist {
-	list-style-type: none;
 }
 
 .comment {

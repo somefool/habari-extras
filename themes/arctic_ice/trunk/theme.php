@@ -13,7 +13,7 @@ define( 'THEME_CLASS', 'ArcticIceTheme' );
  */ 
 class ArcticIceTheme extends Theme
 {
-	function action_init_theme()
+	public function action_init_theme()
 	{
 		// Apply Format::autop() to post content... 
 		Format::apply( 'autop', 'post_content_out' );
@@ -25,10 +25,11 @@ class ArcticIceTheme extends Theme
 		Format::apply_with_hook_params( 'more', 'post_content_out', 'more' );
 		// Creates an excerpt option. echo $post->content_excerpt;
 		Format::apply( 'autop', 'post_content_excerpt');
-		Format::apply_with_hook_params( 'more', 'post_content_excerpt', 'Read more', 60, 1 );
+		Format::apply_with_hook_params( 'more', 'post_content_excerpt', ' Read more...', 60, 1 );
 
 		// Apply Format::nice_date() to post date...
 		Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y' );
+		Format::apply( 'nice_date', 'post_pubdate_datetime', 'c');
 		// Apply Format::nice_time() to post date...
 		//Format::apply( 'nice_time', 'post_pubdate_out', 'g:ia' );
 		// Apply Format::nice_date() to comment date
@@ -42,46 +43,63 @@ class ArcticIceTheme extends Theme
 	 * template.  So the values here, unless checked, will overwrite any existing 
 	 * values.
 	 */
-	public function add_template_vars() 
+	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		if( !$this->template_engine->assigned( 'pages' ) ) {
-			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'vocabulary' => array( 'tags:not:tag' => 'site-policy' ), 'nolimit' => 1 ) ) );
+			$this->assign( 'pages', Posts::get( array( 'content_type' => 'page', 'status' => 'published', 'vocabulary' => array( 'tags:not:tag' => 'site-policy' ), 'nolimit' => 1 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'recent_comments' ) ) {
 			//for recent comments loop in sidebar.php
-			$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
+			$this->assign( 'recent_comments', Comments::get( array( 'limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
 		}
 		if( !$this->template_engine->assigned( 'more_posts' ) ) {
 			//Recent posts in sidebar.php
 			//visiting page/2 will offset to the next page of posts in the footer /3 etc
-			$page=Controller::get_var( 'page' );
-			$pagination=Options::get('pagination');
-			if ( $page == '' ) { $page= 1; }
-			$this->assign( 'more_posts', Posts::get(array ( 'content_type' => 'entry', 'status' => Post::status('published'), 'vocabulary' => array( 'tags:not:tag' => 'asides' ),'offset' => ($pagination)*($page), 'limit' => 5 ) ) );
+			$page = $this->page;
+			$pagination = Options::get( 'pagination' );
+			$this->assign( 'more_posts', Posts::get( array ( 'content_type' => 'entry', 'status' => 'published', 'vocabulary' => array( 'tags:not:tag' => 'asides' ),'offset' => ( $pagination )* ( $page ), 'limit' => 5 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'all_tags' ) ) {
 			// List of all the tags
-			$this->assign('all_tags', Tags::vocabulary()->get_tree() );
+			$this->assign( 'all_tags', Tags::vocabulary()->get_tree() );
 		}
 		if( !$this->template_engine->assigned( 'all_entries' ) ) {
-			$this->assign( 'all_entries', Posts::get( array( 
-											'content_type' => 'entry', 
-											'status' => Post::status('published'), 
-											'nolimit' => 1 ) ) );
+			$this->assign( 'all_entries', Posts::get( array( 'content_type' => 'entry', 'status' => 'published', 'nolimit' => 1 ) ) );
 		}
+	}
 
-		parent::add_template_vars();
+	public function action_template_header( $theme )
+	{
+		// Add the stylesheets to the stack for output
+		Stack::add( 'template_stylesheet', array( Site::get_url( 'theme') . '/style.css', 'screen') );
+		Stack::add( 'template_stylesheet', array( Site::get_url( 'theme') . '/custom.css', 'screen') );
+		Stack::add( 'template_stylesheet', array( Site::get_url( 'theme') . '/print.css', 'print') );
+	}
+
+	public function theme_title( $theme )
+	{
+		if( $theme->request->display_entry || $theme->request->display_page && isset( $theme->post ) ) {
+			$out = $theme->post->title;
+		}
+		else if( $theme->request->display_entries_by_tag && isset( $theme->posts ) ) {
+			$out = $theme->tag;
+		}
+		else {
+			$out = Options::get( 'title' );
+		}
+		return $out;
 	}
 
 	public function theme_next_post_link( $theme )
 	{
 		$next_link = '';
 		if( isset( $theme->post ) ) {
-		$next_post= $theme->post->ascend();
-		if( ( $next_post instanceOf Post ) ) {
-			$next_link= '<a href="' . $next_post->permalink. '" title="' . $next_post->title .'" >' . '&laquo; ' .$next_post->title . '</a>';
+			$next_post = $theme->post->ascend();
+			if( ( $next_post instanceOf Post ) ) {
+				$next_link = '<a href="' . $next_post->permalink. '" title="' . $next_post->title .'" >' . '&laquo; ' .$next_post->title . '</a>';
+			}
 		}
-		}
+
 		return $next_link;
 	}
 
@@ -90,7 +108,7 @@ class ArcticIceTheme extends Theme
 		$prev_link = '';
 
 		if( isset( $theme->post ) ) {
-		$prev_post= $theme->post->descend();
+		$prev_post = $theme->post->descend();
 		if( ( $prev_post instanceOf Post) ) {
 			$prev_link= '<a href="' . $prev_post->permalink. '" title="' . $prev_post->title .'" >' . $prev_post->title . ' &raquo;' . '</a>';
 		}
@@ -98,7 +116,7 @@ class ArcticIceTheme extends Theme
 		return $prev_link;
 	}
 
-	public function theme_commenter_link($comment)
+	public function theme_commenter_link( $comment )
 	{
 		$link = '';
 		if( strlen( $comment->url ) && $comment->url != 'http://' ) {

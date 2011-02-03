@@ -1,3 +1,6 @@
+Version 1.1
+- Began converting to HTML 5.
+
 ﻿Version 1.0
 *** This version needs a minimum of Habari 0.7 to run ***
 - Converted the comment form to Habari's built-in form.

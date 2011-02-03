@@ -6,17 +6,18 @@
 		<div class="postprev">{hi:@prev_post_link}</div>
 	</div>
 
-	<div id="post-{hi:post.id}" class="{hi:post.statusname}">
+	<article id="post-{hi:post.id}" class="{hi:post.statusname}">
+		<header>
 		<h1><a href="{hi:post.permalink}" rel="bookmark" title="{hi:post.title}">{hi:post.title_out}</a></h1>
 		<div class="pubMeta">{hi:"Posted by"} {hi:post.author.displayname} {hi:"on"} {hi:post.pubdate_out}</div>
 		{hi:?loggedin}
 			<div class="edit"><a href="{hi:post.editlink}" title="{hi:"Edit post"}">{hi:"Edit post"}</a></div>
 		{/hi:?}
+		</header>
 		<div class="entry">
 			{hi:post.content_out}
 		</div><!-- end entry -->
-	</div><!-- end id post-* -->
-	<div class="entryMeta">	
+		<footer class="entryMeta">
 		<p>
 			{hi:?count(post.tags)}
 				{hi:"This entry is filed under"} {hi:post.tags_out}. 
@@ -30,7 +31,8 @@
 				. {hi:"New comments are currently closed."}
 			{/hi:?}
 		</p>
-	</div><!-- end entryMeta -->
+		</footer>
+	<!-- end entryMeta -->
 
 	{hi:display:comments}
 </div><!--end content-->
