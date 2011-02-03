@@ -32,9 +32,9 @@
 		<h5>{hi:"There were no articles found tagged"} <em>{hi:tag}</em>.</h5>
 	<?php } ?>
 
-	<div id="pagenav">
+	<nav id="pagenav">
 		{hi:@prev_page_link} {hi:@page_selector} {hi:@next_page_link}
-	</div>
+	</nav>
 </div>
 <!--end content-->
 {hi:display:sidebar}

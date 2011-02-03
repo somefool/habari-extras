@@ -27,9 +27,9 @@
 	{/hi:posts}
 	<!--end loop-->
 
-	<div id="pagenav">
+	<nav id="pagenav">
 		{hi:@prev_page_link} {hi:@page_selector} {hi:@next_page_link}
-	</div>
+	</nav>
 </div><!--end content-->
 {hi:display:sidebar}
 {hi:display:footer}

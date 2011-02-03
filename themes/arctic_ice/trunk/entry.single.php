@@ -1,10 +1,10 @@
 {hi:display:header}
 <!--begin content-->
 <div id="content">
-	<div class="postnav">
+	<nav class="postnav">
 		<div class="postnext">{hi:@next_post_link}</div>
 		<div class="postprev">{hi:@prev_post_link}</div>
-	</div>
+	</nav>
 
 	<article id="post-{hi:post.id}" class="{hi:post.statusname}">
 		<header>
