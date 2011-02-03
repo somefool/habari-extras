@@ -64,7 +64,8 @@ class HadminStrip extends Plugin
 				$postnumber=Posts::get( array( 'count' => 1, 'content_type' => Post::type('entry'), 'status' => Post::status('published') ) ); 
 				$commentnumber=Comments::count_total( Comment::STATUS_APPROVED, FALSE );
 				$spamnumber=Comments::count_total( Comment::STATUS_SPAM );
-				$tagscount = Tags::count_total();
+
+				$tagscount = Tags::vocabulary()->count_total();
 				$pagecount=Posts::get( array( 'count' => 1, 'content_type' => Post::type('page'), 'status' => Post::status('published') ) );?>
 				
 				
