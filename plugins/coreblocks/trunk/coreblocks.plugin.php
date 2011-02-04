@@ -124,20 +124,6 @@ class CoreBlocks extends Plugin
 		) );
 	}
 
-	public function action_block_content_recent_posts( $block, $theme )
-	{
-		if ( ! $limit = $block->quantity ) {
-			$limit = 5;
-		};
-
-		$block->recent_posts = Posts::get( array(
-			'limit'=>$limit,
-			'status'=>Post::status( 'published' ),
-			'content_type'=>Post::type( 'entry' ), // extend to allow more types.
-			'orderby'=>'pubdate DESC',
-		) );
-	}
-
 	/**
 	 * Validator Links
 	 **/
