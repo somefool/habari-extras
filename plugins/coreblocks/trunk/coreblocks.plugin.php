@@ -9,7 +9,6 @@ class CoreBlocks extends Plugin
 	private $allblocks = array(
 		'recent_comments' => 'Recent Comments',
 		'recent_posts' => 'Recent Posts',
-		'validator_links' => 'Validator Links',
 		'monthly_archives' => 'Monthly Archives',
 		'category_archives' => 'Category Archives',
 		'tag_archives' => 'Tag Archives',
@@ -17,9 +16,6 @@ class CoreBlocks extends Plugin
 		'search_form' => 'Search Form',
 
 	);
-
-	// See action_init for this initial value:
-	private $validation_urls = array();
 
 	/**
 	 * Register the templates.
@@ -32,15 +28,6 @@ class CoreBlocks extends Plugin
 		$this->add_template( "block.dropdown.category_archives", dirname( __FILE__ ) . "/block.dropdown.category_archives.php" );
 		$this->add_template( "block.dropdown.tag_archives", dirname( __FILE__ ) . "/block.dropdown.tag_archives.php" );
 		$this->add_template( "block.dropdown.monthly_archives", dirname( __FILE__ ) . "/block.dropdown.monthly_archives.php" );
-
-		// This is here because you can't init a URL with dynamic values in the declaration
-		$this->validation_urls = array(
-			_t( 'XHTML 1.0 Transitional' ) => 'http://validator.w3.org/check?uri=referer',
-			_t( 'CSS level 3' ) => 'http://jigsaw.w3.org/css-validator/check/referer?profile=css3',
-			'HTML5' => 'http://html5.validator.nu/?doc=' . Site::get_url('habari'),
- 			_t( 'Unicorn' ) => 'http://validator.w3.org/unicorn/check?ucn_task=conformance&amp;ucn_uri=referer',
-			_t( 'Feed Validator' ) => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url( 'habari' ),
-		);
 
 		$this->meta_urls = array(
 			_t( 'Site Feed' ) => URL::get( 'atom_feed', array( 'index' => '1' ) ),
@@ -122,28 +109,6 @@ class CoreBlocks extends Plugin
 			'content_type'=>Post::type( 'entry' ), // extend to allow more types.
 			'orderby'=>'pubdate DESC',
 		) );
-	}
-
-	/**
-	 * Validator Links
-	 **/
-	public function action_block_form_validator_links( $form, $block )
-	{
-		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip( $this->validation_urls ) );
-		$form->append( 'submit', 'save', _t( 'Save' ) );
-	}
-
-	public function action_block_content_validator_links( $block, $theme )
-	{
-		$list = array();
-		$validation_urls = array_flip( $this->validation_urls );
-		$links = $block->links;
-		if ( count( $links ) > 0 ) {
-			foreach( $links as $link ) {
-				$list[$link] = $validation_urls[$link];
-			}
-		}
-		$block->list = $list;
 	}
 
 	/**
