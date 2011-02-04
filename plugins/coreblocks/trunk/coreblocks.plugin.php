@@ -107,46 +107,7 @@ class CoreBlocks extends Plugin
 		$block->recent_comments = $valid_comments;
 	}
 
-	/**
-	 * Supply data to the block templates for output
-	 **/
-	public function action_block_content_recent_comments( $block, $theme )
-	{
-		if ( ! $limit = $block->quantity ) {
-			$limit = 5;
-		};
-
-		$offset = 0;
-		$published_posts = 0;
-		$valid_comments = array();
-		// prevent endless looping if there are fewer comments than $limit
-		$comments_remain = true;
-
-		while ( $published_posts < $limit && $comments_remain ) {
-			$comments = Comments::get( array(
-				'limit' => $limit - $published_posts,
-				'status' => Comment::STATUS_APPROVED,
-				'type' => Comment::COMMENT,
-				'offset' => $offset,
-				'orderby' => 'date DESC',
-			) );
-			// check the posts
-			foreach ( $comments as $key => $comment ) {
-				if ( ( $comment->post->status ) == Post::status( 'published' ) ) {
-					$valid_comments[] = $comments[ $key ];
-					++$published_posts;
-				}
-				++$offset;
-			}
-			// stop looping if out of comments
-			if ( count( $comments ) === 0 ) {
-				$comments_remain = false;
-			}
-		}
-		$block->recent_comments = $valid_comments;
-	}
-
-	/**
+		/**
 	 * Recent Posts
 	 **/
 	public function action_block_content_recent_posts( $block, $theme )
