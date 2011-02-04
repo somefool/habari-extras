@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create a blocks commonly used by site owners.
+ * Create blocks commonly used by site owners.
  *
  */
 class CoreBlocks extends Plugin
@@ -62,7 +62,7 @@ class CoreBlocks extends Plugin
 	}
 
 	/**
-	 * Configuration forms
+	 * Recent Comments
 	 **/
 	public function action_block_form_recent_comments( $form, $block )
 	{
@@ -70,46 +70,41 @@ class CoreBlocks extends Plugin
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
-	public function action_block_form_recent_posts( $form, $block )
+	public function action_block_content_recent_comments( $block, $theme )
 	{
-		$content = $form->append('text', 'quantity', $block, _t( 'Posts to show:' ) );
-		// Select content types to display ...
-		$form->append( 'submit', 'save', _t( 'Save' ) );
-	}
+		if ( ! $limit = $block->quantity ) {
+			$limit = 5;
+		};
 
-	public function action_block_form_validator_links( $form, $block )
-	{
-		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip( $this->validation_urls ) );
-		$form->append( 'submit', 'save', _t( 'Save' ) );
-	}
+		$offset = 0;
+		$published_posts = 0;
+		$valid_comments = array();
+		// prevent endless looping if there are fewer comments than $limit
+		$comments_remain = true;
 
-	public function action_block_form_monthly_archives( $form, $block )
-	{
-		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
-		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
-		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ),
-			    array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
-		$form->append( 'submit', 'save', _t( 'Save' ) );
-	}
+		while ( $published_posts < $limit && $comments_remain ) {
+			$comments = Comments::get( array(
+				'limit' => $limit - $published_posts,
+				'status' => Comment::STATUS_APPROVED,
+				'type' => Comment::COMMENT,
+				'offset' => $offset,
+				'orderby' => 'date DESC',
+			) );
+			// check the posts
+			foreach ( $comments as $key => $comment ) {
+				if ( ( $comment->post->status ) == Post::status( 'published' ) ) {
+					$valid_comments[] = $comments[ $key ];
+					++$published_posts;
+				}
+				++$offset;
+			}
+			// stop looping if out of comments
+			if ( count( $comments ) === 0 ) {
+				$comments_remain = false;
+			}
+		}
 
-	public function action_block_form_tag_archives( $form, $block )
-	{
-		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
-		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ),
-			    array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
-		$form->append( 'submit', 'save', _t( 'Save' ) );
-	}
-
-	public function action_block_form_meta_links( $form, $block )
-	{
-		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip( $this->meta_urls ) );
-		$form->append( 'submit', 'save', _t( 'Save' ) );
-	}
-
-	public function action_block_form_search_form( $form, $block )
-	{
-		$content = $form->append( 'text', 'button', $block, _t( 'Button:' ) );
-		$form->append( 'submit', 'save', _t( 'Save' ) );
+		$block->recent_comments = $valid_comments;
 	}
 
 	/**
@@ -148,8 +143,24 @@ class CoreBlocks extends Plugin
 				$comments_remain = false;
 			}
 		}
-
 		$block->recent_comments = $valid_comments;
+	}
+
+	/**
+	 * Recent Posts
+	 **/
+	public function action_block_content_recent_posts( $block, $theme )
+	{
+		if ( ! $limit = $block->quantity ) {
+			$limit = 5;
+		};
+
+		$block->recent_posts = Posts::get( array(
+			'limit'=>$limit,
+			'status'=>Post::status( 'published' ),
+			'content_type'=>Post::type( 'entry' ), // extend to allow more types.
+			'orderby'=>'pubdate DESC',
+		) );
 	}
 
 	public function action_block_content_recent_posts( $block, $theme )
@@ -166,6 +177,15 @@ class CoreBlocks extends Plugin
 		) );
 	}
 
+	/**
+	 * Validator Links
+	 **/
+	public function action_block_form_validator_links( $form, $block )
+	{
+		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip( $this->validation_urls ) );
+		$form->append( 'submit', 'save', _t( 'Save' ) );
+	}
+
 	public function action_block_content_validator_links( $block, $theme )
 	{
 		$list = array();
@@ -177,6 +197,18 @@ class CoreBlocks extends Plugin
 			}
 		}
 		$block->list = $list;
+	}
+
+	/**
+	 * Monthly Archives
+	 **/
+	public function action_block_form_monthly_archives( $form, $block )
+	{
+		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
+		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ),
+			    array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
+		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
 	public function action_block_content_monthly_archives( $block, $theme )
@@ -210,8 +242,28 @@ class CoreBlocks extends Plugin
 				'url' => $url,
 				);
 		}
-
 		$block->months = $months;
+	}
+
+	function filter_block_content_type_monthly_archives( $types, $block )
+	{
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
+		if ( isset( $block->title ) ) {
+			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
+		}
+		return $types;
+	}
+
+
+	/**
+	 * Tag Archives
+	 **/
+	public function action_block_form_tag_archives( $form, $block )
+	{
+		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
+		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ),
+			    array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
+		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
 	public function action_block_content_tag_archives( $block, $theme )
@@ -237,6 +289,24 @@ class CoreBlocks extends Plugin
 		$block->tags = $tags;
 	}
 
+	function filter_block_content_type_tag_archives( $types, $block )
+	{
+		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
+		if ( isset( $block->title ) ) {
+			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
+		}
+		return $types;
+	}
+
+	/**
+	 * Meta Links
+	 **/
+	public function action_block_form_meta_links( $form, $block )
+	{
+		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip( $this->meta_urls ) );
+		$form->append( 'submit', 'save', _t( 'Save' ) );
+	}
+
 	public function action_block_content_meta_links( $block, $theme )
 	{
 		$list = array();
@@ -255,6 +325,15 @@ class CoreBlocks extends Plugin
 		}
 		$block->list = $list;
 	}
+	
+	/**
+	 * Search Form
+	 **/
+	public function action_block_form_search_form( $form, $block )
+	{
+		$content = $form->append( 'text', 'button', $block, _t( 'Button:' ) );
+		$form->append( 'submit', 'save', _t( 'Save' ) );
+	}
 
 	public function action_block_content_search_form( $block, $theme )
 	{
@@ -262,38 +341,5 @@ class CoreBlocks extends Plugin
 			'"><p><input type="text" id="s" name="criteria" value="' . ( isset( $theme->criteria ) ? htmlentities( $theme->criteria, ENT_COMPAT, 'UTF-8' ) : '' ) .
 			'"><input type="submit" id="searchsubmit" value="' . ( isset( $block->button ) ? $block->button : _t( 'Search' ) ) . '"></p></form>';
 	}
-
-	/**
-	 * Provide more specific templates for archive output
-	 **/
-
-	function filter_block_content_type_monthly_archives( $types, $block )
-	{
-		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
-		if ( isset( $block->title ) ) {
-			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
-		}
-		return $types;
-	}
-
-	function filter_block_content_type_category_archives( $types, $block )
-	{
-		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
-		if ( isset( $block->title ) ) {
-			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
-		}
-		return $types;
-	}
-
-	function filter_block_content_type_tag_archives( $types, $block )
-	{
-		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
-		if ( isset( $block->title ) ) {
-			array_unshift( $types, "block.{$block->style}.{$block->type}." . Utils::slugify( $block->title ) );
-		}
-		return $types;
-	}
-
 }
-
 ?>
