@@ -127,7 +127,7 @@ class CoreBlocks extends Plugin
 
 		$block->recent_posts = Posts::get( array(
 			'limit' => $limit,
-			'status' => Post::status( 'published' ),
+			'status' => 'published',
 			'content_type' => Post::type( 'entry' ), // extend to allow more types.
 			'orderby' => 'pubdate DESC',
 		) );
