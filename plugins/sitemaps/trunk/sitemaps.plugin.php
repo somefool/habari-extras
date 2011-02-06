@@ -16,14 +16,6 @@ class Sitemaps extends Plugin {
     }
 
     /**
-     * Add update beacon support
-     **/
-    public function action_update_check()
-    {
-	Update::add( 'Sitemaps', 'E239C570-39B3-11DD-8EFD-31AC56D89593', $this->info->version );
-    }
-
-    /**
      * Act function called by the `Controller` class.
      * Dispatches the request to the proper action handling function.
      *
@@ -56,8 +48,8 @@ class Sitemaps extends Plugin {
 	    $xml = new SimpleXMLElement( $xml );
 
 	    // Retreive all published posts and pages from the database
-	    $content['posts']= Posts::get( array( 'content_type' => 'entry', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
-	    $content['pages']= Posts::get( array( 'content_type' => 'page', 'status' => Post::status( 'published' ), 'nolimit' => 1 ) );
+	    $content['posts']= Posts::get( array( 'content_type' => 'entry', 'status' => 'published', 'nolimit' => 1 ) );
+	    $content['pages']= Posts::get( array( 'content_type' => 'page', 'status' => 'published', 'nolimit' => 1 ) );
 
 	    // Add the index page first
 	    $url = $xml->addChild( 'url' );
