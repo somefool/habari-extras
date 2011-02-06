@@ -15,13 +15,13 @@ define( 'THEME_CLASS', 'PrestigeTheme' );
  */ 
 class PrestigeTheme extends Theme
 {
-	function action_init_theme()
+	function action_init_theme( $theme )
 	{
-		// Apply Format::autop() to post content... 
+		// Apply Format::autop() to post content...
 		Format::apply( 'autop', 'post_content_out' );
 		// Apply Format::autop() to comment content...
 		Format::apply( 'autop', 'comment_content_out' );
-		// Apply Format::tag_and_list() to post tags... 
+		// Apply Format::tag_and_list() to post tags...
 		Format::apply( 'tag_and_list', 'post_tags_out' );
 		// Only uses the <!--more--> tag, with the 'more' as the link to full post
 		Format::apply_with_hook_params( 'more', 'post_content_out', 'more' );
@@ -31,8 +31,6 @@ class PrestigeTheme extends Theme
 		// Excerpt for lead article
 		Format::apply( 'autop', 'post_content_lead');
 		Format::apply_with_hook_params( 'more', 'post_content_lead', '<span class="more">Read more</span>', 400, 1 );
-		
-
 		// Apply Format::nice_date() to post date...
 		Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y' );
 		// Apply Format::nice_time() to post date...
@@ -48,7 +46,7 @@ class PrestigeTheme extends Theme
 	 * template.  So the values here, unless checked, will overwrite any existing 
 	 * values.
 	 */
-	public function add_template_vars() 
+	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => true ) ) );
@@ -64,23 +62,16 @@ class PrestigeTheme extends Theme
 		if( !$this->template_engine->assigned( 'more_posts' ) ) {
 			//Recent posts in sidebar.php
 			//visiting page/2 will offset to the next page of posts in the footer /3 etc
-			$page=Controller::get_var( 'page' );
 			$pagination=Options::get('pagination');
-			if ( $page == '' ) { $page= 1; }
-			$this->assign( 'more_posts', Posts::get(array ( 'content_type' => 'entry', 'status' => Post::status('published'), 'vocabulary' => array( 'tags:not:tag' => 'asides' ),'offset' => ($pagination)*($page), 'limit' => 5 ) ) );
+			$this->assign( 'more_posts', Posts::get(array ( 'content_type' => 'entry', 'status' => 'published', 'vocabulary' => array( 'tags:not:tag' => 'asides' ),'offset' => ($pagination)*($this->page), 'limit' => 5 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'all_tags' ) ) {
 			// List of all the tags
 			$this->assign('all_tags', Tags::vocabulary()->get_tree() );
 		}
 		if( !$this->template_engine->assigned( 'all_entries' ) ) {
-			$this->assign( 'all_entries', Posts::get( array( 
-											'content_type' => 'entry', 
-											'status' => Post::status('published'), 
-											'nolimit' => 1 ) ) );
+			$this->assign( 'all_entries', Posts::get( array( 'content_type' => 'entry', 'status' => 'published', 'nolimit' => 1 ) ) );
 		}
-
-		parent::add_template_vars();
 		
 		Stack::add('template_header_javascript', Site::get_url('scripts') . "/jquery.js", 'jquery' );
 		Stack::add('template_header_javascript', Site::get_url('theme') . "/js/jquery.bigframe.js", 'jquery.bigframe', 'jquery' );

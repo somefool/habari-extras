@@ -10,9 +10,6 @@
 	{hi:option:title}
 	</title>
 
-	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{hi:@feed_alternate}">
-	<link rel="edit" type="application/atom+xml" title="Atom Publishing Protocol" href="{hi:url:atompub_servicedocument}">
-	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="{hi:url:rsd}">
 	<link rel="stylesheet" type="text/css" media="screen" href="{hi:siteurl:theme}/style.css">
 	<link rel="stylesheet" type="text/css" media="print" href="{hi:siteurl:theme}/print.css">
 	<link rel="Shortcut Icon" href="/favicon.ico">
