@@ -18,8 +18,8 @@ class CoreBlocks extends Plugin
 	);
 
 	/**
-	 * Register the templates.
-	 **/
+	 * When the plugin is initialized, register the block templates and set up supporting data.
+	 */
 	function action_init()
 	{
 		foreach ( array_keys( $this->allblocks ) as $blockname ) {
@@ -37,8 +37,8 @@ class CoreBlocks extends Plugin
 	}
 
 	/**
-	 * Add to the list of possible block types.
-	 **/
+	 * Add available blocks to the list of possible block types.
+	 */
 	public function filter_block_list( $block_list )
 	{
 		$allblocks = $this->allblocks;
@@ -50,13 +50,20 @@ class CoreBlocks extends Plugin
 
 	/**
 	 * Recent Comments
-	 **/
+	 *
+	 * Allow configuration of the number of recent comments to show
+	 */
 	public function action_block_form_recent_comments( $form, $block )
 	{
 		$content = $form->append('text', 'quantity', $block, _t( 'Comments to show:' ) );
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
+	/**
+	 * Recent Comments
+	 *
+	 * Handle recent comment block output
+	 */
 	public function action_block_content_recent_comments( $block, $theme )
 	{
 		if ( ! $limit = $block->quantity ) {
@@ -94,9 +101,11 @@ class CoreBlocks extends Plugin
 		$block->recent_comments = $valid_comments;
 	}
 
-		/**
+	/**
 	 * Recent Posts
-	 **/
+	 *
+	 * Handle recent post block output
+	 */
 	public function action_block_content_recent_posts( $block, $theme )
 	{
 		if ( ! $limit = $block->quantity ) {
@@ -104,25 +113,32 @@ class CoreBlocks extends Plugin
 		};
 
 		$block->recent_posts = Posts::get( array(
-			'limit'=>$limit,
-			'status'=>Post::status( 'published' ),
-			'content_type'=>Post::type( 'entry' ), // extend to allow more types.
-			'orderby'=>'pubdate DESC',
+			'limit' => $limit,
+			'status' => Post::status( 'published' ),
+			'content_type' => Post::type( 'entry' ), // extend to allow more types.
+			'orderby' => 'pubdate DESC',
 		) );
 	}
 
 	/**
 	 * Monthly Archives
-	 **/
+	 *
+	 * Allow configuration of the monthly archive options
+	 */
 	public function action_block_form_monthly_archives( $form, $block )
 	{
 		$content = $form->append( 'checkbox', 'full_names', $block, _t( 'Display full month names:' ) );
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
 		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ),
-			    array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
+			array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
+	/**
+	 * Monthly Archives
+	 *
+	 * Handle monthly archive block output
+	 */
 	public function action_block_content_monthly_archives( $block, $theme )
 	{
 		$months = array();
@@ -132,8 +148,8 @@ class CoreBlocks extends Plugin
 			'month_cts' => 1 )
 			);
 
-		foreach( $results as $result ) {
-			if( $block->full_names ) {
+		foreach ( $results as $result ) {
+			if ( $block->full_names ) {
 				$display_month = HabariDateTime::date_create()->set_date( $result->year, $result->month, 1 )->get( 'F' );
 			}
 			else {
@@ -157,6 +173,11 @@ class CoreBlocks extends Plugin
 		$block->months = $months;
 	}
 
+	/**
+	 * Monthly Archives
+	 *
+	 *
+	 */
 	function filter_block_content_type_monthly_archives( $types, $block )
 	{
 		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
@@ -169,15 +190,22 @@ class CoreBlocks extends Plugin
 
 	/**
 	 * Tag Archives
-	 **/
+	 *
+	 * Allow configuration of the tag archive options
+	 */
 	public function action_block_form_tag_archives( $form, $block )
 	{
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:' ) );
 		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:' ),
-			    array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
+			array('dropdown' => _t( 'Dropdown' ), 'list' => _t( 'List' ) ) );
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
+	/**
+	 * Tag Archives
+	 *
+	 * Handle tag archive block output
+	 */
 	public function action_block_content_tag_archives( $block, $theme )
 	{
 		$tags = array();
@@ -201,6 +229,10 @@ class CoreBlocks extends Plugin
 		$block->tags = $tags;
 	}
 
+	/**
+	 * Tag Archives
+	 *
+	 */
 	function filter_block_content_type_tag_archives( $types, $block )
 	{
 		array_unshift( $types, $newtype = "block.{$block->style}.{$block->type}" );
@@ -212,13 +244,20 @@ class CoreBlocks extends Plugin
 
 	/**
 	 * Meta Links
-	 **/
+	 *
+	 * Allow configuration of the meta links options
+	 */
 	public function action_block_form_meta_links( $form, $block )
 	{
 		$content = $form->append('checkboxes', 'links', $block, _t( 'Links to show:' ), array_flip( $this->meta_urls ) );
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
+	/**
+	 * Meta Links
+	 *
+	 * Handle meta links block output
+	 */
 	public function action_block_content_meta_links( $block, $theme )
 	{
 		$list = array();
@@ -231,22 +270,29 @@ class CoreBlocks extends Plugin
 		$meta_urls = array_flip( $this->meta_urls );
 		$links = $block->links;
 		if ( count( $links ) > 0 ) {
-			foreach( $links as $link ) {
+			foreach ( $links as $link ) {
 				$list[ $link ] = $meta_urls[ $link ];
 			}
 		}
 		$block->list = $list;
 	}
-	
+
 	/**
 	 * Search Form
-	 **/
+	 *
+	 * Allow configuration of the search form options
+	 */
 	public function action_block_form_search_form( $form, $block )
 	{
 		$content = $form->append( 'text', 'button', $block, _t( 'Button:' ) );
 		$form->append( 'submit', 'save', _t( 'Save' ) );
 	}
 
+	/**
+	 * Search Form
+	 *
+	 * Handle search form block output
+	 */
 	public function action_block_content_search_form( $block, $theme )
 	{
 		$block->form = '<form method="get" id="searchform" action="' . URL::get( 'display_search' ) .
