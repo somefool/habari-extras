@@ -38,6 +38,10 @@ class CoreBlocks extends Plugin
 
 	/**
 	 * Add available blocks to the list of possible block types.
+	 *
+	 * @param array $block_list an Associative array of the internal names and display names of blocks
+	 *
+	 * @return array The modified $block_list array
 	 */
 	public function filter_block_list( $block_list )
 	{
@@ -52,6 +56,9 @@ class CoreBlocks extends Plugin
 	 * Recent Comments
 	 *
 	 * Allow configuration of the number of recent comments to show
+	 *
+	 * @param FormUI $form The configuration form for this block
+	 * @param Block $block The block instance to be configured
 	 */
 	public function action_block_form_recent_comments( $form, $block )
 	{
@@ -63,6 +70,9 @@ class CoreBlocks extends Plugin
 	 * Recent Comments
 	 *
 	 * Handle recent comment block output
+	 *
+	 * @param Block $block The block instance to be configured
+	 * @param Theme $theme The active theme
 	 */
 	public function action_block_content_recent_comments( $block, $theme )
 	{
@@ -105,6 +115,9 @@ class CoreBlocks extends Plugin
 	 * Recent Posts
 	 *
 	 * Handle recent post block output
+	 *
+	 * @param Block $block The block instance to be configured
+	 * @param Theme $theme The active theme
 	 */
 	public function action_block_content_recent_posts( $block, $theme )
 	{
@@ -124,6 +137,9 @@ class CoreBlocks extends Plugin
 	 * Monthly Archives
 	 *
 	 * Allow configuration of the monthly archive options
+	 *
+	 * @param FormUI $form The configuration form for this block
+	 * @param Block $block The block instance to be configured
 	 */
 	public function action_block_form_monthly_archives( $form, $block )
 	{
@@ -138,6 +154,9 @@ class CoreBlocks extends Plugin
 	 * Monthly Archives
 	 *
 	 * Handle monthly archive block output
+	 *
+	 * @param Block $block The block instance to be configured
+	 * @param Theme $theme The active theme
 	 */
 	public function action_block_content_monthly_archives( $block, $theme )
 	{
@@ -192,6 +211,9 @@ class CoreBlocks extends Plugin
 	 * Tag Archives
 	 *
 	 * Allow configuration of the tag archive options
+	 *
+	 * @param FormUI $form The configuration form for this block
+	 * @param Block $block The block instance to be configured
 	 */
 	public function action_block_form_tag_archives( $form, $block )
 	{
@@ -205,6 +227,9 @@ class CoreBlocks extends Plugin
 	 * Tag Archives
 	 *
 	 * Handle tag archive block output
+	 *
+	 * @param Block $block The block instance to be configured
+	 * @param Theme $theme The active theme
 	 */
 	public function action_block_content_tag_archives( $block, $theme )
 	{
@@ -246,6 +271,9 @@ class CoreBlocks extends Plugin
 	 * Meta Links
 	 *
 	 * Allow configuration of the meta links options
+	 *
+	 * @param FormUI $form The configuration form for this block
+	 * @param Block $block The block instance to be configured
 	 */
 	public function action_block_form_meta_links( $form, $block )
 	{
@@ -257,6 +285,9 @@ class CoreBlocks extends Plugin
 	 * Meta Links
 	 *
 	 * Handle meta links block output
+	 *
+	 * @param Block $block The block instance to be configured
+	 * @param Theme $theme The active theme
 	 */
 	public function action_block_content_meta_links( $block, $theme )
 	{
@@ -281,6 +312,9 @@ class CoreBlocks extends Plugin
 	 * Search Form
 	 *
 	 * Allow configuration of the search form options
+	 *
+	 * @param FormUI $form The configuration form for this block
+	 * @param Block $block The block instance to be configured
 	 */
 	public function action_block_form_search_form( $form, $block )
 	{
@@ -292,6 +326,9 @@ class CoreBlocks extends Plugin
 	 * Search Form
 	 *
 	 * Handle search form block output
+	 *
+	 * @param Block $block The block instance to be configured
+	 * @param Theme $theme The active theme
 	 */
 	public function action_block_content_search_form( $block, $theme )
 	{
