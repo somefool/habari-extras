@@ -13,27 +13,29 @@ define( 'THEME_CLASS', 'ArcticIceTheme' );
  */ 
 class ArcticIceTheme extends Theme
 {
-	public function action_init_theme()
+	public function action_init_theme( $theme )
 	{
-		// Apply Format::autop() to post content... 
-		Format::apply( 'autop', 'post_content_out' );
-		// Apply Format::autop() to comment content...
-		Format::apply( 'autop', 'comment_content_out' );
-		// Apply Format::tag_and_list() to post tags... 
-		Format::apply( 'tag_and_list', 'post_tags_out' );
-		// Only uses the <!--more--> tag, with the 'more' as the link to full post
-		Format::apply_with_hook_params( 'more', 'post_content_out', 'more' );
-		// Creates an excerpt option. echo $post->content_excerpt;
-		Format::apply( 'autop', 'post_content_excerpt');
-		Format::apply_with_hook_params( 'more', 'post_content_excerpt', ' Read more...', 60, 1 );
+		if( $theme == $this ) {
+			// Apply Format::autop() to post content...
+			Format::apply( 'autop', 'post_content_out' );
+			// Apply Format::autop() to comment content...
+			Format::apply( 'autop', 'comment_content_out' );
+			// Apply Format::tag_and_list() to post tags...
+			Format::apply( 'tag_and_list', 'post_tags_out' );
+			// Only uses the <!--more--> tag, with the 'more' as the link to full post
+			Format::apply_with_hook_params( 'more', 'post_content_out', 'more' );
+			// Creates an excerpt option. echo $post->content_excerpt;
+			Format::apply( 'autop', 'post_content_excerpt');
+			Format::apply_with_hook_params( 'more', 'post_content_excerpt', ' Read more...', 60, 1 );
 
-		// Apply Format::nice_date() to post date...
-		Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y' );
-		Format::apply( 'nice_date', 'post_pubdate_datetime', 'c');
-		// Apply Format::nice_time() to post date...
-		//Format::apply( 'nice_time', 'post_pubdate_out', 'g:ia' );
-		// Apply Format::nice_date() to comment date
-		Format::apply( 'nice_date', 'comment_date_out', 'F j, Y g:ia');
+			// Apply Format::nice_date() to post date...
+			Format::apply( 'nice_date', 'post_pubdate_out', 'F j, Y' );
+			Format::apply( 'nice_date', 'post_pubdate_datetime', 'c');
+			// Apply Format::nice_time() to post date...
+			//Format::apply( 'nice_time', 'post_pubdate_out', 'g:ia' );
+			// Apply Format::nice_date() to comment date
+			Format::apply( 'nice_date', 'comment_date_out', 'F j, Y g:ia');
+		}
 	}
 
 	/**
