@@ -114,6 +114,21 @@ class CoreBlocks extends Plugin
 	/**
 	 * Recent Posts
 	 *
+	 * Allow configuration of the number of recent posts to show
+	 *
+	 * @param FormUI $form The configuration form for this block
+	 * @param Block $block The block instance to be configured
+	 */
+	public function action_block_form_recent_posts( $form, $block )
+	{
+		$content = $form->append('text', 'quantity', $block, _t( 'Posts to show:' ) );
+		// Select content types to display ...
+		$form->append( 'submit', 'save', _t( 'Save' ) );
+	}
+
+	/**
+	 * Recent Posts
+	 *
 	 * Handle recent post block output
 	 *
 	 * @param Block $block The block instance to be configured
