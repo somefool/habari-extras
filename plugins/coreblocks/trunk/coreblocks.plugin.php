@@ -255,7 +255,7 @@ class CoreBlocks extends Plugin
 
 			$count = '';
 			if ( $block->show_counts ) {
-				$count = " (" . Posts::count_by_tag( $result->slug, "published") . ")";
+				$count = " (" . Posts::count_by_tag( $result->term_display, "published") . ")";
 			}
 
 			$url = URL::get( 'display_entries_by_tag', array( 'tag' => $result->term ) );
