@@ -2,6 +2,7 @@ Apple-PubSub
 AppleSyndication
 Ask Jeeves/Teoma
 Baiduspider
+bingbot
 Bloglines
 BuzzTracker
 Charlotte
