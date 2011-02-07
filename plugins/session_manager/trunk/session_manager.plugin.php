@@ -55,6 +55,14 @@ class SessionManager extends Plugin
 		}
 		return $dowrite;
 	}
+	
+	public function action_plugin_activation ( $file ) {
+	
+		$default_uas = file_get_contents( dirname( __FILE__ ) . '/default_uas.txt' );
+		
+		Options::set( 'session_manager__spiders', $default_uas );
+	
+	}
 
 }
 
