@@ -8,4 +8,9 @@
 	<template_engine>HiEngine</template_engine>
 	<description><![CDATA[A cool blue two column theme based on Habari's Mzingi. Arctic Ice uses Habari's HiEngine templating engine wherever possible.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<areas>
+		<area name="sidebar">
+			<description><![CDATA[Sidebar]]></description>
+		</area>
+	</areas>
 </pluggable>

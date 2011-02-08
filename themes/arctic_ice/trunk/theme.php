@@ -48,21 +48,6 @@ class ArcticIceTheme extends Theme
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign( 'pages', Posts::get( array( 'content_type' => 'page', 'status' => 'published', 'vocabulary' => array( 'tags:not:tag' => 'site-policy' ), 'nolimit' => 1 ) ) );
 		}
-		if( !$this->template_engine->assigned( 'recent_comments' ) ) {
-			//for recent comments loop in sidebar.php
-			$this->assign( 'recent_comments', Comments::get( array( 'limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
-		}
-		if( !$this->template_engine->assigned( 'more_posts' ) ) {
-			//Recent posts in sidebar.php
-			//visiting page/2 will offset to the next page of posts in the footer /3 etc
-			$page = $this->page;
-			$pagination = Options::get( 'pagination' );
-			$this->assign( 'more_posts', Posts::get( array ( 'content_type' => 'entry', 'status' => 'published', 'vocabulary' => array( 'tags:not:tag' => 'asides' ),'offset' => ( $pagination )* ( $page ), 'limit' => 5 ) ) );
-		}
-		if( !$this->template_engine->assigned( 'all_tags' ) ) {
-			// List of all the tags
-			$this->assign( 'all_tags', Tags::vocabulary()->get_tree() );
-		}
 		if( !$this->template_engine->assigned( 'all_entries' ) ) {
 			$this->assign( 'all_entries', Posts::get( array( 'content_type' => 'entry', 'status' => 'published', 'nolimit' => 1 ) ) );
 		}
