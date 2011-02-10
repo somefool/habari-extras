@@ -31,35 +31,6 @@ require_once 'render-type-formatter.php';
 
 class RenderTypePlugin extends Plugin
 {
-	const VERSION = '0.5';
-
-	/**
-	 * function info
-	 * Returns information about this plugin
-	 * @return array Plugin info array
-	 **/
-	public function info()
-	{
-		return array(
-			'name' => 'Render Type',
-			'url' => 'http://svn.habariproject.org/habari-extras/plugins/render-type/',
-			'author' => 'Habari Community',
-			'authorurl' => 'http://habariproject.org',
-			'version' => self::VERSION,
-			'description' => 'A plugin for rendering text as images.',
-			'license' => 'Public Domain',
-			);
-	}
-
-	/**
-	 * function action_update_check
-	 * Check for more recent versions of this plugin.
-	 **/
-
-	public function action_update_check()
-	{
-		Update::add( 'RenderType', 'FEFD6638-838E-11DD-8AFF-17DB55D89593', self::VERSION );
-	}
 
 	/**
 	 * function filter_render_type

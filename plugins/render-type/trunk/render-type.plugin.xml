@@ -1,10 +1,34 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Render Type</name>
+	<version>0.5</version>
 	<url>http://svn.habariproject.org/habari-extras/plugins/render-type/</url>
-	<author>Habari Community</author>
-	<authorurl>http://habariproject.org</authorurl>
-	<description>A plugin for rendering text as images.</description>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<description><![CDATA[A plugin for rendering text as images.]]></description>
 	<license>Public Domain</license>
-</plugin>
+	<guid>FEFD6638-838E-11DD-8AFF-17DB55D89593</guid>
+	<help>
+		<value><![CDATA[
+<p>This plugin adds a formatter called 'render_type' which templates can use
+to render text, such as titles, as images in a chosen font. It requires
+ImageMagick and the PHP Imagick library. (It will not work with GD.)</p>
+<p>Here is a minimal example of how you might use Render Type in
+action_init_theme in your theme.php(see the documentation for
+filter_render_type below for more details):
+<br>
+<code>Format::apply( 'render_type', 'post_title_out', '/path/to/font.ttf' );</code>
+</p>
+<p>The image data for a unique combination of input string, font, size, color,
+background color, and output format(e.g. PNG, JPEG, etc.) is cached
+after the first time it is requested, so performance should be reasonable,
+though I've performed no load testing. This cache is currently never
+expired -- not even if you deactivate the plugin. This may be
+addressed in the future.</p>
+<p class="warning"><strong>This plugin is not suitable for hiding email addresses from
+harvesters</strong> -- the original text appears in the formatter's output in the
+alt and title attributes of the img element.</p>
+		]]></value>
+	</help>
+</pluggable>
 
- 
+
