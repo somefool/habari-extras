@@ -1,11 +1,14 @@
-<plugin>
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
 	<name>Atom Threading Extensions</name>
 	<version>0.2</version>
 	<url>http://code.google.com/p/bcse/wiki/AtomThreadingExtensions</url>
 	<author>Joel Lee</author>
 	<authorurl>http://blog.bcse.info/</authorurl>
 	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
-	<description>Implement Atom threading extensions (RFC4685) on Habari. In other words, this plugin allows you to add Comments Count FeedFlare™ to your feed.</description>
-</plugin>
+	<guid>a413fa7e-76cf-4edf-b7c5-53b8aa648eef</guid>
+	<description><![CDATA[Implement Atom threading extensions (RFC4685) on Habari. In other words, this plugin allows you to add Comments Count FeedFlare™ to your feed]]>.</description>
+
+</pluggable>
 
  
