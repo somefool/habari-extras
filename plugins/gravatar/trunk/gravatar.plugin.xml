@@ -3,11 +3,11 @@
 	<name>Gravatar</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://habariproject.org/">Habari Community</author>
-	<version>1.3.2</version>
+	<version>1.3.3</version>
 	<url>http://habariproject.org</url>
 	<description><![CDATA[Gravatar plugin for Habari.]]></description>
 	<copyright>2008</copyright>
-
+	<guid>c33ba010-3b9a-11dd-ae16-0800200c9a66</guid>
     <help>
     <value><![CDATA[
     Adds a comment author's <a href="http://gravatar.com/">Gravatar</a>

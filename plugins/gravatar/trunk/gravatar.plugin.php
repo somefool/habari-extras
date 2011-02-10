@@ -11,15 +11,6 @@
  * All plugins must extend the Plugin class to be recognized.
  */
 class Gravatar extends Plugin {
-
-
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-	 	Update::add( 'Gravatar', 'c33ba010-3b9a-11dd-ae16-0800200c9a66', $this->info->version );
-	}
 	
 	/**
 	 * Return a URL to the author's Gravatar based on his e-mail address.
@@ -29,7 +20,7 @@ class Gravatar extends Plugin {
 	 */
 	public function filter_comment_gravatar( $out, $comment ) { 
 		// The Gravar ID is an hexadecimal md5 hash of the author's e-mail address.
-		$query_arguments= array( 'gravatar_id' => md5( strtolower( $comment->email ) ) );
+		$query_arguments= array( 'gravatar_id' => md5( strtolower( trim( $comment->email ) ) ) );
 		// Retrieve the Gravatar options.
 		$options= Options::get( array( 'gravatar__default', 'gravatar__size', 'gravatar__rating' ) );
 		foreach ( $options as $key => $value ) {
@@ -42,6 +33,8 @@ class Gravatar extends Plugin {
 		// Ampersands need to be encoded to &amp; for HTML to validate.
 		$query= http_build_query( $query_arguments, '', '&amp;' );
 		$url= "http://www.gravatar.com/avatar.php?" . $query;
+		
+		$url = Plugins::filter('gravatar_url', $url, $comment);
 		
 		return $url;
 	}
