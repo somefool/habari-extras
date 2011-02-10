@@ -13,26 +13,6 @@ class Calendar extends Plugin
 	private $week_starts = array(6 => 'Saturday', 0 => 'Sunday', 1 => 'Monday');
 
 	/**
-	 * plugin information
-	 *
-	 * @access public
-	 * @retrun void
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Calendar',
-			'version' => '0.01-alpha',
-			'url' => 'http://ayu.commun.jp/habari-calendar',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Displays calendar on your blog.',
-			'guid' => '4f97ad6b-c0a5-11dd-aff6-001b210f913f'
-			);
-	}
-
-	/**
 	 * action: plugin_activation
 	 *
 	 * @access public
@@ -57,17 +37,6 @@ class Calendar extends Plugin
 		$this->load_text_domain('calendar');
 
 		$this->add_template('calendar', dirname(__FILE__) . '/templates/calendar.php');
-	}
-
-	/**
-	 * action: update_check
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function action_update_check()
-	{
-		Update::add($this->info->name, $this->info->guid, $this->info->version);
 	}
 
 	/**
