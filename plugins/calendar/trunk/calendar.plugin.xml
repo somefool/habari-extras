@@ -6,8 +6,13 @@
 	<author>ayunyan</author>
 	<authorurl>http://ayu.commun.jp/</authorurl>
 	<license>Apache License 2.0</license>
-	<description>Displays calendar on your blog.</description>
+	<description><![CDATA[Displays calendar on your blog.]]></description>
 	<guid>4f97ad6b-c0a5-11dd-aff6-001b210f913f</guid>
+	<help>
+		<value><![CDATA[
+			<p>To show a calender, <code>echo $theme->show_calendar();</code> in your theme files.</p>
+		]]></value>
+	</help>
 </pluggable>
 
  
