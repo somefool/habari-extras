@@ -24,26 +24,6 @@ class FireEagle extends Plugin
 	);
 
 	/**
-	 * plugin information
-	 *
-	 * @access public
-	 * @retrun void
-	 */
-	public function info()
-	{
-		return array(
-			'name' => 'Fire Eagle',
-			'version' => '0.01-beta',
-			'url' => 'http://ayu.commun.jp/habari-fireeagle',
-			'author' => 'ayunyan',
-			'authorurl' => 'http://ayu.commun.jp/',
-			'license' => 'Apache License 2.0',
-			'description' => 'Displays current location on your blog.',
-			'guid' => '84708e24-6de5-11dd-b14a-001b210f913f'
-			);
-	}
-
-	/**
 	 * action: plugin_activation
 	 *
 	 * @access public
@@ -69,17 +49,6 @@ class FireEagle extends Plugin
 		$this->load_text_domain('fireeagle');
 
 		$this->add_template('fireeagle', dirname(__FILE__) . '/templates/fireeagle.php');
-	}
-
-	/**
-	 * action: update_check
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function action_update_check()
-	{
-		Update::add($this->info->name, $this->info->guid, $this->info->version);
 	}
 
 	/**
