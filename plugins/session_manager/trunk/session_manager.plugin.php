@@ -34,8 +34,13 @@ class SessionManager extends Plugin
 		if ($plugin_id == $this->plugin_id()){
 			switch ($action){
 				case 'Configure' :
+				
+					$default_probability = ini_get( 'session.gc_probability' );
+				
 					$ui = new FormUI(strtolower(get_class($this)));
 					$spiders = $ui->append('textarea', 'spiders', 'session_manager__spiders', 'List spiders to ignore, one per line:');
+					$ui->append( 'static', 'nocontent', _t('On each page load the probability that expired sessions will be deleted defaults to %1$s&#37; on your server. You can increase this probability to clean them out more frequently at the expense of an additional database query.', array( $default_probability )) );
+					$ui->append( 'text', 'probability', 'session_manager__probability', _t('Garbage Collection Probability') );
 					$ui->append( 'submit', 'save', _t('Save') );
 					$ui->out();
 					break;
@@ -62,6 +67,14 @@ class SessionManager extends Plugin
 		
 		Options::set( 'session_manager__spiders', $default_uas );
 	
+	}
+	
+	public function filter_session_gc_probability ( $probability ) {
+		
+		$probability = Options::get('session_manager__probability', $probability);
+		
+		return $probability;
+		
 	}
 
 }

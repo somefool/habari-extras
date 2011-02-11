@@ -3,10 +3,9 @@
 	<name>Session Manager</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://habariproject.org/">Owen Winkler</author>
-	<version>1.0</version>
+	<version>1.5</version>
 	<url>http://asymptomatic.net/</url>
-	<description><![CDATA[Prevents spiders from filling the session table.]]></description>
-	<copyright>2009</copyright>
+	<description><![CDATA[Prevents spiders from filling the session table and allows you to alter the garbage collection probability.]]></description>
     <guid>340fb135-e1a1-4351-a81c-dac2f1795169</guid>
 </pluggable>
  
