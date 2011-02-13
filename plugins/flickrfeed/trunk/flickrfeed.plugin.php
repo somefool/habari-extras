@@ -127,11 +127,42 @@ class FlickrFeed extends Plugin
 		return true;
 	}
 
+	public function filter_block_list($block_list)
+	{
+		$block_list['flickrfeed'] = _t('Flickr Feed');
+		return $block_list;
+	}
+
+	public function action_block_content_flickrfeed($block)
+	{
+		$options = $this->default_options();
+		$params = array();
+		foreach($options as $key => $value) {
+			if(isset($block->$key)) {
+				$params[$key] = $block->$key;
+			}
+		}
+		if(isset($block->flickrfeed_type)) {
+			$params['type'] = $block->flickrfeed_type;
+		}
+		else {
+			$params['type'] = $options['type'];
+		}
+		$params = array_merge($this->config, $params);
+
+		if ($this->plugin_configured($params)) {
+			$block->images = $this->load_feeds($params);
+		}
+		else {
+			$block->error = _t('FlickrFeed Plugin is not configured properly.', $this->class_name);
+		}
+	}
+	
 	private function load_feeds($params = array())
 	{
 		$cache_name = $this->class_name . '__' . md5(serialize($params));
 
-		if (Cache::has($cache_name)) {
+		if (false && Cache::has($cache_name)) {
 			// Read from cache
 			return Cache::get($cache_name);
 		}
@@ -169,25 +200,19 @@ class FlickrFeed extends Plugin
 
 				// Photo size
 				foreach ($flickrfeed as &$image) {
-					switch ($params['size']) {
-						case 'thumbnail':
-							$image['image_url'] = str_replace('_m.jpg', '_t.jpg', $image['m_url']);
-							break;
-						case 'small':
-							$image['image_url'] = $image['m_url'];
-							break;
-						case 'medium':
-							$image['image_url'] = $image['l_url'];
-							break;
-						case 'large':
-							$image['image_url'] = str_replace('_m.jpg', '_b.jpg', $image['m_url']);
-							break;
-						case 'original':
-							$image['image_url'] = $image['photo_url'];
-							break;
-						default:
-							$image['image_url'] = $image['t_url'];
-							break;
+					$image['image_sizes'] = array(
+						'thumbnail' => str_replace('_m.jpg', '_t.jpg', $image['m_url']),
+						'small' => $image['m_url'],
+						'medium' => $image['l_url'],
+						'large' => str_replace('_m.jpg', '_b.jpg', $image['m_url']),
+						'original' => $image['photo_url'],
+						'default' => $image['t_url'],
+					);
+					if(isset($image['image_sizes'][$params['size']])) {
+						$image['image_url'] = $image['image_sizes'][$params['size']];
+					}
+					else {
+						$image['image_url'] = $image['image_sizes']['default'];
 					}
 				}
 
@@ -247,6 +272,7 @@ class FlickrFeed extends Plugin
 		}
 		$this->load_text_domain($this->class_name);
 		$this->add_template('flickrfeed', dirname(__FILE__) . '/flickrfeed.php');
+		$this->add_template('block.flickrfeed', dirname(__FILE__) . '/block.flickrfeed.php');
 	}
 }
 ?>
