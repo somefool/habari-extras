@@ -28,7 +28,7 @@ define( 'THEME_CLASS', 'MyTheme' );
 /**
  * A custom theme for Simpler output
  */
-class MyTheme extends Theme
+class Simplerer extends Theme
 {
 
 	/**
