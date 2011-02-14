@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pluggable type="theme">
 	<name>Wings</name>
+	<class>Wings</class>
 	<author>Chase Crawford</author>
 	<url>http://chasecrawford.us/habari-theme-wings</url>
 	<version>0.2</version>

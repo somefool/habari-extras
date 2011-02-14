@@ -6,7 +6,7 @@
 						<p class="details"><?php echo $post->pubdate_out; ?> &bull; Posted by <?php echo $post->author->displayname; ?> &bull; <a href="<?php echo $post->permalink; ?>#comments"><?php echo $post->comments->approved->count; ?> <?php echo _n( 'Comment', 'Comments', $post->comments->approved->count ); ?></a></p>
 						<?php echo $post->content_out; ?>
 						<p class="bottom">
-							<?php if ( is_array( $post->tags ) ) { ?>
+							<?php if ( count( $post->tags ) ) { ?>
 							<strong>Tags:</strong> <?php echo $post->tags_out; ?>
 							<?php } ?>
 						</p>

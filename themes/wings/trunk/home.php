@@ -8,7 +8,7 @@
 						<?php echo $post->content_excerpt; ?>
 						<p class="bottom">
 							<span><a href="<?php echo $post->permalink; ?>#comments">&rarr; <?php echo $post->comments->approved->count; ?> <?php echo _n( 'Comment', 'Comments', $post->comments->approved->count ); ?></a></span>
-							<?php if ( is_array( $post->tags ) ) { ?>
+							<?php if ( count( $post->tags ) ) { ?>
 							<strong>Tags:</strong> <?php echo $post->tags_out; ?>
 							<?php } ?>
 						</p>
