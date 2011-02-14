@@ -22,7 +22,7 @@ Format::apply( 'tag_and_list', 'post_tags_out' );
 // Limit post length to 1 paragraph or 100 characters. This theme only works with excerpts.
 Format::apply_with_hook_params( 'more', 'post_content_excerpt', '<span class="read-on">read on</span>', 100, 1 );
 
-// We must tell Habari to use Blossom as the custom theme class:
+// We must tell Habari to use Blossom as the custom theme class (to be removed upon release of 0.7):
 define( 'THEME_CLASS', 'Blossom' );
 
 /**
@@ -64,7 +64,7 @@ class Blossom extends Theme
 			$this->page = isset( $page ) ? $page : 1;
 		}
 		if ( !$this->tags ) {
-			$this->tags = Tags::get();
+			$this->tags = Tags::vocabulary()->get_tree();
 		}
 		if ( !$this->pages ) {
 			$this->pages = Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published') ) );

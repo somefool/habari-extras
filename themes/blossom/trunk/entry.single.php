@@ -24,7 +24,7 @@
 								<dt>Published:</dt>
 								<dd><?php echo Format::nice_date($post->pubdate, 'Y.j.n') ?> / <?php echo Format::nice_date($post->pubdate, 'ga') ?></dd>
 							</dl>
-							<?php if ( is_array($post->tags) ) : ?>
+							<?php if ( count($post->tags) ) : ?>
 							<dl>
 								<dt>Tags:</dt>
 								<dd><?php echo $post->tags_out ?></dd>

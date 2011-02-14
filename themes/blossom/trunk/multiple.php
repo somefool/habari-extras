@@ -20,7 +20,7 @@
 						<?php echo $post->comments->approved->count; ?> <?php echo _n( 'comment', 'comments', $post->comments->approved->count ); ?>
 					</a>
 					<?php
-						if ( is_array($post->tags) ) {
+						if ( count($post->tags) ) {
 							echo " | Filed Under: {$post->tags_out}";
 						}
 					?>

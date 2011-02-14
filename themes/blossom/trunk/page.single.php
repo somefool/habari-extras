@@ -20,7 +20,7 @@
 					<div class="featured">
 						<h2>About this entry</h2>
 						<p>You&rsquo;re currently reading &ldquo;<?php echo $post->title; ?>&rdquo;, an entry on <?php Options::out( 'title' ) ; ?></p>
-						<?php if ( is_array($post->tags) ) : ?>
+						<?php if ( count($post->tags) ) : ?>
 						<dl>
 							<dt>Tags:</dt>
 							<dd><?php echo $post->tags_out ?></dd>
