@@ -1,8 +1,8 @@
 <?php
 
-define( 'THEME_CLASS', 'Unknown' );
+define( 'THEME_CLASS', 'Georgia' );
 
-class Unknown extends Theme
+class Georgia extends Theme
 {
 
 	public function action_init_theme()
