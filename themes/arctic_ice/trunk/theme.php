@@ -1,12 +1,10 @@
 <?php 
 
 /**
- * ArcticIce is a custom Theme class for the Arctic Ice theme.
+ * ArcticIceTheme is a custom Theme class for the Arctic Ice theme.
  * 
  */ 
 
-// We must tell Habari to use MyTheme as the custom theme class: 
-define( 'THEME_CLASS', 'ArcticIceTheme' );
 
 /**
  * A custom theme for Arctic Ice output
@@ -46,7 +44,7 @@ class ArcticIceTheme extends Theme
 	public function action_add_template_vars( $theme, $handler_vars )
 	{
 		if( !$this->template_engine->assigned( 'pages' ) ) {
-			$this->assign( 'pages', Posts::get( array( 'content_type' => 'page', 'status' => 'published', 'vocabulary' => array( 'tags:not:tag' => 'site-policy' ), 'nolimit' => 1 ) ) );
+			$this->assign( 'pages', Posts::get( array( 'content_type' => 'page', 'status' => 'published', 'vocabulary' => array( 'not' => array( Tags::get_by_slug( 'site-policy' ) ) ), 'nolimit' => 1 ) ) );
 		}
 		if( !$this->template_engine->assigned( 'all_entries' ) ) {
 			$this->assign( 'all_entries', Posts::get( array( 'content_type' => 'entry', 'status' => 'published', 'nolimit' => 1 ) ) );
@@ -63,15 +61,14 @@ class ArcticIceTheme extends Theme
 
 	public function theme_title( $theme )
 	{
+		$out = '';
 		if( $theme->request->display_entry || $theme->request->display_page && isset( $theme->post ) ) {
-			$out = $theme->post->title;
+			$out = $theme->post->title . ' - ';
 		}
 		else if( $theme->request->display_entries_by_tag && isset( $theme->posts ) ) {
-			$out = $theme->tag;
+			$out = $theme->tag . ' - ';
 		}
-		else {
-			$out = Options::get( 'title' );
-		}
+		$out .= Options::get( 'title' );
 		return $out;
 	}
 

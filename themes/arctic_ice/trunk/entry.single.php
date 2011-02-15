@@ -15,7 +15,9 @@
 		{/hi:?}
 		</header>
 		<div class="entry">
+			{hi:area:post_top}
 			{hi:post.content_out}
+			{hi:area:post_bottom}
 		</div><!-- end entry -->
 		<footer class="entryMeta">
 		<p>
