@@ -150,38 +150,6 @@ class PrestigeTheme extends Theme
 	public function theme_comment_form( $theme )
 	{
 		$theme->post->comment_form()->out();
-//		$ui = new FormUI( 'comments_form' );
-//		$ui->set_option( 'form_action',  URL::get( 'submit_feedback', array( 'id' => $theme->post->id ) ) );
-
-//		$comment_fieldset = $ui->append( 'fieldset', 'content_box', _t( 'Add To The Discussion' ) );
-//		$commentContent = $comment_fieldset->append( 'textarea', 'commentContent', 'null:null', _t( 'Comment' ));
-//		$commentContent->value = $theme->commenter_content;
-//		$commentContent->id = 'comment_content';
-//		$commentContent->control_title = 'Add to the discussion. Required.';
-//		$commentContent->cols = 70;
-
-//		$comment_info_fieldset = $ui->append('fieldset', 'commenter_info', _t( 'A Little Info About You' ) );
-//		$name = $comment_info_fieldset->append( 'text', 'ename', 'null:null', _t( 'Name' ) );
-//		$name->value = $theme->commenter_name;
-//		$name->id = 'name';
-//		$name->control_title = 'Your name. Required';
-
-//		$email = $comment_info_fieldset->append( 'text', 'email', 'null:null', _t('Email' ));
-//		$email->value = $theme->commenter_email;
-//		$email->id = $email->name;
-//		$email->control_title = "Your email address. Required, but not published";
-
-//		$url = $comment_info_fieldset->append( 'text', 'url', 'null:null', _t( 'Web Address' ) );
-//		$url->value = $theme->commenter_url;
-//		$url->id = $url->name;
-//		$url->control_title = 'Enter your homepage.';
-
-
-//		$submit = $ui->append( 'submit', 'submit', _t( 'Say It' ) );
-//		$submit->id = $submit->name;
-
-//		$ui->out();
-
 	}
 
 }
