@@ -173,6 +173,7 @@ margin: 10px;
 If you want to alter this, you should copy the <tt>pagemenu.php</tt> template included with 
 this plugin to your current theme directory and make changes to it there.</p>
 END_HELP;
+
 	}
 
 	public function filter_block_list($block_list)
