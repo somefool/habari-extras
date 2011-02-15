@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Prestige is a custom Theme class for the Prestige theme.
+ * PrestigeTheme is a custom Theme class for the Prestige theme.
  * 
  */ 
 
@@ -78,22 +78,17 @@ class PrestigeTheme extends Theme
 	public function act_display_home( $user_filters= array() )
 	{
 		//To exclude aside tag from main content loop
-	    parent::act_display_home( array( 'not:tag' => 'aside' ) );
-	}
-	
-	public function action_theme_header( $theme )
-	{
-	
+		parent::act_display_home( array( 'not:tag' => 'aside' ) );
 	}
 
 	public function theme_next_post_link( $theme )
 	{
 		$next_link = '';
 		if( isset( $theme->post ) ) {
-		$next_post= $theme->post->ascend();
-		if( ( $next_post instanceOf Post ) ) {
-			$next_link= 'Older <a href="' . $next_post->permalink. '" title="' . $next_post->title .'" >' . '&laquo; ' .$next_post->title . '</a>';
-		}
+			$next_post = $theme->post->ascend();
+			if( ( $next_post instanceOf Post ) ) {
+				$next_link = 'Older <a href="' . $next_post->permalink. '" title="' . $next_post->title .'" >' . '&laquo; ' .$next_post->title . '</a>';
+			}
 		}
 		return $next_link;
 	}
@@ -103,10 +98,10 @@ class PrestigeTheme extends Theme
 		$prev_link = '';
 
 		if( isset( $theme->post ) ) {
-		$prev_post= $theme->post->descend();
-		if( ( $prev_post instanceOf Post) ) {
-			$prev_link= 'Newer <a href="' . $prev_post->permalink. '" title="' . $prev_post->title .'" >' . $prev_post->title . ' &raquo;' . '</a>';
-		}
+			$prev_post = $theme->post->descend();
+			if( ( $prev_post instanceOf Post) ) {
+				$prev_link = 'Newer <a href="' . $prev_post->permalink. '" title="' . $prev_post->title .'" >' . $prev_post->title . ' &raquo;' . '</a>';
+			}
 		}
 		return $prev_link;
 	}
@@ -122,9 +117,9 @@ class PrestigeTheme extends Theme
 	}
 	
 	public function theme_feed_site( $theme )
-		{
-			return URL::get( 'atom_feed', array( 'index' => '1' ) );
-		}
+	{
+		return URL::get( 'atom_feed', array( 'index' => '1' ) );
+	}
 
 	public function action_form_comment( $form, $post, $context )
 	{
