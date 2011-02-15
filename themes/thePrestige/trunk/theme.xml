@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pluggable type="theme">
         <name>The Prestige</name>
+	<class>PrestigeTheme</class>
 	<author>Michael Bishop</author>
 	<author>Rick Cockrum</author>
 	<url>http://miklb.com</url>

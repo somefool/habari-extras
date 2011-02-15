@@ -5,11 +5,6 @@
  * 
  */ 
 
-
-
-// We must tell Habari to use MyTheme as the custom theme class: 
-define( 'THEME_CLASS', 'PrestigeTheme' );
-
 /**
  * A custom theme for Prestige output
  */ 
