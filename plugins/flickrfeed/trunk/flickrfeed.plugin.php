@@ -149,7 +149,12 @@ class FlickrFeed extends Plugin
 			$block->error = _t('FlickrFeed Plugin is not configured properly.', $this->class_name);
 		}
 	}
-	
+
+	public function action_block_form_flickrfeed( $form, $block )
+	{
+		$form->append( 'submit', 'save', _t( 'Save', $this->class_name ) );
+	}
+
 	private function load_feeds($params = array())
 	{
 		$cache_name = $this->class_name . '__' . md5(serialize($params));
