@@ -1,0 +1,24 @@
+.macros-settings {
+}
+
+.block input[type="text"] {
+    display: block;
+}
+
+#nEval label, #nContainer label, #mEval label, #mContainer label, #setDelete div label {
+    position: absolute;
+    margin-left: 3em;
+}
+
+fieldset#setDelete div {
+    margin-top: -1em;
+    margin-bottom: -1em;
+}
+fieldset#setDelete label div {
+    margin-top: -1em;
+    margin-bottom: -1em;
+}
+fieldset#setDelete input[type="checkbox"] {
+    line-height: 90%;
+}
+
