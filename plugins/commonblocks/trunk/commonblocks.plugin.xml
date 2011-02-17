@@ -3,7 +3,7 @@
 	<name>Common Blocks</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 
-	<author url="http://habariproject.org/">The Habari Community</author>
+	<author url="http://trac.habariproject.org/habari-extras/">The Habari Community</author>
 
 	<version>1.0</version>
 	<url>http://habariproject.org/</url>
@@ -16,6 +16,7 @@
 		<li>Validator Links</li>
 		<li>Category Archives (requires a separate plugin providing a 'Categories' vocabulary)</li>
 		<li>Tag Cloud</li>
+		<li>Google Ads</li>
 		</ul>
 		<p>Each one has a template file you can copy to your theme and customize.</p>]]></value>
 	</help>

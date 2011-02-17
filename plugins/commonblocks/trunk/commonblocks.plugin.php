@@ -10,6 +10,7 @@ class CommonBlocks extends Plugin
 		'validator_links' => 'Validator Links',
 		'tag_cloud' => 'Tag Cloud',
 		'category_archives' => 'Category Archives',
+		'googlead' => 'Google Ad',
 	);
 	
 	// See action_init for this initial value:
@@ -30,8 +31,8 @@ class CommonBlocks extends Plugin
 		$this->validation_urls = array(
 			_t( 'XHTML 1.0 Transitional', 'commonblocks' ) => 'http://validator.w3.org/check?uri=referer',
 			_t( 'CSS level 3', 'commonblocks' ) => 'http://jigsaw.w3.org/css-validator/check/referer?profile=css3',
-			'HTML5' => 'http://html5.validator.nu/?doc=' . Site::get_url('habari'),
- 			_t( 'Unicorn', 'commonblocks' ) => 'http://validator.w3.org/unicorn/check?ucn_task=conformance&amp;ucn_uri=referer',
+				'HTML5' => 'http://html5.validator.nu/?doc=' . Site::get_url( 'habari' ),
+			_t( 'Unicorn', 'commonblocks' ) => 'http://validator.w3.org/unicorn/check?ucn_task=conformance&amp;ucn_uri=referer',
 			_t( 'Feed Validator', 'commonblocks' ) => 'http://beta.feedvalidator.org/check.cgi?url=' . Site::get_url( 'habari' ),
 		);
 	}
@@ -67,7 +68,16 @@ class CommonBlocks extends Plugin
 	{
 		$content = $form->append( 'checkbox', 'show_counts', $block, _t( 'Append post count:', 'commonblocks' ) );
 		$content = $form->append( 'select', 'style', $block, _t( 'Preferred Output Style:', 'commonblocks' ),
-			    array('dropdown' => _t( 'Dropdown', 'commonblocks' ), 'list' => _t( 'List', 'commonblocks' ) ) );
+			 array('dropdown' => _t( 'Dropdown', 'commonblocks' ), 'list' => _t( 'List', 'commonblocks' ) ) );
+		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
+	}
+
+	public function action_block_form_googlead( $form, $block )
+	{
+		$form->append( 'text', 'clientcode', $block, _t( 'Client Code: ', 'commonblocks' ) );
+		$form->append( 'text', 'slot', $block, _t( 'Slot ID: ', 'commonblocks' ) );
+		$form->append( 'text', 'width', $block, _t( 'Ad Width: ', 'commonblocks' ) );
+		$form->append( 'text', 'height', $block, _t ( 'Ad Height: ', 'commonblocks' ) );
 		$form->append( 'submit', 'save', _t( 'Save', 'commonblocks' ) );
 	}
 
@@ -95,8 +105,8 @@ class CommonBlocks extends Plugin
 		$max = intval( Tags::vocabulary()->max_count() );
 		foreach ( $tags as $tag ) {
 			if ( $tag->count > $minimum ) {
-			    $size = $tag->count * 15 / $max + 10;
-			    $items .= 
+			 $size = $tag->count * 15 / $max + 10;
+			 $items .= 
 				'<a href="' . URL::get( 'display_entries_by_tag', array( 'tag' => $tag->term ) ) .
 				'" title="' . $tag->count . "\" style=\"font-size:{$size}pt;\" >" . $tag->term_display . "</a>\n";
 			}
@@ -112,7 +122,7 @@ class CommonBlocks extends Plugin
 			$results = $v->get_tree();
 			if ( count( $results ) > 0 ) { /* must we? Shouldn't the foreach just fail gracefully? */
 				foreach( $results as $result ) {
-				    $count = '';
+				 $count = '';
 					if ( $block->show_counts ) {
 						$count = Posts::get( array( 'tag_slug' => $result->term, 'count' => 'term') );
 					}
@@ -129,6 +139,22 @@ class CommonBlocks extends Plugin
 		}
 	}
 
+	public function action_block_content_googlead( $block, $theme )
+	{
+		$block->ad = '';
+		if ( $block->clientcode != '' && $block->slot != '' && $block->width != '' && $block->height != '' ) {
+			$block->ad = <<<ENDAD
+<p><script type="text/javascript"><!--
+google_ad_client = "{$block->clientcode}";
+google_ad_slot = "{$block->slot}";
+google_ad_width = {$block->width};
+google_ad_height = {$block->height};
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+ENDAD;
+		}
+	}
+	
 	/**
 	 * Provide more specific templates for archive output
 	 **/
