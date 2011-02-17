@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<pluggable type="plugin">
+	<name>HTML5 Shiv</name>
+	<url>https://code.google.com/p/html5shiv/</url>
+	<version>1.0</version>
+	<author url="http://trac.habariproject.org/habari-extras">The Habari Community</author>
+	<description><![CDATA[Embeds <a href="https://code.google.com/p/html5shiv/" title="html5shiv googlecode">HTML5shiv</a> javascript code for IE to recognise and style the HTML5 elements. ]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<copyright>2011</copyright>
+	<guid>e8039d16-706c-4bd8-8fe4-e700b34a81a2</guid>
+	<help>
+		<value><![CDATA[Activate this plugin and your headers will be updated, as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>]]></value>
+	</help> 
+
+</pluggable>
+
+ 
