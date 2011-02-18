@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Shelves</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://trac.habariproject.org/habari-extras/shelves/</url>
+	<author url="http://mikelietz.org/code/">Mike Lietz</author>
+	<version>0</version>
+	<description><![CDATA[A vocabulary for putting things in or on.]]></description>
+	<copyright>2010</copyright>
+	<guid>b0d77e8e-4578-47d6-abe9-27806745726c</guid>
+</pluggable>
+ 
