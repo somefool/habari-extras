@@ -54,16 +54,6 @@ body#body .doc-right {
 	font-family: Vollkorn;
 }
 
-#nav {
-	list-style: none;
-}
-
-#nav li {
-	display: inline;
-	float: left;
-	margin-right: 20px;
-}
-
 #columns {
 	clear: both;
 }
@@ -212,9 +202,47 @@ html[xmlns] .clearfix {
 	font-family: Vollkorn;
 }
 
+#bd h3:first-child {
+	margin-top: 0px;
+}
+
 
 strong {
 	font-weight: bold;
+}
+
+/* menus */
+
+#nav {
+	list-style: none;
+}
+
+#nav li {
+	display: inline;
+	float: left;
+}
+
+.tree .tree {
+	position: absolute;
+	display: none;
+}
+
+.tree li:hover > .tree {
+	display: block;
+}
+
+.tree .tree div {
+	margin-top: 10px;
+}
+
+.tree div a {
+	background-color: #eaeaea;
+	padding: 6px 16px;
+}
+
+.tree div a:hover {
+	text-decoration: none;
+	background-color: #e4e4e4;
 }
 
 /* for posts */
