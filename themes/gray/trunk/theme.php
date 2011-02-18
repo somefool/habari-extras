@@ -7,9 +7,6 @@
  */
 
 
-// We must tell Habari to use ResurrectionTheme as the custom theme class:
-define( 'THEME_CLASS', 'GrayTheme' );
-
 /**
  * A custom theme for Resurrection output
  */

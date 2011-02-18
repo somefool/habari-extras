@@ -8,6 +8,7 @@
 	<version>1.0</version>
 	<template_engine>rawphpengine</template_engine>
 	<description><![CDATA[A multi-column theme for Habari, built in YUI grids, with layout adjustable from the admin.  Makes extensive use of blocks, including for the main content.]]></description>
+	<class>GrayTheme</class>
 	
 	<recommends>
 		<feature url="http://wiki.habariproject.org/features/sass">sass</feature>
