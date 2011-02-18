@@ -368,33 +368,33 @@ ul#commentlist li {
 ul#commentlist li.author {
 	}
 
-#comments_form {
+#comment-public {
 	margin: 30px 25px 0 45px;
 	width: 550px;
 }
 
-#comments_form fieldset {
+#comment-public fieldset {
 	margin-bottom: 25px;
 	border-top: 1px solid #67514C;
 	padding: 8px;
 }
 
-#comments_form legend {
+#comment-public legend {
 	margin: 0 0 12px 15px;
 	font-size: 1.4em;
 }
 
-#comments_form label {
+#comment-public label {
 	width: 110px;
 	display: block;
 	font-weight: 700;
 }
 
-#comments_form input {
+#comment-public input {
 	width: 225px;
 }
 
-#commentContent {
+#comment_content {
 	width: 400px;
 	height: 200px;
 }

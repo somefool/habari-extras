@@ -5,7 +5,7 @@
 					<div class="entry">
 						<h2><a href="{hi:post.permalink}" rel="bookmark" title="{hi:post.title}">{hi:post.title_out}</a></h2>
 						<div class="entryContent">
-					{hi:post.content_out}
+							{hi:post.content_out}
 						</div>
 					</div>
 						<div class="entryMeta">
