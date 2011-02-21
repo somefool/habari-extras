@@ -4,7 +4,8 @@
 	<name>GoogleAds</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<author url="http://iamgraham.net/">Graham Christensen</author>
-	<version>0.2</version>
-	<copyright>2010</copyright>
-	<description><![CDATA[Insert Google Ads into your theme sidebar]]></description>
+	<guid>ad99b200-3ba0-11dd-ae16-0800200c9a66</guid>
+	<version>0.4</version>
+	<copyright>2011</copyright>
+	<description><![CDATA[Insert Google Ads into your theme.]]></description>
 </pluggable>
