@@ -2,12 +2,10 @@
 <pluggable type="plugin">
 	<name>Database Optimizer</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-	
-	<author url="http://habariproject.org/">Habari Community</author>
-	
-	<version>0.4.1</version>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<guid>E619A6D0-15F8-11DD-8567-98DE55D89593</guid>
+	<version>0.5</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Automagically optimizes your database tables on a schedule you set.]]></description>
-
 	<copyright>2009</copyright>
 </pluggable> 
