@@ -2,8 +2,9 @@
 <pluggable type="plugin">
 	<name>Route 301</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>	
-	<author url="http://habariproject.org/">Habari Community</author>
-	<version>0.6.6</version>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<version>0.7</version>
+	<guid>b4bf3419-518f-27c4-c18d-ab9786936f21</guid>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Assign user-defined rules to existing or custom rules.]]></description>
 	<copyright>2007</copyright>

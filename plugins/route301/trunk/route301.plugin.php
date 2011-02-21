@@ -100,7 +100,7 @@
 			} else
 			if ( $action === 'display_entry' ) {
 				if ( isset( $this->handler_vars['slug'] ) ) {
-					$post= Post::get( array( 'slug' => $this->handler_vars['slug'] ) );
+					$post = Post::get( array( 'slug' => $this->handler_vars['slug'] ) );
 					$url = URL::get( 'display_entry', $post, false );
 				} else {
 					$post = Post::get( $this->handler_vars->getArrayCopy() );
@@ -116,49 +116,31 @@
 			header( 'Location: ' . $url, true, 301 );
 		}
 
-		public function action_update_check()
+		public function configure()
 		{
-			Update::add( 'Route301', 'b4bf3419-518f-27c4-c18d-ab9786936f21', $this->info->version );
-		}
+			$class_name = strtolower( get_class( $this ) );
 
-		public function filter_plugin_config( $actions, $plugin_id )
-		{
-			if ( $plugin_id == $this->plugin_id() ) {
-				$actions[] = _t( 'Configure' );
-			}
+			$form = new FormUI( $class_name );
 
-			return $actions;
-		}
+			$form->append( 'fieldset', 'post_options', 'Post Options' );
+			$form->append( 'fieldset', 'feed_options', 'Feed Options' );
 
-		public function action_plugin_ui( $plugin_id, $action )
-		{
-			if ( $plugin_id == $this->plugin_id() ) {
-				if ( $action == _t( 'Configure' ) ) {
-					$class_name = strtolower( get_class( $this ) );
-
-					$form = new FormUI( $class_name );
-
-					$form->append( 'fieldset', 'post_options', 'Post Options' );
-					$form->append( 'fieldset', 'feed_options', 'Feed Options' );
-
-					foreach ( $this->custom_rules as $rule ) {
-						$rule['build_str'] = preg_replace( '/\([^)]+\)/', '', $rule['build_str'] );
-						$rule['build_str'] = str_replace( array( '{$', '}' ), array( '<', '>' ), $rule['build_str'] );
-						$rule['build_str'] = trim( $rule['build_str'], '/' );
-						$rule['build_str'] = htmlspecialchars( $rule['build_str'] );
-						if ( $rule['action'] === 'display_entry' ) {
-							$form->post_options->append( 'checkbox', $rule['name'], 'route301__' . $rule['name'], sprintf( _t( 'Route <code>%s</code> URLs' ), $rule['build_str'] ) );
-						}
-						else {
-							$form->feed_options->append( 'checkbox', $rule['name'], 'route301__' . $rule['name'], sprintf( _t( 'Route <code>%s</code> URLs' ), $rule['build_str'] ) );
-						}
-					}
-					$form->append( 'submit', 'save', _t( 'Save' ) );
-
-					$form->on_success( array( $this, 'updated_config' ) );
-					$form->out();
+			foreach ( $this->custom_rules as $rule ) {
+				$rule['build_str'] = preg_replace( '/\([^)]+\)/', '', $rule['build_str'] );
+				$rule['build_str'] = str_replace( array( '{$', '}' ), array( '<', '>' ), $rule['build_str'] );
+				$rule['build_str'] = trim( $rule['build_str'], '/' );
+				$rule['build_str'] = htmlspecialchars( $rule['build_str'] );
+				if ( $rule['action'] === 'display_entry' ) {
+					$form->post_options->append( 'checkbox', $rule['name'], 'route301__' . $rule['name'], sprintf( _t( 'Route <code>%s</code> URLs' ), $rule['build_str'] ) );
+				}
+				else {
+					$form->feed_options->append( 'checkbox', $rule['name'], 'route301__' . $rule['name'], sprintf( _t( 'Route <code>%s</code> URLs' ), $rule['build_str'] ) );
 				}
 			}
+			$form->append( 'submit', 'save', _t( 'Save' ) );
+
+			$form->on_success( array( $this, 'updated_config' ) );
+			$form->out();
 		}
 
 		public function updated_config( $form )
