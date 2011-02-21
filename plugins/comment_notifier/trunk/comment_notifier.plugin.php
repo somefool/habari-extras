@@ -1,16 +1,6 @@
 <?php
 class comment_notifier extends Plugin
 {
-	const VERSION = '1.2';
-	
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-	 	Update::add( 'Comment Notifier', '91175a80-38f6-11dd-ae16-0800200c9a66', self::VERSION );
-	}
-	
 	private function mh_utf8($str) {
 		return '=?UTF-8?B?' . base64_encode($str) . '?=';
 	}
@@ -27,7 +17,7 @@ class comment_notifier extends Plugin
 		$post = Post::get( array('id' => $comment->post_id ) );
 		$author = User::get_by_id( $post->user_id );
 		$status = $comment->status == Comment::STATUS_UNAPPROVED ? ' UNAPPROVED' : ' approved';
-		$title = sprintf(_t('[%1$s] New%3$s comment on: %2$s'), Options::get('title'), $post->title, $status);
+		$title = _t( '[%1$s] New%3$s comment on: %2$s', array( Options::get( 'title' ), $post->title, $status ) );
 		$message = <<< MESSAGE
 The following comment was added to the post "%1\$s".
 %2\$s
