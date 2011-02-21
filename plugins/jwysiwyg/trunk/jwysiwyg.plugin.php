@@ -46,11 +46,6 @@ JWYSIWYG;
 		}
 	}
 
-	public function action_update_check()
-	{
-		Update::add( 'JWYSIWYG', 'b5f0c17d-22e6-4d6c-8011-c79481d5efc7',  $this->info->version );
-	}
-
 	/**
 	 * Add the configuration to the user page
 	 **/

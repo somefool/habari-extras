@@ -3,8 +3,9 @@
 	<name>JWYSIWYG</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<url>http://habariproject.org/</url>
-	<author url="http://habariproject.org/">Habari Community</author>
-	<version>0.6</version>
+	<guid>b5f0c17d-22e6-4d6c-8011-c79481d5efc7</guid>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<version>0.7</version>
 	<description><![CDATA[Publish posts using the jwysiwyg editor.]]></description>
 	<copyright>2009</copyright>
 
