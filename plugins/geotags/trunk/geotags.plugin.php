@@ -2,27 +2,8 @@
 
 
 class GeoTags extends Plugin {
-	const VERSION= '0.2.2';
 
 	private $config= array();
-
-	/**
-	 * Add help text to plugin configuration page
-	 * @return string Helpful instructions for the plugin.
-	 **/
-	public function help()
-	{
-		$help = _t( 'Once configured, Geotagging metadata will be added to your headers as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>.' ); 
-		return $help;
-	}
-
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-	 	Update::add( 'Header GeoTags', '30840010-6e02-11dd-ad8b-0800200c9a66', $this->info->version );
-	}
 
 	/**
 	 * Set priority to move inserted tags nearer to the end
@@ -45,33 +26,19 @@ class GeoTags extends Plugin {
 		$this->config[ 'long' ] = Options::get( $class_name . '__long' );
 	}
 	
-	public function filter_plugin_config( $actions, $plugin_id )
+	public function configure()
 	{
-		if ( $plugin_id == $this->plugin_id() ) {
-			$actions[] = _t( 'Configure' );
-		}
-		return $actions;
-	}
+		$class_name = strtolower( get_class( $this ) );
+		$ui = new FormUI( $class_name );
 	
-	public function action_plugin_ui( $plugin_id, $action )
-	{
-		if ( $plugin_id == $this->plugin_id() ) {
-			switch ( $action ) {
-				case _t( 'Configure' ):
-					$class_name = strtolower( get_class( $this ) );
-					$ui = new FormUI( $class_name );
+		$lat = $ui->append( 'text', 'lat', 'geotags__lat', _t( 'Latitude (required)' ) );
+		$lat->add_validator( 'validate_required' );
 
-					$lat = $ui->append( 'text', 'lat', 'geotags__lat', _t( 'Latitude (required)' ) );
-					$lat->add_validator( 'validate_required' );
-
-					$long = $ui->append( 'text', 'long','geotags__long', _t( 'Longitude (required)' ) );
-					$long->add_validator( 'validate_required' );
-									
-					$ui->append( 'submit', 'save', 'save' );
-					$ui->out();
-					break;
-			}
-		}
+		$long = $ui->append( 'text', 'long','geotags__long', _t( 'Longitude (required)' ) );
+		$long->add_validator( 'validate_required' );
+							
+		$ui->append( 'submit', 'save', 'save' );
+		return $ui;
 	}
 	
 	/**

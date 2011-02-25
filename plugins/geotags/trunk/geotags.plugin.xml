@@ -2,12 +2,14 @@
 <pluggable type="plugin">
 	<name>Header GeoTags</name>
 	<url>http://mikelietz.org/code</url>
-	<version>0.2.2</version>
+	<version>0.3</version>
 	<author>Mike Lietz</author>
 	<authorurl>http://mikelietz.org/</authorurl>
-	<description>Adds Geocode data to headers.</description>
-	<license>Apache License 2.0</license>
+	<description><![CDATA[Adds Geocode data to headers.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<copyright>2009</copyright>
+	<guid>30840010-6e02-11dd-ad8b-0800200c9a66</guid>
+	<help><value><![CDATA[Once configured, Geotagging metadata will be added to your headers as long as your theme calls <code>&lt;?php $theme->header(); ?&gt;</code>.]]></value></help>
 </pluggable>
 
  
