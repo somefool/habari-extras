@@ -73,6 +73,16 @@ CAPTION_SCRIPT;
 		}
 	}
 	
+	public function filter_post_content_media($content, $post)
+	{
+		return '<img src="' . Media::get($content)->url . '">';
+	}
+
+	public function filter_post_content_mediaurl($content, $post)
+	{
+		return Media::get($content)->url;
+	}
+	
 	
 }
 
