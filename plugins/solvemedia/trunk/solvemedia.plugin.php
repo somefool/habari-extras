@@ -15,7 +15,30 @@ class SolveMedia extends Plugin {
 		$vkey->add_validator( 'validate_required' );
 		$hkey = $ui->append( 'text', 'hkey', 'solvemedia__hkey', _t( 'Authentication Hash Key (H-key)', 'solvemedia' ) );
 		$hkey->add_validator( 'validate_required' );
-							
+		$themes = array( 
+			'red' => _t( 'Red', 'solvemedia' ),
+			'white' => _t( 'White', 'solvemedia' ),
+			'black' => _t( 'Black', 'solvemedia' ),
+			'purple' => _t( 'Purple', 'solvemedia' ),
+		);
+		$sizes = array( 
+			'300x100' => _t( '300px by 100px', 'solvemedia' ),
+			'300x150' => _t( '300px by 150px', 'solvemedia' ),
+			'300x250' => _t( '300px by 250px', 'solvemedia' ),
+			'336x2800' => _t( '336px by 280px', 'solvemedia' ),
+		);
+		$languages = array(
+			'en' => _t( 'English', 'solvemedia' ),
+			'de' => _t( 'German', 'solvemedia' ),
+			'fr' => _t( 'French', 'solvemedia' ),
+			'es' => _t( 'Spanish', 'solvemedia' ),
+			'it' => _t( 'Italian', 'solvemedia' ),
+			'yi' => _t( 'Yiddish', 'solvemedia' ),
+		);
+		$ui->append( 'select', 'theme', 'solvemedia__theme', _t( 'Theme', 'solvemedia' ), $themes );
+		$ui->append( 'select', 'dimensions', 'solvemedia__dims', _t( 'Size', 'solvemedia' ), $sizes );
+		$ui->append( 'select', 'language', 'solvemedia__lang', _t( 'Language', 'solvemedia' ), $languages );
+
 		$ui->append( 'submit', 'save', _t( 'Save', 'solvemedia' ) );
 		return $ui;
 	}
