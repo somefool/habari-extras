@@ -49,8 +49,13 @@ class SolveMedia extends Plugin {
 	 * @return the form
 	 */
 	public function action_form_comment( $form, $context = 'public' ) {
+		$solvemedia_options = "<script type='text/javascript'>var ACPuzzleOptions = {
+			tabindex: {$form->cf_submit->tabindex},
+			theme: '" . Options::get( 'solvemedia__theme', 'white' ) . "',
+			lang: '" . Options::get( 'solvemedia__lang', _t( 'en', 'solvemedia' ) ) /* use ENglish as a default */ . "',
+			size: '" . Options::get( 'solvemedia__size', '300x100' )  . "' };</script> ";
 		
-		$form->append( 'static','solvemedia_captcha', solvemedia_get_html( Options::get( 'solvemedia__ckey' ) ) );
+		$form->append( 'static','solvemedia_captcha', $solvemedia_options . solvemedia_get_html( Options::get( 'solvemedia__ckey' ) ) );
 		$form->move_before( $form->solvemedia_captcha, $form->cf_submit);
 		$form->cf_submit->tabindex = $form->cf_submit->tabindex + 1; // ideally we get the captcha tabindex between content and this.
 		return $form;
@@ -73,14 +78,13 @@ class SolveMedia extends Plugin {
 						Options::get( 'solvemedia__hkey' ) ); 
 			if ( $solvemedia_response->is_valid ) {
 				$comment->status = Comment::STATUS_APPROVED;
-				// rewrite this more like an sprintf
-				EventLog::log( _t( 'Comment by ', 'solvemedia' ) . $comment->name . _t( ' approved by SolveMedia captcha.', 'solvemedia' ), 'info', 'comment', 'SolveMedia' );
+				EventLog::log( _t( 'Comment by %s approved by SolveMedia captcha', array( $comment->name ), 'solvemedia' ), 'info', 'comment', 'SolveMedia' );
 			} else {
 				Session::add_to_set( 'comment', $comment->name, 'name' );
 				Session::add_to_set( 'comment', $comment->email, 'email' );
 				Session::add_to_set( 'comment', $comment->url, 'url' );
 				Session::add_to_set( 'comment', $comment->content, 'content' );
-				Session::error( _t( 'Your CAPTCHA attempt did not succeed: ', 'solvemedia' ) . $solvemedia_response->error );
+				Session::error( _t( 'Your CAPTCHA attempt did not succeed: %s', array( $solvemedia_response->error ), 'solvemedia' ) );
 			}
 		}
 		return $allow;

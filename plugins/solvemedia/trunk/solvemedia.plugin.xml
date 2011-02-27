@@ -4,11 +4,11 @@
 	<url>http://mikelietz.org/code</url>
 	<version>1.0</version>
 	<author url="http://mikelietz.org/">Mike Lietz</author>
-	<description><![CDATA[<a href="http://www.solvemedia.com/">Solve Media</a>]]></description>
+	<description><![CDATA[<a href="http://www.solvemedia.com/">Solve Media</a> captcha for your comment form.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<copyright>2011</copyright>
 	<guid>ac4deec5-4c1a-4937-8d96-449601e9c366</guid>
-	<help><value><![CDATA[A new kind of captcha for your comment form. Activate and configure it with your keys.]]></value></help>
+	<help><value><![CDATA[A new kind of captcha for your comment form. Activate and configure it with your keys, and preferences.]]></value></help>
 </pluggable>
 
  
