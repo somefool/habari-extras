@@ -56,38 +56,29 @@ class SolveMedia extends Plugin {
 			size: '" . Options::get( 'solvemedia__size', '300x100' )  . "' };</script> ";
 		
 		$form->append( 'static','solvemedia_captcha', $solvemedia_options . solvemedia_get_html( Options::get( 'solvemedia__ckey' ) ) );
-		$form->move_before( $form->solvemedia_captcha, $form->cf_submit);
+		$form->solvemedia_captcha->add_validator( array( $this, 'validate_captcha' ) );
+		$form->move_before( $form->solvemedia_captcha, $form->cf_submit );
 		$form->cf_submit->tabindex = $form->cf_submit->tabindex + 1; // ideally we get the captcha tabindex between content and this.
 		return $form;
 	}
 
 	/**
-	 * Assess allowability of comment based on captcha success 
+	 * Reject form submission (and repopulate the form) if the captcha fails.
 	 * ...
-	 * @return boolean $allow Whether the comment should be allowed or not.
+	 * @return array Message to return upon failure
 	 **/
-	public function filter_comment_insert_allow( $allow, $comment ) {
-
-		if ( $allow ) {
-
-			$solvemedia_response = solvemedia_check_answer( 
-						Options::get( 'solvemedia__vkey' ), 
-						$_SERVER[ "REMOTE_ADDR" ],
-						$_POST[ "adcopy_challenge" ],
-						$_POST[ "adcopy_response" ],
-						Options::get( 'solvemedia__hkey' ) ); 
-			if ( $solvemedia_response->is_valid ) {
-				$comment->status = Comment::STATUS_APPROVED;
-				EventLog::log( _t( 'Comment by %s approved by SolveMedia captcha', array( $comment->name ), 'solvemedia' ), 'info', 'comment', 'SolveMedia' );
-			} else {
-				Session::add_to_set( 'comment', $comment->name, 'name' );
-				Session::add_to_set( 'comment', $comment->email, 'email' );
-				Session::add_to_set( 'comment', $comment->url, 'url' );
-				Session::add_to_set( 'comment', $comment->content, 'content' );
-				Session::error( _t( 'Your CAPTCHA attempt did not succeed: %s', array( $solvemedia_response->error ), 'solvemedia' ) );
-			}
+	public function validate_captcha( $unused, $control, $form ) {
+		$solvemedia_response = solvemedia_check_answer(
+			Options::get( 'solvemedia__vkey' ), 
+			$_SERVER[ "REMOTE_ADDR" ],
+			$_POST[ "adcopy_challenge" ],
+			$_POST[ "adcopy_response" ],
+			Options::get( 'solvemedia__hkey' ) ); 
+		if ( $solvemedia_response->is_valid ) {
+			EventLog::log( _t( 'Comment by %s approved by SolveMedia captcha.', array( $comment->name ), 'solvemedia' ), 'info', 'comment', 'SolveMedia' );
+		} else {
+			return array( _t( 'Your CAPTCHA attempt did not succeed: %s', array( $solvemedia_response->error ), 'solvemedia' ) );
 		}
-		return $allow;
 	}
 
 }
