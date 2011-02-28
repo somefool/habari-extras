@@ -1,6 +1,6 @@
 <ul id="twitter_litte">
-	<?php if (count($content->tweets)): ?>
-	<?php foreach ($content->tweets as $tweet): ?>
+	<?php if ( count( $content->tweets ) ): ?>
+	<?php foreach ( $content->tweets as $tweet ): ?>
 	<li class="twitter-message"><?php echo $tweet->message_out; ?> <a href="<?php echo $tweet->url; ?>"><abbr title="<?php echo $tweet->created_at; ?>">#</abbr></a></li>
 	<?php endforeach; ?>
 	<?php else: ?>
