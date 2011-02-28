@@ -19,8 +19,8 @@ class TwitterLitte extends Plugin
 	
 	public function filter_block_list($block_list)
 	{
-		$blocklist['twitterlitte'] = _t('Twitter Litte');
-		return $blocklist;
+		$block_list['twitterlitte'] = _t('Twitter Litte');
+		return $block_list;
 	}
 
 	/**
