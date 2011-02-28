@@ -3,8 +3,8 @@
 	<name>Twitter Litte</name>
 	<license url="http://bcse.googlecode.com/svn/LICENSE">Apache License 2.0</license>
 	<author url="http://blog.bcse.info//">Joel Lee</author>
-	<version>0.1</version>
+	<version>0.2</version>
 	<url>http://code.google.com/p/bcse/wiki/TwitterLitte</url>
 	<description><![CDATA[Display your latest tweets on your blog.]]></description>
-	<copyright>2009</copyright>
+	<copyright>2011</copyright>
 </pluggable> 
