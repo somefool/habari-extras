@@ -21,14 +21,6 @@ class TwitterLitte extends Plugin
 		return $block_list;
 	}
 
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check( )
-	{
-	 	Update::add( 'Twitter Litte', '0c695810-c050-11dd-ad8b-0800200c9a66', $this->info->version );
-	}
-
 	public function action_block_form_twitterlitte( $form, $block )
 	{
 		$form->append( 'text', 'username', $block, _t( 'Twitter Username', 'twitterlitte' ) );
