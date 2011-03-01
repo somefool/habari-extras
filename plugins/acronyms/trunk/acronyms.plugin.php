@@ -138,10 +138,50 @@
 			'YMMV' => 'Your mileage may vary'
 		);
 		
+		public function action_plugin_activation ( $file ) {
+			
+			$option = array();
+			foreach ( $this->acronyms as $acronym => $text ) {
+				$option[] = $acronym . '||' . $text;
+			}
+			
+			$option = implode("\n", $option);
+			
+			Options::set( 'acronyms__acronyms', $option );
+			
+		}
+		
+		public function action_plugin_deactivation ( $file ) {
+			
+			Options::delete( 'acronyms__acronyms' );
+			
+		}
+		
 		public function filter_post_content_out ( $content, $post ) {
 			
+			$option = Options::get( 'acronyms__acronyms' );
+			
+			// if option is empty, populate it with the defaults
+			if ( empty( $option ) ) {
+				$this->action_plugin_activation(null);
+				$option = $this->acronyms;
+			}
+			
+			$option = explode( "\n", $option );
+			
+			$acronyms = array();
+			foreach ( $option as $line ) {
+				$line = explode( '||', $line );
+				
+				if ( count( $line ) < 2 ) {
+					continue;
+				}
+				
+				$acronyms[ $line[0] ] = $line[1];
+			}
+			
 			$content = " $content ";
-			foreach ( $this->acronyms as $acronym => $text ) {
+			foreach ( $acronyms as $acronym => $text ) {
 								
 				$content = preg_replace( "|(?!<[^<>]*?)(?<![?.&])\b$acronym\b(?!:)(?![^<>]*?>)|msU", "<abbr title=\"$text\">$acronym</abbr>" , $content );
 				
@@ -149,6 +189,17 @@
 			$content = trim( $content );
 			
 			return $content;
+			
+		}
+		
+		public function configure() {
+			
+			$ui = new FormUI( 'acronyms' );
+			
+			$iam_key = $ui->append( 'textarea', 'acronyms', 'acronyms__acronyms', _t( 'Acronyms' ) );
+			
+			$ui->append( 'submit', 'save', _t( 'Save' ) );
+			$ui->out();
 			
 		}
 
