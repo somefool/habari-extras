@@ -35,7 +35,7 @@ class FlickrFeed extends Plugin
 
 	public function filter_block_list( $block_list )
 	{
-		$block_list[ 'flickrfeed' ] = _t( 'Flickr Feed' );
+		$block_list[ 'flickrfeed' ] = _t( 'FlickrFeed', 'flickrfeed' );
 		return $block_list;
 	}
 
@@ -125,7 +125,7 @@ class FlickrFeed extends Plugin
 					$url = self::build_api_url( $block );
 					$data = self::get_external_content( $url );
 					$images = self::parse_data( $block, $data );
-					$block-> images = $images;
+					$block->images = $images;
 					// Do cache
 					Cache::set( $cache_name, $block->images, $block->cache );
 				}
