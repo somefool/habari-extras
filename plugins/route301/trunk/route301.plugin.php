@@ -58,7 +58,18 @@
 				'build_str' => 'comments/feed',
 				'action' => 'atom_feed_comments',
 				'description' => 'Wordpress comments feed'
-			)
+			),
+			'display_entry_by_slug' => array( // Default Habari permalink: /<slug>
+				'name' => 'display_entry_by_slug',
+				'parse_regex' => '%^(?P<slug>[^/]+)(?:/page/(?P<page>\d+)/?)?$%i',
+				'build_str' => '{$slug}/(page/{$page}/)',
+				'action' => 'display_entry',
+				'description' => 'Default Habari permalink, slug only',
+				'parameters' => array(
+						'require_match' => array('Posts', 'rewrite_match_type'),
+						'content_type' => 'entry'
+				),
+			),
 		);
 
 		/* Filter function called by the plugin hook `rewrite_rules`
@@ -80,6 +91,12 @@
 
 				// a turned off option is an empty string. 1 == enabled, null == no actual options value (for backwards compatibility)
 				if ( Options::get( $option_name ) == 1 ) {
+					
+					// if parameters is set, serialize it, since you can't do that in a property
+					if ( isset( $paramarray['parameters'] ) ) {
+						$paramarray['parameters'] = serialize( $paramarray['parameters'] );
+					}
+					
 					$paramarray = array_merge( $defaults, $paramarray );
 					$db_rules[] = new RewriteRule( $paramarray );
 				}
