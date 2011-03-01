@@ -2,10 +2,10 @@
 <pluggable type="plugin">
 <name>FlickrFeed</name>
 <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-<author url="http://blog.bcse.info/">Joel Lee</author>
-<version>0.5</version>
+<author url="http://blog.bcse.tw/">Joel Lee</author>
+<version>0.6</version>
 <url>http://code.google.com/p/bcse/wiki/FlickrFeed</url>
 <description><![CDATA[Display your latest photos on your blog.]]></description>
-<copyright>2009</copyright>
+<copyright>2011</copyright>
 <guid>165a2150-59ae-11dd-ae16-0800200c9a66</guid>
 </pluggable>
