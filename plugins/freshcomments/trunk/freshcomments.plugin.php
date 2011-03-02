@@ -87,6 +87,18 @@ class FreshComments extends Plugin
 			if ( !isset( $block->$k ) )
 				$block->$k = $v;
 		}
+
+		// Calculate colors
+		if ( $block->fade_out ) {
+			$this->range_in_seconds = $block->range_in_days * 24 * 60 * 60; 
+			$newest_color = ColorUtils::hex_rgb( $block->newest_color );
+			$oldest_color = ColorUtils::hex_rgb( $block->oldest_color );
+			$this->color_diff = array(
+				'r' => $oldest_color[ 'r' ] - $newest_color[ 'r' ],
+				'g' => $oldest_color[ 'g' ] - $newest_color[ 'g' ],
+				'b' => $oldest_color[ 'b' ] - $newest_color[ 'b' ]
+			);
+		}
 		
 		if ( Cache::has( $this->cache_name ) ) {
 			$block->freshcomments = Cache::get( $this->cache_name );
@@ -108,7 +120,7 @@ class FreshComments extends Plugin
 				$freshcomments[ $i ][ 'post' ] = $post;
 				foreach ( $comments as $j => $comment ) {
 					$freshcomments[ $i ][ 'comments' ][ $j ][ 'comment' ] = $comment;
-					$freshcomments[ $i ][ 'comments' ][ $j ][ 'color' ] = $this->get_color( $comment->date );
+					$freshcomments[ $i ][ 'comments' ][ $j ][ 'color' ] = $this->get_color( $comment->date->int, $block->newest_color, $block->fade_out );
 				}
 			}
 
@@ -125,7 +137,7 @@ class FreshComments extends Plugin
 	private function get_color( $comment_date, $newest_color='#444444', $fade_out=TRUE )
 	{
 		if ( $fade_out ) {
-			$time_span = ( $_SERVER[ 'REQUEST_TIME' ] - $comment_date->int ) / $this->range_in_seconds;
+			$time_span = ( $_SERVER[ 'REQUEST_TIME' ] - $comment_date ) / $this->range_in_seconds;
 			$time_span = min( $time_span, 1 );
 			$newest_color = ColorUtils::hex_rgb( $newest_color );
 			$color = array(
@@ -175,19 +187,6 @@ class FreshComments extends Plugin
 	public function action_init( )
 	{
 		$this->cache_name = Site::get_url( 'host' ) . 'freshcomments';
-		
-		// Calculate colors
-		if ( $block->fade_out ) {
-			$this->range_in_seconds = $block->range_in_days * 24 * 60 * 60; 
-			$newest_color = ColorUtils::hex_rgb( $block->newest_color );
-			$oldest_color = ColorUtils::hex_rgb( $block->oldest_color );
-			$this->color_diff = array(
-				'r' => $oldest_color[ 'r' ] - $newest_color[ 'r' ],
-				'g' => $oldest_color[ 'g' ] - $newest_color[ 'g' ],
-				'b' => $oldest_color[ 'b' ] - $newest_color[ 'b' ]
-			);
-		}
-
 		$this->load_text_domain( 'freshcomments' );
 		$this->add_template( 'block.freshcomments', dirname( __FILE__ ) . '/block.freshcomments.php' );
 	}
