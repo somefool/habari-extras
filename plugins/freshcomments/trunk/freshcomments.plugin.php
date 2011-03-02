@@ -88,7 +88,7 @@ class FreshComments extends Plugin
 				$block->$k = $v;
 		}
 		
-		if ( false and Cache::has( $this->cache_name ) ) {
+		if ( Cache::has( $this->cache_name ) ) {
 			$block->freshcomments = Cache::get( $this->cache_name );
 		} else {
 			$comment_types = array( Comment::COMMENT );
