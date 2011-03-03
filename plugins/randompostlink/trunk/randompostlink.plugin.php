@@ -12,6 +12,7 @@ class RandomPostLink extends Plugin
 	{
 		$criteria = array(
 			'status' => Post::status('published'), 
+			'type' => Post::type('entry'),
 			'orderby' => 'RAND()',
 			'limit' => 1,
 		);
