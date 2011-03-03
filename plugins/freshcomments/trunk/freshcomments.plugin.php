@@ -186,7 +186,7 @@ class FreshComments extends Plugin
 	 */
 	public function action_init( )
 	{
-		$this->cache_name = Site::get_url( 'host' ) . 'freshcomments';
+		$this->cache_name = Site::get_url( 'habari', true ) . 'freshcomments';
 		$this->load_text_domain( 'freshcomments' );
 		$this->add_template( 'block.freshcomments', dirname( __FILE__ ) . '/block.freshcomments.php' );
 	}
