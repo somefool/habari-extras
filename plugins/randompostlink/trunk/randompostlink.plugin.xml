@@ -3,9 +3,10 @@
 	<name>Random Post Link</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://habariproject.org/">The Habari Community</author>
-	<version>0.15</version>
+	<version>1.0</version>
+	<guid>888831ec-b2e6-4369-81f4-fc445ccac5f0</guid>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Redirects visitors to a random post when visiting this URL: /randompost]]></description>
-	<copyright>2010</copyright>
+	<copyright>2011</copyright>
 </pluggable>
  
