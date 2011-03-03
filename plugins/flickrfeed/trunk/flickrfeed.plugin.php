@@ -107,7 +107,7 @@ class FlickrFeed extends Plugin
 			if ( !isset( $block->$k ) )
 				$block->$k = $v;
 		}
-		
+
 		$cache_name = 'flickrfeed_' . md5( serialize( array(
 			$block->type,
 			$block->user_id,
@@ -127,7 +127,7 @@ class FlickrFeed extends Plugin
 					$images = self::parse_data( $block, $data );
 					$block->images = $images;
 					// Do cache
-					Cache::set( $cache_name, $block->images, $block->cache );
+					Cache::set( $cache_name, $block->images, $block->cache_expiry );
 				}
 				catch ( Exception $e ) {
 					$block->error = $e->getMessage( );
