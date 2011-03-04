@@ -51,7 +51,7 @@ class FreshComments extends Plugin
 
 		$form->fade->append( 'checkbox', 'fade_out', $block, _t( 'Fade-out Older Comment', 'freshcomments' ) );
 
-		$form->fade->append( 'text', 'range_in_days', $block, _t( 'fade_out Speed (bigger is slower )', 'freshcomments' ) );
+		$form->fade->append( 'text', 'range_in_days', $block, _t( 'Fade-out Speed (bigger is slower )', 'freshcomments' ) );
 		$form->fade->range_in_days->add_validator( array( $this, 'validate_uint' ) );
 		$form->fade->range_in_days->add_validator( 'validate_required' );
 
