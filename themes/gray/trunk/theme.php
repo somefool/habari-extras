@@ -17,14 +17,14 @@ class GrayTheme extends Theme
 	 */
 	public function action_theme_activated()
 	{
-		$blocks = $this->get_blocks('nav', '', $this);
+		$blocks = $this->get_blocks('primary', '', $this);
 		if(count($blocks) == 0) {
 			$block = new Block(array(
-				'title' => _t('Charcoal Menu'),
-				'type' => 'charcoal_menu',
+				'title' => _t('Posts'),
+				'type' => 'grayposts',
 			));
 
-			$block->add_to_area('nav');
+			$block->add_to_area('primary');
 			Session::notice(_t('Added default blocks to theme areas.'));
 		}
 	}
@@ -263,22 +263,18 @@ class GrayTheme extends Theme
 	
 	public function filter_get_scopes($scopes)
 	{
-		$scope = new StdClass();
-		$scope->id = 40000;
-		$scope->name = 'Home Page';
-		$scope->priority = 16;
-		$scope->criteria = array(
-			array('request', 'display_home'),
-		);
-		$scopes[] = $scope;
-		$scope = new StdClass();
-		$scope->id = 40001;
-		$scope->name = 'Single Page';
-		$scope->priority = 15;
-		$scope->criteria = array(
-			array('request', 'display_post'),
-		);
-		$scopes[] = $scope;
+		$rules = RewriteRules::get_active();
+		$scopeid = 40000;
+		foreach($rules as $rule) {
+			$scope = new StdClass();
+			$scope->id = $scopeid++;
+			$scope->name = $rule->name;
+			$scope->priority = 15;
+			$scope->criteria = array(
+				array('request', $rule->name),
+			);
+			$scopes[] = $scope;
+		}
 
 		return $scopes;
 	}
