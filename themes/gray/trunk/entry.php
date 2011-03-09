@@ -23,14 +23,20 @@
 		$others['Older'] = $post->descend();
 		$others['Newer'] = $post->ascend();
 		foreach($post->tags as $tag) {
+			//$other = Post::get('limit=1&vocabulary[tags:all:term]=habari');
+			//$other = Post::get('limit=1&vocabulary=tags:all:term_display=habari');
+			$other = Post::get(array('vocabulary' => 'tags[any:term][]=habari&tags[any:term][]=foo'));
+			//$other = Post::get(array('limit'=> 1, 'before' => $post->pubdate->format('Y-m-d'), 'vocabulary'=> 'tags[all:term]=' . $tag->term));
+			//$other = Post::get('limit=1&before=' . $post->pubdate->format('Y-m-d') . '&vocabulary[tags][all:term]=' . $tag->term);
+			/*
 			$other = Post::get(
 				array(
 					'limit' => 1,
-					'vocabulary' => array('tags:id' => $tag->id),
+					'vocabulary' => array('all'=>array($tag)),
 					'before' => $post->pubdate,
 				)
 			);
-			
+			//*/
 			$others['On ' . $tag] = $other;
 		}
 		$others = array_filter($others);

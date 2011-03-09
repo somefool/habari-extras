@@ -5,7 +5,7 @@
 	
 	<author url="http://asymptomatic.net/">Owen Winkler</author>
 	<url>http://asymptomatic.net</url>
-	<version>1.0</version>
+	<version>1.1</version>
 	<template_engine>rawphpengine</template_engine>
 	<description><![CDATA[A multi-column theme for Habari, built in YUI grids, with layout adjustable from the admin.  Makes extensive use of blocks, including for the main content.]]></description>
 	<class>GrayTheme</class>
@@ -24,14 +24,17 @@
 		<area name="sidebar">
 			<description><![CDATA[To the right of the primary area]]></description>
 		</area>
-		<area name="home_a">
-			<description><![CDATA[The left-side secondary column on the home page]]></description>
+		<area name="footer left">
+			<description><![CDATA[The left-side secondary column under the main content]]></description>
 		</area>
-		<area name="home_b">
-			<description><![CDATA[The center secondary column on the home page]]></description>
+		<area name="footer center">
+			<description><![CDATA[The center secondary column under the main content]]></description>
 		</area>
-		<area name="home_c">
-			<description><![CDATA[The right-side secondary column on the home page]]></description>
+		<area name="footer right">
+			<description><![CDATA[The right-side secondary column under the main content]]></description>
+		</area>
+		<area name="footer">
+			<description><![CDATA[The base footer at the bottom of the page]]></description>
 		</area>
 	</areas>
 	

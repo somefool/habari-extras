@@ -26,7 +26,7 @@ body {
 	margin: 0px;
 	padding:0px;
 	background: #F5F5F5 url("images/hd.png") scroll repeat-x;
-	font-family: Times New Roman, Serif;
+	font-family: Vollkorn, Times New Roman, serif;
 }
 
 body#body .doc-left {
@@ -162,7 +162,7 @@ html[xmlns] .clearfix {
 	font-size: 138%;
 	margin: 1.0em 0em 0.15em;
 	color: #BBBBBBS;
-	font-family: Vollkorn;
+	font-family: Vollkorn, serif;
 }
 
 #bd {
@@ -172,7 +172,7 @@ html[xmlns] .clearfix {
 #bd p {
 	margin-top: 1.2em;
 }
-#bd ul {
+#yui-main ul {
 	margin-bottom: 1.2em;
 	margin-left: 2em;
 }

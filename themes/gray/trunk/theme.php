@@ -12,6 +12,22 @@
  */
 class GrayTheme extends Theme
 {
+	/**
+	 * On theme activation, activate some default blocks
+	 */
+	public function action_theme_activated()
+	{
+		$blocks = $this->get_blocks('nav', '', $this);
+		if(count($blocks) == 0) {
+			$block = new Block(array(
+				'title' => _t('Charcoal Menu'),
+				'type' => 'charcoal_menu',
+			));
+
+			$block->add_to_area('nav');
+			Session::notice(_t('Added default blocks to theme areas.'));
+		}
+	}
 
 	/**
 	 * Add default output filters
@@ -106,11 +122,6 @@ class GrayTheme extends Theme
 	 */
 	public function action_add_template_vars($theme)
 	{
-		// Add a list of Pages to the $pages variable
-		if( !$this->template_engine->assigned( 'pages' ) ) {
-			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published') ) ) );
-		}
-
 		// Set an SEO-friendly page title
 		$this->page_title = (isset($this->post) && ($this->request->display_entry || $this->request->display_page)) ? $this->post->title . ' - ' . Options::get( 'title' ) : Options::get( 'title' ) ;
 
@@ -125,10 +136,7 @@ class GrayTheme extends Theme
 			$this->align_class = 'doc-center';
 		}
 
-		// Show ads on google referers
-		$this->assign('ads', !( !isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] == '' || strpos(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST), 'asymptomatic.net') !== false ));
-		$this->assign('ads', false);
-
+		/*
 		// Make posts an instance of Posts if it's just one
 		if($this->posts instanceof Post) {
 			$this->posts = new Posts(array($this->posts));
@@ -137,26 +145,16 @@ class GrayTheme extends Theme
 		else {
 			$this->show_page_selector = true;
 		}
+		*/
 
 		// Add javascript support files
 		Stack::add('template_header_javascript', Site::get_url('scripts', '/jquery.js') , 'jquery' );
-		/*
-		Stack::add('template_header_javascript', Site::get_url('theme', '/js/cufon-yui.js') , 'cufon', 'jquery' );
-		Stack::add('template_header_javascript', Site::get_url('theme', '/js/Walkway_Expand_Bold_400.font.js') , 'walkaway_expan_bold_font', 'cufon' );
-		Stack::add('template_header_javascript', "Cufon.replace('.entry-title,#nav a,h3,#hd h1 a', { fontFamily: 'Walkway Expand Bold' });" , 'load_fonts', 'cufon' );
-		Stack::add('template_header_javascript', Site::get_url('theme', '/js/jquery.fancybox.js') , 'fancybox', 'jquery' );
-		Stack::add('template_header_javascript', '$(function(){$(".flickr-image a,.fancybox").fancybox();});' , 'load_fancybox', 'fancybox' );
-		*/
 
 		// Add the stylesheets
 		Stack::add('template_stylesheet', array('http://yui.yahooapis.com/2.8.1/build/reset-fonts-grids/reset-fonts-grids.css', 'screen,projection'), 'yahoo');
 		Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/print.css' ) , 'print'), 'print');
 		Stack::add('template_stylesheet', array('@import url(http://fonts.googleapis.com/css?family=Vollkorn&subset=latin);' , 'screen,projection'), 'font', 'yahoo');
 		Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/style.css' ) , 'screen,projection'), 'theme', 'yahoo');
-		//Stack::add('template_stylesheet', array(Site::get_url( 'theme', '/fancybox.css' ) , 'screen,projection'), 'fancybox', 'theme');
-		
-		
-		//$this->assign('recent_comments', Comments::get( array('limit'=>25, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );		
 	}
 
 	public function filter_submit_comment_form($result, $form)
@@ -220,6 +218,9 @@ class GrayTheme extends Theme
 		}
 		if($block->content_type != '') {
 			$criteria['content_type'] = $block->content_type;
+			if($block->content_type == 0) {
+				unset($criteria['content_type']);
+			}
 		}
 		if($block->limit != '') {
 			$criteria['limit'] = $block->limit;
@@ -243,6 +244,7 @@ class GrayTheme extends Theme
 		}
 		
 		$block->posts = Posts::get($criteria);
+		//$block->posts = Posts::get('limit=5&status=2&content_type=0');
 		$block->criteria = $criteria;
 	}
 	
@@ -280,7 +282,12 @@ class GrayTheme extends Theme
 
 		return $scopes;
 	}
+
 	
+	public function action_upgrade($oldversion)
+	{
+		Utils::debug('upgrade ' . $oldversion);die();
+	}	
 }
 
 ?>

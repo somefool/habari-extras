@@ -26,15 +26,15 @@ if($sidebar == '') {
 	  <?php endif; ?>
     <div id="columns" class="yui-gb">
 			<div id="home_a" class="yui-u first">
-				<?php $theme->area('home_a'); ?>
+				<?php $theme->area('footer left'); ?>
 			</div>
 			<div id="home_b" class="yui-u">
-				<?php $theme->area('home_b'); ?>
+				<?php $theme->area('footer center'); ?>
 			</div>
 			<div id="home_c" class="yui-u">
-				<?php $theme->area('home_c'); ?>
+				<?php $theme->area('footer right'); ?>
 			</div>
 		</div>
 	</div>
 			
-<?php $theme->display('foot'); ?>
+<?php $theme->display('footer'); ?>
