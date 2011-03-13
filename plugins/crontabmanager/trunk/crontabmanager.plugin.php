@@ -74,14 +74,21 @@ class CronTabManager extends Plugin
 					break;
 				case 'run':
 					$cron = CronTab::get_cronjob((int) $handler->handler_vars['cron_id']);
-					$cron->next_run = HabariDateTime::date_create('now');
-					$cron->update();
-					Options::set('next_cron', $cron->next_run->int );
-					Session::notice(_t(
-							'Executing Cron Job "%s"',
-							array($cron->name),
-							'crontabmanager'
-						));
+					
+					// it's possible that the cron has already run and been deleted
+					if ( !$cron ) {
+						Session::error( _t( 'Cron Job appears to have already run and no longer exists.', 'crontabmanager' ) );
+					}
+					else {
+						$cron->next_run = HabariDateTime::date_create('now');
+						$cron->update();
+						Options::set('next_cron', $cron->next_run->int );
+						Session::notice(_t(
+								'Executing Cron Job "%s"',
+								array($cron->name),
+								'crontabmanager'
+							));
+					}
 					break;
 			}
 		}
