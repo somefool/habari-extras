@@ -2,7 +2,7 @@
 				<aside id="comments" class="hfeed">
 					<h1><?php printf( _n( '%d Comment', '%d Comments', $post->comments->comments->moderated->count ), $post->comments->comments->moderated->count ); ?></h1>
 					<?php foreach ( $post->comments->comments->moderated as $comment ) : ?>
-					<article id="comment-<?php echo $comment->id; ?>" class="hentry type-comment status-<?php echo Comment::status_name( $comment->status ); ?>">
+					<article id="comment-<?php echo $comment->id; ?>" class="<?php echo $comment->css_class(); ?>">
 						<section>
 							<?php echo $comment->content_out; ?>
 							<?php if ( $comment->status == Comment::STATUS_UNAPPROVED ) : ?>
@@ -42,7 +42,7 @@
 					<h1><?php printf( _n( '%d Pingback', '%d Pingbacks', $post->comments->pingbacks->approved->count), $post->comments->pingbacks->approved->count ); ?></h1>
 					<?php foreach ( $post->comments->pingbacks->approved as $pingback ): ?>
 					<ol>
-						<li id="pingback-<?php echo $pingback->id; ?>" class="hentry type-pingback status-<?php echo Comment::status_name( $comment->status ); ?>">
+						<li id="pingback-<?php echo $pingback->id; ?>" class="<?php echo $pingback->css_class(); ?>">
 							<cite class="pingback-title"><a href="<?php echo $pingback->url; ?>" rel="external"><?php echo $pingback->name_out; ?></a></cite>
 							<?php _e( 'on' ); ?>
 							<a class="pingback-link" href="<?php echo $post->permalink; ?>#pingback-<?php echo $pingback->id; ?>" ><time datetime="<?php $pingback->date->out( 'Y-m-d\TH:i:sP' ); ?>" pubdate><?php echo $pingback->date->out( ); ?></time></a>

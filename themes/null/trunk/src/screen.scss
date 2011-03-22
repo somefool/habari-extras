@@ -1,0 +1,298 @@
+@import "compass";
+@import "reset.css";
+@import url(http://fonts.googleapis.com/css?family=Inconsolata|Droid+Sans:400,700|Lato:400,900);
+
+/* Type settings */
+
+$font-size: 13px;
+$line-height: 1.385em;
+
+$column-size: 78px;
+$gap-size: 20px;
+
+@mixin grid-width($column-count) {
+  width: $column-size * $column-count + $gap-size * ($column-count - 1);
+}
+
+body {
+  font: {
+    family: "Droid Sans", Helvetica, sans-serif;
+    size: $font-size;
+  }
+  line-height: $line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font: {
+    family: Lato, sans-serif;
+    weight: 900;
+  }
+}
+
+code, pre {
+  font-family: Inconsolata, monospace;
+}
+
+.h1 {font-size: $font-size * 2;}
+.h2 {font-size: $font-size * 2.5; line-height: $line-height * 3 / 2.5;}
+.h3 {font-size: $font-size * 2; line-height: $line-height * 3 / 2;}
+.h4 {font-size: $font-size * 1.5; line-height: $line-height * 2 / 1.5;}
+.h5 {font-size: $font-size * 1.2; line-height: $line-height * 2 / 1.2;}
+.h6 {line-height: $line-height * 2;}
+
+h1 {@extend .h1}
+h2 {@extend .h2}
+h3 {@extend .h3}
+h4 {@extend .h4}
+h5 {@extend .h5}
+h6 {@extend .h6}
+
+article, aside, nav, section {
+  h1 {@extend .h2}
+  h2 {@extend .h3}
+  h3 {@extend .h4}
+  h4 {@extend .h5}
+  h5 {@extend .h6}
+  h6 {@extend .h7}
+  article, aside, nav, section {
+    h1 {@extend .h3}
+    h2 {@extend .h4}
+    h3 {@extend .h5}
+    h4 {@extend .h6}
+    h5, h6 {@extend .h7}
+    article, aside, nav, section {
+      h1 {@extend .h4}
+      h2 {@extend .h5}
+      h3 {@extend .h6}
+      h4, h5, h6 {@extend .h7}
+    }
+  }
+}
+
+a {
+  color: #03c;
+  &:visited {
+    color: #606;
+  }
+  &:hover, &:focus {
+    color: #f30;
+  }
+  &:active {
+    color: #903;
+  }
+}
+
+#nameplate {
+  .logo {
+    padding: $line-height 0 $line-height / 2;
+  }
+  .tagline {
+    font-size: $font-size;
+    font-weight: 400;
+    line-height: $line-height;
+    margin-bottom: $line-height;
+  }
+}
+
+nav, h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: none;
+  }
+}
+
+/* Layout */
+
+body {
+  background: #fff;
+  color: #000;
+  ///background: -webkit-repeating-linear-gradient(top, rgba(0,255,0,0), rgba(0,255,0,0) $line-height, rgba(0,255,0,0.1) $line-height, rgba(0,255,0,0.1) $line-height * 2);
+}
+
+article, aside, nav, section, #content p {
+  margin-bottom: $line-height;
+}
+
+[required] {
+  &::-webkit-input-placeholder, &:-moz-placeholder {
+    font-weight: 700;
+  }
+}
+
+#wrapper {
+  @include grid-width(10);
+  margin: 0 auto;
+}
+
+#mainmenu {
+  @include inline-block-list;
+  background: rgba(0, 0, 0, 0.1);
+  margin-bottom: $line-height * 2;
+  font-weight: 700;
+  text-transform: uppercase;
+  li {
+    a {
+      @include inline-block;
+      color: rgba(0, 0, 0, 0.8);
+      line-height: $line-height * 2;
+      padding: 0 1em;
+      &:hover, &:focus {
+        @include text-shadow(#000, 2, 0, 1);
+        text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 2px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+      }
+      &:active {
+        background: rgba(255, 51, 0, 0.8);
+      }
+    }
+  }
+}
+
+#content {
+  @include grid-width(7);
+  @include float-right;
+}
+
+#content, #posts > article, #posts nav, #comments > article, #comment-public, #sidebar {
+  @include clearfix;
+}
+
+#posts > article > section, #cf_inputarea {
+  @include grid-width(5);
+  @include float-left;
+}
+
+#comments > article > section {
+  @include grid-width(4);
+  @include float-left;
+}
+
+#posts > article > footer, #comments > article > footer, #cf_rules {
+  @include grid-width(2);
+  @include float-right;
+  font-size: $font-size * 0.769;
+  line-height: $line-height / 0.769;
+}
+
+.entry-tags li {
+  display: inline;
+  &:after {
+    content: ', ';
+  }
+  &:last-child:after {
+    content: '';
+  }
+}
+
+#posts nav {
+  @include grid-width(5);
+  .nav-older {
+    @include float-left;
+  }
+  .nav-newer {
+    @include float-right;
+  }
+}
+
+#comments, #comment-public {
+  margin-top: $line-height * 2;
+}
+
+#comments {
+  > article > footer {
+    position: relative;
+  }
+  .comment-avatar {
+    position: absolute;
+    left: -60px;
+  }
+}
+
+#cf_rules li {
+  margin-bottom: $line-height / 0.8125;
+}
+
+#comment-public {
+  legend {
+    font: {
+      size: 2em;
+      weight: 700;
+    }
+    line-height: 2em;
+  }
+  label {
+    display: none;
+  }
+  textarea {
+    $width: $column-size * 5 + $gap-size * (5 - 1) - $gap-size + 2px;
+    width: $width;
+    max-width: $width;
+    height: $gap-size * 7 + 2px;
+    padding: ($gap-size - 2px) / 2;
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  input {
+    padding: ($gap-size - 2px) / 2;
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: 0;
+  }
+  textarea:focus, input:focus {
+    @include box-shadow(#69f, 0, 0, 5px, 0, false);
+    border: 1px solid #69f;
+    outline: 0;
+  }
+  .comment_name, .comment_email, .comment_url {
+    display: inline;
+  }
+  input {
+    width: ($column-size * 5 + $gap-size * (5 - 1)) / 3 - $gap-size - 4px;
+  }
+}
+
+#sidebar {
+  @include grid-width(3);
+  @include float-left;
+  .block {
+    margin-top: $line-height;
+  }
+}
+
+#s {
+  @include grid-width(2);
+}
+
+#searchsubmit {
+  display: none;
+}
+
+footer[role="contentinfo"] {
+  clear: both;
+  padding: $line-height * 2 0;
+  text-align: center;
+}
+
+/* Blocks */
+
+.block-type-flickrfeed li.flickr-image {
+  display: inline;
+}
+
+.block-type-freshcomments {
+  .comment-entry-title {
+    font-weight: 700;
+  }
+  .comment-count {
+    @include float-right;
+  }
+  .comment-authors li {
+    display: inline;
+    &:after {
+      content: ', ';
+    }
+    &:last-child:after {
+      content: '';
+    }
+  }
+}

@@ -23,17 +23,14 @@ class NullTheme extends Theme
 		}
 		parent::add_template_vars( );
 	}
-
-	public function filter_post_tags_css_classes( $tags )
+	
+	public function filter_body_class( $body_class, $theme )
 	{
-		if ( !count( $tags ) )
-			return 'no-tags';
-
-		$tag_slugs = array();
-		foreach ( $tags as $tag ) {
-			$tag_slugs[] = 'tag-' . $tag->term;
+		if ( isset( $theme->posts ) && count( $theme->posts ) === 1 && $theme->posts instanceof Post ) {
+			$body_class[] = Post::type_name( $theme->posts->content_type ) . '-' . $theme->posts->slug;
+			$body_class[] = 'single';
 		}
-		return implode( ' ', $tag_slugs );
+		return $body_class;
 	}
 
 	public function filter_post_tags_list( $tags )
@@ -86,6 +83,12 @@ class NullTheme extends Theme
 		$form->cf_submit->caption = _t( 'Send' );
 		$form->cf_submit->placeholder = _t( 'Send' );
 		$form->cf_submit->template = $this->name . '_submit';
+	}
+	
+	public function theme_header( $theme )
+	{
+		Stack::add( 'template_stylesheet', array( Site::get_url('theme') . '/css/screen.css', 'screen' ), 'main' );
+		Stack::out( 'template_stylesheet', array( 'Stack', 'styles' ) );
 	}
 }
 ?>

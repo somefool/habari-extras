@@ -2,7 +2,7 @@
 	<div id="content" role="main">
 		<div id="posts" class="hfeed">
 			<?php foreach ( $posts as $post ): ?>
-			<article id="<?php echo Post::type_name( $post->content_type ); ?>-<?php echo $post->slug; ?>" class="hentry type-<?php echo Post::type_name( $post->content_type ); ?> status-<?php echo Post::status_name( $post->status ); ?> <?php echo $post->tags_css_classes; ?>">
+			<article id="<?php echo Post::type_name( $post->content_type ); ?>-<?php echo $post->slug; ?>" class="<?php echo $post->css_class(); ?>">
 				<header>
 					<h1 class="entry-title"><a href="<?php echo $post->permalink; ?>" rel="bookmark"><?php echo $post->title_out; ?></a></h1>
 				</header>

@@ -4,7 +4,6 @@
 	<meta charset="utf-8" />
 	<title><?php Options::out( 'title' ); ?></title>
 	<script src="http://ajax.cdnjs.com/ajax/libs/headjs/0.9/head.min.js"></script>
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php Site::out_url( 'theme' ); ?>/style.css" />
 	<?php $theme->header( ); ?>
 </head>
 <body class="<?php $theme->body_class( ); ?>">

@@ -16,13 +16,16 @@
 	
 	<areas>
 		<area name="nav">
-			<description><![CDATA[The nav area]]></description>
+			<description><![CDATA[The main menu of the site. If you do not have any idea, try to put Recent Posts block here and configure it to list pages.]]></description>
 		</area>
 		<area name="sidebar">
-			<description><![CDATA[The sidebar area]]></description>
+			<description><![CDATA[The sidebar area. Here is a good place to put the Search Form.]]></description>
 		</area>
 		<area name="footer">
-			<description><![CDATA[The footer area]]></description>
+			<description><![CDATA[The footer area.]]></description>
+		</area>
+		<area name="comment_form">
+			<description><![CDATA[If you want to use external comment services to replace built in comment system, e.g. Disqus, IntenseDebate, Facebook Comment, etc. You can place here.]]></description>
 		</area>
 	</areas>
 	
