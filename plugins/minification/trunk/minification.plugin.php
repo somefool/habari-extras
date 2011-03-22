@@ -5,14 +5,6 @@ class minification extends Plugin {
 	private static $cache_name = 'minify';
 	private static $stack;
 
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-	 	Update::add( 'Minification', '', $this->info->version );
-	}
-
 	public function action_plugin_ui( $plugin_id, $action )
 	{
 		if ( $plugin_id == $this->plugin_id() ) {

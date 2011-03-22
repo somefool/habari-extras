@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>Minification</name>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
+	<guid>36d50095-1321-43e6-b4e3-cd3e53751849</guid>
 	<url>http://broken8.se/</url>
 	<author>eighty4</author>
 	<authorurl>http://broken8.se/</authorurl>
