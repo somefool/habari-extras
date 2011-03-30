@@ -53,7 +53,7 @@ class SolveMedia extends Plugin {
 			tabindex: {$form->cf_submit->tabindex},
 			theme: '" . Options::get( 'solvemedia__theme', 'white' ) . "',
 			lang: '" . Options::get( 'solvemedia__lang', _t( 'en', 'solvemedia' ) ) /* use ENglish as a default */ . "',
-			size: '" . Options::get( 'solvemedia__size', '300x100' )  . "' };</script> ";
+			size: '" . Options::get( 'solvemedia__dims', '300x100' )  . "' };</script> ";
 		
 		$form->append( 'static','solvemedia_captcha', $solvemedia_options . solvemedia_get_html( Options::get( 'solvemedia__ckey' ) ) );
 		$form->solvemedia_captcha->add_validator( array( $this, 'validate_captcha' ) );
