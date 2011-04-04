@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-26 15:22+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 40
+msgid "XHTML 1.0 Transitional"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 41
+msgid "CSS level 3"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 43
+msgid "Feed Validator"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 47
+msgid "Site Feed"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 48
+msgid "Comments Feed"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 70
+msgid "Comments to show:"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 71
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 78
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 84
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 90
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 99
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 107
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 115
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 121
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 127
+msgid "Save"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 76
+msgid "Posts to show:"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 83
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 120
+msgid "Links to show:"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 89
+msgid "Minimum entries to show tag (0 to show all):"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 95
+msgid "Display full month names:"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 96
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 104
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 112
+msgid "Append post count:"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 97
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 105
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 113
+msgid "Preferred Output Style:"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 98
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 106
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 114
+msgid "Dropdown"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 98
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 106
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 114
+msgid "List"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 126
+msgid "Button:"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 302
+msgid "Logout"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 305
+msgid "Login"
+msgstr ""
+#
+# File: plugins/commonblocks/commonblocks.plugin.php, line: 321
+msgid "Search"
+msgstr ""
