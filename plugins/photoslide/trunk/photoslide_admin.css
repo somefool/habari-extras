@@ -1,0 +1,22 @@
+.setphoto img {
+	width: 50px;
+	float: left;
+	margin-right: 10px;
+	cursor: ns-resize;
+}
+.setphoto a {
+	display: block;
+	float: left;
+	margin-right: 10px;
+	text-indent: -9999px;
+	background: url(bin_closed.png) no-repeat center;
+	width: 22px;
+	height: 22px;
+}
+.setphoto_caption {
+	width: 70%;
+}
+.setphoto {
+	clear: both;
+	padding-top: 10px;
+}

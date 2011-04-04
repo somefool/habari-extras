@@ -12,6 +12,12 @@ class PhotoSlide extends Plugin
 		Post::deactivate_post_type( 'photoset' );
 	}
 	
+	public function action_admin_header( $theme )
+	{
+		$vars = Controller::get_handler_vars();
+		if( 'plugins' == $theme->page  && isset( $vars['configure'] ) && $this->plugin_id == $vars['configure']  ) {
+		}
+	}
 
 	public function filter_post_type_display($type, $foruse) 
 	{ 
@@ -27,10 +33,11 @@ class PhotoSlide extends Plugin
 	public function action_form_publish( $form, $post )
 	{
 		if( $form->content_type->value == Post::type( 'photoset' ) ) {
+			Stack::add( 'admin_stylesheet', array( $this->get_url() . '/photoslide_admin.css', 'screen' ), 'photoslide_admin', array( 'admin' ) );
 			
 			$assetdivs = '';
 			if($post->content != '') {
-				$assetdivs =  $this->assetlist_to_divs($post->content, $post, '<div class="setphoto"><img src="{asset_thumbnail}" style="width: 50px;"><a href="#delete">delete</a><input class="setphoto_caption" type="text" value="{caption}"><input class="setphoto_path" type="hidden" value="{asset_path}"></div>');
+				$assetdivs =  $this->assetlist_to_divs($post->content, $post, '<div class="setphoto"><img src="{asset_thumbnail}"><a href="#delete" title="delete">delete</a><input class="setphoto_caption" type="text" value="{caption}"><input class="setphoto_path" type="hidden" value="{asset_path}"></div>');
 			}
 
 			$imagepreview = $form->insert('content', 'static', 'imagepreview', '');
@@ -45,7 +52,7 @@ class PhotoSlide extends Plugin
 </div>
 <script type="text/javascript">
 function add_photo_to_set(fileindex, fileobj) {
-	$('#photoset').append('<div class="setphoto"><img src="' + fileobj.thumbnail_url + '" style="width: 50px;"><a href="#delete">delete</a><input class="setphoto_caption" type="text" value="' + fileobj.basename + '"><input class="setphoto_path" type="hidden" value="' + fileobj.path + '"></div>');
+	$('#photoset').append('<div class="setphoto"><img src="' + fileobj.thumbnail_url + '"><a href="#delete" title="delete">delete</a><input class="setphoto_caption" type="text" value="' + fileobj.basename + '"><input class="setphoto_path" type="hidden" value="' + fileobj.path + '"></div>');
 	photoset_recompute();
 }
 function photoset_recompute() {
@@ -66,12 +73,21 @@ $(function(){
 	$.extend(habari.media.output.image_jpeg, {
 		insert_image: add_photo_to_set
 	});
+	$.extend(habari.media.output.image_png, {
+		insert_image: add_photo_to_set
+	});
+	$.extend(habari.media.output.image_gif, {
+		insert_image: add_photo_to_set
+	});
 	$.extend(habari.media.output.flickr, {
 		embed_photo: add_photo_to_set
 	});
 	$('.setphoto a[href=#delete]').live('click', function(){
 		$(this).closest('.setphoto').fadeOut(function(){\$(this).remove();photoset_recompute();});
 		return false;
+	});
+	$('.setphoto_caption').live('change', function(){
+		photoset_recompute();
 	});
 	photoset_recompute();
 });
@@ -90,9 +106,9 @@ CAPTION_SCRIPT;
 		}
 	}
 	
-	public function filter_post_content_media($content, $post)
+	public function filter_post_content_media($content, $post, $format='<div class="setphoto" id="sp_{post_slug}_{index}"><img src="{asset_url}" alt="{caption}"></div>')
 	{
-		return $this->assetlist_to_divs($content, $post, '<div class="setphoto" id="sp_{post_slug}_{index}"><img src="{asset_url}" alt="{caption}"></div>');
+		return $this->assetlist_to_divs($content, $post, $format);
 	}
 	
 	public function filter_post_content_thumbnails($content, $post)
