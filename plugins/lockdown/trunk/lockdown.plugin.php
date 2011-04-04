@@ -50,7 +50,7 @@ class LockdownPlugin extends Plugin
 	{
 		
 		// the only options allowed to be changed
-		if ( in_array( $name, array( 'theme_dir', 'theme_name', 'cron_running' ) ) ) {
+		if ( in_array( $name, array( 'theme_dir', 'theme_name', 'cron_running', 'pluggable_versions' ) ) ) {
 			return $value;
 		}
 		
