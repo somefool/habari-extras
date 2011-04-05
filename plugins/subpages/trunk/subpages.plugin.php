@@ -11,7 +11,7 @@ class SubPagesPlugin extends Plugin
 	/**
 	 * Add the subpage vocabulary
 	 *
-	 **/
+	 */
 	public function action_plugin_activation($file)
 	{
 		if ( Plugins::id_from_file($file) == Plugins::id_from_file(__FILE__) ) {
@@ -29,7 +29,7 @@ class SubPagesPlugin extends Plugin
 	/**
 	 * Remove the subpage vocabulary
 	 *
-	 **/
+	 */
 	public function action_plugin_deactivation($file)
 	{
 		/* Until deleting a vocabulary deletes its associated terms, this is not going to work well.  */
@@ -41,7 +41,7 @@ class SubPagesPlugin extends Plugin
 	/**
 	 * Add the necessary template
 	 *
-	 **/
+	 */
 	public function action_init()
 	{
 		$this->add_template( self::$vocabulary, dirname(__FILE__) . '/' . self::$vocabulary . '.php' );
@@ -152,7 +152,7 @@ class SubPagesPlugin extends Plugin
 			// Add a parent selector to the page settings
 			$parent_select = $form->settings->append( 'text', 'parent', 'null:null', _t( 'Parent: '), 'tabcontrol_select' );
 
-			if ( 0 != count($pages) ) 			{
+			if ( 0 != count($pages) ) {
 				// Descendants of the current page can't be its parent
 				if ( null != $descendants ) {
 					/* TODO Why doesn't this work ?
@@ -223,19 +223,14 @@ class SubPagesPlugin extends Plugin
 	}
 
 	/**
-	 * Enable update notices to be sent using the Habari beacon
-	 **/
-	public function action_update_check()
-	{
-		Update::add( 'SubPages', 'c6a39795-d5cb-4042-b05b-9666825b1bb4',  $this->info->version );
-	}
-
+	 * Show help text
+	 */
 	public function help()
 	{
 		return <<< END_HELP
 <p>To output subpages in a page, insert this code where you want them linked from:</p>
 <blockquote><code>&lt;?php \$theme-&gt;subpages( \$post ); ?&gt;</code></blockquote>
-<p>The default theme inserts a link to each subpage.  If you want to alter
+<p>The default theme inserts a link to each subpage. If you want to alter
 this, you should copy the <tt>subpages.php</tt> template included with this
 plugin to your current theme directory and make changes to it there.</p>
 END_HELP;
@@ -244,7 +239,7 @@ END_HELP;
 	/**
 	 * Change the page rewrite rule to validate ancestors
 	 * @param Array $rules Current rewrite rules
-	 **/
+	 */
 	public function filter_rewrite_rules( $rules )
 	{
 		foreach ( $rules as $rule ) {
@@ -264,7 +259,7 @@ END_HELP;
 	 * @param RewriteRule $rule The matched rewrite rule
 	 * @param string The URL stub requested
 	 * @param array $params Some stuff
-	 **/
+	 */
 	public static function rewrite_match_subpage( $rule, $stub, $params )
 	{
 		// TODO Is there any way to get these apart from rematching ?
@@ -291,7 +286,7 @@ END_HELP;
 	/**
 	 * Rewrite a post's permalink if it's a subpage
 	 * @param Array $rules Current rewrite rules
-	 **/
+	 */
 	public function filter_post_permalink( $permalink, $post )
 	{
 		if ( $post->content_type == Post::type( self::$content_type ) ) {

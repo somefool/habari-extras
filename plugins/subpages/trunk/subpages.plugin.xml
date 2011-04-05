@@ -6,7 +6,8 @@
 	<author url="http://habariproject.org/">The Habari Community</author>
 	<author url="http://twofishcreative.com/">Michael C. Harris</author>
 	<version>0.2</version>
-	<description><![CDATA[Lets you define parent pages, so you can create an arbitrary page hierarchy. WARNING: This plugin is experimental and based on an unstable Habari API. Do not use in production. (Though if you wanted to test it and let report how it breaks, that would be grand :)]]></description>
+	<guid>c6a39795-d5cb-4042-b05b-9666825b1bb4</guid>
+	<description><![CDATA[Lets you define parent pages, so you can create an arbitrary page hierarchy.]]></description>
 	<copyright>2009</copyright>
 </pluggable>
  
