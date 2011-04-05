@@ -26,24 +26,17 @@ class Aligned extends Theme
 		$this->add_template('formcontrol_text', dirname(__FILE__).'/forms/formcontrol_text.php', true);
 		$this->add_template('formcontrol_textarea', dirname(__FILE__).'/forms/formcontrol_textarea.php', true);
 
-		$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
-		$this->assign('recent_posts', Posts::get( array('limit'=>5, 'orderby'=>'pubdate DESC', 'content_type'=>1, 'status'=>2 ) ) );
-		if( !$this->template_engine->assigned( 'pages' ) ) {
-			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
-		}
-		if( !$this->template_engine->assigned( 'user' ) ) {
-			$this->assign('user', User::identify() );
-		}
-		if( !$this->template_engine->assigned( 'page' ) ) {
-			$page = Controller::get_var( 'page' );
-			$this->assign('page', isset( $page ) ? $page : 1 );
+		$this->recent_comments = Comments::get( array('limit' => 5, 'status' => Comment::STATUS_APPROVED, 'orderby' => 'date DESC' ) );
+		$this->recent_posts = Posts::get( array('limit' => 5, 'orderby' => 'pubdate DESC', 'content_type' => Post::type('entry'), 'status' => Post::status('published') ) );
+		if ( !$this->template_engine->assigned( 'pages' ) ) {
+			$this->pages = Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) );
 		}
 		parent::add_template_vars();
 	}
 
 	public function filter_theme_call_header( $return, $theme )
 	{
-		if ( User::identify() != FALSE ) {
+		if ( User::identify() != false ) {
 			Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
 		}
 		return $return;
@@ -51,7 +44,7 @@ class Aligned extends Theme
 	
 	public function theme_header_image()
 	{
-		$imglist='';
+		$imglist = '';
 		
 		mt_srand((double)microtime()*1000);
 		

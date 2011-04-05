@@ -9,7 +9,7 @@ if ( isset( $error ) && ( $error == 'Bad credentials' ) ) {
 }
 if ( $loggedin ) {
 ?>
-    <ul> 
+		<ul>
 		<li>You are logged in as <a href="<?php URL::out( 'admin', 'page=user&user=' . $user->username ) ?>" title="Edit Your Profile"><?php echo $user->username; ?></a>.</li>
 		<li>Want to <a href="<?php Site::out_url( 'habari' ); ?>/user/logout">log out</a>?</li>
 	</ul>
@@ -29,7 +29,7 @@ else {
 		</p>
 		<?php Plugins::act( 'theme_loginform_controls' ); ?>
 	</form>
-     <?php Plugins::act( 'theme_loginform_after' ); ?>
+		<?php Plugins::act( 'theme_loginform_after' ); ?>
 <?php
 }
 ?>
