@@ -5,7 +5,7 @@
 		<div class="post_content">
 			<?php echo $post->content_out; ?>
 		</div>
-		<p class="post_meta"><span><?php if ( is_array( $post->tags ) ) { ?>Tags: <?php echo $post->tags_out; ?> | <?php } ?><a href="<?php echo $post->permalink; ?>#comments" title="Comments to this post"><?php echo $post->comments->approved->count; ?>
+		<p class="post_meta"><span><?php if ( count( $post->tags ) ) { ?>Tags: <?php echo $post->tags_out; ?> | <?php } ?><a href="<?php echo $post->permalink; ?>#comments" title="Comments to this post"><?php echo $post->comments->approved->count; ?>
 		<?php echo _n( 'Comment', 'Comments', $post->comments->approved->count ); ?></a></span></p>
 	</div>
 	<?php include 'comments.php'; ?>
