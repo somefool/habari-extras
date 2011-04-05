@@ -1,8 +1,6 @@
 <?php
 
-define( 'THEME_CLASS', 'Unknown' );
-
-class Unknown extends Theme
+class Aligned extends Theme
 {
 
 	public function action_init_theme()
@@ -30,11 +28,6 @@ class Unknown extends Theme
 
 		$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
 		$this->assign('recent_posts', Posts::get( array('limit'=>5, 'orderby'=>'pubdate DESC', 'content_type'=>1, 'status'=>2 ) ) );
-		
-		if ( '' != Controller::get_var('tag') ) {
-		     $tag_text= DB::get_value('SELECT tag_text FROM {tags} WHERE tag_slug=?', array( Controller::get_var('tag') ) );
-		     $this->assign('tag_text', $tag_text);
-		}
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
 		}

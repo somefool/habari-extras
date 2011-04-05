@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-	<h3 class="page_title">Posts tagged with <em><?php echo $tag_text; ?></em></h3>
+	<h3 class="page_title">Posts tagged with <em><?php echo $tag; ?></em></h3>
 <?php foreach ( $posts as $post ) { ?>
 	<div class="post<?php if($post->status == 1) { echo ' draft'; } ?>" id="post-<?php echo $post->id; ?>">
 		<p class="post_date"><span><?php $post->pubdate->out(); ?> | <strong><?php echo $post->author->displayname; ?></strong></span></p>
