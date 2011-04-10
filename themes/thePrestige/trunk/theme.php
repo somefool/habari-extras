@@ -41,8 +41,9 @@ class PrestigeTheme extends Theme
 	 * template.  So the values here, unless checked, will overwrite any existing 
 	 * values.
 	 */
-	public function action_add_template_vars( $theme, $handler_vars )
+	public function add_template_vars()
 	{
+		parent::add_template_vars();
 		if( !$this->template_engine->assigned( 'pages' ) ) {
 			$this->assign('pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => true ) ) );
 		}
@@ -65,7 +66,8 @@ class PrestigeTheme extends Theme
 			$this->assign('all_tags', Tags::vocabulary()->get_tree() );
 		}
 		if( !$this->template_engine->assigned( 'all_entries' ) ) {
-			$this->assign( 'all_entries', Posts::get( array( 'content_type' => 'entry', 'status' => 'published', 'nolimit' => 1 ) ) );
+			// List of all the tags
+			$this->assign('all_entries', Posts::get( array( 'content_type' => 'entry', 'status' => 'published', 'nolimit' => 1 ) ) );
 		}
 		
 		Stack::add('template_header_javascript', Site::get_url('scripts') . "/jquery.js", 'jquery' );
@@ -151,7 +153,6 @@ class PrestigeTheme extends Theme
 	{
 		$theme->post->comment_form()->out();
 	}
-
 }
 
 ?>
