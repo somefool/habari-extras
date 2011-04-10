@@ -48,7 +48,7 @@ MESSAGE;
 			'Content-Transfer-Encoding: 8bit',
 			'From: ' . $this->mh_utf8($comment->name) . ' <' . $comment->email . '>',
 		);
-		mail ($author->email, $this->mh_utf8($title), $message, implode("\r\n", $headers));
+		mail ($author->email, $this->mh_utf8($title), $message, implode(PHP_EOL, $headers));
 	}
 }
 ?>
