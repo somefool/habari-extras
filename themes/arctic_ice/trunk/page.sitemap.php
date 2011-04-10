@@ -11,9 +11,7 @@
 	</section>
 	<section>
 	<h2>{hi:"All Posts"}</h2>
-	{hi:all_entries}
-		<p><a href="{hi:permalink}" rel="bookmark" title="{hi:title}">{hi:title}</a> ( {hi:comments.approved.count} )</p>
-	{/hi:all_entries}
+	{hi:@all_entries}
 	</section>
 </div>
 <!--end content content-->
