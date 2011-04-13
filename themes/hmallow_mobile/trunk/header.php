@@ -32,6 +32,12 @@ $('#header a#menu').click( function() {
     $('#supernavcontainer').toggle();
    });
 });
+
+$(document).ready(function() {
+$('#commentb').click( function() {
+    $('#commentarea').toggle();
+   });
+});
 </script>
 
 <?php $theme->header(); ?>

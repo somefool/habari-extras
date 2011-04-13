@@ -70,16 +70,7 @@
 	
 	<div class="clear"></div>
 	
-	<div class="navigation">
-			<?php if ( $previous= $post->descend() ): ?>
-			<div class="alignleft"> &#x2190; <a href="<?php echo $previous->permalink ?>" title="<?php echo $previous->slug ?>"><?php echo $previous->title ?></a></div>
-			<?php endif; ?>
-			<?php if ( $next= $post->ascend() ): ?>
-			<div class="alignright"><a href="<?php echo $next->permalink ?>" title="<?php echo $next->slug ?>"><?php echo $next->title ?></a> &#x2192;</div>
-			<?php endif; ?>
 
-			<div class="clear"></div>
-		</div>
 
 		
 
