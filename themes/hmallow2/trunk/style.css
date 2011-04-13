@@ -82,6 +82,90 @@ table {
 	border-spacing: 0;
 }
 
+/*
+Theme Name: hmallow2
+Theme URI: http://somefoolwitha.com
+Version: 1
+Author: Matthewm
+Author URI: http://somefoolwitha.com
+
+License: Apache Software License
+	http://groups.google.com/group/habari-dev/msg/9b98a01189093e7e
+	
+Heavily based off both the Habri themes: Habari K2 and my personal hblanc; 
+also my WordPress themes: wp-mallow and wp-mallow2.
+
+http://somefoolwitha.com/tag/mallow
+
+http://www.somefoolwitha.com/mallow_live/
+http://www.somefoolwitha.com/mallow2_live/
+http://www.somefoolwitha.com/hmallow2_live/
+
+
+http://code.google.com/p/wp-mallow/
+http://code.google.com/p/wp-mallow2/
+
+CSS Documentation: http://k2.stikipad.com/docs/show/CSS+Overview
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	color: #678191;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+.storycontent del {
+	color: #727272;
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 
 /* theme styles */
 
@@ -663,6 +747,12 @@ body#archives .entry { width:530px; }
 	padding: 0;
 }
 
+.twitter-share-button  {
+	display: block;
+	margin-top: 5px;
+}
+
+
 ul.related-tag li.related-tag-odd{
 	margin-right: 8px;
 }
@@ -1175,5 +1265,6 @@ box-shadow:0px 0px 3px rgba(0,0,0, .6);
 #page-selector a:hover {
 	color: #4377ff;
 }
+
 
 

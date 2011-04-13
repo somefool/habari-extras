@@ -19,7 +19,10 @@
 </ul></li>
 
 
-
+<?php
+	if ( User::identify()->loggedin ) { 
+	 $theme->switcher(); }
+	 ?>
 
 
 

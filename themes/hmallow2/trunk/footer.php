@@ -1,7 +1,6 @@
-
 <!-- bottom meta -->
 <div id="bottommeta">
-Choose from <a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>" title="<?php _e('Syndicate this sitw'); ?>">full feed</a> or <a href="<?php URL::out( 'atom_feed_comments' ); ?>" title="<?php _e('The latest comments to all posts'); ?>">comments feed</a>. 
+Choose from <a href="<?php URL::out( 'atom_feed', array( 'index' => '1' ) ); ?>" title="<?php _e('Syndicate this site'); ?>">full feed</a> or <a href="<?php URL::out( 'atom_feed_comments' ); ?>" title="<?php _e('The latest comments to all posts'); ?>">comments feed</a>. 
 <br />
 <a href="<?php Site::out_url( 'habari' ); ?>" title="<?php Options::out('title'); ?>"><?php Options::out('title'); ?></a> is powered by <a href="http://www.habariproject.org/" title="Powered by Habari">Habari <?php
 echo Version::get_habariversion();
@@ -18,6 +17,8 @@ Theme: <a href="http://www.somefoolwitha.com/hmallow2" title="hMallow2">hMallow2
 
 
 </div>
+
+
 
 
 <!-- http://www.somefoolwitha.com/hmallow2 Design by Matthew 

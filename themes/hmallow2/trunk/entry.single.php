@@ -39,7 +39,12 @@
 
 <div class="meta">
 	<span id="thedate"><?php echo date('j', strtotime($post->pubdate_out)); ?> <?php echo date('F', strtotime($post->pubdate_out)); ?>, <?php echo date('Y', strtotime($post->pubdate_out)); ?> <?php if ( $show_author ) { _e( '&middot; By %s', array( $post->author->displayname ) ); } ?></span> &middot; Word count: <?php echo $post->word_count; ?> &middot; <a href="http://twitter.com/home?status=<?php echo $post->title; ?>%20<?php echo $post->permalink; ?>" title="Tweet this">Tweet this</a> &middot; Related tags: <?php echo $related_tags; ?> &middot; Tagged: <?php echo $post->tags_out; ?>	
-</div>		
+	<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>	
+
+
+
+	
 <!-- Post title -->
 <?php if ( User::identify()->loggedin ) { ?>
 			        <span class="editbutton"><a href="<?php URL::out( 'admin', 'page=publish&id=' . $post->id); ?>" title="<?php _e('Edit post'); ?>"><?php _e('Edit &raquo;'); ?></a></span>
