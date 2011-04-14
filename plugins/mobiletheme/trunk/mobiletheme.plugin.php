@@ -6,7 +6,7 @@ class MobileTheme extends Plugin
 		// Detection script courtesy http://papermashup.com/lightweight-mobile-browser-detection/
 		$mobile_browser = 0;
 		
-		if(preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
+		if(preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
 			$mobile_browser++;
 		}
 		
