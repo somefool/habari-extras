@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<pluggable type="plugin">
+<pluggable type="plugin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schemas.habariproject.org/Pluggable-1.3.xsd">
 	<name>Export Snapshot</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<url>http://habariproject.org</url>
 	<author url="http://chrismeller.com/">Chris Meller</author>
 	<version>0.1</version>
+	<guid>c73d0e0f-5e8c-4eb6-b360-920440b512ce</guid>
 	<description><![CDATA[Save Exports as snapshots for easy point-in-time restores.]]></description>
 	<requires>
 		<feature url="http://wiki.habariproject.org/en/feature/blogml_export">BlogML Export</feature>

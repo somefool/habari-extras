@@ -2,12 +2,6 @@
 
 	class ExportSnapshot extends Plugin {
 		
-		public function action_update_check ( ) {
-			
-			Update::add( 'Export Snapshot', 'c73d0e0f-5e8c-4eb6-b360-920440b512ce', $this->info->version );
-			
-		}
-		
 		public function action_plugin_activation ( $file = '' ) {
 			
 			if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
