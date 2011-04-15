@@ -12,7 +12,7 @@
 				Options::set( 'exportsnapshot__frequency', 'manually' );
 				
 				// add the module
-				Modules::add( _t('Snapshots') );
+				Modules::add( _t('Snapshots', 'exportsnapshot') );
 				
 			}
 			
@@ -28,7 +28,7 @@
 				Options::delete( 'exportsnapshot__frequency' );
 				
 				// remove the module
-				Modules::remove_by_name( _t('Snapshots') );
+				Modules::remove_by_name( _t('Snapshots', 'exportsnapshot') );
 				
 				// @todo what about the snapshots option and deleting those cached items?
 				// probably an uninstall method too?
@@ -41,7 +41,7 @@
 			
 			if ( User::identify()->can( 'snapshot', 'read' ) ) {
 				
-				$modules[] = _t('Latest Snapshots');
+				$modules[] = _t('Latest Snapshots', 'exportsnapshot');
 				
 				$this->add_template( 'dash_snapshots', dirname( __FILE__ ) . '/dash_snapshots.php' );
 				
@@ -75,7 +75,7 @@
 			
 			$theme->snapshots = $s;
 			
-			$module['title'] = _t('Latest Snapshots');
+			$module['title'] = _t('Latest Snapshots', 'exportsnapshot');
 			$module['content'] = $theme->fetch('dash_snapshots');
 			
 			return $module;
@@ -89,7 +89,7 @@
 				$actions[] = _t('Configure');
 				
 				if ( User::identify()->can( 'snapshot', 'create' ) ) {
-					$actions[] = _t('Take Snapshot');
+					$actions[] = _t('Take Snapshot', 'exportsnapshot');
 				}
 				
 			}
@@ -103,11 +103,11 @@
 			if ( $plugin_id == $this->plugin_id() ) {
 				
 				$frequencies = array(
-					'manually' => _t('Manually'),
-					'hourly' => _t('Hourly'),
-					'daily' => _t('Daily'),
-					'weekly' => _t('Weekly'),
-					'monthly' => _t('Monthly'),
+					'manually' => _t('Manually', 'exportsnapshot'),
+					'hourly' => _t('Hourly', 'exportsnapshot'),
+					'daily' => _t('Daily', 'exportsnapshot'),
+					'weekly' => _t('Weekly', 'exportsnapshot'),
+					'monthly' => _t('Monthly', 'exportsnapshot'),
 				);
 				
 				switch ( $action ) {
@@ -115,9 +115,9 @@
 					case _t('Configure'):
 						
 						$ui = new FormUI( 'export' );
-						$ui->append( 'text', 'exportsnapshot_max_snapshots', 'option:exportsnapshot__max_snapshots', _t('Max Snapshots to Save:'));
+						$ui->append( 'text', 'exportsnapshot_max_snapshots', 'option:exportsnapshot__max_snapshots', _t('Max Snapshots to Save:', 'exportsnapshot'));
 						
-						$ui->append( 'select', 'exportsnapshot_freq', 'option:exportsnapshot__frequency', _t('Auto Snapshot frequency:'), $frequencies );
+						$ui->append( 'select', 'exportsnapshot_freq', 'option:exportsnapshot__frequency', _t('Auto Snapshot frequency:', 'exportsnapshot'), $frequencies );
 						
 						$ui->append( 'submit', 'save', _t( 'Save' ) );
 						$ui->on_success( array( $this, 'updated_config' ) );
@@ -129,7 +129,7 @@
 					case _t('Take Snapshot'):
 						
 						self::run( 'manual' );
-						Session::notice( _t('Snapshot saved!') );
+						Session::notice( _t('Snapshot saved!', 'exportsnapshot') );
 						
 						//CronTab::add_single_cron('snapshot_single', array( 'ExportSnapshot', 'run' ), HabariDateTime::date_create(), 'Run a single snapshot.' );
 						//Session::notice( _t( 'Snapshot scheduled for next cron run.' ) );
@@ -162,19 +162,19 @@
 					break;
 					
 				case 'hourly':
-					CronTab::add_hourly_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Hourly Export Snapshot'));
+					CronTab::add_hourly_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Hourly Export Snapshot', 'exportsnapshot'));
 					break;
 					
 				case 'daily':
-					CronTab::add_daily_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Daily Export Snapshot'));
+					CronTab::add_daily_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Daily Export Snapshot', 'exportsnapshot'));
 					break;
 					
 				case 'weekly':
-					CronTab::add_weekly_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Weekly Export Snapshot'));
+					CronTab::add_weekly_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Weekly Export Snapshot', 'exportsnapshot'));
 					break;
 					
 				case 'monthly':
-					CronTab::add_monthly_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Monthly Export Snapshot'));
+					CronTab::add_monthly_cron('snapshot', array( 'ExportSnapshot', 'run' ), _t('Monthly Export Snapshot', 'exportsnapshot'));
 					break;
 				
 			}
@@ -190,11 +190,11 @@
 			
 			if ( $cache == null ) {
 				// we can't export!
-				EventLog::log( _t( 'Unable to write to the cache, export failed!' ), 'critical', 'cache', 'ExportSnapshot' );
+				EventLog::log( _t( 'Unable to write to the cache, export failed!', 'exportsnapshot' ), 'critical', 'cache', 'ExportSnapshot' );
 				
 				// if a user is running manually, also give them a session error notice
 				if ( User::identify() ) {
-					Session::error( _t( 'Unable to write to the cache, export failed!' ) );
+					Session::error( _t( 'Unable to write to the cache, export failed!', 'exportsnapshot' ) );
 				}
 				
 				return false;
@@ -225,7 +225,7 @@
 			$export = new Export();
 			$xml = $export->run();
 			
-			EventLog::log( _t( 'Export Snapshot completed!' ), 'info', 'snapshot', 'ExportSnapshot', $type );
+			EventLog::log( _t( 'Export Snapshot completed!', 'exportsnapshot' ), 'info', 'snapshot', 'ExportSnapshot', $type );
 			
 			Plugins::act('exportsnapshot_run_after');
 			
@@ -298,7 +298,7 @@
 						unset( $snapshots[ $ts ] );
 					}
 					
-					 EventLog::log( _t( 'Purged %d exports.', array( count( $old ) ) ), 'debug', 'cleanup', 'ExportSnapshot' );
+					 EventLog::log( _t( 'Purged %d exports.', array( count( $old ) ), 'exportsnapshot' ), 'debug', 'cleanup', 'ExportSnapshot' );
 					
 				}
 				
@@ -389,7 +389,7 @@
 			unset( $snapshots[ $timestamp ] );
 			
 			// write a log event
-			EventLog::log( _t( 'Export Snapshot deleted!' ), 'info', 'delete', 'ExportSnapshot' );
+			EventLog::log( _t( 'Export Snapshot deleted!', 'exportsnapshot' ), 'info', 'delete', 'ExportSnapshot' );
 			
 			// save the list
 			Options::set( 'exportsnapshot__snapshots', $snapshots );
