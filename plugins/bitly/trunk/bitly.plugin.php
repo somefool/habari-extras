@@ -10,22 +10,6 @@
 
 class Bitly extends Plugin {
 
-  public function info() {
-    return array(
-      'name' => 'Bit.ly Plugin',
-      'version' => '0.1',
-      'url' => 'http://mgdm.net/',
-      'author' => 'Michael Maclean',
-      'authorurl' => 'http://mgdm.net/',
-      'license' => 'Apache License 2.0',
-      'description' => 'Makes bit.ly short URLs for each post'
-    );
-  }
-
-  function action_update_check() {
-    Update::add( 'Bit.ly short URLs', '6C935C68-21B5-11E0-AC90-F74CE0D72085', $this->info->version ); 
-  }
-
   public function action_init() {
     $this->add_template('bitly_short_url', dirname(__FILE__) . '/bitly_short_url.php');
   }
