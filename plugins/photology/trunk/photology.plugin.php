@@ -76,7 +76,7 @@ class Photology extends Plugin
 
 	public function action_update_check()
 	{
-		Update::add( 'Photology', $this->uuid );
+		Update::add( 'Photology', $this->uuid, $this->info->version );
 	}
 
 	/**
