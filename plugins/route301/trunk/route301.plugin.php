@@ -109,16 +109,24 @@
 		 */
 		public function act( $action )
 		{
-			if ( $action === 'atom_feed' ) {
+			if ( $action == 'atom_feed' ) {
 				if ( !isset( $this->handler_vars['index'] ) ) {
 					$this->handler_vars['index'] = 1;
 				}
 				$url = URL::get( 'atom_feed', $this->handler_vars, false );
 			} else
-			if ( $action === 'display_entry' ) {
+			if ( $action == 'display_entry' ) {
 				if ( isset( $this->handler_vars['slug'] ) ) {
 					$post = Post::get( array( 'slug' => $this->handler_vars['slug'] ) );
-					$url = URL::get( 'display_entry', $post, false );
+					
+					// don't assume that a slug means a valid post
+					if ( $post !== false ) {
+						$url = URL::get( 'display_entry', $post, false );
+					}
+					else {
+						$url = URL::get( 'display_404', $this->handler_vars->getArrayCopy(), false );
+					}
+					
 				} else {
 					$post = Post::get( $this->handler_vars->getArrayCopy() );
 					if ( $post !== false ) {
@@ -130,6 +138,7 @@
 			} else {
 				$url = URL::get( $action, $this->handler_vars->getArrayCopy(), false );
 			}
+			
 			header( 'Location: ' . $url, true, 301 );
 		}
 
