@@ -139,11 +139,11 @@ p.nocomment {}
 #comment-notes,p.nocomment {margin: 5px 0;}
 #comment-notes em {font-weight: bold;font-style: normal;}
 .required {color: red;}
-#respond .form-label {clear: left;margin-top: 7px; width: 80px; float: left; font-weight: bold; vertical-align: middle;text-align: left;}
+#respond label {clear: left;margin-top: 7px; width: 80px; float: left; font-weight: bold; vertical-align: middle;text-align: left;}
 .form-textarea {float: left;}
-#respond textarea, .form-input input {padding: 2px; margin-top: 5px; width: 280px;font-size: 12px;font-family: "Lucida Grande","Lucida Sans Unicode", helvetica, verdana, arial, sans-serif;}
+#respond textarea, input[type='text'] {padding: 2px; margin-top: 5px; width: 280px;font-size: 12px;font-family: "Lucida Grande","Lucida Sans Unicode", helvetica, verdana, arial, sans-serif;}
 #respond textarea {width: 440px;height: 100px;padding: 2px;line-height: 150%;}
-.form-submit {padding: 5px 0 0 80px;clear: left;}
+#respond #cf_submit {padding: 5px 0 0 80px;clear: left;}
 .form-submit span {margin-left: 10px;}
 
 #generator-link {left: 20px;bottom: -85px;position: absolute;}

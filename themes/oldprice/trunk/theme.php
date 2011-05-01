@@ -269,6 +269,16 @@ class oldpriceTheme extends Theme
 		return $h1;
 	}
 
+	public function action_form_comment( $form ) {
+		$form->append('static', 'cf_mailnote', '<p id="comment-notes">' . _t('Mail will not be published') . '</p>');
+		$form->move_before( $form->cf_mailnote, $form->cf_commenter );
+		$required_flag = " *";
+		$required = Options::get('comments_require_id');
+		$form->cf_commenter->caption = 'Name' . ($required ? $required_flag : '');
+		$form->cf_email->caption = 'Mail' . ($required ? $required_flag : '');
+	}
+
+
 }
 
 ?>

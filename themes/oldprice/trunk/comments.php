@@ -64,5 +64,5 @@ if ( $post->comments->moderated->count ) {
 <?php } else { ?>
 	<p class="nocomment"><?php _e('There are currently no comments.'); ?></p>
 <?php }
- if ( ! $post->info->comments_disabled ) { include_once( 'commentform.php' ); } ?>
+	if ( ! $post->info->comments_disabled ) { include_once( 'commentform.php' ); } ?>
 </div><!-- #comments -->
