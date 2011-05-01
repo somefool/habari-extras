@@ -20,7 +20,7 @@
 		</h2>
 		<div class="entry-meta">
 			<?php if ( $show_author ) { ?><span class="author"><?php _e('by'); ?> <?php echo $post->author->displayname; ?></span><span class="meta-sep">|</span><?php } ?>
-			<?php if ( $user ) { ?>
+			<?php if ( $post->get_access()->edit ) { ?>
 			        <span class="edit-link"><a href="<?php URL::out( 'admin', 'page=publish&slug=' . $post->slug); ?>" title="<?php _e('Edit post'); ?>"><?php _e('Edit'); ?></a></span>
 					<span class="meta-sep">|</span>
 			<?php } ?>

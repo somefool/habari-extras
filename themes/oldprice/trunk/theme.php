@@ -107,9 +107,6 @@ class oldpriceTheme extends Theme
 		if( ! $this->assigned( 'pages' ) ) {
 			$this->assign( 'pages', Posts::get( array( 'content_type' => 'page', 'status' => Post::status('published'), 'nolimit' => 1 ) ) );
 		}
-		if( ! $this->assigned( 'user' ) ) {
-			$this->assign( 'user', User::identify() );
-		}
 		if( ! $this->assigned( 'recent_comments' ) ) {
 			$this->assign( 'recent_comments', Comments::get( array('limit'=>10, 'status'=>Comment::STATUS_APPROVED, 'type'=>Comment::COMMENT, 'orderby'=>'date DESC' ) ) );
 		}
@@ -207,22 +204,22 @@ class oldpriceTheme extends Theme
 			$date_string.= array_key_exists('year', $this->matched_rule->named_arg_values) ? $this->matched_rule->named_arg_values['year'] : '' ;
 			$date_string.= array_key_exists('month', $this->matched_rule->named_arg_values) ? '‒' . $this->matched_rule->named_arg_values['month'] : '' ;
 			$date_string.= array_key_exists('day', $this->matched_rule->named_arg_values) ? '‒' . $this->matched_rule->named_arg_values['day'] : '' ;
-			$title= sprintf(_t('%1$s &raquo; Chronological Archives of %2$s'), $date_string, Options::get('title'));
+			$title= _t('%1$s &raquo; Chronological Archives of %2$s', array($date_string, Options::get('title')));
 		}
 		else
 		if ($this->request->display_entries_by_tag && array_key_exists('tag', $this->matched_rule->named_arg_values)) {
 			//$tag = (count($this->posts) > 0) ? $this->posts[0]->tags[$this->matched_rule->named_arg_values['tag']] : $this->matched_rule->named_arg_values['tag'] ;
 			$tag = $this->matched_rule->named_arg_values['tag'];
-			$title= sprintf(_t('%1$s &raquo; Taxonomic Archives of %2$s'), htmlspecialchars($tag), Options::get('title'));
+			$title= _t('%1$s &raquo; Taxonomic Archives of %2$s', array(htmlspecialchars($tag), Options::get('title')));
 		}
 		else
 		if (($this->request->display_entry || $this->request->display_page) && isset($this->posts)) {
-			$title= sprintf(_t('%1$s &raquo; %2$s'), strip_tags($this->posts->title), Options::get('title'));
+			$title= _t('%1$s &raquo; %2$s', array(strip_tags($this->posts->title), Options::get('title')));
 		}
 /*
 		else
 		if ($this->request->display_search && array_key_exists('criteria', $this->matched_rule->named_arg_values)) {
-			$title= sprintf(_t('%1$s &raquo; Search Results of %2$s'), htmlspecialchars($this->matched_rule->named_arg_values['criteria']), Options::get('title'));
+			$title= _t('%1$s &raquo; Search Results of %2$s', array(htmlspecialchars($this->matched_rule->named_arg_values['criteria']), Options::get('title')));
 		}
 */
 		else
@@ -231,7 +228,7 @@ class oldpriceTheme extends Theme
 		}
 
 		if ($this->page > 1) {
-			$title= sprintf(_t('%1$s &rsaquo; Page %2$s'), $title, $this->page);
+			$title= _t('%1$s &rsaquo; Page %2$s', array($title, $this->page));
 		}
 
 		return $title;
@@ -246,16 +243,16 @@ class oldpriceTheme extends Theme
 			$date_string.= array_key_exists('year', $this->matched_rule->named_arg_values) ? $this->matched_rule->named_arg_values['year'] : '' ;
 			$date_string.= array_key_exists('month', $this->matched_rule->named_arg_values) ? '‒' . $this->matched_rule->named_arg_values['month'] : '' ;
 			$date_string.= array_key_exists('day', $this->matched_rule->named_arg_values) ? '‒' . $this->matched_rule->named_arg_values['day'] : '' ;
-			$h1= '<h2 class="page-title">' . sprintf(_t('Posts written in %s'), $date_string) . '</h2>';
+			$h1= '<h2 class="page-title">' . _t('Posts written in %s', array($date_string)) . '</h2>';
 		}
 		if ($this->request->display_entries_by_tag && array_key_exists('tag', $this->matched_rule->named_arg_values)) {
 			//$tag = (count($this->posts) > 0) ? $this->posts[0]->tags[$this->matched_rule->named_arg_values['tag']] : $this->matched_rule->named_arg_values['tag'] ;
 			$tag = $this->matched_rule->named_arg_values['tag'] ;
-			$h1 = '<h2 class="page-title">' . sprintf(_t('Posts tagged with %s'), htmlspecialchars($tag)) . '</h2>';
+			$h1 = '<h2 class="page-title">' . _t('Posts tagged with %s', array(htmlspecialchars($tag))) . '</h2>';
 		}
 
 		if ($this->request->display_search && isset($criteria)) {
-			$h1 = '<h2 class="page-title">' . sprintf(_t('Search results for “%s”'), $criteria) . '</h2>';
+			$h1 = '<h2 class="page-title">' . _t('Search results for “%s”', array($criteria)) . '</h2>';
 		}
 
 		return $h1;

@@ -9,7 +9,7 @@
       <?php echo $post->content_out; ?>
 
      </div>
-	<?php if ( $user ) { ?>
+	<?php if ( $post->get_access()->edit ) { ?>
 	       <div class="entry-meta"><a href="<?php URL::out( 'admin', 'page=publish&slug=' . $post->slug); ?>" title="<?php _e('Edit post'); ?>"><?php _e('Edit'); ?></a></div>
 	<?php } ?>
     </div>
