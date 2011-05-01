@@ -124,24 +124,21 @@ class oldpriceTheme extends Theme
 	/**
 	 * Returns an unordered list of all used Tags
 	 */
-	public function theme_show_tags ( $theme )
+	public function theme_show_tags( $theme )
 	{
-		$sql="
-			SELECT t.tag_slug AS slug, t.tag_text AS text, count(tp.post_id) as ttl
-			FROM {tags} t
-			INNER JOIN {tag2post} tp
-			ON t.id=tp.tag_id
-			INNER JOIN {posts} p
-			ON p.id=tp.post_id AND p.status = ?
-			GROUP BY t.tag_slug
-			ORDER BY t.tag_text
-		";
-		$tags= DB::get_results( $sql, array(Post::status('published')) );
+		// List of all the tags
+		$tags = DB::get_results('
+			SELECT t.id AS id, t.term_display AS tag, t.term AS slug
+			FROM {terms} t
+			LEFT JOIN {object_terms} tp ON t.id=tp.term_id
+			INNER JOIN {posts} p ON p.id=tp.object_id AND p.status = ?
+			WHERE t.vocabulary_id = ?
+			GROUP BY slug
+			ORDER BY tag ASC',
+			array( Post::status('published'), Tags::vocabulary()->id )
+		);
 
-		foreach ($tags as $index => $tag) {
-			$tags[$index]->url = URL::get( 'display_entries_by_tag', array( 'tag' => $tag->slug ) );
-		}
-		$theme->taglist = $tags;
+		$this->taglist = $tags;
 		
 		return $theme->fetch( 'taglist' );
 	}
