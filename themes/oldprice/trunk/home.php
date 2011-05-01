@@ -32,7 +32,7 @@
 			        <span class="edit-link"><a href="<?php URL::out( 'admin', 'page=publish&slug=' . $post->slug); ?>" title="<?php _e('Edit post'); ?>"><?php _e('Edit'); ?></a></span>
 					<span class="meta-sep">|</span>
 			<?php } ?>
-			<?php if ( is_array( $post->tags ) ) { ?>
+			<?php if ( count( $post->tags ) ) { ?>
 			        <span class="tag-links"><?php _e('Tagged:'); ?> <?php echo $post->tags_out; ?></span>
 					<span class="meta-sep">|</span>
 			<?php } ?>

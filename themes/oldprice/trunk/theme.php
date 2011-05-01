@@ -145,21 +145,16 @@ class oldpriceTheme extends Theme
 	
 	public function filter_post_tags_class( $tags )
 	{
-		if (! is_array($tags))
-			$tags = array ($tags);
-		return count($tags) > 0 ? 'tag-' . implode(' tag-', array_keys($tags)) : 'no-tags';
-	}
-	
-	public function filter_post_tags_type( $tags )
-	{
-		$entry_type = array('entry',Options::get($this->class_name . '__entry_type_link'),Options::get($this->class_name . '__entry_type_msg'),Options::get($this->class_name . '__entry_type_photo'),Options::get($this->class_name . '__entry_type_video'));
-		$types = "entry";
-		if ( ! is_array( $tags ) )
-			$tags = array ( $tags );
-		foreach ($tags as $key => $value) {
-			if(array_search($key,$entry_type)) $types = $key;
+		$class = '';
+		foreach ( $tags as $tag ) {
+			$class .= " tag-{$tag->term}";
 		}
-		return $types;
+
+		if ( $class == '' ) {
+			$class = 'no-tags';
+		}
+
+		return $class;
 	}
 
 	public function theme_body_class($theme)
