@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Browserupdate</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://konzertheld.de/">Christian Gredig</author>
+	<version>0.1</version>
+	<description><![CDATA[Inserts the Javascript from http://browser-update.org.]]></description>
+	<copyright>2011</copyright>
+</pluggable>
