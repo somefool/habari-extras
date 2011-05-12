@@ -1,0 +1,38 @@
+#header {
+	position: absolute;
+}
+#menu,
+.entry-date,
+.comments ol li .gravatar,
+.sidebar ul.xoxo li#widget-twitterbox ul li.write {
+	background: none;
+}
+#wrapper_top {
+	background-image: url(i/wrapper_top.gif);
+}
+#wrapper {
+	background-image: url(i/wrapper_bg.gif);
+}
+#wrapper_footer {
+	background-image: url(i/wrapper_footer_ie.png);
+}
+#menu {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/user/themes/oldprice/i/menu_top.png',sizingMethod='crop');
+}
+.entry-date,
+.comments ol li .gravatar {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/user/themes/oldprice/i/avatar.png',sizingMethod='crop');
+}
+.sidebar ul.xoxo li.widget {
+	background-image: url(i/side_footer_ie.png);
+}
+.sidebar ul.xoxo li.widget h3 {
+	background-image: url(i/side_top_ie.png);
+}
+.sidebar ul.xoxo li.widget ul {
+	background-image: url(i/side_bg.gif);
+	height: 1%;
+}
+.sidebar ul.xoxo li#widget-twitterbox ul li.write {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/user/themes/oldprice/i/twitter.png',sizingMethod='crop');
+}
