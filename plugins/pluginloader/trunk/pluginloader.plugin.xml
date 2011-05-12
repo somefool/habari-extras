@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Plugin Loader</name>
+	<author url="http://asymptomatic.net/">Owen Winkler</author>
+	<version>0.1</version>
+	<url>http://redalt.com/habari/plugins/pluginloader</url>
+	<description><![CDATA[Provides a method to list plugins and install them remotely.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<copyright>2009</copyright>
+	<guid>7dc496e5-1bf0-4e84-afa5-6d8a13973b52</guid>
+	<help><value><![CDATA[
+	On the plugins admin page, look at the bottom for a list of downloadable plugins.
+	]]></value></help>
+</pluggable> 
+ 
