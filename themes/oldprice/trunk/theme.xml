@@ -7,5 +7,5 @@
 	<guid>a711e947-654c-4e39-a8ab-9a2f16386614</guid>
 	<template_engine>rawphpengine</template_engine>
   <description>oldprice theme for Habari.</description>
-	<license url="http://www.apache.org/licenses/ALICENSE-2.0.html">Apache Software License 2.0</license> 
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license> 
 </pluggable>
