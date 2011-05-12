@@ -92,9 +92,9 @@ div#primary {padding-top: 40px;}
 
 /* paged */
 .page-title {padding: 0;margin: 10px 0 15px 0;text-align: center;text-shadow: #444 1px 1px 10px;}
-body.page .entry-title,body.four04 .entry-title {text-align: center;}
-body.page .entry-content,body.page .entry-meta,body.four04 .entry-content {margin-left: 0;}
-body.four04 .entry-content {text-align: center;}
+body.page .entry-title,body.display_404 .entry-title {text-align: center;}
+body.page .entry-content,body.page .entry-meta,body.display_404 .entry-content {margin-left: 0;}
+body.display_404 .entry-content {text-align: center;}
 
 /* sidebar */
 .sidebar ul.xoxo {margin-left: -4px;}

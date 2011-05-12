@@ -17,7 +17,7 @@
 <!-- Special thanks to Diagona Icons by Yusuke,they are really nice. -->
 </head>
 
-<body<?php $theme->body_class(); ?>>
+<body class="<?php $theme->body_class(); ?>">
 	<div id="header">
 		<h1 id="blog-title"><span><a href="<?php Site::out_url( 'habari' ); ?>"><?php Options::out( 'title' ); ?></a></span></h1>
 		<div id="blog-description"><?php Options::out( 'tagline' ); ?></div>

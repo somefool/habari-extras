@@ -153,47 +153,6 @@ class oldpriceTheme extends Theme
 		return $class;
 	}
 
-	public function theme_body_class($theme)
-	{
-		// Assigning <body> class(es)
-		$body_class = array();
-		if ( $this->request->display_home ) {
-			$body_class[] = 'home';
-			$body_class[] = 'multiple';
-		}
-		if ( $this->request->display_entries ) {
-			$body_class[] = 'multiple';
-		}
-		if ( $this->request->display_entries_by_date ) {
-			$body_class[] = 'date-archive';
-			$body_class[] = 'archive';
-			$body_class[] = 'multiple';
-		}
-		if ( $this->request->display_entries_by_tag ) {
-			$body_class[] = 'tag-archive';
-			$body_class[] = 'archive';
-			$body_class[] = 'multiple';
-		}
-		if ( $this->request->display_entry || $this->request->display_page ) {
-			$post_type_name = Post::type_name($this->posts->content_type);
-			$body_class[] =  $post_type_name . '-' . $this->posts->slug;
-			$body_class[] =  $post_type_name;
-			$body_class[] = 'single';
-		}
-		if ( $this->request->display_search ) {
-			$body_class[] = 'search';
-			$body_class[] = 'multiple';
-		}
-		if ( $this->request->display_404 ) {
-			$body_class[] = 'four04';
-		}
-
-		//Get unique items
-		$body_class = array_flip(array_flip($body_class));
-
-		return count($body_class) > 0 ? ' class="' . implode(' ', $body_class) . '"' : '';
-	}
-
 	public function theme_title($theme)
 	{
 		$title = '';
