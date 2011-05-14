@@ -10,6 +10,7 @@
 				
 				// save the default options
 				Options::set( 'exportsnapshot__frequency', 'manually' );
+				Options::set( 'exportsnapshot__type', 'blogml' );
 				
 				// add the module
 				Modules::add( _t('Snapshots', 'exportsnapshot') );
@@ -26,6 +27,7 @@
 				
 				// wipe out the default options we added
 				Options::delete( 'exportsnapshot__frequency' );
+				Options::delete( 'exportsnapshot__type' );
 				
 				// remove the module
 				Modules::remove_by_name( _t('Snapshots', 'exportsnapshot') );
@@ -110,6 +112,11 @@
 					'monthly' => _t('Monthly', 'exportsnapshot'),
 				);
 				
+				$types = array(
+					'blogml' => _t('BlogML', 'exportsnapshot'),
+					'wxr' => _t('WXR', 'exportsnapshot'),
+				);
+				
 				switch ( $action ) {
 					
 					case _t('Configure'):
@@ -118,6 +125,7 @@
 						$ui->append( 'text', 'exportsnapshot_max_snapshots', 'option:exportsnapshot__max_snapshots', _t('Max Snapshots to Save:', 'exportsnapshot'));
 						
 						$ui->append( 'select', 'exportsnapshot_freq', 'option:exportsnapshot__frequency', _t('Auto Snapshot frequency:', 'exportsnapshot'), $frequencies );
+						$ui->append( 'select', 'exportsnapshot_type', 'option:exportsnapshot__type', _t('Type of export:', 'exportsnapshot'), $types );
 						
 						$ui->append( 'submit', 'save', _t( 'Save' ) );
 						$ui->on_success( array( $this, 'updated_config' ) );
@@ -222,8 +230,10 @@
 				$type = 'cron';
 			}
 			
+			$export_type = Options::get( 'exportsnapshot__type', 'blogml' );
+			
 			$export = new Export();
-			$xml = $export->run();
+			$xml = $export->run( false, $export_type );
 			
 			EventLog::log( _t( 'Export Snapshot completed!', 'exportsnapshot' ), 'info', 'snapshot', 'ExportSnapshot', $type );
 			
