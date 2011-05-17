@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Relatively Popular Posts</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="http://www.bencarpenter.co.uk/">Ben Carpenter</author>
+	<url>http://www.bencarpenter.co.uk/relativelypopular</url>
+	<version>1.0</version>
+	<description><![CDATA[Track views of individual entries over a rolling time period, and allow the display of most the frequently accessed entries.]]></description>
+	<copyright>2011</copyright>
+	<help>
+		<value><![CDATA[<p>Once activated, this plugin stores and updates a view count for individual posts,
+				on a rolling basis of a configurable number of days (default: 30) and can be configured to 
+				count only users who are not logged in.</p>
+				<p>This plugin is similar in many respects to the Popular Posts plugin.</p>]]></value>
+	</help>
+	<guid>5DCB6D74-80BA-11E0-BCA2-D1284924019B</guid>
+</pluggable>
+ 
