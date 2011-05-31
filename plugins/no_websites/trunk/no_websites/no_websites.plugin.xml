@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>No Websites (on Comments)</name>
+	<url>http://habariproject.org/habari-extras/</url>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<version>1.0</version>
+	<description><![CDATA[Marks comments with Websites as spam.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<guid>3b28ff00-8c50-4356-a052-54e0cb3666c6</guid>
+</pluggable>
