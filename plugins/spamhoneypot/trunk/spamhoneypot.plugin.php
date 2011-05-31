@@ -8,7 +8,7 @@
  */
 class SpamHoneyPot extends Plugin
 {
-	/** 
+	/**
 	 * Register the new textarea template
 	 *
 	 */
@@ -22,7 +22,7 @@ class SpamHoneyPot extends Plugin
 	 * @return the form
 	 */
 	public function action_form_comment( $form, $context = 'public' ) {
-		
+
 		$second_textarea = $form->append( 'text','more_content','null:null', _t( 'stuff here' ) );
 		$second_textarea->template = 'honeypot_text';
 
@@ -50,18 +50,16 @@ class SpamHoneyPot extends Plugin
 			$spamcheck[] = _t('Caught by the honeypot');
 		}
 
+		// store spamcheck reason
+		if ( isset( $comment->info->spamcheck ) && is_array( $comment->info->spamcheck ) ) {
+			$comment->info->spamcheck = array_unique( array_merge( $comment->info->spamcheck, $spamcheck ) );
+		}
+		else {
+			$comment->info->spamcheck = $spamcheck;
+		}
+
 		return $spam_rating;
 	}
-	
-
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-	 	Update::add( 'Spam Honeypot', '7dc5c83b-d4ec-4cc8-b65a-bd4139685bb4', $this->info->version );
-	}
-
 }
 
 ?>

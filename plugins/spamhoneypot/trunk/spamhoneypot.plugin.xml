@@ -6,5 +6,5 @@
 	<version>1.1</version>
 	<description><![CDATA[Entraps spammers with a honeypot comment field.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<guid>7dc5c83b-d4ec-4cc8-b65a-bd4139685bb4</guid>
 </pluggable>
-
