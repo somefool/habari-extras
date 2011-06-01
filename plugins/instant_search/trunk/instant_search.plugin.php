@@ -2,11 +2,6 @@
 
 class InstantSearch extends Plugin
 {
-	public function action_update_check()
-	{
-	 	Update::add( $this->info->name, $this->info->guid, $this->info->version );
-	}
-
 	/**
 	 * Register the template.
 	 **/
