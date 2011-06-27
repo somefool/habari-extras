@@ -14,6 +14,18 @@ class HabariImport extends Plugin implements Importer
 	const TYPE_SQLITE = 1;
 	const TYPE_PGSQL = 2;
 
+	private $default_values = array(
+		'db_type' => self::TYPE_MYSQL,
+		'db_name' => '',
+		'db_host' => 'localhost',
+		'db_user' => '',
+		'db_pass' => '',
+		'db_prefix' => 'habari_',
+		'warning' => '',
+		'tag_import' => 1,
+		'import_index' => 0.
+	 );
+
 	/**
 	 * Initialize plugin.
 	 * Set the supported importers.
@@ -55,14 +67,12 @@ class HabariImport extends Plugin implements Importer
 		// Validate input from various stages...
 		switch( $stage ) {
 		case 1:
-			if( count( $_POST ) ) {
+			if( isset( $_POST['habimport'] ) ) {
 				$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix', 'tag_import' );
-				foreach ( $inputs as $key => $value ) {
-					$$key = $value;
-				}
+				$inputs = $inputs->getArrayCopy();
 
-				$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
-				if( $this->hab_connect( $connect_string, $db_user, $db_pass, $db_prefix ) ) {
+				$connect_string = $this->get_connect_string( $inputs['db_type'], $inputs['db_host'], $inputs['db_name'] );
+				if( $this->hab_connect( $connect_string, $inputs['db_user'], $inputs['db_pass'], $inputs['db_prefix'] ) ) {
 					$stage = 2;
 				}
 				else {
@@ -93,20 +103,11 @@ class HabariImport extends Plugin implements Importer
 	 */
 	private function stage1( $inputs )
 	{
-		$default_values = array(
-			'db_type' => self::TYPE_MYSQL,
-			'db_name' => '',
-			'db_host' => 'localhost',
-			'db_user' => '',
-			'db_pass' => '',
-			'db_prefix' => 'habari_',
-			'warning' => '',
-			'tag_import' => 1,
-		 );
-		$inputs = array_merge( $default_values, $inputs );
-		extract( $inputs );
-		if( $warning != '' ) {
-			$warning = "<p class=\"warning\">{$warning}</p>";
+		$warning = '';
+
+		$inputs = array_merge( $this->default_values, $inputs );
+		if( $inputs['warning'] != '' ) {
+			$warning = "<p class=\"warning\">{$inputs['warning']}</p>";
 		}
 		$output = <<< HAB_IMPORT_STAGE1
 			<p>Habari will attempt to import from another Habari Database.</p>
@@ -121,19 +122,19 @@ class HabariImport extends Plugin implements Importer
 				</span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_name">Database Name</label></span><span class="pct40"><input type="text" name="db_name" value="{$db_name}" tab index="4"></span>
+				<span class="pct25"><label for="db_name">Database Name</label></span><span class="pct40"><input type="text" name="db_name" value="{$inputs['db_name']}" tab index="4"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_host">Database Host</label></span><span class="pct40"><input type="text" name="db_host" value="{$db_host}" tab index="5"></span>
+				<span class="pct25"><label for="db_host">Database Host</label></span><span class="pct40"><input type="text" name="db_host" value="{$inputs['db_host']}" tab index="5"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_user">Database User</label></span><span class="pct40"><input type="text" name="db_user" value="{$db_user}" tab index="6"></span>
+				<span class="pct25"><label for="db_user">Database User</label></span><span class="pct40"><input type="text" name="db_user" value="{$inputs['db_user']}" tab index="6"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_pass">Database Password</label></span><span class="pct40"><input type="password" name="db_pass" value="{$db_pass}" tab index="7"></span>
+				<span class="pct25"><label for="db_pass">Database Password</label></span><span class="pct40"><input type="password" name="db_pass" value="{$inputs['db_pass']}" tab index="7"></span>
 			</div>
 			<div class="item clear">
-				<span class="pct25"><label for="db_prefix">Table Prefix</label></span><span class="pct40"><input type="text" name="db_prefix" value="{$db_prefix}" tab index="8"></span>
+				<span class="pct25"><label for="db_prefix">Table Prefix</label></span><span class="pct40"><input type="text" name="db_prefix" value="{$inputs['db_prefix']}" tab index="8"></span>
 			</div>
 			<div class="item clear">
 				<span class="pct25"><label for="tag_import">Import Tags</label></span><span class="pct40"><input type="checkbox" name="tag_import" value="1" checked></span>
@@ -143,8 +144,8 @@ class HabariImport extends Plugin implements Importer
 				<input type="hidden" name="stage" value="1">
 			</div>
 			<div
-			<div class="container transparent"
-				<input type="submit" class="button" name="import" value="Import" />
+			<div class="container transparent">
+				<input type="submit" class="button" name="habimport" value="Import" />
 			</div>
 HAB_IMPORT_STAGE1;
 		return $output;
@@ -159,42 +160,15 @@ HAB_IMPORT_STAGE1;
 	 */
 	private function stage2( $inputs )
 	{
-		$inputs = $inputs->filter_keys(  'db_type', 'db_name','db_host','db_user','db_pass','db_prefix', 'tag_import'  );
-		foreach ( $inputs as $key => $value ) {
-			$$key = $value;
-		}
+		$inputs = array_merge($this->default_values, $inputs );
 
-		if ( ! isset( $tag_import ) ) {
-			$tag_import = 0;
-		}
 		$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_users' ) );
-		EventLog::log( sprintf( _t('Starting import from "%s"'), $db_name ) );
+		EventLog::log( sprintf( _t('Starting import from "%s"'), $inputs['db_name'] ) );
 		Options::set( 'import_errors', array() );
 
-		$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $inputs['db_pass'], 'prefix' => $db_prefix ) );
-
-		$output = <<< HAB_IMPORT_STAGE2
-		<p>Import In Progress</p>
-		<div id="import_progress">Starting Import...</div>
-		<script type="text/javascript">
-		// A lot of ajax stuff goes here.
-		$( document ).ready( function(){
-			$( '#import_progress' ).load(
-				"{$ajax_url}",
-				{
-					db_type: "{$db_type}",
-					db_host: "{$vars['host']}",
-					db_name: "{$vars['name']}",
-					db_user: "{$vars['user']}",
-					db_pass: "{$vars['pass']}",
-					db_prefix: "{$vars['prefix']}",
-					tag_import: "{$tag_import}",
-					userindex: 0
-				}
-			 );
-		} );
-		</script>
-HAB_IMPORT_STAGE2;
+		$output = "<p>Import In Progress</p>";
+		$output .= '<div id="import_progress">Starting Import...</div>';
+		$output .= $this->get_ajax( $ajax_url, $inputs );
 		return $output;
 	}
 
@@ -236,6 +210,98 @@ HAB_IMPORT_STAGE2;
 		return $connect_string;
 	}
 
+	private function get_ajax( $url, $vars = array() )
+	{
+		// generate the vars we'll use
+		$ajax_vars = array();
+		foreach ( $vars as $k => $v ) {
+			$ajax_vars[] = $k . ': "' . Utils::addslashes( $v ) . '"';
+		}
+		$ajax_vars = implode( ',', $ajax_vars );
+
+		$output = <<< OUTPUT_AJAX
+			<script type="text/javascript">
+				$(document).ready( function() {
+					$('#import_progress').load(
+						"{$url}",
+						{
+							{$ajax_vars}
+						}
+					);
+				} );
+			</script>
+OUTPUT_AJAX;
+		return $output;
+	}
+
+	/**
+	 * The plugin sink for the auth_ajax_hab_import_users hook.
+	 * Responds via authenticated ajax to requests for user importing.
+	 *
+	 * @param mixed $handler
+	 * @return
+	 */
+	public function action_auth_ajax_hab_import_users( $handler )
+	{
+		$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','userindex', 'tag_import' );
+		$inputs = $inputs->getArrayCopy( $inputs );
+		$inputs = array_merge( $this->default_values, $inputs );
+
+		$connect_string = $this->get_connect_string( $inputs['db_type'], $inputs['db_host'], $inputs['db_name'] );
+		$db = $this->hab_connect( $connect_string, $inputs['db_user'], $inputs['db_pass'] );
+
+		if( !$db ) {
+			EventLog::log(sprintf(_t('Failed to import from "%s"'), $inputs['db_name']), 'crit');
+			Session::error( $e->getMessage() );
+			echo '<p>'._t( 'Failed to connect using the given database connection details.' ).'</p>';
+		}
+
+		DB::begin_transaction();
+		$new_users = $db->get_results(
+			"SELECT username, password, email, {$inputs['db_prefix']}users.id as old_id
+				FROM {$inputs['db_prefix']}users
+				INNER JOIN {$inputs['db_prefix']}posts ON {$inputs['db_prefix']}posts.user_id = {$inputs['db_prefix']}users.id
+				GROUP BY {$inputs['db_prefix']}users.id",
+			array(),
+			'User'
+		);
+		$usercount = 0;
+		_e('<p>Importing users...</p>');
+
+		foreach($new_users as $user) {
+			$habari_user = User::get_by_name($user->username);
+			// If username exists
+			if($habari_user instanceof User) {
+				$habari_user->info->old_id = $user->old_id;
+				$habari_user->update();
+			}
+			else {
+				// Add a new user
+				try {
+					$user->info->old_id = $user->old_id;
+					// This should probably remain commented until we implement ACL more,
+					// or any imported user will be able to log in and edit stuff
+					//$user->password = '{MD5}' . $user->password;
+					$user->exclude_fields( array( 'old_id' ) );
+					$user->insert();
+					$usercount++;
+				}
+				catch( Exception $e ) {
+					EventLog::log($e->getMessage(), 'err', null, null, print_r(array($user, $e), 1));
+					Session::error( $e->getMessage() );
+					$errors = Options::get('import_errors');
+					$errors[] = $user->username . ' : ' . $e->getMessage();
+					Options::set('import_errors', $errors);
+				}
+			}
+		}
+		if( DB::in_transaction()) DB::commit();
+
+		$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_posts' ) );
+		$inputs['import_index'] = 0;
+		echo $this->get_ajax( $ajax_url, $inputs );
+	}
+
 	/**
 	 * The plugin sink for the auth_ajax_hab_import_posts hook.
 	 * Responds via authenticated ajax to requests for post importing.
@@ -245,272 +311,132 @@ HAB_IMPORT_STAGE2;
 	public function action_auth_ajax_hab_import_posts( $handler )
 	{
 		$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','postindex', 'tag_import' );
-		foreach ( $inputs as $key => $value ) {
-			$$key = $value;
-		}
+		$inputs = $inputs->getArrayCopy($inputs);
+		$inputs = array_merge($this->default_values, $inputs );
 
-		if ( ! isset( $tag_import ) ) {
-			$tag_import = 0;
-		}
+		$connect_string = $this->get_connect_string( $inputs['db_type'], $inputs['db_host'], $inputs['db_name'] );
+		$db = $this->hab_connect( $connect_string, $inputs['db_user'], $inputs['db_pass'] );
 
-		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
-		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
-		if( $db ) {
-			DB::begin_transaction();
-
-			$old_db_version = (int)$db->get_value( "SELECT value FROM {$db_prefix}options WHERE name = ?", array( 'db_version' ) );
-			$postcount = $db->get_value( "SELECT count( id ) FROM {$db_prefix}posts;" );
-			$min = $postindex * IMPORT_BATCH + ( $postindex == 0 ? 0 : 1 );
-			$max = min( ( $postindex + 1 ) * IMPORT_BATCH, $postcount );
-
-			$user_map = array();
-			$user_info = DB::get_results( "SELECT user_id, value FROM {userinfo} WHERE name= 'old_id';" );
-			foreach( $user_info as $info ) {
-				$user_map[$info->value]= $info->user_id;
-			}
-			echo "<p>Importing posts {$min}-{$max} of {$postcount}.</p>";
-			$posts = $db->get_results( "
-				SELECT
-					content,
-					id,
-					title,
-					slug,
-					user_id,
-					guid,
-					pubdate,
-					updated,
-					modified,
-					status,
-					content_type
-				FROM {$db_prefix}posts
-				ORDER BY id DESC
-				LIMIT {$min}, " . IMPORT_BATCH
-				, array(), 'Post' );
-
-			$post_map = DB::get_column( "SELECT value FROM {postinfo} WHERE name='old_id';");
-			foreach( $posts as $post ) {
-				if(in_array($post->id, $post_map)) {
-					continue;
-				}
-
-				if ($tag_import == 1 ) {
-					// Import tags
-					if( $old_db_version < 3749 ) {
-						$tags = $db->get_column(
-							"SELECT tag_text
-							FROM {$db_prefix}tags
-							INNER JOIN {$db_prefix}tag2post
-							ON {$db_prefix}tags.id = {$db_prefix}tag2post.tag_id
-							WHERE post_id = {$post->id}"
-						 );
-					}
-					else {
-						$tags = $db->get_column(
-							"SELECT term_display
-							FROM {$db_prefix}terms
-							INNER JOIN {$db_prefix}object_terms
-							ON {$db_prefix}terms.id = {$db_prefix}object_terms.term_id
-							WHERE object_id = ? AND object_type_id = ?", array( $post->id, Vocabulary::object_type_id( 'post' ) )
-						 );
-					}
-				}
-				else {
-					$tags = array();
-				}
-
-				$tags = implode( ',', $tags );
-
-				$post_array = $post->to_array();
-				$p = new Post( $post_array );
-				$p->slug = $post->slug;
-				if(isset($user_map[$p->user_id])) {
-					$p->user_id = $user_map[$p->user_id];
-				}
-				else {
-					$errors = Options::get('import_errors');
-					$errors[] = _t('Post author id %s was not found in the external database, assigning post "%s" (external post id #%d) to current user.', array($p->user_id, $p->title,$post_array['id']) );
-					Options::set('import_errors', $errors);
-					$p->user_id = User::identify()->id;
-				}
-
-				$p->guid = $p->guid; // Looks fishy, but actually causes the guid to be set.
-				$p->tags = $tags;
-
-				$infos = $db->get_results("SELECT name, value, type FROM {$db_prefix}postinfo WHERE post_id = ?", array( $post_array['id'] ) );
-
-				$p->info->old_id = $post_array['id'];  // Store the old post id in the post_info table for later
-
-				try {
-					$p->insert();
-					$p->updated = $post_array['updated'];
-					$p->update();
-					foreach ( $infos as $info ) {
-						$fields = $info->get_url_args();
-						$fields['post_id'] = $p->id;
-						DB::insert( DB::table( 'postinfo'), $fields );
-					}
-				}
-				catch( Exception $e ) {
-					EventLog::log($e->getMessage(), 'err', null, null, print_r(array($p, $e), 1));
-					Session::error( $e->getMessage() );
-					$errors = Options::get('import_errors');
-					$errors[] = $p->title . ' : ' . $e->getMessage();
-					Options::set('import_errors', $errors);
-				}
-			}
-
-			if( DB::in_transaction() ) DB::commit();
-
-			if( $max < $postcount ) {
-				$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_posts' ) );
-				$postindex++;
-
-				$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
-
-				echo <<< HAB_IMPORT_POSTS
-					<script type="text/javascript">
-					$( '#import_progress' ).load(
-						"{$ajax_url}",
-						{
-							db_type: "{$db_type}",
-							db_host: "{$vars['host']}",
-							db_name: "{$vars['name']}",
-							db_user: "{$vars['user']}",
-							db_pass: "{$vars['pass']}",
-							db_prefix: "{$vars['prefix']}",
-							tag_import: "{$tag_import}",
-							postindex: {$postindex}
-						}
-					 );
-
-				</script>
-HAB_IMPORT_POSTS;
-			}
-			else {
-				$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_comments' ) );
-
-				$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
-				echo <<< HAB_IMPORT_COMMENTS
-					<script type="text/javascript">
-					$( '#import_progress' ).load(
-						"{$ajax_url}",
-						{
-							db_type: "{$db_type}",
-							db_host: "{$vars['host']}",
-							db_name: "{$vars['name']}",
-							db_user: "{$vars['user']}",
-							db_pass: "{$vars['pass']}",
-							db_prefix: "{$vars['prefix']}",
-							tag_import: "{$tag_import}",
-							commentindex: 0
-						}
-					 );
-
-				</script>
-HAB_IMPORT_COMMENTS;
-
-			}
-		}
-		else {
-			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
+		if( !$db ) {
+			EventLog::log(sprintf(_t('Failed to import from "%s"'), $inputs['db_name']), 'crit');
 			Session::error( $e->getMessage() );
 			echo '<p>'._t( 'The database connection details have failed to connect.' ).'</p>';
 		}
-	}
 
-	/**
-	 * The plugin sink for the auth_ajax_wp_import_posts hook.
-	 * Responds via authenticated ajax to requests for post importing.
-	 *
-	 * @param mixed $handler
-	 * @return
-	 */
-	public function action_auth_ajax_hab_import_users( $handler )
-	{
-		$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','userindex', 'tag_import' );
-		foreach ( $inputs as $key => $value ) {
-			$$key = $value;
+		DB::begin_transaction();
+
+		$old_db_version = (int)$db->get_value( "SELECT value FROM {$inputs['db_prefix']}options WHERE name = ?", array( 'db_version' ) );
+		$postcount = $db->get_value( "SELECT count( id ) FROM {$inputs['db_prefix']}posts;" );
+		$min = $inputs['import_index'] * IMPORT_BATCH + ( $inputs['import_index'] == 0 ? 0 : 1 );
+		$max = min( ( $inputs['import_index'] + 1 ) * IMPORT_BATCH, $postcount );
+
+		$user_map = array();
+		$user_info = DB::get_results( "SELECT user_id, value FROM {userinfo} WHERE name= 'old_id';" );
+		foreach( $user_info as $info ) {
+			$user_map[$info->value]= $info->user_id;
 		}
+		echo "<p>Importing posts {$min}-{$max} of {$postcount}.</p>";
+		$posts = $db->get_results( "
+			SELECT
+				content,
+				id,
+				title,
+				slug,
+				user_id,
+				guid,
+				pubdate,
+				updated,
+				modified,
+				status,
+				content_type
+			FROM {$inputs['db_prefix']}posts
+			ORDER BY id DESC
+			LIMIT {$min}, " . IMPORT_BATCH
+			, array(), 'Post' );
 
-		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
-		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
-		if( $db ) {
-			DB::begin_transaction();
-			$new_users = $db->get_results(
-				"
-					SELECT
-						username,
-						password,
-						email,
-						{$db_prefix}users.id as old_id
-					FROM {$db_prefix}users
-					INNER JOIN {$db_prefix}posts ON {$db_prefix}posts.user_id = {$db_prefix}users.id
-					GROUP BY {$db_prefix}users.id
-				",
-				array(),
-				'User'
-			);
-			$usercount = 0;
-			_e('<p>Importing users...</p>');
+		$post_map = DB::get_column( "SELECT value FROM {$inputs['db_prefix']}postinfo WHERE name='old_id';");
+		foreach( $posts as $post ) {
+			if(in_array($post->id, $post_map)) {
+				continue;
+			}
 
-			foreach($new_users as $user) {
-				$habari_user = User::get_by_name($user->username);
-				// If username exists
-				if($habari_user instanceof User) {
-					$habari_user->info->old_id = $user->old_id;
-					$habari_user->update();
+			if ($inputs['tag_import'] == 1 ) {
+				// Import tags
+				if( $old_db_version < 3749 ) {
+					$tags = $db->get_column(
+						"SELECT tag_text
+						FROM {$inputs['db_prefix']}tags
+						INNER JOIN {$inputs['db_prefix']}tag2post
+						ON {$inputs['db_prefix']}tags.id = {$inputs['db_prefix']}tag2post.tag_id
+						WHERE post_id = {$post->id}"
+					 );
 				}
 				else {
-					try {
-						$user->info->old_id = $user->old_id;
-						// This should probably remain commented until we implement ACL more,
-						// or any imported user will be able to log in and edit stuff
-						//$user->password = '{MD5}' . $user->password;
-						$user->exclude_fields( array( 'old_id' ) );
-						$user->insert();
-						$usercount++;
-					}
-					catch( Exception $e ) {
-						EventLog::log($e->getMessage(), 'err', null, null, print_r(array($user, $e), 1));
-						Session::error( $e->getMessage() );
-						$errors = Options::get('import_errors');
-						$errors[] = $user->username . ' : ' . $e->getMessage();
-						Options::set('import_errors', $errors);
-					}
+					$tags = $db->get_column(
+						"SELECT term_display
+						FROM {$inputs['db_prefix']}terms
+						INNER JOIN {$inputs['db_prefix']}object_terms
+						ON {$inputs['db_prefix']}terms.id = {$inputs['db_prefix']}object_terms.term_id
+						WHERE object_id = ? AND object_type_id = ?", array( $post->id, Vocabulary::object_type_id( 'post' ) )
+					 );
 				}
 			}
-			if( DB::in_transaction()) DB::commit();
+			else {
+				$tags = array();
+			}
 
+			$tags = implode( ',', $tags );
+
+			$post_array = $post->to_array();
+			$p = new Post( $post_array );
+			$p->slug = $post->slug;
+			if(isset($user_map[$p->user_id])) {
+				$p->user_id = $user_map[$p->user_id];
+			}
+			else {
+				$errors = Options::get('import_errors');
+				$errors[] = _t('Post author id %s was not found in the external database, assigning post "%s" (external post id #%d) to current user.', array($p->user_id, $p->title,$post_array['id']) );
+				Options::set('import_errors', $errors);
+				$p->user_id = User::identify()->id;
+			}
+
+			$p->guid = $p->guid; // Looks fishy, but actually causes the guid to be set.
+			$p->tags = $tags;
+
+			$infos = $db->get_results("SELECT name, value, type FROM {$inputs['db_prefix']}postinfo WHERE post_id = ?", array( $post_array['id'] ) );
+
+			$p->info->old_id = $post_array['id'];  // Store the old post id in the post_info table for later
+
+			try {
+				$p->insert();
+				$p->updated = $post_array['updated'];
+				$p->update();
+				foreach ( $infos as $info ) {
+					$fields = $info->get_url_args();
+					$fields['post_id'] = $p->id;
+					DB::insert( DB::table( 'postinfo'), $fields );
+				}
+			}
+			catch( Exception $e ) {
+				EventLog::log($e->getMessage(), 'err', null, null, print_r(array($p, $e), 1));
+				Session::error( $e->getMessage() );
+				$errors = Options::get('import_errors');
+				$errors[] = $p->title . ' : ' . $e->getMessage();
+				Options::set('import_errors', $errors);
+			}
+		}
+
+		if( DB::in_transaction() ) DB::commit();
+
+		if( $max < $postcount ) {
+			$inputs['import_index']++;
 			$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_posts' ) );
-
-			$vars = Utils::addslashes( array( 'type' => $db_type, 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
-
-			echo <<< HAB_IMPORT_POSTS
-			<script type="text/javascript">
-			// A lot of ajax stuff goes here.
-			$( document ).ready( function(){
-				$( '#import_progress' ).load(
-					"{$ajax_url}",
-					{
-						db_type: "{$db_type}",
-						db_host: "{$vars['host']}",
-						db_name: "{$vars['name']}",
-						db_user: "{$vars['user']}",
-						db_pass: "{$vars['pass']}",
-						db_prefix: "{$vars['prefix']}",
-						tag_import: "{$tag_import}",
-						postindex: 0
-					}
-				 );
-			} );
-			</script>
-HAB_IMPORT_POSTS;
 		}
 		else {
-			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
-			Session::error( $e->getMessage() );
-			echo '<p>'._t( 'Failed to connect using the given database connection details.' ).'</p>';
+			$inputs['import_index'] = 0;
+			$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_comments' ) );
 		}
+		echo $this->get_ajax( $ajax_url, $inputs );
 	}
 
 	/**
@@ -522,123 +448,108 @@ HAB_IMPORT_POSTS;
 	public function action_auth_ajax_hab_import_comments( $handler )
 	{
 		$inputs = $_POST->filter_keys( 'db_type', 'db_name','db_host','db_user','db_pass','db_prefix','commentindex', 'tag_import' );
-		foreach ( $inputs as $key => $value ) {
-			$$key = $value;
-		}
+		$inputs = $inputs->getArrayCopy( $inputs );
+		$inputs = array_merge( $this->default_values, $inputs );
 
-		$connect_string = $this->get_connect_string( $db_type, $db_host, $db_name );
-		$db = $this->hab_connect( $connect_string, $db_user, $db_pass );
-		if( $db ) {
-			DB::begin_transaction();
+		$connect_string = $this->get_connect_string( $inputs['db_type'], $inputs['db_host'], $inputs['db_name'] );
+		$db = $this->hab_connect( $connect_string, $inputs['db_user'], $inputs['db_pass'] );
 
-			$commentcount = $db->get_value( "SELECT count( id ) FROM {$db_prefix}comments;" );
-			$min = $commentindex * IMPORT_BATCH + 1;
-			$max = min( ( $commentindex + 1 ) * IMPORT_BATCH, $commentcount );
-
-			echo "<p>Importing comments {$min}-{$max} of {$commentcount}.</p>";
-
-			$post_info = DB::get_results( "SELECT post_id, value FROM {postinfo} WHERE name= 'old_id';" );
-			foreach( $post_info as $info ) {
-				$post_map[$info->value] = $info->post_id;
-			}
-
-			$comments = $db->get_results( "
-				SELECT
-				c.id,
-				c.content,
-				c.name,
-				c.email,
-				c.url,
-				c.ip,
-			 	c.status,
-				c.date,
-				c.type,
-				c.post_id as old_post_id
-				FROM {$db_prefix}comments c
-				INNER JOIN
-				{$db_prefix}posts on {$db_prefix}posts.id = c.post_id
-				LIMIT {$min}, " . IMPORT_BATCH
-				, array(), 'Comment' );
-
-			foreach( $comments as $comment ) {
-				$carray = $comment->to_array();
-
-				if( isset( $post_map[$carray['old_post_id']] ) ) {
-					$carray['post_id']= $post_map[$carray['old_post_id']];
-					unset( $carray['old_post_id'] );
-
-					$c = new Comment( $carray );
-
-					$infos = $db->get_results("SELECT name, value, type FROM {$db_prefix}commentinfo WHERE comment_id = ?", array( $carray['id'] ) );
-
-					try{
-						$c->insert();
-						foreach ( $infos as $info ) {
-							$fields = $info->get_url_args();
-							$fields['comment_id'] = $c->id;
-							DB::insert( DB::table( 'commentinfo'), $fields );
-						}
-					}
-					catch( Exception $e ) {
-						EventLog::log($e->getMessage(), 'err', null, null, print_r(array($c, $e), 1));
-						Session::error( $e->getMessage() );
-						$errors = Options::get('import_errors');
-						$errors[] = $e->getMessage();
-						Options::set('import_errors', $errors);
-					}
-				}
-			}
-			if( DB::in_transaction() ) DB::commit();
-
-			if( $max < $commentcount ) {
-				$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_comments' ) );
-				$commentindex++;
-
-				$vars = Utils::addslashes( array( 'host' => $db_host, 'name' => $db_name, 'user' => $db_user, 'pass' => $db_pass, 'prefix' => $db_prefix ) );
-
-				echo <<< HAB_IMPORT_COMMENTS1
-					<script type="text/javascript">
-					$( '#import_progress' ).load(
-						"{$ajax_url}",
-						{
-							db_type: "{$db_type}",
-							db_host: "{$vars['host']}",
-							db_name: "{$vars['name']}",
-							db_user: "{$vars['user']}",
-							db_pass: "{$vars['pass']}",
-							db_prefix: "{$vars['prefix']}",
-							tag_import: "{$tag_import}",
-							commentindex: {$commentindex}
-						}
-					 );
-
-				</script>
-HAB_IMPORT_COMMENTS1;
-			}
-			else {
-				EventLog::log('Import complete from "'. $db_name .'"');
-				echo '<p>' . _t( 'Import is complete.' ) . '</p>';
-
-				$errors = Options::get('import_errors');
-				if(count($errors) > 0 ) {
-					echo '<p>' . _t( 'There were errors during import:' ) . '</p>';
-
-					echo '<ul>';
-					foreach($errors as $error) {
-						echo '<li>' . $error . '</li>';
-					}
-					echo '</ul>';
-				}
-
-			}
-		}
-		else {
-			EventLog::log(sprintf(_t('Failed to import from "%s"'), $db_name), 'crit');
+		if( !$db ) {
+			EventLog::log(sprintf(_t('Failed to import from "%s"'), $inputs['db_name']), 'crit');
 			Session::error( $e->getMessage() );
 			echo '<p>'._t( 'Failed to connect using the given database connection details.' ).'</p>';
 		}
-	}
 
+		DB::begin_transaction();
+
+		$commentcount = $db->get_value( "SELECT count( id ) FROM {$inputs['db_prefix']}comments;" );
+		$min = $inputs['import_index'] * IMPORT_BATCH + ( $inputs['import_index'] == 0 ? 0 : 1 );
+		$max = min( ( $inputs['import_index'] + 1 ) * IMPORT_BATCH, $commentcount );
+
+		echo "<p>Importing comments {$min}-{$max} of {$commentcount}.</p>";
+
+		$post_info = DB::get_results( "SELECT post_id, value FROM {$inputs['db_prefix']}postinfo WHERE name= 'old_id';" );
+		foreach( $post_info as $info ) {
+			$post_map[$info->value] = $info->post_id;
+		}
+
+		$comments = $db->get_results( "
+			SELECT
+			c.id,
+			c.content,
+			c.name,
+			c.email,
+			c.url,
+			c.ip,
+			c.status,
+			c.date,
+			c.type,
+			c.post_id as old_post_id
+			FROM {$inputs['db_prefix']}comments c
+			INNER JOIN
+			{$inputs['db_prefix']}posts on {$inputs['db_prefix']}posts.id = c.post_id
+			LIMIT {$min}, " . IMPORT_BATCH
+			, array(), 'Comment' );
+
+		foreach( $comments as $comment ) {
+			$carray = $comment->to_array();
+
+			if( isset( $post_map[$carray['old_post_id']] ) ) {
+				$carray['post_id']= $post_map[$carray['old_post_id']];
+				unset( $carray['old_post_id'] );
+
+				$c = new Comment( $carray );
+
+//				$infos = $db->get_results("SELECT name, value, type FROM {$inputs['db_prefix']}commentinfo WHERE comment_id = ?", array( $carray['id'] ) );
+				$infos = $db->get_results("SELECT name, value, type FROM {$inputs['db_prefix']}commentinfo WHERE comment_id = ?", array( $carray['id'] ) );
+
+				foreach( $infos as $info ) {
+					$fields = $info->get_url_args();
+					if($fields['type'] == 1) {
+						$fields['value'] = unserialize( $fields['value'] );
+					}
+					$c->info->$fields['name'] = $fields['value'];
+				}
+				try{
+					$c->insert();
+//					foreach ( $infos as $info ) {
+//						$fields = $info->get_url_args();
+//						$fields['comment_id'] = $c->id;
+//						DB::insert( DB::table( 'commentinfo'), $fields );
+//					}
+				}
+				catch( Exception $e ) {
+					EventLog::log($e->getMessage(), 'err', null, null, print_r(array($c, $e), 1));
+					Session::error( $e->getMessage() );
+					$errors = Options::get('import_errors');
+					$errors[] = $e->getMessage();
+					Options::set('import_errors', $errors);
+				}
+			}
+		}
+		if( DB::in_transaction() ) DB::commit();
+
+		if( $max < $commentcount ) {
+			$ajax_url = URL::get( 'auth_ajax', array( 'context' => 'hab_import_comments' ) );
+			$inputs['import_index']++;
+			echo $this->get_ajax( $ajax_url, $inputs );
+		}
+		else {
+			EventLog::log('Import complete from "'. $inputs['db_name'] .'"');
+			echo '<p>' . _t( 'Import is complete.' ) . '</p>';
+
+			$errors = Options::get('import_errors');
+			if(count($errors) > 0 ) {
+				echo '<p>' . _t( 'There were errors during import:' ) . '</p>';
+
+				echo '<ul>';
+				foreach($errors as $error) {
+					echo '<li>' . $error . '</li>';
+				}
+				echo '</ul>';
+			}
+		}
+	}
 }
 
 ?>
