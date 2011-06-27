@@ -500,7 +500,6 @@ OUTPUT_AJAX;
 
 				$c = new Comment( $carray );
 
-//				$infos = $db->get_results("SELECT name, value, type FROM {$inputs['db_prefix']}commentinfo WHERE comment_id = ?", array( $carray['id'] ) );
 				$infos = $db->get_results("SELECT name, value, type FROM {$inputs['db_prefix']}commentinfo WHERE comment_id = ?", array( $carray['id'] ) );
 
 				foreach( $infos as $info ) {
@@ -512,11 +511,6 @@ OUTPUT_AJAX;
 				}
 				try{
 					$c->insert();
-//					foreach ( $infos as $info ) {
-//						$fields = $info->get_url_args();
-//						$fields['comment_id'] = $c->id;
-//						DB::insert( DB::table( 'commentinfo'), $fields );
-//					}
 				}
 				catch( Exception $e ) {
 					EventLog::log($e->getMessage(), 'err', null, null, print_r(array($c, $e), 1));
