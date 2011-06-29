@@ -1,3 +1,5 @@
+/* @override http://somefoolwitha.com/hmallow2_live/user/themes/hmallow2/style.css */
+
 /*
 Theme Name: hmallow2
 Theme URI: http://somefoolwitha.com
@@ -423,7 +425,7 @@ box-shadow:0px 1px 3px rgba(0,0,0, .3);
 	-moz-border-radius-topright: 5px;	text-decoration: none;
 padding: 5px 8px 4px;
 	color: #004dbf;
-	text-shadow: #fff 0 1px 0;
+	text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.75);
 }
 
 #supernav .admintab a {
@@ -443,7 +445,7 @@ padding: 5px 8px 4px;
 #supernav a:hover {
 	text-decoration: none;
 padding: 5px 8px 4px;
-	text-shadow: #111a44 0 1px 0;
+	text-shadow: 0 1px 0 rgba(16, 25, 68, 0.65);
 }
 
 .post {
@@ -477,13 +479,12 @@ width: 826px;
 margin-bottom: 20px;
 }
 
-#blogtitle h1 {font-family: "Myriad Pro", "Myriad", Helvetica, Arial,  sans-serif;
-	font-size: 18px;
+#blogtitle h1 {
 	margin: 0px;
 	padding-top:5px;
-font-weight: normal;
 	padding-left:15px;
-	text-shadow: #fff 0 1px 0;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.67);
+	font: normal 18px "Myriad Pro", "Myriad", Helvetica, Arial,  sans-serif;
 }
 	
 	h1 span {	font-size:16px;
@@ -504,7 +505,7 @@ h1 {
 h2, .feedback {
 	font: normal 120% "Myriad Pro", "Myriad", Helvetica, Arial, sans-serif;
 	margin-top: 15px;
-	margin-bottom: 5px;
+	margin-bottom: 0;
 	padding: 0;
 }
 
@@ -712,19 +713,17 @@ body#single .meta, .metalinks {
 
 body#home .meta, body#archives .meta {
 width:530px;
-   	padding-top: 5px;
+   	padding-top: 0;
 }
 
 body#archives .entry { width:530px; }
 
 .meta {
 	text-align: left;
-	font-size: 14px;
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: normal;
 	margin-top: 0px;
     margin-bottom: 0px;
 	clear : left;
+	font: normal 14px Helvetica, Arial, sans-serif;
 }
 
 
@@ -873,25 +872,61 @@ box-shadow:0px 2px 3px rgba(0,0,0, .3);
 }
 
 input#searchsubmitb {
--webkit-border-radius: 8px;
-	-moz-border-radius: 8px;		
+-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;		
 	font-size: 10px;
-	background-color: #f2f2f2;
-	border: 1px solid #32459f;
+	border: 1px solid #a3a3a3;
 	color: #32459f;
 	text-shadow: #fff 0 1px 0;
 	margin-right: 3px;
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 2px;
+		background: #dbdbdb;
+		background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.48, rgb(219,219,219)),
+	    color-stop(0.52, rgb(237,237,237))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(219,219,219) 48%,
+	    rgb(237,237,237) 52%
+	);
+	-webkit-box-shadow:0px 1px 2px rgba(0,0,0, .3);
+	-moz-box-shadow:0px 1px 2px rgba(0,0,0, .3);
+	box-shadow:0px 1px 2px rgba(0,0,0, .3);
 }
 
 input#searchsubmitb:hover {
 			cursor: pointer;
-	background-color: #6e7bb7;
-	border: 1px solid #32459f;
-	color: #fff;
+	color: #0064d2;
+		border: 1px solid #6aacf5;
 	text-shadow: #32459f 0 1px 0;
+		background: #edf5ff;
+			background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.78, rgb(237,245,255)),
+	    color-stop(1, rgb(175,195,219))
+	);
+	background-image:-moz-linear-gradient(
+	    center bottom,
+	    rgb(237,245,255) 78%,
+	    rgb(175,195,219) 100%
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(219,219,219) 48%,
+	    rgb(237,237,237) 52%
+	);
+		text-shadow: #fff 0 1px 0;
+		-webkit-box-shadow:0px 0px 2px rgba(0,0,0, .3);
+	-moz-box-shadow:0px 0px 2px rgba(0,0,0, .3);
+	box-shadow:0px 0px 2px rgba(0,0,0, .3);
 }
 
 #cf_submit input:hover {
@@ -1027,7 +1062,7 @@ body#home #content, body#archives #content, body#e404 #content {
 	font-size: 75%;
 	clear: both;
 	padding-bottom: 25px;
-	text-shadow: #fff 0 1px 0;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.61);
 }
 
 
@@ -1091,7 +1126,7 @@ color: #303030;
 
 #menu ul {
 	list-style-type: none;
-	padding-left: 3px;
+	padding-left: 0px;
 	margin: 0;
 }
 
@@ -1258,7 +1293,8 @@ box-shadow:0px 0px 3px rgba(0,0,0, .6);
 }
 	
 #page-selector a.current-page {
-	padding: 2px 4px;
+border-radius: 4px;	
+		padding: 2px 4px;
 	color: #303a6e;
 	background-color: #d5e1f2;
 }
