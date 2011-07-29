@@ -15,12 +15,6 @@ class Monthly_Archives extends Plugin
 
 	private $cache_expiry = 604800; // one week, in seconds: 60 * 60 * 24 * 7
 
-	public function action_update_check ( ) {
-
-		Update::add( 'MonthlyArchives', '726F35A4-16C2-11DD-AF4E-A64656D89593', $this->info->version );
-
-	}
-
 	public function action_plugin_deactivation ( $file = '' ) {
 
 		if ( Plugins::id_from_file( $file ) == Plugins::id_from_file( __FILE__ ) ) {
@@ -132,7 +126,8 @@ class Monthly_Archives extends Plugin
 				// make sure the month has a 0 on the front, if it doesn't
 				$result->month = str_pad( $result->month, 2, 0, STR_PAD_LEFT );
 
-				$result->month_ts = mktime( 0, 0, 0, $result->month );
+				// use first day of the month to prevent doubling bug (see extras ticket #220)
+				$result->month_ts = mktime( 0, 0, 0, $result->month, 1 );
 
 				// what format do we want to show the month in?
 				switch ( $this->display_month ) {

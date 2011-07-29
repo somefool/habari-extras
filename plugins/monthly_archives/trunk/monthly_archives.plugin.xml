@@ -2,10 +2,15 @@
 <pluggable type="plugin">
 	<name>Monthly Archives</name>
 	<author url="http://habariproject.org/">The Habari Community</author>
-	<version>0.9.3</version>
+	<version>0.9.4</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Shows archives grouped by month.]]></description>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
 	<copyright>2010</copyright>
+	<guid>726F35A4-16C2-11DD-AF4E-A64656D89593</guid>
+	<help>
+		<value><![CDATA[
+			<p>To display, add <code><?php $theme->monthly_archives(); ?></code> where desired in your theme files.</p>
+		]]></value>
+	</help>
 </pluggable> 
- 
