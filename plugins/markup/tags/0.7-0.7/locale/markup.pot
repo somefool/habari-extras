@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-11 17:07+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+#
+# File: plugins/markup/markup.plugin.php, line: 50
+# File: plugins/markup/markup.plugin.php, line: 71
+msgid "Configure"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 58
+msgid "Html"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 59
+msgid "Markdown"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 60
+msgid "Textile"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 61
+msgid "BBCode"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 65
+msgid "Simple"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 66
+msgid "MarkItUp"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 74
+msgid "Post Editor"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 75
+# File: plugins/markup/markup.plugin.php, line: 89
+msgid "Markup Type "
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 78
+# File: plugins/markup/markup.plugin.php, line: 92
+msgid "Editor Skin&nbsp;&nbsp;&nbsp; "
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 81
+msgid "Comment Form"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 83
+# File: plugins/markup/markup.plugin.php, line: 84
+msgid "Process markup in comments?"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 84
+# File: plugins/markup/markup.plugin.php, line: 87
+msgid "Yes"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 84
+# File: plugins/markup/markup.plugin.php, line: 87
+msgid "No"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 86
+# File: plugins/markup/markup.plugin.php, line: 87
+msgid "Show markup toolbar on comment form?"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 95
+msgid "Save"
+msgstr ""
+#
+# File: plugins/markup/markup.plugin.php, line: 107
+msgid "Markup settings updated."
+msgstr ""
