@@ -11,6 +11,10 @@
  * All plugins must extend the Plugin class to be recognized.
  */
 class Gravatar extends Plugin {
+
+	public function action_init() {
+		$this->add_template( 'gravatar', dirname(__FILE__) . '/gravatar.php' );
+	}
 	
 	/**
 	 * Return a URL to the author's Gravatar based on his e-mail address.
@@ -37,6 +41,11 @@ class Gravatar extends Plugin {
 		$url = Plugins::filter('gravatar_url', $url, $comment);
 		
 		return $url;
+	}
+	
+	public function theme_comment_gravatar( $theme, $comment ) {
+		$theme->gravatar_comment = $comment;
+		return $theme->fetch( 'gravatar' );
 	}
 	
 	/**

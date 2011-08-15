@@ -1,0 +1,1 @@
+<div class="gravatar"><img src="<?php echo $theme->gravatar_comment->gravatar ?>" alt="<?php printf(_t("%s's Gravatar", "gravatar"), $theme->gravatar_comment->name); ?>"></div>
