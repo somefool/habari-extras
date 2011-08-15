@@ -14,6 +14,7 @@ class Gravatar extends Plugin {
 
 	public function action_init() {
 		$this->add_template( 'gravatar', dirname(__FILE__) . '/gravatar.php' );
+		$this->load_text_domain( 'Gravatar' );
 	}
 	
 	/**
@@ -55,12 +56,12 @@ class Gravatar extends Plugin {
 	 */
 	public function configure() {
         $ui= new FormUI( 'gravatar' );
-		$g_s_d= $ui->append( 'text', 'default', 'gravatar__default', '<dl><dt>Default Gravatar</dt><dd>An optional "default" parameter may follow that specifies the full, URL encoded URl, protocol included of a GIF, JPEG or PNG image that should be returned if either the request email address has no associated gravatar, or that gravatar has a rating higher than is allowed by the "rating" parameter.</dd></dl>' );
-		$g_s_s= $ui->append( 'text', 'size', 'gravatar__size', '<dl><dt>Size</dt><dd>An optional "size" parameter may follow that specifies the desired width and height of the gravatar. Valid vaues are from 1 to 80 inclusive. Any size other than 80 will cause the original gravatar image to be downsampled using bicubic resampling before output.</dd></dl>' );
+		$g_s_d= $ui->append( 'text', 'default', 'gravatar__default', '<dl><dt>' . _t('Default Gravatar', __CLASS__) . '</dt><dd>' . _t('An optional "default" parameter may follow that specifies the full, URL encoded URl, protocol included of a GIF, JPEG or PNG image that should be returned if either the request email address has no associated gravatar, or that gravatar has a rating higher than is allowed by the "rating" parameter.', __CLASS__) . '</dd></dl>' );
+		$g_s_s= $ui->append( 'text', 'size', 'gravatar__size', '<dl><dt>' . _t('Size', __CLASS__). '</dt><dd>' . _t('An optional "size" parameter may follow that specifies the desired width and height of the gravatar. Valid vaues are from 1 to 80 inclusive. Any size other than 80 will cause the original gravatar image to be downsampled using bicubic resampling before output.', __CLASS__) . '</dd></dl>' );
 		//mark size as required
 		$g_s_s->add_validator( 'validate_required' );
 
-		$g_s_r= $ui->append( 'select', 'rating', 'gravatar__rating', '<dl><dt>Rating</dt><dd>An optional "rating" parameter may follow with a value of [ G | PG | R | X ] that determines the highest rating (inclusive) that will be returned.</dd></dl>', array( 'G' => 'G', 'PG' => 'PG', 'R' => 'R', 'X' => 'X' ) );
+		$g_s_r= $ui->append( 'select', 'rating', 'gravatar__rating', '<dl><dt>' . _t('Rating', __CLASS__) . '</dt><dd>' . _t('An optional "rating" parameter may follow with a value of [ G | PG | R | X ] that determines the highest rating (inclusive) that will be returned.', __CLASS__) . '</dd></dl>', array( 'G' => 'G', 'PG' => 'PG', 'R' => 'R', 'X' => 'X' ) );
 		$ui->append( 'submit', 'save', _t('Save') );
 		$ui->out();
 	}
