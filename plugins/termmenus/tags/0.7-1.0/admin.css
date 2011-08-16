@@ -1,0 +1,26 @@
+.menu_item_delete {
+	background: url("../../../system/admin/images/closebutton.png") no-repeat scroll center center transparent;
+	float: right;
+	text-indent: -9999px;
+	width: 20px;
+}
+
+.edit_menu_dropbutton {
+	/* ugly hack but for the time being this works. @TODO make this CSS clean */
+	position: relative;
+	width: 10px;
+	left: 130px;
+	top: 5px;
+}	
+
+div#link_name.formcontrol label,
+div#link_url.formcontrol label {
+	width: 70px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+div#link_name.formcontrol input,
+div#link_url.formcontrol input {
+	width: 350px;
+}
