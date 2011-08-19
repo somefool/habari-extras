@@ -4,12 +4,12 @@ class comment_notifier extends Plugin
 	private function mh_utf8($str) {
 		return '=?UTF-8?B?' . base64_encode($str) . '?=';
 	}
-	
+
 	public function action_comment_insert_after( $comment )
 	{
 		// we should only execute on comments, not pingbacks
 		// and don't bother if the comment is know to be spam
-		if ( ( $comment->type != Comment::COMMENT ) 
+		if ( ( $comment->type != Comment::COMMENT )
 			|| ( $comment->status == Comment::STATUS_SPAM  ) ) {
 			return;
 		}
@@ -48,7 +48,7 @@ MESSAGE;
 			'Content-Transfer-Encoding: 8bit',
 			'From: ' . $this->mh_utf8($comment->name) . ' <' . $comment->email . '>',
 		);
-		mail ($author->email, $this->mh_utf8($title), $message, implode(PHP_EOL, $headers));
+		Utils::mail( $author->email, $this->mh_utf8( $title ), $message, implode( PHP_EOL, $headers ) );
 	}
 }
 ?>

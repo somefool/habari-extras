@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
 	<name>Comment Notifier</name>
-	<author url="http://habariproject.org/">Habari Community</author>
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<version>1.3</version>
 	<guid>91175a80-38f6-11dd-ae16-0800200c9a66</guid>
 	<url>http://habariproject.org/</url>
