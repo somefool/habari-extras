@@ -2,15 +2,6 @@
 
 class extracontent extends Plugin
 {
-
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-		Update::add( 'Extra Content', '1b39ce6e-3576-49ca-aa45-326688720711', $this->info->version );
-	}
-
 	/**
 	* Add additional controls to the publish page tab
 	*

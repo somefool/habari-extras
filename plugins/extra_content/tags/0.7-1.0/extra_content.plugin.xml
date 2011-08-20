@@ -9,6 +9,7 @@
 	<license>Apache License 2.0</license>
 	<description><![CDATA[Display one additional textarea on the entry publish page.]]></description>
 	<copyright>2010</copyright>
+	<guid>1b39ce6e-3576-49ca-aa45-326688720711</guid>
 	<help> 
 		<value>
 <![CDATA[<p>Activate, then create a new entry or edit an existing one to see the new textarea. Display it with <code>&lt;?php echo $post->info->extra; ?&gt;</code> wherever you have a Post object.</p><p>It can be formatted as such: <code>&lt;?php echo Format::autop( $post->info->extra ); ?&gt;</code>.</p>]]>
