@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Extra Content</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<authorurl>http://habariproject.org</authorurl>
+	<version>1.0</version>
+	<url>http://habariproject.org</url>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<license>Apache License 2.0</license>
+	<description><![CDATA[Display one additional textarea on the entry publish page.]]></description>
+	<copyright>2010</copyright>
+	<help> 
+		<value>
+<![CDATA[<p>Activate, then create a new entry or edit an existing one to see the new textarea. Display it with <code>&lt;?php echo $post->info->extra; ?&gt;</code> wherever you have a Post object.</p><p>It can be formatted as such: <code>&lt;?php echo Format::autop( $post->info->extra ); ?&gt;</code>.</p>]]>
+		</value> 
+	</help>
+</pluggable>
+ 
