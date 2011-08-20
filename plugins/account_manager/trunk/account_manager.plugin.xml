@@ -8,4 +8,9 @@
 	<license>Apache License 2.0</license>
 	<description><![CDATA[Mozilla Account Manager plugin for Habari.]]></description>
 	<copyright>2010</copyright>
+	<guid>7b0c466c-16fe-4668-8366-50af0ba0dc5a</guid>
+	<help>
+		<value><![CDATA[Allows you to take advantage of <a href="https://mozillalabs.com/conceptseries/identity/account-manager/">Mozilla's Account Manager</a> functionality to login to Habari.]]>
+		</value>
+	</help>
 </pluggable>

@@ -95,13 +95,5 @@ class AccountManager extends Plugin {
 		header( 'Content-Type: application/json' );
 		echo json_encode($json);
 	}
-	
-	/**
-	 * Add update beacon support
-	 **/
-	public function action_update_check()
-	{
-	 	Update::add( 'AccountManager', '7b0c466c-16fe-4668-8366-50af0ba0dc5a', $this->info->version );
-	}
 }
 ?>
