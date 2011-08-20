@@ -8,5 +8,9 @@
 	<description><![CDATA[Counts words in a single post.]]></description>
 	<guid>a0a50d90-6e0b-11dd-ad8b-0800200c9a66</guid>
 	<copyright>2011</copyright>
+	<help>
+		<value><![CDATA[ To use, place the following in your theme where you would like the word count to appear: <code>&lt;?php echo $post->word_count; ?&gt;</code>.]]>
+		</value>
+	</help>
 </pluggable>
  
