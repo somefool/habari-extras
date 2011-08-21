@@ -1,10 +1,7 @@
 <?php
 class AtomIcon extends Plugin {
 
-    const GUID         = '854af572-1fb6-4e67-bd28-cdbeec4020c1';
-    const PLUGIN_NAME  = 'AtomIcon';
     const PLUGIN_TOKEN = 'AtomIcon_token';
-    const VERSION      = '1.0';
 
     /**
      * Do any wrapper-like things to the Atom feed proper.
@@ -17,10 +14,6 @@ class AtomIcon extends Plugin {
             $xml->addChild('icon', $iconurl);
         }
         return $xml;
-    }
-
-    public function action_update_check() {
-        Update::add(self::PLUGIN_NAME, self::GUID, $this->info->version);
     }
 
     /*

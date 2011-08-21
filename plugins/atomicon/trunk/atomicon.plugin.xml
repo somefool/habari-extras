@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pluggable type="plugin">
-  <name>AtomIcon</name>
-  <license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-  <url>http://habariproject.org/</url>
-  <author url="http://Ken.Coar.Org/">Ken Coar</author>
-  <version>0.1alpha</version>
-  <description><![CDATA[Add an &lt;icon&gt; element to the Atom feed.]]></description>
-  <copyright>2010</copyright>
-  <help>
-    <value>
-      <![CDATA[
-        <p>
-          This plugin allows you to specify an icon URL (think
-          'favicon for feeds') for the Atom feed.
-        </p>
-      ]]>
-    </value>
-  </help>
+	<name>AtomIcon</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://Ken.Coar.Org/">Ken Coar</author>
+	<version>0.1</version>
+	<description><![CDATA[Add an &lt;icon&gt; element to the Atom feed.]]></description>
+	<copyright>2010</copyright>
+	<guid>854af572-1fb6-4e67-bd28-cdbeec4020c1</guid>
+	<help>
+		<value>
+			<![CDATA[<p>This plugin allows you to specify an icon URL (think 'favicon for feeds') for the Atom feed.</p>]]>
+		</value>
+	</help>
 </pluggable>
