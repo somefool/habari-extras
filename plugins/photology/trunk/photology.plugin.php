@@ -7,15 +7,6 @@ class Photology extends Plugin
 	{
 	}
 
-	/**
-	 * Add help text (?) to plugin configuration page
-	 **/
-	public function help()
-	{
-		$help = _t( 'Requires Habari Media Silo<hr>Creates a thumbnail for the first image file, taken from the Habari Media Silo, in <code>$post->info->photology_thumb</code>. You can also obtain the thumbnail by echoing $post->content_excerpt_out;' );
-		return $help;
-	}
-
 	public function action_plugin_activation( $file )
 	{
 		if ( realpath( $file ) == __FILE__ ) {
@@ -72,11 +63,6 @@ class Photology extends Plugin
 	{
 		Session::notice( _t( 'Maximum Thumbnail Dimension set.', 'photology' ) );
 		$ui->save();
-	}
-
-	public function action_update_check()
-	{
-		Update::add( 'Photology', $this->uuid, $this->info->version );
 	}
 
 	/**
