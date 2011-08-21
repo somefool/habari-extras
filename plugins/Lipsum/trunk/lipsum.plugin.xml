@@ -2,12 +2,18 @@
 <pluggable type="plugin">
 	<name>Lipsum</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
-	<author url="http://habariproject.org/">Habari Community</author>
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<version>1.5</version>
 	<guid>933bcd46-abc4-4909-bcde-c2aeb284d4dd</guid>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Creates random sample data to test themes and plugins. Includes random posts, comments, and tags.]]></description>
 	<copyright>2009</copyright>
+	<help>
+		<value><![CDATA[
+			<p>Creates random sample data to test themes and plugins. By default the plugin will create 20 posts, 6 comments on each post and 10 tags per post.  You can configure these values once the plugin has been enabled.</p>
+			
+			<p>Deactivating the plugin will remove all of the entries, comments and tags created by this plugin.</p>]]></value>
+	</help>
 </pluggable>
 
  
