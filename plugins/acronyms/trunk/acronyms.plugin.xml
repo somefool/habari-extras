@@ -7,4 +7,8 @@
 	<url>http://habariproject.org/</url>
 	<guid>7ff3ba3b-6461-47f7-98cf-cf26a2c675ea</guid>
 	<description><![CDATA[Automagically wraps an &lt;abbr&gt; tag around acronyms it recognizes in your post content.]]></description>
+	<help>
+		<value><![CDATA[A common standard set of English abbreviations and acronyms are provided with the plugin.  Configure the plugin to add your own abbreviations and acronyms.]]>
+		</value>
+	</help>
 </pluggable>
