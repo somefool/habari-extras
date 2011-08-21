@@ -7,4 +7,7 @@
 	<version>0.2</version>
 	<guid>c492ecda-1931-44d3-b15c-61524333ce5b</guid>
 	<description><![CDATA[Provides an easy way to test the update beacon. There are always updates available!]]></description>
+	<help>
+		<value><![CDATA[This plugin is purely for testing the beacon functionality and has no use in production.]]></value>
+	</help>
 </pluggable>
