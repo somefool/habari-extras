@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Twitter Comments</name>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<version>1.0</version>
+	<description><![CDATA[Replace comment form fields with one for twitter username.]]></description>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<guid>c5542915-c7de-4c9a-9591-228c2e508196</guid>
+	<copyright>2010</copyright>
+	<help>
+		<value><![CDATA[<p>Activate this plugin and your ordinary comment form will be replaced with a simpler, cleaner one asking only for a twitter username with the comment.</p>
+<p>Just as with the regular comment form, there is no authentication, so commenters can impersonate others.</p>
+<hr>
+<p>If you'd like to show avatar images, you can easily do so by using <a href="http://tweetimag.es/" title="tweetimag.es by Joe Stump">tweetimag.es</a>:</p>
+<code>&lt;?php if ( $comment->info->twitter_comment ) { ?&gt;
+	&lt;img src="&lt;?php 
+		echo "http://img.tweetimag.es/i/{$comment->name}_n";
+		?&gt;" height="48" width="48" alt="&lt;?php echo $comment-&gt;name; ?&gt;">
+ &lt;?php } ?&gt;</code>
+<hr><p>Inspired by <a href="http://jprim.com/introducing-a-simpler-blog-commenting-system/" title="Read the original post">Joey Primiani</a>.<p>]]></value>
+	</help>
+
+</pluggable>
+
