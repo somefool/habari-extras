@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Sitemaps</name>
+	<version>0.8</version>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">The Habari Community</author>
+	<license>Apache License 2.0</license>
+	<description><![CDATA[Sitemaps plugin for Habari.]]></description>
+	<guid>E239C570-39B3-11DD-8EFD-31AC56D89593</guid>
+	<copyright>2010</copyright>
+	<help>
+		<value><![CDATA[
+		<p>This plugin will generate a <a href="http://sitemaps.org">sitemaps.org</a> compatible sitemap of your Habari blog for consumption by search engines like Ask.com, Google, Microsoft and Yahoo!.  A stylesheet is also included to make the sitemap visually appealing for the curious viewers.</p>
+		<p>This plugin will generate an uncompressed and gzip compressed sitemap.</p>
+		<p>You can also configure which of your content types you wish to include or exclude from your sitemaps.</p>
+		]]></value>
+		</help>
+</pluggable>
+
