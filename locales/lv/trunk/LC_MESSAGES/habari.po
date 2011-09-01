@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-10-28 15:51+0000\n"
+"POT-Creation-Date: 2011-02-13 00:00+0000\n"
 "PO-Revision-Date: 2009-04-01 10:16+0000\n"
 "Last-Translator: Māris Švirksts <maris.svirksts@gmail.com>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -15,209 +15,215 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2010-10-29 05:20+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-02-14 04:44+0000\n"
+"X-Generator: Launchpad (build 12351)\n"
 
-#: system/admin/tags.php:4
+#: system/admin/tags.php:5
 msgid "Type and wait to search tags"
 msgstr "Ierakstiet un gaidiet lai pārskatītu birkas"
 
-#: system/admin/tags.php:21 system/admin/users.php:61
-#: system/admin/posts.php:42 system/admin/posts.php:68
-#: system/admin/logs.php:37 system/admin/logs.php:100
-#: system/admin/comments.php:45 system/admin/comments.php:69
+#: system/admin/tags.php:22 system/admin/users.php:65
+#: system/admin/posts.php:43 system/admin/posts.php:69
+#: system/admin/logs.php:38 system/admin/logs.php:101
+#: system/admin/comments.php:46 system/admin/comments.php:70
 msgid "None selected"
 msgstr "Neviens netika izvēlēts"
 
-#: system/admin/tags.php:26 system/admin/tags.php:137
-#: system/admin/tags.php:140
+#: system/admin/tags.php:27 system/admin/tags.php:138
+#: system/admin/tags.php:141
 msgid "Rename"
 msgstr "Pārdēvēt"
 
-#: system/admin/tags.php:28 system/admin/user.php:12 system/admin/users.php:26
-#: system/admin/options.php:11 system/admin/plugins.php:19
-#: system/admin/groups.php:12 system/admin/group.php:12
+#: system/admin/tags.php:29 system/admin/user.php:13 system/admin/users.php:30
+#: system/admin/options.php:12 system/admin/plugins.php:20
+#: system/admin/groups.php:13 system/admin/group.php:13
 msgid "or"
 msgstr "vai"
 
-#: system/admin/tags.php:30 system/admin/users.php:70
-#: system/admin/posts.php:46 system/admin/posts.php:72
-#: system/admin/logs.php:41 system/admin/logs.php:104
-#: system/admin/comments.php:48 system/admin/comments.php:72
+#: system/admin/tags.php:31 system/admin/users.php:74
+#: system/admin/posts.php:47 system/admin/posts.php:73
+#: system/admin/logs.php:42 system/admin/logs.php:105
+#: system/admin/comments.php:49 system/admin/comments.php:73
 msgid "Delete Selected"
 msgstr "Dzēst iezīmētos"
 
-#: system/admin/tags.php:39 system/admin/tags.php:87
+#: system/admin/tags.php:40 system/admin/tags.php:88
 msgid "Error: No tags selected."
 msgstr "Kļūda: Neviena birka netika izvēlēta."
 
-#: system/admin/tags.php:91
+#: system/admin/tags.php:92 system/classes/adminhandler.php:3032
 msgid "Error: New name not specified."
 msgstr "Kļūda: Jauns nosaukums netika noteikts."
 
-#: system/admin/tags.php:143
+#: system/admin/tags.php:144
 msgid "Merge"
 msgstr ""
 
-#: system/admin/groups_item.php:3 system/admin/groups_item.php:6
+#: system/admin/groups_item.php:4 system/admin/groups_item.php:7
 msgid "Edit group"
 msgstr "Labot grupu"
 
-#: system/admin/groups_item.php:6 system/admin/posts_items.php:26
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:33
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
-#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
-#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
-#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
-#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
-#: system/classes/adminhandler.php:1780
+#: system/admin/groups_item.php:7 system/admin/posts_items.php:27
+#: system/themes/charcoal/page.single.php:22
+#: system/themes/charcoal/home.php:34
+#: system/themes/charcoal/entry.single.php:40
+#: system/themes/mzingi/page.single.php:17 system/themes/mzingi/tag.php:24
+#: system/themes/mzingi/entry.multiple.php:22 system/themes/mzingi/home.php:24
+#: system/themes/mzingi/search.php:24 system/themes/mzingi/entry.single.php:29
+#: system/themes/k2/page.single.php:14 system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16 system/themes/k2/home.php:16
+#: system/themes/k2/search.php:17 system/themes/k2/entry.single.php:25
+#: system/classes/adminhandler.php:1766
 msgid "Edit"
 msgstr "Rediģēt"
 
-#: system/admin/groups_item.php:7
+#: system/admin/groups_item.php:8
 msgid "Delete this group"
 msgstr "Dzēst grupu"
 
-#: system/admin/groups_item.php:7 system/admin/block_instances.php:17
-#: system/admin/publish.php:14 system/admin/posts_items.php:28
-#: system/admin/group.php:126 system/classes/adminhandler.php:858
-#: system/classes/adminhandler.php:1779
+#: system/admin/groups_item.php:8 system/admin/block_instances.php:18
+#: system/admin/publish.php:15 system/admin/posts_items.php:29
+#: system/admin/group.php:127 system/classes/adminhandler.php:830
+#: system/classes/adminhandler.php:1765
 #: system/plugins/habarisilo/habarisilo.plugin.php:484
 #: system/plugins/habarisilo/habarisilo.plugin.php:501
 msgid "Delete"
 msgstr "Dzēst"
 
-#: system/admin/groups_item.php:17
+#: system/admin/groups_item.php:18
 msgid "Members: "
 msgstr "Biedri: "
 
-#: system/admin/groups_item.php:19
+#: system/admin/groups_item.php:20
 msgid "No members"
 msgstr "Nav biedru"
 
-#: system/admin/dashboard_modules.php:4 system/classes/adminhandler.php:3803
+#: system/admin/dashboard_modules.php:5 system/classes/adminhandler.php:3763
 msgid "Add Item"
 msgstr "pievienot datu vienumu"
 
-#: system/admin/users_items.php:16
+#: system/admin/users_items.php:15
 #, php-format
 msgid "Open %s's user page"
 msgstr "Atvērt %s's lietotāja lapu"
 
-#: system/admin/users_items.php:26
+#: system/admin/users_items.php:25
 msgid "has not logged in yet"
 msgstr "vēl nav pieteicies"
 
-#: system/admin/users_items.php:30
+#: system/admin/users_items.php:29
 #, php-format
 msgid "was last seen %1$s at %2$s"
 msgstr "pēdējo reizi tika redzēts %1$s pulksten %2$s"
 
-#: system/admin/users_items.php:49 system/admin/user.php:29
+#: system/admin/users_items.php:48 system/admin/user.php:30
 msgid " post"
 msgstr " raksts"
 
-#: system/admin/users_items.php:49 system/admin/user.php:29
+#: system/admin/users_items.php:48 system/admin/user.php:30
 msgid " posts"
 msgstr " raksti"
 
-#: system/admin/users_items.php:57
+#: system/admin/users_items.php:56
 #, php-format
 msgid "%1$s and currently has %2$s"
 msgstr "%1$s un dotajā brīdī ir %2$s"
 
-#: system/admin/db_profiling.php:39 system/themes/k2/db_profiling.php:31
+#: system/admin/db_profiling.php:40 system/themes/k2/db_profiling.php:32
 msgid "DB Profiling"
 msgstr "DB preofilācija"
 
-#: system/admin/db_profiling.php:47 system/themes/k2/db_profiling.php:42
+#: system/admin/db_profiling.php:48 system/themes/k2/db_profiling.php:43
 msgid "Time to Execute:"
 msgstr "Laiks lai izpildītu:"
 
-#: system/admin/db_profiling.php:49
+#: system/admin/db_profiling.php:50
 msgid "BACKTRACE:"
 msgstr "atpakaļtrasēšana:"
 
-#: system/admin/db_profiling.php:56 system/themes/k2/db_profiling.php:56
+#: system/admin/db_profiling.php:57 system/themes/k2/db_profiling.php:57
 msgid "Total Time Executing Queries:"
 msgstr "Kopējais laiks izpildot jautājumus:"
 
-#: system/admin/user.php:7 system/admin/options.php:7
+#: system/admin/user.php:8 system/admin/options.php:8
 msgid "All options"
 msgstr "Visas opcijas"
 
-#: system/admin/user.php:15 system/admin/users.php:29
+#: system/admin/user.php:16 system/admin/users.php:33
 msgid "search users"
 msgstr "meklēt lietotājus"
 
-#: system/admin/user.php:35
+#: system/admin/user.php:36
 msgid "No published posts."
 msgstr "Neviena publicēta raksta."
 
-#: system/admin/block_instances.php:1
+#: system/admin/block_instances.php:2
 msgid "New Block Type:"
 msgstr ""
 
-#: system/admin/block_instances.php:6 system/themes/mzingi/loginform.php:18
-#: system/themes/mzingi/theme.php:90 system/themes/k2/loginform.php:20
+#: system/admin/block_instances.php:7 system/themes/mzingi/loginform.php:19
+#: system/themes/mzingi/theme.php:91 system/themes/k2/loginform.php:21
 msgid "Name:"
 msgstr "Vārds:"
 
-#: system/admin/block_instances.php:15 system/classes/pluggable.php:182
+#: system/admin/block_instances.php:16
+#, php-format
+msgid "Configure Block: %1s (%2s)"
+msgstr ""
+
+#: system/admin/block_instances.php:16 system/classes/pluggable.php:187
 #: system/plugins/undelete/undelete.plugin.php:163
 #: system/plugins/undelete/undelete.plugin.php:175
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:803
 msgid "Configure"
 msgstr "Konfigurēt"
 
-#: system/admin/formcontrols/formcontrol_textmulti.php:14
-#: system/classes/formui.php:1591
+#: system/admin/formcontrols/formcontrol_textmulti.php:15
+#: system/classes/formui.php:1631
 msgid "remove"
 msgstr "izmest"
 
-#: system/admin/formcontrols/formcontrol_textmulti.php:18
+#: system/admin/formcontrols/formcontrol_textmulti.php:19
 msgid "add"
 msgstr "pievienot"
 
-#: system/admin/comments_items.php:16
+#: system/admin/comments_items.php:17
 msgid "in"
 msgstr "iekš"
 
-#: system/admin/comments_items.php:16
+#: system/admin/comments_items.php:17
 #, php-format
 msgid "Go to %s"
 msgstr "Apmeklējiet %s"
 
-#: system/admin/comments_items.php:17 system/admin/posts_items.php:21
-#: system/themes/mzingi/commentform.php:46 system/themes/mzingi/sidebar.php:44
+#: system/admin/comments_items.php:18 system/admin/posts_items.php:22
+#: system/themes/mzingi/commentform.php:47 system/themes/mzingi/sidebar.php:46
 msgid "on"
 msgstr "uz"
 
-#: system/admin/comments_items.php:17
+#: system/admin/comments_items.php:18
 #, php-format
 msgid "Search for other comments from %s"
 msgstr ""
 
-#: system/admin/comments_items.php:18 system/admin/posts_items.php:22
+#: system/admin/comments_items.php:19 system/admin/posts_items.php:23
 msgid "at"
 msgstr "par"
 
-#: system/admin/comments_items.php:51
+#: system/admin/comments_items.php:52
 msgid "Marked as spam"
 msgstr "Atzīmēts kā surogātpasts"
 
-#: system/admin/comments_items.php:63
+#: system/admin/comments_items.php:64
 msgid "this post contains text in an invalid encoding"
 msgstr ""
 
-#: system/admin/comments_items.php:72
+#: system/admin/comments_items.php:73
 msgid "No comments could be found to match the query criteria."
 msgstr ""
 "Netika atrasts neviens komentārs, kurš atbilstu jūsu dotajiem parametriem."
 
-#: system/admin/comment.overview.php:5
+#: system/admin/comment.overview.php:6
 #, php-format
 msgid ""
 "<a href=\"%1$s\">Comment</a> by <a href=\"%2$s\" title=\"Visit "
@@ -225,7 +231,7 @@ msgid ""
 "<strong>%6$s</strong> on <strong>%7$s</strong>"
 msgstr ""
 
-#: system/admin/comment.overview.php:19
+#: system/admin/comment.overview.php:20
 #, php-format
 msgid ""
 "<a href=\"%1$s\">Comment</a> by <strong>%2$s</strong> posted on <a "
@@ -233,184 +239,192 @@ msgid ""
 "<strong>%6$s</strong>"
 msgstr ""
 
-#: system/admin/users.php:21
+#: system/admin/users.php:25
 msgid "Complete User List"
 msgstr "Visu lietotāju saraksts"
 
-#: system/admin/users.php:38 system/installer/db_setup.php:50
-#: system/installer/db_setup.php:97 system/installer/db_setup.php:180
+#: system/admin/users.php:42 system/installer/db_setup.php:51
+#: system/installer/db_setup.php:98 system/installer/db_setup.php:181
 msgid "Username"
 msgstr "Lietotāja vārds"
 
-#: system/admin/users.php:41
+#: system/admin/users.php:45
 msgid "E-Mail"
 msgstr "E-pasts"
 
-#: system/admin/users.php:44 system/admin/login.php:42
-#: system/installer/db_setup.php:61 system/installer/db_setup.php:108
-#: system/installer/db_setup.php:190
+#: system/admin/users.php:48 system/admin/login.php:43
+#: system/installer/db_setup.php:62 system/installer/db_setup.php:109
+#: system/installer/db_setup.php:191
 msgid "Password"
 msgstr "Parole"
 
-#: system/admin/users.php:47
+#: system/admin/users.php:51
 msgid "Password Again"
 msgstr "Lietotājvārdu vēlreiz"
 
-#: system/admin/users.php:50
+#: system/admin/users.php:54
 msgid "Add User"
 msgstr "Pievienot lietotāju"
 
-#: system/admin/users.php:69
+#: system/admin/users.php:73
 #, php-format
 msgid "Reassign posts to %s"
 msgstr "Nodot rakstus %s"
 
-#: system/admin/block_areas.php:1
+#: system/admin/block_areas.php:2
 msgid "Scope:"
 msgstr ""
 
-#: system/admin/block_areas.php:2
+#: system/admin/block_areas.php:3
 msgid "Default"
 msgstr ""
 
-#: system/admin/block_areas.php:24
+#: system/admin/block_areas.php:25
 msgid "drag here to remove"
 msgstr ""
 
-#: system/admin/publish.php:28
+#: system/admin/publish.php:29
 msgid "Publish"
 msgstr "Publicēt"
 
-#: system/admin/publish.php:60
+#: system/admin/publish.php:61
 msgid ""
 "You did not save the changes you made. \\nLeaving this page will result in "
 "the lose of data."
 msgstr ""
 "Jūs nesaglabājāt veiktās izmaiņas.\\nAtstājot šo lapu dati tiks zaudēti."
 
-#: system/admin/header.php:64 system/admin/login.php:32
+#: system/admin/header.php:65 system/admin/login.php:33
 msgid "Go to Site"
 msgstr "Apmeklēt vietni"
 
-#: system/admin/plugin.php:5
+#: system/admin/plugin.php:6
 #, php-format
 msgid "The plugin file %s had syntax errors and could not load."
 msgstr ""
 "Spraudņa failā %s tika atrastas sintakses kļūdas, tādēl nebija iespējams to "
 "ielādēt."
 
-#: system/admin/plugin.php:8
+#: system/admin/plugin.php:9
 msgid "Show Error"
 msgstr "Rādīt kļūdu"
 
-#: system/admin/plugin.php:17 system/installer/db_setup.php:227
+#: system/admin/plugin.php:18 system/installer/db_setup.php:228
 #, php-format
 msgid ""
 "The plugin file %s is a legacy plugin, and does not include an XML info file."
 msgstr ""
 
-#: system/admin/plugin.php:26 system/admin/posts_items.php:20
-#: system/admin/themes.php:8 system/admin/themes.php:163
+#: system/admin/plugin.php:26
+#, php-format
+msgid ""
+"The XML file for the plugin %s contained errors and could not be loaded."
+msgstr ""
+
+#: system/admin/plugin.php:35 system/admin/posts_items.php:21
+#: system/admin/themes.php:10 system/admin/themes.php:172
 #: system/plugins/coredashmodules/dash_latestentries.php:6
 msgid "by"
 msgstr "blakus"
 
-#: system/admin/plugin.php:33 system/themes/charcoal/footer.php:9
-#: system/classes/format.php:247 system/classes/format.php:276
+#: system/admin/plugin.php:42 system/admin/themes.php:16
+#: system/admin/themes.php:178 system/themes/charcoal/footer.php:10
+#: system/classes/format.php:247 system/classes/format.php:277
 msgid " and "
 msgstr " un "
 
-#: system/admin/plugin.php:48
+#: system/admin/plugin.php:57
 msgid "v1.1 Update Available Now"
 msgstr "v1.1 Atjauninājums pieejams"
 
-#: system/admin/plugin.php:53
+#: system/admin/plugin.php:70
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
 msgstr ""
 
-#: system/admin/plugin.php:82
+#: system/admin/plugin.php:115
 msgid "Close"
 msgstr "Aizvērt"
 
-#: system/admin/options.php:14 system/admin/groups.php:15
-#: system/admin/group.php:15
+#: system/admin/options.php:15 system/admin/groups.php:16
+#: system/admin/group.php:16
 msgid "search settings"
 msgstr "meklēšanas parametri"
 
-#: system/admin/posts_items.php:14 system/admin/posts_items.php:26
+#: system/admin/posts_items.php:15 system/admin/posts_items.php:27
 #: system/plugins/coredashmodules/dash_latestentries.php:6
 #, php-format
 msgid "Edit '%s'"
 msgstr "rediģēt '%s'"
 
-#: system/admin/posts_items.php:19
+#: system/admin/posts_items.php:20
 #, php-format
 msgid "Search for other %s items"
 msgstr "Meklēt pārējos %s datu vienumus"
 
-#: system/admin/posts_items.php:20
+#: system/admin/posts_items.php:21
 #, php-format
 msgid "Search for other items by %s"
 msgstr "Meklēt citus datu vienumus, atbilstošus parametram %s"
 
-#: system/admin/posts_items.php:21
+#: system/admin/posts_items.php:22
 #, php-format
 msgid "Search for other items from %s"
 msgstr "Meklēt citus datu vienumus no %s"
 
-#: system/admin/posts_items.php:27
+#: system/admin/posts_items.php:28
 #, php-format
 msgid "View '%s'"
 msgstr "Skatīt '%s'"
 
-#: system/admin/posts_items.php:27
+#: system/admin/posts_items.php:28
 msgid "View"
 msgstr "Skatīt"
 
-#: system/admin/posts_items.php:28
+#: system/admin/posts_items.php:29
 msgid "Delete this item"
 msgstr "Dzēst šo datu vienumu"
 
-#: system/admin/posts_items.php:46
+#: system/admin/posts_items.php:47
 msgid "No posts could be found to match the query criteria."
 msgstr ""
 "Netika atrasts neviens raksts, kurš atbilstu noteiktajiem parametriem."
 
-#: system/admin/posts.php:5 system/admin/logs.php:8
-#: system/admin/comments.php:4
+#: system/admin/posts.php:6 system/admin/logs.php:9
+#: system/admin/comments.php:5
 msgid "Older"
 msgstr "Vecāki"
 
-#: system/admin/posts.php:6
+#: system/admin/posts.php:7
 msgid "no results"
 msgstr "nav rezultātu"
 
-#: system/admin/posts.php:8 system/admin/comments.php:7
+#: system/admin/posts.php:9 system/admin/comments.php:8
 msgid "Type and wait to search"
 msgstr "Ierakstiet un gaidied lai meklētu"
 
-#: system/admin/posts.php:13 system/admin/comments.php:12
+#: system/admin/posts.php:14 system/admin/comments.php:13
 #, php-format
 msgid "Filter results for '%s'"
 msgstr "Filtrēt rezultātus priekš '%s'"
 
-#: system/admin/posts.php:17 system/admin/logs.php:12
-#: system/admin/comments.php:16
+#: system/admin/posts.php:18 system/admin/logs.php:13
+#: system/admin/comments.php:17
 msgid "Newer"
 msgstr "Jaunāki"
 
-#: system/admin/import.php:5 system/classes/adminhandler.php:3259
-#: system/plugins/wpimport/wpimport.plugin.php:134
+#: system/admin/import.php:6 system/classes/adminhandler.php:3213
+#: system/plugins/wpimport/wpimport.plugin.php:143
+#: system/plugins/wpimport/wpimport.plugin.php:219
 msgid "Import"
 msgstr "Importēt"
 
-#: system/admin/import.php:13
+#: system/admin/import.php:17
 msgid "You do not currently have any import plugins installed."
 msgstr "Dotajā brīdī jums nav instalēti nekādi importēšanas spraudņi."
 
-#: system/admin/import.php:14
+#: system/admin/import.php:18
 #, php-format
 msgid ""
 "Please <a href=\"%1$s\">activate an import plugin</a> to enable importing."
@@ -418,97 +432,103 @@ msgstr ""
 "Lūdzu <a href=\"%1$s\">aktivizējiet importēšanas spraudni</a> lai iespējotu "
 "importēšanu."
 
-#: system/admin/import.php:16
+#: system/admin/import.php:23
 msgid "Please choose the type of import to perform:"
 msgstr "Izvēlaties kādu importēšanas veidu veikt:"
 
-#: system/admin/import.php:24
+#: system/admin/import.php:33
 msgid "Select"
 msgstr "Atlasiet"
 
-#: system/admin/themes.php:5
+#: system/admin/themes.php:6
 msgid "Current Theme"
 msgstr "Pašreizējā tēma"
 
-#: system/admin/themes.php:12 system/classes/post.php:825
-#: system/classes/adminhandler.php:1400
+#: system/admin/themes.php:21 system/classes/post.php:851
+#: system/classes/adminhandler.php:1386
 msgid "Settings"
 msgstr "Apdare"
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:27
 msgid "v"
 msgstr "v"
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:27
 msgid "Update Available"
 msgstr "Pieejams atjauninājums"
 
-#: system/admin/themes.php:28 system/admin/themes.php:172
+#: system/admin/themes.php:37 system/admin/themes.php:188
 #, php-format
 msgid "%1$s is licensed under the %2$s"
 msgstr "%1$s ir licenzēts kā %2$s"
 
-#: system/admin/themes.php:134 system/classes/post.php:863
-#: system/plugins/undelete/undelete.plugin.php:178
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:872
+#: system/admin/themes.php:143 system/themes/charcoal/theme.php:54
+#: system/classes/post.php:889 system/plugins/undelete/undelete.plugin.php:178
+#: system/plugins/coreblocks/coreblocks.plugin.php:66
+#: system/plugins/coreblocks/coreblocks.plugin.php:126
+#: system/plugins/coreblocks/coreblocks.plugin.php:165
+#: system/plugins/coreblocks/coreblocks.plugin.php:239
+#: system/plugins/coreblocks/coreblocks.plugin.php:299
+#: system/plugins/coreblocks/coreblocks.plugin.php:340
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:876
 msgid "Save"
 msgstr "Saglabāt"
 
-#: system/admin/themes.php:156
+#: system/admin/themes.php:165
 msgid "Available Themes"
 msgstr "Pieejamās tēmas"
 
-#: system/admin/themes.php:178
+#: system/admin/themes.php:194
 msgid "Legacy theme."
 msgstr ""
 
-#: system/admin/themes.php:182
+#: system/admin/themes.php:198
 msgid "End Preview"
 msgstr ""
 
-#: system/admin/themes.php:184
+#: system/admin/themes.php:200
 msgid "Preview"
 msgstr ""
 
-#: system/admin/themes.php:186 system/classes/installhandler.php:220
-#: system/classes/adminhandler.php:1902 system/classes/adminhandler.php:1906
+#: system/admin/themes.php:202 system/classes/installhandler.php:221
+#: system/classes/adminhandler.php:1889 system/classes/adminhandler.php:1893
 msgid "Activate"
 msgstr "Aktivizēt"
 
-#: system/admin/footer.php:3
+#: system/admin/footer.php:4
 msgid "Go to the Habari site"
 msgstr "Apmeklēt Habari tīkla vietni"
 
-#: system/admin/footer.php:11
+#: system/admin/footer.php:12
 msgid "Logged in as"
 msgstr "Pieslēdzies kā"
 
-#: system/admin/footer.php:13
+#: system/admin/footer.php:14
 msgid "Go to your user page"
 msgstr "Apmeklējiet jūsu lietotāja lapu"
 
-#: system/admin/footer.php:18
+#: system/admin/footer.php:19
 msgid "Open the Habari manual in a new window"
 msgstr "Atvērt Habari rokasgrāmatu jaunā logā"
 
-#: system/admin/footer.php:18 system/installer/header.php:18
+#: system/admin/footer.php:19 system/installer/header.php:19
 msgid "Manual"
 msgstr "Rokasgrāmata"
 
-#: system/admin/footer.php:23 system/admin/sysinfo.php:1
-#: system/admin/sysinfo.php:6
+#: system/admin/footer.php:24 system/admin/sysinfo.php:2
+#: system/admin/sysinfo.php:7
 msgid "System Information"
 msgstr "Sistēmas informācija"
 
-#: system/admin/sysinfo.php:7
+#: system/admin/sysinfo.php:8
 msgid "SYSTEM INFORMATION\n"
 msgstr "SISTĒMAS INFORMĀCIJA\n"
 
-#: system/admin/sysinfo.php:23
+#: system/admin/sysinfo.php:24
 msgid "Site Information"
 msgstr "Vietnes informācija"
 
-#: system/admin/sysinfo.php:24
+#: system/admin/sysinfo.php:25
 msgid ""
 "\n"
 "SITE INFORMATION\n"
@@ -516,11 +536,11 @@ msgstr ""
 "\n"
 "VIETNES INFORMĀCIJA\n"
 
-#: system/admin/sysinfo.php:40
+#: system/admin/sysinfo.php:41
 msgid "User Classes"
 msgstr "Lietotāju grupas"
 
-#: system/admin/sysinfo.php:41
+#: system/admin/sysinfo.php:42
 msgid ""
 "\n"
 "USER CLASSES\n"
@@ -528,19 +548,19 @@ msgstr ""
 "\n"
 "LIETOTĀJU GRUPAS\n"
 
-#: system/admin/sysinfo.php:52 system/admin/sysinfo.php:77
+#: system/admin/sysinfo.php:53 system/admin/sysinfo.php:78
 msgid "None found"
 msgstr "Nekas netika atrasts"
 
-#: system/admin/sysinfo.php:53 system/admin/sysinfo.php:78
+#: system/admin/sysinfo.php:54 system/admin/sysinfo.php:79
 msgid "None found\n"
 msgstr "Nekas netika atrasts\n"
 
-#: system/admin/sysinfo.php:59
+#: system/admin/sysinfo.php:60
 msgid "Plugin Information"
 msgstr "Spraudņa informācija"
 
-#: system/admin/sysinfo.php:60
+#: system/admin/sysinfo.php:61
 msgid ""
 "\n"
 "PLUGIN INFORMATION"
@@ -548,131 +568,121 @@ msgstr ""
 "\n"
 "SPRAUDŅA INFORMĀCIJA"
 
-#: system/admin/sysinfo.php:85
+#: system/admin/sysinfo.php:86
 msgid "All Results"
 msgstr "Visi rezultāti"
 
-#: system/admin/logs.php:9
+#: system/admin/logs.php:10
 msgid "0-0 of 0"
 msgstr "0-0 no 0"
 
-#: system/admin/logs.php:10
+#: system/admin/logs.php:11
 msgid "Type and wait to search any log entry component"
 msgstr ""
 "Ierakstiet un gaidiet lai pārskatītu jebkuru reģistra ieraksta iedaļu"
 
-#: system/admin/logs.php:42 system/admin/logs.php:105
+#: system/admin/logs.php:43 system/admin/logs.php:106
 msgid "Purge Logs"
 msgstr ""
 
-#: system/admin/logs.php:57
+#: system/admin/logs.php:58
 msgid "Date &amp; Time"
 msgstr "Datums &amp; Laiks"
 
-#: system/admin/logs.php:58 system/themes/k2/sidebar.php:17
+#: system/admin/logs.php:59 system/themes/k2/sidebar.php:18
 msgid "User"
 msgstr "Lietotājs"
 
-#: system/admin/logs.php:59
+#: system/admin/logs.php:60
 msgid "IP"
 msgstr "IP"
 
-#: system/admin/logs.php:60
+#: system/admin/logs.php:61
 msgid "Module"
 msgstr "Modulis"
 
-#: system/admin/logs.php:61
+#: system/admin/logs.php:62
 msgid "Type"
 msgstr "Tips"
 
-#: system/admin/logs.php:62
+#: system/admin/logs.php:63
 msgid "Severity"
 msgstr "Nopietnība"
 
-#: system/admin/logs.php:63
+#: system/admin/logs.php:64
 msgid "Message"
 msgstr "Vēstule"
 
-#: system/admin/logs.php:75
+#: system/admin/logs.php:76
 msgid "Filter"
 msgstr "Filtrs"
 
-#: system/admin/logs.php:89
+#: system/admin/logs.php:90
 msgid "There are no logs to be displayed at this time."
 msgstr "Dotajā brīdī neeksistē reģistri ko atrādīt."
 
-#: system/admin/dashboard.php:6
+#: system/admin/dashboard.php:10
 msgid ""
-"Oh, great!\tYou're using IE6!  I've finally found someone I can pawn this "
-"old betamax player off on!<br />\n"
-"If you're reading this, you're surfing using Internet Explorer 6, an eight-"
-"year-old browser that cannot cope with the demands of the modern internet.\n"
-"<a href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
+"Oh, great! You're using IE6! I've finally found someone I can pawn this old "
+"betamax player off on!"
+msgstr ""
+
+#: system/admin/dashboard.php:11 system/classes/habaridatetime.php:387
+msgid "year"
+msgid_plural "years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:11
+#, php-format
+msgid ""
+"If you're reading this you're surfing using Internet Explorer 6, a browser "
+"that is %d %s old and cannot cope with the demands of the modern internet."
+msgstr ""
+
+#: system/admin/dashboard.php:12
+msgid ""
+"Consider switching to <a href=\"http://mozilla.com\">Mozilla Firefox</a>, <a "
+"href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
 "href=\"http://www.google.com/chrome\">Google Chrome</a>, or a more recent "
-"version of \n"
-"<a href=\"http://www.microsoft.com/windows/Internet-"
+"version of <a href=\"http://www.microsoft.com/windows/Internet-"
 "explorer/default.aspx\">Internet Explorer</a>."
 msgstr ""
 
-#: system/admin/dashboard.php:17
+#: system/admin/dashboard.php:18
 #, php-format
-msgid "%d year"
-msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:21
-#, php-format
-msgid "%d month"
-msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%s has been active for %s"
+msgstr ""
 
 #: system/admin/dashboard.php:25
-#, php-format
-msgid "%d day"
-msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:29
-#, php-format
-msgid "%1$s has been active for %2$s"
-msgstr "%1$s ir bijis aktīvs jau %2$s"
-
-#: system/admin/dashboard.php:31
-msgid "days"
-msgstr "dienas"
-
-#: system/admin/dashboard.php:39
 #, php-format
 msgid "%d page"
 msgid_plural "%d pages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:51
+#: system/admin/dashboard.php:37
 #, php-format
 msgid "%d entry"
 msgid_plural "%d entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:65
+#: system/admin/dashboard.php:51
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:73
+#: system/admin/dashboard.php:59
 #, php-format
 msgid "%d tag"
 msgid_plural "%d tags"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:81
+#: system/admin/dashboard.php:67
 #, php-format
 msgid "[You] have published %1$s%2$s"
 msgid_plural "The [%3$d authors] have published %1$s%2$s"
@@ -680,18 +690,18 @@ msgstr[0] "[Jūs] esat publicējis %1$s%2$s"
 msgstr[1] "[%3$d autori] ir publicējuši %1$s%2$s"
 msgstr[2] "[%3$d autori] ir publicējuši %1$s%2$s"
 
-#: system/admin/dashboard.php:83
+#: system/admin/dashboard.php:69
 msgid " with "
 msgstr " ar "
 
-#: system/admin/dashboard.php:103
+#: system/admin/dashboard.php:89
 #, php-format
 msgid "%d entry draft"
 msgid_plural "%d entry drafts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:115
+#: system/admin/dashboard.php:101
 #, php-format
 msgid "%d scheduled post"
 msgid_plural "%d scheduled posts"
@@ -699,60 +709,49 @@ msgstr[0] "%d ieplānotais raksts"
 msgstr[1] "%d ieplānotie raksti"
 msgstr[2] "%d ieplānotie raksti"
 
-#: system/admin/dashboard.php:127
+#: system/admin/dashboard.php:113
 #, php-format
 msgid "%d page draft"
 msgid_plural "%d page drafts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:141
+#: system/admin/dashboard.php:127
 #, php-format
 msgid "%d comment awaiting approval"
 msgid_plural "%d comments awaiting approval"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:148
+#: system/admin/dashboard.php:134
 #, php-format
 msgid "%d spam comment awaiting moderation"
 msgid_plural "%d spam comments awaiting moderation"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:154
+#: system/admin/dashboard.php:140
 #, php-format
 msgid "You have %s"
 msgstr "Jums ir %s"
 
-#: system/admin/dashboard.php:167
+#: system/admin/dashboard.php:160
 #, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
-msgstr "<a href=\"%1s\">%2s %3s</a> ir kritisks labojums."
+msgid "%1$s update released on %2$s: %3$s"
+msgstr ""
 
-#: system/admin/dashboard.php:170
+#: system/admin/dashboard.php:163
+#, php-format
+msgid "%1$s update: %3$s"
+msgstr ""
+
+#: system/admin/dashboard.php:183
 #, php-format
 msgid ""
-"<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+"%1$s <a href=\"%2$s\">%3$s</a> has the following updates available: %4$s"
 msgstr ""
-"<a href=\"%1s\">%2s %3s</a> satur kļūdu labojumus un papildus funkcijas."
 
-#: system/admin/dashboard.php:173
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
-msgstr "<a href=\"%1s\">%2s %3s</a> satur kļūdu labojumus."
-
-#: system/admin/dashboard.php:176
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
-msgstr "<a href=\"%1s\">%2s %3s</a> satur papildus funkcijas."
-
-#: system/admin/dashboard.php:179
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
-msgstr "<a href=\"%1s\">%2s %3s</a> ir jauns laidiens."
-
-#: system/admin/dashboard.php:194
+#: system/admin/dashboard.php:203
 msgid ""
 "Welcome to Habari! We hope that you will jump right in and start exploring. "
 "If you get stuck or want to learn more about some of the advanced features, "
@@ -765,182 +764,187 @@ msgstr ""
 "lasīt [rokasgrāmatu], kura pievienota visām Habari instalācijām. Šī saite "
 "parādīsies jebkuras administratora pārvaldības lapas apakšā."
 
-#: system/admin/dashboard.php:195
+#: system/admin/dashboard.php:204
 msgid "Habari Manual"
 msgstr "Habari rokasgrāmata"
 
-#: system/admin/dashboard.php:201
+#: system/admin/dashboard.php:210
 msgid "This message will disappear next time you visit."
 msgstr "Šī ziņa nākošajā apmeklējuma reizē vairs nebūs redzama."
 
-#: system/admin/plugins.php:6
+#: system/admin/plugins.php:7
 msgid "All plugins"
 msgstr "Visi spraudņi"
 
-#: system/admin/plugins.php:11 system/admin/plugins.php:52
+#: system/admin/plugins.php:12 system/admin/plugins.php:53
 msgid "Active Plugins"
 msgstr "Aktīvie spraudņi"
 
-#: system/admin/plugins.php:14 system/admin/plugins.php:67
+#: system/admin/plugins.php:15 system/admin/plugins.php:68
 msgid "Inactive Plugins"
 msgstr "Neaktīvie spraudņi"
 
-#: system/admin/plugins.php:22
+#: system/admin/plugins.php:23
 msgid "search plugins"
 msgstr "meklēt spraudņus"
 
-#: system/admin/plugins.php:84
+#: system/admin/plugins.php:85
 msgid "Upload Plugin Package"
 msgstr "Augšuplādēt spraudņa pakotni"
 
-#: system/admin/plugins.php:87
+#: system/admin/plugins.php:88
 #: system/plugins/habarisilo/habarisilo.plugin.php:417
 #: system/plugins/habarisilo/habarisilo.plugin.php:555
 msgid "Upload"
 msgstr "Augšuplādēt"
 
-#: system/admin/groups.php:5 system/admin/group.php:5
+#: system/admin/groups.php:6 system/admin/group.php:6
 msgid "All Groups"
 msgstr "Visas grupas"
 
-#: system/admin/groups.php:21
+#: system/admin/groups.php:22
 msgid "Group Management"
 msgstr "Grupu pārvaldība"
 
-#: system/admin/groups.php:42 system/admin/groups.php:59
+#: system/admin/groups.php:43 system/admin/groups.php:60
 msgid "Add Group"
 msgstr "Pievienot grupu"
 
-#: system/admin/groups.php:46
+#: system/admin/groups.php:47
 msgid "Group Name"
 msgstr "Grupas vārds"
 
-#: system/admin/comments.php:5
+#: system/admin/comments.php:6
 msgid "0 of 0"
 msgstr "0 no 0"
 
-#: system/admin/comments.php:48 system/admin/comments.php:72
+#: system/admin/comments.php:49 system/admin/comments.php:73
 msgid "Delete selected comments"
 msgstr ""
 
-#: system/admin/comments.php:49 system/admin/comments.php:73
+#: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete all spam comments"
 msgstr ""
 
-#: system/admin/comments.php:49 system/admin/comments.php:73
+#: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete All Spam"
 msgstr ""
 
-#: system/admin/comments.php:50 system/admin/comments.php:74
+#: system/admin/comments.php:51 system/admin/comments.php:75
 msgid "Delete all unapproved comments"
 msgstr ""
 
-#: system/admin/comments.php:50 system/admin/comments.php:74
+#: system/admin/comments.php:51 system/admin/comments.php:75
 msgid "Delete All Unapproved"
 msgstr ""
 
-#: system/admin/comments.php:53 system/admin/comments.php:77
+#: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Approve selected comments"
 msgstr ""
 
-#: system/admin/comments.php:53 system/admin/comments.php:77
+#: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Mark selected approved"
 msgstr ""
 
-#: system/admin/comments.php:54 system/admin/comments.php:78
+#: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Unapprove selected comments"
 msgstr ""
 
-#: system/admin/comments.php:54 system/admin/comments.php:78
+#: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Mark selected unapproved"
 msgstr ""
 
-#: system/admin/comments.php:55 system/admin/comments.php:79
+#: system/admin/comments.php:56 system/admin/comments.php:80
 msgid "Mark selected comments as spam"
 msgstr ""
 
-#: system/admin/comments.php:55 system/admin/comments.php:79
+#: system/admin/comments.php:56 system/admin/comments.php:80
 msgid "Mark selected spam"
 msgstr ""
 
-#: system/admin/group.php:20
+#: system/admin/group.php:21
 #, php-format
 msgid "Group %1$s has <strong>%2$d</strong> member"
 msgid_plural "Group %1$s has <strong>%2$d</strong> members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/group.php:26
+#: system/admin/group.php:27
 msgid "Group Members"
 msgstr ""
 
-#: system/admin/group.php:31
+#: system/admin/group.php:32
 msgid "Members"
 msgstr "Biedri"
 
-#: system/admin/group.php:37
+#: system/admin/group.php:38
 msgid "Members To Add"
 msgstr "Lietotāji, kuri jāpievieno"
 
-#: system/admin/group.php:47
+#: system/admin/group.php:48
 msgid "Add"
 msgstr "Pievienot"
 
-#: system/admin/group.php:52
+#: system/admin/group.php:53
 msgid "Members To Remove"
 msgstr "Lietotāji, kuri jāizmet"
 
-#: system/admin/group.php:65
+#: system/admin/group.php:66
 msgid "Group Permissions"
 msgstr "Grupas atļaujas"
 
-#: system/admin/group.php:77 system/admin/group.php:100
+#: system/admin/group.php:78 system/admin/group.php:101
 msgid "Token Description"
 msgstr ""
 
-#: system/admin/group.php:101
+#: system/admin/group.php:102
 msgid "allow"
 msgstr ""
 
-#: system/admin/group.php:102
+#: system/admin/group.php:103
 msgid "deny"
 msgstr ""
 
-#: system/admin/group.php:129 system/classes/adminhandler.php:333
-#: system/classes/adminhandler.php:855
+#: system/admin/group.php:130 system/classes/adminhandler.php:337
+#: system/classes/adminhandler.php:827
 msgid "Apply"
 msgstr "Pielietot"
 
-#: system/admin/login.php:4
+#: system/admin/login.php:5
 #, php-format
 msgid "Login to %s"
 msgstr "Pieslēgties %s"
 
-#: system/admin/login.php:39 system/themes/charcoal/theme.php:164
-#: system/themes/k2/theme.php:122
+#: system/admin/login.php:40 system/themes/charcoal/theme.php:192
+#: system/themes/k2/theme.php:118
 msgid "Name"
 msgstr "Vārds"
 
-#: system/admin/login.php:39
+#: system/admin/login.php:40
 msgid "name"
 msgstr "vārds"
 
-#: system/admin/login.php:42
+#: system/admin/login.php:43
 msgid "password"
 msgstr "parole"
 
-#: system/admin/login.php:46 system/themes/charcoal/header.php:50
+#: system/admin/login.php:47 system/themes/charcoal/header.php:51
+#: system/plugins/coreblocks/coreblocks.plugin.php:317
 msgid "Login"
 msgstr "Pieslēgties"
 
-#: system/admin/login.php:50 system/themes/mzingi/loginform.php:30
+#: system/admin/login.php:51 system/themes/mzingi/loginform.php:31
 #: system/classes/userhandler.php:21
 msgid "Reset password"
 msgstr ""
 
-#: system/admin/tag_collection.php:10
+#: system/admin/tag_collection.php:13
 #, php-format
 msgid "Manage posts tagged %1$s"
+msgstr ""
+
+#: system/admin/tag_collection.php:18
+msgid "No tags could be found to match the query criteria."
 msgstr ""
 
 #: system/schema/mysql/connection.php:246
@@ -957,426 +961,504 @@ msgstr ""
 msgid "not yet supported on SQLite"
 msgstr "SQLite to pagaidām neatbalsta"
 
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:33
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
-#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
-#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
-#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
-#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
+#: system/themes/charcoal/page.single.php:22
+#: system/themes/charcoal/home.php:34
+#: system/themes/charcoal/entry.single.php:40
+#: system/themes/mzingi/page.single.php:17 system/themes/mzingi/tag.php:24
+#: system/themes/mzingi/entry.multiple.php:22 system/themes/mzingi/home.php:24
+#: system/themes/mzingi/search.php:24 system/themes/mzingi/entry.single.php:29
+#: system/themes/k2/page.single.php:14 system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16 system/themes/k2/home.php:16
+#: system/themes/k2/search.php:17 system/themes/k2/entry.single.php:25
 msgid "Edit post"
 msgstr "Labot rakstu"
 
-#: system/themes/charcoal/tag.php:4
+#: system/themes/charcoal/tag.php:5
 #, php-format
 msgid "Displaying posts tagged: %s"
 msgstr "Tiek rādīti raksti ar birku: %s"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/themes/k2/theme.php:99
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/themes/k2/theme.php:95
 msgid "Comments on this post"
 msgstr "Šī raksta komentāri"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/classes/theme.php:866
 msgid "No Comments"
 msgstr "Nav komentāru"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29
-#: system/themes/mzingi/commentform.php:27 system/themes/k2/theme.php:99
-#: system/classes/post.php:965 system/classes/adminhandler.php:1376
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30
+#: system/themes/mzingi/commentform.php:28 system/themes/k2/theme.php:95
+#: system/classes/post.php:997 system/classes/adminhandler.php:1362
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/acl.php:785
-#: system/classes/adminhandler.php:3253
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/classes/acl.php:786
+#: system/classes/adminhandler.php:3207
 msgid "Comments"
 msgstr "Komentāri"
 
-#: system/themes/charcoal/tag.php:39 system/themes/charcoal/home.php:70
-#: system/themes/charcoal/multiple.php:40 system/themes/charcoal/search.php:47
-#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+#: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
+#: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
+#: system/themes/mzingi/entry.multiple.php:28 system/themes/mzingi/home.php:32
 msgid "Newer Posts"
 msgstr "Jaunāki raksti"
 
-#: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
-#: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
-#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+#: system/themes/charcoal/tag.php:41 system/themes/charcoal/home.php:72
+#: system/themes/charcoal/multiple.php:42 system/themes/charcoal/search.php:49
+#: system/themes/mzingi/entry.multiple.php:28 system/themes/mzingi/home.php:32
 msgid "Older Posts"
 msgstr "Vecāki raksti"
 
-#: system/themes/charcoal/commentform.php:8
+#: system/themes/charcoal/commentform.php:9
 msgid "Comments are closed for this post"
 msgstr "Šim rakstam komentāri slēgti"
 
-#: system/themes/charcoal/404.php:6
+#: system/themes/charcoal/404.php:7
 msgid "Whoops! 404"
 msgstr "Whoops! 404"
 
-#: system/themes/charcoal/404.php:9
+#: system/themes/charcoal/404.php:10
 msgid ""
 "The page you were trying to access is not really there. Please try again."
 msgstr ""
 "Lapa, kurai mēģināt piekļūt, šeit neatrodas. Lūdzu, mēģiniet vēlreiz."
 
-#: system/themes/charcoal/searchform.php:2
+#: system/themes/charcoal/searchform.php:3
 #, php-format
 msgid "Search %s"
 msgstr "Meklēt %s"
 
-#: system/themes/charcoal/searchform.php:3
+#: system/themes/charcoal/searchform.php:4
 msgid "Go"
 msgstr "Ej"
 
-#: system/themes/charcoal/sidebar.php:6
+#: system/themes/charcoal/sidebar.php:7
 msgid "{blog entries}"
 msgstr "{emuāra raksti}"
 
-#: system/themes/charcoal/sidebar.php:7
+#: system/themes/charcoal/sidebar.php:8
 msgid "{comments}"
 msgstr "{komentāri}"
 
-#: system/themes/charcoal/sidebar.php:11
+#: system/themes/charcoal/sidebar.php:12
 msgid "Powered by Habari"
 msgstr "Balstīts uz Habari"
 
-#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+#: system/themes/charcoal/header.php:49 system/themes/k2/header.php:32
 msgid "Admin area"
 msgstr "Administratora sadaļa"
 
-#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+#: system/themes/charcoal/header.php:49 system/themes/k2/header.php:32
 msgid "Admin"
 msgstr "Administrators"
 
-#: system/themes/charcoal/home.php:39
+#: system/themes/charcoal/home.php:40
 msgid "No posts published, yet."
 msgstr "Neviens raksts nav publicēts, pagaidām."
 
-#: system/themes/charcoal/home.php:63
+#: system/themes/charcoal/home.php:64
 #, php-format
 msgid "Continue reading %s"
 msgstr "Turpināt lasīt %s"
 
-#: system/themes/charcoal/home.php:63
+#: system/themes/charcoal/home.php:64
 msgid "more"
 msgstr "vēl"
 
-#: system/themes/charcoal/footer.php:7
+#: system/themes/charcoal/footer.php:8
 #, php-format
 msgid "%1$s is powered by %2$s"
 msgstr "%1$s ir balstīts uz %2$s"
 
-#: system/themes/charcoal/footer.php:9 system/themes/k2/footer.php:11
+#: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:12
 msgid "Atom Entries"
 msgstr "Atom ieraksti"
 
-#: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:11
+#: system/themes/charcoal/footer.php:11 system/themes/k2/footer.php:12
 msgid "Atom Comments"
 msgstr "Atom komentāri"
 
-#: system/themes/charcoal/theme.php:110
+#: system/themes/charcoal/theme.php:34
+msgid "Show Title Image:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:35
+msgid "Check to show the title image, uncheck to display the title text."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:36
+msgid "Home label:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:37
+msgid "Set to whatever you want your first tab text to be."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:38
+msgid "Show Entry Paperclip:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:39
+msgid "Check to show the paperclip graphic in posts, uncheck to hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:40
+msgid "Show Page Paperclip:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:41
+msgid "Check to show the paperclip graphic in pages, uncheck to hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:42
+msgid "Show Powered By:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:43
+msgid ""
+"Check to show the \"powered by Habari\" graphic in the sidebar, uncheck to "
+"hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:44
+msgid "Display Login:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:45
+msgid ""
+"Check to show the Login/Logout link in the navigation bar, uncheck to hide "
+"it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:46
+msgid "Tags in Multiple Posts Page:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:47
+msgid ""
+"Check to show the post tags in the multiple posts pages (search, tags, "
+"archives), uncheck to hide them."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:48
+msgid "Show Post Navigation:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:49
+msgid "Set to true to show single post navigation links, false to hide them."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:50
+msgid "Tag Cloud Count:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:51
+msgid "Set to the number of tags to display on the default \"cloud\"."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:55
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:877
+msgid "Options saved"
+msgstr "Opcijas saglabātas"
+
+#: system/themes/charcoal/theme.php:138
 msgid "Search for "
 msgstr "Meklēt "
 
-#: system/themes/charcoal/theme.php:115 system/themes/charcoal/theme.php:121
+#: system/themes/charcoal/theme.php:143 system/themes/charcoal/theme.php:149
 #, php-format
 msgid "Search results for '%s'"
 msgstr "Meklēt rezultātus priekš '%s'"
 
-#: system/themes/charcoal/theme.php:118
+#: system/themes/charcoal/theme.php:146
 #, php-format
 msgid "No results found for your search '%1$s'"
 msgstr "Jūsu meklēšana pēc '%1$s' nedeva rezultātus"
 
-#: system/themes/charcoal/theme.php:118
+#: system/themes/charcoal/theme.php:146
 #, php-format
 msgid "You can try searching for '%2$s'"
 msgstr "Jūs varat mēģināt meklēt '%2$s'"
 
-#: system/themes/charcoal/theme.php:124
+#: system/themes/charcoal/theme.php:152
 #, php-format
 msgid "No results found for your search '%s'"
 msgstr "Jūsu meklēšana pēc '%s' nedeva rezultātus"
 
-#: system/themes/charcoal/theme.php:164
+#: system/themes/charcoal/theme.php:192
 msgid "(Required)"
 msgstr "(Nepieciešams)"
 
-#: system/themes/charcoal/theme.php:166 system/themes/k2/theme.php:124
+#: system/themes/charcoal/theme.php:194 system/themes/k2/theme.php:120
 msgid "Mail"
 msgstr "Pasts"
 
-#: system/themes/charcoal/theme.php:166
+#: system/themes/charcoal/theme.php:194
 msgid "(will not be published"
 msgstr ""
 
-#: system/themes/charcoal/theme.php:166
+#: system/themes/charcoal/theme.php:194
 msgid "- Required)"
 msgstr ""
 
-#: system/themes/charcoal/theme.php:168 system/themes/k2/theme.php:126
-#: system/classes/post.php:953
+#: system/themes/charcoal/theme.php:196 system/themes/k2/theme.php:122
+#: system/classes/post.php:985
 msgid "Website"
 msgstr "Tīkla vietne"
 
-#: system/themes/charcoal/theme.php:171 system/themes/mzingi/theme.php:107
-#: system/themes/k2/theme.php:129 system/classes/post.php:973
+#: system/themes/charcoal/theme.php:199 system/themes/mzingi/theme.php:108
+#: system/themes/k2/theme.php:125 system/classes/post.php:1005
 #: system/plugins/habarisilo/habarisilo.plugin.php:466
 msgid "Submit"
 msgstr "Apstiprināt"
 
-#: system/themes/charcoal/comments.php:26
+#: system/themes/charcoal/comments.php:27
 msgid "Time of this comment - Click for comment permalink"
 msgstr ""
 
-#: system/themes/charcoal/comments.php:28
+#: system/themes/charcoal/comments.php:29
 msgid "Your comment is awaiting moderation"
 msgstr "Jūsu komentārs gaida apstiprināšanu"
 
-#: system/themes/charcoal/comments.php:34
+#: system/themes/charcoal/comments.php:35
 msgid "Be the first to write a comment!"
 msgstr "Ieraksti komentāru pirmais!"
 
-#: system/themes/mzingi/tag.php:8
+#: system/themes/mzingi/tag.php:9
 msgid "Posts Tagged with"
 msgstr "Raksti ar birku"
 
-#: system/themes/mzingi/tag.php:18 system/themes/mzingi/entry.multiple.php:16
-#: system/themes/mzingi/home.php:18 system/themes/mzingi/search.php:18
-#: system/themes/mzingi/entry.single.php:24
+#: system/themes/mzingi/tag.php:19 system/themes/mzingi/entry.multiple.php:17
+#: system/themes/mzingi/home.php:19 system/themes/mzingi/search.php:19
+#: system/themes/mzingi/entry.single.php:25
 msgid "Tagged:"
 msgstr "Birkas:"
 
-#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:30 system/themes/mzingi/search.php:30
 msgid "Newer Results"
 msgstr "Jaunāki razultāti"
 
-#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:30 system/themes/mzingi/search.php:30
 msgid "Older Results"
 msgstr "Vecāki rezultāti"
 
-#: system/themes/mzingi/commentform.php:7
+#: system/themes/mzingi/commentform.php:8
 msgid "to"
 msgstr "uz"
 
-#: system/themes/mzingi/commentform.php:8 system/themes/k2/comments.php:7
+#: system/themes/mzingi/commentform.php:9 system/themes/k2/comments.php:8
 msgid "Feed for this Entry"
 msgstr "Barotne šim ierakstam"
 
-#: system/themes/mzingi/commentform.php:44 system/themes/k2/comments.php:24
+#: system/themes/mzingi/commentform.php:45 system/themes/k2/comments.php:25
 msgid "Permanent Link to this Comment"
 msgstr "Patstāvīga saite uz šo komentāru"
 
-#: system/themes/mzingi/commentform.php:45
+#: system/themes/mzingi/commentform.php:46
 msgid "Comment by"
 msgstr "Apstiprinājis"
 
-#: system/themes/mzingi/commentform.php:46
+#: system/themes/mzingi/commentform.php:47
 msgid "Time of this comment"
 msgstr "Šī komentāra ierakstīšanas laiks"
 
-#: system/themes/mzingi/commentform.php:46 system/themes/k2/comments.php:26
+#: system/themes/mzingi/commentform.php:47 system/themes/k2/comments.php:27
 msgid "In moderation"
 msgstr "gaida apstiprināšanu"
 
-#: system/themes/mzingi/commentform.php:56 system/themes/k2/comments.php:38
+#: system/themes/mzingi/commentform.php:57 system/themes/k2/comments.php:39
 msgid "There are currently no comments."
 msgstr "Dotajā brīdī nav komentāru."
 
-#: system/themes/mzingi/404.php:7
+#: system/themes/mzingi/404.php:8
 msgid "It seems you couldn't find what you are looking for."
 msgstr "Liekas, jums neizdevās atrast meklēto."
 
-#: system/themes/mzingi/404.php:7
+#: system/themes/mzingi/404.php:8
 msgid "Perhaps you can try searching."
 msgstr "Varbūt jūs varat mēģināt meklēt."
 
-#: system/themes/mzingi/searchform.php:4 system/themes/k2/sidebar.php:5
+#: system/themes/mzingi/searchform.php:5 system/themes/k2/sidebar.php:6
+#: system/plugins/coreblocks/coreblocks.plugin.php:355
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:629
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:977
 msgid "Search"
 msgstr "Meklēt"
 
-#: system/themes/mzingi/searchform.php:4 system/themes/k2/searchform.php:4
+#: system/themes/mzingi/searchform.php:5 system/themes/k2/searchform.php:5
 msgid "Go!"
 msgstr "Ej!"
 
-#: system/themes/mzingi/sidebar.php:4
+#: system/themes/mzingi/sidebar.php:6
 msgid "Subscribe to Feed"
 msgstr "Pierakstīties uz barotni"
 
-#: system/themes/mzingi/sidebar.php:5
+#: system/themes/mzingi/sidebar.php:7
 msgid "Navigation"
 msgstr "Navigācija"
 
-#: system/themes/mzingi/sidebar.php:7
+#: system/themes/mzingi/sidebar.php:9
 msgid "Home"
 msgstr "Sākums"
 
-#: system/themes/mzingi/sidebar.php:16
+#: system/themes/mzingi/sidebar.php:18
 msgid "Asides"
 msgstr "Sānos"
 
-#: system/themes/mzingi/sidebar.php:29
+#: system/themes/mzingi/sidebar.php:31
 msgid "More Posts"
 msgstr "Vēl raksti"
 
-#: system/themes/mzingi/sidebar.php:40
+#: system/themes/mzingi/sidebar.php:42
 msgid "Recent Comments"
 msgstr "Jaunākie komentāri"
 
-#: system/themes/mzingi/sidebar.php:47
+#: system/themes/mzingi/sidebar.php:52
 msgid "User Login"
 msgstr "Lietotāja pievienošanās"
 
-#: system/themes/mzingi/search.php:7
+#: system/themes/mzingi/search.php:8
 msgid "Results for search of"
 msgstr "Meklēšanas rezultāti pēc"
 
-#: system/themes/mzingi/search.php:31
+#: system/themes/mzingi/search.php:32
 msgid "No results for"
 msgstr "Neatbilst rezultātu priekš"
 
-#: system/themes/mzingi/footer.php:3
+#: system/themes/mzingi/footer.php:4
 msgid "is powered by"
 msgstr "balstīts uz"
 
-#: system/themes/mzingi/loginform.php:4 system/themes/k2/loginform.php:5
+#: system/themes/mzingi/loginform.php:5 system/themes/k2/loginform.php:6
 msgid "That login is incorrect."
 msgstr "Pieteikšanās vārds ir nekorekts."
 
-#: system/themes/mzingi/loginform.php:9 system/themes/k2/loginform.php:11
+#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
 msgid "You are logged in as"
 msgstr "Jūs esat pieteicies kā"
 
-#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:11 system/themes/k2/loginform.php:13
 msgid "Want to"
 msgstr "VēlosV"
 
-#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:11 system/themes/k2/loginform.php:13
 msgid "log out"
 msgstr "Atteikties"
 
-#: system/themes/mzingi/loginform.php:22 system/themes/k2/loginform.php:24
+#: system/themes/mzingi/loginform.php:23 system/themes/k2/loginform.php:25
 msgid "Password:"
 msgstr "Parole:"
 
-#: system/themes/mzingi/loginform.php:27
+#: system/themes/mzingi/loginform.php:28
 msgid "GO!"
 msgstr "Ej!"
 
-#: system/themes/mzingi/theme.php:86
+#: system/themes/mzingi/theme.php:87
 msgid "About You"
 msgstr "Par jums"
 
-#: system/themes/mzingi/theme.php:90 system/themes/mzingi/theme.php:93
-#: system/themes/k2/theme.php:122 system/themes/k2/theme.php:124
+#: system/themes/mzingi/theme.php:91 system/themes/mzingi/theme.php:94
+#: system/themes/k2/theme.php:118 system/themes/k2/theme.php:120
 msgid "Required"
 msgstr "Nepieciešams"
 
-#: system/themes/mzingi/theme.php:93
+#: system/themes/mzingi/theme.php:94
 msgid "Email Address:"
 msgstr "E-pasta adrese:"
 
-#: system/themes/mzingi/theme.php:96
+#: system/themes/mzingi/theme.php:97
 msgid "Web Address:"
 msgstr "Tīkla vietnes adrese:"
 
-#: system/themes/mzingi/theme.php:98
+#: system/themes/mzingi/theme.php:99
 msgid "<p><em><small>Email address is not published</small></em></p>"
 msgstr ""
 
-#: system/themes/mzingi/theme.php:101
+#: system/themes/mzingi/theme.php:102
 msgid "Add to the Discussion"
 msgstr "Par diskusiju"
 
-#: system/themes/mzingi/theme.php:105
+#: system/themes/mzingi/theme.php:106
 msgid "Message: (Required)"
 msgstr ""
 
-#: system/themes/k2/page.single.php:8
+#: system/themes/k2/page.single.php:9
 msgid "Page:"
 msgstr "Lapa:"
 
-#: system/themes/k2/page.single.php:10 system/themes/k2/tag.php:12
-#: system/themes/k2/entry.multiple.php:12 system/themes/k2/home.php:12
-#: system/themes/k2/search.php:13 system/themes/k2/entry.single.php:21
+#: system/themes/k2/page.single.php:11 system/themes/k2/tag.php:13
+#: system/themes/k2/entry.multiple.php:13 system/themes/k2/home.php:13
+#: system/themes/k2/search.php:14 system/themes/k2/entry.single.php:22
 #, php-format
 msgid "by %s"
 msgstr "no %s"
 
-#: system/themes/k2/404.php:8
+#: system/themes/k2/404.php:9
 msgid "Error!"
 msgstr "Kļūda!"
 
-#: system/themes/k2/404.php:12
+#: system/themes/k2/404.php:13
 msgid "The requested post was not found."
 msgstr "Pieprasītais raksts netika atrasts."
 
-#: system/themes/k2/sidebar.php:10 system/classes/adminhandler.php:212
+#: system/themes/k2/sidebar.php:11 system/classes/adminhandler.php:216
 msgid "About"
 msgstr "Par"
 
-#: system/themes/k2/search.php:6
+#: system/themes/k2/search.php:7
 #, php-format
 msgid "Search results for %s"
 msgstr "Meklēšanas rezultāti priekš %s"
 
-#: system/themes/k2/footer.php:9
+#: system/themes/k2/footer.php:10
 msgid " is powered by"
 msgstr " ir balstīts uz"
 
-#: system/themes/k2/footer.php:9
+#: system/themes/k2/footer.php:10
 msgid "and a huge amount of "
 msgstr ""
 
-#: system/themes/k2/footer.php:10
+#: system/themes/k2/footer.php:11
 msgid "Caffeine"
 msgstr "Kafeīns"
 
-#: system/themes/k2/footer.php:11 system/classes/adminhandler.php:858
+#: system/themes/k2/footer.php:12 system/classes/adminhandler.php:830
 msgid "and"
 msgstr "un"
 
-#: system/themes/k2/loginform.php:11
+#: system/themes/k2/loginform.php:12
 msgid "Edit Your Profile"
 msgstr "Labot jūsu profilu"
 
-#: system/themes/k2/loginform.php:29
+#: system/themes/k2/loginform.php:30
 msgid "Sign in"
 msgstr "Pieteikties"
 
-#: system/themes/k2/theme.php:124
+#: system/themes/k2/theme.php:120
 msgid "(will not be published)"
 msgstr ""
 
-#: system/themes/k2/comments.php:5
+#: system/themes/k2/comments.php:6
 msgid "Responses to"
 msgstr "Atbildes uz"
 
-#: system/themes/k2/comments.php:26
+#: system/themes/k2/comments.php:27
 msgid "Time of this Comment"
 msgstr "Šī komentāra laiks"
 
-#: system/themes/k2/comments.php:44
+#: system/themes/k2/comments.php:45
 msgid "Leave a Reply"
 msgstr "Atstāj atbildi"
-
-#: system/classes/tags.php:133
-#, php-format
-msgid "Tag %s has been renamed to %s."
-msgid_plural "Tags %s have been renamed to %s."
-msgstr[0] "Birka %s tika pārdēvēta par %s."
-msgstr[1] "Birkas: %s tika pārdēvētas par %s."
-msgstr[2] "Birkas: %s tika pārdēvētas par %s."
 
 #: system/classes/acl.php:147
 #, php-format
@@ -1401,7 +1483,7 @@ msgstr "Pārvaldīt komentārus visos rakstos"
 msgid "Manage comments on one's own posts"
 msgstr "Pārvaldīt komentārus savos rakstos"
 
-#: system/classes/acl.php:765 system/classes/adminhandler.php:3254
+#: system/classes/acl.php:765 system/classes/adminhandler.php:3208
 msgid "Manage tags"
 msgstr "Pārvaldīt birkas"
 
@@ -1433,7 +1515,7 @@ msgstr "Lietot importētāju"
 msgid "Add, remove, and edit users"
 msgstr "Pievienot, dzēst un labot lietotājus"
 
-#: system/classes/acl.php:773 system/classes/installhandler.php:1559
+#: system/classes/acl.php:773 system/classes/installhandler.php:1565
 msgid "Edit own profile"
 msgstr ""
 
@@ -1445,13 +1527,14 @@ msgstr "Pārvaldīt grupas un atļaujas"
 msgid "Manage logs"
 msgstr "Pārvaldīt žurnālus"
 
-#: system/classes/acl.php:778 system/classes/installhandler.php:1510
+#: system/classes/acl.php:778 system/classes/installhandler.php:1516
 msgid "Permissions on one's own posts"
 msgstr "Atļaujas paša autora rakstiem"
 
 #: system/classes/acl.php:778 system/classes/acl.php:779
-#: system/classes/acl.php:781 system/classes/post.php:237
-#: system/classes/post.php:802
+#: system/classes/acl.php:780 system/classes/acl.php:782
+#: system/classes/installhandler.php:1670 system/classes/post.php:246
+#: system/classes/post.php:828
 msgid "Content"
 msgstr "Saturs"
 
@@ -1459,167 +1542,146 @@ msgstr "Saturs"
 msgid "Permissions to all posts"
 msgstr "Atļāujas visiem rakstiem"
 
-#: system/classes/acl.php:781 system/classes/post.php:237
+#: system/classes/acl.php:780 system/classes/installhandler.php:1670
+msgid "Permissions to other users' unpublished posts"
+msgstr ""
+
+#: system/classes/acl.php:782 system/classes/post.php:246
 #, php-format
 msgid "Permissions to posts of type \"%s\""
 msgstr "Atļaujas rakstiem ar tipu: \"%s\""
 
-#: system/classes/acl.php:802 system/classes/acl.php:804
-#: system/classes/installhandler.php:694
+#: system/classes/acl.php:803 system/classes/acl.php:805
+#: system/classes/installhandler.php:697
 msgid "admin"
 msgstr "administrators"
 
-#: system/classes/acl.php:807 system/classes/acl.php:809
-#: system/classes/installhandler.php:705
+#: system/classes/acl.php:808 system/classes/acl.php:810
+#: system/classes/installhandler.php:708
 msgid "anonymous"
 msgstr "anonīms"
 
-#: system/classes/acl.php:838 system/classes/acl.php:840
-#: system/classes/installhandler.php:1521
-#: system/classes/installhandler.php:1523
+#: system/classes/acl.php:839 system/classes/acl.php:841
+#: system/classes/installhandler.php:1527
+#: system/classes/installhandler.php:1529
 msgid "authenticated"
 msgstr "apstiprināts autentiskums"
 
-#: system/classes/htmltokenizer.php:81
+#: system/classes/htmltokenizer.php:80
 #, php-format
 msgid "Invalid state %d in %s->parse()"
 msgstr "Kļūdains stāvoklis %d iekš %s->parse()"
 
-#: system/classes/socketrequestprocessor.php:75
+#: system/classes/socketrequestprocessor.php:65
 #, php-format
-msgid "%s: Error %d: %s while connecting to %s:%d"
-msgstr "%s: Kļūda %d: %s ieejot %s: %d"
+msgid "Unable to connect to %s"
+msgstr ""
 
-#: system/classes/socketrequestprocessor.php:113
-msgid "Error writing to socket."
-msgstr "Kļūda rakstot noteiktajā ligzdā."
+#: system/classes/socketrequestprocessor.php:79
+msgid "Request timed out"
+msgstr ""
 
-#: system/classes/socketrequestprocessor.php:145
-msgid "Maximum number of redirections exceeded."
-msgstr "Pieejamais pārvirzīšanu skaits pārsniegts."
-
-#: system/classes/socketrequestprocessor.php:151
-msgid "Redirection response without Location: header."
-msgstr "Pārvirzīšanas mēģinājums bez mērķa: galvene."
-
-#: system/classes/socketrequestprocessor.php:187
-#: system/classes/socketrequestprocessor.php:196
-#: system/classes/curlrequestprocessor.php:132
-#: system/classes/curlrequestprocessor.php:141
-msgid "Request did not yet execute."
-msgstr "Pieprasījums vēl nav izpildīts."
-
-#: system/classes/xmlrpcclient.php:101
+#: system/classes/xmlrpcclient.php:103
 msgid "Invalid XML response."
 msgstr "Kļūdaina XML atbilde."
 
-#: system/classes/tag.php:215
-#, php-format
-msgid "New tag %1$s (%2$s);  Slug: %3$s"
-msgstr "Jauna birka %1$s (%2$s); Īsvārds: %3$s"
-
-#: system/classes/tag.php:261
-#, php-format
-msgid "Tag %1$s (%2$s) deleted."
-msgstr "Birka %1$s (%2$s) dzēsta."
-
-#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1114
+#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1086
 msgid "Password mis-match."
 msgstr "Paroles neatbilstība."
 
 #: system/classes/installhandler.php:153
-#: system/classes/installhandler.php:1663
-#: system/classes/installhandler.php:1734
+#: system/classes/installhandler.php:1711
+#: system/classes/installhandler.php:1782
 msgid "Allowed characters are A-Z, a-z and \"_\"."
 msgstr ""
 
 #: system/classes/installhandler.php:164
-msgid "Could not write config.php file..."
-msgstr "Nebija iespējams rakstīt config.php failā..."
+msgid "Could not write config.php file&hellip;"
+msgstr ""
 
 #: system/classes/installhandler.php:190
 msgid "Habari successfully installed."
 msgstr "Habari veiksmīgi instalēts."
 
-#: system/classes/installhandler.php:401
+#: system/classes/installhandler.php:404
 msgid "User is required."
 msgstr "Lietotājs nepieciešams."
 
-#: system/classes/installhandler.php:405
+#: system/classes/installhandler.php:408
 msgid "Name for database is required."
 msgstr "Datubāzes nosaukums nepieciešams."
 
-#: system/classes/installhandler.php:409
+#: system/classes/installhandler.php:412
 msgid "Host is required."
 msgstr "Resursdators nepieciešams."
 
-#: system/classes/installhandler.php:428 system/classes/installhandler.php:639
+#: system/classes/installhandler.php:431 system/classes/installhandler.php:642
 msgid "Problem connecting to supplied database credentials"
 msgstr "Kļūda pieslēdzoties minētajai datubāzei."
 
-#: system/classes/installhandler.php:444
+#: system/classes/installhandler.php:447
 #, php-format
-msgid "Could not create schema tables... %s"
-msgstr "Nebija iespējams izveidot shēmas tabulas... %s"
+msgid "Could not create schema tables&hellip; %s"
+msgstr ""
 
-#: system/classes/installhandler.php:453
+#: system/classes/installhandler.php:456
 msgid "Problem creating default options"
 msgstr "Kļūda veidojot standarta opcijas"
 
-#: system/classes/installhandler.php:461
+#: system/classes/installhandler.php:464
 msgid "Problem creating tags vocabulary"
 msgstr ""
 
-#: system/classes/installhandler.php:468
+#: system/classes/installhandler.php:471
 msgid "Problem creating base post types"
 msgstr "Kļūda veidojot pamata rakstu tipus"
 
-#: system/classes/installhandler.php:479
+#: system/classes/installhandler.php:482
 msgid "Problem creating admin user."
 msgstr "Problēma veidojot lietotāju: administrators."
 
-#: system/classes/installhandler.php:485
+#: system/classes/installhandler.php:488
 msgid "Problem creating admin group."
 msgstr "Problēma veidojot administratora grupa."
 
-#: system/classes/installhandler.php:496
+#: system/classes/installhandler.php:499
 msgid "Problem creating first post."
 msgstr "Problēma veidojot pirmo rakstu."
 
-#: system/classes/installhandler.php:533 system/classes/installhandler.php:566
-#: system/classes/installhandler.php:1678
-#: system/classes/installhandler.php:1749
+#: system/classes/installhandler.php:536 system/classes/installhandler.php:569
+#: system/classes/installhandler.php:1726
+#: system/classes/installhandler.php:1797
 msgid "Access denied. Make sure these credentials are valid."
 msgstr "Pieeja liegta. Pārbaudiet vai dotie pieejas dati ir pareizi."
 
-#: system/classes/installhandler.php:536 system/classes/installhandler.php:569
-#: system/classes/installhandler.php:1682
-#: system/classes/installhandler.php:1753
+#: system/classes/installhandler.php:539 system/classes/installhandler.php:572
+#: system/classes/installhandler.php:1730
+#: system/classes/installhandler.php:1801
 msgid "That database does not exist."
 msgstr "Tāda datubāze neeksistē."
 
-#: system/classes/installhandler.php:539 system/classes/installhandler.php:572
-#: system/classes/installhandler.php:1686
-#: system/classes/installhandler.php:1757
+#: system/classes/installhandler.php:542 system/classes/installhandler.php:575
+#: system/classes/installhandler.php:1734
+#: system/classes/installhandler.php:1805
 msgid "Could not connect to host."
 msgstr "Nebija iespējams pieslēgties resursdatoram."
 
-#: system/classes/installhandler.php:600
-#: system/classes/installhandler.php:1805
+#: system/classes/installhandler.php:603
+#: system/classes/installhandler.php:1853
 #, php-format
 msgid ""
 "Cannot write to %s. The SQLite data file is not writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:604
-#: system/classes/installhandler.php:1798
+#: system/classes/installhandler.php:607
+#: system/classes/installhandler.php:1846
 #, php-format
 msgid ""
 "Cannot write to %s directory. SQLite requires that the directory that holds "
 "the DB file be writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:613
+#: system/classes/installhandler.php:616
 #, php-format
 msgid ""
 "Cannot write to %s directory. The SQLite data file does not exist, and it "
@@ -1627,12 +1689,17 @@ msgid ""
 "directory containing the database file be writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:751
-#: system/classes/installhandler.php:1386
-msgid "Truncate the log table"
-msgstr "Noapaļot žurnāla tabulu"
+#: system/classes/installhandler.php:753
+#: system/classes/installhandler.php:1647
+msgid "Trim the log table"
+msgstr ""
 
-#: system/classes/installhandler.php:795
+#: system/classes/installhandler.php:756
+#: system/classes/installhandler.php:1655
+msgid "Perform a check for plugin updates."
+msgstr ""
+
+#: system/classes/installhandler.php:800
 msgid ""
 "This site is running <a href=\"http://habariproject.org/\">Habari</a>, a "
 "state-of-the-art publishing platform!  Habari is a community-driven project "
@@ -1646,46 +1713,50 @@ msgstr ""
 "<a href=\"http://habariproject.org/\">http://habariproject.org/</a> lai "
 "uzzinātu vairāk!"
 
-#: system/classes/installhandler.php:858
+#: system/classes/installhandler.php:863
 msgid "currently unsupported."
 msgstr "Dotajā brīdī netiek atbalstīts."
 
-#: system/classes/installhandler.php:972
+#: system/classes/installhandler.php:977
 msgid "No admin user found"
 msgstr ""
 
-#: system/classes/installhandler.php:1371
+#: system/classes/installhandler.php:1377
 msgid "Site Maintenance"
 msgstr ""
 
-#: system/classes/installhandler.php:1372
+#: system/classes/installhandler.php:1378
 msgid "Habari is currently being upgraded."
 msgstr ""
 
-#: system/classes/installhandler.php:1373
+#: system/classes/installhandler.php:1379
 msgid "Try again in a little while."
 msgstr ""
 
-#: system/classes/installhandler.php:1564
+#: system/classes/installhandler.php:1392
+msgid "Truncate the log table"
+msgstr "Noapaļot žurnāla tabulu"
+
+#: system/classes/installhandler.php:1570
 msgid "Manage dashboard modules"
 msgstr ""
 
-#: system/classes/installhandler.php:1645
-#: system/classes/installhandler.php:1716
+#: system/classes/installhandler.php:1693
+#: system/classes/installhandler.php:1764
 msgid "The database host field was left empty."
 msgstr "Datubāzes resursdatora ieraksta vieta tika atstāta tukša."
 
-#: system/classes/installhandler.php:1651
-#: system/classes/installhandler.php:1722
+#: system/classes/installhandler.php:1699
+#: system/classes/installhandler.php:1770
 msgid "The database name field was left empty."
 msgstr "Datubāzes nosaukuma laiks tika atstāts tukšs."
 
-#: system/classes/installhandler.php:1657
-#: system/classes/installhandler.php:1728
+#: system/classes/installhandler.php:1705
+#: system/classes/installhandler.php:1776
 msgid "The database user field was left empty."
 msgstr "Datubāzes lietotāja laiks tika atstāts tukšs."
 
-#: system/classes/installhandler.php:1788
+#: system/classes/installhandler.php:1836
 msgid "The database file was left empty."
 msgstr "Datubāzes fails tika atstāts tukšs."
 
@@ -1706,87 +1777,87 @@ msgid "The cache directory '%s' is not writable - the cache is disabled."
 msgstr ""
 "Kešatmiņas direktorijā '%s' nav rakstīšanas tiesību - kešatmiņa ir atslēgta."
 
-#: system/classes/post.php:520
+#: system/classes/post.php:545
 #, php-format
 msgid "New post %1$s (%2$s);  Type: %3$s; Status: %4$s"
 msgstr "Jauns raksts %1$s (%2$s); Tips: %3$s; Status: %4$s"
 
-#: system/classes/post.php:615
+#: system/classes/post.php:640
 #, php-format
 msgid "Post %1$s (%2$s) deleted."
 msgstr "Raksts %1$s (%2$s) dzēsts."
 
-#: system/classes/post.php:649
+#: system/classes/post.php:674
 #, php-format
 msgid "Scheduled Post %1$s (%2$s) published at %3$s."
 msgstr "Ieplānotais raksts %1$s (%2$s) publicēts %3$s."
 
-#: system/classes/post.php:652
+#: system/classes/post.php:677
 #, php-format
 msgid "Post %1$s (%2$s) published."
 msgstr "Raksts %1$s (%2$s) publicēts."
 
-#: system/classes/post.php:784
+#: system/classes/post.php:810
 msgid "Preview Post"
 msgstr "Priekšstatīt rakstu"
 
-#: system/classes/post.php:784
+#: system/classes/post.php:810
 msgid "View Post"
 msgstr "Skatīt rakstu"
 
-#: system/classes/post.php:789
+#: system/classes/post.php:815
 msgid "Title"
 msgstr "Virsraksts"
 
-#: system/classes/post.php:810
+#: system/classes/post.php:836
 msgid "Tags, separated by, commas"
 msgstr "Birkas, atdalītas ar komatiem"
 
-#: system/classes/post.php:827
+#: system/classes/post.php:853
 msgid "Content State"
 msgstr "Satura stāvoklis"
 
-#: system/classes/post.php:836
+#: system/classes/post.php:862
 msgid "Minor Edit"
 msgstr "Minimāla labošana"
 
-#: system/classes/post.php:841
+#: system/classes/post.php:867
 msgid "Comments Allowed"
 msgstr "Atļauti komentāri"
 
-#: system/classes/post.php:844
+#: system/classes/post.php:870
 msgid "Publication Time"
 msgstr "Publicēšanas laiks"
 
-#: system/classes/post.php:850
+#: system/classes/post.php:876
 msgid "Content Address"
 msgstr "Satura adrese"
 
-#: system/classes/post.php:926
+#: system/classes/post.php:958
 msgid "Name <span class=\"required\">*Required</span>"
 msgstr ""
 
-#: system/classes/post.php:928
+#: system/classes/post.php:960
 msgid "The Name field value is required"
 msgstr ""
 
-#: system/classes/post.php:938 system/classes/adminhandler.php:788
+#: system/classes/post.php:970 system/classes/adminhandler.php:757
 msgid "Email"
 msgstr "E-pasts"
 
-#: system/classes/post.php:940
+#: system/classes/post.php:972
 msgid "The Email field value must be a valid email address"
 msgstr ""
 
-#: system/classes/post.php:944
+#: system/classes/post.php:976
 msgid "Email <span class=\"required\">*Required</span>"
 msgstr ""
 
-#: system/classes/post.php:955
+#: system/classes/post.php:987
 msgid "The Web Site field value must be a valid URL"
 msgstr ""
 
-#: system/classes/post.php:967
+#: system/classes/post.php:999
 msgid "The Content field value is required"
 msgstr ""
 
@@ -1880,74 +1951,74 @@ msgstr "Nezināms XMLRPC izņēmums"
 msgid "%1$s in %2$s line %3$s on request of \"%4$s\""
 msgstr "%1$s iekš %2$s rinda %3$s pēc pieprasījuma no \"%4$s\""
 
-#: system/classes/error.php:103
+#: system/classes/error.php:104
 msgid "Error"
 msgstr ""
 
-#: system/classes/error.php:104
+#: system/classes/error.php:105
 msgid "Warning"
 msgstr ""
 
-#: system/classes/error.php:105
+#: system/classes/error.php:106
 msgid "Parse Error"
 msgstr ""
 
-#: system/classes/error.php:106
+#: system/classes/error.php:107
 msgid "Notice"
 msgstr ""
 
-#: system/classes/error.php:107
+#: system/classes/error.php:108
 msgid "Core Error"
 msgstr ""
 
-#: system/classes/error.php:108
+#: system/classes/error.php:109
 msgid "Core Warning"
 msgstr ""
 
-#: system/classes/error.php:109
+#: system/classes/error.php:110
 msgid "Compile Error"
 msgstr ""
 
-#: system/classes/error.php:110
+#: system/classes/error.php:111
 msgid "Compile Warning"
 msgstr ""
 
-#: system/classes/error.php:111
+#: system/classes/error.php:112
 msgid "User Error"
 msgstr ""
 
-#: system/classes/error.php:112
+#: system/classes/error.php:113
 msgid "User Warning"
 msgstr ""
 
-#: system/classes/error.php:113
+#: system/classes/error.php:114
 msgid "User Notice"
 msgstr ""
 
-#: system/classes/error.php:114
+#: system/classes/error.php:115
 msgid "Strict Notice"
 msgstr ""
 
-#: system/classes/error.php:115
+#: system/classes/error.php:116
 msgid "Recoverable Error"
 msgstr ""
 
-#: system/classes/error.php:118
+#: system/classes/error.php:119
 msgid "Deprecated violation"
 msgstr ""
 
-#: system/classes/error.php:119
+#: system/classes/error.php:120
 msgid "User deprecated violation"
 msgstr ""
 
-#: system/classes/error.php:200
+#: system/classes/error.php:201
 #, php-format
-msgid " ...%d arg... "
-msgid_plural " ...%d args... "
+msgid " &hellip;%d arg&hellip; "
+msgid_plural " &hellip;%d args&hellip; "
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/error.php:204
+#: system/classes/error.php:205
 #, php-format
 msgid ""
 "%s line %d:\n"
@@ -1956,7 +2027,7 @@ msgstr ""
 "%s rinda %d:\n"
 "  %s(%s)\n"
 
-#: system/classes/session.php:102
+#: system/classes/session.php:110
 msgid "Your session expired."
 msgstr "Jūsu sesija beigusies."
 
@@ -1974,49 +2045,49 @@ msgstr "Jauns lietotājs izveidots: %s"
 msgid "User deleted: %s"
 msgstr "Lietotājs: %s, dzēsts"
 
-#: system/classes/user.php:253 system/classes/user.php:282
+#: system/classes/user.php:269 system/classes/user.php:298
 #, php-format
 msgid "Successful login for %s"
 msgstr "Ieiešana sistēmā izdevusies: %s"
 
-#: system/classes/user.php:260
+#: system/classes/user.php:276
 #, php-format
 msgid "Login attempt (via authentication plugin) for non-existent user %s"
 msgstr ""
 "Ieiešnas mēģinājums (caur autentikācijas spraudni) neeksistējošam "
 "lietotājam: %s"
 
-#: system/classes/user.php:261 system/classes/user.php:273
-#: system/classes/user.php:291
+#: system/classes/user.php:277 system/classes/user.php:289
+#: system/classes/user.php:307
 msgid "Invalid username/password"
 msgstr ""
 
-#: system/classes/user.php:272
+#: system/classes/user.php:288
 #, php-format
 msgid "Login attempt for non-existent user %s"
 msgstr "Ieiešanas mēģinājums neesošam lietotājam: %s"
 
-#: system/classes/user.php:290
+#: system/classes/user.php:306
 #, php-format
 msgid "Wrong password for user %s"
 msgstr "Kļūdaina parole lietotājam: %s"
 
-#: system/classes/user.php:508
+#: system/classes/user.php:524
 #, php-format
 msgid "User %1$s: Access to %2$s changed to %3$s"
 msgstr "Lietotājs %1$s: Pieejas %2$s mainītas uz %3$s"
 
-#: system/classes/user.php:532
+#: system/classes/user.php:548
 #, php-format
 msgid "User %1$s: Permission to %2$s revoked."
 msgstr "Lietotājs %1$s: Atļaujas uz %2$s anulētas."
 
-#: system/classes/user.php:571
+#: system/classes/user.php:587
 #, php-format
 msgid " User %1$s: Added to %2$s group."
 msgstr " Lietotājs %1$s pievienots grupai %2$s."
 
-#: system/classes/user.php:585
+#: system/classes/user.php:601
 #, php-format
 msgid " User %1$s: Removed from %2$s group."
 msgstr " Lietotājs %1$s atskaitīts no grupas %2$s."
@@ -2058,11 +2129,11 @@ msgstr "[%1$s] paroles atstatīšanas pieprasījums priekš %2$s"
 msgid "A password reset request has been sent to the user."
 msgstr "Paroles atstatīšanas pieprasījums tika nosūtīts lietotājam."
 
-#: system/classes/userhandler.php:98
+#: system/classes/userhandler.php:104
 msgid "Bad credentials"
 msgstr "Nepareiza akreditācija"
 
-#: system/classes/userhandler.php:184
+#: system/classes/userhandler.php:190
 #, php-format
 msgid ""
 "Your password for %1$s has been reset.  Your credentials are as follows---\n"
@@ -2073,55 +2144,66 @@ msgstr ""
 "Lietotājvārds: %2$s\n"
 "Parole:%3$s"
 
-#: system/classes/userhandler.php:186
+#: system/classes/userhandler.php:192
 #, php-format
 msgid "[%1$s] Password has been reset for %2$s"
 msgstr "[%1$s] parole tika atstatīta priekš %2$s"
 
-#: system/classes/userhandler.php:187
+#: system/classes/userhandler.php:193
 msgid "A new password has been sent to the user."
 msgstr "Jauna parole tika aizsūtīta lietotājam."
 
-#: system/classes/userhandler.php:190
+#: system/classes/userhandler.php:196
 msgid "There was a problem resetting the password.  It was not reset."
 msgstr "Notika kļūma paroles atstatīšanas laikā. Tā netika atstatīta."
 
-#: system/classes/userhandler.php:200
+#: system/classes/userhandler.php:206
 msgid "The supplied password reset token has expired or is invalid."
 msgstr ""
 "Dotā paroles atstatīšanas pilnvara ir nederīga vai ar iztecējušu derīguma "
 "termiņu."
 
-#: system/classes/block.php:201
+#: system/classes/block.php:228
 #, php-format
 msgid "New block %1$s: %2$s"
 msgstr ""
 
-#: system/classes/block.php:249
+#: system/classes/block.php:276
 #, php-format
 msgid "Block %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/block.php:265
+#: system/classes/block.php:292
 msgid "Saved block configuration."
+msgstr ""
+
+#: system/classes/eventlog.php:372 system/classes/adminhandler.php:2365
+msgid "Logs purged."
 msgstr ""
 
 #: system/classes/rpcclient.php:26
 msgid "xmlrpc extension not found"
 msgstr "xmlrpc paplašinājums netika atrasts."
 
-#: system/classes/vocabulary.php:222
+#: system/classes/vocabulary.php:221
 #, php-format
 msgid "New vocabulary %1$s (%2$s)"
 msgstr ""
 
-#: system/classes/vocabulary.php:294
+#: system/classes/vocabulary.php:296
 #, php-format
 msgid "Vocabulary %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugin.php:62 system/classes/adminhandler.php:1867
-#: system/classes/adminhandler.php:1917 system/classes/pluggable.php:148
+#: system/classes/vocabulary.php:822
+#, php-format
+msgid "Term %1$s in the %2$s vocabulary has been renamed to %3$s."
+msgid_plural "Terms %1$s in the %2$s vocabulary have been renamed to %3$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/plugin.php:62 system/classes/adminhandler.php:1854
+#: system/classes/adminhandler.php:1904 system/classes/pluggable.php:153
 msgid "?"
 msgstr "?"
 
@@ -2146,477 +2228,473 @@ msgstr ""
 "Jūsu iepriekš rakstītā forma tika saglabāta. Piesakieties sistēmā lai "
 "turpinātu tās pievienošanu."
 
-#: system/classes/adminhandler.php:121 system/classes/adminhandler.php:731
+#: system/classes/adminhandler.php:125 system/classes/adminhandler.php:700
 msgid "Access to that page has been denied by the administrator."
 msgstr "Administrators liedzis pieeju šai lapai."
 
-#: system/classes/adminhandler.php:136
+#: system/classes/adminhandler.php:140
 #, php-format
 msgid "%1$s->%2$s() does not exist."
 msgstr "%1$s->%2$s() neeksistē."
 
-#: system/classes/adminhandler.php:157
+#: system/classes/adminhandler.php:161
 msgid "The page you were looking for was not found."
 msgstr "Jūsu meklētā lapa netika atrasta."
 
-#: system/classes/adminhandler.php:200
+#: system/classes/adminhandler.php:204
 msgid "Name & Tagline"
 msgstr "Vārds un Birkas"
 
-#: system/classes/adminhandler.php:202 system/installer/db_setup.php:169
+#: system/classes/adminhandler.php:206 system/installer/db_setup.php:170
 msgid "Site Name"
 msgstr "Tīkla vietnes vārds"
 
-#: system/classes/adminhandler.php:207
+#: system/classes/adminhandler.php:211
 msgid "Site Tagline"
 msgstr "Tīkla vietnes birkas"
 
-#: system/classes/adminhandler.php:218
-#: system/plugins/pingback/pingback.plugin.php:307
+#: system/classes/adminhandler.php:222
+#: system/plugins/pingback/pingback.plugin.php:323
 msgid "Publishing"
 msgstr "Publicē"
 
-#: system/classes/adminhandler.php:220
+#: system/classes/adminhandler.php:224
 msgid "Items per Page"
 msgstr "Sadaļas vienā lapā"
 
-#: system/classes/adminhandler.php:225
+#: system/classes/adminhandler.php:229
 msgid "Entries to show in Atom feed"
 msgstr "Raksti, kurus rādīt Atom barotnē"
 
-#: system/classes/adminhandler.php:230
+#: system/classes/adminhandler.php:234
 msgid "Require Comment Author Info"
 msgstr "Tiek pieprasīti komentāra autora dati"
 
-#: system/classes/adminhandler.php:236
+#: system/classes/adminhandler.php:240
 msgid "Time & Date"
 msgstr "Laiks un Datums"
 
-#: system/classes/adminhandler.php:246
+#: system/classes/adminhandler.php:250
 msgid "Time Zone"
 msgstr "Laika josla"
 
-#: system/classes/adminhandler.php:249
+#: system/classes/adminhandler.php:253
 #, php-format
 msgid "Current Date Time: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:252 system/classes/adminhandler.php:822
+#: system/classes/adminhandler.php:256 system/classes/adminhandler.php:794
 msgid "Date Format"
 msgstr "Datuma formāts"
 
-#: system/classes/adminhandler.php:254
+#: system/classes/adminhandler.php:258
 #, php-format
 msgid "Current Date: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:257 system/classes/adminhandler.php:833
+#: system/classes/adminhandler.php:261 system/classes/adminhandler.php:805
 msgid "Time Format"
 msgstr "Laika formāts"
 
-#: system/classes/adminhandler.php:259
+#: system/classes/adminhandler.php:263
 #, php-format
 msgid "Current Time: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:263 system/installer/locale_dropdown.php:6
+#: system/classes/adminhandler.php:267 system/installer/locale_dropdown.php:7
 msgid "Language"
 msgstr "Valoda"
 
-#: system/classes/adminhandler.php:265 system/installer/locale_dropdown.php:2
+#: system/classes/adminhandler.php:269 system/installer/locale_dropdown.php:3
 msgid "Locale"
 msgstr "Vieta"
 
-#: system/classes/adminhandler.php:268
+#: system/classes/adminhandler.php:272
 msgid "International language code"
 msgstr ""
 
-#: system/classes/adminhandler.php:271
+#: system/classes/adminhandler.php:275
 msgid "System Locale"
 msgstr "Darba valoda"
 
-#: system/classes/adminhandler.php:273
+#: system/classes/adminhandler.php:277
 msgid "The appropriate locale code for your server"
 msgstr ""
 
-#: system/classes/adminhandler.php:277
+#: system/classes/adminhandler.php:281
 msgid "Troubleshooting"
 msgstr "Traucējummeklēšana"
 
-#: system/classes/adminhandler.php:279
+#: system/classes/adminhandler.php:283
 msgid "Minimum Severity"
 msgstr ""
 
-#: system/classes/adminhandler.php:282
+#: system/classes/adminhandler.php:286
 msgid "Only log entries with a this or higher severity."
 msgstr ""
 
-#: system/classes/adminhandler.php:285
+#: system/classes/adminhandler.php:289
 msgid "Log Backtraces"
 msgstr "Atzīmēt žurnālā atpakaļceļus"
 
-#: system/classes/adminhandler.php:287
+#: system/classes/adminhandler.php:291
 msgid ""
 "Logs error backtraces to the log table's data column. Can drastically "
 "increase log size!"
 msgstr ""
 
-#: system/classes/adminhandler.php:349
+#: system/classes/adminhandler.php:353
 msgid "Successfully updated options"
 msgstr "Opcijas veiksmīgi atjauninātas"
 
-#: system/classes/adminhandler.php:503 system/classes/adminhandler.php:657
-#: system/classes/adminhandler.php:658
+#: system/classes/adminhandler.php:472 system/classes/adminhandler.php:626
+#: system/classes/adminhandler.php:627
 #, php-format
 msgid "Publish %s"
 msgstr "Publicēt %s"
 
-#: system/classes/adminhandler.php:507
+#: system/classes/adminhandler.php:476
 #, php-format
 msgid ""
 "The post %1$s was updated since you made changes.  Please review those "
 "changes before overwriting them."
 msgstr ""
 
-#: system/classes/adminhandler.php:522
+#: system/classes/adminhandler.php:491
 msgid "A post slug cannot be empty. Keeping old slug."
 msgstr "Raksta īsvārds nedrīkst būt tukšs. Saglabājam veco īsvārdu."
 
-#: system/classes/adminhandler.php:532 system/classes/adminhandler.php:634
-#: system/classes/adminhandler.php:638
+#: system/classes/adminhandler.php:501 system/classes/adminhandler.php:603
+#: system/classes/adminhandler.php:607
 msgid "You don't have permission to edit that post"
 msgstr ""
 
-#: system/classes/adminhandler.php:539
+#: system/classes/adminhandler.php:508
 msgid "Changing content types is not allowed"
 msgstr ""
 
-#: system/classes/adminhandler.php:568
+#: system/classes/adminhandler.php:537
 msgid "Creating that post type is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:616
+#: system/classes/adminhandler.php:585
 #, php-format
 msgid "The post %1$s has been saved as %2$s."
 msgstr "Raksts %1$s tika saglabāts kā %2$s."
 
-#: system/classes/adminhandler.php:652
+#: system/classes/adminhandler.php:621
 #, php-format
 msgid "Access to create posts of type %s is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:701
+#: system/classes/adminhandler.php:670
 #, php-format
 msgid "Deleted the %1$s titled \"%2$s\"."
 msgstr "%1$s, ar nosaukumu \"%2$s\" tika izdzēsts."
 
-#: system/classes/adminhandler.php:718
+#: system/classes/adminhandler.php:687
 msgid "You"
 msgstr "Jūs"
 
-#: system/classes/adminhandler.php:719
+#: system/classes/adminhandler.php:688
 msgid "Your User Information"
 msgstr "Jūsu lietotāja informācija"
 
-#: system/classes/adminhandler.php:727
+#: system/classes/adminhandler.php:696
 #, php-format
 msgid "%s's User Information"
 msgstr "%s lietotāja informācija"
 
-#: system/classes/adminhandler.php:738 system/classes/adminhandler.php:1072
+#: system/classes/adminhandler.php:707 system/classes/adminhandler.php:1044
 msgid "nobody"
 msgstr "neviens"
 
-#: system/classes/adminhandler.php:752
+#: system/classes/adminhandler.php:721
 msgid "No such user!"
 msgstr "Tāds lietotājs neeksistē!"
 
-#: system/classes/adminhandler.php:760
+#: system/classes/adminhandler.php:729
 msgid "Change Password"
 msgstr "Mainīt paroli"
 
-#: system/classes/adminhandler.php:761
+#: system/classes/adminhandler.php:730
 msgid "Regional Settings"
 msgstr "Reģionālie iestatījumi"
 
-#: system/classes/adminhandler.php:762 system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:731 system/classes/adminhandler.php:3209
 msgid "Dashboard"
 msgstr "Darbgalds"
 
-#: system/classes/adminhandler.php:779
+#: system/classes/adminhandler.php:748
 msgid "Display Name"
 msgstr "Segvārds"
 
-#: system/classes/adminhandler.php:783
+#: system/classes/adminhandler.php:752
 msgid "User Name"
 msgstr "Lietotāja vārds"
 
-#: system/classes/adminhandler.php:793
+#: system/classes/adminhandler.php:762
 msgid "Portrait URL"
 msgstr "Portreta URL"
 
-#: system/classes/adminhandler.php:798
+#: system/classes/adminhandler.php:767
 msgid "New Password"
 msgstr "Jaunā parole"
 
-#: system/classes/adminhandler.php:803
+#: system/classes/adminhandler.php:773
 msgid "New Password Again"
 msgstr "Jaunā parole vēlreiz"
 
-#: system/classes/adminhandler.php:810
+#: system/classes/adminhandler.php:782
 msgid "Passwords must match."
 msgstr "Parolēm jābūt vienādām"
 
-#: system/classes/adminhandler.php:816
+#: system/classes/adminhandler.php:788
 msgid "Timezone"
 msgstr "Laika josla"
 
-#: system/classes/adminhandler.php:831 system/classes/adminhandler.php:842
+#: system/classes/adminhandler.php:803 system/classes/adminhandler.php:814
 #, php-format
 msgid "See <a href=\"%s\">php.net/date</a> for details. Current format: %s"
 msgstr ""
 "Precīzāk skatiet <a href=\"%s\">php.net/date</a>. Pašreizējais formāts: %s"
 
-#: system/classes/adminhandler.php:845
+#: system/classes/adminhandler.php:817
 msgid "Hide Spam Count"
 msgstr "Slēpt surogātu skaitītāju"
 
-#: system/classes/adminhandler.php:847
+#: system/classes/adminhandler.php:819
 msgid "Hide the number of SPAM comments on your dashboard."
 msgstr "Slēpt surogātkomentāru skaitītāju no jūsu darbgalda."
 
-#: system/classes/adminhandler.php:858
+#: system/classes/adminhandler.php:830
 #, php-format
 msgid "Reassign posts to: %s"
 msgstr "Nodot autorību pār rakstiem %s"
 
-#: system/classes/adminhandler.php:904
+#: system/classes/adminhandler.php:876
 #, php-format
 msgid "%s has been deleted"
 msgstr "%s tika izdzēsts"
 
-#: system/classes/adminhandler.php:909 system/classes/adminhandler.php:1047
+#: system/classes/adminhandler.php:881 system/classes/adminhandler.php:1019
 msgid "You cannot delete yourself."
 msgstr "Jūs nevarat izdzēst pats sevi"
 
-#: system/classes/adminhandler.php:917
+#: system/classes/adminhandler.php:889
 #, php-format
 msgid "%1$s has been renamed to %2$s."
 msgstr "%1$s tika pārdēvēts par %2$s."
 
-#: system/classes/adminhandler.php:930
+#: system/classes/adminhandler.php:902
 msgid "Password changed."
 msgstr "Parole tika nomainīta."
 
-#: system/classes/adminhandler.php:953
+#: system/classes/adminhandler.php:925
 msgid "User updated."
 msgstr "Lietotāja dati atjaunināti."
 
-#: system/classes/adminhandler.php:989 system/classes/adminhandler.php:2291
-#: system/classes/adminhandler.php:2350 system/classes/adminhandler.php:2397
-#: system/classes/adminhandler.php:2764 system/classes/adminhandler.php:2975
-#: system/classes/adminhandler.php:3050
+#: system/classes/adminhandler.php:961 system/classes/adminhandler.php:2277
+#: system/classes/adminhandler.php:2336 system/classes/adminhandler.php:2383
+#: system/classes/adminhandler.php:2726 system/classes/adminhandler.php:2931
+#: system/classes/adminhandler.php:3006
 msgid "WSSE authentication failed."
 msgstr "WSSE autentificēšana nav izdevusies."
 
-#: system/classes/adminhandler.php:1017
+#: system/classes/adminhandler.php:989
 msgid "No users deleted."
 msgstr "Neviens lieotājs netika dzēsts."
 
-#: system/classes/adminhandler.php:1054
+#: system/classes/adminhandler.php:1026
 #, php-format
 msgid "Deleted %d users."
 msgstr "Tika dzēsti %d lietotāji."
 
-#: system/classes/adminhandler.php:1111
+#: system/classes/adminhandler.php:1083
 msgid "Password is required."
 msgstr "Nepieciešama parole."
 
-#: system/classes/adminhandler.php:1117
+#: system/classes/adminhandler.php:1089
 msgid "Please supply a valid email address."
 msgstr "Lūdzu ievadiet derīgu e-pasta adresi."
 
-#: system/classes/adminhandler.php:1120
+#: system/classes/adminhandler.php:1092
 msgid "Please supply a user name."
 msgstr "Lūdzu ievadiet lietotāja vārdu."
 
-#: system/classes/adminhandler.php:1125
+#: system/classes/adminhandler.php:1097
 msgid "That username is already assigned."
 msgstr "Šis lietotājvārds jau ir kādam piešķirts."
 
-#: system/classes/adminhandler.php:1130
+#: system/classes/adminhandler.php:1102
 #, php-format
 msgid "Added user '%s'"
 msgstr "Pievienots lietotājs '%s'."
 
-#: system/classes/adminhandler.php:1175
+#: system/classes/adminhandler.php:1147
 #, php-format
 msgid "Activated plugin '%s'"
 msgstr "Aktivizēts spraidnis '%s'."
 
-#: system/classes/adminhandler.php:1184
+#: system/classes/adminhandler.php:1156
 #, php-format
 msgid "Deactivated plugin '%s'"
 msgstr "Atslēgts spraudnis '%s'."
 
-#: system/classes/adminhandler.php:1284
+#: system/classes/adminhandler.php:1257
 #, php-format
 msgid "Activated theme '%s'"
 msgstr "Aktivizēts kažociņš '%s'."
 
-#: system/classes/adminhandler.php:1298
+#: system/classes/adminhandler.php:1271
 #, php-format
 msgid "Ended the preview of the theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1302
+#: system/classes/adminhandler.php:1275
 #, php-format
 msgid "Previewing theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1384
+#: system/classes/adminhandler.php:1370
 msgid "Author"
 msgstr "Autors"
 
-#: system/classes/adminhandler.php:1386
+#: system/classes/adminhandler.php:1372
 msgid "Author Name"
 msgstr "Autora vārds"
 
-#: system/classes/adminhandler.php:1389
+#: system/classes/adminhandler.php:1375
 msgid "Author Email"
 msgstr "Autora e-pasts"
 
-#: system/classes/adminhandler.php:1392
+#: system/classes/adminhandler.php:1378
 msgid "Author URL"
 msgstr "Autora URL"
 
-#: system/classes/adminhandler.php:1395
+#: system/classes/adminhandler.php:1381
 msgid "IP Address:"
 msgstr "IP adrese:"
 
-#: system/classes/adminhandler.php:1402
+#: system/classes/adminhandler.php:1388
 msgid "Date:"
 msgstr "Datums:"
 
-#: system/classes/adminhandler.php:1407
+#: system/classes/adminhandler.php:1393
 msgid "Post ID:"
 msgstr "Raksta ID:"
 
-#: system/classes/adminhandler.php:1412
+#: system/classes/adminhandler.php:1398
 msgid "Status"
 msgstr "Status"
 
-#: system/classes/adminhandler.php:1601 system/classes/adminhandler.php:2424
+#: system/classes/adminhandler.php:1587 system/classes/adminhandler.php:2410
 msgid "Deleted all spam comments"
 msgstr "Dzēsti visi surogātkomentāri"
 
-#: system/classes/adminhandler.php:1607 system/classes/adminhandler.php:2428
+#: system/classes/adminhandler.php:1593 system/classes/adminhandler.php:2414
 msgid "Deleted all unapproved comments"
 msgstr "Dzēsti visi neapstiprinātie komentāri"
 
-#: system/classes/adminhandler.php:1641 system/classes/adminhandler.php:1655
+#: system/classes/adminhandler.php:1627 system/classes/adminhandler.php:1641
 #, php-format
 msgid "Deleted %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1642 system/classes/adminhandler.php:1662
+#: system/classes/adminhandler.php:1628 system/classes/adminhandler.php:1648
 #, php-format
 msgid "Marked %d comments as spam"
 msgstr ""
 
-#: system/classes/adminhandler.php:1643 system/classes/adminhandler.php:1670
+#: system/classes/adminhandler.php:1629 system/classes/adminhandler.php:1656
 #, php-format
 msgid "Approved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1644 system/classes/adminhandler.php:1681
+#: system/classes/adminhandler.php:1630 system/classes/adminhandler.php:1667
 #, php-format
 msgid "Unapproved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1645 system/classes/adminhandler.php:1704
+#: system/classes/adminhandler.php:1631 system/classes/adminhandler.php:1690
 #, php-format
 msgid "Edited %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1672
+#: system/classes/adminhandler.php:1658
 #, php-format
 msgid "Approved comments on these posts: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:1775
+#: system/classes/adminhandler.php:1761
 #, php-format
 msgid "Change this comment's status to %s"
 msgstr "Mainīt šī komentāra statusu uz %s"
 
-#: system/classes/adminhandler.php:1779
+#: system/classes/adminhandler.php:1765
 msgid "Delete this comment"
 msgstr "Dzēst šo komentāru"
 
-#: system/classes/adminhandler.php:1780
+#: system/classes/adminhandler.php:1766
 msgid "Edit this comment"
 msgstr "Labot šo komentāru"
 
-#: system/classes/adminhandler.php:1850 system/classes/adminhandler.php:1888
+#: system/classes/adminhandler.php:1836 system/classes/adminhandler.php:1875
 msgid "Deactivate"
 msgstr "Atslēgt"
 
-#: system/classes/adminhandler.php:1932 system/installer/db_setup.php:10
-#: system/installer/db_setup.php:165 system/installer/db_setup.php:220
+#: system/classes/adminhandler.php:1919 system/installer/db_setup.php:11
+#: system/installer/db_setup.php:166 system/installer/db_setup.php:221
 msgid "Help"
 msgstr "Palīdzība"
 
-#: system/classes/adminhandler.php:2148 system/classes/adminhandler.php:2149
+#: system/classes/adminhandler.php:2134 system/classes/adminhandler.php:2135
 msgid "Manage Posts"
 msgstr "Pārvaldīt rakstus"
 
-#: system/classes/adminhandler.php:2179
+#: system/classes/adminhandler.php:2165
 msgid "Modules updated."
 msgstr ""
 
-#: system/classes/adminhandler.php:2184
+#: system/classes/adminhandler.php:2170
 #, php-format
 msgid "Added module %s."
 msgstr ""
 
-#: system/classes/adminhandler.php:2190
+#: system/classes/adminhandler.php:2176
 msgid "Removed module."
 msgstr ""
 
-#: system/classes/adminhandler.php:2311 system/classes/adminhandler.php:2419
+#: system/classes/adminhandler.php:2297 system/classes/adminhandler.php:2405
 #, php-format
 msgid "Unknown action \"%s\""
 msgstr "Nezināma darbība \"%s\""
 
-#: system/classes/adminhandler.php:2322
+#: system/classes/adminhandler.php:2308
 msgid "You did not have permission to delete some entries."
 msgstr ""
 
-#: system/classes/adminhandler.php:2325
+#: system/classes/adminhandler.php:2311
 #, php-format
 msgid "Deleted %d post"
 msgid_plural "Deleted %d posts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2363
+#: system/classes/adminhandler.php:2349
 msgid "No logs selected."
 msgstr ""
 
-#: system/classes/adminhandler.php:2375
+#: system/classes/adminhandler.php:2361
 #, php-format
 msgid "Deleted %d logs."
 msgstr "Dzēsti %d žurnāli."
 
-#: system/classes/adminhandler.php:2379
-msgid "Logs purged."
-msgstr ""
-
-#: system/classes/adminhandler.php:2412
+#: system/classes/adminhandler.php:2398
 msgid "No comments selected."
 msgstr "Neviens komentārs netika izvēlēts."
 
-#: system/classes/adminhandler.php:2433
+#: system/classes/adminhandler.php:2419
 #, php-format
 msgid "Deleted %d comment"
 msgid_plural "Deleted %d comments"
@@ -2624,7 +2702,7 @@ msgstr[0] "Dzēsts %d komentārs"
 msgstr[1] "Dzēsti %d komentāri"
 msgstr[2] "Dzēsti %d komentāri"
 
-#: system/classes/adminhandler.php:2438
+#: system/classes/adminhandler.php:2424
 #, php-format
 msgid "Marked %d comment as spam"
 msgid_plural "Marked %d comments as spam"
@@ -2632,7 +2710,7 @@ msgstr[0] "%d komentārs atzīmēts kā surogāts"
 msgstr[1] "%d komentāri atzīmēti kā surogāti"
 msgstr[2] "%d komentāri atzīmēti kā surogāti"
 
-#: system/classes/adminhandler.php:2444
+#: system/classes/adminhandler.php:2430
 #, php-format
 msgid "Approved %d comment"
 msgid_plural "Approved %d comments"
@@ -2640,7 +2718,7 @@ msgstr[0] "Apstiprināts %d komentārs"
 msgstr[1] "Apstiprināti %d komentāri"
 msgstr[2] "Apstiprināti %d komentāri"
 
-#: system/classes/adminhandler.php:2450
+#: system/classes/adminhandler.php:2436
 #, php-format
 msgid "Unapproved %d comment"
 msgid_plural "Unapproved %d comments"
@@ -2648,264 +2726,291 @@ msgstr[0] "Neapstiprināts %d komentārs"
 msgstr[1] "Neapstiprināti %d komentāri"
 msgstr[2] "Neapstiprināti %d komentāri"
 
-#: system/classes/adminhandler.php:2783
+#: system/classes/adminhandler.php:2745
 #, php-format
 msgid "The group %s already exists"
 msgstr "Grupa: %s jau eksistē"
 
-#: system/classes/adminhandler.php:2792
+#: system/classes/adminhandler.php:2754
 msgid "The group must have a name"
 msgstr "Grupai nepieciešams nosaukums"
 
-#: system/classes/adminhandler.php:2805
+#: system/classes/adminhandler.php:2767
 #, php-format
 msgid "Added group %s"
 msgstr "Grupa: %s pievienota"
 
-#: system/classes/adminhandler.php:2842
+#: system/classes/adminhandler.php:2804
 msgid "No groups deleted."
 msgstr "Neviena grupa netika dzēsta."
 
-#: system/classes/adminhandler.php:2856
+#: system/classes/adminhandler.php:2818
 #, php-format
 msgid "Deleted %d groups."
 msgstr "Dzēstas %d grupas."
 
-#: system/classes/adminhandler.php:3021
+#: system/classes/adminhandler.php:2977
 msgid "Updated permissions."
 msgstr "Atļaujas atjauninātas."
 
-#: system/classes/adminhandler.php:3069
+#: system/classes/adminhandler.php:3026
 #, php-format
 msgid "Tag %s has been deleted."
-msgid_plural "Tags %s have been deleted."
-msgstr[0] "Birka %s tika dzēsta."
-msgstr[1] "Birkas: %s tika dzēstas."
-msgstr[2] "Birkas: %s tika dzēstas."
+msgstr ""
 
-#: system/classes/adminhandler.php:3094
+#: system/classes/adminhandler.php:3026
+#, php-format
+msgid "%d tags have been deleted."
+msgstr ""
+
+#: system/classes/adminhandler.php:3048
 #, php-format
 msgid "Tag %1$s has been renamed to %2$s."
 msgid_plural "Tags %1$s have been renamed to %2$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:3120 system/classes/adminhandler.php:3122
+#: system/classes/adminhandler.php:3074 system/classes/adminhandler.php:3076
 msgid "Habari Version"
 msgstr "Habari versija"
 
-#: system/classes/adminhandler.php:3125
+#: system/classes/adminhandler.php:3079
 msgid "Habari API Version"
 msgstr "Habari API versija"
 
-#: system/classes/adminhandler.php:3126
+#: system/classes/adminhandler.php:3080
 msgid "Habari DB Version"
 msgstr "Habari DB versija"
 
-#: system/classes/adminhandler.php:3127
+#: system/classes/adminhandler.php:3081
 msgid "Active Theme"
 msgstr "Aktīvais kažociņš"
 
-#: system/classes/adminhandler.php:3128
+#: system/classes/adminhandler.php:3082
 msgid "Site Language"
 msgstr "Tīkla vietnes valoda"
 
-#: system/classes/adminhandler.php:3132
+#: system/classes/adminhandler.php:3086
 msgid "PHP Version"
 msgstr "PHP versija"
 
-#: system/classes/adminhandler.php:3133
+#: system/classes/adminhandler.php:3087
 msgid "Server Software"
 msgstr "Servera programmatūra"
 
-#: system/classes/adminhandler.php:3134
+#: system/classes/adminhandler.php:3088
 msgid "Database"
 msgstr "Datubāze"
 
-#: system/classes/adminhandler.php:3135
+#: system/classes/adminhandler.php:3089
 msgid "PHP Extensions"
 msgstr "PHP paplašinājumi"
 
-#: system/classes/adminhandler.php:3137 system/classes/adminhandler.php:3146
+#: system/classes/adminhandler.php:3091 system/classes/adminhandler.php:3100
 msgid "PCRE Version"
 msgstr "PCRE versija"
 
-#: system/classes/adminhandler.php:3148
+#: system/classes/adminhandler.php:3102
 msgid "Browser"
 msgstr "Pārlūks"
 
-#: system/classes/adminhandler.php:3228
+#: system/classes/adminhandler.php:3182
 #, php-format
 msgid "Create a new %s"
 msgstr "Izveidot jaunu %s"
 
-#: system/classes/adminhandler.php:3232
+#: system/classes/adminhandler.php:3186
 #, php-format
 msgid "Manage %s"
 msgstr "Pārvaldīt %s"
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3205
 msgid "Create content"
 msgstr "Veidot saturu"
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3205
 msgid "New"
 msgstr "Jauns"
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3206
 msgid "Manage content"
 msgstr "Pārvaldīt saturu"
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3206
 msgid "Manage"
 msgstr "Pārvaldīt"
 
-#: system/classes/adminhandler.php:3253
+#: system/classes/adminhandler.php:3207
 msgid "Manage comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:3254
+#: system/classes/adminhandler.php:3208
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:650
 msgid "Tags"
 msgstr "Birkas"
 
-#: system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:3209
 msgid "View your user dashboard"
 msgstr "Skatīt jūsu darbgaldu"
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3210
 msgid "View and configure site options"
 msgstr ""
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3210
 msgid "Options"
 msgstr "Opcijas"
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3211
 msgid "Preview and activate themes"
 msgstr "Pārskatīt un aktivizēt kažociņus"
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3211
 msgid "Themes"
 msgstr "Kazociņi"
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3212
 msgid "Activate, deactivate, and configure plugins"
 msgstr "Aktivizēt, apstādināt un konfigurēt spraudņus"
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3212
 msgid "Plugins"
 msgstr "Spraudņi"
 
-#: system/classes/adminhandler.php:3259
+#: system/classes/adminhandler.php:3213
 msgid "Import content from another site"
 msgstr ""
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3214
 msgid "View and manage users"
 msgstr "Skatīt un pārvaldīt lietotājus"
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3214
 msgid "Users"
 msgstr "Lietotāji"
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3215
 msgid "Manage your user profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3215
 msgid "My Profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3216
 msgid "View and manage groups"
 msgstr "Skatīt un pārvaldīt grupas"
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3216
 msgid "Groups"
 msgstr "Grupas"
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3217
 msgid "View system log messages"
 msgstr "Skatīt sistēmas žurnālu"
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3217
 msgid "Logs"
 msgstr "Žurnāls"
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3218
 msgid "Log out of the administration interface"
 msgstr "Iziet no administrācijas interfeisa"
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3218
+#: system/plugins/coreblocks/coreblocks.plugin.php:314
 msgid "Logout"
 msgstr "Iziet"
 
-#: system/classes/adminhandler.php:3499
+#: system/classes/adminhandler.php:3453
 msgid "Entry"
 msgstr "Ieraksts"
 
-#: system/classes/adminhandler.php:3500
+#: system/classes/adminhandler.php:3454
 msgid "Entries"
 msgstr "Ieraksti"
 
-#: system/classes/adminhandler.php:3503
+#: system/classes/adminhandler.php:3457
 msgid "Page"
 msgstr "Lapa"
 
-#: system/classes/adminhandler.php:3504
+#: system/classes/adminhandler.php:3458
 msgid "Pages"
 msgstr "Lapas"
 
-#: system/classes/adminhandler.php:3553
+#: system/classes/adminhandler.php:3507
 msgid "Root"
 msgstr "Sakne"
 
-#: system/classes/adminhandler.php:3669
+#: system/classes/adminhandler.php:3623
 msgid "A new block must first have a name."
 msgstr ""
 
-#: system/classes/adminhandler.php:3685
+#: system/classes/adminhandler.php:3639
 #, php-format
 msgid "Added new block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3709
+#: system/classes/adminhandler.php:3663
 #, php-format
 msgid "Deleted block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3712
+#: system/classes/adminhandler.php:3666
 #, php-format
 msgid "Failed to delete block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3753
+#: system/classes/adminhandler.php:3713
 msgid "Saved block areas settings."
 msgstr ""
 
-#: system/classes/adminhandler.php:3797
+#: system/classes/adminhandler.php:3757
 msgid "+"
 msgstr "+"
 
-#: system/classes/remoterequest.php:112
-msgid "Trying to add a request body to a non-POST request"
-msgstr "Mēģinājums pievienot pieprasījuma kopumu ne POST pieprasījumam"
+#: system/classes/remoterequest.php:29
+#: system/classes/curlrequestprocessor.php:185
+msgid "Unable to get response body. Request did not yet execute."
+msgstr ""
 
-#: system/classes/remoterequest.php:168
+#: system/classes/remoterequest.php:38
+#: system/classes/curlrequestprocessor.php:194
+msgid "Unable to get response headers. Request did not yet execute."
+msgstr ""
+
+#: system/classes/remoterequest.php:217
+msgid "Trying to add a request body to a GET request."
+msgstr ""
+
+#: system/classes/remoterequest.php:274
 #, php-format
 msgid "File %s not found."
 msgstr ""
 
-#: system/classes/remoterequest.php:266
-msgid "Trying to fetch response headers for a pending request."
+#: system/classes/remoterequest.php:374
+msgid "Unable to fetch response headers for a pending request."
 msgstr ""
 
-#: system/classes/remoterequest.php:277
-msgid "Trying to fetch response body for a pending request."
+#: system/classes/remoterequest.php:387
+msgid "Unable to fetch response body for a pending request."
 msgstr ""
 
 #: system/classes/update.php:36
 msgid "Invalid Beacon information added"
+msgstr ""
+
+#: system/classes/update.php:198
+msgid "Updates check CronJob completed successfully."
+msgstr ""
+
+#: system/classes/update.php:206
+msgid "Updates check CronJob failed!"
+msgstr ""
+
+#: system/classes/update.php:274
+msgid ""
+"Perform a single check for plugin updates, the plugin set has changed."
 msgstr ""
 
 #: system/classes/colorutils.php:35
@@ -2945,40 +3050,95 @@ msgstr "Nezināms revīzijas nummurs %d iekš %s!"
 msgid "Message count (%d) out of bounds in %s!"
 msgstr "Ziņojumu skaits (%d) ārpus robežām iekš %s!"
 
-#: system/classes/habaridatetime.php:374
+#: system/classes/habaridatetime.php:391
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:395
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:399
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:403
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:407
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:411
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:422
+#, php-format
+msgid "%s from now"
+msgstr ""
+
+#: system/classes/habaridatetime.php:425
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: system/classes/habaridatetime.php:444
 msgid "just now"
 msgstr ""
 
-#: system/classes/habaridatetime.php:377
+#: system/classes/habaridatetime.php:448
 #, php-format
-msgid "%d minutes ago"
-msgstr ""
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: system/classes/habaridatetime.php:381
+#: system/classes/habaridatetime.php:452
 #, php-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:385
+#: system/classes/habaridatetime.php:456
 #, php-format
 msgid "yesterday"
 msgid_plural "%d days ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:389
+#: system/classes/habaridatetime.php:460
 #, php-format
 msgid "last week"
 msgid_plural "%d weeks ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:392
+#: system/classes/habaridatetime.php:464
 #, php-format
 msgid "last month"
 msgid_plural "%d months ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:468
+#, php-format
+msgid "last year"
+msgid_plural "%d years ago"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -2990,22 +3150,22 @@ msgstr ""
 msgid "There is no valid theme currently installed."
 msgstr "Dotajā brīdī nav instalēts derīgs kažociņš."
 
-#: system/classes/themes.php:157
+#: system/classes/themes.php:166
 #, php-format
 msgid "Activated Theme: %s"
 msgstr "Aktivizēts kažociņš: %s"
 
-#: system/classes/themes.php:170
+#: system/classes/themes.php:181
 #, php-format
 msgid "Previewed Theme: %s"
 msgstr ""
 
-#: system/classes/themes.php:179
+#: system/classes/themes.php:190
 #, php-format
 msgid "Canceled Theme Preview: %s"
 msgstr ""
 
-#: system/classes/themes.php:222 system/classes/themes.php:231
+#: system/classes/themes.php:233 system/classes/themes.php:242
 msgid "Theme not installed."
 msgstr "Kažociņš netika instalēts."
 
@@ -3057,28 +3217,21 @@ msgstr ""
 msgid "Your comment is pending moderation."
 msgstr "Jūsu komentārs gaida apstiprināšanu."
 
-#: system/classes/curlrequestprocessor.php:74
-#, php-format
-msgid " %s: CURL Error. Unable to create temporary file name."
+#: system/classes/curlrequestprocessor.php:92
+msgid "CURL Error. Unable to create temporary file name."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:79
-#, php-format
-msgid " %s: CURL Error. Unable to open temporary file."
+#: system/classes/curlrequestprocessor.php:97
+msgid "CURL Error. Unable to open temporary file."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:98
+#: system/classes/curlrequestprocessor.php:132
 #, php-format
-msgid "%s: CURL Error %d: %s"
-msgstr "%s: CURL kļūda %d: %s"
+msgid "CURL Error %1$d: %2$s"
+msgstr ""
 
-#: system/classes/curlrequestprocessor.php:103
-#, php-format
-msgid "Bad return code (%1$d) for: %2$s"
-msgstr "Slikts atgrieztais kods (%1$d) priekš: %2$s"
-
-#: system/classes/logentry.php:172 system/classes/logentry.php:263
-#: system/classes/logentry.php:275
+#: system/classes/logentry.php:172 system/classes/logentry.php:269
+#: system/classes/logentry.php:282
 msgid "Unknown"
 msgstr "Nezināms"
 
@@ -3140,27 +3293,37 @@ msgstr "pilns"
 msgid "none"
 msgstr "neviens"
 
-#: system/classes/term.php:163
+#: system/classes/term.php:140
 #, php-format
 msgid "New term %1$s: %2$s"
 msgstr ""
 
-#: system/classes/term.php:216
+#: system/classes/term.php:194
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugins.php:411
+#: system/classes/plugins.php:262
+#, php-format
+msgid "Plugin \"%1$s\" deactivated because it could no longer be found."
+msgstr ""
+
+#: system/classes/plugins.php:412
+#, php-format
+msgid "Invalid plugin XML file: %1$s"
+msgstr ""
+
+#: system/classes/plugins.php:485
 #, php-format
 msgid "Activated Plugin: %s"
 msgstr "Aktivizēts spraudnis: %s"
 
-#: system/classes/plugins.php:441
+#: system/classes/plugins.php:521
 #, php-format
 msgid "Deactivated Plugin: %s"
 msgstr "Atslēgts spraudnis: %s"
 
-#: system/classes/plugins.php:541
+#: system/classes/plugins.php:628
 #, php-format
 msgid ""
 "Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
@@ -3169,65 +3332,70 @@ msgstr ""
 "Notika mēģinājums ielādēt spraudņa failu \"%s\", bet tas atgrieza sintakses "
 "kļūdas. <div class=\"reveal\">%s</div>"
 
-#: system/classes/formui.php:771
-msgid "Value must be a valid URL."
-msgstr "Ierakstam jābūt derīgam URL."
+#: system/classes/formui.php:798
+msgid "Relative urls are not allowed"
+msgstr ""
 
-#: system/classes/formui.php:791
+#: system/classes/formui.php:804
+#, php-format
+msgid "Only %s urls are allowed"
+msgstr ""
+
+#: system/classes/formui.php:824
 msgid "Value must be a valid Email Address."
 msgstr "Ierakstam jābūt derīgai e-pasta adresei."
 
-#: system/classes/formui.php:809
+#: system/classes/formui.php:842
 msgid "A value for this field is required."
 msgstr "Šajā laukā obligāti nepieciešams ieraksts."
 
-#: system/classes/formui.php:831
+#: system/classes/formui.php:864
 msgid "That username is already in use!"
 msgstr "Dotais lietotājvārds jau eksistē!"
 
-#: system/classes/formui.php:851
+#: system/classes/formui.php:884
 #, php-format
 msgid "The value of this field must match the value of %s."
 msgstr "Ierakstam šajā laikā jāatbilst ierakstam %s."
 
-#: system/classes/formui.php:874
+#: system/classes/formui.php:907
 msgid "The value does not meet submission requirements"
 msgstr "Ievadītā vērtība neatbilst pieņemšanas noteikumiem"
 
-#: system/classes/formui.php:895
+#: system/classes/formui.php:928
 #, php-format
 msgid "The value entered is lesser than the minimum of %d."
 msgstr "Ievadītā vērtība ir mazāka par nepieciešamo: %d."
 
-#: system/classes/formui.php:901
+#: system/classes/formui.php:934
 #, php-format
 msgid "The value entered is greater than the maximum of %d."
 msgstr "Ievadītā vērtība ir lielāka kā maksimālā pieļaujamā priekš %d."
 
-#: system/classes/formui.php:1595
+#: system/classes/formui.php:1635
 msgid "Remove this item?"
 msgstr "Izmest šo datu vienumu?"
 
-#: system/classes/theme.php:259
+#: system/classes/theme.php:258
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
 msgstr ""
 "Whoops! 404. Jūsu meklētā lapa šeit neatrodas. Lūdzu, mēģiniet vēlreiz."
 
-#: system/classes/theme.php:780
+#: system/classes/theme.php:792
 msgid "Previous"
 msgstr "Iepriekšējais"
 
-#: system/classes/theme.php:807
+#: system/classes/theme.php:819
 msgid "Next"
 msgstr "Nākošais"
 
-#: system/classes/theme.php:833
+#: system/classes/theme.php:845
 msgid "Read Comments"
 msgstr "Lasīt komentārus"
 
-#: system/classes/theme.php:859
+#: system/classes/theme.php:871
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"
@@ -3304,16 +3472,20 @@ msgstr "%1$s uz \"%2$s\""
 msgid "Attempt to fetch in class mode with a non-included class"
 msgstr ""
 
-#: system/classes/inputfilter.php:372
+#: system/classes/crontab.php:73
+msgid "CronTab run completed."
+msgstr ""
+
+#: system/classes/inputfilter.php:377
 #, php-format
 msgid "Unkown attribute type \"%s\" in %s"
 msgstr "Nezināms atribūts, tips \"%s\" iekš %s"
 
-#: system/plugins/wpimport/wpimport.plugin.php:20
+#: system/plugins/wpimport/wpimport.plugin.php:25
 msgid "WordPress Database"
 msgstr "WordPress datubāze"
 
-#: system/plugins/wpimport/wpimport.plugin.php:62
+#: system/plugins/wpimport/wpimport.plugin.php:66
 msgid ""
 "Could not connect to the WordPress database using the values supplied. "
 "Please correct them and try again."
@@ -3321,113 +3493,133 @@ msgstr ""
 "Nebija iespējams pieslēgties WordPress datubāzei izmantojot dotos datus. "
 "Lūdzu izlabojiet tos un mēģiniet vēlreiz."
 
-#: system/plugins/wpimport/wpimport.plugin.php:105
-msgid "Habari will attempt to import from a WordPress Database."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:107
-msgid ""
-"Please provide the connection details for an existing WordPress database:"
-msgstr ""
-
 #: system/plugins/wpimport/wpimport.plugin.php:109
-#: system/installer/db_setup.php:72 system/installer/db_setup.php:119
+msgid "Habari will attempt to import from a WordPress database."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:119
+#: system/plugins/wpimport/wpimport.plugin.php:201
+#: system/installer/db_setup.php:73 system/installer/db_setup.php:120
 msgid "Database Name"
 msgstr "Datubāzes nosaukums"
 
-#: system/plugins/wpimport/wpimport.plugin.php:112
-#: system/installer/db_setup.php:39 system/installer/db_setup.php:86
+#: system/plugins/wpimport/wpimport.plugin.php:123
+#: system/plugins/wpimport/wpimport.plugin.php:204
+#: system/installer/db_setup.php:40 system/installer/db_setup.php:87
 msgid "Database Host"
 msgstr "Datubāzes resursdators"
 
-#: system/plugins/wpimport/wpimport.plugin.php:115
+#: system/plugins/wpimport/wpimport.plugin.php:127
+#: system/plugins/wpimport/wpimport.plugin.php:207
 msgid "Database User"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:118
+#: system/plugins/wpimport/wpimport.plugin.php:131
+#: system/plugins/wpimport/wpimport.plugin.php:210
 msgid "Database Password"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:121
-#: system/installer/db_setup.php:145
+#: system/plugins/wpimport/wpimport.plugin.php:135
+#: system/plugins/wpimport/wpimport.plugin.php:213
+#: system/installer/db_setup.php:146
 msgid "Table Prefix"
 msgstr "Tabulas prefikss"
 
-#: system/plugins/wpimport/wpimport.plugin.php:124
-msgid "Import Category as Tag"
+#: system/plugins/wpimport/wpimport.plugin.php:139
+#: system/plugins/wpimport/wpimport.plugin.php:216
+msgid "Import Categories as Tags"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:128
-msgid "Extras - additional data from WordPress plugins"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:130
-msgid "Import tags from Ultimate Tag Warrior"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:158
+#: system/plugins/wpimport/wpimport.plugin.php:161
 #, php-format
 msgid "Starting import from \"%s\""
 msgstr "Sākam importēšanu no \"%s\""
 
 #: system/plugins/wpimport/wpimport.plugin.php:163
-msgid "Import In Progress"
+msgid "Import in Progress"
 msgstr ""
 
 #: system/plugins/wpimport/wpimport.plugin.php:164
-msgid "Starting Import..."
+msgid "Starting Import&hellip;"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:245
-#, php-format
-msgid "Importing posts %1$d - %2$d of %3$d."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:358
-#, php-format
-msgid ""
-"Post author id %1$s was not found in WP database, assigning post \"%2$s\" "
-"(WP post id #%3$d) to current user."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:436
-#: system/plugins/wpimport/wpimport.plugin.php:533
-#: system/plugins/wpimport/wpimport.plugin.php:672
+#: system/plugins/wpimport/wpimport.plugin.php:260
+#: system/plugins/wpimport/wpimport.plugin.php:261
+#: system/plugins/wpimport/wpimport.plugin.php:367
+#: system/plugins/wpimport/wpimport.plugin.php:368
+#: system/plugins/wpimport/wpimport.plugin.php:591
+#: system/plugins/wpimport/wpimport.plugin.php:592
 #, php-format
 msgid "Failed to import from \"%s\""
 msgstr "Neizdevās importēt no \"%s\""
 
-#: system/plugins/wpimport/wpimport.plugin.php:438
-msgid "The database connection details have failed to connect."
-msgstr "Datubāzes savienojums netika nodibināts."
-
-#: system/plugins/wpimport/wpimport.plugin.php:473
-msgid "Importing users..."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:535
-#: system/plugins/wpimport/wpimport.plugin.php:674
+#: system/plugins/wpimport/wpimport.plugin.php:262
+#: system/plugins/wpimport/wpimport.plugin.php:369
+#: system/plugins/wpimport/wpimport.plugin.php:593
 msgid "Failed to connect using the given database connection details."
 msgstr ""
 "Nespējām veikt savienojumu izmantojot doto informāciju par savienojumu."
 
-#: system/plugins/wpimport/wpimport.plugin.php:559
-#, php-format
-msgid "Importing comments %1$d - %2$d of %3$d"
+#: system/plugins/wpimport/wpimport.plugin.php:273
+msgid "Importing Users&hellip;"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:655
+#: system/plugins/wpimport/wpimport.plugin.php:288
+#: system/plugins/wpimport/wpimport.plugin.php:290
 #, php-format
-msgid "Import complete from \"%s\""
+msgid "Associated imported user %1$s with existing user %2$s"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:656
+#: system/plugins/wpimport/wpimport.plugin.php:315
+#: system/plugins/wpimport/wpimport.plugin.php:317
+#, php-format
+msgid "Created new user %1$s. Their old ID was %2$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:325
+#, php-format
+msgid ""
+"There was an error importing user %s. See the EventLog for the error "
+"message. "
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:327
+#: system/plugins/wpimport/wpimport.plugin.php:532
+#: system/plugins/wpimport/wpimport.plugin.php:736
+msgid "Rolling back changes&hellip;"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:385
+#, php-format
+msgid "Importing posts %1$d - %2$d of %3$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:530
+#, php-format
+msgid ""
+"There was an error importing post %s. See the EventLog for the error message."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:609
+#, php-format
+msgid "Importing comments %1$d - %2$d of %3$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:734
+#, php-format
+msgid ""
+"There was an error importing comment ID %d. See the EventLog for the error "
+"message."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:768
+#, php-format
+msgid "Import completed from \"%s\""
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:769
 msgid "Import is complete."
 msgstr "Importēšana pabeigta."
-
-#: system/plugins/wpimport/wpimport.plugin.php:660
-msgid "There were errors during import:"
-msgstr "Eksistēja kļūdas importēšanas laikā:"
 
 #: system/plugins/coredashmodules/dash_latestcomments.php:5
 #, php-format
@@ -3705,23 +3897,172 @@ msgstr "Komentētāja sesija iztecējusi."
 msgid "The selected action is forbidden."
 msgstr "Iecerētā darbība ir aizliegta."
 
+#: system/plugins/coreblocks/coreblocks.plugin.php:33
+msgid "Site Feed"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:34
+msgid "Comments Feed"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:65
+msgid "Comments to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:124
+msgid "Posts to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:161
+msgid "Display full month names:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:162
+#: system/plugins/coreblocks/coreblocks.plugin.php:236
+msgid "Append post count:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:163
+#: system/plugins/coreblocks/coreblocks.plugin.php:237
+msgid "Preferred Output Style:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:164
+#: system/plugins/coreblocks/coreblocks.plugin.php:238
+msgid "Dropdown"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:164
+#: system/plugins/coreblocks/coreblocks.plugin.php:238
+msgid "List"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:298
+msgid "Links to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:339
+msgid "Button:"
+msgstr ""
+
 #: system/plugins/simple_private_posts/simple_private_posts.plugin.php:27
 msgid "Private Post"
 msgstr "Privāts ieraksts"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:784
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:634
+msgid "Search CC"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:640
+msgid "Photos"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:645
+msgid "Videos"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:655
+msgid "Sets"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:781
 msgid "This photo has no title"
 msgstr "Šai fotogrāfijai nav nosaukuma"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:870
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:798
+msgid "De-Authorize"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:801
+msgid "Authorize"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:816
+msgid ""
+"You have already successfully authorized Habari to access your Flickr "
+"account."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:817
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:864
+msgid "Do you want to "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:817
+msgid "revoke authorization"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
+msgid "To use this plugin, you must "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
+msgid "authorize Habari to have access to your Flickr account"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
+msgid "When you have completed the authorization on Flickr, return here and "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
+msgid "confirm that the authorization was successful"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:839
+msgid ""
+"Either you have already authorized Habari to access your flickr account, or "
+"you have not yet done so.  Please "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:839
+msgid "try again"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:845
+msgid "Your authorization was set successfully."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:848
+msgid "There was a problem with your authorization:"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:863
+msgid "The Flickr Silo Plugin authorization has been deleted."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:864
+msgid "re-authorize this plugin"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:874
 msgid "Default size for images in Posts:"
 msgstr "Standarta izmēls attēliem rakstā:"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:873
-msgid "Options saved"
-msgstr "Opcijas saglabātas"
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Square"
+msgstr ""
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:974
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Thumbnail"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Small"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Medium"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Large"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Original Size"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:977
 msgid "Search for photos"
 msgstr "Meklēt fotogrāfijas"
 
@@ -3734,36 +4075,53 @@ msgstr ""
 msgid "You have logged in to Viddler."
 msgstr "Jūs esat pieslēdzies Viddler."
 
-#: system/plugins/pingback/pingback.plugin.php:295
+#: system/plugins/pingback/pingback.plugin.php:240
+#, php-format
+msgid ""
+"Unable to retrieve target, can't detect pingback endpoint. (Source: %1$s | "
+"Target: %2$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:263
+#, php-format
+msgid "Invalid Pingback endpoint - %1$s (Source: %2$s | Target: %3$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:268
+#, php-format
+msgid "Pingback error: %1$s - %2$s (Source: %3$s | Target: %4$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:311
 #, php-format
 msgid "Sent pingbacks for \"%1$s\", target: %2$s"
 msgstr "Sūtīt atpakaļpingus prieks \"%1$s\", mērķis: %2$s"
 
-#: system/plugins/pingback/pingback.plugin.php:308
+#: system/plugins/pingback/pingback.plugin.php:324
 msgid "Send Pingbacks to Links"
 msgstr "Sūtīt atpakaļpingus saitēm"
 
-#: system/plugins/pingback/pingback.plugin.php:334
+#: system/plugins/pingback/pingback.plugin.php:350
 #, php-format
 msgid "%d Pingbacks"
 msgstr ""
 
-#: system/plugins/pingback/pingback.plugin.php:337
+#: system/plugins/pingback/pingback.plugin.php:353
 #, php-format
 msgid "%d Pingback"
 msgstr ""
 
-#: system/plugins/pingback/pingback.plugin.php:340
+#: system/plugins/pingback/pingback.plugin.php:356
 #, php-format
 msgid "%d Pingabcks"
 msgstr ""
 
-#: system/installer/htaccess.php:7 system/installer/config.php:13
-#: system/installer/sqlite.php:7
+#: system/installer/htaccess.php:8 system/installer/config.php:14
+#: system/installer/sqlite.php:8
 msgid "help"
 msgstr "palīdzība"
 
-#: system/installer/htaccess.php:10
+#: system/installer/htaccess.php:11
 msgid ""
 "Your <strong>.htaccess</strong> file is not writable. In order to "
 "successfully install Habari, please paste the following into"
@@ -3771,7 +4129,7 @@ msgstr ""
 "Jūsu <strong>.htaccess</strong> fails nav rakstāms. Lai veiksmīgi būtu "
 "iespējams uzinstalēt Habari, lūdzu ievietojiet sekojošo informāciju"
 
-#: system/installer/htaccess.php:13
+#: system/installer/htaccess.php:14
 msgid ""
 "<strong>.htaccess</strong> is a file that tells your Apache web server to "
 "send requests to Habari for handling. Habari is not able to write this file "
@@ -3779,24 +4137,24 @@ msgid ""
 "continue the installation."
 msgstr ""
 
-#: system/installer/htaccess.php:14 system/installer/db_setup.php:31
-#: system/installer/db_setup.php:45 system/installer/db_setup.php:56
-#: system/installer/db_setup.php:67 system/installer/db_setup.php:78
-#: system/installer/db_setup.php:92 system/installer/db_setup.php:103
-#: system/installer/db_setup.php:114 system/installer/db_setup.php:125
-#: system/installer/db_setup.php:138 system/installer/db_setup.php:151
-#: system/installer/db_setup.php:175 system/installer/db_setup.php:185
-#: system/installer/db_setup.php:197 system/installer/db_setup.php:208
-#: system/installer/config.php:20 system/installer/sqlite.php:14
-msgid "Learn More..."
-msgstr "Izzināt vairāk..."
+#: system/installer/htaccess.php:15 system/installer/db_setup.php:32
+#: system/installer/db_setup.php:46 system/installer/db_setup.php:57
+#: system/installer/db_setup.php:68 system/installer/db_setup.php:79
+#: system/installer/db_setup.php:93 system/installer/db_setup.php:104
+#: system/installer/db_setup.php:115 system/installer/db_setup.php:126
+#: system/installer/db_setup.php:139 system/installer/db_setup.php:152
+#: system/installer/db_setup.php:176 system/installer/db_setup.php:186
+#: system/installer/db_setup.php:198 system/installer/db_setup.php:209
+#: system/installer/config.php:21 system/installer/sqlite.php:15
+msgid "Learn More&hellip;"
+msgstr ""
 
-#: system/installer/htaccess.php:24 system/installer/db_setup.php:252
-#: system/installer/config.php:30 system/installer/sqlite.php:24
+#: system/installer/htaccess.php:25 system/installer/db_setup.php:253
+#: system/installer/config.php:31 system/installer/sqlite.php:25
 msgid "Install"
 msgstr "Instalēt"
 
-#: system/installer/htaccess.php:27 system/installer/sqlite.php:27
+#: system/installer/htaccess.php:28 system/installer/sqlite.php:28
 msgid ""
 "When you have successfully placed the .htaccess file, run the installer "
 "again."
@@ -3804,25 +4162,25 @@ msgstr ""
 "Kas esat veiksmīgi ievietojis .htaccess failu, palaidiet instalācijas "
 "programmu vēlreiz."
 
-#: system/installer/htaccess.php:28 system/installer/config.php:34
-#: system/installer/sqlite.php:28
+#: system/installer/htaccess.php:29 system/installer/config.php:35
+#: system/installer/sqlite.php:29
 msgid "Restart Installer"
 msgstr "Atkārtot instalāciju"
 
-#: system/installer/db_setup.php:9
+#: system/installer/db_setup.php:10
 msgid "Database Setup"
 msgstr "Datubāzes iestatīšana"
 
-#: system/installer/db_setup.php:14
+#: system/installer/db_setup.php:15
 msgid "Database Type"
 msgstr "Datubāzes tips"
 
-#: system/installer/db_setup.php:25
+#: system/installer/db_setup.php:26
 #, php-format
 msgid "%1$s - missing PDO driver, see help"
 msgstr "%1$s - trūkstošs PDO dzinis, skatīt palīdzību"
 
-#: system/installer/db_setup.php:30
+#: system/installer/db_setup.php:31
 msgid ""
 "<strong>Database Type</strong> specifies the type of database to which "
 "Habari will connect.  Changing this setting may affect the other fields that "
@@ -3834,11 +4192,11 @@ msgstr ""
 "Ja jūsu izvēlētais datubāzes dzinējs šeit nav atrodams, jums var būt "
 "nepieciešams instalēt PDO dzini lai to pieļautu."
 
-#: system/installer/db_setup.php:35
+#: system/installer/db_setup.php:36
 msgid "MySQL Settings"
 msgstr "MySQL iestatījumi"
 
-#: system/installer/db_setup.php:36
+#: system/installer/db_setup.php:37
 msgid ""
 "Use the settings below only if you have selected MySQL as your database "
 "engine."
@@ -3846,7 +4204,7 @@ msgstr ""
 "Zemāk esošos iestatījumus lietotjiet tikai tad, ja esat izvēlējies MySQL kā "
 "datubāzes dzinēju."
 
-#: system/installer/db_setup.php:44
+#: system/installer/db_setup.php:45
 msgid ""
 "<strong>Database Host</strong> is the host (domain) name or server IP "
 "address of the server that runs the MySQL database to which Habari will "
@@ -3858,7 +4216,7 @@ msgstr ""
 "Habari. Ja MySQL darbojas uz jūsu tīkla servera, un visbiežāk tā ir, tad "
 "visbiežāk derīga vērtība šim laukam ir \"localhost\"."
 
-#: system/installer/db_setup.php:55
+#: system/installer/db_setup.php:56
 msgid ""
 "<strong>Database User</strong> is the username used to connect Habari to the "
 "MySQL database."
@@ -3866,7 +4224,7 @@ msgstr ""
 "<strong>Datubāzes lietotājs</strong> ir lietotāja vārds, kuru izmanto, lai "
 "pieslēgtu Habari pie MySQL datubāzes."
 
-#: system/installer/db_setup.php:66
+#: system/installer/db_setup.php:67
 msgid ""
 "<strong>Database Password</strong> is the password used to connect the "
 "specified user to the MySQL database."
@@ -3874,7 +4232,7 @@ msgstr ""
 "<strong>Datubāzes parole</strong> ir parole, kuru izmanto lai noteikts "
 "lietotājs pieslēgtos MySQL datubāzei."
 
-#: system/installer/db_setup.php:77
+#: system/installer/db_setup.php:78
 msgid ""
 "<strong>Database Name</strong> is the name of the MySQL database to which "
 "Habari will connect."
@@ -3882,11 +4240,11 @@ msgstr ""
 "<strong>Datubāzes nosaukums</strong> ir tās MySQL datubāzes vārds, kurai "
 "pieslēgsies Habari."
 
-#: system/installer/db_setup.php:82
+#: system/installer/db_setup.php:83
 msgid "PostgreSQL Settings"
 msgstr "PostgreSQL iestatījumi"
 
-#: system/installer/db_setup.php:83
+#: system/installer/db_setup.php:84
 msgid ""
 "Use the settings below only if you have selected PostgreSQL as your database "
 "engine."
@@ -3894,7 +4252,7 @@ msgstr ""
 "Lietojiet zemāk minētos uzstādījumus tikai tad, ja esat izvēlējies "
 "PostgreSQL kā jūsu datubāzes dzinēju."
 
-#: system/installer/db_setup.php:91
+#: system/installer/db_setup.php:92
 msgid ""
 "<strong>Database Host</strong> is the host (domain) name or server IP "
 "address of the server that runs the PostgreSQL database to which Habari will "
@@ -3906,7 +4264,7 @@ msgstr ""
 "Habari. Ja PostgreSQL darbojas uz jūsu tīkla servera, un visbiežāk tā ir, "
 "tad visbiežāk derīga vērtība šim laukam ir \"localhost\"."
 
-#: system/installer/db_setup.php:102
+#: system/installer/db_setup.php:103
 msgid ""
 "<strong>Database User</strong> is the username used to connect Habari to the "
 "PostgreSQL database."
@@ -3914,7 +4272,7 @@ msgstr ""
 "<strong>Datubāzes lietotājs</strong> ir tās PostgreSQL datubāzes lietotāja "
 "vārds, kurai pieslēgsies Habari."
 
-#: system/installer/db_setup.php:113
+#: system/installer/db_setup.php:114
 msgid ""
 "<strong>Database Password</strong> is the password used to connect the "
 "specified user to the PostgreSQL database."
@@ -3922,7 +4280,7 @@ msgstr ""
 "<strong>Datubāzes parole</strong> ir parole, kuru izmanto lai noteikts "
 "lietotājs pieslēgtos PostgreSQL datubāzei."
 
-#: system/installer/db_setup.php:124
+#: system/installer/db_setup.php:125
 msgid ""
 "<strong>Database Name</strong> is the name of the PostgreSQL database to "
 "which Habari will connect."
@@ -3930,11 +4288,11 @@ msgstr ""
 "<strong>Datubāzes nosaukums</strong> ir tās PostgreSQL datubāzes vārds, "
 "kurai pieslēgsies Habari."
 
-#: system/installer/db_setup.php:129
+#: system/installer/db_setup.php:130
 msgid "SQLite Settings"
 msgstr "SQLite uzstādījumi"
 
-#: system/installer/db_setup.php:130
+#: system/installer/db_setup.php:131
 msgid ""
 "Use the settings below only if you have selected SQLite as your database "
 "engine."
@@ -3942,11 +4300,11 @@ msgstr ""
 "Lietojiet zemāk minētos uzstādījumus tikai tad, ja esat izvēlējies SQLite kā "
 "jūsu datubāzes dzinēju."
 
-#: system/installer/db_setup.php:133
+#: system/installer/db_setup.php:134
 msgid "Data file"
 msgstr "Datu fails"
 
-#: system/installer/db_setup.php:138
+#: system/installer/db_setup.php:139
 msgid ""
 "<strong>Data file</strong> is the SQLite file that will store your Habari "
 "data.  This should be the path to where your data file resides, relative to "
@@ -3956,7 +4314,7 @@ msgstr ""
 "dati. Šeit vajadzētu būt ierakstītam relatīvajam ceļam pie tā. Relatīvam "
 "salīdzinājumā ar Habari lietotāja direktoriju."
 
-#: system/installer/db_setup.php:150
+#: system/installer/db_setup.php:151
 msgid ""
 "<strong>Table Prefix</strong> is a prefix that will be appended to each "
 "table that Habari creates in the database, making it easy to distinguish "
@@ -3966,15 +4324,15 @@ msgstr ""
 "Habari veidotajai tabulai, padarot viegli atšķiramu, kuras tabulas datubāzē "
 "pieder Habari."
 
-#: system/installer/db_setup.php:155
+#: system/installer/db_setup.php:156
 msgid "Check Database Connection"
 msgstr ""
 
-#: system/installer/db_setup.php:164
+#: system/installer/db_setup.php:165
 msgid "Site Configuration"
 msgstr "Tīkla vietnes konfigurācija"
 
-#: system/installer/db_setup.php:174
+#: system/installer/db_setup.php:175
 msgid ""
 "<strong>Site Name</strong> is the name of your site as it will appear\n"
 "\t\t\t\tto your visitors."
@@ -3983,38 +4341,38 @@ msgstr ""
 "tīkla vietnes nosaukums\n"
 "\t\t\t\tto your visitors."
 
-#: system/installer/db_setup.php:185
+#: system/installer/db_setup.php:186
 msgid ""
 "<strong>Username</strong> is the username of the initial user in Habari."
 msgstr ""
 "<strong>Lietotājvārds</strong> ir lietotāja vārds pirmajam Habari lietotājam."
 
-#: system/installer/db_setup.php:192
+#: system/installer/db_setup.php:193
 msgid "Password (again)"
 msgstr "Parole (vēlreiz)"
 
-#: system/installer/db_setup.php:197
+#: system/installer/db_setup.php:198
 msgid ""
 "<strong>Password</strong> is the password of the initial user in Habari. "
 "Both password fields must match."
 msgstr ""
 
-#: system/installer/db_setup.php:202
+#: system/installer/db_setup.php:203
 msgid "Admin Email"
 msgstr "Administratora e-pasts"
 
-#: system/installer/db_setup.php:207
+#: system/installer/db_setup.php:208
 msgid ""
 "<strong>Admin Email</strong> is the email address of the first user account."
 msgstr ""
 "<strong>Administratora e-pasts</strong> ir e-pasts pirmā Habari lietotāja "
 "kontam."
 
-#: system/installer/db_setup.php:219
+#: system/installer/db_setup.php:220
 msgid "Plugin Activation"
 msgstr "Spraudņa aktivizācija"
 
-#: system/installer/db_setup.php:255
+#: system/installer/db_setup.php:256
 msgid ""
 "Habari now has all of the information needed to install itself on your "
 "server."
@@ -4022,11 +4380,11 @@ msgstr ""
 "Habari saņēmis visu nepieciešamo informāciju, lai spētu sevi uzinstalēt uz "
 "jūsu servera."
 
-#: system/installer/db_setup.php:256 system/installer/header.php:10
+#: system/installer/db_setup.php:257 system/installer/header.php:11
 msgid "Install Habari"
 msgstr "Instalēt Habari"
 
-#: system/installer/config.php:16
+#: system/installer/config.php:17
 msgid ""
 "Your <strong>config.php</strong> file is not writable. In order to "
 "successfully install Habari, please paste the following into"
@@ -4034,7 +4392,7 @@ msgstr ""
 "Jūsu <strong>config.php</strong> failā nav atļauts rakstīt. Lai veiksmīgi "
 "instalētu Habari, lūdzu, ievietojiet sekojošo"
 
-#: system/installer/config.php:19
+#: system/installer/config.php:20
 msgid ""
 "<strong>config.php</strong> is a file that tells Habari how to connect to "
 "your database. Habari is not able to write this file to your server "
@@ -4045,30 +4403,30 @@ msgstr ""
 "datubāzei. Habari nevar ierakstīt šo failu automātiski, tādēļ jums šis fails "
 "jāizveido pašam lai turpinātu Habari instalāciju."
 
-#: system/installer/config.php:33
+#: system/installer/config.php:34
 msgid ""
 "When you have successfully placed the config file, run the installer again."
 msgstr ""
 "Kas esat veiksmīgi ievietojis konfigurācijas failu, palaidiet instalācijas "
 "programmu vēlreiz."
 
-#: system/installer/header.php:18
+#: system/installer/header.php:19
 msgid "Read the user manual"
 msgstr "Lasiet lietotāja rokasgrāmatu"
 
-#: system/installer/header.php:19
+#: system/installer/header.php:20
 msgid "Read the Habari wiki"
 msgstr "Lasiet Habari wiki"
 
-#: system/installer/header.php:20
+#: system/installer/header.php:21
 msgid "Ask the community"
 msgstr "Jautā sabiedrībai"
 
-#: system/installer/header.php:20
+#: system/installer/header.php:21
 msgid "Mailing List"
 msgstr "Adresātu saraksts"
 
-#: system/installer/sqlite.php:10
+#: system/installer/sqlite.php:11
 #, php-format
 msgid ""
 "Your <b>.htaccess</b> file is not writable. In order to secure your SQLite "
@@ -4077,7 +4435,7 @@ msgstr ""
 "Jūsu <b>.htaccess</b> fails nebija rakstāms. Lai nodrošinātu jūsu SQLite "
 "datubāzes drošību, lūdzu, ielīmējiet <b>%s</b> tālāk sekojošo:"
 
-#: system/installer/sqlite.php:13
+#: system/installer/sqlite.php:14
 msgid ""
 "Your SQLite database is a file on your server like any other file. You can "
 "enhance it's security by including a section in your .htaccess file that "
@@ -4092,15 +4450,15 @@ msgstr ""
 "šis likums pašam, lai iegūtu uzlaboto drošības līmeni, kuru piedāvā dotais "
 "likums."
 
-#: system/installer/requirements.php:4
-msgid "Before you install <em>Habari</em>..."
-msgstr "Pirms instalē <em>Habari</em>..."
+#: system/installer/requirements.php:5
+msgid "Before you install <em>Habari</em>&hellip;"
+msgstr ""
 
-#: system/installer/requirements.php:7
+#: system/installer/requirements.php:8
 msgid "Writable directory needed"
 msgstr "Nepieciešama direktorija ar rakstīšanas tiesībām"
 
-#: system/installer/requirements.php:10
+#: system/installer/requirements.php:11
 msgid ""
 "Before you can install Habari, you first need to make the install directory "
 "writable by php, so that the installation script can write your "
@@ -4108,23 +4466,23 @@ msgid ""
 "server and the ownership of the directory."
 msgstr ""
 
-#: system/installer/requirements.php:13
+#: system/installer/requirements.php:14
 msgid ""
 "If your web server is part of the group which owns the directory, you'll "
 "need to add group write permissions to the directory. The procedure for this "
 "is as follows:"
 msgstr ""
 
-#: system/installer/requirements.php:17
+#: system/installer/requirements.php:18
 msgid ""
 "Open a terminal window, and then change to the installation directory:"
 msgstr "Atveriet termināļa logu un aizejiet uz instalācijas direktoriju:"
 
-#: system/installer/requirements.php:21
+#: system/installer/requirements.php:22
 msgid "Change the <em>mode</em> (permissions) of the current directory:"
 msgstr "Izmainot esošo <em>režīmu</em> (atļaujas) dotajā direktorijā:"
 
-#: system/installer/requirements.php:25
+#: system/installer/requirements.php:26
 msgid ""
 "<em>Note</em>: You may need to use <strong>sudo</strong> and enter an "
 "administrator password if you do not own the directory."
@@ -4132,14 +4490,14 @@ msgstr ""
 "<em>Piezīme</em>: Jums var būt nepieciešams izmantot <strong>sudo</strong> "
 "un ievadīt administratora paroli, ja jums nepieder dotā direktorija."
 
-#: system/installer/requirements.php:30
+#: system/installer/requirements.php:31
 msgid ""
 "If the web server is not part of the group which owns the directory, you "
 "will need to <strong>temporarily</strong> grant world write permissions to "
 "the directory:"
 msgstr ""
 
-#: system/installer/requirements.php:39
+#: system/installer/requirements.php:40
 msgid ""
 "Be sure to remove the write permissions on the directory as soon as the "
 "installation is completed."
@@ -4147,24 +4505,24 @@ msgstr ""
 "Noteikti atslēdzit rakstīšanas tiesības direktorija tiklīdz instalācija ir "
 "pabeigta."
 
-#: system/installer/requirements.php:47
-msgid "PHP Upgrade needed..."
-msgstr "PHP atjaunināšana nepieciešama..."
+#: system/installer/requirements.php:48
+msgid "PHP Upgrade needed&hellip;"
+msgstr ""
 
-#: system/installer/requirements.php:49
+#: system/installer/requirements.php:50
 #, php-format
 msgid "requires PHP 5.2 or newer. Your current PHP version is %s."
 msgstr "nepieciešams PHP5.2 vai jaunāks. Patlaban esošā PHP versija: %s."
 
-#: system/installer/requirements.php:60
+#: system/installer/requirements.php:61
 msgid "Missing Extensions"
 msgstr "Trūkstoši paplašinājumi"
 
-#: system/installer/requirements.php:62
+#: system/installer/requirements.php:63
 msgid "requires the following PHP extensions to be installed:"
 msgstr ""
 
-#: system/installer/requirements.php:62
+#: system/installer/requirements.php:63
 msgid ""
 "Please contact your web hosting provider if you do not have access to your "
 "server."
@@ -4172,17 +4530,17 @@ msgstr ""
 "Lūdzu kontaktējaties ar jūsu tīkla resursu pakalpojumu sniedzēju, ja jums "
 "nav pieeja jūsu serverim."
 
-#: system/installer/requirements.php:69
+#: system/installer/requirements.php:70
 msgid ""
 "requires PHP's PCRE extension to have Unicode support enabled. Please "
 "contact your web hosting provider if you do not have access to your server."
 msgstr ""
 
-#: system/installer/requirements.php:75
+#: system/installer/requirements.php:76
 msgid "No PDO drivers enabled"
 msgstr "PDO dziņi nav pieslēgti"
 
-#: system/installer/requirements.php:76
+#: system/installer/requirements.php:77
 msgid ""
 "requires that at least one <a href=\"http://www.php.net/pdo\">PDO driver</a> "
 "be installed. Please ask your hosting provider to enable one of the PDO "
@@ -4192,11 +4550,11 @@ msgstr ""
 "dzinis</a> būtu instalēts. Lūdzu vaicājiet jūsu tīkla pakalpojumu "
 "sniedzējam, lai viņš pieslēdz vienu no Habari atbalstītajiem PDO dziņiem."
 
-#: system/installer/requirements.php:80
+#: system/installer/requirements.php:81
 msgid "mod_rewrite not enabled"
 msgstr ""
 
-#: system/installer/requirements.php:81
+#: system/installer/requirements.php:82
 msgid ""
 "You have Apache, but mod_rewrite is not enabled. To use Habari, you must "
 "enable mod_rewrite in your server configuration. "
@@ -4214,6 +4572,357 @@ msgstr "Vispārīga Habari kļūda"
 msgid "An error occurred"
 msgstr "Notikusi kļūda"
 
-#: system/index.php:112
+#: system/index.php:113
+#, php-format
+msgid "Unable to connect to database.  Error message: %s"
+msgstr ""
+
+#: system/index.php:114
 msgid "Unable to connect to database."
 msgstr "Neiespējami piekļūt datubāzei."
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Aizmirsāt paroli?"
+
+#~ msgid "years"
+#~ msgstr "gadi"
+
+#~ msgid "months"
+#~ msgstr "mēneši"
+
+#~ msgid "pages"
+#~ msgstr "lapas"
+
+#~ msgid "days"
+#~ msgstr "dienas"
+
+#~ msgid "page"
+#~ msgstr "lapa"
+
+#~ msgid "tags"
+#~ msgstr "birkas"
+
+#~ msgid "tag"
+#~ msgstr "birka"
+
+#~ msgid "comments"
+#~ msgstr "komentāri"
+
+#~ msgid "comment"
+#~ msgstr "komentārs"
+
+#~ msgid "entries"
+#~ msgstr "ieraksti"
+
+#~ msgid "entry"
+#~ msgstr "ieraksts"
+
+#~ msgid "entry drafts"
+#~ msgstr "rakstu melnraksti"
+
+#~ msgid "page draft"
+#~ msgstr "lapas melnraksts"
+
+#~ msgid "page drafts"
+#~ msgstr "lapu melnraksti"
+
+#~ msgid "comment awaiting approval"
+#~ msgstr "komentārs gaida apstiprinājumu"
+
+#~ msgid "comments awaiting approval"
+#~ msgstr "komentāri gaida apstiprinājumu"
+
+#~ msgid "entry draft"
+#~ msgstr "raksta melnraksts"
+
+#~ msgid "Search for other comments from "
+#~ msgstr "Meklēt citus komentārus no "
+
+#~ msgid "spam comment awaiting moderation"
+#~ msgstr "spama komentārs gaida labošanu"
+
+#~ msgid "spam comments awaiting moderation"
+#~ msgstr "spama komentāri gaida labošanu"
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> ir kritisks labojums."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> ir jauns laidiens."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> satur kļūdu labojumus."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> satur papildus funkcijas."
+
+#, php-format
+#~ msgid ""
+#~ "<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+#~ msgstr ""
+#~ "<a href=\"%1s\">%2s %3s</a> satur kļūdu labojumus un papildus funkcijas."
+
+#~ msgid "Group Information"
+#~ msgstr "Grupas informācija"
+
+#~ msgid "close"
+#~ msgstr "aizvērt"
+
+#~ msgid "Number of items"
+#~ msgstr "datu vienuma skaits"
+
+#, php-format
+#~ msgid "%d "
+#~ msgid_plural "%d "
+#~ msgstr[0] "%d "
+#~ msgstr[1] "%d "
+#~ msgstr[2] "%d "
+
+#, php-format
+#~ msgid "%1$s has been active for %2$s"
+#~ msgstr "%1$s ir bijis aktīvs jau %2$s"
+
+#, php-format
+#~ msgid "%1$d "
+#~ msgid_plural "%1$d "
+#~ msgstr[0] "%1$d "
+#~ msgstr[1] "%1$d "
+#~ msgstr[2] "%1$d "
+
+#, php-format
+#~ msgid ""
+#~ "Post author id %s was not found in WP database, assigning post \"%s\" (WP "
+#~ "post id #%d) to current user."
+#~ msgstr ""
+#~ "Raksta autors, id %s, netika atrasts WP datubāzē, autorība pār rakstu \"%s\" "
+#~ "(WP raksts ar id #%d) tiek piešķirta dotajā brīdī aktīvajam lietotājam."
+
+#~ msgid "There were errors during import:"
+#~ msgstr "Eksistēja kļūdas importēšanas laikā:"
+
+#~ msgid "<p>Importing users...</p>"
+#~ msgstr "<p>Importējam lietotājus...</p>"
+
+#~ msgid "The database connection details have failed to connect."
+#~ msgstr "Datubāzes savienojums netika nodibināts."
+
+#~ msgid "Web Address"
+#~ msgstr "Tīkla vietnes adrese"
+
+#~ msgid "Say It"
+#~ msgstr "Izsakies"
+
+#~ msgid "Required - not published"
+#~ msgstr "Nepieciešams - netiek publicēts"
+
+#~ msgid "Directory Created:"
+#~ msgstr "Direktorija izveidota:"
+
+#~ msgid "Enter the name of the new directory to create here"
+#~ msgstr "Ievadiet direktorijas nosaukumu, kuru šeit izveidot"
+
+#~ msgid "Access to that post id is denied"
+#~ msgstr "Pieeja pie šī raksta id netika atļauta."
+
+#~ msgid "Permission Denied"
+#~ msgstr "Atļauja liegta"
+
+#~ msgid "Cancel"
+#~ msgstr "Atsaukt"
+
+#~ msgid "Update"
+#~ msgstr "Atjaunināt"
+
+#~ msgid "Cancel changes"
+#~ msgstr "Atsaukt izmaiņas"
+
+#~ msgid "Submit changes"
+#~ msgstr "Apstiprināt izmaiņas"
+
+#~ msgid "Updated 1 comment."
+#~ msgstr "Atjaunināts 1 komentārs."
+
+#, php-format
+#~ msgid "Deleted %d entries."
+#~ msgstr "Izdzēsti %d ieraksti."
+
+#, php-format
+#~ msgid "Tag %s has been renamed to %s."
+#~ msgid_plural "Tags %s have been renamed to %s."
+#~ msgstr[0] "Birka %s tika pārdēvēta par %s."
+#~ msgstr[1] "Birkas: %s tika pārdēvētas par %s."
+#~ msgstr[2] "Birkas: %s tika pārdēvētas par %s."
+
+#~ msgid "View and configure blog options"
+#~ msgstr "Skatīt un konfigurēt emuāra opcijas"
+
+#~ msgid "Manage blog comments"
+#~ msgstr "Pārbaudīt emuāra komentārus"
+
+#~ msgid "Manage blog tags"
+#~ msgstr "Pārvaldīt emuāra birkas"
+
+#~ msgid "Import content from another blog"
+#~ msgstr "Importēt saturu no cita emuāra"
+
+#, php-format
+#~ msgid "Tag deleted: %s"
+#~ msgstr "Birka dzēsta: %s"
+
+#, php-format
+#~ msgid "%s: Error %d: %s while connecting to %s:%d"
+#~ msgstr "%s: Kļūda %d: %s ieejot %s: %d"
+
+#~ msgid "Request did not yet execute."
+#~ msgstr "Pieprasījums vēl nav izpildīts."
+
+#~ msgid "Redirection response without Location: header."
+#~ msgstr "Pārvirzīšanas mēģinājums bez mērķa: galvene."
+
+#~ msgid "Maximum number of redirections exceeded."
+#~ msgstr "Pieejamais pārvirzīšanu skaits pārsniegts."
+
+#~ msgid "Value must be a valid URL."
+#~ msgstr "Ierakstam jābūt derīgam URL."
+
+#, php-format
+#~ msgid "Tag %1$s (%2$s) deleted."
+#~ msgstr "Birka %1$s (%2$s) dzēsta."
+
+#, php-format
+#~ msgid "New tag %1$s (%2$s);  Slug: %3$s"
+#~ msgstr "Jauna birka %1$s (%2$s); Īsvārds: %3$s"
+
+#~ msgid "Could not write config.php file..."
+#~ msgstr "Nebija iespējams rakstīt config.php failā..."
+
+#~ msgid ""
+#~ "The SQLite data file does not exist, and it cannot be created in the "
+#~ "specified directory.  SQLite requires that the directory containing the "
+#~ "database file be writable by the web server."
+#~ msgstr ""
+#~ "SQLite datu fails neeksistē un nav iespējams to izveidot noteiktajā "
+#~ "direktorijā. SQLite nepieciešams lai direktorija, kur atrodas DB fails, būtu "
+#~ "rakstāma tīkla serverim."
+
+#~ msgid "The SQLite data file is not writable by the web server."
+#~ msgstr "Tīkla serveris nevar rakstīt SQLite data failā."
+
+#~ msgid ""
+#~ "SQLite requires that the directory that holds the DB file be writable by the "
+#~ "web server."
+#~ msgstr ""
+#~ "SQLite nepieciešams lai direktorija, kur atrodas DB fails, būtu rakstāma "
+#~ "tīkla serverim."
+
+#~ msgid "Error writing to socket."
+#~ msgstr "Kļūda rakstot noteiktajā ligzdā."
+
+#~ msgid "Bitmask names must be pre-defined strings or bitmask indexes"
+#~ msgstr ""
+#~ "Bitu maskas nosaukumiem jābūt iepriekiekš definētām virknēm vai mitu maskas "
+#~ "indeksiem."
+
+#, php-format
+#~ msgid "Could not create schema tables... %s"
+#~ msgstr "Nebija iespējams izveidot shēmas tabulas... %s"
+
+#~ msgid "Trying to add a request body to a non-POST request"
+#~ msgstr "Mēģinājums pievienot pieprasījuma kopumu ne POST pieprasījumam"
+
+#~ msgid ""
+#~ "Logs error backtraces to the log tables' data column. Can drastically "
+#~ "increase log size!"
+#~ msgstr ""
+#~ "Ieraksta kļūdu atpakaļceļus žurnālu tabulas datu kolonnā. Var izteikti "
+#~ "iespaidot žurnāla lielumu!"
+
+#, php-format
+#~ msgid "%s: CURL Error %d: %s"
+#~ msgstr "%s: CURL kļūda %d: %s"
+
+#, php-format
+#~ msgid "Bad return code (%1$d) for: %2$s"
+#~ msgstr "Slikts atgrieztais kods (%1$d) priekš: %2$s"
+
+#~ msgid "Before you install <em>Habari</em>..."
+#~ msgstr "Pirms instalē <em>Habari</em>..."
+
+#~ msgid "PHP Upgrade needed..."
+#~ msgstr "PHP atjaunināšana nepieciešama..."
+
+#~ msgid "requires that the following PHP extensions to be installed:"
+#~ msgstr "nepieciešams lai sekojoši PHP paplašinājumi būtu pievienoti:"
+
+#~ msgid "Learn More..."
+#~ msgstr "Izzināt vairāk..."
+
+#~ msgid "Email address is not published"
+#~ msgstr "E-pasta adrese netiks publicēta"
+
+#~ msgid "Message:"
+#~ msgstr "Ziņa:"
+
+#~ msgid "Response"
+#~ msgid_plural "Responses"
+#~ msgstr[0] "Atbilde"
+#~ msgstr[1] "Atbildes"
+#~ msgstr[2] "Atbildes"
+
+#~ msgid "Pingback"
+#~ msgid_plural "Pingbacks"
+#~ msgstr[0] "atpakaļpings"
+#~ msgstr[1] "atpakaļpingi"
+#~ msgstr[2] "atpakaļpingi"
+
+#~ msgid "(will not be published - Required)"
+#~ msgstr "(netiks publicēts - nepieciešams)"
+
+#, php-format
+#~ msgid "%s Comments"
+#~ msgstr "%s komentāri"
+
+#~ msgid "will not be published"
+#~ msgstr "netiks publicēts"
+
+#~ msgid "Please do not load this page directly. Thanks!"
+#~ msgstr "Lūdz nepiekļūstiet šai lapai tieši. Paldies!"
+
+#~ msgid "and a huge amount of"
+#~ msgstr "un milzīgu apjomu"
+
+#~ msgid ""
+#~ "<strong>Password</strong> is the password of the initial user in Habari."
+#~ msgstr "<strong>Parole</strong> ir parole pirmajam Habari lietotājam."
+
+#~ msgid ""
+#~ "If your webserver is part of the group which owns the directory, you'll need "
+#~ "to add group write permissions to the directory. The procedure for this is "
+#~ "as follows:"
+#~ msgstr ""
+#~ "Ja jūsu tīkla resursserveris pieder grupai, kura pārvalda noteikto "
+#~ "direktoriju, jums būs nepieciešams pievienot rakstīšanas tiesības "
+#~ "direktorijā. Pati procedūra ir aprakstīta zemāk:"
+
+#~ msgid ""
+#~ "Before you can install Habari, you first need to make the install directory "
+#~ "writable by php, so that the installation script can write your "
+#~ "configuration information properly. The exact process of server and the "
+#~ "ownership of the directory."
+#~ msgstr ""
+#~ "Pirms jūs instalējat Habari, jums instalācijas direktorija jāpadara rakstāma "
+#~ "php, lai instalācijas skripts varētu korekti ierakstīt jūsu konfigurācijas "
+#~ "informāciju. Pats process kā serverim un direktorijas pārvaldībai."
+
+#~ msgid ""
+#~ "If the webserver is not part of the group which owns the directory, you will "
+#~ "need to <strong>temporarily</strong> grant world write permissions to the "
+#~ "directory:"
+#~ msgstr ""
+#~ "Ja jūsu tīkla resursdators nepieder grupai, kurai pieder minētā direktorija, "
+#~ "jums būs nepieciešamas <strong>pagaidu</strong> pilnas rakstīšanas tiesības "
+#~ "dotajā direktorijā:"

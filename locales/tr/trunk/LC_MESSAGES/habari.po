@@ -7,216 +7,222 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-10-28 15:51+0000\n"
-"PO-Revision-Date: 2010-03-28 22:48+0000\n"
-"Last-Translator: Mehmet Gülmen <Unknown>\n"
+"POT-Creation-Date: 2011-02-13 00:00+0000\n"
+"PO-Revision-Date: 2011-07-06 12:00+0000\n"
+"Last-Translator: Ali Sinan Açıl <alisinanacil@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2010-10-29 05:21+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-07-07 04:33+0000\n"
+"X-Generator: Launchpad (build 13168)\n"
 
-#: system/admin/tags.php:4
+#: system/admin/tags.php:5
 msgid "Type and wait to search tags"
 msgstr "Etiketleri aramak için yaz ve bekle"
 
-#: system/admin/tags.php:21 system/admin/users.php:61
-#: system/admin/posts.php:42 system/admin/posts.php:68
-#: system/admin/logs.php:37 system/admin/logs.php:100
-#: system/admin/comments.php:45 system/admin/comments.php:69
+#: system/admin/tags.php:22 system/admin/users.php:65
+#: system/admin/posts.php:43 system/admin/posts.php:69
+#: system/admin/logs.php:38 system/admin/logs.php:101
+#: system/admin/comments.php:46 system/admin/comments.php:70
 msgid "None selected"
 msgstr "Hiçbiri seçilmedi"
 
-#: system/admin/tags.php:26 system/admin/tags.php:137
-#: system/admin/tags.php:140
+#: system/admin/tags.php:27 system/admin/tags.php:138
+#: system/admin/tags.php:141
 msgid "Rename"
 msgstr "Yeniden adlandır"
 
-#: system/admin/tags.php:28 system/admin/user.php:12 system/admin/users.php:26
-#: system/admin/options.php:11 system/admin/plugins.php:19
-#: system/admin/groups.php:12 system/admin/group.php:12
+#: system/admin/tags.php:29 system/admin/user.php:13 system/admin/users.php:30
+#: system/admin/options.php:12 system/admin/plugins.php:20
+#: system/admin/groups.php:13 system/admin/group.php:13
 msgid "or"
 msgstr "ya da"
 
-#: system/admin/tags.php:30 system/admin/users.php:70
-#: system/admin/posts.php:46 system/admin/posts.php:72
-#: system/admin/logs.php:41 system/admin/logs.php:104
-#: system/admin/comments.php:48 system/admin/comments.php:72
+#: system/admin/tags.php:31 system/admin/users.php:74
+#: system/admin/posts.php:47 system/admin/posts.php:73
+#: system/admin/logs.php:42 system/admin/logs.php:105
+#: system/admin/comments.php:49 system/admin/comments.php:73
 msgid "Delete Selected"
 msgstr "Seçilileri Sil"
 
-#: system/admin/tags.php:39 system/admin/tags.php:87
+#: system/admin/tags.php:40 system/admin/tags.php:88
 msgid "Error: No tags selected."
 msgstr "Hata: Etiket seçilmedi."
 
-#: system/admin/tags.php:91
+#: system/admin/tags.php:92 system/classes/adminhandler.php:3039
 msgid "Error: New name not specified."
 msgstr "Hata: Yeni isim belirtilmedi."
 
-#: system/admin/tags.php:143
+#: system/admin/tags.php:144
 msgid "Merge"
-msgstr ""
+msgstr "Birleştir"
 
-#: system/admin/groups_item.php:3 system/admin/groups_item.php:6
+#: system/admin/groups_item.php:4 system/admin/groups_item.php:7
 msgid "Edit group"
 msgstr "Grubu düzenle"
 
-#: system/admin/groups_item.php:6 system/admin/posts_items.php:26
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:33
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
-#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
-#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
-#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
-#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
-#: system/classes/adminhandler.php:1780
+#: system/admin/groups_item.php:7 system/admin/posts_items.php:27
+#: system/themes/charcoal/page.single.php:22
+#: system/themes/charcoal/home.php:34
+#: system/themes/charcoal/entry.single.php:40
+#: system/themes/mzingi/page.single.php:17 system/themes/mzingi/tag.php:24
+#: system/themes/mzingi/entry.multiple.php:22 system/themes/mzingi/home.php:24
+#: system/themes/mzingi/search.php:24 system/themes/mzingi/entry.single.php:29
+#: system/themes/k2/page.single.php:14 system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16 system/themes/k2/home.php:16
+#: system/themes/k2/search.php:17 system/themes/k2/entry.single.php:25
+#: system/classes/adminhandler.php:1773
 msgid "Edit"
 msgstr "Düzenle"
 
-#: system/admin/groups_item.php:7
+#: system/admin/groups_item.php:8
 msgid "Delete this group"
 msgstr "Bu grubu sil"
 
-#: system/admin/groups_item.php:7 system/admin/block_instances.php:17
-#: system/admin/publish.php:14 system/admin/posts_items.php:28
-#: system/admin/group.php:126 system/classes/adminhandler.php:858
-#: system/classes/adminhandler.php:1779
-#: system/plugins/habarisilo/habarisilo.plugin.php:484
-#: system/plugins/habarisilo/habarisilo.plugin.php:501
+#: system/admin/groups_item.php:8 system/admin/block_instances.php:24
+#: system/admin/publish.php:15 system/admin/posts_items.php:29
+#: system/admin/group.php:127 system/classes/adminhandler.php:835
+#: system/classes/adminhandler.php:1772
+#: system/plugins/habarisilo/habarisilo.plugin.php:489
+#: system/plugins/habarisilo/habarisilo.plugin.php:506
 msgid "Delete"
 msgstr "Sil"
 
-#: system/admin/groups_item.php:17
+#: system/admin/groups_item.php:18
 msgid "Members: "
 msgstr "Üyeler: "
 
-#: system/admin/groups_item.php:19
+#: system/admin/groups_item.php:20
 msgid "No members"
 msgstr "Üye yok"
 
-#: system/admin/dashboard_modules.php:4 system/classes/adminhandler.php:3803
+#: system/admin/dashboard_modules.php:5 system/classes/adminhandler.php:3778
 msgid "Add Item"
 msgstr "Öğe Ekle"
 
-#: system/admin/users_items.php:16
+#: system/admin/users_items.php:15
 #, php-format
 msgid "Open %s's user page"
 msgstr "%s kullanıcı sayfasını aç"
 
-#: system/admin/users_items.php:26
+#: system/admin/users_items.php:25
 msgid "has not logged in yet"
 msgstr "henüz giriş yapmadı"
 
-#: system/admin/users_items.php:30
+#: system/admin/users_items.php:29
 #, php-format
 msgid "was last seen %1$s at %2$s"
 msgstr "en son %1$s %2$s 'da görüldü"
 
-#: system/admin/users_items.php:49 system/admin/user.php:29
+#: system/admin/users_items.php:48 system/admin/user.php:30
 msgid " post"
 msgstr " gönderi"
 
-#: system/admin/users_items.php:49 system/admin/user.php:29
+#: system/admin/users_items.php:48 system/admin/user.php:30
 msgid " posts"
 msgstr " gönderiler"
 
-#: system/admin/users_items.php:57
+#: system/admin/users_items.php:56
 #, php-format
 msgid "%1$s and currently has %2$s"
 msgstr "%1$s ve şu an %2$s sahip"
 
-#: system/admin/db_profiling.php:39 system/themes/k2/db_profiling.php:31
+#: system/admin/db_profiling.php:40 system/themes/k2/db_profiling.php:32
 msgid "DB Profiling"
 msgstr "DB Profilleme"
 
-#: system/admin/db_profiling.php:47 system/themes/k2/db_profiling.php:42
+#: system/admin/db_profiling.php:48 system/themes/k2/db_profiling.php:43
 msgid "Time to Execute:"
 msgstr "Yürütme için zaman:"
 
-#: system/admin/db_profiling.php:49
+#: system/admin/db_profiling.php:50
 msgid "BACKTRACE:"
 msgstr "GERİ İZLEME"
 
-#: system/admin/db_profiling.php:56 system/themes/k2/db_profiling.php:56
+#: system/admin/db_profiling.php:57 system/themes/k2/db_profiling.php:57
 msgid "Total Time Executing Queries:"
 msgstr "Soguları Çalıştırma Toplam Zamanı"
 
-#: system/admin/user.php:7 system/admin/options.php:7
+#: system/admin/user.php:8 system/admin/options.php:8
 msgid "All options"
 msgstr "Tüm seçenekler"
 
-#: system/admin/user.php:15 system/admin/users.php:29
+#: system/admin/user.php:16 system/admin/users.php:33
 msgid "search users"
 msgstr "kullanıcıları ara"
 
-#: system/admin/user.php:35
+#: system/admin/user.php:36
 msgid "No published posts."
 msgstr "Yayımlanmış yazı yok."
 
-#: system/admin/block_instances.php:1
+#: system/admin/block_instances.php:2
 msgid "New Block Type:"
-msgstr ""
+msgstr "Yeni Blok Tipi"
 
-#: system/admin/block_instances.php:6 system/themes/mzingi/loginform.php:18
-#: system/themes/mzingi/theme.php:90 system/themes/k2/loginform.php:20
+#: system/admin/block_instances.php:7 system/themes/mzingi/loginform.php:19
+#: system/themes/mzingi/theme.php:79 system/themes/k2/loginform.php:21
 msgid "Name:"
-msgstr "İsim"
+msgstr "İsim:"
 
-#: system/admin/block_instances.php:15 system/classes/pluggable.php:182
+#: system/admin/block_instances.php:16
+#, php-format
+msgid "Configure Block: %1s (%2s)"
+msgstr "Blok Düzenle: %1s (%2s)"
+
+#: system/admin/block_instances.php:16 system/classes/pluggable.php:196
 #: system/plugins/undelete/undelete.plugin.php:163
 #: system/plugins/undelete/undelete.plugin.php:175
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:803
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: system/admin/formcontrols/formcontrol_textmulti.php:14
-#: system/classes/formui.php:1591
+#: system/admin/formcontrols/formcontrol_textmulti.php:15
+#: system/classes/formui.php:1633
 msgid "remove"
 msgstr "kaldır"
 
-#: system/admin/formcontrols/formcontrol_textmulti.php:18
+#: system/admin/formcontrols/formcontrol_textmulti.php:19
 msgid "add"
 msgstr "ekle"
 
-#: system/admin/comments_items.php:16
+#: system/admin/comments_items.php:17
 msgid "in"
 msgstr "içinde"
 
-#: system/admin/comments_items.php:16
+#: system/admin/comments_items.php:17
 #, php-format
 msgid "Go to %s"
 msgstr "%s git"
 
-#: system/admin/comments_items.php:17 system/admin/posts_items.php:21
-#: system/themes/mzingi/commentform.php:46 system/themes/mzingi/sidebar.php:44
+#: system/admin/comments_items.php:18 system/admin/posts_items.php:22
+#: system/themes/mzingi/commentform.php:47
 msgid "on"
 msgstr "üstünde"
 
-#: system/admin/comments_items.php:17
+#: system/admin/comments_items.php:18
 #, php-format
 msgid "Search for other comments from %s"
-msgstr ""
+msgstr "%s diğer yorumlarını ara"
 
-#: system/admin/comments_items.php:18 system/admin/posts_items.php:22
+#: system/admin/comments_items.php:19 system/admin/posts_items.php:23
 msgid "at"
 msgstr "de"
 
-#: system/admin/comments_items.php:51
+#: system/admin/comments_items.php:52
 msgid "Marked as spam"
 msgstr "Spam olarak işaretlendi"
 
-#: system/admin/comments_items.php:63
+#: system/admin/comments_items.php:64
 msgid "this post contains text in an invalid encoding"
-msgstr ""
+msgstr "bu gönderi geçersiz kodlama içermekte"
 
-#: system/admin/comments_items.php:72
+#: system/admin/comments_items.php:73
 msgid "No comments could be found to match the query criteria."
 msgstr "Sorgu kriteri ile eşleşen yorum bulunamadı."
 
-#: system/admin/comment.overview.php:5
+#: system/admin/comment.overview.php:6
 #, php-format
 msgid ""
 "<a href=\"%1$s\">Comment</a> by <a href=\"%2$s\" title=\"Visit "
@@ -224,7 +230,7 @@ msgid ""
 "<strong>%6$s</strong> on <strong>%7$s</strong>"
 msgstr ""
 
-#: system/admin/comment.overview.php:19
+#: system/admin/comment.overview.php:20
 #, php-format
 msgid ""
 "<a href=\"%1$s\">Comment</a> by <strong>%2$s</strong> posted on <a "
@@ -232,55 +238,55 @@ msgid ""
 "<strong>%6$s</strong>"
 msgstr ""
 
-#: system/admin/users.php:21
+#: system/admin/users.php:25
 msgid "Complete User List"
 msgstr "Tam Üye Listesi"
 
-#: system/admin/users.php:38 system/installer/db_setup.php:50
-#: system/installer/db_setup.php:97 system/installer/db_setup.php:180
+#: system/admin/users.php:42 system/installer/db_setup.php:51
+#: system/installer/db_setup.php:98 system/installer/db_setup.php:181
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
-#: system/admin/users.php:41
+#: system/admin/users.php:45
 msgid "E-Mail"
 msgstr "E-Posta"
 
-#: system/admin/users.php:44 system/admin/login.php:42
-#: system/installer/db_setup.php:61 system/installer/db_setup.php:108
-#: system/installer/db_setup.php:190
+#: system/admin/users.php:48 system/admin/login.php:43
+#: system/installer/db_setup.php:62 system/installer/db_setup.php:109
+#: system/installer/db_setup.php:191
 msgid "Password"
 msgstr "Parola"
 
-#: system/admin/users.php:47
+#: system/admin/users.php:51
 msgid "Password Again"
 msgstr "Şifreyi Tekrarla"
 
-#: system/admin/users.php:50
+#: system/admin/users.php:54
 msgid "Add User"
 msgstr "Kullanıcı Ekle"
 
-#: system/admin/users.php:69
+#: system/admin/users.php:73
 #, php-format
 msgid "Reassign posts to %s"
 msgstr "Gönderileri, %s tayin et."
 
-#: system/admin/block_areas.php:1
-msgid "Scope:"
-msgstr ""
-
 #: system/admin/block_areas.php:2
+msgid "Scope:"
+msgstr "Kapsam alanı:"
+
+#: system/admin/block_areas.php:3
 msgid "Default"
-msgstr ""
+msgstr "Varsayılan"
 
-#: system/admin/block_areas.php:24
+#: system/admin/block_areas.php:33
 msgid "drag here to remove"
-msgstr ""
+msgstr "yerini değiştirmek için buraya sürükle"
 
-#: system/admin/publish.php:28
+#: system/admin/publish.php:29
 msgid "Publish"
 msgstr "Yayımla"
 
-#: system/admin/publish.php:60
+#: system/admin/publish.php:61
 msgid ""
 "You did not save the changes you made. \\nLeaving this page will result in "
 "the lose of data."
@@ -288,126 +294,134 @@ msgstr ""
 "Yaptığınız değişiklikleri kaydetmediniz. \\nSayfayı terketmek veri "
 "kayıplarına sebep olabilir."
 
-#: system/admin/header.php:64 system/admin/login.php:32
+#: system/admin/header.php:65 system/admin/login.php:33
 msgid "Go to Site"
 msgstr "Siteye Git"
 
-#: system/admin/plugin.php:5
+#: system/admin/plugin.php:6
 #, php-format
 msgid "The plugin file %s had syntax errors and could not load."
 msgstr "Eklenti dosyası %s yazım hatası var ve yüklenemedi."
 
-#: system/admin/plugin.php:8
+#: system/admin/plugin.php:9
 msgid "Show Error"
 msgstr "Hatayı Göster"
 
-#: system/admin/plugin.php:17 system/installer/db_setup.php:227
+#: system/admin/plugin.php:18 system/installer/db_setup.php:228
 #, php-format
 msgid ""
 "The plugin file %s is a legacy plugin, and does not include an XML info file."
 msgstr ""
 
-#: system/admin/plugin.php:26 system/admin/posts_items.php:20
-#: system/admin/themes.php:8 system/admin/themes.php:163
+#: system/admin/plugin.php:26
+#, php-format
+msgid ""
+"The XML file for the plugin %s contained errors and could not be loaded."
+msgstr ""
+
+#: system/admin/plugin.php:35 system/admin/posts_items.php:21
+#: system/admin/themes.php:9 system/admin/themes.php:96
 #: system/plugins/coredashmodules/dash_latestentries.php:6
 msgid "by"
 msgstr "hazırlayan"
 
-#: system/admin/plugin.php:33 system/themes/charcoal/footer.php:9
-#: system/classes/format.php:247 system/classes/format.php:276
+#: system/admin/plugin.php:42 system/admin/themes.php:15
+#: system/admin/themes.php:102 system/themes/charcoal/footer.php:10
+#: system/classes/format.php:247 system/classes/format.php:282
 msgid " and "
 msgstr " ve "
 
-#: system/admin/plugin.php:48
+#: system/admin/plugin.php:57
 msgid "v1.1 Update Available Now"
 msgstr "v1.1 Güncellemesi Şu An Mevcut"
 
-#: system/admin/plugin.php:53
+#: system/admin/plugin.php:70
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
-msgstr ""
+msgstr "Bu özellikler eksik olduğundan eklenti aktif hale getirilemez:"
 
-#: system/admin/plugin.php:82
+#: system/admin/plugin.php:115
 msgid "Close"
 msgstr "Kapat"
 
-#: system/admin/options.php:14 system/admin/groups.php:15
-#: system/admin/group.php:15
+#: system/admin/options.php:15 system/admin/groups.php:16
+#: system/admin/group.php:16
 msgid "search settings"
 msgstr "arama ayarları"
 
-#: system/admin/posts_items.php:14 system/admin/posts_items.php:26
+#: system/admin/posts_items.php:15 system/admin/posts_items.php:27
 #: system/plugins/coredashmodules/dash_latestentries.php:6
 #, php-format
 msgid "Edit '%s'"
 msgstr "Düzenle '%s'"
 
-#: system/admin/posts_items.php:19
+#: system/admin/posts_items.php:20
 #, php-format
 msgid "Search for other %s items"
 msgstr "Diğer %s maddeleri için ara"
 
-#: system/admin/posts_items.php:20
+#: system/admin/posts_items.php:21
 #, php-format
 msgid "Search for other items by %s"
 msgstr "%s göre diğer maddeler için ara"
 
-#: system/admin/posts_items.php:21
+#: system/admin/posts_items.php:22
 #, php-format
 msgid "Search for other items from %s"
 msgstr "%s içinden diğer maddeler için ara"
 
-#: system/admin/posts_items.php:27
+#: system/admin/posts_items.php:28
 #, php-format
 msgid "View '%s'"
 msgstr "Görüntüle '%s'"
 
-#: system/admin/posts_items.php:27
+#: system/admin/posts_items.php:28
 msgid "View"
 msgstr "Görüntüle"
 
-#: system/admin/posts_items.php:28
+#: system/admin/posts_items.php:29
 msgid "Delete this item"
 msgstr "Bu öğeyi sil"
 
-#: system/admin/posts_items.php:46
+#: system/admin/posts_items.php:47
 msgid "No posts could be found to match the query criteria."
 msgstr "Sorgu kriterleri ile eşleşen gönderi bulunamadı."
 
-#: system/admin/posts.php:5 system/admin/logs.php:8
-#: system/admin/comments.php:4
+#: system/admin/posts.php:6 system/admin/logs.php:9
+#: system/admin/comments.php:5
 msgid "Older"
 msgstr "Eski"
 
-#: system/admin/posts.php:6
+#: system/admin/posts.php:7
 msgid "no results"
 msgstr "sonuç yok"
 
-#: system/admin/posts.php:8 system/admin/comments.php:7
+#: system/admin/posts.php:9 system/admin/comments.php:8
 msgid "Type and wait to search"
 msgstr "Arama için yaz ve bekle"
 
-#: system/admin/posts.php:13 system/admin/comments.php:12
+#: system/admin/posts.php:14 system/admin/comments.php:13
 #, php-format
 msgid "Filter results for '%s'"
 msgstr "'%s' için sonuçları filtre et."
 
-#: system/admin/posts.php:17 system/admin/logs.php:12
-#: system/admin/comments.php:16
+#: system/admin/posts.php:18 system/admin/logs.php:13
+#: system/admin/comments.php:17
 msgid "Newer"
 msgstr "Daha yeni"
 
-#: system/admin/import.php:5 system/classes/adminhandler.php:3259
-#: system/plugins/wpimport/wpimport.plugin.php:134
+#: system/admin/import.php:6 system/classes/adminhandler.php:3220
+#: system/plugins/wpimport/wpimport.plugin.php:143
+#: system/plugins/wpimport/wpimport.plugin.php:219
 msgid "Import"
 msgstr "İçe aktar"
 
-#: system/admin/import.php:13
+#: system/admin/import.php:17
 msgid "You do not currently have any import plugins installed."
 msgstr "Şu anda yüklenmiş içe aktarım eklentiniz yok."
 
-#: system/admin/import.php:14
+#: system/admin/import.php:18
 #, php-format
 msgid ""
 "Please <a href=\"%1$s\">activate an import plugin</a> to enable importing."
@@ -415,11 +429,11 @@ msgstr ""
 "Lütfen içe aktarmayı etkinleştirmek için <a href=\"%1$s\">bir içe aktarma "
 "eklentisi aktifleştirin</a>."
 
-#: system/admin/import.php:16
+#: system/admin/import.php:23
 msgid "Please choose the type of import to perform:"
 msgstr "Lütfen gerçekleştirmek istediğiniz içe aktarım türünü seçiniz:"
 
-#: system/admin/import.php:24
+#: system/admin/import.php:33
 msgid "Select"
 msgstr "Seç"
 
@@ -427,85 +441,86 @@ msgstr "Seç"
 msgid "Current Theme"
 msgstr "Aktif Tema"
 
-#: system/admin/themes.php:12 system/classes/post.php:825
-#: system/classes/adminhandler.php:1400
+#: system/admin/themes.php:20 system/classes/post.php:854
+#: system/classes/adminhandler.php:1391
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:26
 msgid "v"
 msgstr "v"
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:26
 msgid "Update Available"
 msgstr "Güncelleme Mevcut"
 
-#: system/admin/themes.php:28 system/admin/themes.php:172
+#: system/admin/themes.php:36 system/admin/themes.php:112
 #, php-format
 msgid "%1$s is licensed under the %2$s"
 msgstr "%1$s, %2$s lisanslıdır."
 
-#: system/admin/themes.php:134 system/classes/post.php:863
+#: system/admin/themes.php:68 system/themes/charcoal/theme.php:66
+#: system/classes/post.php:892 system/classes/adminhandler.php:3586
 #: system/plugins/undelete/undelete.plugin.php:178
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:872
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:876
 msgid "Save"
 msgstr "Kaydet"
 
-#: system/admin/themes.php:156
+#: system/admin/themes.php:90
 msgid "Available Themes"
 msgstr "Mevcut Temalar"
 
-#: system/admin/themes.php:178
+#: system/admin/themes.php:118
 msgid "Legacy theme."
 msgstr ""
 
-#: system/admin/themes.php:182
+#: system/admin/themes.php:122
 msgid "End Preview"
-msgstr ""
+msgstr "Ön İzlemeyi Bitir"
 
-#: system/admin/themes.php:184
+#: system/admin/themes.php:124
 msgid "Preview"
-msgstr ""
+msgstr "Ön İzleme"
 
-#: system/admin/themes.php:186 system/classes/installhandler.php:220
-#: system/classes/adminhandler.php:1902 system/classes/adminhandler.php:1906
+#: system/admin/themes.php:126 system/classes/installhandler.php:221
+#: system/classes/adminhandler.php:1896 system/classes/adminhandler.php:1900
 msgid "Activate"
 msgstr "Etkinleştir"
 
-#: system/admin/footer.php:3
+#: system/admin/footer.php:4
 msgid "Go to the Habari site"
 msgstr "Habari sitesine git"
 
-#: system/admin/footer.php:11
+#: system/admin/footer.php:12
 msgid "Logged in as"
 msgstr "Kullanıcı adınız :"
 
-#: system/admin/footer.php:13
+#: system/admin/footer.php:14
 msgid "Go to your user page"
 msgstr "Kullanıcı sayfanıza gidin"
 
-#: system/admin/footer.php:18
+#: system/admin/footer.php:19
 msgid "Open the Habari manual in a new window"
 msgstr "Habari kulavuzunu yeni bir pencerede aç"
 
-#: system/admin/footer.php:18 system/installer/header.php:18
+#: system/admin/footer.php:19 system/installer/header.php:19
 msgid "Manual"
 msgstr "Kılavuz"
 
-#: system/admin/footer.php:23 system/admin/sysinfo.php:1
-#: system/admin/sysinfo.php:6
+#: system/admin/footer.php:24 system/admin/sysinfo.php:2
+#: system/admin/sysinfo.php:7
 msgid "System Information"
 msgstr "Sistem Bilgisi"
 
-#: system/admin/sysinfo.php:7
+#: system/admin/sysinfo.php:8
 msgid "SYSTEM INFORMATION\n"
 msgstr "SİSTEM BİLGİSİ\n"
 
-#: system/admin/sysinfo.php:23
+#: system/admin/sysinfo.php:24
 msgid "Site Information"
 msgstr "Site Bilgisi"
 
-#: system/admin/sysinfo.php:24
+#: system/admin/sysinfo.php:25
 msgid ""
 "\n"
 "SITE INFORMATION\n"
@@ -513,11 +528,11 @@ msgstr ""
 "\n"
 "SİTE BİLGİSİ\n"
 
-#: system/admin/sysinfo.php:40
+#: system/admin/sysinfo.php:41
 msgid "User Classes"
 msgstr "Kullanıcı Sınıfları"
 
-#: system/admin/sysinfo.php:41
+#: system/admin/sysinfo.php:42
 msgid ""
 "\n"
 "USER CLASSES\n"
@@ -525,19 +540,19 @@ msgstr ""
 "\n"
 "KULLANICI SINIFLARI\n"
 
-#: system/admin/sysinfo.php:52 system/admin/sysinfo.php:77
+#: system/admin/sysinfo.php:53 system/admin/sysinfo.php:78
 msgid "None found"
 msgstr "Bulunamadı"
 
-#: system/admin/sysinfo.php:53 system/admin/sysinfo.php:78
+#: system/admin/sysinfo.php:54 system/admin/sysinfo.php:79
 msgid "None found\n"
 msgstr "Bulunamadı\n"
 
-#: system/admin/sysinfo.php:59
+#: system/admin/sysinfo.php:60
 msgid "Plugin Information"
 msgstr "Eklenti Bilgisi"
 
-#: system/admin/sysinfo.php:60
+#: system/admin/sysinfo.php:61
 msgid ""
 "\n"
 "PLUGIN INFORMATION"
@@ -545,207 +560,186 @@ msgstr ""
 "\n"
 "EKLENTİ BİLGİSİ"
 
-#: system/admin/sysinfo.php:85
+#: system/admin/sysinfo.php:86
 msgid "All Results"
 msgstr "Bütün Sonuçlar"
 
-#: system/admin/logs.php:9
+#: system/admin/logs.php:10
 msgid "0-0 of 0"
 msgstr "0 da 0-0"
 
-#: system/admin/logs.php:10
+#: system/admin/logs.php:11
 msgid "Type and wait to search any log entry component"
 msgstr "Kayıt girdi öğelerini aramak için yaz ve bekle"
 
-#: system/admin/logs.php:42 system/admin/logs.php:105
+#: system/admin/logs.php:43 system/admin/logs.php:106
 msgid "Purge Logs"
 msgstr ""
 
-#: system/admin/logs.php:57
+#: system/admin/logs.php:58
 msgid "Date &amp; Time"
 msgstr "Tarih &amp; Zaman"
 
-#: system/admin/logs.php:58 system/themes/k2/sidebar.php:17
+#: system/admin/logs.php:59 system/themes/k2/sidebar.php:18
 msgid "User"
 msgstr "Kullanıcı"
 
-#: system/admin/logs.php:59
+#: system/admin/logs.php:60
 msgid "IP"
 msgstr "IP"
 
-#: system/admin/logs.php:60
+#: system/admin/logs.php:61
 msgid "Module"
 msgstr "Modül"
 
-#: system/admin/logs.php:61
+#: system/admin/logs.php:62
 msgid "Type"
 msgstr "Tür"
 
-#: system/admin/logs.php:62
+#: system/admin/logs.php:63
 msgid "Severity"
 msgstr "Önem"
 
-#: system/admin/logs.php:63
+#: system/admin/logs.php:64
 msgid "Message"
 msgstr "İleti"
 
-#: system/admin/logs.php:75
+#: system/admin/logs.php:76
 msgid "Filter"
 msgstr "Filtrele"
 
-#: system/admin/logs.php:89
+#: system/admin/logs.php:90
 msgid "There are no logs to be displayed at this time."
 msgstr "Şu an gösterilecek kayıt yok."
 
-#: system/admin/dashboard.php:6
+#: system/admin/dashboard.php:10
 msgid ""
-"Oh, great!\tYou're using IE6!  I've finally found someone I can pawn this "
-"old betamax player off on!<br />\n"
-"If you're reading this, you're surfing using Internet Explorer 6, an eight-"
-"year-old browser that cannot cope with the demands of the modern internet.\n"
-"<a href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
+"Oh, great! You're using IE6! I've finally found someone I can pawn this old "
+"betamax player off on!"
+msgstr ""
+
+#: system/admin/dashboard.php:11 system/classes/habaridatetime.php:387
+msgid "year"
+msgid_plural "years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:11
+#, php-format
+msgid ""
+"If you're reading this you're surfing using Internet Explorer 6, a browser "
+"that is %d %s old and cannot cope with the demands of the modern internet."
+msgstr ""
+
+#: system/admin/dashboard.php:12
+msgid ""
+"Consider switching to <a href=\"http://mozilla.com\">Mozilla Firefox</a>, <a "
+"href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
 "href=\"http://www.google.com/chrome\">Google Chrome</a>, or a more recent "
-"version of \n"
-"<a href=\"http://www.microsoft.com/windows/Internet-"
+"version of <a href=\"http://www.microsoft.com/windows/Internet-"
 "explorer/default.aspx\">Internet Explorer</a>."
 msgstr ""
 
-#: system/admin/dashboard.php:17
+#: system/admin/dashboard.php:18
 #, php-format
-msgid "%d year"
-msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:21
-#, php-format
-msgid "%d month"
-msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%s has been active for %s"
+msgstr ""
 
 #: system/admin/dashboard.php:25
-#, php-format
-msgid "%d day"
-msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:29
-#, php-format
-msgid "%1$s has been active for %2$s"
-msgstr "%1$s %2$sdür aktif"
-
-#: system/admin/dashboard.php:31
-msgid "days"
-msgstr "gün"
-
-#: system/admin/dashboard.php:39
 #, php-format
 msgid "%d page"
 msgid_plural "%d pages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:51
+#: system/admin/dashboard.php:37
 #, php-format
 msgid "%d entry"
 msgid_plural "%d entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:65
+#: system/admin/dashboard.php:51
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:73
+#: system/admin/dashboard.php:59
 #, php-format
 msgid "%d tag"
 msgid_plural "%d tags"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:81
+#: system/admin/dashboard.php:67
 #, php-format
 msgid "[You] have published %1$s%2$s"
 msgid_plural "The [%3$d authors] have published %1$s%2$s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:83
+#: system/admin/dashboard.php:69
 msgid " with "
 msgstr " ile "
 
-#: system/admin/dashboard.php:103
+#: system/admin/dashboard.php:89
 #, php-format
 msgid "%d entry draft"
 msgid_plural "%d entry drafts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:115
+#: system/admin/dashboard.php:101
 #, php-format
 msgid "%d scheduled post"
 msgid_plural "%d scheduled posts"
 msgstr[0] "%d zamanlanmış gönderi"
 
-#: system/admin/dashboard.php:127
+#: system/admin/dashboard.php:113
 #, php-format
 msgid "%d page draft"
 msgid_plural "%d page drafts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:141
+#: system/admin/dashboard.php:127
 #, php-format
 msgid "%d comment awaiting approval"
 msgid_plural "%d comments awaiting approval"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:148
+#: system/admin/dashboard.php:134
 #, php-format
 msgid "%d spam comment awaiting moderation"
 msgid_plural "%d spam comments awaiting moderation"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:154
+#: system/admin/dashboard.php:140
 #, php-format
 msgid "You have %s"
 msgstr "% sahipsiniz"
 
-#: system/admin/dashboard.php:167
+#: system/admin/dashboard.php:160
 #, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
-msgstr "<a href=\"%1s\">%2s %3s</a> önemli bir güncelleme."
+msgid "%1$s update released on %2$s: %3$s"
+msgstr ""
 
-#: system/admin/dashboard.php:170
+#: system/admin/dashboard.php:163
+#, php-format
+msgid "%1$s update: %3$s"
+msgstr ""
+
+#: system/admin/dashboard.php:183
 #, php-format
 msgid ""
-"<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+"%1$s <a href=\"%2$s\">%3$s</a> has the following updates available: %4$s"
 msgstr ""
-"<a href=\"%1s\">%2s %3s</a> hata düzenlemeleri ve ek özellikler içermektedir."
 
-#: system/admin/dashboard.php:173
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
-msgstr "<a href=\"%1s\">%2s %3s</a> hata düzenlemeleri içermektedir."
-
-#: system/admin/dashboard.php:176
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
-msgstr "<a href=\"%1s\">%2s %3s</a> ek özellikler içermektedir."
-
-#: system/admin/dashboard.php:179
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
-msgstr "<a href=\"%1s\">%2s %3s</a> yeni bir sürüm."
-
-#: system/admin/dashboard.php:194
+#: system/admin/dashboard.php:203
 msgid ""
 "Welcome to Habari! We hope that you will jump right in and start exploring. "
 "If you get stuck or want to learn more about some of the advanced features, "
@@ -754,182 +748,187 @@ msgid ""
 "area."
 msgstr ""
 
-#: system/admin/dashboard.php:195
+#: system/admin/dashboard.php:204
 msgid "Habari Manual"
 msgstr "Habari Manuel"
 
-#: system/admin/dashboard.php:201
+#: system/admin/dashboard.php:210
 msgid "This message will disappear next time you visit."
 msgstr "Bu mesaj bir sonraki ziyaretinizde kaybolacak."
 
-#: system/admin/plugins.php:6
+#: system/admin/plugins.php:7
 msgid "All plugins"
 msgstr "Tüm eklentiler"
 
-#: system/admin/plugins.php:11 system/admin/plugins.php:52
+#: system/admin/plugins.php:12 system/admin/plugins.php:53
 msgid "Active Plugins"
 msgstr "Aktif Eklentiler"
 
-#: system/admin/plugins.php:14 system/admin/plugins.php:67
+#: system/admin/plugins.php:15 system/admin/plugins.php:68
 msgid "Inactive Plugins"
 msgstr "İnaktif Eklentiler"
 
-#: system/admin/plugins.php:22
+#: system/admin/plugins.php:23
 msgid "search plugins"
 msgstr "eklentileri ara"
 
-#: system/admin/plugins.php:84
+#: system/admin/plugins.php:85
 msgid "Upload Plugin Package"
 msgstr "Eklenti Paketini Yükle"
 
-#: system/admin/plugins.php:87
-#: system/plugins/habarisilo/habarisilo.plugin.php:417
-#: system/plugins/habarisilo/habarisilo.plugin.php:555
+#: system/admin/plugins.php:88
+#: system/plugins/habarisilo/habarisilo.plugin.php:422
+#: system/plugins/habarisilo/habarisilo.plugin.php:560
 msgid "Upload"
 msgstr "Yükle"
 
-#: system/admin/groups.php:5 system/admin/group.php:5
+#: system/admin/groups.php:6 system/admin/group.php:6
 msgid "All Groups"
 msgstr "Bütün Gruplar"
 
-#: system/admin/groups.php:21
+#: system/admin/groups.php:22
 msgid "Group Management"
 msgstr "Grup Yönetimi"
 
-#: system/admin/groups.php:42 system/admin/groups.php:59
+#: system/admin/groups.php:43 system/admin/groups.php:60
 msgid "Add Group"
 msgstr "Grup Ekle"
 
-#: system/admin/groups.php:46
+#: system/admin/groups.php:47
 msgid "Group Name"
 msgstr "Grup Adı"
 
-#: system/admin/comments.php:5
+#: system/admin/comments.php:6
 msgid "0 of 0"
 msgstr "0 da 0"
 
-#: system/admin/comments.php:48 system/admin/comments.php:72
+#: system/admin/comments.php:49 system/admin/comments.php:73
 msgid "Delete selected comments"
 msgstr ""
 
-#: system/admin/comments.php:49 system/admin/comments.php:73
+#: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete all spam comments"
 msgstr ""
 
-#: system/admin/comments.php:49 system/admin/comments.php:73
+#: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete All Spam"
 msgstr ""
 
-#: system/admin/comments.php:50 system/admin/comments.php:74
+#: system/admin/comments.php:51 system/admin/comments.php:75
 msgid "Delete all unapproved comments"
 msgstr ""
 
-#: system/admin/comments.php:50 system/admin/comments.php:74
+#: system/admin/comments.php:51 system/admin/comments.php:75
 msgid "Delete All Unapproved"
 msgstr ""
 
-#: system/admin/comments.php:53 system/admin/comments.php:77
+#: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Approve selected comments"
 msgstr ""
 
-#: system/admin/comments.php:53 system/admin/comments.php:77
+#: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Mark selected approved"
 msgstr ""
 
-#: system/admin/comments.php:54 system/admin/comments.php:78
+#: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Unapprove selected comments"
 msgstr ""
 
-#: system/admin/comments.php:54 system/admin/comments.php:78
+#: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Mark selected unapproved"
 msgstr ""
 
-#: system/admin/comments.php:55 system/admin/comments.php:79
+#: system/admin/comments.php:56 system/admin/comments.php:80
 msgid "Mark selected comments as spam"
 msgstr ""
 
-#: system/admin/comments.php:55 system/admin/comments.php:79
+#: system/admin/comments.php:56 system/admin/comments.php:80
 msgid "Mark selected spam"
 msgstr ""
 
-#: system/admin/group.php:20
+#: system/admin/group.php:21
 #, php-format
 msgid "Group %1$s has <strong>%2$d</strong> member"
 msgid_plural "Group %1$s has <strong>%2$d</strong> members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/group.php:26
+#: system/admin/group.php:27
 msgid "Group Members"
 msgstr ""
 
-#: system/admin/group.php:31
+#: system/admin/group.php:32
 msgid "Members"
 msgstr "Üyeler"
 
-#: system/admin/group.php:37
+#: system/admin/group.php:38
 msgid "Members To Add"
 msgstr "Eklenecek Üyeler"
 
-#: system/admin/group.php:47
+#: system/admin/group.php:48
 msgid "Add"
 msgstr "Ekle"
 
-#: system/admin/group.php:52
+#: system/admin/group.php:53
 msgid "Members To Remove"
 msgstr "Kaldırılacak Üyeler"
 
-#: system/admin/group.php:65
+#: system/admin/group.php:66
 msgid "Group Permissions"
 msgstr "Grup İzinleri"
 
-#: system/admin/group.php:77 system/admin/group.php:100
+#: system/admin/group.php:78 system/admin/group.php:101
 msgid "Token Description"
 msgstr ""
 
-#: system/admin/group.php:101
+#: system/admin/group.php:102
 msgid "allow"
 msgstr ""
 
-#: system/admin/group.php:102
+#: system/admin/group.php:103
 msgid "deny"
 msgstr ""
 
-#: system/admin/group.php:129 system/classes/adminhandler.php:333
-#: system/classes/adminhandler.php:855
+#: system/admin/group.php:130 system/classes/adminhandler.php:342
+#: system/classes/adminhandler.php:832
 msgid "Apply"
 msgstr "Uygula"
 
-#: system/admin/login.php:4
+#: system/admin/login.php:5
 #, php-format
 msgid "Login to %s"
 msgstr "%s giriş yap"
 
-#: system/admin/login.php:39 system/themes/charcoal/theme.php:164
-#: system/themes/k2/theme.php:122
+#: system/admin/login.php:40 system/themes/charcoal/theme.php:201
+#: system/themes/k2/theme.php:125
 msgid "Name"
 msgstr "İsim"
 
-#: system/admin/login.php:39
+#: system/admin/login.php:40
 msgid "name"
 msgstr "isim"
 
-#: system/admin/login.php:42
+#: system/admin/login.php:43
 msgid "password"
 msgstr "şifre"
 
-#: system/admin/login.php:46 system/themes/charcoal/header.php:50
+#: system/admin/login.php:47 system/themes/charcoal/header.php:41
+#: system/plugins/coreblocks/coreblocks.plugin.php:329
 msgid "Login"
 msgstr "Giriş"
 
-#: system/admin/login.php:50 system/themes/mzingi/loginform.php:30
+#: system/admin/login.php:51 system/themes/mzingi/loginform.php:31
 #: system/classes/userhandler.php:21
 msgid "Reset password"
 msgstr ""
 
-#: system/admin/tag_collection.php:10
+#: system/admin/tag_collection.php:13
 #, php-format
 msgid "Manage posts tagged %1$s"
+msgstr ""
+
+#: system/admin/tag_collection.php:18
+msgid "No tags could be found to match the query criteria."
 msgstr ""
 
 #: system/schema/mysql/connection.php:246
@@ -946,423 +945,503 @@ msgstr ""
 msgid "not yet supported on SQLite"
 msgstr "SQLite üzerinde henüz desteklenmiyor"
 
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:33
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
-#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
-#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
-#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
-#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
+#: system/themes/charcoal/page.single.php:22
+#: system/themes/charcoal/home.php:34
+#: system/themes/charcoal/entry.single.php:40
+#: system/themes/mzingi/page.single.php:17 system/themes/mzingi/tag.php:24
+#: system/themes/mzingi/entry.multiple.php:22 system/themes/mzingi/home.php:24
+#: system/themes/mzingi/search.php:24 system/themes/mzingi/entry.single.php:29
+#: system/themes/k2/page.single.php:14 system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16 system/themes/k2/home.php:16
+#: system/themes/k2/search.php:17 system/themes/k2/entry.single.php:25
 msgid "Edit post"
 msgstr "Yazıyı düzenle"
 
-#: system/themes/charcoal/tag.php:4
+#: system/themes/charcoal/tag.php:5
 #, php-format
 msgid "Displaying posts tagged: %s"
 msgstr "%s ile etiketlenmiş gönderiler"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/themes/k2/theme.php:99
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/themes/k2/theme.php:116
 msgid "Comments on this post"
 msgstr "Bu yazıdaki yorumlar"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/classes/theme.php:871
 msgid "No Comments"
 msgstr "Yorum Yok"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29
-#: system/themes/mzingi/commentform.php:27 system/themes/k2/theme.php:99
-#: system/classes/post.php:965 system/classes/adminhandler.php:1376
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30
+#: system/themes/mzingi/commentform.php:28 system/themes/k2/theme.php:116
+#: system/classes/post.php:1001 system/classes/adminhandler.php:1367
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/acl.php:785
-#: system/classes/adminhandler.php:3253
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/classes/acl.php:786
+#: system/classes/adminhandler.php:3214
 msgid "Comments"
 msgstr "Yorumlar"
 
-#: system/themes/charcoal/tag.php:39 system/themes/charcoal/home.php:70
-#: system/themes/charcoal/multiple.php:40 system/themes/charcoal/search.php:47
-#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+#: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
+#: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
+#: system/themes/mzingi/entry.multiple.php:28 system/themes/mzingi/home.php:32
 msgid "Newer Posts"
 msgstr "Yeni Yazılar"
 
-#: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
-#: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
-#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+#: system/themes/charcoal/tag.php:41 system/themes/charcoal/home.php:72
+#: system/themes/charcoal/multiple.php:42 system/themes/charcoal/search.php:49
+#: system/themes/mzingi/entry.multiple.php:28 system/themes/mzingi/home.php:32
 msgid "Older Posts"
 msgstr "Eski Yazılar"
 
-#: system/themes/charcoal/commentform.php:8
+#: system/themes/charcoal/commentform.php:9
 msgid "Comments are closed for this post"
 msgstr "Bu gönderi yoruma kapatılmış."
 
-#: system/themes/charcoal/404.php:6
+#: system/themes/charcoal/404.php:7
 msgid "Whoops! 404"
 msgstr "404 Hatası!"
 
-#: system/themes/charcoal/404.php:9
+#: system/themes/charcoal/404.php:10
 msgid ""
 "The page you were trying to access is not really there. Please try again."
 msgstr "Böyle bir sayfa bulunmuyor. Lütfen tekrar deneyin."
 
-#: system/themes/charcoal/searchform.php:2
+#: system/themes/charcoal/searchform.php:3
 #, php-format
 msgid "Search %s"
 msgstr "Ara %s"
 
-#: system/themes/charcoal/searchform.php:3
+#: system/themes/charcoal/searchform.php:4
 msgid "Go"
 msgstr "Devam"
 
-#: system/themes/charcoal/sidebar.php:6
+#: system/themes/charcoal/sidebar.php:7
 msgid "{blog entries}"
 msgstr "{blog yazıları}"
 
-#: system/themes/charcoal/sidebar.php:7
+#: system/themes/charcoal/sidebar.php:8
 msgid "{comments}"
 msgstr "{yorumlar}"
 
-#: system/themes/charcoal/sidebar.php:11
+#: system/themes/charcoal/sidebar.php:12
 msgid "Powered by Habari"
 msgstr "Habari Sponsorluğunda"
 
-#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+#: system/themes/charcoal/header.php:39 system/themes/k2/theme.php:165
 msgid "Admin area"
 msgstr "Yönetici alanı"
 
-#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+#: system/themes/charcoal/header.php:39 system/themes/k2/theme.php:165
 msgid "Admin"
 msgstr "Yönetici"
 
-#: system/themes/charcoal/home.php:39
+#: system/themes/charcoal/home.php:40
 msgid "No posts published, yet."
 msgstr "Henüz bir gönderi yayımlanmamış."
 
-#: system/themes/charcoal/home.php:63
+#: system/themes/charcoal/home.php:64
 #, php-format
 msgid "Continue reading %s"
 msgstr "%s okumaya devam et."
 
-#: system/themes/charcoal/home.php:63
+#: system/themes/charcoal/home.php:64
 msgid "more"
 msgstr "devamı"
 
-#: system/themes/charcoal/footer.php:7
+#: system/themes/charcoal/footer.php:8
 #, php-format
 msgid "%1$s is powered by %2$s"
 msgstr "%1$s sunan %2$s"
 
-#: system/themes/charcoal/footer.php:9 system/themes/k2/footer.php:11
+#: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:12
 msgid "Atom Entries"
 msgstr "Atom Yazıları"
 
-#: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:11
+#: system/themes/charcoal/footer.php:11 system/themes/k2/footer.php:12
 msgid "Atom Comments"
 msgstr "Atom Yorumları"
 
-#: system/themes/charcoal/theme.php:110
+#: system/themes/charcoal/theme.php:46
+msgid "Show Title Image:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:47
+msgid "Check to show the title image, uncheck to display the title text."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:48
+msgid "Home label:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:49
+msgid "Set to whatever you want your first tab text to be."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:50
+msgid "Show Entry Paperclip:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:51
+msgid "Check to show the paperclip graphic in posts, uncheck to hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:52
+msgid "Show Page Paperclip:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:53
+msgid "Check to show the paperclip graphic in pages, uncheck to hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:54
+msgid "Show Powered By:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:55
+msgid ""
+"Check to show the \"powered by Habari\" graphic in the sidebar, uncheck to "
+"hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:56
+msgid "Display Login:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:57
+msgid ""
+"Check to show the Login/Logout link in the navigation bar, uncheck to hide "
+"it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:58
+msgid "Tags in Multiple Posts Page:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:59
+msgid ""
+"Check to show the post tags in the multiple posts pages (search, tags, "
+"archives), uncheck to hide them."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:60
+msgid "Show Post Navigation:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:61
+msgid "Set to true to show single post navigation links, false to hide them."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:62
+msgid "Tag Cloud Count:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:63
+msgid "Set to the number of tags to display on the default \"cloud\"."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:67
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:877
+msgid "Options saved"
+msgstr "Ayarlar kaydedildi"
+
+#: system/themes/charcoal/theme.php:147
 msgid "Search for "
 msgstr "Ara "
 
-#: system/themes/charcoal/theme.php:115 system/themes/charcoal/theme.php:121
+#: system/themes/charcoal/theme.php:152 system/themes/charcoal/theme.php:158
 #, php-format
 msgid "Search results for '%s'"
 msgstr "'%s' için arama sonuçları"
 
-#: system/themes/charcoal/theme.php:118
+#: system/themes/charcoal/theme.php:155
 #, php-format
 msgid "No results found for your search '%1$s'"
 msgstr "'%1$s' araması için hiç sonuç bulunamadı."
 
-#: system/themes/charcoal/theme.php:118
+#: system/themes/charcoal/theme.php:155
 #, php-format
 msgid "You can try searching for '%2$s'"
 msgstr "'%2$s' şeklinde arama yapmayı deneyebilirsiniz."
 
-#: system/themes/charcoal/theme.php:124
+#: system/themes/charcoal/theme.php:161
 #, php-format
 msgid "No results found for your search '%s'"
 msgstr "'%s' araması için hiç sonuç bulunamadı."
 
-#: system/themes/charcoal/theme.php:164
+#: system/themes/charcoal/theme.php:201
 msgid "(Required)"
 msgstr "Gerekli"
 
-#: system/themes/charcoal/theme.php:166 system/themes/k2/theme.php:124
+#: system/themes/charcoal/theme.php:203 system/themes/k2/theme.php:127
 msgid "Mail"
 msgstr "Posta"
 
-#: system/themes/charcoal/theme.php:166
+#: system/themes/charcoal/theme.php:203
 msgid "(will not be published"
 msgstr ""
 
-#: system/themes/charcoal/theme.php:166
+#: system/themes/charcoal/theme.php:203
 msgid "- Required)"
 msgstr ""
 
-#: system/themes/charcoal/theme.php:168 system/themes/k2/theme.php:126
-#: system/classes/post.php:953
+#: system/themes/charcoal/theme.php:205 system/themes/k2/theme.php:129
+#: system/classes/post.php:989
 msgid "Website"
 msgstr "Web Sitesi"
 
-#: system/themes/charcoal/theme.php:171 system/themes/mzingi/theme.php:107
-#: system/themes/k2/theme.php:129 system/classes/post.php:973
-#: system/plugins/habarisilo/habarisilo.plugin.php:466
+#: system/themes/charcoal/theme.php:208 system/themes/mzingi/theme.php:96
+#: system/themes/k2/theme.php:132 system/classes/post.php:1009
+#: system/plugins/habarisilo/habarisilo.plugin.php:471
 msgid "Submit"
 msgstr "Gönder"
 
-#: system/themes/charcoal/comments.php:26
+#: system/themes/charcoal/comments.php:27
 msgid "Time of this comment - Click for comment permalink"
 msgstr ""
 
-#: system/themes/charcoal/comments.php:28
+#: system/themes/charcoal/comments.php:29
 msgid "Your comment is awaiting moderation"
 msgstr "Yorumunuz onay bekliyor"
 
-#: system/themes/charcoal/comments.php:34
+#: system/themes/charcoal/comments.php:35
 msgid "Be the first to write a comment!"
 msgstr "İlk yorum yazan siz olun!"
 
-#: system/themes/mzingi/tag.php:8
+#: system/themes/mzingi/tag.php:9
 msgid "Posts Tagged with"
 msgstr ""
 
-#: system/themes/mzingi/tag.php:18 system/themes/mzingi/entry.multiple.php:16
-#: system/themes/mzingi/home.php:18 system/themes/mzingi/search.php:18
-#: system/themes/mzingi/entry.single.php:24
+#: system/themes/mzingi/tag.php:19 system/themes/mzingi/entry.multiple.php:17
+#: system/themes/mzingi/home.php:19 system/themes/mzingi/search.php:19
+#: system/themes/mzingi/entry.single.php:25
 msgid "Tagged:"
 msgstr "Etiketlenmiş:"
 
-#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:30 system/themes/mzingi/search.php:30
 msgid "Newer Results"
 msgstr "Daha Yeni Sonuçlar"
 
-#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:30 system/themes/mzingi/search.php:30
 msgid "Older Results"
 msgstr "Daha Eski Sonuçlar"
 
-#: system/themes/mzingi/commentform.php:7
+#: system/themes/mzingi/commentform.php:8
 msgid "to"
 msgstr "den"
 
-#: system/themes/mzingi/commentform.php:8 system/themes/k2/comments.php:7
+#: system/themes/mzingi/commentform.php:9 system/themes/k2/comments.php:8
 msgid "Feed for this Entry"
 msgstr "Bu yazının Beslemesi"
 
-#: system/themes/mzingi/commentform.php:44 system/themes/k2/comments.php:24
+#: system/themes/mzingi/commentform.php:45 system/themes/k2/comments.php:25
 msgid "Permanent Link to this Comment"
 msgstr "Bu Yoruma Kalıcı Bağlantı"
 
-#: system/themes/mzingi/commentform.php:45
+#: system/themes/mzingi/commentform.php:46
 msgid "Comment by"
 msgstr "Yorumun sahibi"
 
-#: system/themes/mzingi/commentform.php:46
+#: system/themes/mzingi/commentform.php:47
 msgid "Time of this comment"
 msgstr "Yorumun tarihi"
 
-#: system/themes/mzingi/commentform.php:46 system/themes/k2/comments.php:26
+#: system/themes/mzingi/commentform.php:47 system/themes/k2/comments.php:27
 msgid "In moderation"
 msgstr ""
 
-#: system/themes/mzingi/commentform.php:56 system/themes/k2/comments.php:38
+#: system/themes/mzingi/commentform.php:57 system/themes/k2/comments.php:39
 msgid "There are currently no comments."
 msgstr "Henüz yorum yok."
 
-#: system/themes/mzingi/404.php:7
+#: system/themes/mzingi/404.php:8
 msgid "It seems you couldn't find what you are looking for."
 msgstr "Görünüşe bakılırsa aradığınızı bulamadınız."
 
-#: system/themes/mzingi/404.php:7
+#: system/themes/mzingi/404.php:8
 msgid "Perhaps you can try searching."
 msgstr "Belki aramayı deneyebilirsiniz."
 
-#: system/themes/mzingi/searchform.php:4 system/themes/k2/sidebar.php:5
+#: system/themes/mzingi/searchform.php:5 system/themes/k2/sidebar.php:6
+#: system/plugins/coreblocks/coreblocks.plugin.php:366
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:609
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:977
 msgid "Search"
 msgstr "Ara"
 
-#: system/themes/mzingi/searchform.php:4 system/themes/k2/searchform.php:4
+#: system/themes/mzingi/searchform.php:5 system/themes/k2/searchform.php:5
 msgid "Go!"
 msgstr "Git!"
 
-#: system/themes/mzingi/sidebar.php:4
+#: system/themes/mzingi/sidebar.php:5
 msgid "Subscribe to Feed"
 msgstr "Beslemeye Üye Ol"
 
-#: system/themes/mzingi/sidebar.php:5
+#: system/themes/mzingi/sidebar.php:6
 msgid "Navigation"
 msgstr "Navigasyon"
 
-#: system/themes/mzingi/sidebar.php:7
+#: system/themes/mzingi/sidebar.php:8
 msgid "Home"
 msgstr "Ana Sayfa"
 
-#: system/themes/mzingi/sidebar.php:16
+#: system/themes/mzingi/sidebar.php:17
 msgid "Asides"
 msgstr ""
 
-#: system/themes/mzingi/sidebar.php:29
+#: system/themes/mzingi/sidebar.php:31
 msgid "More Posts"
 msgstr "Daha çok Yazı"
 
-#: system/themes/mzingi/sidebar.php:40
+#: system/plugins/coreblocks/coreblocks.plugin.php:18
 msgid "Recent Comments"
 msgstr "Son Yorumlar"
 
-#: system/themes/mzingi/sidebar.php:47
+#: system/themes/mzingi/sidebar.php:52
 msgid "User Login"
 msgstr "Kullanıcı Girişi"
 
-#: system/themes/mzingi/search.php:7
+#: system/themes/mzingi/search.php:8
 msgid "Results for search of"
 msgstr "Arama sonuçları"
 
-#: system/themes/mzingi/search.php:31
+#: system/themes/mzingi/search.php:32
 msgid "No results for"
 msgstr "Sonuç yok"
 
-#: system/themes/mzingi/footer.php:3
+#: system/themes/mzingi/footer.php:4
 msgid "is powered by"
 msgstr "sunan"
 
-#: system/themes/mzingi/loginform.php:4 system/themes/k2/loginform.php:5
+#: system/themes/mzingi/loginform.php:5 system/themes/k2/loginform.php:6
 msgid "That login is incorrect."
 msgstr "Bu giriş yanlış."
 
-#: system/themes/mzingi/loginform.php:9 system/themes/k2/loginform.php:11
+#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
 msgid "You are logged in as"
 msgstr "Giriş yaptığınız kullanıcı:"
 
-#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:11 system/themes/k2/loginform.php:13
 msgid "Want to"
 msgstr ""
 
-#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:11 system/themes/k2/loginform.php:13
 msgid "log out"
 msgstr "çıkış"
 
-#: system/themes/mzingi/loginform.php:22 system/themes/k2/loginform.php:24
+#: system/themes/mzingi/loginform.php:23 system/themes/k2/loginform.php:25
 msgid "Password:"
 msgstr "Şifre"
 
-#: system/themes/mzingi/loginform.php:27
+#: system/themes/mzingi/loginform.php:28
 msgid "GO!"
 msgstr "GİT!"
 
-#: system/themes/mzingi/theme.php:86
+#: system/themes/mzingi/theme.php:75
 msgid "About You"
 msgstr "Hakkımda"
 
-#: system/themes/mzingi/theme.php:90 system/themes/mzingi/theme.php:93
-#: system/themes/k2/theme.php:122 system/themes/k2/theme.php:124
+#: system/themes/mzingi/theme.php:79 system/themes/mzingi/theme.php:82
+#: system/themes/k2/theme.php:125 system/themes/k2/theme.php:127
 msgid "Required"
 msgstr "Gerekli"
 
-#: system/themes/mzingi/theme.php:93
+#: system/themes/mzingi/theme.php:82
 msgid "Email Address:"
 msgstr "E-posta Adresi:"
 
-#: system/themes/mzingi/theme.php:96
+#: system/themes/mzingi/theme.php:85
 msgid "Web Address:"
 msgstr "Web Adresi:"
 
-#: system/themes/mzingi/theme.php:98
+#: system/themes/mzingi/theme.php:87
 msgid "<p><em><small>Email address is not published</small></em></p>"
 msgstr ""
 
-#: system/themes/mzingi/theme.php:101
+#: system/themes/mzingi/theme.php:90
 msgid "Add to the Discussion"
 msgstr "Tartışmaya Ekle"
 
-#: system/themes/mzingi/theme.php:105
+#: system/themes/mzingi/theme.php:94
 msgid "Message: (Required)"
 msgstr ""
 
-#: system/themes/k2/page.single.php:8
+#: system/themes/k2/page.single.php:9
 msgid "Page:"
 msgstr "Sayfa:"
 
-#: system/themes/k2/page.single.php:10 system/themes/k2/tag.php:12
-#: system/themes/k2/entry.multiple.php:12 system/themes/k2/home.php:12
-#: system/themes/k2/search.php:13 system/themes/k2/entry.single.php:21
+#: system/themes/k2/page.single.php:11 system/themes/k2/tag.php:13
+#: system/themes/k2/entry.multiple.php:13 system/themes/k2/home.php:13
+#: system/themes/k2/search.php:14 system/themes/k2/entry.single.php:22
 #, php-format
 msgid "by %s"
 msgstr "yazan %s"
 
-#: system/themes/k2/404.php:8
+#: system/themes/k2/404.php:9
 msgid "Error!"
 msgstr "Hata!"
 
-#: system/themes/k2/404.php:12
+#: system/themes/k2/404.php:13
 msgid "The requested post was not found."
 msgstr "İstenen yazı bulunamadı."
 
-#: system/themes/k2/sidebar.php:10 system/classes/adminhandler.php:212
+#: system/themes/k2/sidebar.php:11 system/classes/adminhandler.php:216
 msgid "About"
 msgstr "Hakkında"
 
-#: system/themes/k2/search.php:6
+#: system/themes/k2/search.php:7
 #, php-format
 msgid "Search results for %s"
 msgstr "%s için sonuçları ara"
 
-#: system/themes/k2/footer.php:9
+#: system/themes/k2/footer.php:10
 msgid " is powered by"
 msgstr " sunan"
 
-#: system/themes/k2/footer.php:9
+#: system/themes/k2/footer.php:10
 msgid "and a huge amount of "
 msgstr ""
 
-#: system/themes/k2/footer.php:10
+#: system/themes/k2/footer.php:11
 msgid "Caffeine"
 msgstr "Kafein"
 
-#: system/themes/k2/footer.php:11 system/classes/adminhandler.php:858
+#: system/themes/k2/footer.php:12 system/classes/adminhandler.php:835
 msgid "and"
 msgstr "ve"
 
-#: system/themes/k2/loginform.php:11
+#: system/themes/k2/loginform.php:12
 msgid "Edit Your Profile"
 msgstr "Profilini Düzenle"
 
-#: system/themes/k2/loginform.php:29
+#: system/themes/k2/loginform.php:30
 msgid "Sign in"
 msgstr "Giriş yap"
 
-#: system/themes/k2/theme.php:124
+#: system/themes/k2/theme.php:127
 msgid "(will not be published)"
 msgstr ""
 
-#: system/themes/k2/comments.php:5
+#: system/themes/k2/comments.php:6
 msgid "Responses to"
 msgstr "Cevaplar"
 
-#: system/themes/k2/comments.php:26
+#: system/themes/k2/comments.php:27
 msgid "Time of this Comment"
 msgstr "Yorumun Tarihi"
 
-#: system/themes/k2/comments.php:44
+#: system/themes/k2/comments.php:45
 msgid "Leave a Reply"
 msgstr "Cevap Bırak"
-
-#: system/classes/tags.php:133
-#, php-format
-msgid "Tag %s has been renamed to %s."
-msgid_plural "Tags %s have been renamed to %s."
-msgstr[0] "Etiket %s, %s olarak yeniden isimlendirildi."
 
 #: system/classes/acl.php:147
 #, php-format
@@ -1387,7 +1466,7 @@ msgstr "Bütün yazılardaki yorumları yönet"
 msgid "Manage comments on one's own posts"
 msgstr ""
 
-#: system/classes/acl.php:765 system/classes/adminhandler.php:3254
+#: system/classes/acl.php:765 system/classes/adminhandler.php:3215
 msgid "Manage tags"
 msgstr "Etiketleri yönet"
 
@@ -1419,7 +1498,7 @@ msgstr "İçe aktarıcıyı kullan"
 msgid "Add, remove, and edit users"
 msgstr "Kullancıları ekle, kaldır ve düzenle"
 
-#: system/classes/acl.php:773 system/classes/installhandler.php:1559
+#: system/classes/acl.php:773 system/classes/installhandler.php:1568
 msgid "Edit own profile"
 msgstr ""
 
@@ -1431,13 +1510,14 @@ msgstr "Grupları ve yetkileri düzenle"
 msgid "Manage logs"
 msgstr "Günlükleri düzenle"
 
-#: system/classes/acl.php:778 system/classes/installhandler.php:1510
+#: system/classes/acl.php:778 system/classes/installhandler.php:1519
 msgid "Permissions on one's own posts"
 msgstr ""
 
 #: system/classes/acl.php:778 system/classes/acl.php:779
-#: system/classes/acl.php:781 system/classes/post.php:237
-#: system/classes/post.php:802
+#: system/classes/acl.php:780 system/classes/acl.php:782
+#: system/classes/installhandler.php:1673 system/classes/post.php:246
+#: system/classes/post.php:831
 msgid "Content"
 msgstr "İçerik"
 
@@ -1445,167 +1525,146 @@ msgstr "İçerik"
 msgid "Permissions to all posts"
 msgstr "Bütün yazılara yetkiler"
 
-#: system/classes/acl.php:781 system/classes/post.php:237
+#: system/classes/acl.php:780 system/classes/installhandler.php:1673
+msgid "Permissions to other users' unpublished posts"
+msgstr ""
+
+#: system/classes/acl.php:782 system/classes/post.php:246
 #, php-format
 msgid "Permissions to posts of type \"%s\""
 msgstr "\"%s\" yazılarına izinler"
 
-#: system/classes/acl.php:802 system/classes/acl.php:804
-#: system/classes/installhandler.php:694
+#: system/classes/acl.php:803 system/classes/acl.php:805
+#: system/classes/installhandler.php:697
 msgid "admin"
 msgstr "admin"
 
-#: system/classes/acl.php:807 system/classes/acl.php:809
-#: system/classes/installhandler.php:705
+#: system/classes/acl.php:808 system/classes/acl.php:810
+#: system/classes/installhandler.php:708
 msgid "anonymous"
 msgstr "anonim"
 
-#: system/classes/acl.php:838 system/classes/acl.php:840
-#: system/classes/installhandler.php:1521
-#: system/classes/installhandler.php:1523
+#: system/classes/acl.php:839 system/classes/acl.php:841
+#: system/classes/installhandler.php:1530
+#: system/classes/installhandler.php:1532
 msgid "authenticated"
 msgstr "doğrulanmış"
 
-#: system/classes/htmltokenizer.php:81
+#: system/classes/htmltokenizer.php:80
 #, php-format
 msgid "Invalid state %d in %s->parse()"
 msgstr ""
 
-#: system/classes/socketrequestprocessor.php:75
+#: system/classes/socketrequestprocessor.php:65
 #, php-format
-msgid "%s: Error %d: %s while connecting to %s:%d"
-msgstr "%s: Hata %d: %s bağlanırken %s:%d"
-
-#: system/classes/socketrequestprocessor.php:113
-msgid "Error writing to socket."
-msgstr "Sokete yazarken hata oldu."
-
-#: system/classes/socketrequestprocessor.php:145
-msgid "Maximum number of redirections exceeded."
-msgstr "Maksimum yönlendirme sınırı aşıldı."
-
-#: system/classes/socketrequestprocessor.php:151
-msgid "Redirection response without Location: header."
+msgid "Unable to connect to %s"
 msgstr ""
 
-#: system/classes/socketrequestprocessor.php:187
-#: system/classes/socketrequestprocessor.php:196
-#: system/classes/curlrequestprocessor.php:132
-#: system/classes/curlrequestprocessor.php:141
-msgid "Request did not yet execute."
-msgstr "İstek henüz gerçekleştirilmedi."
+#: system/classes/socketrequestprocessor.php:79
+msgid "Request timed out"
+msgstr ""
 
-#: system/classes/xmlrpcclient.php:101
+#: system/classes/xmlrpcclient.php:103
 msgid "Invalid XML response."
 msgstr "Geçersiz XML yanıtı."
 
-#: system/classes/tag.php:215
-#, php-format
-msgid "New tag %1$s (%2$s);  Slug: %3$s"
-msgstr ""
-
-#: system/classes/tag.php:261
-#, php-format
-msgid "Tag %1$s (%2$s) deleted."
-msgstr "Etiket %1$s (%2$s) silindi."
-
-#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1114
+#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1091
 msgid "Password mis-match."
 msgstr "Şifre eşleşmedi."
 
 #: system/classes/installhandler.php:153
-#: system/classes/installhandler.php:1663
-#: system/classes/installhandler.php:1734
+#: system/classes/installhandler.php:1720
+#: system/classes/installhandler.php:1791
 msgid "Allowed characters are A-Z, a-z and \"_\"."
 msgstr ""
 
 #: system/classes/installhandler.php:164
-msgid "Could not write config.php file..."
-msgstr "config.php dosyası yazılamıyor..."
+msgid "Could not write config.php file&hellip;"
+msgstr ""
 
 #: system/classes/installhandler.php:190
 msgid "Habari successfully installed."
 msgstr "Habari başarılı şekilde kuruldu."
 
-#: system/classes/installhandler.php:401
+#: system/classes/installhandler.php:404
 msgid "User is required."
 msgstr "Kullanıcı gerekli."
 
-#: system/classes/installhandler.php:405
+#: system/classes/installhandler.php:408
 msgid "Name for database is required."
 msgstr "Veri tabanı ismi gerekli."
 
-#: system/classes/installhandler.php:409
+#: system/classes/installhandler.php:412
 msgid "Host is required."
 msgstr "Sunucu gerekli."
 
-#: system/classes/installhandler.php:428 system/classes/installhandler.php:639
+#: system/classes/installhandler.php:431 system/classes/installhandler.php:642
 msgid "Problem connecting to supplied database credentials"
 msgstr "Verilen veri tabanı bilgilerine bağlanmada sorunu var"
 
-#: system/classes/installhandler.php:444
+#: system/classes/installhandler.php:447
 #, php-format
-msgid "Could not create schema tables... %s"
+msgid "Could not create schema tables&hellip; %s"
 msgstr ""
 
-#: system/classes/installhandler.php:453
+#: system/classes/installhandler.php:456
 msgid "Problem creating default options"
 msgstr ""
 
-#: system/classes/installhandler.php:461
+#: system/classes/installhandler.php:464
 msgid "Problem creating tags vocabulary"
 msgstr ""
 
-#: system/classes/installhandler.php:468
+#: system/classes/installhandler.php:471
 msgid "Problem creating base post types"
 msgstr ""
 
-#: system/classes/installhandler.php:479
+#: system/classes/installhandler.php:482
 msgid "Problem creating admin user."
 msgstr "Yönetici kullanıcısı oluştururken sorun oluştu."
 
-#: system/classes/installhandler.php:485
+#: system/classes/installhandler.php:488
 msgid "Problem creating admin group."
 msgstr "Yönetici grubu oluştururken sorun oluştu."
 
-#: system/classes/installhandler.php:496
+#: system/classes/installhandler.php:499
 msgid "Problem creating first post."
 msgstr "İlk yazı oluşturulur iken sorun oluştu."
 
-#: system/classes/installhandler.php:533 system/classes/installhandler.php:566
-#: system/classes/installhandler.php:1678
-#: system/classes/installhandler.php:1749
+#: system/classes/installhandler.php:536 system/classes/installhandler.php:569
+#: system/classes/installhandler.php:1735
+#: system/classes/installhandler.php:1806
 msgid "Access denied. Make sure these credentials are valid."
 msgstr "Giriş engellendi. Bilgilerinizin doğruluğunu kontrol edin."
 
-#: system/classes/installhandler.php:536 system/classes/installhandler.php:569
-#: system/classes/installhandler.php:1682
-#: system/classes/installhandler.php:1753
+#: system/classes/installhandler.php:539 system/classes/installhandler.php:572
+#: system/classes/installhandler.php:1739
+#: system/classes/installhandler.php:1810
 msgid "That database does not exist."
 msgstr "Veri tabanı bulunamadı."
 
-#: system/classes/installhandler.php:539 system/classes/installhandler.php:572
-#: system/classes/installhandler.php:1686
-#: system/classes/installhandler.php:1757
+#: system/classes/installhandler.php:542 system/classes/installhandler.php:575
+#: system/classes/installhandler.php:1743
+#: system/classes/installhandler.php:1814
 msgid "Could not connect to host."
 msgstr "Sunucuya bağlanılamadı."
 
-#: system/classes/installhandler.php:600
-#: system/classes/installhandler.php:1805
+#: system/classes/installhandler.php:603
+#: system/classes/installhandler.php:1862
 #, php-format
 msgid ""
 "Cannot write to %s. The SQLite data file is not writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:604
-#: system/classes/installhandler.php:1798
+#: system/classes/installhandler.php:607
+#: system/classes/installhandler.php:1855
 #, php-format
 msgid ""
 "Cannot write to %s directory. SQLite requires that the directory that holds "
 "the DB file be writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:613
+#: system/classes/installhandler.php:616
 #, php-format
 msgid ""
 "Cannot write to %s directory. The SQLite data file does not exist, and it "
@@ -1613,12 +1672,17 @@ msgid ""
 "directory containing the database file be writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:751
-#: system/classes/installhandler.php:1386
-msgid "Truncate the log table"
-msgstr "Günlük tablosunu kısalt"
+#: system/classes/installhandler.php:754
+#: system/classes/installhandler.php:1650
+msgid "Trim the log table"
+msgstr ""
 
-#: system/classes/installhandler.php:795
+#: system/classes/installhandler.php:757
+#: system/classes/installhandler.php:1658
+msgid "Perform a check for plugin updates."
+msgstr ""
+
+#: system/classes/installhandler.php:801
 msgid ""
 "This site is running <a href=\"http://habariproject.org/\">Habari</a>, a "
 "state-of-the-art publishing platform!  Habari is a community-driven project "
@@ -1627,46 +1691,50 @@ msgid ""
 "more!"
 msgstr ""
 
-#: system/classes/installhandler.php:858
+#: system/classes/installhandler.php:864
 msgid "currently unsupported."
 msgstr "şu an desteklenmiyor."
 
-#: system/classes/installhandler.php:972
+#: system/classes/installhandler.php:978
 msgid "No admin user found"
 msgstr ""
 
-#: system/classes/installhandler.php:1371
+#: system/classes/installhandler.php:1380
 msgid "Site Maintenance"
 msgstr ""
 
-#: system/classes/installhandler.php:1372
+#: system/classes/installhandler.php:1381
 msgid "Habari is currently being upgraded."
 msgstr ""
 
-#: system/classes/installhandler.php:1373
+#: system/classes/installhandler.php:1382
 msgid "Try again in a little while."
 msgstr ""
 
-#: system/classes/installhandler.php:1564
+#: system/classes/installhandler.php:1395
+msgid "Truncate the log table"
+msgstr "Günlük tablosunu kısalt"
+
+#: system/classes/installhandler.php:1573
 msgid "Manage dashboard modules"
 msgstr ""
 
-#: system/classes/installhandler.php:1645
-#: system/classes/installhandler.php:1716
+#: system/classes/installhandler.php:1702
+#: system/classes/installhandler.php:1773
 msgid "The database host field was left empty."
 msgstr "Veri tabanı sunucusu alanı boş bırakılmış."
 
-#: system/classes/installhandler.php:1651
-#: system/classes/installhandler.php:1722
+#: system/classes/installhandler.php:1708
+#: system/classes/installhandler.php:1779
 msgid "The database name field was left empty."
 msgstr "Veri tabanı ismi alanı boş bırakılmış."
 
-#: system/classes/installhandler.php:1657
-#: system/classes/installhandler.php:1728
+#: system/classes/installhandler.php:1714
+#: system/classes/installhandler.php:1785
 msgid "The database user field was left empty."
 msgstr "Veri tabanı kullanıcısı alanı boş bırakılmış."
 
-#: system/classes/installhandler.php:1788
+#: system/classes/installhandler.php:1845
 msgid "The database file was left empty."
 msgstr "Veri tabanı dosyası boş bırakıldı."
 
@@ -1686,87 +1754,87 @@ msgstr ""
 msgid "The cache directory '%s' is not writable - the cache is disabled."
 msgstr "Önbellek dizini '%s' yazılabilir değil - önbellek hizmet dışı."
 
-#: system/classes/post.php:520
+#: system/classes/post.php:545
 #, php-format
 msgid "New post %1$s (%2$s);  Type: %3$s; Status: %4$s"
 msgstr "Yeni yazı %1$s (%2$s);  Çeşit: %3$s; Durum: %4$s"
 
-#: system/classes/post.php:615
+#: system/classes/post.php:640
 #, php-format
 msgid "Post %1$s (%2$s) deleted."
 msgstr "%1$s (%2$s) yazısı silindi."
 
-#: system/classes/post.php:649
+#: system/classes/post.php:674
 #, php-format
 msgid "Scheduled Post %1$s (%2$s) published at %3$s."
 msgstr "%1$s (%2$s) zamanlanmış yazısı %3$s tarihinde yayımlandı."
 
-#: system/classes/post.php:652
+#: system/classes/post.php:677
 #, php-format
 msgid "Post %1$s (%2$s) published."
 msgstr "%1$s (%2$s) yazısı yayımlandı."
 
-#: system/classes/post.php:784
+#: system/classes/post.php:813
 msgid "Preview Post"
 msgstr "Gönderiye Ön İzleme Yap"
 
-#: system/classes/post.php:784
+#: system/classes/post.php:813
 msgid "View Post"
 msgstr "Gönderiyi Görüntle"
 
-#: system/classes/post.php:789
+#: system/classes/post.php:818
 msgid "Title"
 msgstr "Başlık"
 
-#: system/classes/post.php:810
+#: system/classes/post.php:839
 msgid "Tags, separated by, commas"
 msgstr "Etiketler, virgülle ayrılmış"
 
-#: system/classes/post.php:827
+#: system/classes/post.php:856
 msgid "Content State"
 msgstr "İçerik Durumu"
 
-#: system/classes/post.php:836
+#: system/classes/post.php:865
 msgid "Minor Edit"
 msgstr "Küçük Düzenleme"
 
-#: system/classes/post.php:841
+#: system/classes/post.php:870
 msgid "Comments Allowed"
 msgstr "Yorumlar İzinli"
 
-#: system/classes/post.php:844
+#: system/classes/post.php:873
 msgid "Publication Time"
 msgstr "Yayımlama Zamanı"
 
-#: system/classes/post.php:850
+#: system/classes/post.php:879
 msgid "Content Address"
 msgstr "İçerik Adresi"
 
-#: system/classes/post.php:926
+#: system/classes/post.php:961
 msgid "Name <span class=\"required\">*Required</span>"
 msgstr ""
 
-#: system/classes/post.php:928
+#: system/classes/post.php:963
 msgid "The Name field value is required"
 msgstr ""
 
-#: system/classes/post.php:938 system/classes/adminhandler.php:788
+#: system/classes/post.php:973 system/classes/adminhandler.php:762
 msgid "Email"
 msgstr "E-posta"
 
-#: system/classes/post.php:940
+#: system/classes/post.php:975 system/classes/post.php:979
 msgid "The Email field value must be a valid email address"
 msgstr ""
 
-#: system/classes/post.php:944
+#: system/classes/post.php:980
 msgid "Email <span class=\"required\">*Required</span>"
 msgstr ""
 
-#: system/classes/post.php:955
+#: system/classes/post.php:991
 msgid "The Web Site field value must be a valid URL"
 msgstr ""
 
-#: system/classes/post.php:967
+#: system/classes/post.php:1003
 msgid "The Content field value is required"
 msgstr ""
 
@@ -1857,74 +1925,74 @@ msgstr ""
 msgid "%1$s in %2$s line %3$s on request of \"%4$s\""
 msgstr ""
 
-#: system/classes/error.php:103
+#: system/classes/error.php:104
 msgid "Error"
 msgstr ""
 
-#: system/classes/error.php:104
+#: system/classes/error.php:105
 msgid "Warning"
 msgstr ""
 
-#: system/classes/error.php:105
+#: system/classes/error.php:106
 msgid "Parse Error"
 msgstr ""
 
-#: system/classes/error.php:106
+#: system/classes/error.php:107
 msgid "Notice"
 msgstr ""
 
-#: system/classes/error.php:107
+#: system/classes/error.php:108
 msgid "Core Error"
 msgstr ""
 
-#: system/classes/error.php:108
+#: system/classes/error.php:109
 msgid "Core Warning"
 msgstr ""
 
-#: system/classes/error.php:109
+#: system/classes/error.php:110
 msgid "Compile Error"
 msgstr ""
 
-#: system/classes/error.php:110
+#: system/classes/error.php:111
 msgid "Compile Warning"
 msgstr ""
 
-#: system/classes/error.php:111
+#: system/classes/error.php:112
 msgid "User Error"
 msgstr ""
 
-#: system/classes/error.php:112
+#: system/classes/error.php:113
 msgid "User Warning"
 msgstr ""
 
-#: system/classes/error.php:113
+#: system/classes/error.php:114
 msgid "User Notice"
 msgstr ""
 
-#: system/classes/error.php:114
+#: system/classes/error.php:115
 msgid "Strict Notice"
 msgstr ""
 
-#: system/classes/error.php:115
+#: system/classes/error.php:116
 msgid "Recoverable Error"
 msgstr ""
 
-#: system/classes/error.php:118
+#: system/classes/error.php:119
 msgid "Deprecated violation"
 msgstr ""
 
-#: system/classes/error.php:119
+#: system/classes/error.php:120
 msgid "User deprecated violation"
 msgstr ""
 
-#: system/classes/error.php:200
+#: system/classes/error.php:201
 #, php-format
-msgid " ...%d arg... "
-msgid_plural " ...%d args... "
+msgid " &hellip;%d arg&hellip; "
+msgid_plural " &hellip;%d args&hellip; "
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/error.php:204
+#: system/classes/error.php:205
 #, php-format
 msgid ""
 "%s line %d:\n"
@@ -1933,7 +2001,7 @@ msgstr ""
 "%s satır %d:\n"
 "  %s(%s)\n"
 
-#: system/classes/session.php:102
+#: system/classes/session.php:131
 msgid "Your session expired."
 msgstr "Oturmunuz sonlandı."
 
@@ -1951,47 +2019,47 @@ msgstr "Oluşturulan yeni kullanıcı: %s"
 msgid "User deleted: %s"
 msgstr "Silinen kullanıcı: %s"
 
-#: system/classes/user.php:253 system/classes/user.php:282
+#: system/classes/user.php:269 system/classes/user.php:298
 #, php-format
 msgid "Successful login for %s"
 msgstr "Başarılı olarak giriş yaptı %s"
 
-#: system/classes/user.php:260
+#: system/classes/user.php:276
 #, php-format
 msgid "Login attempt (via authentication plugin) for non-existent user %s"
 msgstr ""
 
-#: system/classes/user.php:261 system/classes/user.php:273
-#: system/classes/user.php:291
+#: system/classes/user.php:277 system/classes/user.php:289
+#: system/classes/user.php:307
 msgid "Invalid username/password"
 msgstr ""
 
-#: system/classes/user.php:272
+#: system/classes/user.php:288
 #, php-format
 msgid "Login attempt for non-existent user %s"
 msgstr "%s bulunmayan kullanıcısı için oturum açma girişimi"
 
-#: system/classes/user.php:290
+#: system/classes/user.php:306
 #, php-format
 msgid "Wrong password for user %s"
 msgstr "Kullanıcı için yanlış şifre %s"
 
-#: system/classes/user.php:508
+#: system/classes/user.php:524
 #, php-format
 msgid "User %1$s: Access to %2$s changed to %3$s"
 msgstr ""
 
-#: system/classes/user.php:532
+#: system/classes/user.php:548
 #, php-format
 msgid "User %1$s: Permission to %2$s revoked."
 msgstr ""
 
-#: system/classes/user.php:571
+#: system/classes/user.php:587
 #, php-format
 msgid " User %1$s: Added to %2$s group."
 msgstr " %1$s Kullanıcısı: %2$s grubuna eklendi."
 
-#: system/classes/user.php:585
+#: system/classes/user.php:601
 #, php-format
 msgid " User %1$s: Removed from %2$s group."
 msgstr ""
@@ -2031,11 +2099,11 @@ msgstr "[%1$s] %2$s için şifre sıfırlama istemi"
 msgid "A password reset request has been sent to the user."
 msgstr "Şifre sıfırlama istemi kullanıcıya gönderildi."
 
-#: system/classes/userhandler.php:98
+#: system/classes/userhandler.php:104
 msgid "Bad credentials"
 msgstr ""
 
-#: system/classes/userhandler.php:184
+#: system/classes/userhandler.php:190
 #, php-format
 msgid ""
 "Your password for %1$s has been reset.  Your credentials are as follows---\n"
@@ -2043,53 +2111,64 @@ msgid ""
 "Password: %3$s"
 msgstr ""
 
-#: system/classes/userhandler.php:186
+#: system/classes/userhandler.php:192
 #, php-format
 msgid "[%1$s] Password has been reset for %2$s"
 msgstr ""
 
-#: system/classes/userhandler.php:187
+#: system/classes/userhandler.php:193
 msgid "A new password has been sent to the user."
 msgstr "Kullanıcıya yeni şifre gönderildi."
 
-#: system/classes/userhandler.php:190
+#: system/classes/userhandler.php:196
 msgid "There was a problem resetting the password.  It was not reset."
 msgstr "Şifre sıfırlamada bir problem var. Sıfırlanmadı."
 
-#: system/classes/userhandler.php:200
+#: system/classes/userhandler.php:206
 msgid "The supplied password reset token has expired or is invalid."
 msgstr "Girilen şifre sıfırlama biletinin zamanı geçmiş veya geçersiz."
 
-#: system/classes/block.php:201
+#: system/classes/block.php:228
 #, php-format
 msgid "New block %1$s: %2$s"
 msgstr ""
 
-#: system/classes/block.php:249
+#: system/classes/block.php:276
 #, php-format
 msgid "Block %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/block.php:265
+#: system/classes/block.php:292
 msgid "Saved block configuration."
+msgstr ""
+
+#: system/classes/eventlog.php:372 system/classes/adminhandler.php:2372
+msgid "Logs purged."
 msgstr ""
 
 #: system/classes/rpcclient.php:26
 msgid "xmlrpc extension not found"
 msgstr "xmlrpc eklentisi bulunamadı"
 
-#: system/classes/vocabulary.php:222
+#: system/classes/vocabulary.php:221
 #, php-format
 msgid "New vocabulary %1$s (%2$s)"
 msgstr ""
 
-#: system/classes/vocabulary.php:294
+#: system/classes/vocabulary.php:296
 #, php-format
 msgid "Vocabulary %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugin.php:62 system/classes/adminhandler.php:1867
-#: system/classes/adminhandler.php:1917 system/classes/pluggable.php:148
+#: system/classes/vocabulary.php:822
+#, php-format
+msgid "Term %1$s in the %2$s vocabulary has been renamed to %3$s."
+msgid_plural "Terms %1$s in the %2$s vocabulary have been renamed to %3$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/plugin.php:62 system/classes/adminhandler.php:1861
+#: system/classes/adminhandler.php:1911 system/classes/pluggable.php:162
 msgid "?"
 msgstr "?"
 
@@ -2114,755 +2193,782 @@ msgstr ""
 "Son gönderdiğiniz formu kaydettik. Teslimine devam etmek için tekrar giriş "
 "yapınız."
 
-#: system/classes/adminhandler.php:121 system/classes/adminhandler.php:731
+#: system/classes/adminhandler.php:125 system/classes/adminhandler.php:705
 msgid "Access to that page has been denied by the administrator."
 msgstr "Bu sayfaya erişim site yönetimi tarafından engellenmiştir."
 
-#: system/classes/adminhandler.php:136
+#: system/classes/adminhandler.php:140
 #, php-format
 msgid "%1$s->%2$s() does not exist."
 msgstr "%1$s->%2$s() bulunmuyor."
 
-#: system/classes/adminhandler.php:157
+#: system/classes/adminhandler.php:161
 msgid "The page you were looking for was not found."
 msgstr "Aradığınız sayfa bulunamadı."
 
-#: system/classes/adminhandler.php:200
+#: system/classes/adminhandler.php:204
 msgid "Name & Tagline"
 msgstr "İsim & Slogan"
 
-#: system/classes/adminhandler.php:202 system/installer/db_setup.php:169
+#: system/classes/adminhandler.php:206 system/installer/db_setup.php:170
 msgid "Site Name"
 msgstr "Site Adı"
 
-#: system/classes/adminhandler.php:207
+#: system/classes/adminhandler.php:211
 msgid "Site Tagline"
 msgstr "Site Sloganı"
 
-#: system/classes/adminhandler.php:218
-#: system/plugins/pingback/pingback.plugin.php:307
+#: system/classes/adminhandler.php:222
+#: system/plugins/pingback/pingback.plugin.php:351
 msgid "Publishing"
 msgstr "Yayımlama"
 
-#: system/classes/adminhandler.php:220
+#: system/classes/adminhandler.php:224
 msgid "Items per Page"
 msgstr "Sayfa başına Öğeler"
 
-#: system/classes/adminhandler.php:225
+#: system/classes/adminhandler.php:229
 msgid "Entries to show in Atom feed"
 msgstr "Atomda gösterilecek yazılar"
 
-#: system/classes/adminhandler.php:230
+#: system/classes/adminhandler.php:234
 msgid "Require Comment Author Info"
 msgstr "Yorum Yazarı Bilgisi Gerektir"
 
-#: system/classes/adminhandler.php:236
+#: system/classes/adminhandler.php:245
 msgid "Time & Date"
 msgstr "Saat ve Tarih"
 
-#: system/classes/adminhandler.php:246
+#: system/classes/adminhandler.php:255
 msgid "Time Zone"
 msgstr "Zaman Dilimi"
 
-#: system/classes/adminhandler.php:249
+#: system/classes/adminhandler.php:258
 #, php-format
 msgid "Current Date Time: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:252 system/classes/adminhandler.php:822
+#: system/classes/adminhandler.php:261 system/classes/adminhandler.php:799
 msgid "Date Format"
 msgstr "Tarih Formatı"
 
-#: system/classes/adminhandler.php:254
+#: system/classes/adminhandler.php:263
 #, php-format
 msgid "Current Date: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:257 system/classes/adminhandler.php:833
+#: system/classes/adminhandler.php:266 system/classes/adminhandler.php:810
 msgid "Time Format"
 msgstr "Zaman Formatı"
 
-#: system/classes/adminhandler.php:259
+#: system/classes/adminhandler.php:268
 #, php-format
 msgid "Current Time: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:263 system/installer/locale_dropdown.php:6
+#: system/classes/adminhandler.php:272 system/installer/locale_dropdown.php:7
 msgid "Language"
 msgstr "Dil"
 
-#: system/classes/adminhandler.php:265 system/installer/locale_dropdown.php:2
+#: system/classes/adminhandler.php:274 system/installer/locale_dropdown.php:3
 msgid "Locale"
 msgstr "Yerel Ayarlar"
 
-#: system/classes/adminhandler.php:268
+#: system/classes/adminhandler.php:277
 msgid "International language code"
 msgstr "Uluslararası dil kodu"
 
-#: system/classes/adminhandler.php:271
+#: system/classes/adminhandler.php:280
 msgid "System Locale"
 msgstr "Yerel Sistem"
 
-#: system/classes/adminhandler.php:273
+#: system/classes/adminhandler.php:282
 msgid "The appropriate locale code for your server"
 msgstr ""
 
-#: system/classes/adminhandler.php:277
+#: system/classes/adminhandler.php:286
 msgid "Troubleshooting"
 msgstr "Sorun Giderme"
 
-#: system/classes/adminhandler.php:279
+#: system/classes/adminhandler.php:288
 msgid "Minimum Severity"
 msgstr ""
 
-#: system/classes/adminhandler.php:282
+#: system/classes/adminhandler.php:291
 msgid "Only log entries with a this or higher severity."
 msgstr ""
 
-#: system/classes/adminhandler.php:285
+#: system/classes/adminhandler.php:294
 msgid "Log Backtraces"
 msgstr "Geri izleme günlükleri"
 
-#: system/classes/adminhandler.php:287
+#: system/classes/adminhandler.php:296
 msgid ""
 "Logs error backtraces to the log table's data column. Can drastically "
 "increase log size!"
 msgstr ""
 
-#: system/classes/adminhandler.php:349
+#: system/classes/adminhandler.php:358
 msgid "Successfully updated options"
 msgstr "Başarıyla güncellenmiş seçenekler"
 
-#: system/classes/adminhandler.php:503 system/classes/adminhandler.php:657
-#: system/classes/adminhandler.php:658
+#: system/classes/adminhandler.php:477 system/classes/adminhandler.php:631
+#: system/classes/adminhandler.php:632
 #, php-format
 msgid "Publish %s"
 msgstr "Yayımla %s"
 
-#: system/classes/adminhandler.php:507
+#: system/classes/adminhandler.php:481
 #, php-format
 msgid ""
 "The post %1$s was updated since you made changes.  Please review those "
 "changes before overwriting them."
 msgstr ""
 
-#: system/classes/adminhandler.php:522
+#: system/classes/adminhandler.php:496
 msgid "A post slug cannot be empty. Keeping old slug."
 msgstr "Link Kısaltması Alanı Boş Bırakılamaz. Eski Kısaltma Kullanılacak."
 
-#: system/classes/adminhandler.php:532 system/classes/adminhandler.php:634
-#: system/classes/adminhandler.php:638
+#: system/classes/adminhandler.php:506 system/classes/adminhandler.php:608
+#: system/classes/adminhandler.php:612
 msgid "You don't have permission to edit that post"
 msgstr ""
 
-#: system/classes/adminhandler.php:539
+#: system/classes/adminhandler.php:513
 msgid "Changing content types is not allowed"
 msgstr ""
 
-#: system/classes/adminhandler.php:568
+#: system/classes/adminhandler.php:542
 msgid "Creating that post type is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:616
+#: system/classes/adminhandler.php:590
 #, php-format
 msgid "The post %1$s has been saved as %2$s."
 msgstr "%1$s gönderisi %2$s olarak kaydedildi."
 
-#: system/classes/adminhandler.php:652
+#: system/classes/adminhandler.php:626
 #, php-format
 msgid "Access to create posts of type %s is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:701
+#: system/classes/adminhandler.php:675
 #, php-format
 msgid "Deleted the %1$s titled \"%2$s\"."
 msgstr "%1$s başlıklı \"%2$s\" silindi."
 
-#: system/classes/adminhandler.php:718
+#: system/classes/adminhandler.php:692
 msgid "You"
 msgstr "Siz"
 
-#: system/classes/adminhandler.php:719
+#: system/classes/adminhandler.php:693
 msgid "Your User Information"
 msgstr "Kullanıcı Bilginiz"
 
-#: system/classes/adminhandler.php:727
+#: system/classes/adminhandler.php:701
 #, php-format
 msgid "%s's User Information"
 msgstr "%s Kullanıcı Bilgisi"
 
-#: system/classes/adminhandler.php:738 system/classes/adminhandler.php:1072
+#: system/classes/adminhandler.php:712 system/classes/adminhandler.php:1049
 msgid "nobody"
 msgstr "hiç kimse"
 
-#: system/classes/adminhandler.php:752
+#: system/classes/adminhandler.php:726
 msgid "No such user!"
 msgstr "Böyle bir kullanıcı yok!"
 
-#: system/classes/adminhandler.php:760
+#: system/classes/adminhandler.php:734
 msgid "Change Password"
 msgstr "Şifre Değiştir"
 
-#: system/classes/adminhandler.php:761
+#: system/classes/adminhandler.php:735
 msgid "Regional Settings"
 msgstr "Yerel Ayarlar"
 
-#: system/classes/adminhandler.php:762 system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:736 system/classes/adminhandler.php:3216
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
-#: system/classes/adminhandler.php:779
+#: system/classes/adminhandler.php:753
 msgid "Display Name"
 msgstr "Görüntü Adı"
 
-#: system/classes/adminhandler.php:783
+#: system/classes/adminhandler.php:757
 msgid "User Name"
 msgstr "Kullanıcı Adı"
 
-#: system/classes/adminhandler.php:793
+#: system/classes/adminhandler.php:767
 msgid "Portrait URL"
 msgstr "Portre URL"
 
-#: system/classes/adminhandler.php:798
+#: system/classes/adminhandler.php:772
 msgid "New Password"
 msgstr "Yeni Şifre"
 
-#: system/classes/adminhandler.php:803
+#: system/classes/adminhandler.php:778
 msgid "New Password Again"
 msgstr "Yeni Şifre Tekrar"
 
-#: system/classes/adminhandler.php:810
+#: system/classes/adminhandler.php:787
 msgid "Passwords must match."
 msgstr "Şifreler eşleşmeli"
 
-#: system/classes/adminhandler.php:816
+#: system/classes/adminhandler.php:793
 msgid "Timezone"
 msgstr "Saat Dilimi"
 
-#: system/classes/adminhandler.php:831 system/classes/adminhandler.php:842
+#: system/classes/adminhandler.php:808 system/classes/adminhandler.php:819
 #, php-format
 msgid "See <a href=\"%s\">php.net/date</a> for details. Current format: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:845
+#: system/classes/adminhandler.php:822
 msgid "Hide Spam Count"
 msgstr "Spam Sayısını Sakla"
 
-#: system/classes/adminhandler.php:847
+#: system/classes/adminhandler.php:824
 msgid "Hide the number of SPAM comments on your dashboard."
 msgstr "Kontrol panelinizdeki SPAM yorum sayısını sakla."
 
-#: system/classes/adminhandler.php:858
+#: system/classes/adminhandler.php:835
 #, php-format
 msgid "Reassign posts to: %s"
 msgstr "Gönderileri yeniden ata: %s"
 
-#: system/classes/adminhandler.php:904
+#: system/classes/adminhandler.php:881
 #, php-format
 msgid "%s has been deleted"
 msgstr "%s silindi"
 
-#: system/classes/adminhandler.php:909 system/classes/adminhandler.php:1047
+#: system/classes/adminhandler.php:886 system/classes/adminhandler.php:1024
 msgid "You cannot delete yourself."
 msgstr "Kendinizi silemezsiniz."
 
-#: system/classes/adminhandler.php:917
+#: system/classes/adminhandler.php:894
 #, php-format
 msgid "%1$s has been renamed to %2$s."
 msgstr "%1$s yeniden adlandırıldı %2$s."
 
-#: system/classes/adminhandler.php:930
+#: system/classes/adminhandler.php:907
 msgid "Password changed."
 msgstr "Şifre değiştirildi."
 
-#: system/classes/adminhandler.php:953
+#: system/classes/adminhandler.php:930
 msgid "User updated."
 msgstr "Kullanıcı güncellendi."
 
-#: system/classes/adminhandler.php:989 system/classes/adminhandler.php:2291
-#: system/classes/adminhandler.php:2350 system/classes/adminhandler.php:2397
-#: system/classes/adminhandler.php:2764 system/classes/adminhandler.php:2975
-#: system/classes/adminhandler.php:3050
+#: system/classes/adminhandler.php:966 system/classes/adminhandler.php:2284
+#: system/classes/adminhandler.php:2343 system/classes/adminhandler.php:2390
+#: system/classes/adminhandler.php:2733 system/classes/adminhandler.php:2938
+#: system/classes/adminhandler.php:3013
 msgid "WSSE authentication failed."
 msgstr "WSSE yetkilendirme hatası."
 
-#: system/classes/adminhandler.php:1017
+#: system/classes/adminhandler.php:994
 msgid "No users deleted."
 msgstr "Kullanıcı silinmedi."
 
-#: system/classes/adminhandler.php:1054
+#: system/classes/adminhandler.php:1031
 #, php-format
 msgid "Deleted %d users."
 msgstr "%d kullanıcısı silindi."
 
-#: system/classes/adminhandler.php:1111
+#: system/classes/adminhandler.php:1088
 msgid "Password is required."
 msgstr "Şifre gerekli."
 
-#: system/classes/adminhandler.php:1117
+#: system/classes/adminhandler.php:1094
 msgid "Please supply a valid email address."
 msgstr "Lütfen geçerli bir email adresi veriniz."
 
-#: system/classes/adminhandler.php:1120
+#: system/classes/adminhandler.php:1097
 msgid "Please supply a user name."
 msgstr "Ltfen kullanıcı adı giriniz."
 
-#: system/classes/adminhandler.php:1125
+#: system/classes/adminhandler.php:1102
 msgid "That username is already assigned."
 msgstr "Kullanıcı adı önceden atanmış."
 
-#: system/classes/adminhandler.php:1130
+#: system/classes/adminhandler.php:1107
 #, php-format
 msgid "Added user '%s'"
 msgstr "Eklenen kullanıcı '%s'"
 
-#: system/classes/adminhandler.php:1175
+#: system/classes/adminhandler.php:1152
 #, php-format
 msgid "Activated plugin '%s'"
 msgstr "Aktif edilen eklenti '%s'"
 
-#: system/classes/adminhandler.php:1184
+#: system/classes/adminhandler.php:1161
 #, php-format
 msgid "Deactivated plugin '%s'"
 msgstr "Pasif edilen eklenti '%s'"
 
-#: system/classes/adminhandler.php:1284
+#: system/classes/adminhandler.php:1262
 #, php-format
 msgid "Activated theme '%s'"
 msgstr "Aktif edilen tema '%s'"
 
-#: system/classes/adminhandler.php:1298
+#: system/classes/adminhandler.php:1276
 #, php-format
 msgid "Ended the preview of the theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1302
+#: system/classes/adminhandler.php:1280
 #, php-format
 msgid "Previewing theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1384
+#: system/classes/adminhandler.php:1375
 msgid "Author"
 msgstr "Yazar"
 
-#: system/classes/adminhandler.php:1386
+#: system/classes/adminhandler.php:1377
 msgid "Author Name"
 msgstr "Yazarın Adı"
 
-#: system/classes/adminhandler.php:1389
+#: system/classes/adminhandler.php:1380
 msgid "Author Email"
 msgstr "Yazarın E-postası"
 
-#: system/classes/adminhandler.php:1392
+#: system/classes/adminhandler.php:1383
 msgid "Author URL"
 msgstr "Yazarın URL 'si"
 
-#: system/classes/adminhandler.php:1395
+#: system/classes/adminhandler.php:1386
 msgid "IP Address:"
 msgstr "IP Adresi"
 
-#: system/classes/adminhandler.php:1402
+#: system/classes/adminhandler.php:1393
 msgid "Date:"
 msgstr "Tarih"
 
-#: system/classes/adminhandler.php:1407
+#: system/classes/adminhandler.php:1398
 msgid "Post ID:"
 msgstr "Gönderi ID:"
 
-#: system/classes/adminhandler.php:1412
+#: system/classes/adminhandler.php:1403
 msgid "Status"
 msgstr "Durum"
 
-#: system/classes/adminhandler.php:1601 system/classes/adminhandler.php:2424
+#: system/classes/adminhandler.php:1592 system/classes/adminhandler.php:1593
+#: system/classes/adminhandler.php:2417
 msgid "Deleted all spam comments"
 msgstr "Silinen btn spam yorumlar"
 
-#: system/classes/adminhandler.php:1607 system/classes/adminhandler.php:2428
+#: system/classes/adminhandler.php:1599 system/classes/adminhandler.php:1600
+#: system/classes/adminhandler.php:2421
 msgid "Deleted all unapproved comments"
 msgstr "Onaylanmayan yorumlar silindi"
 
-#: system/classes/adminhandler.php:1641 system/classes/adminhandler.php:1655
+#: system/classes/adminhandler.php:1634 system/classes/adminhandler.php:1648
 #, php-format
 msgid "Deleted %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1642 system/classes/adminhandler.php:1662
+#: system/classes/adminhandler.php:1635 system/classes/adminhandler.php:1655
 #, php-format
 msgid "Marked %d comments as spam"
 msgstr ""
 
-#: system/classes/adminhandler.php:1643 system/classes/adminhandler.php:1670
+#: system/classes/adminhandler.php:1636 system/classes/adminhandler.php:1663
 #, php-format
 msgid "Approved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1644 system/classes/adminhandler.php:1681
+#: system/classes/adminhandler.php:1637 system/classes/adminhandler.php:1674
 #, php-format
 msgid "Unapproved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1645 system/classes/adminhandler.php:1704
+#: system/classes/adminhandler.php:1638 system/classes/adminhandler.php:1697
 #, php-format
 msgid "Edited %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1672
+#: system/classes/adminhandler.php:1665
 #, php-format
 msgid "Approved comments on these posts: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:1775
+#: system/classes/adminhandler.php:1768
 #, php-format
 msgid "Change this comment's status to %s"
 msgstr "Yorum statüsünü %s olarak değiştir."
 
-#: system/classes/adminhandler.php:1779
+#: system/classes/adminhandler.php:1772
 msgid "Delete this comment"
 msgstr "Bu yorumu sil"
 
-#: system/classes/adminhandler.php:1780
+#: system/classes/adminhandler.php:1773
 msgid "Edit this comment"
 msgstr "Bu yorumu düzenle"
 
-#: system/classes/adminhandler.php:1850 system/classes/adminhandler.php:1888
+#: system/classes/adminhandler.php:1843 system/classes/adminhandler.php:1882
 msgid "Deactivate"
 msgstr "Pasifleştir"
 
-#: system/classes/adminhandler.php:1932 system/installer/db_setup.php:10
-#: system/installer/db_setup.php:165 system/installer/db_setup.php:220
+#: system/classes/adminhandler.php:1926 system/installer/db_setup.php:11
+#: system/installer/db_setup.php:166 system/installer/db_setup.php:221
 msgid "Help"
 msgstr "Yardım"
 
-#: system/classes/adminhandler.php:2148 system/classes/adminhandler.php:2149
+#: system/classes/adminhandler.php:2141 system/classes/adminhandler.php:2142
 msgid "Manage Posts"
 msgstr "Yazıları Düzenle"
 
-#: system/classes/adminhandler.php:2179
+#: system/classes/adminhandler.php:2172
 msgid "Modules updated."
 msgstr ""
 
-#: system/classes/adminhandler.php:2184
+#: system/classes/adminhandler.php:2177
 #, php-format
 msgid "Added module %s."
 msgstr ""
 
-#: system/classes/adminhandler.php:2190
+#: system/classes/adminhandler.php:2183
 msgid "Removed module."
 msgstr ""
 
-#: system/classes/adminhandler.php:2311 system/classes/adminhandler.php:2419
+#: system/classes/adminhandler.php:2304 system/classes/adminhandler.php:2412
 #, php-format
 msgid "Unknown action \"%s\""
 msgstr "Bilinmeyen eylem \"%s\""
 
-#: system/classes/adminhandler.php:2322
+#: system/classes/adminhandler.php:2315
 msgid "You did not have permission to delete some entries."
 msgstr ""
 
-#: system/classes/adminhandler.php:2325
+#: system/classes/adminhandler.php:2318
 #, php-format
 msgid "Deleted %d post"
 msgid_plural "Deleted %d posts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2363
+#: system/classes/adminhandler.php:2356
 msgid "No logs selected."
 msgstr ""
 
-#: system/classes/adminhandler.php:2375
+#: system/classes/adminhandler.php:2368
 #, php-format
 msgid "Deleted %d logs."
 msgstr "Silinen %d kayıt."
 
-#: system/classes/adminhandler.php:2379
-msgid "Logs purged."
-msgstr ""
-
-#: system/classes/adminhandler.php:2412
+#: system/classes/adminhandler.php:2405
 msgid "No comments selected."
 msgstr "Yorum seçilmedi."
 
-#: system/classes/adminhandler.php:2433
+#: system/classes/adminhandler.php:2426
 #, php-format
 msgid "Deleted %d comment"
 msgid_plural "Deleted %d comments"
 msgstr[0] "Silinen %d yorum"
 
-#: system/classes/adminhandler.php:2438
+#: system/classes/adminhandler.php:2431
 #, php-format
 msgid "Marked %d comment as spam"
 msgid_plural "Marked %d comments as spam"
 msgstr[0] "%d spam olarak işaretlendi"
 
-#: system/classes/adminhandler.php:2444
+#: system/classes/adminhandler.php:2437
 #, php-format
 msgid "Approved %d comment"
 msgid_plural "Approved %d comments"
 msgstr[0] "Onaylanan %d yorum"
 
-#: system/classes/adminhandler.php:2450
+#: system/classes/adminhandler.php:2443
 #, php-format
 msgid "Unapproved %d comment"
 msgid_plural "Unapproved %d comments"
 msgstr[0] "Onaylanmayan %d yorum"
 
-#: system/classes/adminhandler.php:2783
+#: system/classes/adminhandler.php:2752
 #, php-format
 msgid "The group %s already exists"
 msgstr "Grup %s önceden bulunuyor"
 
-#: system/classes/adminhandler.php:2792
+#: system/classes/adminhandler.php:2761
 msgid "The group must have a name"
 msgstr "Grubun ismi olmak zorunda"
 
-#: system/classes/adminhandler.php:2805
+#: system/classes/adminhandler.php:2774
 #, php-format
 msgid "Added group %s"
 msgstr "Eklenen grup %s"
 
-#: system/classes/adminhandler.php:2842
+#: system/classes/adminhandler.php:2811
 msgid "No groups deleted."
 msgstr "Hiç grup silinmedi."
 
-#: system/classes/adminhandler.php:2856
+#: system/classes/adminhandler.php:2825
 #, php-format
 msgid "Deleted %d groups."
 msgstr "Silinen %d grup."
 
-#: system/classes/adminhandler.php:3021
+#: system/classes/adminhandler.php:2984
 msgid "Updated permissions."
 msgstr "Güncel izinler."
 
-#: system/classes/adminhandler.php:3069
+#: system/classes/adminhandler.php:3033
 #, php-format
 msgid "Tag %s has been deleted."
-msgid_plural "Tags %s have been deleted."
-msgstr[0] "Etiket %s silindi."
+msgstr ""
 
-#: system/classes/adminhandler.php:3094
+#: system/classes/adminhandler.php:3033
+#, php-format
+msgid "%d tags have been deleted."
+msgstr ""
+
+#: system/classes/adminhandler.php:3055
 #, php-format
 msgid "Tag %1$s has been renamed to %2$s."
 msgid_plural "Tags %1$s have been renamed to %2$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:3120 system/classes/adminhandler.php:3122
+#: system/classes/adminhandler.php:3081 system/classes/adminhandler.php:3083
 msgid "Habari Version"
 msgstr "Habari Versiyonu"
 
-#: system/classes/adminhandler.php:3125
+#: system/classes/adminhandler.php:3086
 msgid "Habari API Version"
 msgstr "Habari API Versiyonu"
 
-#: system/classes/adminhandler.php:3126
+#: system/classes/adminhandler.php:3087
 msgid "Habari DB Version"
 msgstr "Habari DB Versiyonu"
 
-#: system/classes/adminhandler.php:3127
+#: system/classes/adminhandler.php:3088
 msgid "Active Theme"
 msgstr "Etkin Tema"
 
-#: system/classes/adminhandler.php:3128
+#: system/classes/adminhandler.php:3089
 msgid "Site Language"
 msgstr "Site Dili"
 
-#: system/classes/adminhandler.php:3132
+#: system/classes/adminhandler.php:3093
 msgid "PHP Version"
 msgstr "PHP Versiyonu"
 
-#: system/classes/adminhandler.php:3133
+#: system/classes/adminhandler.php:3094
 msgid "Server Software"
 msgstr "Sunucu Yazılımı"
 
-#: system/classes/adminhandler.php:3134
+#: system/classes/adminhandler.php:3095
 msgid "Database"
 msgstr "Veri Tabanı"
 
-#: system/classes/adminhandler.php:3135
+#: system/classes/adminhandler.php:3096
 msgid "PHP Extensions"
 msgstr "PHP Ekleri"
 
-#: system/classes/adminhandler.php:3137 system/classes/adminhandler.php:3146
+#: system/classes/adminhandler.php:3098 system/classes/adminhandler.php:3107
 msgid "PCRE Version"
 msgstr "PCRE Versiyonu"
 
-#: system/classes/adminhandler.php:3148
+#: system/classes/adminhandler.php:3109
 msgid "Browser"
 msgstr "Tarayıcı"
 
-#: system/classes/adminhandler.php:3228
+#: system/classes/adminhandler.php:3189
 #, php-format
 msgid "Create a new %s"
 msgstr "Yeni bir %s oluştur"
 
-#: system/classes/adminhandler.php:3232
+#: system/classes/adminhandler.php:3193
 #, php-format
 msgid "Manage %s"
 msgstr "%s'i Düzenle"
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3212
 msgid "Create content"
 msgstr "İçerik oluştur"
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3212
 msgid "New"
 msgstr "Yeni"
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3213
 msgid "Manage content"
 msgstr "İçeriği yönet"
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3213
 msgid "Manage"
 msgstr "Yönet"
 
-#: system/classes/adminhandler.php:3253
+#: system/classes/adminhandler.php:3214
 msgid "Manage comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:3254
+#: system/classes/adminhandler.php:3215
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:630
 msgid "Tags"
 msgstr "Etiketler"
 
-#: system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:3216
 msgid "View your user dashboard"
 msgstr "Kullanıcı panelinizi görüntüleyin"
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3217
 msgid "View and configure site options"
 msgstr ""
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3217
 msgid "Options"
 msgstr "Seçenekler"
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3218
 msgid "Preview and activate themes"
 msgstr "Temalara ön izleme yapın ve aktifleştirin"
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3218
 msgid "Themes"
 msgstr "Temalar"
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3219
 msgid "Activate, deactivate, and configure plugins"
 msgstr "Eklentileri aktifleştirin, pasifleştirin ve ayarlayın"
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3219
 msgid "Plugins"
 msgstr "Eklentiler"
 
-#: system/classes/adminhandler.php:3259
+#: system/classes/adminhandler.php:3220
 msgid "Import content from another site"
 msgstr ""
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3221
 msgid "View and manage users"
 msgstr "Kullanıcıları görüntüle ve düzenle"
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3221
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3222
 msgid "Manage your user profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3222
 msgid "My Profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3223
 msgid "View and manage groups"
 msgstr "Grupları görüntüle ve yönet"
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3223
 msgid "Groups"
 msgstr "Grup"
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3224
 msgid "View system log messages"
 msgstr "Sistem kayıt mesajlarını görüntüle"
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3224
 msgid "Logs"
 msgstr "Kayıtlar"
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3225
 msgid "Log out of the administration interface"
 msgstr "Admin arayznbden çıkış yap"
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3225
+#: system/plugins/coreblocks/coreblocks.plugin.php:326
 msgid "Logout"
 msgstr "Çıkış"
 
-#: system/classes/adminhandler.php:3499
+#: system/classes/adminhandler.php:3460
 msgid "Entry"
 msgstr "Yazı"
 
-#: system/classes/adminhandler.php:3500
+#: system/classes/adminhandler.php:3461
 msgid "Entries"
 msgstr "Yazılar"
 
-#: system/classes/adminhandler.php:3503
+#: system/classes/adminhandler.php:3464
 msgid "Page"
 msgstr "Sayfa"
 
-#: system/classes/adminhandler.php:3504
+#: system/classes/adminhandler.php:3465
 msgid "Pages"
 msgstr "Sayfalar"
 
-#: system/classes/adminhandler.php:3553
+#: system/classes/adminhandler.php:3514
 msgid "Root"
 msgstr "Kök"
 
-#: system/classes/adminhandler.php:3669
+#: system/classes/adminhandler.php:3640
 msgid "A new block must first have a name."
 msgstr ""
 
-#: system/classes/adminhandler.php:3685
+#: system/classes/adminhandler.php:3656
 #, php-format
 msgid "Added new block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3709
+#: system/classes/adminhandler.php:3679
 #, php-format
 msgid "Deleted block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3712
+#: system/classes/adminhandler.php:3682
 #, php-format
 msgid "Failed to delete block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3753
+#: system/classes/adminhandler.php:3729
 msgid "Saved block areas settings."
 msgstr ""
 
-#: system/classes/adminhandler.php:3797
+#: system/classes/adminhandler.php:3772
 msgid "+"
 msgstr "+"
 
-#: system/classes/remoterequest.php:112
-msgid "Trying to add a request body to a non-POST request"
+#: system/classes/remoterequest.php:29
+#: system/classes/curlrequestprocessor.php:185
+msgid "Unable to get response body. Request did not yet execute."
 msgstr ""
 
-#: system/classes/remoterequest.php:168
+#: system/classes/remoterequest.php:38
+#: system/classes/curlrequestprocessor.php:194
+msgid "Unable to get response headers. Request did not yet execute."
+msgstr ""
+
+#: system/classes/remoterequest.php:218
+msgid "Trying to add a request body to a GET request."
+msgstr ""
+
+#: system/classes/remoterequest.php:275
 #, php-format
 msgid "File %s not found."
 msgstr ""
 
-#: system/classes/remoterequest.php:266
-msgid "Trying to fetch response headers for a pending request."
+#: system/classes/remoterequest.php:375
+msgid "Unable to fetch response headers for a pending request."
 msgstr ""
 
-#: system/classes/remoterequest.php:277
-msgid "Trying to fetch response body for a pending request."
+#: system/classes/remoterequest.php:388
+msgid "Unable to fetch response body for a pending request."
 msgstr ""
 
 #: system/classes/update.php:36
 msgid "Invalid Beacon information added"
+msgstr ""
+
+#: system/classes/update.php:198
+msgid "Updates check CronJob completed successfully."
+msgstr ""
+
+#: system/classes/update.php:206
+msgid "Updates check CronJob failed!"
+msgstr ""
+
+#: system/classes/update.php:274
+msgid ""
+"Perform a single check for plugin updates, the plugin set has changed."
 msgstr ""
 
 #: system/classes/colorutils.php:35
@@ -2902,40 +3008,95 @@ msgstr ""
 msgid "Message count (%d) out of bounds in %s!"
 msgstr ""
 
-#: system/classes/habaridatetime.php:374
+#: system/classes/habaridatetime.php:391
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:395
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:399
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:403
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:407
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:411
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:422
+#, php-format
+msgid "%s from now"
+msgstr ""
+
+#: system/classes/habaridatetime.php:425
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: system/classes/habaridatetime.php:444
 msgid "just now"
 msgstr ""
 
-#: system/classes/habaridatetime.php:377
+#: system/classes/habaridatetime.php:448
 #, php-format
-msgid "%d minutes ago"
-msgstr ""
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: system/classes/habaridatetime.php:381
+#: system/classes/habaridatetime.php:452
 #, php-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:385
+#: system/classes/habaridatetime.php:456
 #, php-format
 msgid "yesterday"
 msgid_plural "%d days ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:389
+#: system/classes/habaridatetime.php:460
 #, php-format
 msgid "last week"
 msgid_plural "%d weeks ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:392
+#: system/classes/habaridatetime.php:464
 #, php-format
 msgid "last month"
 msgid_plural "%d months ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:468
+#, php-format
+msgid "last year"
+msgid_plural "%d years ago"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -2947,22 +3108,22 @@ msgstr ""
 msgid "There is no valid theme currently installed."
 msgstr "Şu anda yüklü geçerli tema yok."
 
-#: system/classes/themes.php:157
+#: system/classes/themes.php:185
 #, php-format
 msgid "Activated Theme: %s"
 msgstr "Aktif Edilen Tema: %s"
 
-#: system/classes/themes.php:170
+#: system/classes/themes.php:203
 #, php-format
 msgid "Previewed Theme: %s"
 msgstr ""
 
-#: system/classes/themes.php:179
+#: system/classes/themes.php:212
 #, php-format
 msgid "Canceled Theme Preview: %s"
 msgstr ""
 
-#: system/classes/themes.php:222 system/classes/themes.php:231
+#: system/classes/themes.php:255 system/classes/themes.php:264
 msgid "Theme not installed."
 msgstr "Tema yüklenmedi."
 
@@ -3002,40 +3163,33 @@ msgstr "Yorumunuza herhangi bir içerik girmediniz."
 msgid "Comments on this post are disabled!"
 msgstr "Bu yazıdaki yorumlar engellendi!"
 
-#: system/classes/feedbackhandler.php:145
+#: system/classes/feedbackhandler.php:148
 msgid "Comment contains only whitespace/empty comment"
 msgstr "Yorum sadece boşluk içeriyor"
 
-#: system/classes/feedbackhandler.php:171
+#: system/classes/feedbackhandler.php:174
 msgid "You do not have permission to create comments."
 msgstr ""
 
-#: system/classes/feedbackhandler.php:193
+#: system/classes/feedbackhandler.php:200
 msgid "Your comment is pending moderation."
 msgstr "Yorumunuz onay bekliyor."
 
-#: system/classes/curlrequestprocessor.php:74
-#, php-format
-msgid " %s: CURL Error. Unable to create temporary file name."
+#: system/classes/curlrequestprocessor.php:92
+msgid "CURL Error. Unable to create temporary file name."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:79
-#, php-format
-msgid " %s: CURL Error. Unable to open temporary file."
+#: system/classes/curlrequestprocessor.php:97
+msgid "CURL Error. Unable to open temporary file."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:98
+#: system/classes/curlrequestprocessor.php:132
 #, php-format
-msgid "%s: CURL Error %d: %s"
-msgstr "%s: CURL Hatası %d: %s"
-
-#: system/classes/curlrequestprocessor.php:103
-#, php-format
-msgid "Bad return code (%1$d) for: %2$s"
+msgid "CURL Error %1$d: %2$s"
 msgstr ""
 
-#: system/classes/logentry.php:172 system/classes/logentry.php:263
-#: system/classes/logentry.php:275
+#: system/classes/logentry.php:172 system/classes/logentry.php:269
+#: system/classes/logentry.php:282
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
@@ -3095,73 +3249,88 @@ msgstr "tam"
 msgid "none"
 msgstr "hiçbiri"
 
-#: system/classes/term.php:163
+#: system/classes/term.php:145
 #, php-format
 msgid "New term %1$s: %2$s"
 msgstr ""
 
-#: system/classes/term.php:216
+#: system/classes/term.php:204
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugins.php:411
+#: system/classes/plugins.php:270
+#, php-format
+msgid "Plugin \"%1$s\" deactivated because it could no longer be found."
+msgstr ""
+
+#: system/classes/plugins.php:420
+#, php-format
+msgid "Invalid plugin XML file: %1$s"
+msgstr ""
+
+#: system/classes/plugins.php:519
 #, php-format
 msgid "Activated Plugin: %s"
 msgstr "Etkinleştirilen Eklenti: %s"
 
-#: system/classes/plugins.php:441
+#: system/classes/plugins.php:555
 #, php-format
 msgid "Deactivated Plugin: %s"
 msgstr "Etkisizleştirilen Eklenti: %s"
 
-#: system/classes/plugins.php:541
+#: system/classes/plugins.php:662
 #, php-format
 msgid ""
 "Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
 "<div class=\"reveal\">%s</div>"
 msgstr ""
 
-#: system/classes/formui.php:771
-msgid "Value must be a valid URL."
-msgstr "Değer geçerli bir URL olamlıdır."
+#: system/classes/formui.php:798
+msgid "Relative urls are not allowed"
+msgstr ""
 
-#: system/classes/formui.php:791
+#: system/classes/formui.php:804
+#, php-format
+msgid "Only %s urls are allowed"
+msgstr ""
+
+#: system/classes/formui.php:825
 msgid "Value must be a valid Email Address."
 msgstr "Değer geçerli bir E-posta Adresi olmalıdır."
 
-#: system/classes/formui.php:809
+#: system/classes/formui.php:844
 msgid "A value for this field is required."
 msgstr "Bu bölgeye bir değer girmeniz gerek."
 
-#: system/classes/formui.php:831
+#: system/classes/formui.php:866
 msgid "That username is already in use!"
 msgstr "Kullanıcı adı kullanımda!"
 
-#: system/classes/formui.php:851
+#: system/classes/formui.php:886
 #, php-format
 msgid "The value of this field must match the value of %s."
 msgstr "Bu alanın değeri %s değeri ile eşleşmelidir."
 
-#: system/classes/formui.php:874
+#: system/classes/formui.php:909
 msgid "The value does not meet submission requirements"
 msgstr "Girdiğiniz değer gereken koşulları karşılamıyor"
 
-#: system/classes/formui.php:895
+#: system/classes/formui.php:930
 #, php-format
 msgid "The value entered is lesser than the minimum of %d."
 msgstr "Girilen değer %d minumum değerinden az."
 
-#: system/classes/formui.php:901
+#: system/classes/formui.php:936
 #, php-format
 msgid "The value entered is greater than the maximum of %d."
 msgstr "Girilen değer %d maximum değerinden fazla."
 
-#: system/classes/formui.php:1595
+#: system/classes/formui.php:1637
 msgid "Remove this item?"
 msgstr "Bu öğeyi kaldır?"
 
-#: system/classes/theme.php:259
+#: system/classes/theme.php:258
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
@@ -3169,19 +3338,19 @@ msgstr ""
 "Oooops! 404 Hatası. Ulaşmaya çalıştığınız sayfa yerinde yok. Lütfen tekrar "
 "deneyin."
 
-#: system/classes/theme.php:780
+#: system/classes/theme.php:797
 msgid "Previous"
 msgstr "Önceki"
 
-#: system/classes/theme.php:807
+#: system/classes/theme.php:824
 msgid "Next"
 msgstr "Sonraki"
 
-#: system/classes/theme.php:833
+#: system/classes/theme.php:850
 msgid "Read Comments"
 msgstr "Yorumları Oku"
 
-#: system/classes/theme.php:859
+#: system/classes/theme.php:876
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"
@@ -3254,20 +3423,24 @@ msgstr "Son Sayfa"
 msgid "%1$s on \"%2$s\""
 msgstr "%1$s üzerinde \"%2$s\""
 
-#: system/classes/databaseconnection.php:256
+#: system/classes/databaseconnection.php:257
 msgid "Attempt to fetch in class mode with a non-included class"
 msgstr ""
 
-#: system/classes/inputfilter.php:372
+#: system/classes/crontab.php:73
+msgid "CronTab run completed."
+msgstr ""
+
+#: system/classes/inputfilter.php:388
 #, php-format
 msgid "Unkown attribute type \"%s\" in %s"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:20
+#: system/plugins/wpimport/wpimport.plugin.php:25
 msgid "WordPress Database"
 msgstr "Wordpress Veri Tabanı"
 
-#: system/plugins/wpimport/wpimport.plugin.php:62
+#: system/plugins/wpimport/wpimport.plugin.php:66
 msgid ""
 "Could not connect to the WordPress database using the values supplied. "
 "Please correct them and try again."
@@ -3275,113 +3448,133 @@ msgstr ""
 "Verilen değerlerle WordPress veritabanına bağlanılamadı. Lütfen düzeltin ve "
 "tekrar deneyin."
 
-#: system/plugins/wpimport/wpimport.plugin.php:105
-msgid "Habari will attempt to import from a WordPress Database."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:107
-msgid ""
-"Please provide the connection details for an existing WordPress database:"
-msgstr ""
-
 #: system/plugins/wpimport/wpimport.plugin.php:109
-#: system/installer/db_setup.php:72 system/installer/db_setup.php:119
+msgid "Habari will attempt to import from a WordPress database."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:119
+#: system/plugins/wpimport/wpimport.plugin.php:201
+#: system/installer/db_setup.php:73 system/installer/db_setup.php:120
 msgid "Database Name"
 msgstr "Veri Tabanı Adı"
 
-#: system/plugins/wpimport/wpimport.plugin.php:112
-#: system/installer/db_setup.php:39 system/installer/db_setup.php:86
+#: system/plugins/wpimport/wpimport.plugin.php:123
+#: system/plugins/wpimport/wpimport.plugin.php:204
+#: system/installer/db_setup.php:40 system/installer/db_setup.php:87
 msgid "Database Host"
 msgstr "Veri Tabanı Sunucusu"
 
-#: system/plugins/wpimport/wpimport.plugin.php:115
+#: system/plugins/wpimport/wpimport.plugin.php:127
+#: system/plugins/wpimport/wpimport.plugin.php:207
 msgid "Database User"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:118
+#: system/plugins/wpimport/wpimport.plugin.php:131
+#: system/plugins/wpimport/wpimport.plugin.php:210
 msgid "Database Password"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:121
-#: system/installer/db_setup.php:145
+#: system/plugins/wpimport/wpimport.plugin.php:135
+#: system/plugins/wpimport/wpimport.plugin.php:213
+#: system/installer/db_setup.php:146
 msgid "Table Prefix"
 msgstr "Tablo Ön Eki"
 
-#: system/plugins/wpimport/wpimport.plugin.php:124
-msgid "Import Category as Tag"
+#: system/plugins/wpimport/wpimport.plugin.php:139
+#: system/plugins/wpimport/wpimport.plugin.php:216
+msgid "Import Categories as Tags"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:128
-msgid "Extras - additional data from WordPress plugins"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:130
-msgid "Import tags from Ultimate Tag Warrior"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:158
+#: system/plugins/wpimport/wpimport.plugin.php:161
 #, php-format
 msgid "Starting import from \"%s\""
 msgstr "\"%s\" hedefinden içe aktarım başlıyor"
 
 #: system/plugins/wpimport/wpimport.plugin.php:163
-msgid "Import In Progress"
+msgid "Import in Progress"
 msgstr ""
 
 #: system/plugins/wpimport/wpimport.plugin.php:164
-msgid "Starting Import..."
+msgid "Starting Import&hellip;"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:245
-#, php-format
-msgid "Importing posts %1$d - %2$d of %3$d."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:358
-#, php-format
-msgid ""
-"Post author id %1$s was not found in WP database, assigning post \"%2$s\" "
-"(WP post id #%3$d) to current user."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:436
-#: system/plugins/wpimport/wpimport.plugin.php:533
-#: system/plugins/wpimport/wpimport.plugin.php:672
+#: system/plugins/wpimport/wpimport.plugin.php:260
+#: system/plugins/wpimport/wpimport.plugin.php:261
+#: system/plugins/wpimport/wpimport.plugin.php:367
+#: system/plugins/wpimport/wpimport.plugin.php:368
+#: system/plugins/wpimport/wpimport.plugin.php:591
+#: system/plugins/wpimport/wpimport.plugin.php:592
 #, php-format
 msgid "Failed to import from \"%s\""
 msgstr "\"%s\" hedefinden içe aktarım başarısız"
 
-#: system/plugins/wpimport/wpimport.plugin.php:438
-msgid "The database connection details have failed to connect."
-msgstr "Veri tabanı bağlantı datayları bağlanmayı başaramadı."
-
-#: system/plugins/wpimport/wpimport.plugin.php:473
-msgid "Importing users..."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:535
-#: system/plugins/wpimport/wpimport.plugin.php:674
+#: system/plugins/wpimport/wpimport.plugin.php:262
+#: system/plugins/wpimport/wpimport.plugin.php:369
+#: system/plugins/wpimport/wpimport.plugin.php:593
 msgid "Failed to connect using the given database connection details."
 msgstr ""
 "Verilen veri tabanı bağlantı detaylarını kullanarak bağlanma başarısız oldu."
 
-#: system/plugins/wpimport/wpimport.plugin.php:559
-#, php-format
-msgid "Importing comments %1$d - %2$d of %3$d"
+#: system/plugins/wpimport/wpimport.plugin.php:273
+msgid "Importing Users&hellip;"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:655
+#: system/plugins/wpimport/wpimport.plugin.php:288
+#: system/plugins/wpimport/wpimport.plugin.php:290
 #, php-format
-msgid "Import complete from \"%s\""
+msgid "Associated imported user %1$s with existing user %2$s"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:656
+#: system/plugins/wpimport/wpimport.plugin.php:315
+#: system/plugins/wpimport/wpimport.plugin.php:317
+#, php-format
+msgid "Created new user %1$s. Their old ID was %2$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:325
+#, php-format
+msgid ""
+"There was an error importing user %s. See the EventLog for the error "
+"message. "
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:327
+#: system/plugins/wpimport/wpimport.plugin.php:532
+#: system/plugins/wpimport/wpimport.plugin.php:736
+msgid "Rolling back changes&hellip;"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:385
+#, php-format
+msgid "Importing posts %1$d - %2$d of %3$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:530
+#, php-format
+msgid ""
+"There was an error importing post %s. See the EventLog for the error message."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:609
+#, php-format
+msgid "Importing comments %1$d - %2$d of %3$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:734
+#, php-format
+msgid ""
+"There was an error importing comment ID %d. See the EventLog for the error "
+"message."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:768
+#, php-format
+msgid "Import completed from \"%s\""
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:769
 msgid "Import is complete."
 msgstr "İçe aktarım tamam."
-
-#: system/plugins/wpimport/wpimport.plugin.php:660
-msgid "There were errors during import:"
-msgstr "İçe aktarım sırasında hatalar oluştu."
 
 #: system/plugins/coredashmodules/dash_latestcomments.php:5
 #, php-format
@@ -3439,83 +3632,83 @@ msgstr ""
 msgid "Delete files from media silos"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:415
+#: system/plugins/habarisilo/habarisilo.plugin.php:420
 msgid "Browse"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:420
+#: system/plugins/habarisilo/habarisilo.plugin.php:425
 msgid "Create Directory"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:423
+#: system/plugins/habarisilo/habarisilo.plugin.php:428
 msgid "Delete Directory"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:459
+#: system/plugins/habarisilo/habarisilo.plugin.php:464
 msgid "Parent Directory:"
 msgstr "Ana Dizin:"
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:464
+#: system/plugins/habarisilo/habarisilo.plugin.php:469
 msgid "What would you like to call the new directory?"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:478
+#: system/plugins/habarisilo/habarisilo.plugin.php:483
 msgid "Directory:"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:483
+#: system/plugins/habarisilo/habarisilo.plugin.php:488
 msgid "Are you sure you want to delete this directory?"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:496
+#: system/plugins/habarisilo/habarisilo.plugin.php:501
 msgid "File:"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:500
+#: system/plugins/habarisilo/habarisilo.plugin.php:505
 msgid "Are you sure you want to delete this file?"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:511
+#: system/plugins/habarisilo/habarisilo.plugin.php:516
 msgid "File Uploaded: "
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:518
+#: system/plugins/habarisilo/habarisilo.plugin.php:523
 msgid "File added successfully."
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:521
+#: system/plugins/habarisilo/habarisilo.plugin.php:526
 msgid "File could not be added to the silo."
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:524
-#: system/plugins/habarisilo/habarisilo.plugin.php:633
+#: system/plugins/habarisilo/habarisilo.plugin.php:529
+#: system/plugins/habarisilo/habarisilo.plugin.php:638
 msgid "Browse the current silo path."
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:555
+#: system/plugins/habarisilo/habarisilo.plugin.php:560
 msgid "Upload to:"
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:573
+#: system/plugins/habarisilo/habarisilo.plugin.php:578
 #, php-format
 msgid "The directory name contains invalid characters: %s."
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:580
+#: system/plugins/habarisilo/habarisilo.plugin.php:585
 #, php-format
 msgid "Webserver does not have permission to create directory: %s."
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:583
+#: system/plugins/habarisilo/habarisilo.plugin.php:588
 #, php-format
 msgid "Directory: %s already exists."
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:628
+#: system/plugins/habarisilo/habarisilo.plugin.php:633
 msgid "File deleted successfully."
 msgstr ""
 
-#: system/plugins/habarisilo/habarisilo.plugin.php:630
+#: system/plugins/habarisilo/habarisilo.plugin.php:635
 msgid "Failed to delete file."
 msgstr ""
 
@@ -3648,23 +3841,172 @@ msgstr "Yorumcunun oturumu zaman aşımına uğradı."
 msgid "The selected action is forbidden."
 msgstr "Seçili hareket yasaklı."
 
-#: system/plugins/simple_private_posts/simple_private_posts.plugin.php:27
+#: system/plugins/coreblocks/coreblocks.plugin.php:36
+msgid "Site Feed"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:37
+msgid "Comments Feed"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:68
+msgid "Comments to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:126
+msgid "Posts to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:176
+msgid "Display full month names:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:177
+#: system/plugins/coreblocks/coreblocks.plugin.php:250
+msgid "Append post count:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:178
+#: system/plugins/coreblocks/coreblocks.plugin.php:251
+msgid "Preferred Output Style:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:179
+#: system/plugins/coreblocks/coreblocks.plugin.php:252
+msgid "Dropdown"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:179
+#: system/plugins/coreblocks/coreblocks.plugin.php:252
+msgid "List"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:311
+msgid "Links to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:351
+msgid "Button:"
+msgstr ""
+
+#: system/plugins/simple_private_posts/simple_private_posts.plugin.php:26
 msgid "Private Post"
 msgstr "Özel Yazı"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:784
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:614
+msgid "Search CC"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:620
+msgid "Photos"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:625
+msgid "Videos"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:635
+msgid "Sets"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:781
 msgid "This photo has no title"
 msgstr "Bu fotoğrafın başlığı yok"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:870
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:798
+msgid "De-Authorize"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:801
+msgid "Authorize"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:816
+msgid ""
+"You have already successfully authorized Habari to access your Flickr "
+"account."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:817
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:864
+msgid "Do you want to "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:817
+msgid "revoke authorization"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
+msgid "To use this plugin, you must "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
+msgid "authorize Habari to have access to your Flickr account"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
+msgid "When you have completed the authorization on Flickr, return here and "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
+msgid "confirm that the authorization was successful"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:839
+msgid ""
+"Either you have already authorized Habari to access your flickr account, or "
+"you have not yet done so.  Please "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:839
+msgid "try again"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:845
+msgid "Your authorization was set successfully."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:848
+msgid "There was a problem with your authorization:"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:863
+msgid "The Flickr Silo Plugin authorization has been deleted."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:864
+msgid "re-authorize this plugin"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:874
 msgid "Default size for images in Posts:"
 msgstr "Gönderilerdeki varsayılan resim boyutları:"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:873
-msgid "Options saved"
-msgstr "Ayarlar kaydedildi"
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Square"
+msgstr ""
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:974
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Thumbnail"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Small"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Medium"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Large"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Original Size"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:977
 msgid "Search for photos"
 msgstr "Resimler için ara"
 
@@ -3676,36 +4018,53 @@ msgstr "Girdiğiniz kullanıcı adı ve şifre Viddler' a giriş yapamadı."
 msgid "You have logged in to Viddler."
 msgstr "Viddler' a giriş yaptınız."
 
-#: system/plugins/pingback/pingback.plugin.php:295
+#: system/plugins/pingback/pingback.plugin.php:240
+#, php-format
+msgid ""
+"Unable to retrieve target, can't detect pingback endpoint. (Source: %1$s | "
+"Target: %2$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:263
+#, php-format
+msgid "Invalid Pingback endpoint - %1$s (Source: %2$s | Target: %3$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:268
+#, php-format
+msgid "Pingback error: %1$s - %2$s (Source: %3$s | Target: %4$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:339
 #, php-format
 msgid "Sent pingbacks for \"%1$s\", target: %2$s"
 msgstr "\"%1$s\" için geri bildirim yolla, hedef: %2$s"
 
-#: system/plugins/pingback/pingback.plugin.php:308
+#: system/plugins/pingback/pingback.plugin.php:352
 msgid "Send Pingbacks to Links"
 msgstr "Bağlantılara Geri Bildirim Yolla"
 
-#: system/plugins/pingback/pingback.plugin.php:334
+#: system/plugins/pingback/pingback.plugin.php:378
 #, php-format
 msgid "%d Pingbacks"
 msgstr ""
 
-#: system/plugins/pingback/pingback.plugin.php:337
+#: system/plugins/pingback/pingback.plugin.php:381
 #, php-format
 msgid "%d Pingback"
 msgstr ""
 
-#: system/plugins/pingback/pingback.plugin.php:340
+#: system/plugins/pingback/pingback.plugin.php:384
 #, php-format
 msgid "%d Pingabcks"
 msgstr ""
 
-#: system/installer/htaccess.php:7 system/installer/config.php:13
-#: system/installer/sqlite.php:7
+#: system/installer/htaccess.php:8 system/installer/config.php:14
+#: system/installer/sqlite.php:8
 msgid "help"
 msgstr "yardım"
 
-#: system/installer/htaccess.php:10
+#: system/installer/htaccess.php:11
 msgid ""
 "Your <strong>.htaccess</strong> file is not writable. In order to "
 "successfully install Habari, please paste the following into"
@@ -3713,7 +4072,7 @@ msgstr ""
 "<strong>.htaccess</strong> dosyanız yazılabilir değil. Habari'yi başarılı "
 "olarak yüklemeniz için lütfen takip edeni şunun içine yapıştırın"
 
-#: system/installer/htaccess.php:13
+#: system/installer/htaccess.php:14
 msgid ""
 "<strong>.htaccess</strong> is a file that tells your Apache web server to "
 "send requests to Habari for handling. Habari is not able to write this file "
@@ -3721,24 +4080,24 @@ msgid ""
 "continue the installation."
 msgstr ""
 
-#: system/installer/htaccess.php:14 system/installer/db_setup.php:31
-#: system/installer/db_setup.php:45 system/installer/db_setup.php:56
-#: system/installer/db_setup.php:67 system/installer/db_setup.php:78
-#: system/installer/db_setup.php:92 system/installer/db_setup.php:103
-#: system/installer/db_setup.php:114 system/installer/db_setup.php:125
-#: system/installer/db_setup.php:138 system/installer/db_setup.php:151
-#: system/installer/db_setup.php:175 system/installer/db_setup.php:185
-#: system/installer/db_setup.php:197 system/installer/db_setup.php:208
-#: system/installer/config.php:20 system/installer/sqlite.php:14
-msgid "Learn More..."
-msgstr "Daha çok öğren..."
+#: system/installer/htaccess.php:15 system/installer/db_setup.php:32
+#: system/installer/db_setup.php:46 system/installer/db_setup.php:57
+#: system/installer/db_setup.php:68 system/installer/db_setup.php:79
+#: system/installer/db_setup.php:93 system/installer/db_setup.php:104
+#: system/installer/db_setup.php:115 system/installer/db_setup.php:126
+#: system/installer/db_setup.php:139 system/installer/db_setup.php:152
+#: system/installer/db_setup.php:176 system/installer/db_setup.php:186
+#: system/installer/db_setup.php:198 system/installer/db_setup.php:209
+#: system/installer/config.php:21 system/installer/sqlite.php:15
+msgid "Learn More&hellip;"
+msgstr ""
 
-#: system/installer/htaccess.php:24 system/installer/db_setup.php:252
-#: system/installer/config.php:30 system/installer/sqlite.php:24
+#: system/installer/htaccess.php:25 system/installer/db_setup.php:253
+#: system/installer/config.php:31 system/installer/sqlite.php:25
 msgid "Install"
 msgstr "Yükle"
 
-#: system/installer/htaccess.php:27 system/installer/sqlite.php:27
+#: system/installer/htaccess.php:28 system/installer/sqlite.php:28
 msgid ""
 "When you have successfully placed the .htaccess file, run the installer "
 "again."
@@ -3746,25 +4105,25 @@ msgstr ""
 "Başarılı olarak çhtaccess dosyasını yerleştirince tekrardan yükleyiciyi "
 "çalıştır."
 
-#: system/installer/htaccess.php:28 system/installer/config.php:34
-#: system/installer/sqlite.php:28
+#: system/installer/htaccess.php:29 system/installer/config.php:35
+#: system/installer/sqlite.php:29
 msgid "Restart Installer"
 msgstr "Yükleyiciyi Yeniden Başlat"
 
-#: system/installer/db_setup.php:9
+#: system/installer/db_setup.php:10
 msgid "Database Setup"
 msgstr "Veri Tabanı Kurulumu"
 
-#: system/installer/db_setup.php:14
+#: system/installer/db_setup.php:15
 msgid "Database Type"
 msgstr "Veri Tabanı Türü"
 
-#: system/installer/db_setup.php:25
+#: system/installer/db_setup.php:26
 #, php-format
 msgid "%1$s - missing PDO driver, see help"
 msgstr "%1$s - kayıp PDO sürücüsü, yardıma bakın"
 
-#: system/installer/db_setup.php:30
+#: system/installer/db_setup.php:31
 msgid ""
 "<strong>Database Type</strong> specifies the type of database to which "
 "Habari will connect.  Changing this setting may affect the other fields that "
@@ -3776,17 +4135,17 @@ msgstr ""
 "olabilir. . Eğer kullanmak istediğiniz veritabanı listede yoksa, onu etkin "
 "hale getirmek için PDO sürücüsünü yüklemeniz gerekebilir."
 
-#: system/installer/db_setup.php:35
+#: system/installer/db_setup.php:36
 msgid "MySQL Settings"
 msgstr "MYSQL Ayarları"
 
-#: system/installer/db_setup.php:36
+#: system/installer/db_setup.php:37
 msgid ""
 "Use the settings below only if you have selected MySQL as your database "
 "engine."
 msgstr "Veri tabanı olarak MySQL seçtiyseniz aşağıdaki ayarları kullanınız."
 
-#: system/installer/db_setup.php:44
+#: system/installer/db_setup.php:45
 msgid ""
 "<strong>Database Host</strong> is the host (domain) name or server IP "
 "address of the server that runs the MySQL database to which Habari will "
@@ -3798,7 +4157,7 @@ msgstr ""
 "web sunucunuz zerinde çalışıyorsa, büyük ihtimalle, \"localhost\" bu alan "
 "için en uygun değerdir."
 
-#: system/installer/db_setup.php:55
+#: system/installer/db_setup.php:56
 msgid ""
 "<strong>Database User</strong> is the username used to connect Habari to the "
 "MySQL database."
@@ -3806,7 +4165,7 @@ msgstr ""
 "<strong>Veritabanı Kullanıcısı</strong>, Habariyi MySQL veritabanına "
 "bağlamak için kullanılan isim."
 
-#: system/installer/db_setup.php:66
+#: system/installer/db_setup.php:67
 msgid ""
 "<strong>Database Password</strong> is the password used to connect the "
 "specified user to the MySQL database."
@@ -3814,25 +4173,25 @@ msgstr ""
 "<strong>Veritabanı Şifresi</strong>, Habariyi MySQL veritabanına bağlamak "
 "için gerekli olan şifre."
 
-#: system/installer/db_setup.php:77
+#: system/installer/db_setup.php:78
 msgid ""
 "<strong>Database Name</strong> is the name of the MySQL database to which "
 "Habari will connect."
 msgstr ""
 "<strong>Veritabanı Adı</strong>, Habarinin bağlanacağı veritabanının adı."
 
-#: system/installer/db_setup.php:82
+#: system/installer/db_setup.php:83
 msgid "PostgreSQL Settings"
 msgstr "PostgreSQL Ayarları"
 
-#: system/installer/db_setup.php:83
+#: system/installer/db_setup.php:84
 msgid ""
 "Use the settings below only if you have selected PostgreSQL as your database "
 "engine."
 msgstr ""
 "Veri tabanı olarak PostgreSQL seçtiyseniz aşağıdaki ayarları kullanınız."
 
-#: system/installer/db_setup.php:91
+#: system/installer/db_setup.php:92
 msgid ""
 "<strong>Database Host</strong> is the host (domain) name or server IP "
 "address of the server that runs the PostgreSQL database to which Habari will "
@@ -3840,114 +4199,114 @@ msgid ""
 "it is, \"localhost\" is usually a good value for this field."
 msgstr ""
 
-#: system/installer/db_setup.php:102
+#: system/installer/db_setup.php:103
 msgid ""
 "<strong>Database User</strong> is the username used to connect Habari to the "
 "PostgreSQL database."
 msgstr ""
 
-#: system/installer/db_setup.php:113
+#: system/installer/db_setup.php:114
 msgid ""
 "<strong>Database Password</strong> is the password used to connect the "
 "specified user to the PostgreSQL database."
 msgstr ""
 
-#: system/installer/db_setup.php:124
+#: system/installer/db_setup.php:125
 msgid ""
 "<strong>Database Name</strong> is the name of the PostgreSQL database to "
 "which Habari will connect."
 msgstr ""
 
-#: system/installer/db_setup.php:129
+#: system/installer/db_setup.php:130
 msgid "SQLite Settings"
 msgstr "SQLite Ayarları"
 
-#: system/installer/db_setup.php:130
+#: system/installer/db_setup.php:131
 msgid ""
 "Use the settings below only if you have selected SQLite as your database "
 "engine."
 msgstr "Veri tabanı olarak SQLite seçtiyseniz aşağıdaki ayarları kullanınız."
 
-#: system/installer/db_setup.php:133
+#: system/installer/db_setup.php:134
 msgid "Data file"
 msgstr "Veri dosyası"
 
-#: system/installer/db_setup.php:138
+#: system/installer/db_setup.php:139
 msgid ""
 "<strong>Data file</strong> is the SQLite file that will store your Habari "
 "data.  This should be the path to where your data file resides, relative to "
 "the Habari user directory."
 msgstr ""
 
-#: system/installer/db_setup.php:150
+#: system/installer/db_setup.php:151
 msgid ""
 "<strong>Table Prefix</strong> is a prefix that will be appended to each "
 "table that Habari creates in the database, making it easy to distinguish "
 "those tables in the database from those of other installations."
 msgstr ""
 
-#: system/installer/db_setup.php:155
+#: system/installer/db_setup.php:156
 msgid "Check Database Connection"
 msgstr ""
 
-#: system/installer/db_setup.php:164
+#: system/installer/db_setup.php:165
 msgid "Site Configuration"
 msgstr "Site Yapılandırması"
 
-#: system/installer/db_setup.php:174
+#: system/installer/db_setup.php:175
 msgid ""
 "<strong>Site Name</strong> is the name of your site as it will appear\n"
 "\t\t\t\tto your visitors."
 msgstr ""
 
-#: system/installer/db_setup.php:185
+#: system/installer/db_setup.php:186
 msgid ""
 "<strong>Username</strong> is the username of the initial user in Habari."
 msgstr ""
 "<strong>Kullanıcı Adı</strong> Habari'deki ilk kullanıcının kullanıcı adı."
 
-#: system/installer/db_setup.php:192
+#: system/installer/db_setup.php:193
 msgid "Password (again)"
 msgstr "Şifre"
 
-#: system/installer/db_setup.php:197
+#: system/installer/db_setup.php:198
 msgid ""
 "<strong>Password</strong> is the password of the initial user in Habari. "
 "Both password fields must match."
 msgstr ""
 
-#: system/installer/db_setup.php:202
+#: system/installer/db_setup.php:203
 msgid "Admin Email"
 msgstr "Admin E-postası"
 
-#: system/installer/db_setup.php:207
+#: system/installer/db_setup.php:208
 msgid ""
 "<strong>Admin Email</strong> is the email address of the first user account."
 msgstr ""
 "<strong>Admin E-posta</strong> ilk kullanıcı hesabının e-posta adresi."
 
-#: system/installer/db_setup.php:219
+#: system/installer/db_setup.php:220
 msgid "Plugin Activation"
 msgstr "Eklenti Aktivasyonu"
 
-#: system/installer/db_setup.php:255
+#: system/installer/db_setup.php:256
 msgid ""
 "Habari now has all of the information needed to install itself on your "
 "server."
 msgstr ""
 "Artık Habari kendisini sunucunuza yüklemek için gerekli bütün bilgiye sahip."
 
-#: system/installer/db_setup.php:256 system/installer/header.php:10
+#: system/installer/db_setup.php:257 system/installer/header.php:11
 msgid "Install Habari"
 msgstr "Habari'yi Yükle"
 
-#: system/installer/config.php:16
+#: system/installer/config.php:17
 msgid ""
 "Your <strong>config.php</strong> file is not writable. In order to "
 "successfully install Habari, please paste the following into"
 msgstr ""
 
-#: system/installer/config.php:19
+#: system/installer/config.php:20
 msgid ""
 "<strong>config.php</strong> is a file that tells Habari how to connect to "
 "your database. Habari is not able to write this file to your server "
@@ -3955,37 +4314,37 @@ msgid ""
 "installation."
 msgstr ""
 
-#: system/installer/config.php:33
+#: system/installer/config.php:34
 msgid ""
 "When you have successfully placed the config file, run the installer again."
 msgstr ""
 "Yapılandırma dosyasını başarıyla yerleştirdiğinizde , yükleyiciyi tekrar "
 "çalıştırın."
 
-#: system/installer/header.php:18
+#: system/installer/header.php:19
 msgid "Read the user manual"
 msgstr "Kullanıcı kılavuzunu okuyun"
 
-#: system/installer/header.php:19
+#: system/installer/header.php:20
 msgid "Read the Habari wiki"
 msgstr "Habari wikiyi oku"
 
-#: system/installer/header.php:20
+#: system/installer/header.php:21
 msgid "Ask the community"
 msgstr "Topluluğa Sor"
 
-#: system/installer/header.php:20
+#: system/installer/header.php:21
 msgid "Mailing List"
 msgstr "Mail Listesi"
 
-#: system/installer/sqlite.php:10
+#: system/installer/sqlite.php:11
 #, php-format
 msgid ""
 "Your <b>.htaccess</b> file is not writable. In order to secure your SQLite "
 "database, please paste the following into <b>%s</b>:"
 msgstr ""
 
-#: system/installer/sqlite.php:13
+#: system/installer/sqlite.php:14
 msgid ""
 "Your SQLite database is a file on your server like any other file. You can "
 "enhance it's security by including a section in your .htaccess file that "
@@ -3994,15 +4353,15 @@ msgid ""
 "section yourself to gain the enhanced security it offers you."
 msgstr ""
 
-#: system/installer/requirements.php:4
-msgid "Before you install <em>Habari</em>..."
-msgstr "Yüklemeden önce <em>Habari</em>..."
+#: system/installer/requirements.php:5
+msgid "Before you install <em>Habari</em>&hellip;"
+msgstr ""
 
-#: system/installer/requirements.php:7
+#: system/installer/requirements.php:8
 msgid "Writable directory needed"
 msgstr "Yazılabilir klasör gerekli"
 
-#: system/installer/requirements.php:10
+#: system/installer/requirements.php:11
 msgid ""
 "Before you can install Habari, you first need to make the install directory "
 "writable by php, so that the installation script can write your "
@@ -4010,23 +4369,23 @@ msgid ""
 "server and the ownership of the directory."
 msgstr ""
 
-#: system/installer/requirements.php:13
+#: system/installer/requirements.php:14
 msgid ""
 "If your web server is part of the group which owns the directory, you'll "
 "need to add group write permissions to the directory. The procedure for this "
 "is as follows:"
 msgstr ""
 
-#: system/installer/requirements.php:17
+#: system/installer/requirements.php:18
 msgid ""
 "Open a terminal window, and then change to the installation directory:"
 msgstr "Terminal penceresi açın ve yükleme dizinini değiştirin:"
 
-#: system/installer/requirements.php:21
+#: system/installer/requirements.php:22
 msgid "Change the <em>mode</em> (permissions) of the current directory:"
 msgstr "Mevcut klasörün <em>mode</em> (izinlerini) değiştir:"
 
-#: system/installer/requirements.php:25
+#: system/installer/requirements.php:26
 msgid ""
 "<em>Note</em>: You may need to use <strong>sudo</strong> and enter an "
 "administrator password if you do not own the directory."
@@ -4034,14 +4393,14 @@ msgstr ""
 "<em>Not</em>: Dizine sahip değilseniz <strong>sudo</strong> komutunu "
 "kullanmanız ve yönetici şifrenizi girmeniz gerekebilir."
 
-#: system/installer/requirements.php:30
+#: system/installer/requirements.php:31
 msgid ""
 "If the web server is not part of the group which owns the directory, you "
 "will need to <strong>temporarily</strong> grant world write permissions to "
 "the directory:"
 msgstr ""
 
-#: system/installer/requirements.php:39
+#: system/installer/requirements.php:40
 msgid ""
 "Be sure to remove the write permissions on the directory as soon as the "
 "installation is completed."
@@ -4049,52 +4408,52 @@ msgstr ""
 "Kurulum tamamlanır tamamlanmaz, dizindeki yazma yetkilerini kaldırdığınızdan "
 "emin olunuz."
 
-#: system/installer/requirements.php:47
-msgid "PHP Upgrade needed..."
-msgstr "PHP Güncellemesi gerekli..."
+#: system/installer/requirements.php:48
+msgid "PHP Upgrade needed&hellip;"
+msgstr ""
 
-#: system/installer/requirements.php:49
+#: system/installer/requirements.php:50
 #, php-format
 msgid "requires PHP 5.2 or newer. Your current PHP version is %s."
 msgstr "PHP 5.2 veya üzeri gerekmektedir. Sizin mevcut PHP versiyonunuz %s."
 
-#: system/installer/requirements.php:60
+#: system/installer/requirements.php:61
 msgid "Missing Extensions"
 msgstr "Kayıp Ekler"
 
-#: system/installer/requirements.php:62
+#: system/installer/requirements.php:63
 msgid "requires the following PHP extensions to be installed:"
 msgstr ""
 
-#: system/installer/requirements.php:62
+#: system/installer/requirements.php:63
 msgid ""
 "Please contact your web hosting provider if you do not have access to your "
 "server."
 msgstr ""
 "Sunucuza erişiminiz yoksa lütfen sunucu sağlayacınız ile iletişime geçin."
 
-#: system/installer/requirements.php:69
+#: system/installer/requirements.php:70
 msgid ""
 "requires PHP's PCRE extension to have Unicode support enabled. Please "
 "contact your web hosting provider if you do not have access to your server."
 msgstr ""
 
-#: system/installer/requirements.php:75
+#: system/installer/requirements.php:76
 msgid "No PDO drivers enabled"
 msgstr "Etkin PDO sürücüsü yok"
 
-#: system/installer/requirements.php:76
+#: system/installer/requirements.php:77
 msgid ""
 "requires that at least one <a href=\"http://www.php.net/pdo\">PDO driver</a> "
 "be installed. Please ask your hosting provider to enable one of the PDO "
 "drivers supported by Habari."
 msgstr ""
 
-#: system/installer/requirements.php:80
+#: system/installer/requirements.php:81
 msgid "mod_rewrite not enabled"
 msgstr ""
 
-#: system/installer/requirements.php:81
+#: system/installer/requirements.php:82
 msgid ""
 "You have Apache, but mod_rewrite is not enabled. To use Habari, you must "
 "enable mod_rewrite in your server configuration. "
@@ -4112,6 +4471,291 @@ msgstr "Habari Genel Hata"
 msgid "An error occurred"
 msgstr "Bir hata meydana geldi"
 
-#: system/index.php:112
+#: system/index.php:113
+#, php-format
+msgid "Unable to connect to database.  Error message: %s"
+msgstr ""
+
+#: system/index.php:114
 msgid "Unable to connect to database."
 msgstr "Veri tabanıyla bağlantı kurulamadı."
+
+#~ msgid "Directory Created:"
+#~ msgstr "Dizin Yaratıldı:"
+
+#~ msgid "<p>Importing users...</p>"
+#~ msgstr "<p>Kullanıcılar içe aktarılıyor...</p>"
+
+#~ msgid "Enter the name of the new directory to create here"
+#~ msgstr "Buraya oluşturmak için yeni dizinin ismini gir"
+
+#~ msgid "The database connection details have failed to connect."
+#~ msgstr "Veri tabanı bağlantı datayları bağlanmayı başaramadı."
+
+#~ msgid "close"
+#~ msgstr "kapat"
+
+#~ msgid "Cancel"
+#~ msgstr "İptal et"
+
+#~ msgid "Cancel changes"
+#~ msgstr "Değişiklikleri iptal et"
+
+#~ msgid "Submit changes"
+#~ msgstr "Değişiklikleri onayla"
+
+#~ msgid "Update"
+#~ msgstr "Güncelle"
+
+#~ msgid "years"
+#~ msgstr "yıl"
+
+#~ msgid "months"
+#~ msgstr "ay"
+
+#~ msgid "days"
+#~ msgstr "gün"
+
+#~ msgid "pages"
+#~ msgstr "sayfa"
+
+#~ msgid "page"
+#~ msgstr "sayfa"
+
+#~ msgid "tags"
+#~ msgstr "etiket"
+
+#~ msgid "tag"
+#~ msgstr "etiket"
+
+#~ msgid "comments"
+#~ msgstr "yorum"
+
+#~ msgid "comment"
+#~ msgstr "yorum"
+
+#~ msgid "entries"
+#~ msgstr "girdi"
+
+#~ msgid "page draft"
+#~ msgstr "sayfa taslağı"
+
+#~ msgid "page drafts"
+#~ msgstr "sayfa taslağı"
+
+#~ msgid "comment awaiting approval"
+#~ msgstr "yorum onay bekliyor"
+
+#~ msgid "comments awaiting approval"
+#~ msgstr "yorum onay bekliyor"
+
+#~ msgid "Number of items"
+#~ msgstr "Öğe sayısı"
+
+#~ msgid "There were errors during import:"
+#~ msgstr "İçe aktarım sırasında hatalar oluştu."
+
+#~ msgid "Search for other comments from "
+#~ msgstr "Başka yorumları ara "
+
+#, php-format
+#~ msgid "%1$d "
+#~ msgid_plural "%1$d "
+#~ msgstr[0] "%1$d "
+
+#, php-format
+#~ msgid "%d "
+#~ msgid_plural "%d "
+#~ msgstr[0] "%d "
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> hata düzenlemeleri içermektedir."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> önemli bir güncelleme."
+
+#, php-format
+#~ msgid ""
+#~ "<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+#~ msgstr ""
+#~ "<a href=\"%1s\">%2s %3s</a> hata düzenlemeleri ve ek özellikler içermektedir."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> ek özellikler içermektedir."
+
+#, php-format
+#~ msgid "Deleted %d entries."
+#~ msgstr "Silinen %d girdi."
+
+#~ msgid "Updated 1 comment."
+#~ msgstr "Güncellenen 1 yorum."
+
+#~ msgid "Email address is not published"
+#~ msgstr "Eposta yayımlanmadı"
+
+#~ msgid "Message:"
+#~ msgstr "Mesaj:"
+
+#~ msgid "Import content from another blog"
+#~ msgstr "Başka blogtan içerik aktar"
+
+#~ msgid "View and configure blog options"
+#~ msgstr "Blog seçeneklerinizi görüntüleyin ve ayarlayın"
+
+#~ msgid "Manage blog tags"
+#~ msgstr "Blog etiketlerini düzenle"
+
+#, php-format
+#~ msgid "Tag deleted: %s"
+#~ msgstr "Silinen etiket: %s"
+
+#~ msgid "Request did not yet execute."
+#~ msgstr "İstek henüz gerçekleştirilmedi."
+
+#~ msgid "Maximum number of redirections exceeded."
+#~ msgstr "Maksimum yönlendirme sınırı aşıldı."
+
+#~ msgid "Error writing to socket."
+#~ msgstr "Sokete yazarken hata oldu."
+
+#~ msgid "Could not write config.php file..."
+#~ msgstr "config.php dosyası yazılamıyor..."
+
+#~ msgid "(will not be published - Required)"
+#~ msgstr "Yayımlanmayacak - Gerekli"
+
+#~ msgid "PHP Upgrade needed..."
+#~ msgstr "PHP Güncellemesi gerekli..."
+
+#, php-format
+#~ msgid "%s: Error %d: %s while connecting to %s:%d"
+#~ msgstr "%s: Hata %d: %s bağlanırken %s:%d"
+
+#~ msgid "Pingback"
+#~ msgid_plural "Pingbacks"
+#~ msgstr[0] "Geri Bildirim"
+
+#~ msgid "Response"
+#~ msgid_plural "Responses"
+#~ msgstr[0] "Cevap"
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> yeni bir sürüm."
+
+#~ msgid "Group Information"
+#~ msgstr "Grup Bilgisi"
+
+#~ msgid "Web Address"
+#~ msgstr "Web Adresi"
+
+#~ msgid "Required - not published"
+#~ msgstr "Gerekli - yayımlanmayacak"
+
+#~ msgid "Say It"
+#~ msgstr "Söyle"
+
+#, php-format
+#~ msgid "Tag %s has been renamed to %s."
+#~ msgid_plural "Tags %s have been renamed to %s."
+#~ msgstr[0] "Etiket %s, %s olarak yeniden isimlendirildi."
+
+#, php-format
+#~ msgid "Tag %1$s (%2$s) deleted."
+#~ msgstr "Etiket %1$s (%2$s) silindi."
+
+#~ msgid "Value must be a valid URL."
+#~ msgstr "Değer geçerli bir URL olamlıdır."
+
+#~ msgid "Access to that post id is denied"
+#~ msgstr "Gönderiye erişim reddedildi"
+
+#~ msgid "Learn More..."
+#~ msgstr "Daha çok öğren..."
+
+#, php-format
+#~ msgid "%1$s has been active for %2$s"
+#~ msgstr "%1$s %2$sdür aktif"
+
+#~ msgid "entry draft"
+#~ msgstr "yazı taslağı"
+
+#~ msgid "entry drafts"
+#~ msgstr "yazı taslakları"
+
+#~ msgid "entry"
+#~ msgstr "yazı"
+
+#~ msgid ""
+#~ "The SQLite data file does not exist, and it cannot be created in the "
+#~ "specified directory.  SQLite requires that the directory containing the "
+#~ "database file be writable by the web server."
+#~ msgstr ""
+#~ "SQLite veri dosyası bulunmuyor ve belirtilen dizinde oluşturulamadı. SQLite, "
+#~ "DB dosyasını tutan dizinin web sunucusu tarafından yazılabilir olmasını "
+#~ "gerekitiriyor."
+
+#~ msgid ""
+#~ "SQLite requires that the directory that holds the DB file be writable by the "
+#~ "web server."
+#~ msgstr ""
+#~ "SQLite, DB dosyasını tutan dizinin web sunucusu tarafından yazılabilir "
+#~ "olmasını gerekitiriyor."
+
+#~ msgid "Manage blog comments"
+#~ msgstr "Blog yorumlarını düzenle"
+
+#~ msgid "spam comment awaiting moderation"
+#~ msgstr "spam yorum düzenleme bekliyor"
+
+#~ msgid "spam comments awaiting moderation"
+#~ msgstr "spam yorumlar düzenlenme bekliyor"
+
+#~ msgid "Permission Denied"
+#~ msgstr "İzinler Reddedildi"
+
+#, php-format
+#~ msgid "%s: CURL Error %d: %s"
+#~ msgstr "%s: CURL Hatası %d: %s"
+
+#~ msgid "Before you install <em>Habari</em>..."
+#~ msgstr "Yüklemeden önce <em>Habari</em>..."
+
+#~ msgid ""
+#~ "Before you can install Habari, you first need to make the install directory "
+#~ "writable by php, so that the installation script can write your "
+#~ "configuration information properly. The exact process of server and the "
+#~ "ownership of the directory."
+#~ msgstr ""
+#~ "Habari yüklemeden önce kurulum dizininin php tarafından yazılabilir hale "
+#~ "getirin, böylece kurulum yazılımı düzgün olarak yapılandırma bilgilerinizi "
+#~ "yazabilir. Sunucunun tam işleyişi ve dizinin sahibi."
+
+#~ msgid "and a huge amount of"
+#~ msgstr "ve çok miktarda"
+
+#~ msgid "Please do not load this page directly. Thanks!"
+#~ msgstr "Lütfen bu sayfayı direk olarak yüklemeyin. Teşekkürler!"
+
+#~ msgid "will not be published"
+#~ msgstr "yayımlanmayacak"
+
+#, php-format
+#~ msgid "%s Comments"
+#~ msgstr "%s Yorum"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Parolanızı mı unuttunuz?"
+
+#~ msgid "The SQLite data file is not writable by the web server."
+#~ msgstr "SQLite veri dosyası web sunucusu tarafından yazılabilir değil."
+
+#~ msgid "requires that the following PHP extensions to be installed:"
+#~ msgstr "takip eden PHP eklerinin yüklenmesini gerektirmektedir:"
+
+#~ msgid ""
+#~ "<strong>Password</strong> is the password of the initial user in Habari."
+#~ msgstr "<strong>Şifre</strong> Habari'deki ilk kullanıcının şifresi."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-10-28 15:51+0000\n"
+"POT-Creation-Date: 2011-02-13 00:00+0000\n"
 "PO-Revision-Date: 2009-03-11 17:07+0000\n"
 "Last-Translator: mrc2407 <mrc2407@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
@@ -15,210 +15,216 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2010-10-29 05:19+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-02-14 04:43+0000\n"
+"X-Generator: Launchpad (build 12351)\n"
 
-#: system/admin/tags.php:4
+#: system/admin/tags.php:5
 msgid "Type and wait to search tags"
 msgstr "Escriu i espera per a cercar etiquetes"
 
-#: system/admin/tags.php:21 system/admin/users.php:61
-#: system/admin/posts.php:42 system/admin/posts.php:68
-#: system/admin/logs.php:37 system/admin/logs.php:100
-#: system/admin/comments.php:45 system/admin/comments.php:69
+#: system/admin/tags.php:22 system/admin/users.php:65
+#: system/admin/posts.php:43 system/admin/posts.php:69
+#: system/admin/logs.php:38 system/admin/logs.php:101
+#: system/admin/comments.php:46 system/admin/comments.php:70
 msgid "None selected"
 msgstr "Cap seleccionat/da"
 
-#: system/admin/tags.php:26 system/admin/tags.php:137
-#: system/admin/tags.php:140
+#: system/admin/tags.php:27 system/admin/tags.php:138
+#: system/admin/tags.php:141
 msgid "Rename"
 msgstr "Reanomena"
 
-#: system/admin/tags.php:28 system/admin/user.php:12 system/admin/users.php:26
-#: system/admin/options.php:11 system/admin/plugins.php:19
-#: system/admin/groups.php:12 system/admin/group.php:12
+#: system/admin/tags.php:29 system/admin/user.php:13 system/admin/users.php:30
+#: system/admin/options.php:12 system/admin/plugins.php:20
+#: system/admin/groups.php:13 system/admin/group.php:13
 msgid "or"
 msgstr "o"
 
-#: system/admin/tags.php:30 system/admin/users.php:70
-#: system/admin/posts.php:46 system/admin/posts.php:72
-#: system/admin/logs.php:41 system/admin/logs.php:104
-#: system/admin/comments.php:48 system/admin/comments.php:72
+#: system/admin/tags.php:31 system/admin/users.php:74
+#: system/admin/posts.php:47 system/admin/posts.php:73
+#: system/admin/logs.php:42 system/admin/logs.php:105
+#: system/admin/comments.php:49 system/admin/comments.php:73
 msgid "Delete Selected"
 msgstr "Elimina"
 
-#: system/admin/tags.php:39 system/admin/tags.php:87
+#: system/admin/tags.php:40 system/admin/tags.php:88
 msgid "Error: No tags selected."
 msgstr "Error: No hi ha cap etiqueta seleccionada"
 
-#: system/admin/tags.php:91
+#: system/admin/tags.php:92 system/classes/adminhandler.php:3032
 msgid "Error: New name not specified."
 msgstr "Error: no s'ha especificat el nou nom."
 
-#: system/admin/tags.php:143
+#: system/admin/tags.php:144
 msgid "Merge"
 msgstr ""
 
-#: system/admin/groups_item.php:3 system/admin/groups_item.php:6
+#: system/admin/groups_item.php:4 system/admin/groups_item.php:7
 msgid "Edit group"
 msgstr "Edita el grup"
 
-#: system/admin/groups_item.php:6 system/admin/posts_items.php:26
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:33
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
-#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
-#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
-#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
-#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
-#: system/classes/adminhandler.php:1780
+#: system/admin/groups_item.php:7 system/admin/posts_items.php:27
+#: system/themes/charcoal/page.single.php:22
+#: system/themes/charcoal/home.php:34
+#: system/themes/charcoal/entry.single.php:40
+#: system/themes/mzingi/page.single.php:17 system/themes/mzingi/tag.php:24
+#: system/themes/mzingi/entry.multiple.php:22 system/themes/mzingi/home.php:24
+#: system/themes/mzingi/search.php:24 system/themes/mzingi/entry.single.php:29
+#: system/themes/k2/page.single.php:14 system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16 system/themes/k2/home.php:16
+#: system/themes/k2/search.php:17 system/themes/k2/entry.single.php:25
+#: system/classes/adminhandler.php:1766
 msgid "Edit"
 msgstr "Edita"
 
-#: system/admin/groups_item.php:7
+#: system/admin/groups_item.php:8
 msgid "Delete this group"
 msgstr "Suprimeix el grup"
 
-#: system/admin/groups_item.php:7 system/admin/block_instances.php:17
-#: system/admin/publish.php:14 system/admin/posts_items.php:28
-#: system/admin/group.php:126 system/classes/adminhandler.php:858
-#: system/classes/adminhandler.php:1779
+#: system/admin/groups_item.php:8 system/admin/block_instances.php:18
+#: system/admin/publish.php:15 system/admin/posts_items.php:29
+#: system/admin/group.php:127 system/classes/adminhandler.php:830
+#: system/classes/adminhandler.php:1765
 #: system/plugins/habarisilo/habarisilo.plugin.php:484
 #: system/plugins/habarisilo/habarisilo.plugin.php:501
 msgid "Delete"
 msgstr "Elimina"
 
-#: system/admin/groups_item.php:17
+#: system/admin/groups_item.php:18
 msgid "Members: "
 msgstr "Membres: "
 
-#: system/admin/groups_item.php:19
+#: system/admin/groups_item.php:20
 msgid "No members"
 msgstr "Sense membres"
 
-#: system/admin/dashboard_modules.php:4 system/classes/adminhandler.php:3803
+#: system/admin/dashboard_modules.php:5 system/classes/adminhandler.php:3763
 msgid "Add Item"
 msgstr "Afegeix un element"
 
-#: system/admin/users_items.php:16
+#: system/admin/users_items.php:15
 #, php-format
 msgid "Open %s's user page"
 msgstr "Obre la pàgina d'usuari de '%s'"
 
-#: system/admin/users_items.php:26
+#: system/admin/users_items.php:25
 msgid "has not logged in yet"
 msgstr "encara no s'ha connectat mai"
 
-#: system/admin/users_items.php:30
+#: system/admin/users_items.php:29
 #, php-format
 msgid "was last seen %1$s at %2$s"
 msgstr "va ser vist per darrer cop el %1$s a les %2$s"
 
-#: system/admin/users_items.php:49 system/admin/user.php:29
+#: system/admin/users_items.php:48 system/admin/user.php:30
 msgid " post"
 msgstr " entrada"
 
-#: system/admin/users_items.php:49 system/admin/user.php:29
+#: system/admin/users_items.php:48 system/admin/user.php:30
 msgid " posts"
 msgstr " entrades"
 
-#: system/admin/users_items.php:57
+#: system/admin/users_items.php:56
 #, php-format
 msgid "%1$s and currently has %2$s"
 msgstr "%1$s i actualment té %2$s"
 
-#: system/admin/db_profiling.php:39 system/themes/k2/db_profiling.php:31
+#: system/admin/db_profiling.php:40 system/themes/k2/db_profiling.php:32
 msgid "DB Profiling"
 msgstr "Perfil de la BD"
 
-#: system/admin/db_profiling.php:47 system/themes/k2/db_profiling.php:42
+#: system/admin/db_profiling.php:48 system/themes/k2/db_profiling.php:43
 msgid "Time to Execute:"
 msgstr "Temps d'execució:"
 
-#: system/admin/db_profiling.php:49
+#: system/admin/db_profiling.php:50
 msgid "BACKTRACE:"
 msgstr "BACKTRACE:"
 
-#: system/admin/db_profiling.php:56 system/themes/k2/db_profiling.php:56
+#: system/admin/db_profiling.php:57 system/themes/k2/db_profiling.php:57
 msgid "Total Time Executing Queries:"
 msgstr "Temps total d'execució de consultes:"
 
-#: system/admin/user.php:7 system/admin/options.php:7
+#: system/admin/user.php:8 system/admin/options.php:8
 msgid "All options"
 msgstr "Totes les opcions"
 
-#: system/admin/user.php:15 system/admin/users.php:29
+#: system/admin/user.php:16 system/admin/users.php:33
 msgid "search users"
 msgstr "cerca usuaris"
 
-#: system/admin/user.php:35
+#: system/admin/user.php:36
 msgid "No published posts."
 msgstr "Encara no hi ha cap entrada publicada."
 
-#: system/admin/block_instances.php:1
+#: system/admin/block_instances.php:2
 msgid "New Block Type:"
 msgstr ""
 
-#: system/admin/block_instances.php:6 system/themes/mzingi/loginform.php:18
-#: system/themes/mzingi/theme.php:90 system/themes/k2/loginform.php:20
+#: system/admin/block_instances.php:7 system/themes/mzingi/loginform.php:19
+#: system/themes/mzingi/theme.php:91 system/themes/k2/loginform.php:21
 msgid "Name:"
 msgstr "Nom:"
 
-#: system/admin/block_instances.php:15 system/classes/pluggable.php:182
+#: system/admin/block_instances.php:16
+#, php-format
+msgid "Configure Block: %1s (%2s)"
+msgstr ""
+
+#: system/admin/block_instances.php:16 system/classes/pluggable.php:187
 #: system/plugins/undelete/undelete.plugin.php:163
 #: system/plugins/undelete/undelete.plugin.php:175
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:803
 msgid "Configure"
 msgstr "Configura"
 
-#: system/admin/formcontrols/formcontrol_textmulti.php:14
-#: system/classes/formui.php:1591
+#: system/admin/formcontrols/formcontrol_textmulti.php:15
+#: system/classes/formui.php:1631
 msgid "remove"
 msgstr "elimina"
 
-#: system/admin/formcontrols/formcontrol_textmulti.php:18
+#: system/admin/formcontrols/formcontrol_textmulti.php:19
 msgid "add"
 msgstr "afegeix"
 
-#: system/admin/comments_items.php:16
+#: system/admin/comments_items.php:17
 msgid "in"
 msgstr "en"
 
-#: system/admin/comments_items.php:16
+#: system/admin/comments_items.php:17
 #, php-format
 msgid "Go to %s"
 msgstr "Vés a %s"
 
-#: system/admin/comments_items.php:17 system/admin/posts_items.php:21
-#: system/themes/mzingi/commentform.php:46 system/themes/mzingi/sidebar.php:44
+#: system/admin/comments_items.php:18 system/admin/posts_items.php:22
+#: system/themes/mzingi/commentform.php:47 system/themes/mzingi/sidebar.php:46
 msgid "on"
 msgstr "el"
 
-#: system/admin/comments_items.php:17
+#: system/admin/comments_items.php:18
 #, php-format
 msgid "Search for other comments from %s"
 msgstr ""
 
-#: system/admin/comments_items.php:18 system/admin/posts_items.php:22
+#: system/admin/comments_items.php:19 system/admin/posts_items.php:23
 msgid "at"
 msgstr "a les"
 
-#: system/admin/comments_items.php:51
+#: system/admin/comments_items.php:52
 msgid "Marked as spam"
 msgstr "Marcat com a spam"
 
-#: system/admin/comments_items.php:63
+#: system/admin/comments_items.php:64
 msgid "this post contains text in an invalid encoding"
 msgstr ""
 
-#: system/admin/comments_items.php:72
+#: system/admin/comments_items.php:73
 msgid "No comments could be found to match the query criteria."
 msgstr ""
 "No s'ha pogut trobat cap comentari que coincidís amb els teus criteris de "
 "cerca."
 
-#: system/admin/comment.overview.php:5
+#: system/admin/comment.overview.php:6
 #, php-format
 msgid ""
 "<a href=\"%1$s\">Comment</a> by <a href=\"%2$s\" title=\"Visit "
@@ -226,7 +232,7 @@ msgid ""
 "<strong>%6$s</strong> on <strong>%7$s</strong>"
 msgstr ""
 
-#: system/admin/comment.overview.php:19
+#: system/admin/comment.overview.php:20
 #, php-format
 msgid ""
 "<a href=\"%1$s\">Comment</a> by <strong>%2$s</strong> posted on <a "
@@ -234,55 +240,55 @@ msgid ""
 "<strong>%6$s</strong>"
 msgstr ""
 
-#: system/admin/users.php:21
+#: system/admin/users.php:25
 msgid "Complete User List"
 msgstr "Llistat sencer d'usuaris"
 
-#: system/admin/users.php:38 system/installer/db_setup.php:50
-#: system/installer/db_setup.php:97 system/installer/db_setup.php:180
+#: system/admin/users.php:42 system/installer/db_setup.php:51
+#: system/installer/db_setup.php:98 system/installer/db_setup.php:181
 msgid "Username"
 msgstr "Nom d'usuari"
 
-#: system/admin/users.php:41
+#: system/admin/users.php:45
 msgid "E-Mail"
 msgstr "Correu electrònic"
 
-#: system/admin/users.php:44 system/admin/login.php:42
-#: system/installer/db_setup.php:61 system/installer/db_setup.php:108
-#: system/installer/db_setup.php:190
+#: system/admin/users.php:48 system/admin/login.php:43
+#: system/installer/db_setup.php:62 system/installer/db_setup.php:109
+#: system/installer/db_setup.php:191
 msgid "Password"
 msgstr "Contrasenya"
 
-#: system/admin/users.php:47
+#: system/admin/users.php:51
 msgid "Password Again"
 msgstr "Repeteix la contrasenya"
 
-#: system/admin/users.php:50
+#: system/admin/users.php:54
 msgid "Add User"
 msgstr "Afegeix un usuari"
 
-#: system/admin/users.php:69
+#: system/admin/users.php:73
 #, php-format
 msgid "Reassign posts to %s"
 msgstr "Reassigna les entrades a %s"
 
-#: system/admin/block_areas.php:1
+#: system/admin/block_areas.php:2
 msgid "Scope:"
 msgstr ""
 
-#: system/admin/block_areas.php:2
+#: system/admin/block_areas.php:3
 msgid "Default"
 msgstr ""
 
-#: system/admin/block_areas.php:24
+#: system/admin/block_areas.php:25
 msgid "drag here to remove"
 msgstr ""
 
-#: system/admin/publish.php:28
+#: system/admin/publish.php:29
 msgid "Publish"
 msgstr "Publica"
 
-#: system/admin/publish.php:60
+#: system/admin/publish.php:61
 msgid ""
 "You did not save the changes you made. \\nLeaving this page will result in "
 "the lose of data."
@@ -290,129 +296,137 @@ msgstr ""
 "No has desat els canvis que has fet.\\n Si deixes aquesta pàgina perdràs les "
 "dades que no hagis desat."
 
-#: system/admin/header.php:64 system/admin/login.php:32
+#: system/admin/header.php:65 system/admin/login.php:33
 msgid "Go to Site"
 msgstr "Vés al blog"
 
-#: system/admin/plugin.php:5
+#: system/admin/plugin.php:6
 #, php-format
 msgid "The plugin file %s had syntax errors and could not load."
 msgstr ""
 "L'arxiu d'extensió %s té errors de sintaxi i no ha pogut ser carregat."
 
-#: system/admin/plugin.php:8
+#: system/admin/plugin.php:9
 msgid "Show Error"
 msgstr "Mostra l'error"
 
-#: system/admin/plugin.php:17 system/installer/db_setup.php:227
+#: system/admin/plugin.php:18 system/installer/db_setup.php:228
 #, php-format
 msgid ""
 "The plugin file %s is a legacy plugin, and does not include an XML info file."
 msgstr ""
 
-#: system/admin/plugin.php:26 system/admin/posts_items.php:20
-#: system/admin/themes.php:8 system/admin/themes.php:163
+#: system/admin/plugin.php:26
+#, php-format
+msgid ""
+"The XML file for the plugin %s contained errors and could not be loaded."
+msgstr ""
+
+#: system/admin/plugin.php:35 system/admin/posts_items.php:21
+#: system/admin/themes.php:10 system/admin/themes.php:172
 #: system/plugins/coredashmodules/dash_latestentries.php:6
 msgid "by"
 msgstr "per"
 
-#: system/admin/plugin.php:33 system/themes/charcoal/footer.php:9
-#: system/classes/format.php:247 system/classes/format.php:276
+#: system/admin/plugin.php:42 system/admin/themes.php:16
+#: system/admin/themes.php:178 system/themes/charcoal/footer.php:10
+#: system/classes/format.php:247 system/classes/format.php:277
 msgid " and "
 msgstr " i "
 
-#: system/admin/plugin.php:48
+#: system/admin/plugin.php:57
 msgid "v1.1 Update Available Now"
 msgstr "L'actualització a la v1.1 ja està disponible"
 
-#: system/admin/plugin.php:53
+#: system/admin/plugin.php:70
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
 msgstr ""
 
-#: system/admin/plugin.php:82
+#: system/admin/plugin.php:115
 msgid "Close"
 msgstr "Tanca"
 
-#: system/admin/options.php:14 system/admin/groups.php:15
-#: system/admin/group.php:15
+#: system/admin/options.php:15 system/admin/groups.php:16
+#: system/admin/group.php:16
 msgid "search settings"
 msgstr "configuració de cerca"
 
-#: system/admin/posts_items.php:14 system/admin/posts_items.php:26
+#: system/admin/posts_items.php:15 system/admin/posts_items.php:27
 #: system/plugins/coredashmodules/dash_latestentries.php:6
 #, php-format
 msgid "Edit '%s'"
 msgstr "Edita '%s'"
 
-#: system/admin/posts_items.php:19
+#: system/admin/posts_items.php:20
 #, php-format
 msgid "Search for other %s items"
 msgstr "Cerca altres elements %s"
 
-#: system/admin/posts_items.php:20
+#: system/admin/posts_items.php:21
 #, php-format
 msgid "Search for other items by %s"
 msgstr "Cerca altres elements creats per %s"
 
-#: system/admin/posts_items.php:21
+#: system/admin/posts_items.php:22
 #, php-format
 msgid "Search for other items from %s"
 msgstr "Cerca altres elements del %s"
 
-#: system/admin/posts_items.php:27
+#: system/admin/posts_items.php:28
 #, php-format
 msgid "View '%s'"
 msgstr "Visualitza '%s'"
 
-#: system/admin/posts_items.php:27
+#: system/admin/posts_items.php:28
 msgid "View"
 msgstr "Visualitza"
 
-#: system/admin/posts_items.php:28
+#: system/admin/posts_items.php:29
 msgid "Delete this item"
 msgstr "Elimina aquest objcte"
 
-#: system/admin/posts_items.php:46
+#: system/admin/posts_items.php:47
 msgid "No posts could be found to match the query criteria."
 msgstr ""
 "No s'ha pogut trobat cap entrada que coincidís amb els teus criteris de "
 "cerca."
 
-#: system/admin/posts.php:5 system/admin/logs.php:8
-#: system/admin/comments.php:4
+#: system/admin/posts.php:6 system/admin/logs.php:9
+#: system/admin/comments.php:5
 msgid "Older"
 msgstr "Anteriors"
 
-#: system/admin/posts.php:6
+#: system/admin/posts.php:7
 msgid "no results"
 msgstr "sense resultats"
 
-#: system/admin/posts.php:8 system/admin/comments.php:7
+#: system/admin/posts.php:9 system/admin/comments.php:8
 msgid "Type and wait to search"
 msgstr "Escriu i espera per a cercar"
 
-#: system/admin/posts.php:13 system/admin/comments.php:12
+#: system/admin/posts.php:14 system/admin/comments.php:13
 #, php-format
 msgid "Filter results for '%s'"
 msgstr "Filtra els resultats per '%s'"
 
-#: system/admin/posts.php:17 system/admin/logs.php:12
-#: system/admin/comments.php:16
+#: system/admin/posts.php:18 system/admin/logs.php:13
+#: system/admin/comments.php:17
 msgid "Newer"
 msgstr "Següents"
 
-#: system/admin/import.php:5 system/classes/adminhandler.php:3259
-#: system/plugins/wpimport/wpimport.plugin.php:134
+#: system/admin/import.php:6 system/classes/adminhandler.php:3213
+#: system/plugins/wpimport/wpimport.plugin.php:143
+#: system/plugins/wpimport/wpimport.plugin.php:219
 msgid "Import"
 msgstr "Importa"
 
-#: system/admin/import.php:13
+#: system/admin/import.php:17
 msgid "You do not currently have any import plugins installed."
 msgstr "Actualment no tens cap extensió d'importació instal·lada."
 
-#: system/admin/import.php:14
+#: system/admin/import.php:18
 #, php-format
 msgid ""
 "Please <a href=\"%1$s\">activate an import plugin</a> to enable importing."
@@ -420,97 +434,103 @@ msgstr ""
 "<a href=\"%1$s\">Activa una extensió d'importació </a> per a permetre la "
 "importació."
 
-#: system/admin/import.php:16
+#: system/admin/import.php:23
 msgid "Please choose the type of import to perform:"
 msgstr "Tria el tipus d'importació que vulguis fer:"
 
-#: system/admin/import.php:24
+#: system/admin/import.php:33
 msgid "Select"
 msgstr "Selecciona"
 
-#: system/admin/themes.php:5
+#: system/admin/themes.php:6
 msgid "Current Theme"
 msgstr "Tema actual"
 
-#: system/admin/themes.php:12 system/classes/post.php:825
-#: system/classes/adminhandler.php:1400
+#: system/admin/themes.php:21 system/classes/post.php:851
+#: system/classes/adminhandler.php:1386
 msgid "Settings"
 msgstr "Configuració"
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:27
 msgid "v"
 msgstr "v"
 
-#: system/admin/themes.php:18
+#: system/admin/themes.php:27
 msgid "Update Available"
 msgstr "Hi ha una actualització disponible"
 
-#: system/admin/themes.php:28 system/admin/themes.php:172
+#: system/admin/themes.php:37 system/admin/themes.php:188
 #, php-format
 msgid "%1$s is licensed under the %2$s"
 msgstr "%1$s té llicència %2$s"
 
-#: system/admin/themes.php:134 system/classes/post.php:863
-#: system/plugins/undelete/undelete.plugin.php:178
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:872
+#: system/admin/themes.php:143 system/themes/charcoal/theme.php:54
+#: system/classes/post.php:889 system/plugins/undelete/undelete.plugin.php:178
+#: system/plugins/coreblocks/coreblocks.plugin.php:66
+#: system/plugins/coreblocks/coreblocks.plugin.php:126
+#: system/plugins/coreblocks/coreblocks.plugin.php:165
+#: system/plugins/coreblocks/coreblocks.plugin.php:239
+#: system/plugins/coreblocks/coreblocks.plugin.php:299
+#: system/plugins/coreblocks/coreblocks.plugin.php:340
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:876
 msgid "Save"
 msgstr "Desa"
 
-#: system/admin/themes.php:156
+#: system/admin/themes.php:165
 msgid "Available Themes"
 msgstr "Temes disponibles"
 
-#: system/admin/themes.php:178
+#: system/admin/themes.php:194
 msgid "Legacy theme."
 msgstr ""
 
-#: system/admin/themes.php:182
+#: system/admin/themes.php:198
 msgid "End Preview"
 msgstr ""
 
-#: system/admin/themes.php:184
+#: system/admin/themes.php:200
 msgid "Preview"
 msgstr ""
 
-#: system/admin/themes.php:186 system/classes/installhandler.php:220
-#: system/classes/adminhandler.php:1902 system/classes/adminhandler.php:1906
+#: system/admin/themes.php:202 system/classes/installhandler.php:221
+#: system/classes/adminhandler.php:1889 system/classes/adminhandler.php:1893
 msgid "Activate"
 msgstr "Activa"
 
-#: system/admin/footer.php:3
+#: system/admin/footer.php:4
 msgid "Go to the Habari site"
 msgstr "Vés a la pàgina de Habari"
 
-#: system/admin/footer.php:11
+#: system/admin/footer.php:12
 msgid "Logged in as"
 msgstr "Estàs connectat com a"
 
-#: system/admin/footer.php:13
+#: system/admin/footer.php:14
 msgid "Go to your user page"
 msgstr "Vés a la teva pàgina d'usuari"
 
-#: system/admin/footer.php:18
+#: system/admin/footer.php:19
 msgid "Open the Habari manual in a new window"
 msgstr "Obre el manual de Habari en una finestra nova"
 
-#: system/admin/footer.php:18 system/installer/header.php:18
+#: system/admin/footer.php:19 system/installer/header.php:19
 msgid "Manual"
 msgstr "Manual"
 
-#: system/admin/footer.php:23 system/admin/sysinfo.php:1
-#: system/admin/sysinfo.php:6
+#: system/admin/footer.php:24 system/admin/sysinfo.php:2
+#: system/admin/sysinfo.php:7
 msgid "System Information"
 msgstr "Informació del sistema"
 
-#: system/admin/sysinfo.php:7
+#: system/admin/sysinfo.php:8
 msgid "SYSTEM INFORMATION\n"
 msgstr "INFORMACIÓ DEL SISTEMA\n"
 
-#: system/admin/sysinfo.php:23
+#: system/admin/sysinfo.php:24
 msgid "Site Information"
 msgstr "Informació del blog"
 
-#: system/admin/sysinfo.php:24
+#: system/admin/sysinfo.php:25
 msgid ""
 "\n"
 "SITE INFORMATION\n"
@@ -518,11 +538,11 @@ msgstr ""
 "\n"
 "INFORMACIÓ DEL BLOG\n"
 
-#: system/admin/sysinfo.php:40
+#: system/admin/sysinfo.php:41
 msgid "User Classes"
 msgstr "Classes d'usuari"
 
-#: system/admin/sysinfo.php:41
+#: system/admin/sysinfo.php:42
 msgid ""
 "\n"
 "USER CLASSES\n"
@@ -530,19 +550,19 @@ msgstr ""
 "\n"
 "CLASSES D'USUARI\n"
 
-#: system/admin/sysinfo.php:52 system/admin/sysinfo.php:77
+#: system/admin/sysinfo.php:53 system/admin/sysinfo.php:78
 msgid "None found"
 msgstr "No se n'ha trobat cap"
 
-#: system/admin/sysinfo.php:53 system/admin/sysinfo.php:78
+#: system/admin/sysinfo.php:54 system/admin/sysinfo.php:79
 msgid "None found\n"
 msgstr "No se n'ha trobat cap\n"
 
-#: system/admin/sysinfo.php:59
+#: system/admin/sysinfo.php:60
 msgid "Plugin Information"
 msgstr "Informació de l'extensió"
 
-#: system/admin/sysinfo.php:60
+#: system/admin/sysinfo.php:61
 msgid ""
 "\n"
 "PLUGIN INFORMATION"
@@ -550,210 +570,188 @@ msgstr ""
 "\n"
 "INFORMACIÓ DE L'EXTENSIÓ"
 
-#: system/admin/sysinfo.php:85
+#: system/admin/sysinfo.php:86
 msgid "All Results"
 msgstr "Tots els resultats"
 
-#: system/admin/logs.php:9
+#: system/admin/logs.php:10
 msgid "0-0 of 0"
 msgstr "0-0 de 0"
 
-#: system/admin/logs.php:10
+#: system/admin/logs.php:11
 msgid "Type and wait to search any log entry component"
 msgstr ""
 "Escriu i espera per a cercar qualsevol component d'entrada de registre"
 
-#: system/admin/logs.php:42 system/admin/logs.php:105
+#: system/admin/logs.php:43 system/admin/logs.php:106
 msgid "Purge Logs"
 msgstr ""
 
-#: system/admin/logs.php:57
+#: system/admin/logs.php:58
 msgid "Date &amp; Time"
 msgstr "Data &amp; Hora"
 
-#: system/admin/logs.php:58 system/themes/k2/sidebar.php:17
+#: system/admin/logs.php:59 system/themes/k2/sidebar.php:18
 msgid "User"
 msgstr "Usuari"
 
-#: system/admin/logs.php:59
+#: system/admin/logs.php:60
 msgid "IP"
 msgstr "IP"
 
-#: system/admin/logs.php:60
+#: system/admin/logs.php:61
 msgid "Module"
 msgstr "Mòdul"
 
-#: system/admin/logs.php:61
+#: system/admin/logs.php:62
 msgid "Type"
 msgstr "Tipus"
 
-#: system/admin/logs.php:62
+#: system/admin/logs.php:63
 msgid "Severity"
 msgstr "Importància"
 
-#: system/admin/logs.php:63
+#: system/admin/logs.php:64
 msgid "Message"
 msgstr "Missatge"
 
-#: system/admin/logs.php:75
+#: system/admin/logs.php:76
 msgid "Filter"
 msgstr "Filtra"
 
-#: system/admin/logs.php:89
+#: system/admin/logs.php:90
 msgid "There are no logs to be displayed at this time."
 msgstr "Per ara no hi ha cap registre per mostrar"
 
-#: system/admin/dashboard.php:6
+#: system/admin/dashboard.php:10
 msgid ""
-"Oh, great!\tYou're using IE6!  I've finally found someone I can pawn this "
-"old betamax player off on!<br />\n"
-"If you're reading this, you're surfing using Internet Explorer 6, an eight-"
-"year-old browser that cannot cope with the demands of the modern internet.\n"
-"<a href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
+"Oh, great! You're using IE6! I've finally found someone I can pawn this old "
+"betamax player off on!"
+msgstr ""
+
+#: system/admin/dashboard.php:11 system/classes/habaridatetime.php:387
+msgid "year"
+msgid_plural "years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/admin/dashboard.php:11
+#, php-format
+msgid ""
+"If you're reading this you're surfing using Internet Explorer 6, a browser "
+"that is %d %s old and cannot cope with the demands of the modern internet."
+msgstr ""
+
+#: system/admin/dashboard.php:12
+msgid ""
+"Consider switching to <a href=\"http://mozilla.com\">Mozilla Firefox</a>, <a "
+"href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
 "href=\"http://www.google.com/chrome\">Google Chrome</a>, or a more recent "
-"version of \n"
-"<a href=\"http://www.microsoft.com/windows/Internet-"
+"version of <a href=\"http://www.microsoft.com/windows/Internet-"
 "explorer/default.aspx\">Internet Explorer</a>."
 msgstr ""
 
-#: system/admin/dashboard.php:17
+#: system/admin/dashboard.php:18
 #, php-format
-msgid "%d year"
-msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:21
-#, php-format
-msgid "%d month"
-msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
+msgid "%s has been active for %s"
+msgstr ""
 
 #: system/admin/dashboard.php:25
-#, php-format
-msgid "%d day"
-msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: system/admin/dashboard.php:29
-#, php-format
-msgid "%1$s has been active for %2$s"
-msgstr "%1$s porta actiu %2$s"
-
-#: system/admin/dashboard.php:31
-msgid "days"
-msgstr "dies"
-
-#: system/admin/dashboard.php:39
 #, php-format
 msgid "%d page"
 msgid_plural "%d pages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:51
+#: system/admin/dashboard.php:37
 #, php-format
 msgid "%d entry"
 msgid_plural "%d entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:65
+#: system/admin/dashboard.php:51
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:73
+#: system/admin/dashboard.php:59
 #, php-format
 msgid "%d tag"
 msgid_plural "%d tags"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:81
+#: system/admin/dashboard.php:67
 #, php-format
 msgid "[You] have published %1$s%2$s"
 msgid_plural "The [%3$d authors] have published %1$s%2$s"
 msgstr[0] "[Tu] has publicat %1$s%2$s"
 msgstr[1] "Els [%3$d autors] han publicat %1$s%2$s"
 
-#: system/admin/dashboard.php:83
+#: system/admin/dashboard.php:69
 msgid " with "
 msgstr " amb "
 
-#: system/admin/dashboard.php:103
+#: system/admin/dashboard.php:89
 #, php-format
 msgid "%d entry draft"
 msgid_plural "%d entry drafts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:115
+#: system/admin/dashboard.php:101
 #, php-format
 msgid "%d scheduled post"
 msgid_plural "%d scheduled posts"
 msgstr[0] "%d entrada programada"
 msgstr[1] "%d entrades programades"
 
-#: system/admin/dashboard.php:127
+#: system/admin/dashboard.php:113
 #, php-format
 msgid "%d page draft"
 msgid_plural "%d page drafts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:141
+#: system/admin/dashboard.php:127
 #, php-format
 msgid "%d comment awaiting approval"
 msgid_plural "%d comments awaiting approval"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:148
+#: system/admin/dashboard.php:134
 #, php-format
 msgid "%d spam comment awaiting moderation"
 msgid_plural "%d spam comments awaiting moderation"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/dashboard.php:154
+#: system/admin/dashboard.php:140
 #, php-format
 msgid "You have %s"
 msgstr "Tens %s"
 
-#: system/admin/dashboard.php:167
+#: system/admin/dashboard.php:160
 #, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
-msgstr "<a href=\"%1s\">%2s %3s</a> és una actualització crítica."
+msgid "%1$s update released on %2$s: %3$s"
+msgstr ""
 
-#: system/admin/dashboard.php:170
+#: system/admin/dashboard.php:163
+#, php-format
+msgid "%1$s update: %3$s"
+msgstr ""
+
+#: system/admin/dashboard.php:183
 #, php-format
 msgid ""
-"<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+"%1$s <a href=\"%2$s\">%3$s</a> has the following updates available: %4$s"
 msgstr ""
-"<a href=\"%1s\">%2s %3s</a> conté correccions d'errors i característiques "
-"addicionals."
 
-#: system/admin/dashboard.php:173
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
-msgstr "<a href=\"%1s\">%2s %3s</a> conté correcions d'errors."
-
-#: system/admin/dashboard.php:176
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
-msgstr "<a href=\"%1s\">%2s %3s</a> conté característiques addicionals."
-
-#: system/admin/dashboard.php:179
-#, php-format
-msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
-msgstr "<a href=\"%1s\">%2s %3s</a> és una nova publicació."
-
-#: system/admin/dashboard.php:194
+#: system/admin/dashboard.php:203
 msgid ""
 "Welcome to Habari! We hope that you will jump right in and start exploring. "
 "If you get stuck or want to learn more about some of the advanced features, "
@@ -767,183 +765,188 @@ msgstr ""
 "s'adjunta a cada instal·lació de Habari. Aquest enllaç també apareix al peu "
 "de cada pàgina de l'àrea d'administració."
 
-#: system/admin/dashboard.php:195
+#: system/admin/dashboard.php:204
 msgid "Habari Manual"
 msgstr "Manual de Habari"
 
-#: system/admin/dashboard.php:201
+#: system/admin/dashboard.php:210
 msgid "This message will disappear next time you visit."
 msgstr ""
 "Aquest missatge desapareixerà el proper cop que visitis aquesta pàgina."
 
-#: system/admin/plugins.php:6
+#: system/admin/plugins.php:7
 msgid "All plugins"
 msgstr "Totes les extensions"
 
-#: system/admin/plugins.php:11 system/admin/plugins.php:52
+#: system/admin/plugins.php:12 system/admin/plugins.php:53
 msgid "Active Plugins"
 msgstr "Extensions actives"
 
-#: system/admin/plugins.php:14 system/admin/plugins.php:67
+#: system/admin/plugins.php:15 system/admin/plugins.php:68
 msgid "Inactive Plugins"
 msgstr "Extensions inactives"
 
-#: system/admin/plugins.php:22
+#: system/admin/plugins.php:23
 msgid "search plugins"
 msgstr "cerca els plugins"
 
-#: system/admin/plugins.php:84
+#: system/admin/plugins.php:85
 msgid "Upload Plugin Package"
 msgstr "Carrega el paquet de l'extensió"
 
-#: system/admin/plugins.php:87
+#: system/admin/plugins.php:88
 #: system/plugins/habarisilo/habarisilo.plugin.php:417
 #: system/plugins/habarisilo/habarisilo.plugin.php:555
 msgid "Upload"
 msgstr "Carrega"
 
-#: system/admin/groups.php:5 system/admin/group.php:5
+#: system/admin/groups.php:6 system/admin/group.php:6
 msgid "All Groups"
 msgstr "Tots els grups"
 
-#: system/admin/groups.php:21
+#: system/admin/groups.php:22
 msgid "Group Management"
 msgstr "Gestió de grups"
 
-#: system/admin/groups.php:42 system/admin/groups.php:59
+#: system/admin/groups.php:43 system/admin/groups.php:60
 msgid "Add Group"
 msgstr "Afegeix un grup"
 
-#: system/admin/groups.php:46
+#: system/admin/groups.php:47
 msgid "Group Name"
 msgstr "Nom del grup"
 
-#: system/admin/comments.php:5
+#: system/admin/comments.php:6
 msgid "0 of 0"
 msgstr "0 de 0"
 
-#: system/admin/comments.php:48 system/admin/comments.php:72
+#: system/admin/comments.php:49 system/admin/comments.php:73
 msgid "Delete selected comments"
 msgstr ""
 
-#: system/admin/comments.php:49 system/admin/comments.php:73
+#: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete all spam comments"
 msgstr ""
 
-#: system/admin/comments.php:49 system/admin/comments.php:73
+#: system/admin/comments.php:50 system/admin/comments.php:74
 msgid "Delete All Spam"
 msgstr ""
 
-#: system/admin/comments.php:50 system/admin/comments.php:74
+#: system/admin/comments.php:51 system/admin/comments.php:75
 msgid "Delete all unapproved comments"
 msgstr ""
 
-#: system/admin/comments.php:50 system/admin/comments.php:74
+#: system/admin/comments.php:51 system/admin/comments.php:75
 msgid "Delete All Unapproved"
 msgstr ""
 
-#: system/admin/comments.php:53 system/admin/comments.php:77
+#: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Approve selected comments"
 msgstr ""
 
-#: system/admin/comments.php:53 system/admin/comments.php:77
+#: system/admin/comments.php:54 system/admin/comments.php:78
 msgid "Mark selected approved"
 msgstr ""
 
-#: system/admin/comments.php:54 system/admin/comments.php:78
+#: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Unapprove selected comments"
 msgstr ""
 
-#: system/admin/comments.php:54 system/admin/comments.php:78
+#: system/admin/comments.php:55 system/admin/comments.php:79
 msgid "Mark selected unapproved"
 msgstr ""
 
-#: system/admin/comments.php:55 system/admin/comments.php:79
+#: system/admin/comments.php:56 system/admin/comments.php:80
 msgid "Mark selected comments as spam"
 msgstr ""
 
-#: system/admin/comments.php:55 system/admin/comments.php:79
+#: system/admin/comments.php:56 system/admin/comments.php:80
 msgid "Mark selected spam"
 msgstr ""
 
-#: system/admin/group.php:20
+#: system/admin/group.php:21
 #, php-format
 msgid "Group %1$s has <strong>%2$d</strong> member"
 msgid_plural "Group %1$s has <strong>%2$d</strong> members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/admin/group.php:26
+#: system/admin/group.php:27
 msgid "Group Members"
 msgstr ""
 
-#: system/admin/group.php:31
+#: system/admin/group.php:32
 msgid "Members"
 msgstr "Membres"
 
-#: system/admin/group.php:37
+#: system/admin/group.php:38
 msgid "Members To Add"
 msgstr "Membres per afegir"
 
-#: system/admin/group.php:47
+#: system/admin/group.php:48
 msgid "Add"
 msgstr "Afegeix"
 
-#: system/admin/group.php:52
+#: system/admin/group.php:53
 msgid "Members To Remove"
 msgstr "Membres per esborrar"
 
-#: system/admin/group.php:65
+#: system/admin/group.php:66
 msgid "Group Permissions"
 msgstr "Permisos del grup"
 
-#: system/admin/group.php:77 system/admin/group.php:100
+#: system/admin/group.php:78 system/admin/group.php:101
 msgid "Token Description"
 msgstr ""
 
-#: system/admin/group.php:101
+#: system/admin/group.php:102
 msgid "allow"
 msgstr ""
 
-#: system/admin/group.php:102
+#: system/admin/group.php:103
 msgid "deny"
 msgstr ""
 
-#: system/admin/group.php:129 system/classes/adminhandler.php:333
-#: system/classes/adminhandler.php:855
+#: system/admin/group.php:130 system/classes/adminhandler.php:337
+#: system/classes/adminhandler.php:827
 msgid "Apply"
 msgstr "Aplica"
 
-#: system/admin/login.php:4
+#: system/admin/login.php:5
 #, php-format
 msgid "Login to %s"
 msgstr "Connecta't a %s"
 
-#: system/admin/login.php:39 system/themes/charcoal/theme.php:164
-#: system/themes/k2/theme.php:122
+#: system/admin/login.php:40 system/themes/charcoal/theme.php:192
+#: system/themes/k2/theme.php:118
 msgid "Name"
 msgstr "Nom"
 
-#: system/admin/login.php:39
+#: system/admin/login.php:40
 msgid "name"
 msgstr "nom"
 
-#: system/admin/login.php:42
+#: system/admin/login.php:43
 msgid "password"
 msgstr "contrasenya"
 
-#: system/admin/login.php:46 system/themes/charcoal/header.php:50
+#: system/admin/login.php:47 system/themes/charcoal/header.php:51
+#: system/plugins/coreblocks/coreblocks.plugin.php:317
 msgid "Login"
 msgstr "Connecta't"
 
-#: system/admin/login.php:50 system/themes/mzingi/loginform.php:30
+#: system/admin/login.php:51 system/themes/mzingi/loginform.php:31
 #: system/classes/userhandler.php:21
 msgid "Reset password"
 msgstr ""
 
-#: system/admin/tag_collection.php:10
+#: system/admin/tag_collection.php:13
 #, php-format
 msgid "Manage posts tagged %1$s"
+msgstr ""
+
+#: system/admin/tag_collection.php:18
+msgid "No tags could be found to match the query criteria."
 msgstr ""
 
 #: system/schema/mysql/connection.php:246
@@ -960,426 +963,505 @@ msgstr ""
 msgid "not yet supported on SQLite"
 msgstr "encara no funciona en SQLite"
 
-#: system/themes/charcoal/page.single.php:21
-#: system/themes/charcoal/home.php:33
-#: system/themes/charcoal/entry.single.php:39
-#: system/themes/mzingi/page.single.php:16 system/themes/mzingi/tag.php:23
-#: system/themes/mzingi/entry.multiple.php:21 system/themes/mzingi/home.php:23
-#: system/themes/mzingi/search.php:23 system/themes/mzingi/entry.single.php:28
-#: system/themes/k2/page.single.php:13 system/themes/k2/tag.php:15
-#: system/themes/k2/entry.multiple.php:15 system/themes/k2/home.php:15
-#: system/themes/k2/search.php:16 system/themes/k2/entry.single.php:24
+#: system/themes/charcoal/page.single.php:22
+#: system/themes/charcoal/home.php:34
+#: system/themes/charcoal/entry.single.php:40
+#: system/themes/mzingi/page.single.php:17 system/themes/mzingi/tag.php:24
+#: system/themes/mzingi/entry.multiple.php:22 system/themes/mzingi/home.php:24
+#: system/themes/mzingi/search.php:24 system/themes/mzingi/entry.single.php:29
+#: system/themes/k2/page.single.php:14 system/themes/k2/tag.php:16
+#: system/themes/k2/entry.multiple.php:16 system/themes/k2/home.php:16
+#: system/themes/k2/search.php:17 system/themes/k2/entry.single.php:25
 msgid "Edit post"
 msgstr "Edita l'entrada"
 
-#: system/themes/charcoal/tag.php:4
+#: system/themes/charcoal/tag.php:5
 #, php-format
 msgid "Displaying posts tagged: %s"
 msgstr "Mostrant entrades etiquetades com a: %s"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/themes/k2/theme.php:99
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/themes/k2/theme.php:95
 msgid "Comments on this post"
 msgstr "Comentaris a aquesta entrada"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/theme.php:854
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/classes/theme.php:866
 msgid "No Comments"
 msgstr "Cap comentari"
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29
-#: system/themes/mzingi/commentform.php:27 system/themes/k2/theme.php:99
-#: system/classes/post.php:965 system/classes/adminhandler.php:1376
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30
+#: system/themes/mzingi/commentform.php:28 system/themes/k2/theme.php:95
+#: system/classes/post.php:997 system/classes/adminhandler.php:1362
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/themes/charcoal/tag.php:20 system/themes/charcoal/home.php:23
-#: system/themes/charcoal/multiple.php:19 system/themes/charcoal/search.php:21
-#: system/themes/charcoal/entry.single.php:29 system/classes/acl.php:785
-#: system/classes/adminhandler.php:3253
+#: system/themes/charcoal/tag.php:21 system/themes/charcoal/home.php:24
+#: system/themes/charcoal/multiple.php:20 system/themes/charcoal/search.php:22
+#: system/themes/charcoal/entry.single.php:30 system/classes/acl.php:786
+#: system/classes/adminhandler.php:3207
 msgid "Comments"
 msgstr "Comentaris"
 
-#: system/themes/charcoal/tag.php:39 system/themes/charcoal/home.php:70
-#: system/themes/charcoal/multiple.php:40 system/themes/charcoal/search.php:47
-#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+#: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
+#: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
+#: system/themes/mzingi/entry.multiple.php:28 system/themes/mzingi/home.php:32
 msgid "Newer Posts"
 msgstr "Entrades següents"
 
-#: system/themes/charcoal/tag.php:40 system/themes/charcoal/home.php:71
-#: system/themes/charcoal/multiple.php:41 system/themes/charcoal/search.php:48
-#: system/themes/mzingi/entry.multiple.php:27 system/themes/mzingi/home.php:31
+#: system/themes/charcoal/tag.php:41 system/themes/charcoal/home.php:72
+#: system/themes/charcoal/multiple.php:42 system/themes/charcoal/search.php:49
+#: system/themes/mzingi/entry.multiple.php:28 system/themes/mzingi/home.php:32
 msgid "Older Posts"
 msgstr "Entrades anteriors"
 
-#: system/themes/charcoal/commentform.php:8
+#: system/themes/charcoal/commentform.php:9
 msgid "Comments are closed for this post"
 msgstr "Els comentaris estan tancats per aquesta entrada"
 
-#: system/themes/charcoal/404.php:6
+#: system/themes/charcoal/404.php:7
 msgid "Whoops! 404"
 msgstr "Ups! 404"
 
-#: system/themes/charcoal/404.php:9
+#: system/themes/charcoal/404.php:10
 msgid ""
 "The page you were trying to access is not really there. Please try again."
 msgstr ""
 "La pàgina a la que volies accedir sembla que en realitat no és aquí. Torna-"
 "ho a intentar."
 
-#: system/themes/charcoal/searchform.php:2
+#: system/themes/charcoal/searchform.php:3
 #, php-format
 msgid "Search %s"
 msgstr "Cerca %s"
 
-#: system/themes/charcoal/searchform.php:3
+#: system/themes/charcoal/searchform.php:4
 msgid "Go"
 msgstr "Vés"
 
-#: system/themes/charcoal/sidebar.php:6
+#: system/themes/charcoal/sidebar.php:7
 msgid "{blog entries}"
 msgstr "{entrades del blog}"
 
-#: system/themes/charcoal/sidebar.php:7
+#: system/themes/charcoal/sidebar.php:8
 msgid "{comments}"
 msgstr "{comentaris}"
 
-#: system/themes/charcoal/sidebar.php:11
+#: system/themes/charcoal/sidebar.php:12
 msgid "Powered by Habari"
 msgstr "Funciona amb Habari"
 
-#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+#: system/themes/charcoal/header.php:49 system/themes/k2/header.php:32
 msgid "Admin area"
 msgstr "Àrea d'administració"
 
-#: system/themes/charcoal/header.php:48 system/themes/k2/header.php:31
+#: system/themes/charcoal/header.php:49 system/themes/k2/header.php:32
 msgid "Admin"
 msgstr "Administració"
 
-#: system/themes/charcoal/home.php:39
+#: system/themes/charcoal/home.php:40
 msgid "No posts published, yet."
 msgstr "Encara no hi ha cap entrada publicada."
 
-#: system/themes/charcoal/home.php:63
+#: system/themes/charcoal/home.php:64
 #, php-format
 msgid "Continue reading %s"
 msgstr "Segueix llegint %s"
 
-#: system/themes/charcoal/home.php:63
+#: system/themes/charcoal/home.php:64
 msgid "more"
 msgstr "més"
 
-#: system/themes/charcoal/footer.php:7
+#: system/themes/charcoal/footer.php:8
 #, php-format
 msgid "%1$s is powered by %2$s"
 msgstr "%1$sfunciona amb %2$s"
 
-#: system/themes/charcoal/footer.php:9 system/themes/k2/footer.php:11
+#: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:12
 msgid "Atom Entries"
 msgstr "Entrades Atom"
 
-#: system/themes/charcoal/footer.php:10 system/themes/k2/footer.php:11
+#: system/themes/charcoal/footer.php:11 system/themes/k2/footer.php:12
 msgid "Atom Comments"
 msgstr "Comentaris Atom"
 
-#: system/themes/charcoal/theme.php:110
+#: system/themes/charcoal/theme.php:34
+msgid "Show Title Image:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:35
+msgid "Check to show the title image, uncheck to display the title text."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:36
+msgid "Home label:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:37
+msgid "Set to whatever you want your first tab text to be."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:38
+msgid "Show Entry Paperclip:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:39
+msgid "Check to show the paperclip graphic in posts, uncheck to hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:40
+msgid "Show Page Paperclip:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:41
+msgid "Check to show the paperclip graphic in pages, uncheck to hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:42
+msgid "Show Powered By:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:43
+msgid ""
+"Check to show the \"powered by Habari\" graphic in the sidebar, uncheck to "
+"hide it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:44
+msgid "Display Login:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:45
+msgid ""
+"Check to show the Login/Logout link in the navigation bar, uncheck to hide "
+"it."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:46
+msgid "Tags in Multiple Posts Page:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:47
+msgid ""
+"Check to show the post tags in the multiple posts pages (search, tags, "
+"archives), uncheck to hide them."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:48
+msgid "Show Post Navigation:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:49
+msgid "Set to true to show single post navigation links, false to hide them."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:50
+msgid "Tag Cloud Count:"
+msgstr ""
+
+#: system/themes/charcoal/theme.php:51
+msgid "Set to the number of tags to display on the default \"cloud\"."
+msgstr ""
+
+#: system/themes/charcoal/theme.php:55
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:877
+msgid "Options saved"
+msgstr "Opcions desades"
+
+#: system/themes/charcoal/theme.php:138
 msgid "Search for "
 msgstr "Cerca "
 
-#: system/themes/charcoal/theme.php:115 system/themes/charcoal/theme.php:121
+#: system/themes/charcoal/theme.php:143 system/themes/charcoal/theme.php:149
 #, php-format
 msgid "Search results for '%s'"
 msgstr "Resultats de la cerca per '%s'"
 
-#: system/themes/charcoal/theme.php:118
+#: system/themes/charcoal/theme.php:146
 #, php-format
 msgid "No results found for your search '%1$s'"
 msgstr "No s'ha trobat cap resultat per la teva cerca '%1$s'"
 
-#: system/themes/charcoal/theme.php:118
+#: system/themes/charcoal/theme.php:146
 #, php-format
 msgid "You can try searching for '%2$s'"
 msgstr "Pots provar de cercar '%2$s'"
 
-#: system/themes/charcoal/theme.php:124
+#: system/themes/charcoal/theme.php:152
 #, php-format
 msgid "No results found for your search '%s'"
 msgstr "No s'ha trobat cap resultat per la teva cerca '%s'"
 
-#: system/themes/charcoal/theme.php:164
+#: system/themes/charcoal/theme.php:192
 msgid "(Required)"
 msgstr "(Necessari)"
 
-#: system/themes/charcoal/theme.php:166 system/themes/k2/theme.php:124
+#: system/themes/charcoal/theme.php:194 system/themes/k2/theme.php:120
 msgid "Mail"
 msgstr "Correu electrònic"
 
-#: system/themes/charcoal/theme.php:166
+#: system/themes/charcoal/theme.php:194
 msgid "(will not be published"
 msgstr ""
 
-#: system/themes/charcoal/theme.php:166
+#: system/themes/charcoal/theme.php:194
 msgid "- Required)"
 msgstr ""
 
-#: system/themes/charcoal/theme.php:168 system/themes/k2/theme.php:126
-#: system/classes/post.php:953
+#: system/themes/charcoal/theme.php:196 system/themes/k2/theme.php:122
+#: system/classes/post.php:985
 msgid "Website"
 msgstr "Web"
 
-#: system/themes/charcoal/theme.php:171 system/themes/mzingi/theme.php:107
-#: system/themes/k2/theme.php:129 system/classes/post.php:973
+#: system/themes/charcoal/theme.php:199 system/themes/mzingi/theme.php:108
+#: system/themes/k2/theme.php:125 system/classes/post.php:1005
 #: system/plugins/habarisilo/habarisilo.plugin.php:466
 msgid "Submit"
 msgstr "Envia"
 
-#: system/themes/charcoal/comments.php:26
+#: system/themes/charcoal/comments.php:27
 msgid "Time of this comment - Click for comment permalink"
 msgstr ""
 
-#: system/themes/charcoal/comments.php:28
+#: system/themes/charcoal/comments.php:29
 msgid "Your comment is awaiting moderation"
 msgstr "El teu comentari està esperant a ser moderat"
 
-#: system/themes/charcoal/comments.php:34
+#: system/themes/charcoal/comments.php:35
 msgid "Be the first to write a comment!"
 msgstr "Sigues el primer en deixar un comentari!"
 
-#: system/themes/mzingi/tag.php:8
+#: system/themes/mzingi/tag.php:9
 msgid "Posts Tagged with"
 msgstr "Entrades etiquetades com a"
 
-#: system/themes/mzingi/tag.php:18 system/themes/mzingi/entry.multiple.php:16
-#: system/themes/mzingi/home.php:18 system/themes/mzingi/search.php:18
-#: system/themes/mzingi/entry.single.php:24
+#: system/themes/mzingi/tag.php:19 system/themes/mzingi/entry.multiple.php:17
+#: system/themes/mzingi/home.php:19 system/themes/mzingi/search.php:19
+#: system/themes/mzingi/entry.single.php:25
 msgid "Tagged:"
 msgstr "Etiquetes:"
 
-#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:30 system/themes/mzingi/search.php:30
 msgid "Newer Results"
 msgstr "Resultats següents"
 
-#: system/themes/mzingi/tag.php:29 system/themes/mzingi/search.php:29
+#: system/themes/mzingi/tag.php:30 system/themes/mzingi/search.php:30
 msgid "Older Results"
 msgstr "Resultats anteriors"
 
-#: system/themes/mzingi/commentform.php:7
+#: system/themes/mzingi/commentform.php:8
 msgid "to"
 msgstr "a"
 
-#: system/themes/mzingi/commentform.php:8 system/themes/k2/comments.php:7
+#: system/themes/mzingi/commentform.php:9 system/themes/k2/comments.php:8
 msgid "Feed for this Entry"
 msgstr "Fil d'aquesta entrada"
 
-#: system/themes/mzingi/commentform.php:44 system/themes/k2/comments.php:24
+#: system/themes/mzingi/commentform.php:45 system/themes/k2/comments.php:25
 msgid "Permanent Link to this Comment"
 msgstr "Enllaç permanent a aquest comentari"
 
-#: system/themes/mzingi/commentform.php:45
+#: system/themes/mzingi/commentform.php:46
 msgid "Comment by"
 msgstr "Comentari de"
 
-#: system/themes/mzingi/commentform.php:46
+#: system/themes/mzingi/commentform.php:47
 msgid "Time of this comment"
 msgstr "Hora d'aquest comentari"
 
-#: system/themes/mzingi/commentform.php:46 system/themes/k2/comments.php:26
+#: system/themes/mzingi/commentform.php:47 system/themes/k2/comments.php:27
 msgid "In moderation"
 msgstr "En moderació"
 
-#: system/themes/mzingi/commentform.php:56 system/themes/k2/comments.php:38
+#: system/themes/mzingi/commentform.php:57 system/themes/k2/comments.php:39
 msgid "There are currently no comments."
 msgstr "Actualment no hi ha cap comentari."
 
-#: system/themes/mzingi/404.php:7
+#: system/themes/mzingi/404.php:8
 msgid "It seems you couldn't find what you are looking for."
 msgstr "Sembla que no pots trobar el que busques."
 
-#: system/themes/mzingi/404.php:7
+#: system/themes/mzingi/404.php:8
 msgid "Perhaps you can try searching."
 msgstr "Potser podries provar de cercar."
 
-#: system/themes/mzingi/searchform.php:4 system/themes/k2/sidebar.php:5
+#: system/themes/mzingi/searchform.php:5 system/themes/k2/sidebar.php:6
+#: system/plugins/coreblocks/coreblocks.plugin.php:355
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:629
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:977
 msgid "Search"
 msgstr "Cerca"
 
-#: system/themes/mzingi/searchform.php:4 system/themes/k2/searchform.php:4
+#: system/themes/mzingi/searchform.php:5 system/themes/k2/searchform.php:5
 msgid "Go!"
 msgstr "Vés!"
 
-#: system/themes/mzingi/sidebar.php:4
+#: system/themes/mzingi/sidebar.php:6
 msgid "Subscribe to Feed"
 msgstr "Subscriu-te al fil"
 
-#: system/themes/mzingi/sidebar.php:5
+#: system/themes/mzingi/sidebar.php:7
 msgid "Navigation"
 msgstr "Navegació"
 
-#: system/themes/mzingi/sidebar.php:7
+#: system/themes/mzingi/sidebar.php:9
 msgid "Home"
 msgstr "Inici"
 
-#: system/themes/mzingi/sidebar.php:16
+#: system/themes/mzingi/sidebar.php:18
 msgid "Asides"
 msgstr "Minientrades"
 
-#: system/themes/mzingi/sidebar.php:29
+#: system/themes/mzingi/sidebar.php:31
 msgid "More Posts"
 msgstr "Més entrades"
 
-#: system/themes/mzingi/sidebar.php:40
+#: system/themes/mzingi/sidebar.php:42
 msgid "Recent Comments"
 msgstr "Comentaris Recents"
 
-#: system/themes/mzingi/sidebar.php:47
+#: system/themes/mzingi/sidebar.php:52
 msgid "User Login"
 msgstr "Connexió d'Usuari"
 
-#: system/themes/mzingi/search.php:7
+#: system/themes/mzingi/search.php:8
 msgid "Results for search of"
 msgstr "Resultats de la cerca per"
 
-#: system/themes/mzingi/search.php:31
+#: system/themes/mzingi/search.php:32
 msgid "No results for"
 msgstr "No hi ha resultats per"
 
-#: system/themes/mzingi/footer.php:3
+#: system/themes/mzingi/footer.php:4
 msgid "is powered by"
 msgstr "funciona amb"
 
-#: system/themes/mzingi/loginform.php:4 system/themes/k2/loginform.php:5
+#: system/themes/mzingi/loginform.php:5 system/themes/k2/loginform.php:6
 msgid "That login is incorrect."
 msgstr "Aquestes dades no són correctes."
 
-#: system/themes/mzingi/loginform.php:9 system/themes/k2/loginform.php:11
+#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
 msgid "You are logged in as"
 msgstr "Estàs connectat com a"
 
-#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:11 system/themes/k2/loginform.php:13
 msgid "Want to"
 msgstr "Vols"
 
-#: system/themes/mzingi/loginform.php:10 system/themes/k2/loginform.php:12
+#: system/themes/mzingi/loginform.php:11 system/themes/k2/loginform.php:13
 msgid "log out"
 msgstr "desconnectar-te"
 
-#: system/themes/mzingi/loginform.php:22 system/themes/k2/loginform.php:24
+#: system/themes/mzingi/loginform.php:23 system/themes/k2/loginform.php:25
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: system/themes/mzingi/loginform.php:27
+#: system/themes/mzingi/loginform.php:28
 msgid "GO!"
 msgstr "VÉS!"
 
-#: system/themes/mzingi/theme.php:86
+#: system/themes/mzingi/theme.php:87
 msgid "About You"
 msgstr "Sobre tu"
 
-#: system/themes/mzingi/theme.php:90 system/themes/mzingi/theme.php:93
-#: system/themes/k2/theme.php:122 system/themes/k2/theme.php:124
+#: system/themes/mzingi/theme.php:91 system/themes/mzingi/theme.php:94
+#: system/themes/k2/theme.php:118 system/themes/k2/theme.php:120
 msgid "Required"
 msgstr "Necessari"
 
-#: system/themes/mzingi/theme.php:93
+#: system/themes/mzingi/theme.php:94
 msgid "Email Address:"
 msgstr "Correu electrònic:"
 
-#: system/themes/mzingi/theme.php:96
+#: system/themes/mzingi/theme.php:97
 msgid "Web Address:"
 msgstr "Web:"
 
-#: system/themes/mzingi/theme.php:98
+#: system/themes/mzingi/theme.php:99
 msgid "<p><em><small>Email address is not published</small></em></p>"
 msgstr ""
 
-#: system/themes/mzingi/theme.php:101
+#: system/themes/mzingi/theme.php:102
 msgid "Add to the Discussion"
 msgstr "Afegeix a la discussió"
 
-#: system/themes/mzingi/theme.php:105
+#: system/themes/mzingi/theme.php:106
 msgid "Message: (Required)"
 msgstr ""
 
-#: system/themes/k2/page.single.php:8
+#: system/themes/k2/page.single.php:9
 msgid "Page:"
 msgstr "Pàgina:"
 
-#: system/themes/k2/page.single.php:10 system/themes/k2/tag.php:12
-#: system/themes/k2/entry.multiple.php:12 system/themes/k2/home.php:12
-#: system/themes/k2/search.php:13 system/themes/k2/entry.single.php:21
+#: system/themes/k2/page.single.php:11 system/themes/k2/tag.php:13
+#: system/themes/k2/entry.multiple.php:13 system/themes/k2/home.php:13
+#: system/themes/k2/search.php:14 system/themes/k2/entry.single.php:22
 #, php-format
 msgid "by %s"
 msgstr "per %s"
 
-#: system/themes/k2/404.php:8
+#: system/themes/k2/404.php:9
 msgid "Error!"
 msgstr "Error!"
 
-#: system/themes/k2/404.php:12
+#: system/themes/k2/404.php:13
 msgid "The requested post was not found."
 msgstr "No s'ha trobat l'entrada demanada."
 
-#: system/themes/k2/sidebar.php:10 system/classes/adminhandler.php:212
+#: system/themes/k2/sidebar.php:11 system/classes/adminhandler.php:216
 msgid "About"
 msgstr "En quant a"
 
-#: system/themes/k2/search.php:6
+#: system/themes/k2/search.php:7
 #, php-format
 msgid "Search results for %s"
 msgstr "Resultats de la cerca per %s"
 
-#: system/themes/k2/footer.php:9
+#: system/themes/k2/footer.php:10
 msgid " is powered by"
 msgstr " funciona amb"
 
-#: system/themes/k2/footer.php:9
+#: system/themes/k2/footer.php:10
 msgid "and a huge amount of "
 msgstr ""
 
-#: system/themes/k2/footer.php:10
+#: system/themes/k2/footer.php:11
 msgid "Caffeine"
 msgstr "cafeïna"
 
-#: system/themes/k2/footer.php:11 system/classes/adminhandler.php:858
+#: system/themes/k2/footer.php:12 system/classes/adminhandler.php:830
 msgid "and"
 msgstr "i"
 
-#: system/themes/k2/loginform.php:11
+#: system/themes/k2/loginform.php:12
 msgid "Edit Your Profile"
 msgstr "Edita el teu perfil"
 
-#: system/themes/k2/loginform.php:29
+#: system/themes/k2/loginform.php:30
 msgid "Sign in"
 msgstr "Connecta't"
 
-#: system/themes/k2/theme.php:124
+#: system/themes/k2/theme.php:120
 msgid "(will not be published)"
 msgstr ""
 
-#: system/themes/k2/comments.php:5
+#: system/themes/k2/comments.php:6
 msgid "Responses to"
 msgstr "Comentaris a"
 
-#: system/themes/k2/comments.php:26
+#: system/themes/k2/comments.php:27
 msgid "Time of this Comment"
 msgstr "Hora d'aquest comentari"
 
-#: system/themes/k2/comments.php:44
+#: system/themes/k2/comments.php:45
 msgid "Leave a Reply"
 msgstr "Deixa un comentari"
-
-#: system/classes/tags.php:133
-#, php-format
-msgid "Tag %s has been renamed to %s."
-msgid_plural "Tags %s have been renamed to %s."
-msgstr[0] "S'ha reanomenat l'etiqueta %s a %s."
-msgstr[1] "S'ha reanomenat les etiquetes %s a %s."
 
 #: system/classes/acl.php:147
 #, php-format
@@ -1404,7 +1486,7 @@ msgstr "Gestiona comentaris a totes les entrades"
 msgid "Manage comments on one's own posts"
 msgstr "Gestiona comentaris a entrades pròpies"
 
-#: system/classes/acl.php:765 system/classes/adminhandler.php:3254
+#: system/classes/acl.php:765 system/classes/adminhandler.php:3208
 msgid "Manage tags"
 msgstr "Gestiona les etiquetes"
 
@@ -1436,7 +1518,7 @@ msgstr "Fes servir l'importador"
 msgid "Add, remove, and edit users"
 msgstr "Afegeix, esborra i edita usuaris"
 
-#: system/classes/acl.php:773 system/classes/installhandler.php:1559
+#: system/classes/acl.php:773 system/classes/installhandler.php:1565
 msgid "Edit own profile"
 msgstr ""
 
@@ -1448,13 +1530,14 @@ msgstr "Gestiona els grups i els permisos"
 msgid "Manage logs"
 msgstr "Gestiona registres"
 
-#: system/classes/acl.php:778 system/classes/installhandler.php:1510
+#: system/classes/acl.php:778 system/classes/installhandler.php:1516
 msgid "Permissions on one's own posts"
 msgstr "Permisos per entrades pròpies"
 
 #: system/classes/acl.php:778 system/classes/acl.php:779
-#: system/classes/acl.php:781 system/classes/post.php:237
-#: system/classes/post.php:802
+#: system/classes/acl.php:780 system/classes/acl.php:782
+#: system/classes/installhandler.php:1670 system/classes/post.php:246
+#: system/classes/post.php:828
 msgid "Content"
 msgstr "Contingut"
 
@@ -1462,168 +1545,147 @@ msgstr "Contingut"
 msgid "Permissions to all posts"
 msgstr "Permisos a totes les entrades"
 
-#: system/classes/acl.php:781 system/classes/post.php:237
+#: system/classes/acl.php:780 system/classes/installhandler.php:1670
+msgid "Permissions to other users' unpublished posts"
+msgstr ""
+
+#: system/classes/acl.php:782 system/classes/post.php:246
 #, php-format
 msgid "Permissions to posts of type \"%s\""
 msgstr "Permisos per les entrades de tipus \"%s\""
 
-#: system/classes/acl.php:802 system/classes/acl.php:804
-#: system/classes/installhandler.php:694
+#: system/classes/acl.php:803 system/classes/acl.php:805
+#: system/classes/installhandler.php:697
 msgid "admin"
 msgstr "admin"
 
-#: system/classes/acl.php:807 system/classes/acl.php:809
-#: system/classes/installhandler.php:705
+#: system/classes/acl.php:808 system/classes/acl.php:810
+#: system/classes/installhandler.php:708
 msgid "anonymous"
 msgstr "anònim"
 
-#: system/classes/acl.php:838 system/classes/acl.php:840
-#: system/classes/installhandler.php:1521
-#: system/classes/installhandler.php:1523
+#: system/classes/acl.php:839 system/classes/acl.php:841
+#: system/classes/installhandler.php:1527
+#: system/classes/installhandler.php:1529
 msgid "authenticated"
 msgstr "autentificat"
 
-#: system/classes/htmltokenizer.php:81
+#: system/classes/htmltokenizer.php:80
 #, php-format
 msgid "Invalid state %d in %s->parse()"
 msgstr "Estàt %d invàlid en %s->parse()"
 
-#: system/classes/socketrequestprocessor.php:75
+#: system/classes/socketrequestprocessor.php:65
 #, php-format
-msgid "%s: Error %d: %s while connecting to %s:%d"
-msgstr "%s: Error %d: %s mentre es connectava a %s:%d"
+msgid "Unable to connect to %s"
+msgstr ""
 
-#: system/classes/socketrequestprocessor.php:113
-msgid "Error writing to socket."
-msgstr "Hi ha hagut un error escrivint al socket."
+#: system/classes/socketrequestprocessor.php:79
+msgid "Request timed out"
+msgstr ""
 
-#: system/classes/socketrequestprocessor.php:145
-msgid "Maximum number of redirections exceeded."
-msgstr "S'ha excedit el nombre màxim de redireccions."
-
-#: system/classes/socketrequestprocessor.php:151
-msgid "Redirection response without Location: header."
-msgstr "La resposta de la redirecció no té Location: header."
-
-#: system/classes/socketrequestprocessor.php:187
-#: system/classes/socketrequestprocessor.php:196
-#: system/classes/curlrequestprocessor.php:132
-#: system/classes/curlrequestprocessor.php:141
-msgid "Request did not yet execute."
-msgstr "La petició encara no s'ha executat."
-
-#: system/classes/xmlrpcclient.php:101
+#: system/classes/xmlrpcclient.php:103
 msgid "Invalid XML response."
 msgstr "La resposta XML no és vàlida."
 
-#: system/classes/tag.php:215
-#, php-format
-msgid "New tag %1$s (%2$s);  Slug: %3$s"
-msgstr "Nova etiqueta: %1$s (%2$s);  URL: %3$s"
-
-#: system/classes/tag.php:261
-#, php-format
-msgid "Tag %1$s (%2$s) deleted."
-msgstr "S'ha eliminat l'etiqueta %1$s (%2$s)"
-
-#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1114
+#: system/classes/installhandler.php:147 system/classes/adminhandler.php:1086
 msgid "Password mis-match."
 msgstr "Les contrasenyes no es corresponen."
 
 #: system/classes/installhandler.php:153
-#: system/classes/installhandler.php:1663
-#: system/classes/installhandler.php:1734
+#: system/classes/installhandler.php:1711
+#: system/classes/installhandler.php:1782
 msgid "Allowed characters are A-Z, a-z and \"_\"."
 msgstr ""
 
 #: system/classes/installhandler.php:164
-msgid "Could not write config.php file..."
-msgstr "No s'ha pogut escriure l'arxiu config.php..."
+msgid "Could not write config.php file&hellip;"
+msgstr ""
 
 #: system/classes/installhandler.php:190
 msgid "Habari successfully installed."
 msgstr "Habari s'ha instal·lat amb èxit."
 
-#: system/classes/installhandler.php:401
+#: system/classes/installhandler.php:404
 msgid "User is required."
 msgstr "Es necessita un usuari."
 
-#: system/classes/installhandler.php:405
+#: system/classes/installhandler.php:408
 msgid "Name for database is required."
 msgstr "Es necessita el nom de la base de dades."
 
-#: system/classes/installhandler.php:409
+#: system/classes/installhandler.php:412
 msgid "Host is required."
 msgstr "Es necessita l'allotjament."
 
-#: system/classes/installhandler.php:428 system/classes/installhandler.php:639
+#: system/classes/installhandler.php:431 system/classes/installhandler.php:642
 msgid "Problem connecting to supplied database credentials"
 msgstr ""
 "Problema al connectar amb les credencials de base de dades especificades"
 
-#: system/classes/installhandler.php:444
+#: system/classes/installhandler.php:447
 #, php-format
-msgid "Could not create schema tables... %s"
-msgstr "No s'ha pogut crear les taules d'esquema... %s"
+msgid "Could not create schema tables&hellip; %s"
+msgstr ""
 
-#: system/classes/installhandler.php:453
+#: system/classes/installhandler.php:456
 msgid "Problem creating default options"
 msgstr "Problema creant opcions per defecte"
 
-#: system/classes/installhandler.php:461
+#: system/classes/installhandler.php:464
 msgid "Problem creating tags vocabulary"
 msgstr ""
 
-#: system/classes/installhandler.php:468
+#: system/classes/installhandler.php:471
 msgid "Problem creating base post types"
 msgstr "Problema creant tipus bases d'entrades"
 
-#: system/classes/installhandler.php:479
+#: system/classes/installhandler.php:482
 msgid "Problem creating admin user."
 msgstr "Problema creant usuari administrador."
 
-#: system/classes/installhandler.php:485
+#: system/classes/installhandler.php:488
 msgid "Problem creating admin group."
 msgstr "Problema creant grup administrador."
 
-#: system/classes/installhandler.php:496
+#: system/classes/installhandler.php:499
 msgid "Problem creating first post."
 msgstr "Problema creant la primera entrada."
 
-#: system/classes/installhandler.php:533 system/classes/installhandler.php:566
-#: system/classes/installhandler.php:1678
-#: system/classes/installhandler.php:1749
+#: system/classes/installhandler.php:536 system/classes/installhandler.php:569
+#: system/classes/installhandler.php:1726
+#: system/classes/installhandler.php:1797
 msgid "Access denied. Make sure these credentials are valid."
 msgstr "Accés denegat. Comprova que les credencials siguin vàlides."
 
-#: system/classes/installhandler.php:536 system/classes/installhandler.php:569
-#: system/classes/installhandler.php:1682
-#: system/classes/installhandler.php:1753
+#: system/classes/installhandler.php:539 system/classes/installhandler.php:572
+#: system/classes/installhandler.php:1730
+#: system/classes/installhandler.php:1801
 msgid "That database does not exist."
 msgstr "La base de dades no existeix."
 
-#: system/classes/installhandler.php:539 system/classes/installhandler.php:572
-#: system/classes/installhandler.php:1686
-#: system/classes/installhandler.php:1757
+#: system/classes/installhandler.php:542 system/classes/installhandler.php:575
+#: system/classes/installhandler.php:1734
+#: system/classes/installhandler.php:1805
 msgid "Could not connect to host."
 msgstr "No s'ha pogut connectar al host."
 
-#: system/classes/installhandler.php:600
-#: system/classes/installhandler.php:1805
+#: system/classes/installhandler.php:603
+#: system/classes/installhandler.php:1853
 #, php-format
 msgid ""
 "Cannot write to %s. The SQLite data file is not writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:604
-#: system/classes/installhandler.php:1798
+#: system/classes/installhandler.php:607
+#: system/classes/installhandler.php:1846
 #, php-format
 msgid ""
 "Cannot write to %s directory. SQLite requires that the directory that holds "
 "the DB file be writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:613
+#: system/classes/installhandler.php:616
 #, php-format
 msgid ""
 "Cannot write to %s directory. The SQLite data file does not exist, and it "
@@ -1631,12 +1693,17 @@ msgid ""
 "directory containing the database file be writable by the web server."
 msgstr ""
 
-#: system/classes/installhandler.php:751
-#: system/classes/installhandler.php:1386
-msgid "Truncate the log table"
-msgstr "Trunca la taula de registres"
+#: system/classes/installhandler.php:753
+#: system/classes/installhandler.php:1647
+msgid "Trim the log table"
+msgstr ""
 
-#: system/classes/installhandler.php:795
+#: system/classes/installhandler.php:756
+#: system/classes/installhandler.php:1655
+msgid "Perform a check for plugin updates."
+msgstr ""
+
+#: system/classes/installhandler.php:800
 msgid ""
 "This site is running <a href=\"http://habariproject.org/\">Habari</a>, a "
 "state-of-the-art publishing platform!  Habari is a community-driven project "
@@ -1650,46 +1717,50 @@ msgstr ""
 "href=\"http://habariproject.org/\">http://habariproject.org/</a> per a "
 "descobrir-ne més coses!"
 
-#: system/classes/installhandler.php:858
+#: system/classes/installhandler.php:863
 msgid "currently unsupported."
 msgstr "actualment no funciona."
 
-#: system/classes/installhandler.php:972
+#: system/classes/installhandler.php:977
 msgid "No admin user found"
 msgstr ""
 
-#: system/classes/installhandler.php:1371
+#: system/classes/installhandler.php:1377
 msgid "Site Maintenance"
 msgstr ""
 
-#: system/classes/installhandler.php:1372
+#: system/classes/installhandler.php:1378
 msgid "Habari is currently being upgraded."
 msgstr ""
 
-#: system/classes/installhandler.php:1373
+#: system/classes/installhandler.php:1379
 msgid "Try again in a little while."
 msgstr ""
 
-#: system/classes/installhandler.php:1564
+#: system/classes/installhandler.php:1392
+msgid "Truncate the log table"
+msgstr "Trunca la taula de registres"
+
+#: system/classes/installhandler.php:1570
 msgid "Manage dashboard modules"
 msgstr ""
 
-#: system/classes/installhandler.php:1645
-#: system/classes/installhandler.php:1716
+#: system/classes/installhandler.php:1693
+#: system/classes/installhandler.php:1764
 msgid "The database host field was left empty."
 msgstr "El camp Host de la base de dades està buit."
 
-#: system/classes/installhandler.php:1651
-#: system/classes/installhandler.php:1722
+#: system/classes/installhandler.php:1699
+#: system/classes/installhandler.php:1770
 msgid "The database name field was left empty."
 msgstr "El campNom de la BAse de dades està buit."
 
-#: system/classes/installhandler.php:1657
-#: system/classes/installhandler.php:1728
+#: system/classes/installhandler.php:1705
+#: system/classes/installhandler.php:1776
 msgid "The database user field was left empty."
 msgstr "El camp Usuari de la Base de dades està buit."
 
-#: system/classes/installhandler.php:1788
+#: system/classes/installhandler.php:1836
 msgid "The database file was left empty."
 msgstr "L'arxiu de base de dades ha quedat buit."
 
@@ -1710,87 +1781,87 @@ msgid "The cache directory '%s' is not writable - the cache is disabled."
 msgstr ""
 "No es pot escriure al directori de caché '%s', s'ha deshabilitat la caché."
 
-#: system/classes/post.php:520
+#: system/classes/post.php:545
 #, php-format
 msgid "New post %1$s (%2$s);  Type: %3$s; Status: %4$s"
 msgstr "Nova entrada %1$s (%2$s);  Tipus: %3$s; Estat: %4$s"
 
-#: system/classes/post.php:615
+#: system/classes/post.php:640
 #, php-format
 msgid "Post %1$s (%2$s) deleted."
 msgstr "S'ha eliminat l'entrada %1$s (%2$s)."
 
-#: system/classes/post.php:649
+#: system/classes/post.php:674
 #, php-format
 msgid "Scheduled Post %1$s (%2$s) published at %3$s."
 msgstr "S'ha publicat l'entrada programada %1$s (%2$s) a les %3$s."
 
-#: system/classes/post.php:652
+#: system/classes/post.php:677
 #, php-format
 msgid "Post %1$s (%2$s) published."
 msgstr "S'ha publicat l'entrada %1$s (%2$s)."
 
-#: system/classes/post.php:784
+#: system/classes/post.php:810
 msgid "Preview Post"
 msgstr "Previsualitza l'entrada"
 
-#: system/classes/post.php:784
+#: system/classes/post.php:810
 msgid "View Post"
 msgstr "Visualitza l'entrada"
 
-#: system/classes/post.php:789
+#: system/classes/post.php:815
 msgid "Title"
 msgstr "Títol"
 
-#: system/classes/post.php:810
+#: system/classes/post.php:836
 msgid "Tags, separated by, commas"
 msgstr "Etiquetes, separades per, comes"
 
-#: system/classes/post.php:827
+#: system/classes/post.php:853
 msgid "Content State"
 msgstr "Estat del contingut"
 
-#: system/classes/post.php:836
+#: system/classes/post.php:862
 msgid "Minor Edit"
 msgstr "Edició menor"
 
-#: system/classes/post.php:841
+#: system/classes/post.php:867
 msgid "Comments Allowed"
 msgstr "Comentaris permesos"
 
-#: system/classes/post.php:844
+#: system/classes/post.php:870
 msgid "Publication Time"
 msgstr "Hora de publicació"
 
-#: system/classes/post.php:850
+#: system/classes/post.php:876
 msgid "Content Address"
 msgstr "Adreça del contingut"
 
-#: system/classes/post.php:926
+#: system/classes/post.php:958
 msgid "Name <span class=\"required\">*Required</span>"
 msgstr ""
 
-#: system/classes/post.php:928
+#: system/classes/post.php:960
 msgid "The Name field value is required"
 msgstr ""
 
-#: system/classes/post.php:938 system/classes/adminhandler.php:788
+#: system/classes/post.php:970 system/classes/adminhandler.php:757
 msgid "Email"
 msgstr "Correu electrònic"
 
-#: system/classes/post.php:940
+#: system/classes/post.php:972
 msgid "The Email field value must be a valid email address"
 msgstr ""
 
-#: system/classes/post.php:944
+#: system/classes/post.php:976
 msgid "Email <span class=\"required\">*Required</span>"
 msgstr ""
 
-#: system/classes/post.php:955
+#: system/classes/post.php:987
 msgid "The Web Site field value must be a valid URL"
 msgstr ""
 
-#: system/classes/post.php:967
+#: system/classes/post.php:999
 msgid "The Content field value is required"
 msgstr ""
 
@@ -1883,74 +1954,74 @@ msgstr "Excepció XMLRPC desconeguda"
 msgid "%1$s in %2$s line %3$s on request of \"%4$s\""
 msgstr "%1$s a %2$s línia %3$s a petició de \"%4$s\""
 
-#: system/classes/error.php:103
+#: system/classes/error.php:104
 msgid "Error"
 msgstr ""
 
-#: system/classes/error.php:104
+#: system/classes/error.php:105
 msgid "Warning"
 msgstr ""
 
-#: system/classes/error.php:105
+#: system/classes/error.php:106
 msgid "Parse Error"
 msgstr ""
 
-#: system/classes/error.php:106
+#: system/classes/error.php:107
 msgid "Notice"
 msgstr ""
 
-#: system/classes/error.php:107
+#: system/classes/error.php:108
 msgid "Core Error"
 msgstr ""
 
-#: system/classes/error.php:108
+#: system/classes/error.php:109
 msgid "Core Warning"
 msgstr ""
 
-#: system/classes/error.php:109
+#: system/classes/error.php:110
 msgid "Compile Error"
 msgstr ""
 
-#: system/classes/error.php:110
+#: system/classes/error.php:111
 msgid "Compile Warning"
 msgstr ""
 
-#: system/classes/error.php:111
+#: system/classes/error.php:112
 msgid "User Error"
 msgstr ""
 
-#: system/classes/error.php:112
+#: system/classes/error.php:113
 msgid "User Warning"
 msgstr ""
 
-#: system/classes/error.php:113
+#: system/classes/error.php:114
 msgid "User Notice"
 msgstr ""
 
-#: system/classes/error.php:114
+#: system/classes/error.php:115
 msgid "Strict Notice"
 msgstr ""
 
-#: system/classes/error.php:115
+#: system/classes/error.php:116
 msgid "Recoverable Error"
 msgstr ""
 
-#: system/classes/error.php:118
+#: system/classes/error.php:119
 msgid "Deprecated violation"
 msgstr ""
 
-#: system/classes/error.php:119
+#: system/classes/error.php:120
 msgid "User deprecated violation"
 msgstr ""
 
-#: system/classes/error.php:200
+#: system/classes/error.php:201
 #, php-format
-msgid " ...%d arg... "
-msgid_plural " ...%d args... "
-msgstr[0] " ...%d argument... "
-msgstr[1] " ...%d arguments... "
+msgid " &hellip;%d arg&hellip; "
+msgid_plural " &hellip;%d args&hellip; "
+msgstr[0] ""
+msgstr[1] ""
 
-#: system/classes/error.php:204
+#: system/classes/error.php:205
 #, php-format
 msgid ""
 "%s line %d:\n"
@@ -1959,7 +2030,7 @@ msgstr ""
 "%s línia %d:\n"
 "  %s(%s)\n"
 
-#: system/classes/session.php:102
+#: system/classes/session.php:110
 msgid "Your session expired."
 msgstr "La teva sessió ha expirat."
 
@@ -1977,49 +2048,49 @@ msgstr "S'ha creat un nou usuari: %s"
 msgid "User deleted: %s"
 msgstr "S'ha eliminat l'usuari %s"
 
-#: system/classes/user.php:253 system/classes/user.php:282
+#: system/classes/user.php:269 system/classes/user.php:298
 #, php-format
 msgid "Successful login for %s"
 msgstr "%s s'ha connectat correctament"
 
-#: system/classes/user.php:260
+#: system/classes/user.php:276
 #, php-format
 msgid "Login attempt (via authentication plugin) for non-existent user %s"
 msgstr ""
 "Intent de connexió (a través d'una extensió d'autentificació) de l'usuari "
 "inexistent %s"
 
-#: system/classes/user.php:261 system/classes/user.php:273
-#: system/classes/user.php:291
+#: system/classes/user.php:277 system/classes/user.php:289
+#: system/classes/user.php:307
 msgid "Invalid username/password"
 msgstr ""
 
-#: system/classes/user.php:272
+#: system/classes/user.php:288
 #, php-format
 msgid "Login attempt for non-existent user %s"
 msgstr "Intent de connexió de l'usuari inexistent %s"
 
-#: system/classes/user.php:290
+#: system/classes/user.php:306
 #, php-format
 msgid "Wrong password for user %s"
 msgstr "Contrasenya incorrecta per l'usuari %s"
 
-#: system/classes/user.php:508
+#: system/classes/user.php:524
 #, php-format
 msgid "User %1$s: Access to %2$s changed to %3$s"
 msgstr "Usuari %1$s: S'ha canviat l'accés a %2$s per a %3$s"
 
-#: system/classes/user.php:532
+#: system/classes/user.php:548
 #, php-format
 msgid "User %1$s: Permission to %2$s revoked."
 msgstr "S'ha eliminat els permisos per a %2$s de l'usuari %1$s."
 
-#: system/classes/user.php:571
+#: system/classes/user.php:587
 #, php-format
 msgid " User %1$s: Added to %2$s group."
 msgstr " S'ha afegit l'usuari %1$s al grup %2$s."
 
-#: system/classes/user.php:585
+#: system/classes/user.php:601
 #, php-format
 msgid " User %1$s: Removed from %2$s group."
 msgstr " S'ha eliminat l'usuari %1$s del grup %2$s."
@@ -2063,11 +2134,11 @@ msgstr "[%1$s] Petició de reestabliment de contrasenya per %2$s"
 msgid "A password reset request has been sent to the user."
 msgstr "S'ha enviat una petició de reestabliment de contrasenya a l'usuari."
 
-#: system/classes/userhandler.php:98
+#: system/classes/userhandler.php:104
 msgid "Bad credentials"
 msgstr "Les credencials no són bones."
 
-#: system/classes/userhandler.php:184
+#: system/classes/userhandler.php:190
 #, php-format
 msgid ""
 "Your password for %1$s has been reset.  Your credentials are as follows---\n"
@@ -2079,55 +2150,66 @@ msgstr ""
 "Nom d'usuari: %2$s\n"
 "Contrasenya: %3$s"
 
-#: system/classes/userhandler.php:186
+#: system/classes/userhandler.php:192
 #, php-format
 msgid "[%1$s] Password has been reset for %2$s"
 msgstr "[%1$s] S'ha reestablert la contrasenya per %2$s"
 
-#: system/classes/userhandler.php:187
+#: system/classes/userhandler.php:193
 msgid "A new password has been sent to the user."
 msgstr "S'ha enviat una nova contrasenya a l'usuari."
 
-#: system/classes/userhandler.php:190
+#: system/classes/userhandler.php:196
 msgid "There was a problem resetting the password.  It was not reset."
 msgstr ""
 "Hi ha hagut un error reestablint la contrasenya. No s'ha reestablert."
 
-#: system/classes/userhandler.php:200
+#: system/classes/userhandler.php:206
 msgid "The supplied password reset token has expired or is invalid."
 msgstr ""
 "El token usat per a reestablir la contrasenya ha expirat o no és vàlid."
 
-#: system/classes/block.php:201
+#: system/classes/block.php:228
 #, php-format
 msgid "New block %1$s: %2$s"
 msgstr ""
 
-#: system/classes/block.php:249
+#: system/classes/block.php:276
 #, php-format
 msgid "Block %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/block.php:265
+#: system/classes/block.php:292
 msgid "Saved block configuration."
+msgstr ""
+
+#: system/classes/eventlog.php:372 system/classes/adminhandler.php:2365
+msgid "Logs purged."
 msgstr ""
 
 #: system/classes/rpcclient.php:26
 msgid "xmlrpc extension not found"
 msgstr "No s'ha trobat l'extensió xmlrpc"
 
-#: system/classes/vocabulary.php:222
+#: system/classes/vocabulary.php:221
 #, php-format
 msgid "New vocabulary %1$s (%2$s)"
 msgstr ""
 
-#: system/classes/vocabulary.php:294
+#: system/classes/vocabulary.php:296
 #, php-format
 msgid "Vocabulary %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugin.php:62 system/classes/adminhandler.php:1867
-#: system/classes/adminhandler.php:1917 system/classes/pluggable.php:148
+#: system/classes/vocabulary.php:822
+#, php-format
+msgid "Term %1$s in the %2$s vocabulary has been renamed to %3$s."
+msgid_plural "Terms %1$s in the %2$s vocabulary have been renamed to %3$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/plugin.php:62 system/classes/adminhandler.php:1854
+#: system/classes/adminhandler.php:1904 system/classes/pluggable.php:153
 msgid "?"
 msgstr "?"
 
@@ -2152,761 +2234,785 @@ msgstr ""
 "Hem desat l'últim formulari que has enviat. Torna't a connectar per a "
 "continuar amb el seu enviament."
 
-#: system/classes/adminhandler.php:121 system/classes/adminhandler.php:731
+#: system/classes/adminhandler.php:125 system/classes/adminhandler.php:700
 msgid "Access to that page has been denied by the administrator."
 msgstr "L'administrador t'ha denegat l'accés a aquesta pàgina."
 
-#: system/classes/adminhandler.php:136
+#: system/classes/adminhandler.php:140
 #, php-format
 msgid "%1$s->%2$s() does not exist."
 msgstr "%1$s->%2$s() no existeix."
 
-#: system/classes/adminhandler.php:157
+#: system/classes/adminhandler.php:161
 msgid "The page you were looking for was not found."
 msgstr "No s'ha trobat la pàgina que cercaves."
 
-#: system/classes/adminhandler.php:200
+#: system/classes/adminhandler.php:204
 msgid "Name & Tagline"
 msgstr "Nom i Descripció"
 
-#: system/classes/adminhandler.php:202 system/installer/db_setup.php:169
+#: system/classes/adminhandler.php:206 system/installer/db_setup.php:170
 msgid "Site Name"
 msgstr "Nom del lloc"
 
-#: system/classes/adminhandler.php:207
+#: system/classes/adminhandler.php:211
 msgid "Site Tagline"
 msgstr "Descripció del lloc"
 
-#: system/classes/adminhandler.php:218
-#: system/plugins/pingback/pingback.plugin.php:307
+#: system/classes/adminhandler.php:222
+#: system/plugins/pingback/pingback.plugin.php:323
 msgid "Publishing"
 msgstr "Publicació"
 
-#: system/classes/adminhandler.php:220
+#: system/classes/adminhandler.php:224
 msgid "Items per Page"
 msgstr "Elements per pàgina"
 
-#: system/classes/adminhandler.php:225
+#: system/classes/adminhandler.php:229
 msgid "Entries to show in Atom feed"
 msgstr "Entrades mostrades al fil Atom"
 
-#: system/classes/adminhandler.php:230
+#: system/classes/adminhandler.php:234
 msgid "Require Comment Author Info"
 msgstr "Cal info de l'autor del comentari"
 
-#: system/classes/adminhandler.php:236
+#: system/classes/adminhandler.php:240
 msgid "Time & Date"
 msgstr "Data i hora"
 
-#: system/classes/adminhandler.php:246
+#: system/classes/adminhandler.php:250
 msgid "Time Zone"
 msgstr "Zona horària"
 
-#: system/classes/adminhandler.php:249
+#: system/classes/adminhandler.php:253
 #, php-format
 msgid "Current Date Time: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:252 system/classes/adminhandler.php:822
+#: system/classes/adminhandler.php:256 system/classes/adminhandler.php:794
 msgid "Date Format"
 msgstr "Format de data"
 
-#: system/classes/adminhandler.php:254
+#: system/classes/adminhandler.php:258
 #, php-format
 msgid "Current Date: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:257 system/classes/adminhandler.php:833
+#: system/classes/adminhandler.php:261 system/classes/adminhandler.php:805
 msgid "Time Format"
 msgstr "Format d'hora"
 
-#: system/classes/adminhandler.php:259
+#: system/classes/adminhandler.php:263
 #, php-format
 msgid "Current Time: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:263 system/installer/locale_dropdown.php:6
+#: system/classes/adminhandler.php:267 system/installer/locale_dropdown.php:7
 msgid "Language"
 msgstr "Idioma"
 
-#: system/classes/adminhandler.php:265 system/installer/locale_dropdown.php:2
+#: system/classes/adminhandler.php:269 system/installer/locale_dropdown.php:3
 msgid "Locale"
 msgstr "Localització"
 
-#: system/classes/adminhandler.php:268
+#: system/classes/adminhandler.php:272
 msgid "International language code"
 msgstr ""
 
-#: system/classes/adminhandler.php:271
+#: system/classes/adminhandler.php:275
 msgid "System Locale"
 msgstr "Localització del sistema"
 
-#: system/classes/adminhandler.php:273
+#: system/classes/adminhandler.php:277
 msgid "The appropriate locale code for your server"
 msgstr ""
 
-#: system/classes/adminhandler.php:277
+#: system/classes/adminhandler.php:281
 msgid "Troubleshooting"
 msgstr "Problemes"
 
-#: system/classes/adminhandler.php:279
+#: system/classes/adminhandler.php:283
 msgid "Minimum Severity"
 msgstr ""
 
-#: system/classes/adminhandler.php:282
+#: system/classes/adminhandler.php:286
 msgid "Only log entries with a this or higher severity."
 msgstr ""
 
-#: system/classes/adminhandler.php:285
+#: system/classes/adminhandler.php:289
 msgid "Log Backtraces"
 msgstr "Registra Backtraces"
 
-#: system/classes/adminhandler.php:287
+#: system/classes/adminhandler.php:291
 msgid ""
 "Logs error backtraces to the log table's data column. Can drastically "
 "increase log size!"
 msgstr ""
 
-#: system/classes/adminhandler.php:349
+#: system/classes/adminhandler.php:353
 msgid "Successfully updated options"
 msgstr "Opcions actualitzades correctament"
 
-#: system/classes/adminhandler.php:503 system/classes/adminhandler.php:657
-#: system/classes/adminhandler.php:658
+#: system/classes/adminhandler.php:472 system/classes/adminhandler.php:626
+#: system/classes/adminhandler.php:627
 #, php-format
 msgid "Publish %s"
 msgstr "Publica una %s"
 
-#: system/classes/adminhandler.php:507
+#: system/classes/adminhandler.php:476
 #, php-format
 msgid ""
 "The post %1$s was updated since you made changes.  Please review those "
 "changes before overwriting them."
 msgstr ""
 
-#: system/classes/adminhandler.php:522
+#: system/classes/adminhandler.php:491
 msgid "A post slug cannot be empty. Keeping old slug."
 msgstr "L'URL de l'entrada no pot estar buida. Es manté l'URL antiga."
 
-#: system/classes/adminhandler.php:532 system/classes/adminhandler.php:634
-#: system/classes/adminhandler.php:638
+#: system/classes/adminhandler.php:501 system/classes/adminhandler.php:603
+#: system/classes/adminhandler.php:607
 msgid "You don't have permission to edit that post"
 msgstr ""
 
-#: system/classes/adminhandler.php:539
+#: system/classes/adminhandler.php:508
 msgid "Changing content types is not allowed"
 msgstr ""
 
-#: system/classes/adminhandler.php:568
+#: system/classes/adminhandler.php:537
 msgid "Creating that post type is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:616
+#: system/classes/adminhandler.php:585
 #, php-format
 msgid "The post %1$s has been saved as %2$s."
 msgstr "S'ha desat l'entrada %1$s com a %2$s."
 
-#: system/classes/adminhandler.php:652
+#: system/classes/adminhandler.php:621
 #, php-format
 msgid "Access to create posts of type %s is denied"
 msgstr ""
 
-#: system/classes/adminhandler.php:701
+#: system/classes/adminhandler.php:670
 #, php-format
 msgid "Deleted the %1$s titled \"%2$s\"."
 msgstr "S'ha eliminat el/la %1$s titulat/da \"%2$s\"."
 
-#: system/classes/adminhandler.php:718
+#: system/classes/adminhandler.php:687
 msgid "You"
 msgstr "Tu"
 
-#: system/classes/adminhandler.php:719
+#: system/classes/adminhandler.php:688
 msgid "Your User Information"
 msgstr "Informació del teu Usuari"
 
-#: system/classes/adminhandler.php:727
+#: system/classes/adminhandler.php:696
 #, php-format
 msgid "%s's User Information"
 msgstr "Informació de l'Usuari %s"
 
-#: system/classes/adminhandler.php:738 system/classes/adminhandler.php:1072
+#: system/classes/adminhandler.php:707 system/classes/adminhandler.php:1044
 msgid "nobody"
 msgstr "ningú"
 
-#: system/classes/adminhandler.php:752
+#: system/classes/adminhandler.php:721
 msgid "No such user!"
 msgstr "L'usuari no existeix!"
 
-#: system/classes/adminhandler.php:760
+#: system/classes/adminhandler.php:729
 msgid "Change Password"
 msgstr "Canvia la contrasenya"
 
-#: system/classes/adminhandler.php:761
+#: system/classes/adminhandler.php:730
 msgid "Regional Settings"
 msgstr "Configuració regional"
 
-#: system/classes/adminhandler.php:762 system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:731 system/classes/adminhandler.php:3209
 msgid "Dashboard"
 msgstr "Escriptori"
 
-#: system/classes/adminhandler.php:779
+#: system/classes/adminhandler.php:748
 msgid "Display Name"
 msgstr "Nom per a mostrar"
 
-#: system/classes/adminhandler.php:783
+#: system/classes/adminhandler.php:752
 msgid "User Name"
 msgstr "Nom d'usuari"
 
-#: system/classes/adminhandler.php:793
+#: system/classes/adminhandler.php:762
 msgid "Portrait URL"
 msgstr "Web:"
 
-#: system/classes/adminhandler.php:798
+#: system/classes/adminhandler.php:767
 msgid "New Password"
 msgstr "Nova contrasenya"
 
-#: system/classes/adminhandler.php:803
+#: system/classes/adminhandler.php:773
 msgid "New Password Again"
 msgstr "Repeteix la nova contrasenya"
 
-#: system/classes/adminhandler.php:810
+#: system/classes/adminhandler.php:782
 msgid "Passwords must match."
 msgstr "Les contrasenyes han de ser iguals."
 
-#: system/classes/adminhandler.php:816
+#: system/classes/adminhandler.php:788
 msgid "Timezone"
 msgstr "Zona horària"
 
-#: system/classes/adminhandler.php:831 system/classes/adminhandler.php:842
+#: system/classes/adminhandler.php:803 system/classes/adminhandler.php:814
 #, php-format
 msgid "See <a href=\"%s\">php.net/date</a> for details. Current format: %s"
 msgstr ""
 "Vés a <a href=\"%s\">php.net/date</a> per a més informació. Format actual: %s"
 
-#: system/classes/adminhandler.php:845
+#: system/classes/adminhandler.php:817
 msgid "Hide Spam Count"
 msgstr "Amaga el comptador d'spam"
 
-#: system/classes/adminhandler.php:847
+#: system/classes/adminhandler.php:819
 msgid "Hide the number of SPAM comments on your dashboard."
 msgstr "Amaga el nombre de comentaris spam al teu escriptori."
 
-#: system/classes/adminhandler.php:858
+#: system/classes/adminhandler.php:830
 #, php-format
 msgid "Reassign posts to: %s"
 msgstr "Reassigna les entrades a: %s"
 
-#: system/classes/adminhandler.php:904
+#: system/classes/adminhandler.php:876
 #, php-format
 msgid "%s has been deleted"
 msgstr "%s ha estat eliminat"
 
-#: system/classes/adminhandler.php:909 system/classes/adminhandler.php:1047
+#: system/classes/adminhandler.php:881 system/classes/adminhandler.php:1019
 msgid "You cannot delete yourself."
 msgstr "No et pots eliminar a tu mateix."
 
-#: system/classes/adminhandler.php:917
+#: system/classes/adminhandler.php:889
 #, php-format
 msgid "%1$s has been renamed to %2$s."
 msgstr "S'ha reanomenat %1$s a %2$s."
 
-#: system/classes/adminhandler.php:930
+#: system/classes/adminhandler.php:902
 msgid "Password changed."
 msgstr "S'ha modificat la contrasenya."
 
-#: system/classes/adminhandler.php:953
+#: system/classes/adminhandler.php:925
 msgid "User updated."
 msgstr "S'ha actualitzat l'usuari."
 
-#: system/classes/adminhandler.php:989 system/classes/adminhandler.php:2291
-#: system/classes/adminhandler.php:2350 system/classes/adminhandler.php:2397
-#: system/classes/adminhandler.php:2764 system/classes/adminhandler.php:2975
-#: system/classes/adminhandler.php:3050
+#: system/classes/adminhandler.php:961 system/classes/adminhandler.php:2277
+#: system/classes/adminhandler.php:2336 system/classes/adminhandler.php:2383
+#: system/classes/adminhandler.php:2726 system/classes/adminhandler.php:2931
+#: system/classes/adminhandler.php:3006
 msgid "WSSE authentication failed."
 msgstr "Ha fallat l'autentificació WSSE."
 
-#: system/classes/adminhandler.php:1017
+#: system/classes/adminhandler.php:989
 msgid "No users deleted."
 msgstr "No s'ha eliminat cap usuari."
 
-#: system/classes/adminhandler.php:1054
+#: system/classes/adminhandler.php:1026
 #, php-format
 msgid "Deleted %d users."
 msgstr "S'ha eliminat %d usuaris."
 
-#: system/classes/adminhandler.php:1111
+#: system/classes/adminhandler.php:1083
 msgid "Password is required."
 msgstr "Es necessita la contrasenya."
 
-#: system/classes/adminhandler.php:1117
+#: system/classes/adminhandler.php:1089
 msgid "Please supply a valid email address."
 msgstr "Escriu una direcció de correu electrònic vàlida."
 
-#: system/classes/adminhandler.php:1120
+#: system/classes/adminhandler.php:1092
 msgid "Please supply a user name."
 msgstr "Escriu un nom d'usuari."
 
-#: system/classes/adminhandler.php:1125
+#: system/classes/adminhandler.php:1097
 msgid "That username is already assigned."
 msgstr "Aquest usuari ja està assignat."
 
-#: system/classes/adminhandler.php:1130
+#: system/classes/adminhandler.php:1102
 #, php-format
 msgid "Added user '%s'"
 msgstr "S'ha afegit l'usuari '%s'"
 
-#: system/classes/adminhandler.php:1175
+#: system/classes/adminhandler.php:1147
 #, php-format
 msgid "Activated plugin '%s'"
 msgstr "S'ha activat l'extensió '%s'"
 
-#: system/classes/adminhandler.php:1184
+#: system/classes/adminhandler.php:1156
 #, php-format
 msgid "Deactivated plugin '%s'"
 msgstr "S'ha desactivat l'extensió '%s'"
 
-#: system/classes/adminhandler.php:1284
+#: system/classes/adminhandler.php:1257
 #, php-format
 msgid "Activated theme '%s'"
 msgstr "S'ha activat el tema '%s'"
 
-#: system/classes/adminhandler.php:1298
+#: system/classes/adminhandler.php:1271
 #, php-format
 msgid "Ended the preview of the theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1302
+#: system/classes/adminhandler.php:1275
 #, php-format
 msgid "Previewing theme '%s'"
 msgstr ""
 
-#: system/classes/adminhandler.php:1384
+#: system/classes/adminhandler.php:1370
 msgid "Author"
 msgstr "Autor"
 
-#: system/classes/adminhandler.php:1386
+#: system/classes/adminhandler.php:1372
 msgid "Author Name"
 msgstr "Nom de l'autor"
 
-#: system/classes/adminhandler.php:1389
+#: system/classes/adminhandler.php:1375
 msgid "Author Email"
 msgstr "Correu electrònic de l'autor"
 
-#: system/classes/adminhandler.php:1392
+#: system/classes/adminhandler.php:1378
 msgid "Author URL"
 msgstr "URL de l'autor"
 
-#: system/classes/adminhandler.php:1395
+#: system/classes/adminhandler.php:1381
 msgid "IP Address:"
 msgstr "Adreça IP:"
 
-#: system/classes/adminhandler.php:1402
+#: system/classes/adminhandler.php:1388
 msgid "Date:"
 msgstr "Data:"
 
-#: system/classes/adminhandler.php:1407
+#: system/classes/adminhandler.php:1393
 msgid "Post ID:"
 msgstr "ID de l'entrada:"
 
-#: system/classes/adminhandler.php:1412
+#: system/classes/adminhandler.php:1398
 msgid "Status"
 msgstr "Estat"
 
-#: system/classes/adminhandler.php:1601 system/classes/adminhandler.php:2424
+#: system/classes/adminhandler.php:1587 system/classes/adminhandler.php:2410
 msgid "Deleted all spam comments"
 msgstr "S'ha eliminat tots els comentaris spam"
 
-#: system/classes/adminhandler.php:1607 system/classes/adminhandler.php:2428
+#: system/classes/adminhandler.php:1593 system/classes/adminhandler.php:2414
 msgid "Deleted all unapproved comments"
 msgstr "S'ha eliminat tots els comentaris sense aprovar"
 
-#: system/classes/adminhandler.php:1641 system/classes/adminhandler.php:1655
+#: system/classes/adminhandler.php:1627 system/classes/adminhandler.php:1641
 #, php-format
 msgid "Deleted %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1642 system/classes/adminhandler.php:1662
+#: system/classes/adminhandler.php:1628 system/classes/adminhandler.php:1648
 #, php-format
 msgid "Marked %d comments as spam"
 msgstr ""
 
-#: system/classes/adminhandler.php:1643 system/classes/adminhandler.php:1670
+#: system/classes/adminhandler.php:1629 system/classes/adminhandler.php:1656
 #, php-format
 msgid "Approved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1644 system/classes/adminhandler.php:1681
+#: system/classes/adminhandler.php:1630 system/classes/adminhandler.php:1667
 #, php-format
 msgid "Unapproved %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1645 system/classes/adminhandler.php:1704
+#: system/classes/adminhandler.php:1631 system/classes/adminhandler.php:1690
 #, php-format
 msgid "Edited %d comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:1672
+#: system/classes/adminhandler.php:1658
 #, php-format
 msgid "Approved comments on these posts: %s"
 msgstr ""
 
-#: system/classes/adminhandler.php:1775
+#: system/classes/adminhandler.php:1761
 #, php-format
 msgid "Change this comment's status to %s"
 msgstr "Canvia l'estat d'aquest comentari a %s"
 
-#: system/classes/adminhandler.php:1779
+#: system/classes/adminhandler.php:1765
 msgid "Delete this comment"
 msgstr "Elimina aquest comentari"
 
-#: system/classes/adminhandler.php:1780
+#: system/classes/adminhandler.php:1766
 msgid "Edit this comment"
 msgstr "Edita aquest comentari"
 
-#: system/classes/adminhandler.php:1850 system/classes/adminhandler.php:1888
+#: system/classes/adminhandler.php:1836 system/classes/adminhandler.php:1875
 msgid "Deactivate"
 msgstr "Desactiva"
 
-#: system/classes/adminhandler.php:1932 system/installer/db_setup.php:10
-#: system/installer/db_setup.php:165 system/installer/db_setup.php:220
+#: system/classes/adminhandler.php:1919 system/installer/db_setup.php:11
+#: system/installer/db_setup.php:166 system/installer/db_setup.php:221
 msgid "Help"
 msgstr "Ajuda"
 
-#: system/classes/adminhandler.php:2148 system/classes/adminhandler.php:2149
+#: system/classes/adminhandler.php:2134 system/classes/adminhandler.php:2135
 msgid "Manage Posts"
 msgstr "Gestiona Entrades"
 
-#: system/classes/adminhandler.php:2179
+#: system/classes/adminhandler.php:2165
 msgid "Modules updated."
 msgstr ""
 
-#: system/classes/adminhandler.php:2184
+#: system/classes/adminhandler.php:2170
 #, php-format
 msgid "Added module %s."
 msgstr ""
 
-#: system/classes/adminhandler.php:2190
+#: system/classes/adminhandler.php:2176
 msgid "Removed module."
 msgstr ""
 
-#: system/classes/adminhandler.php:2311 system/classes/adminhandler.php:2419
+#: system/classes/adminhandler.php:2297 system/classes/adminhandler.php:2405
 #, php-format
 msgid "Unknown action \"%s\""
 msgstr "Acció \"%s\" desconeguda"
 
-#: system/classes/adminhandler.php:2322
+#: system/classes/adminhandler.php:2308
 msgid "You did not have permission to delete some entries."
 msgstr ""
 
-#: system/classes/adminhandler.php:2325
+#: system/classes/adminhandler.php:2311
 #, php-format
 msgid "Deleted %d post"
 msgid_plural "Deleted %d posts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:2363
+#: system/classes/adminhandler.php:2349
 msgid "No logs selected."
 msgstr ""
 
-#: system/classes/adminhandler.php:2375
+#: system/classes/adminhandler.php:2361
 #, php-format
 msgid "Deleted %d logs."
 msgstr "S'ha eliminat %d registres."
 
-#: system/classes/adminhandler.php:2379
-msgid "Logs purged."
-msgstr ""
-
-#: system/classes/adminhandler.php:2412
+#: system/classes/adminhandler.php:2398
 msgid "No comments selected."
 msgstr "No s'a seleccionat cap comentari."
 
-#: system/classes/adminhandler.php:2433
+#: system/classes/adminhandler.php:2419
 #, php-format
 msgid "Deleted %d comment"
 msgid_plural "Deleted %d comments"
 msgstr[0] "S'ha eliminat %d comentari"
 msgstr[1] "S'ha eliminat %d comentaris"
 
-#: system/classes/adminhandler.php:2438
+#: system/classes/adminhandler.php:2424
 #, php-format
 msgid "Marked %d comment as spam"
 msgid_plural "Marked %d comments as spam"
 msgstr[0] "S'ha marcat %d comentari com a spam"
 msgstr[1] "S'ha marcat %d comentaris com a spam"
 
-#: system/classes/adminhandler.php:2444
+#: system/classes/adminhandler.php:2430
 #, php-format
 msgid "Approved %d comment"
 msgid_plural "Approved %d comments"
 msgstr[0] "S'ha aprovat %d comentari"
 msgstr[1] "S'ha aprovat %d comentaris"
 
-#: system/classes/adminhandler.php:2450
+#: system/classes/adminhandler.php:2436
 #, php-format
 msgid "Unapproved %d comment"
 msgid_plural "Unapproved %d comments"
 msgstr[0] "S'ha desaprovat %d comentari"
 msgstr[1] "S'ha desaprovat %d comentaris"
 
-#: system/classes/adminhandler.php:2783
+#: system/classes/adminhandler.php:2745
 #, php-format
 msgid "The group %s already exists"
 msgstr "El grup %s ja existeix"
 
-#: system/classes/adminhandler.php:2792
+#: system/classes/adminhandler.php:2754
 msgid "The group must have a name"
 msgstr "El grup ha de tenir un nom"
 
-#: system/classes/adminhandler.php:2805
+#: system/classes/adminhandler.php:2767
 #, php-format
 msgid "Added group %s"
 msgstr "S'ha afegit el grup %s"
 
-#: system/classes/adminhandler.php:2842
+#: system/classes/adminhandler.php:2804
 msgid "No groups deleted."
 msgstr "no s'ha eliminat cap grup."
 
-#: system/classes/adminhandler.php:2856
+#: system/classes/adminhandler.php:2818
 #, php-format
 msgid "Deleted %d groups."
 msgstr "S'ha eliminat %d grups."
 
-#: system/classes/adminhandler.php:3021
+#: system/classes/adminhandler.php:2977
 msgid "Updated permissions."
 msgstr "S'ha actualitzat els permisos."
 
-#: system/classes/adminhandler.php:3069
+#: system/classes/adminhandler.php:3026
 #, php-format
 msgid "Tag %s has been deleted."
-msgid_plural "Tags %s have been deleted."
-msgstr[0] "S'ha eliminat %s etiqueta."
-msgstr[1] "S'ha eliminat %s etiquetes."
+msgstr ""
 
-#: system/classes/adminhandler.php:3094
+#: system/classes/adminhandler.php:3026
+#, php-format
+msgid "%d tags have been deleted."
+msgstr ""
+
+#: system/classes/adminhandler.php:3048
 #, php-format
 msgid "Tag %1$s has been renamed to %2$s."
 msgid_plural "Tags %1$s have been renamed to %2$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/adminhandler.php:3120 system/classes/adminhandler.php:3122
+#: system/classes/adminhandler.php:3074 system/classes/adminhandler.php:3076
 msgid "Habari Version"
 msgstr "Versió de Habari"
 
-#: system/classes/adminhandler.php:3125
+#: system/classes/adminhandler.php:3079
 msgid "Habari API Version"
 msgstr "Versió de l'API de Habari"
 
-#: system/classes/adminhandler.php:3126
+#: system/classes/adminhandler.php:3080
 msgid "Habari DB Version"
 msgstr "Versió de la Base de Dades de Habari"
 
-#: system/classes/adminhandler.php:3127
+#: system/classes/adminhandler.php:3081
 msgid "Active Theme"
 msgstr "Tema actiu"
 
-#: system/classes/adminhandler.php:3128
+#: system/classes/adminhandler.php:3082
 msgid "Site Language"
 msgstr "Idioma del blog"
 
-#: system/classes/adminhandler.php:3132
+#: system/classes/adminhandler.php:3086
 msgid "PHP Version"
 msgstr "Versió PHP"
 
-#: system/classes/adminhandler.php:3133
+#: system/classes/adminhandler.php:3087
 msgid "Server Software"
 msgstr "Programari del servidor"
 
-#: system/classes/adminhandler.php:3134
+#: system/classes/adminhandler.php:3088
 msgid "Database"
 msgstr "Base de dades"
 
-#: system/classes/adminhandler.php:3135
+#: system/classes/adminhandler.php:3089
 msgid "PHP Extensions"
 msgstr "Extensions de PHP"
 
-#: system/classes/adminhandler.php:3137 system/classes/adminhandler.php:3146
+#: system/classes/adminhandler.php:3091 system/classes/adminhandler.php:3100
 msgid "PCRE Version"
 msgstr "Versió de PCRE"
 
-#: system/classes/adminhandler.php:3148
+#: system/classes/adminhandler.php:3102
 msgid "Browser"
 msgstr "Navegador"
 
-#: system/classes/adminhandler.php:3228
+#: system/classes/adminhandler.php:3182
 #, php-format
 msgid "Create a new %s"
 msgstr "Crea una nova %s"
 
-#: system/classes/adminhandler.php:3232
+#: system/classes/adminhandler.php:3186
 #, php-format
 msgid "Manage %s"
 msgstr "Gestiona les %s"
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3205
 msgid "Create content"
 msgstr "Crea contingut"
 
-#: system/classes/adminhandler.php:3251
+#: system/classes/adminhandler.php:3205
 msgid "New"
 msgstr "Nou"
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3206
 msgid "Manage content"
 msgstr "Gestiona el contingut"
 
-#: system/classes/adminhandler.php:3252
+#: system/classes/adminhandler.php:3206
 msgid "Manage"
 msgstr "Gestiona"
 
-#: system/classes/adminhandler.php:3253
+#: system/classes/adminhandler.php:3207
 msgid "Manage comments"
 msgstr ""
 
-#: system/classes/adminhandler.php:3254
+#: system/classes/adminhandler.php:3208
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:650
 msgid "Tags"
 msgstr "Etiquetes"
 
-#: system/classes/adminhandler.php:3255
+#: system/classes/adminhandler.php:3209
 msgid "View your user dashboard"
 msgstr "Visualitza el teu escriptori d'usuari"
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3210
 msgid "View and configure site options"
 msgstr ""
 
-#: system/classes/adminhandler.php:3256
+#: system/classes/adminhandler.php:3210
 msgid "Options"
 msgstr "Opcions"
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3211
 msgid "Preview and activate themes"
 msgstr "Previsualitza i activa temes"
 
-#: system/classes/adminhandler.php:3257
+#: system/classes/adminhandler.php:3211
 msgid "Themes"
 msgstr "Temes"
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3212
 msgid "Activate, deactivate, and configure plugins"
 msgstr "Activa, desactiva i configura extensions"
 
-#: system/classes/adminhandler.php:3258
+#: system/classes/adminhandler.php:3212
 msgid "Plugins"
 msgstr "Extensions"
 
-#: system/classes/adminhandler.php:3259
+#: system/classes/adminhandler.php:3213
 msgid "Import content from another site"
 msgstr ""
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3214
 msgid "View and manage users"
 msgstr "Visualitza i gestiona els usuaris"
 
-#: system/classes/adminhandler.php:3260
+#: system/classes/adminhandler.php:3214
 msgid "Users"
 msgstr "Usuaris"
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3215
 msgid "Manage your user profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3261
+#: system/classes/adminhandler.php:3215
 msgid "My Profile"
 msgstr ""
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3216
 msgid "View and manage groups"
 msgstr "Visualitza i gestiona els grups"
 
-#: system/classes/adminhandler.php:3262
+#: system/classes/adminhandler.php:3216
 msgid "Groups"
 msgstr "Grups"
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3217
 msgid "View system log messages"
 msgstr "Visualitza missatges del registre del sistema"
 
-#: system/classes/adminhandler.php:3263
+#: system/classes/adminhandler.php:3217
 msgid "Logs"
 msgstr "Registres"
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3218
 msgid "Log out of the administration interface"
 msgstr "Desconnecta't del teu compte d'administrador"
 
-#: system/classes/adminhandler.php:3264
+#: system/classes/adminhandler.php:3218
+#: system/plugins/coreblocks/coreblocks.plugin.php:314
 msgid "Logout"
 msgstr "Desconnecta't"
 
-#: system/classes/adminhandler.php:3499
+#: system/classes/adminhandler.php:3453
 msgid "Entry"
 msgstr "Entrada"
 
-#: system/classes/adminhandler.php:3500
+#: system/classes/adminhandler.php:3454
 msgid "Entries"
 msgstr "Entrades"
 
-#: system/classes/adminhandler.php:3503
+#: system/classes/adminhandler.php:3457
 msgid "Page"
 msgstr "Pàgina"
 
-#: system/classes/adminhandler.php:3504
+#: system/classes/adminhandler.php:3458
 msgid "Pages"
 msgstr "Pàgines"
 
-#: system/classes/adminhandler.php:3553
+#: system/classes/adminhandler.php:3507
 msgid "Root"
 msgstr "Arrel"
 
-#: system/classes/adminhandler.php:3669
+#: system/classes/adminhandler.php:3623
 msgid "A new block must first have a name."
 msgstr ""
 
-#: system/classes/adminhandler.php:3685
+#: system/classes/adminhandler.php:3639
 #, php-format
 msgid "Added new block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3709
+#: system/classes/adminhandler.php:3663
 #, php-format
 msgid "Deleted block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3712
+#: system/classes/adminhandler.php:3666
 #, php-format
 msgid "Failed to delete block \"%1s\" of type \"%2s\"."
 msgstr ""
 
-#: system/classes/adminhandler.php:3753
+#: system/classes/adminhandler.php:3713
 msgid "Saved block areas settings."
 msgstr ""
 
-#: system/classes/adminhandler.php:3797
+#: system/classes/adminhandler.php:3757
 msgid "+"
 msgstr "+"
 
-#: system/classes/remoterequest.php:112
-msgid "Trying to add a request body to a non-POST request"
-msgstr "intentant afegir un cos de petició a una petició que no és POST"
+#: system/classes/remoterequest.php:29
+#: system/classes/curlrequestprocessor.php:185
+msgid "Unable to get response body. Request did not yet execute."
+msgstr ""
 
-#: system/classes/remoterequest.php:168
+#: system/classes/remoterequest.php:38
+#: system/classes/curlrequestprocessor.php:194
+msgid "Unable to get response headers. Request did not yet execute."
+msgstr ""
+
+#: system/classes/remoterequest.php:217
+msgid "Trying to add a request body to a GET request."
+msgstr ""
+
+#: system/classes/remoterequest.php:274
 #, php-format
 msgid "File %s not found."
 msgstr ""
 
-#: system/classes/remoterequest.php:266
-msgid "Trying to fetch response headers for a pending request."
-msgstr "Intentant cercar encapçalaments de resposta per una petició pendent."
+#: system/classes/remoterequest.php:374
+msgid "Unable to fetch response headers for a pending request."
+msgstr ""
 
-#: system/classes/remoterequest.php:277
-msgid "Trying to fetch response body for a pending request."
-msgstr "Intentant cercar cos de resposta per una petició pendent."
+#: system/classes/remoterequest.php:387
+msgid "Unable to fetch response body for a pending request."
+msgstr ""
 
 #: system/classes/update.php:36
 msgid "Invalid Beacon information added"
+msgstr ""
+
+#: system/classes/update.php:198
+msgid "Updates check CronJob completed successfully."
+msgstr ""
+
+#: system/classes/update.php:206
+msgid "Updates check CronJob failed!"
+msgstr ""
+
+#: system/classes/update.php:274
+msgid ""
+"Perform a single check for plugin updates, the plugin set has changed."
 msgstr ""
 
 #: system/classes/colorutils.php:35
@@ -2946,40 +3052,95 @@ msgstr "El nombre de revisió %d de %s és desconegut!"
 msgid "Message count (%d) out of bounds in %s!"
 msgstr "El recompte de missatges (%d) a %s està fora dels límits!"
 
-#: system/classes/habaridatetime.php:374
+#: system/classes/habaridatetime.php:391
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:395
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:399
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:403
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:407
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:411
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:422
+#, php-format
+msgid "%s from now"
+msgstr ""
+
+#: system/classes/habaridatetime.php:425
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: system/classes/habaridatetime.php:444
 msgid "just now"
 msgstr ""
 
-#: system/classes/habaridatetime.php:377
+#: system/classes/habaridatetime.php:448
 #, php-format
-msgid "%d minutes ago"
-msgstr ""
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
 
-#: system/classes/habaridatetime.php:381
+#: system/classes/habaridatetime.php:452
 #, php-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:385
+#: system/classes/habaridatetime.php:456
 #, php-format
 msgid "yesterday"
 msgid_plural "%d days ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:389
+#: system/classes/habaridatetime.php:460
 #, php-format
 msgid "last week"
 msgid_plural "%d weeks ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: system/classes/habaridatetime.php:392
+#: system/classes/habaridatetime.php:464
 #, php-format
 msgid "last month"
 msgid_plural "%d months ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: system/classes/habaridatetime.php:468
+#, php-format
+msgid "last year"
+msgid_plural "%d years ago"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -2991,22 +3152,22 @@ msgstr ""
 msgid "There is no valid theme currently installed."
 msgstr "Actualment no hi ha cap tema vàlid instal·lat."
 
-#: system/classes/themes.php:157
+#: system/classes/themes.php:166
 #, php-format
 msgid "Activated Theme: %s"
 msgstr "Tema activat: %s"
 
-#: system/classes/themes.php:170
+#: system/classes/themes.php:181
 #, php-format
 msgid "Previewed Theme: %s"
 msgstr ""
 
-#: system/classes/themes.php:179
+#: system/classes/themes.php:190
 #, php-format
 msgid "Canceled Theme Preview: %s"
 msgstr ""
 
-#: system/classes/themes.php:222 system/classes/themes.php:231
+#: system/classes/themes.php:233 system/classes/themes.php:242
 msgid "Theme not installed."
 msgstr "No s'ha instal·lat el tema."
 
@@ -3058,28 +3219,21 @@ msgstr ""
 msgid "Your comment is pending moderation."
 msgstr "El teu comentari està pendent de ser moderat."
 
-#: system/classes/curlrequestprocessor.php:74
-#, php-format
-msgid " %s: CURL Error. Unable to create temporary file name."
+#: system/classes/curlrequestprocessor.php:92
+msgid "CURL Error. Unable to create temporary file name."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:79
-#, php-format
-msgid " %s: CURL Error. Unable to open temporary file."
+#: system/classes/curlrequestprocessor.php:97
+msgid "CURL Error. Unable to open temporary file."
 msgstr ""
 
-#: system/classes/curlrequestprocessor.php:98
+#: system/classes/curlrequestprocessor.php:132
 #, php-format
-msgid "%s: CURL Error %d: %s"
-msgstr "%s Error CURL %d: %s"
+msgid "CURL Error %1$d: %2$s"
+msgstr ""
 
-#: system/classes/curlrequestprocessor.php:103
-#, php-format
-msgid "Bad return code (%1$d) for: %2$s"
-msgstr "Mal codi de retorn (%1$d) per: %2$s"
-
-#: system/classes/logentry.php:172 system/classes/logentry.php:263
-#: system/classes/logentry.php:275
+#: system/classes/logentry.php:172 system/classes/logentry.php:269
+#: system/classes/logentry.php:282
 msgid "Unknown"
 msgstr "Desconegut"
 
@@ -3141,27 +3295,37 @@ msgstr "sencer"
 msgid "none"
 msgstr "cap"
 
-#: system/classes/term.php:163
+#: system/classes/term.php:140
 #, php-format
 msgid "New term %1$s: %2$s"
 msgstr ""
 
-#: system/classes/term.php:216
+#: system/classes/term.php:194
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
 msgstr ""
 
-#: system/classes/plugins.php:411
+#: system/classes/plugins.php:262
+#, php-format
+msgid "Plugin \"%1$s\" deactivated because it could no longer be found."
+msgstr ""
+
+#: system/classes/plugins.php:412
+#, php-format
+msgid "Invalid plugin XML file: %1$s"
+msgstr ""
+
+#: system/classes/plugins.php:485
 #, php-format
 msgid "Activated Plugin: %s"
 msgstr "Extensió activada: %s"
 
-#: system/classes/plugins.php:441
+#: system/classes/plugins.php:521
 #, php-format
 msgid "Deactivated Plugin: %s"
 msgstr "Extensió desactivada: %s"
 
-#: system/classes/plugins.php:541
+#: system/classes/plugins.php:628
 #, php-format
 msgid ""
 "Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
@@ -3170,46 +3334,51 @@ msgstr ""
 "S'ha intentat carrgar l'arxiu d'extensió \"%s\", però ha fallat perquè "
 "contenia errors de sintaxi. <div class=\"reveal\">%s</div>"
 
-#: system/classes/formui.php:771
-msgid "Value must be a valid URL."
-msgstr "El valor ha de ser una URL vàlida."
+#: system/classes/formui.php:798
+msgid "Relative urls are not allowed"
+msgstr ""
 
-#: system/classes/formui.php:791
+#: system/classes/formui.php:804
+#, php-format
+msgid "Only %s urls are allowed"
+msgstr ""
+
+#: system/classes/formui.php:824
 msgid "Value must be a valid Email Address."
 msgstr "El valor ha de ser una adreça de correu electrònic vàlida."
 
-#: system/classes/formui.php:809
+#: system/classes/formui.php:842
 msgid "A value for this field is required."
 msgstr "Es necessita un valor per a aquest camp."
 
-#: system/classes/formui.php:831
+#: system/classes/formui.php:864
 msgid "That username is already in use!"
 msgstr "Aquest nom d'usuari ja s'està fent servir!"
 
-#: system/classes/formui.php:851
+#: system/classes/formui.php:884
 #, php-format
 msgid "The value of this field must match the value of %s."
 msgstr "El valor d'aquest camp s'ha de correspondre amb el valor de %s."
 
-#: system/classes/formui.php:874
+#: system/classes/formui.php:907
 msgid "The value does not meet submission requirements"
 msgstr "El valor no es correspon amb els requeriments d'enviament."
 
-#: system/classes/formui.php:895
+#: system/classes/formui.php:928
 #, php-format
 msgid "The value entered is lesser than the minimum of %d."
 msgstr "El valor que has entrat és més petit que el mínim de %d."
 
-#: system/classes/formui.php:901
+#: system/classes/formui.php:934
 #, php-format
 msgid "The value entered is greater than the maximum of %d."
 msgstr "El valor entrar és més gran que el màxim de %d."
 
-#: system/classes/formui.php:1595
+#: system/classes/formui.php:1635
 msgid "Remove this item?"
 msgstr "Vols esborrar aquest element?"
 
-#: system/classes/theme.php:259
+#: system/classes/theme.php:258
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
@@ -3217,19 +3386,19 @@ msgstr ""
 "Ups! 404. La pàgina a la que intentaves accedir no hi és. Torna-ho a "
 "intentar."
 
-#: system/classes/theme.php:780
+#: system/classes/theme.php:792
 msgid "Previous"
 msgstr "Anterior"
 
-#: system/classes/theme.php:807
+#: system/classes/theme.php:819
 msgid "Next"
 msgstr "Següent"
 
-#: system/classes/theme.php:833
+#: system/classes/theme.php:845
 msgid "Read Comments"
 msgstr "Llegeix els comentaris"
 
-#: system/classes/theme.php:859
+#: system/classes/theme.php:871
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"
@@ -3306,16 +3475,20 @@ msgstr "%1$s el \"%2$s\""
 msgid "Attempt to fetch in class mode with a non-included class"
 msgstr "Intent de cercar en mode de classe amb una classe no inclosa"
 
-#: system/classes/inputfilter.php:372
+#: system/classes/crontab.php:73
+msgid "CronTab run completed."
+msgstr ""
+
+#: system/classes/inputfilter.php:377
 #, php-format
 msgid "Unkown attribute type \"%s\" in %s"
 msgstr "Tipus d'atribut \"%s\" desconegut en %s"
 
-#: system/plugins/wpimport/wpimport.plugin.php:20
+#: system/plugins/wpimport/wpimport.plugin.php:25
 msgid "WordPress Database"
 msgstr "Base de dades de WordPress"
 
-#: system/plugins/wpimport/wpimport.plugin.php:62
+#: system/plugins/wpimport/wpimport.plugin.php:66
 msgid ""
 "Could not connect to the WordPress database using the values supplied. "
 "Please correct them and try again."
@@ -3323,115 +3496,134 @@ msgstr ""
 "No s'ha pogut connectar a la base de dades de WordPress amb les dades que "
 "has especificat. Corregeix-les i torna-ho a provar."
 
-#: system/plugins/wpimport/wpimport.plugin.php:105
-msgid "Habari will attempt to import from a WordPress Database."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:107
-msgid ""
-"Please provide the connection details for an existing WordPress database:"
-msgstr ""
-
 #: system/plugins/wpimport/wpimport.plugin.php:109
-#: system/installer/db_setup.php:72 system/installer/db_setup.php:119
+msgid "Habari will attempt to import from a WordPress database."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:119
+#: system/plugins/wpimport/wpimport.plugin.php:201
+#: system/installer/db_setup.php:73 system/installer/db_setup.php:120
 msgid "Database Name"
 msgstr "Nom de la Base de Dades"
 
-#: system/plugins/wpimport/wpimport.plugin.php:112
-#: system/installer/db_setup.php:39 system/installer/db_setup.php:86
+#: system/plugins/wpimport/wpimport.plugin.php:123
+#: system/plugins/wpimport/wpimport.plugin.php:204
+#: system/installer/db_setup.php:40 system/installer/db_setup.php:87
 msgid "Database Host"
 msgstr "Host de la Base de dades"
 
-#: system/plugins/wpimport/wpimport.plugin.php:115
+#: system/plugins/wpimport/wpimport.plugin.php:127
+#: system/plugins/wpimport/wpimport.plugin.php:207
 msgid "Database User"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:118
+#: system/plugins/wpimport/wpimport.plugin.php:131
+#: system/plugins/wpimport/wpimport.plugin.php:210
 msgid "Database Password"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:121
-#: system/installer/db_setup.php:145
+#: system/plugins/wpimport/wpimport.plugin.php:135
+#: system/plugins/wpimport/wpimport.plugin.php:213
+#: system/installer/db_setup.php:146
 msgid "Table Prefix"
 msgstr "Prefix de les Taules"
 
-#: system/plugins/wpimport/wpimport.plugin.php:124
-msgid "Import Category as Tag"
+#: system/plugins/wpimport/wpimport.plugin.php:139
+#: system/plugins/wpimport/wpimport.plugin.php:216
+msgid "Import Categories as Tags"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:128
-msgid "Extras - additional data from WordPress plugins"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:130
-msgid "Import tags from Ultimate Tag Warrior"
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:158
+#: system/plugins/wpimport/wpimport.plugin.php:161
 #, php-format
 msgid "Starting import from \"%s\""
 msgstr "Començant la importació des de \"%s\""
 
 #: system/plugins/wpimport/wpimport.plugin.php:163
-msgid "Import In Progress"
+msgid "Import in Progress"
 msgstr ""
 
 #: system/plugins/wpimport/wpimport.plugin.php:164
-msgid "Starting Import..."
+msgid "Starting Import&hellip;"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:245
-#, php-format
-msgid "Importing posts %1$d - %2$d of %3$d."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:358
-#, php-format
-msgid ""
-"Post author id %1$s was not found in WP database, assigning post \"%2$s\" "
-"(WP post id #%3$d) to current user."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:436
-#: system/plugins/wpimport/wpimport.plugin.php:533
-#: system/plugins/wpimport/wpimport.plugin.php:672
+#: system/plugins/wpimport/wpimport.plugin.php:260
+#: system/plugins/wpimport/wpimport.plugin.php:261
+#: system/plugins/wpimport/wpimport.plugin.php:367
+#: system/plugins/wpimport/wpimport.plugin.php:368
+#: system/plugins/wpimport/wpimport.plugin.php:591
+#: system/plugins/wpimport/wpimport.plugin.php:592
 #, php-format
 msgid "Failed to import from \"%s\""
 msgstr "La importació des de \"%s\" ha fallat"
 
-#: system/plugins/wpimport/wpimport.plugin.php:438
-msgid "The database connection details have failed to connect."
-msgstr ""
-"Els detalls de la connexió a la base de dades han fallat al connectar."
-
-#: system/plugins/wpimport/wpimport.plugin.php:473
-msgid "Importing users..."
-msgstr ""
-
-#: system/plugins/wpimport/wpimport.plugin.php:535
-#: system/plugins/wpimport/wpimport.plugin.php:674
+#: system/plugins/wpimport/wpimport.plugin.php:262
+#: system/plugins/wpimport/wpimport.plugin.php:369
+#: system/plugins/wpimport/wpimport.plugin.php:593
 msgid "Failed to connect using the given database connection details."
 msgstr ""
 "No s'ha pogut connectar amb els detalls de connexió de la base de dades que "
 "has donat."
 
-#: system/plugins/wpimport/wpimport.plugin.php:559
-#, php-format
-msgid "Importing comments %1$d - %2$d of %3$d"
+#: system/plugins/wpimport/wpimport.plugin.php:273
+msgid "Importing Users&hellip;"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:655
+#: system/plugins/wpimport/wpimport.plugin.php:288
+#: system/plugins/wpimport/wpimport.plugin.php:290
 #, php-format
-msgid "Import complete from \"%s\""
+msgid "Associated imported user %1$s with existing user %2$s"
 msgstr ""
 
-#: system/plugins/wpimport/wpimport.plugin.php:656
+#: system/plugins/wpimport/wpimport.plugin.php:315
+#: system/plugins/wpimport/wpimport.plugin.php:317
+#, php-format
+msgid "Created new user %1$s. Their old ID was %2$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:325
+#, php-format
+msgid ""
+"There was an error importing user %s. See the EventLog for the error "
+"message. "
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:327
+#: system/plugins/wpimport/wpimport.plugin.php:532
+#: system/plugins/wpimport/wpimport.plugin.php:736
+msgid "Rolling back changes&hellip;"
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:385
+#, php-format
+msgid "Importing posts %1$d - %2$d of %3$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:530
+#, php-format
+msgid ""
+"There was an error importing post %s. See the EventLog for the error message."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:609
+#, php-format
+msgid "Importing comments %1$d - %2$d of %3$d."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:734
+#, php-format
+msgid ""
+"There was an error importing comment ID %d. See the EventLog for the error "
+"message."
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:768
+#, php-format
+msgid "Import completed from \"%s\""
+msgstr ""
+
+#: system/plugins/wpimport/wpimport.plugin.php:769
 msgid "Import is complete."
 msgstr "S'ha acabat la importació."
-
-#: system/plugins/wpimport/wpimport.plugin.php:660
-msgid "There were errors during import:"
-msgstr "Hi ha hagut errors durant l'importació:"
 
 #: system/plugins/coredashmodules/dash_latestcomments.php:5
 #, php-format
@@ -3701,23 +3893,172 @@ msgstr "La sessió del comentarista ha expirat."
 msgid "The selected action is forbidden."
 msgstr "L'acció seleccionada està prohibida."
 
+#: system/plugins/coreblocks/coreblocks.plugin.php:33
+msgid "Site Feed"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:34
+msgid "Comments Feed"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:65
+msgid "Comments to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:124
+msgid "Posts to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:161
+msgid "Display full month names:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:162
+#: system/plugins/coreblocks/coreblocks.plugin.php:236
+msgid "Append post count:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:163
+#: system/plugins/coreblocks/coreblocks.plugin.php:237
+msgid "Preferred Output Style:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:164
+#: system/plugins/coreblocks/coreblocks.plugin.php:238
+msgid "Dropdown"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:164
+#: system/plugins/coreblocks/coreblocks.plugin.php:238
+msgid "List"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:298
+msgid "Links to show:"
+msgstr ""
+
+#: system/plugins/coreblocks/coreblocks.plugin.php:339
+msgid "Button:"
+msgstr ""
+
 #: system/plugins/simple_private_posts/simple_private_posts.plugin.php:27
 msgid "Private Post"
 msgstr "Entrada privada"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:784
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:634
+msgid "Search CC"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:640
+msgid "Photos"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:645
+msgid "Videos"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:655
+msgid "Sets"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:781
 msgid "This photo has no title"
 msgstr "Aquesta imatge no té títol"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:870
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:798
+msgid "De-Authorize"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:801
+msgid "Authorize"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:816
+msgid ""
+"You have already successfully authorized Habari to access your Flickr "
+"account."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:817
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:864
+msgid "Do you want to "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:817
+msgid "revoke authorization"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
+msgid "To use this plugin, you must "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:824
+msgid "authorize Habari to have access to your Flickr account"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
+msgid "When you have completed the authorization on Flickr, return here and "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:825
+msgid "confirm that the authorization was successful"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:839
+msgid ""
+"Either you have already authorized Habari to access your flickr account, or "
+"you have not yet done so.  Please "
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:839
+msgid "try again"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:845
+msgid "Your authorization was set successfully."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:848
+msgid "There was a problem with your authorization:"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:863
+msgid "The Flickr Silo Plugin authorization has been deleted."
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:864
+msgid "re-authorize this plugin"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:874
 msgid "Default size for images in Posts:"
 msgstr "Mida per defecte de les imatges en les entrades:"
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:873
-msgid "Options saved"
-msgstr "Opcions desades"
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Square"
+msgstr ""
 
-#: system/plugins/flickrsilo/flickrsilo.plugin.php:974
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Thumbnail"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Small"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Medium"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Large"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:875
+msgid "Original Size"
+msgstr ""
+
+#: system/plugins/flickrsilo/flickrsilo.plugin.php:977
 msgid "Search for photos"
 msgstr "Cerca imatges"
 
@@ -3731,36 +4072,53 @@ msgstr ""
 msgid "You have logged in to Viddler."
 msgstr "T'has connectat a Viddler."
 
-#: system/plugins/pingback/pingback.plugin.php:295
+#: system/plugins/pingback/pingback.plugin.php:240
+#, php-format
+msgid ""
+"Unable to retrieve target, can't detect pingback endpoint. (Source: %1$s | "
+"Target: %2$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:263
+#, php-format
+msgid "Invalid Pingback endpoint - %1$s (Source: %2$s | Target: %3$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:268
+#, php-format
+msgid "Pingback error: %1$s - %2$s (Source: %3$s | Target: %4$s)"
+msgstr ""
+
+#: system/plugins/pingback/pingback.plugin.php:311
 #, php-format
 msgid "Sent pingbacks for \"%1$s\", target: %2$s"
 msgstr "S'ha enviat els pingbacks per \"%1$s\" amb un target %2$s"
 
-#: system/plugins/pingback/pingback.plugin.php:308
+#: system/plugins/pingback/pingback.plugin.php:324
 msgid "Send Pingbacks to Links"
 msgstr "Envia pingbacks als enllaços"
 
-#: system/plugins/pingback/pingback.plugin.php:334
+#: system/plugins/pingback/pingback.plugin.php:350
 #, php-format
 msgid "%d Pingbacks"
 msgstr ""
 
-#: system/plugins/pingback/pingback.plugin.php:337
+#: system/plugins/pingback/pingback.plugin.php:353
 #, php-format
 msgid "%d Pingback"
 msgstr ""
 
-#: system/plugins/pingback/pingback.plugin.php:340
+#: system/plugins/pingback/pingback.plugin.php:356
 #, php-format
 msgid "%d Pingabcks"
 msgstr ""
 
-#: system/installer/htaccess.php:7 system/installer/config.php:13
-#: system/installer/sqlite.php:7
+#: system/installer/htaccess.php:8 system/installer/config.php:14
+#: system/installer/sqlite.php:8
 msgid "help"
 msgstr "ajuda"
 
-#: system/installer/htaccess.php:10
+#: system/installer/htaccess.php:11
 msgid ""
 "Your <strong>.htaccess</strong> file is not writable. In order to "
 "successfully install Habari, please paste the following into"
@@ -3768,7 +4126,7 @@ msgstr ""
 "No es pot escriure al teu arxiu <strong>.htaccess</strong>. Per a instal·lar "
 "Habari correctament, enganxa-hi el codi següent"
 
-#: system/installer/htaccess.php:13
+#: system/installer/htaccess.php:14
 msgid ""
 "<strong>.htaccess</strong> is a file that tells your Apache web server to "
 "send requests to Habari for handling. Habari is not able to write this file "
@@ -3780,24 +4138,24 @@ msgstr ""
 "arxiu al teu servidor automàticament, per la qual cosa hauràs de crear "
 "l'arxiu tu mateix per a continuar amb la instal·lació."
 
-#: system/installer/htaccess.php:14 system/installer/db_setup.php:31
-#: system/installer/db_setup.php:45 system/installer/db_setup.php:56
-#: system/installer/db_setup.php:67 system/installer/db_setup.php:78
-#: system/installer/db_setup.php:92 system/installer/db_setup.php:103
-#: system/installer/db_setup.php:114 system/installer/db_setup.php:125
-#: system/installer/db_setup.php:138 system/installer/db_setup.php:151
-#: system/installer/db_setup.php:175 system/installer/db_setup.php:185
-#: system/installer/db_setup.php:197 system/installer/db_setup.php:208
-#: system/installer/config.php:20 system/installer/sqlite.php:14
-msgid "Learn More..."
-msgstr "Apren més..."
+#: system/installer/htaccess.php:15 system/installer/db_setup.php:32
+#: system/installer/db_setup.php:46 system/installer/db_setup.php:57
+#: system/installer/db_setup.php:68 system/installer/db_setup.php:79
+#: system/installer/db_setup.php:93 system/installer/db_setup.php:104
+#: system/installer/db_setup.php:115 system/installer/db_setup.php:126
+#: system/installer/db_setup.php:139 system/installer/db_setup.php:152
+#: system/installer/db_setup.php:176 system/installer/db_setup.php:186
+#: system/installer/db_setup.php:198 system/installer/db_setup.php:209
+#: system/installer/config.php:21 system/installer/sqlite.php:15
+msgid "Learn More&hellip;"
+msgstr ""
 
-#: system/installer/htaccess.php:24 system/installer/db_setup.php:252
-#: system/installer/config.php:30 system/installer/sqlite.php:24
+#: system/installer/htaccess.php:25 system/installer/db_setup.php:253
+#: system/installer/config.php:31 system/installer/sqlite.php:25
 msgid "Install"
 msgstr "Instal·la"
 
-#: system/installer/htaccess.php:27 system/installer/sqlite.php:27
+#: system/installer/htaccess.php:28 system/installer/sqlite.php:28
 msgid ""
 "When you have successfully placed the .htaccess file, run the installer "
 "again."
@@ -3805,25 +4163,25 @@ msgstr ""
 "Quan hagis ubicat currectament l'arxiu .htaccess, executa l'instal·lador un "
 "altre cop."
 
-#: system/installer/htaccess.php:28 system/installer/config.php:34
-#: system/installer/sqlite.php:28
+#: system/installer/htaccess.php:29 system/installer/config.php:35
+#: system/installer/sqlite.php:29
 msgid "Restart Installer"
 msgstr "Reinicia l'Instal·lador"
 
-#: system/installer/db_setup.php:9
+#: system/installer/db_setup.php:10
 msgid "Database Setup"
 msgstr "Configuració de la Base de dades"
 
-#: system/installer/db_setup.php:14
+#: system/installer/db_setup.php:15
 msgid "Database Type"
 msgstr "Tipus de Base de dades"
 
-#: system/installer/db_setup.php:25
+#: system/installer/db_setup.php:26
 #, php-format
 msgid "%1$s - missing PDO driver, see help"
 msgstr "%1$s - falta un driver PDO, mira l'ajuda"
 
-#: system/installer/db_setup.php:30
+#: system/installer/db_setup.php:31
 msgid ""
 "<strong>Database Type</strong> specifies the type of database to which "
 "Habari will connect.  Changing this setting may affect the other fields that "
@@ -3836,11 +4194,11 @@ msgstr ""
 "que volies fer servir no és en aquesta llista, hauàs d'instal·lar un driver "
 "PDO per tal d'habilitar-lo."
 
-#: system/installer/db_setup.php:35
+#: system/installer/db_setup.php:36
 msgid "MySQL Settings"
 msgstr "Configuració de MySQL"
 
-#: system/installer/db_setup.php:36
+#: system/installer/db_setup.php:37
 msgid ""
 "Use the settings below only if you have selected MySQL as your database "
 "engine."
@@ -3848,7 +4206,7 @@ msgstr ""
 "Fes servir la configuració següent només si has seleccionat MySQL com al teu "
 "motor de base de dades."
 
-#: system/installer/db_setup.php:44
+#: system/installer/db_setup.php:45
 msgid ""
 "<strong>Database Host</strong> is the host (domain) name or server IP "
 "address of the server that runs the MySQL database to which Habari will "
@@ -3860,7 +4218,7 @@ msgstr ""
 "que connectarà Habari. Si MySQL s'executa al teu servidor web, i normalment "
 "és així, \"localhost\" és un bon valor per a aquest camp."
 
-#: system/installer/db_setup.php:55
+#: system/installer/db_setup.php:56
 msgid ""
 "<strong>Database User</strong> is the username used to connect Habari to the "
 "MySQL database."
@@ -3868,7 +4226,7 @@ msgstr ""
 "L'<strong>Usuari de la Base de dades</strong> és el nom d'usuari que es fa "
 "servir per a connectar Habari amb la base de dades MySQL."
 
-#: system/installer/db_setup.php:66
+#: system/installer/db_setup.php:67
 msgid ""
 "<strong>Database Password</strong> is the password used to connect the "
 "specified user to the MySQL database."
@@ -3876,7 +4234,7 @@ msgstr ""
 "La <strong>Contrasenya de la Base de dades</strong> és la contrasenya que es "
 "fa servir per a connectar l'usuari especificat amb la base de dades MySQL."
 
-#: system/installer/db_setup.php:77
+#: system/installer/db_setup.php:78
 msgid ""
 "<strong>Database Name</strong> is the name of the MySQL database to which "
 "Habari will connect."
@@ -3884,11 +4242,11 @@ msgstr ""
 "El <strong>Nom de la Base de Dades</strong> és el nom de la base de dades "
 "MySQL amb la que connectarà Habari."
 
-#: system/installer/db_setup.php:82
+#: system/installer/db_setup.php:83
 msgid "PostgreSQL Settings"
 msgstr "Configuració de PostgreSQL"
 
-#: system/installer/db_setup.php:83
+#: system/installer/db_setup.php:84
 msgid ""
 "Use the settings below only if you have selected PostgreSQL as your database "
 "engine."
@@ -3896,7 +4254,7 @@ msgstr ""
 "Fes servir la configuració següent només si has seleccionat PostgreSQL com "
 "al teu motor de base de dades."
 
-#: system/installer/db_setup.php:91
+#: system/installer/db_setup.php:92
 msgid ""
 "<strong>Database Host</strong> is the host (domain) name or server IP "
 "address of the server that runs the PostgreSQL database to which Habari will "
@@ -3908,7 +4266,7 @@ msgstr ""
 "amb la que connectarà Habari. Si PostgreSQL s'executa al teu servidor web, i "
 "normalment és així, \"localhost\" és un bon valor per a aquest camp."
 
-#: system/installer/db_setup.php:102
+#: system/installer/db_setup.php:103
 msgid ""
 "<strong>Database User</strong> is the username used to connect Habari to the "
 "PostgreSQL database."
@@ -3916,7 +4274,7 @@ msgstr ""
 "L'<strong>Usuari de la Base de dades</strong> és el nom d'usuari que es fa "
 "servir per a connectar Habari amb la base de dades PostgreSQL."
 
-#: system/installer/db_setup.php:113
+#: system/installer/db_setup.php:114
 msgid ""
 "<strong>Database Password</strong> is the password used to connect the "
 "specified user to the PostgreSQL database."
@@ -3925,7 +4283,7 @@ msgstr ""
 "fa servir per a connectar l'usuari especificat amb la base de dades "
 "PostgreSQL."
 
-#: system/installer/db_setup.php:124
+#: system/installer/db_setup.php:125
 msgid ""
 "<strong>Database Name</strong> is the name of the PostgreSQL database to "
 "which Habari will connect."
@@ -3933,11 +4291,11 @@ msgstr ""
 "El <strong>Nom de la Base de Dades</strong> és el nom de la base de dades "
 "PostgreSQL amb la que connectarà Habari."
 
-#: system/installer/db_setup.php:129
+#: system/installer/db_setup.php:130
 msgid "SQLite Settings"
 msgstr "Configuració de SQLite"
 
-#: system/installer/db_setup.php:130
+#: system/installer/db_setup.php:131
 msgid ""
 "Use the settings below only if you have selected SQLite as your database "
 "engine."
@@ -3945,11 +4303,11 @@ msgstr ""
 "Fes servir la configuració següent només si has seleccionat SQLite com al "
 "teu motor de base de dades."
 
-#: system/installer/db_setup.php:133
+#: system/installer/db_setup.php:134
 msgid "Data file"
 msgstr "Arxiu de dades"
 
-#: system/installer/db_setup.php:138
+#: system/installer/db_setup.php:139
 msgid ""
 "<strong>Data file</strong> is the SQLite file that will store your Habari "
 "data.  This should be the path to where your data file resides, relative to "
@@ -3959,7 +4317,7 @@ msgstr ""
 "dades de Habari. Això hauria de ser el camí a on l'arxiu de dades es troba, "
 "relatiu al directori \"user\" de Habari."
 
-#: system/installer/db_setup.php:150
+#: system/installer/db_setup.php:151
 msgid ""
 "<strong>Table Prefix</strong> is a prefix that will be appended to each "
 "table that Habari creates in the database, making it easy to distinguish "
@@ -3970,15 +4328,15 @@ msgstr ""
 "la distinció d'aquestes taules de la base de dades d'aquelles d'altres "
 "instal·lacions."
 
-#: system/installer/db_setup.php:155
+#: system/installer/db_setup.php:156
 msgid "Check Database Connection"
 msgstr ""
 
-#: system/installer/db_setup.php:164
+#: system/installer/db_setup.php:165
 msgid "Site Configuration"
 msgstr "Configuració del Blog"
 
-#: system/installer/db_setup.php:174
+#: system/installer/db_setup.php:175
 msgid ""
 "<strong>Site Name</strong> is the name of your site as it will appear\n"
 "\t\t\t\tto your visitors."
@@ -3986,38 +4344,38 @@ msgstr ""
 "<strong>Nom del Blog</strong> és el nom del blog tal i com apareixerà\n"
 "\t\t\t\tals teus visitants."
 
-#: system/installer/db_setup.php:185
+#: system/installer/db_setup.php:186
 msgid ""
 "<strong>Username</strong> is the username of the initial user in Habari."
 msgstr ""
 "<strong>Nom d'usuari</strong> és el nom de l'usuari inicial de Habari."
 
-#: system/installer/db_setup.php:192
+#: system/installer/db_setup.php:193
 msgid "Password (again)"
 msgstr "Contrasenya (un altre cop)"
 
-#: system/installer/db_setup.php:197
+#: system/installer/db_setup.php:198
 msgid ""
 "<strong>Password</strong> is the password of the initial user in Habari. "
 "Both password fields must match."
 msgstr ""
 
-#: system/installer/db_setup.php:202
+#: system/installer/db_setup.php:203
 msgid "Admin Email"
 msgstr "Correu electrònic de l'admin"
 
-#: system/installer/db_setup.php:207
+#: system/installer/db_setup.php:208
 msgid ""
 "<strong>Admin Email</strong> is the email address of the first user account."
 msgstr ""
 "<strong>Correu electrònic de l'admin</strong> és l'adreça de correu "
 "electrònic del primer compte d'usuari."
 
-#: system/installer/db_setup.php:219
+#: system/installer/db_setup.php:220
 msgid "Plugin Activation"
 msgstr "Activació d'extensions"
 
-#: system/installer/db_setup.php:255
+#: system/installer/db_setup.php:256
 msgid ""
 "Habari now has all of the information needed to install itself on your "
 "server."
@@ -4025,11 +4383,11 @@ msgstr ""
 "Ara Habari ja té tota la informació necessària per a instal·lar-se al teu "
 "servidor."
 
-#: system/installer/db_setup.php:256 system/installer/header.php:10
+#: system/installer/db_setup.php:257 system/installer/header.php:11
 msgid "Install Habari"
 msgstr "Instal·la Habari"
 
-#: system/installer/config.php:16
+#: system/installer/config.php:17
 msgid ""
 "Your <strong>config.php</strong> file is not writable. In order to "
 "successfully install Habari, please paste the following into"
@@ -4037,7 +4395,7 @@ msgstr ""
 "No es pot escriure al teu arxiu <strong>config.php</strong>. PEr tal "
 "d'instal·lar correctament Habari, copia-hi el codi següent"
 
-#: system/installer/config.php:19
+#: system/installer/config.php:20
 msgid ""
 "<strong>config.php</strong> is a file that tells Habari how to connect to "
 "your database. Habari is not able to write this file to your server "
@@ -4049,29 +4407,29 @@ msgstr ""
 "servidor, per tant hauràs de crear aquest arxiu tu mateix per tal de "
 "continuar amb la instal3lació."
 
-#: system/installer/config.php:33
+#: system/installer/config.php:34
 msgid ""
 "When you have successfully placed the config file, run the installer again."
 msgstr ""
 "Quan hagis ubicat correctament l'axiu config, executa l'instal·lador de nou."
 
-#: system/installer/header.php:18
+#: system/installer/header.php:19
 msgid "Read the user manual"
 msgstr "Llegeix el manual d'usuari"
 
-#: system/installer/header.php:19
+#: system/installer/header.php:20
 msgid "Read the Habari wiki"
 msgstr "Llegeix la wiki de Habari"
 
-#: system/installer/header.php:20
+#: system/installer/header.php:21
 msgid "Ask the community"
 msgstr "Pregunta a la comunitat"
 
-#: system/installer/header.php:20
+#: system/installer/header.php:21
 msgid "Mailing List"
 msgstr "Llista de correu"
 
-#: system/installer/sqlite.php:10
+#: system/installer/sqlite.php:11
 #, php-format
 msgid ""
 "Your <b>.htaccess</b> file is not writable. In order to secure your SQLite "
@@ -4080,7 +4438,7 @@ msgstr ""
 "No es pot escriure al teu arxiu <b>.htaccess</b>. Per tal d'assegurar la "
 "teva base de dades SQLite, enganxa el codi següent a <b>%s</b>:"
 
-#: system/installer/sqlite.php:13
+#: system/installer/sqlite.php:14
 msgid ""
 "Your SQLite database is a file on your server like any other file. You can "
 "enhance it's security by including a section in your .htaccess file that "
@@ -4095,15 +4453,15 @@ msgstr ""
 "hauràs d'afegir-la tu mateix per tal de guanyar la millor de seguretat que "
 "t'ofereix."
 
-#: system/installer/requirements.php:4
-msgid "Before you install <em>Habari</em>..."
-msgstr "Abans que instal·lis <em>Habari</em>..."
+#: system/installer/requirements.php:5
+msgid "Before you install <em>Habari</em>&hellip;"
+msgstr ""
 
-#: system/installer/requirements.php:7
+#: system/installer/requirements.php:8
 msgid "Writable directory needed"
 msgstr "Es necessita un directori que pugui ser escrit"
 
-#: system/installer/requirements.php:10
+#: system/installer/requirements.php:11
 msgid ""
 "Before you can install Habari, you first need to make the install directory "
 "writable by php, so that the installation script can write your "
@@ -4111,23 +4469,23 @@ msgid ""
 "server and the ownership of the directory."
 msgstr ""
 
-#: system/installer/requirements.php:13
+#: system/installer/requirements.php:14
 msgid ""
 "If your web server is part of the group which owns the directory, you'll "
 "need to add group write permissions to the directory. The procedure for this "
 "is as follows:"
 msgstr ""
 
-#: system/installer/requirements.php:17
+#: system/installer/requirements.php:18
 msgid ""
 "Open a terminal window, and then change to the installation directory:"
 msgstr "Obre una finestra de terminal i canvia al directori d'instal·lació:"
 
-#: system/installer/requirements.php:21
+#: system/installer/requirements.php:22
 msgid "Change the <em>mode</em> (permissions) of the current directory:"
 msgstr "Canvia el <em>mode</em> (permisos) del directori actual:"
 
-#: system/installer/requirements.php:25
+#: system/installer/requirements.php:26
 msgid ""
 "<em>Note</em>: You may need to use <strong>sudo</strong> and enter an "
 "administrator password if you do not own the directory."
@@ -4135,14 +4493,14 @@ msgstr ""
 "<em>Nota</em>: Potser necessitaràs fer servir <strong>sudo</strong> i "
 "escriure la contrasenya de l'administrador si no posseeixes el directori."
 
-#: system/installer/requirements.php:30
+#: system/installer/requirements.php:31
 msgid ""
 "If the web server is not part of the group which owns the directory, you "
 "will need to <strong>temporarily</strong> grant world write permissions to "
 "the directory:"
 msgstr ""
 
-#: system/installer/requirements.php:39
+#: system/installer/requirements.php:40
 msgid ""
 "Be sure to remove the write permissions on the directory as soon as the "
 "installation is completed."
@@ -4150,24 +4508,24 @@ msgstr ""
 "Assegura't d'eliminar els permisos d'escriptura al directori un cop hagi "
 "acabat la instal·lació."
 
-#: system/installer/requirements.php:47
-msgid "PHP Upgrade needed..."
-msgstr "Es necessita una actualització de PHP..."
+#: system/installer/requirements.php:48
+msgid "PHP Upgrade needed&hellip;"
+msgstr ""
 
-#: system/installer/requirements.php:49
+#: system/installer/requirements.php:50
 #, php-format
 msgid "requires PHP 5.2 or newer. Your current PHP version is %s."
 msgstr "necessita PHP 5.2 o més actual. La teva versió PHP actual és %s."
 
-#: system/installer/requirements.php:60
+#: system/installer/requirements.php:61
 msgid "Missing Extensions"
 msgstr "Falten extensions"
 
-#: system/installer/requirements.php:62
+#: system/installer/requirements.php:63
 msgid "requires the following PHP extensions to be installed:"
 msgstr ""
 
-#: system/installer/requirements.php:62
+#: system/installer/requirements.php:63
 msgid ""
 "Please contact your web hosting provider if you do not have access to your "
 "server."
@@ -4175,17 +4533,17 @@ msgstr ""
 "Contacta amb el teu proveïdor d'allotjament web si no tens accés al teu "
 "servidor."
 
-#: system/installer/requirements.php:69
+#: system/installer/requirements.php:70
 msgid ""
 "requires PHP's PCRE extension to have Unicode support enabled. Please "
 "contact your web hosting provider if you do not have access to your server."
 msgstr ""
 
-#: system/installer/requirements.php:75
+#: system/installer/requirements.php:76
 msgid "No PDO drivers enabled"
 msgstr "No hi ha cap driver PDO activat"
 
-#: system/installer/requirements.php:76
+#: system/installer/requirements.php:77
 msgid ""
 "requires that at least one <a href=\"http://www.php.net/pdo\">PDO driver</a> "
 "be installed. Please ask your hosting provider to enable one of the PDO "
@@ -4195,11 +4553,11 @@ msgstr ""
 "PDO</a> estigui instal·lat. Demana al teu proveïdor d'allotjament que "
 "habiliti un dels drivers PDO que necessita Habari."
 
-#: system/installer/requirements.php:80
+#: system/installer/requirements.php:81
 msgid "mod_rewrite not enabled"
 msgstr ""
 
-#: system/installer/requirements.php:81
+#: system/installer/requirements.php:82
 msgid ""
 "You have Apache, but mod_rewrite is not enabled. To use Habari, you must "
 "enable mod_rewrite in your server configuration. "
@@ -4217,6 +4575,369 @@ msgstr "Error General de Habari"
 msgid "An error occurred"
 msgstr "Hi ha hagut un error"
 
-#: system/index.php:112
+#: system/index.php:113
+#, php-format
+msgid "Unable to connect to database.  Error message: %s"
+msgstr ""
+
+#: system/index.php:114
 msgid "Unable to connect to database."
 msgstr "No es pot connectar a la base de dades."
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Has oblidat la teva contrasenya?"
+
+#~ msgid "years"
+#~ msgstr "anys"
+
+#~ msgid "months"
+#~ msgstr "mesos"
+
+#, php-format
+#~ msgid "%1$d "
+#~ msgid_plural "%1$d "
+#~ msgstr[0] "%1$d "
+#~ msgstr[1] "%1$d "
+
+#~ msgid "days"
+#~ msgstr "dies"
+
+#~ msgid "pages"
+#~ msgstr "pàgines"
+
+#, php-format
+#~ msgid "%d "
+#~ msgid_plural "%d "
+#~ msgstr[0] "%d "
+#~ msgstr[1] "%d "
+
+#~ msgid "page"
+#~ msgstr "pàgina"
+
+#, php-format
+#~ msgid "%1$s has been active for %2$s"
+#~ msgstr "%1$s porta actiu %2$s"
+
+#~ msgid "comment"
+#~ msgstr "comentari"
+
+#~ msgid "entry"
+#~ msgstr "entrada"
+
+#~ msgid "entries"
+#~ msgstr "entrades"
+
+#~ msgid "entry draft"
+#~ msgstr "esborrany d'entrada"
+
+#~ msgid "entry drafts"
+#~ msgstr "esborranys d'entrades"
+
+#~ msgid "page draft"
+#~ msgstr "esborrany de pàgina"
+
+#~ msgid "page drafts"
+#~ msgstr "esborranys de pàgines"
+
+#~ msgid "tags"
+#~ msgstr "etiquetes"
+
+#~ msgid "tag"
+#~ msgstr "etiqueta"
+
+#~ msgid "comments"
+#~ msgstr "comentaris"
+
+#~ msgid "Search for other comments from "
+#~ msgstr "Cerca altres comentaris del "
+
+#~ msgid "spam comment awaiting moderation"
+#~ msgstr "comentari spam esperant l'aprovació"
+
+#~ msgid "comment awaiting approval"
+#~ msgstr "comentari esperant l'aprovació"
+
+#~ msgid "comments awaiting approval"
+#~ msgstr "comentaris esperant l'aprovació"
+
+#~ msgid "spam comments awaiting moderation"
+#~ msgstr "comentaris spam esperant l'aprovació"
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> is a critical update."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> és una actualització crítica."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> contains bug fixes."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> conté correcions d'errors."
+
+#, php-format
+#~ msgid ""
+#~ "<a href=\"%1s\">%2s %3s</a> contains bug fixes and additional features."
+#~ msgstr ""
+#~ "<a href=\"%1s\">%2s %3s</a> conté correccions d'errors i característiques "
+#~ "addicionals."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> contains additional features."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> conté característiques addicionals."
+
+#, php-format
+#~ msgid "<a href=\"%1s\">%2s %3s</a> is a new release."
+#~ msgstr "<a href=\"%1s\">%2s %3s</a> és una nova publicació."
+
+#~ msgid "Group Information"
+#~ msgstr "Informació del grup"
+
+#~ msgid "close"
+#~ msgstr "tanca"
+
+#~ msgid "Number of items"
+#~ msgstr "Nombre d'elements"
+
+#~ msgid "Say It"
+#~ msgstr "Digues-ho"
+
+#~ msgid "Web Address"
+#~ msgstr "Adreça web"
+
+#~ msgid "Required - not published"
+#~ msgstr "Necessari (no es publicarà)"
+
+#~ msgid "Could not write config.php file..."
+#~ msgstr "No s'ha pogut escriure l'arxiu config.php..."
+
+#~ msgid "Manage blog comments"
+#~ msgstr "Gestiona els comentaris del blog"
+
+#~ msgid "Manage blog tags"
+#~ msgstr "Gestiona les etiquetes del blog"
+
+#~ msgid "View and configure blog options"
+#~ msgstr "Visualitza i configura les opcions del blog"
+
+#~ msgid "Import content from another blog"
+#~ msgstr "Importa contingut des d'un altre blog"
+
+#~ msgid "and a huge amount of"
+#~ msgstr "i una enorma quantitat de"
+
+#~ msgid "Please do not load this page directly. Thanks!"
+#~ msgstr "No carreguis aquesta pàgina directament. Gràcies!"
+
+#~ msgid "will not be published"
+#~ msgstr "no serà publicat"
+
+#, php-format
+#~ msgid "%s Comments"
+#~ msgstr "%s comentaris"
+
+#~ msgid "(will not be published - Required)"
+#~ msgstr "(no serà publicat - Necessari)"
+
+#~ msgid "Pingback"
+#~ msgid_plural "Pingbacks"
+#~ msgstr[0] "Pingback"
+#~ msgstr[1] "Pingbacks"
+
+#~ msgid "Response"
+#~ msgid_plural "Responses"
+#~ msgstr[0] "Comentari"
+#~ msgstr[1] "Comentaris"
+
+#~ msgid "Email address is not published"
+#~ msgstr "L'adreça de correu electrònic no es publicarà."
+
+#~ msgid "Message:"
+#~ msgstr "Missatge:"
+
+#, php-format
+#~ msgid ""
+#~ "Post author id %s was not found in WP database, assigning post \"%s\" (WP "
+#~ "post id #%d) to current user."
+#~ msgstr ""
+#~ "No s'ha trobat la ID %s de l'autor d'entrades a la base de dades de WP, "
+#~ "s'assigna l'entrada \"%s\" (ID de l'entrada #%d de WP ) a l'usuari actual."
+
+#~ msgid "The database connection details have failed to connect."
+#~ msgstr ""
+#~ "Els detalls de la connexió a la base de dades han fallat al connectar."
+
+#~ msgid "<p>Importing users...</p>"
+#~ msgstr "<p>Important usuaris...</p>"
+
+#~ msgid "There were errors during import:"
+#~ msgstr "Hi ha hagut errors durant l'importació:"
+
+#~ msgid "Enter the name of the new directory to create here"
+#~ msgstr "Escriu el nom del nou directori que vulguis crear"
+
+#~ msgid "Directory Created:"
+#~ msgstr "S'ha creat el directori:"
+
+#~ msgid ""
+#~ "Logs error backtraces to the log tables' data column. Can drastically "
+#~ "increase log size!"
+#~ msgstr ""
+#~ "Registra backtraces d'error a la columna de dades de la taula del registre. "
+#~ "Pot fer augmentar dràsticament la mida del registre! Nota: els backtraces "
+#~ "serveixen per aclarir l'origen de possibles errors de programació."
+
+#~ msgid "Submit changes"
+#~ msgstr "Envia els canvis"
+
+#~ msgid "Update"
+#~ msgstr "Actualitza"
+
+#~ msgid "Cancel changes"
+#~ msgstr "Cancel3la els canvis"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgid "Updated 1 comment."
+#~ msgstr "S'ha actualitzat 1 comentari."
+
+#, php-format
+#~ msgid "Deleted %d entries."
+#~ msgstr "S'ha eliminat %d entrades."
+
+#, php-format
+#~ msgid "Tag %s has been renamed to %s."
+#~ msgid_plural "Tags %s have been renamed to %s."
+#~ msgstr[0] "S'ha reanomenat l'etiqueta %s a %s."
+#~ msgstr[1] "S'ha reanomenat les etiquetes %s a %s."
+
+#, php-format
+#~ msgid " ...%d arg... "
+#~ msgid_plural " ...%d args... "
+#~ msgstr[0] " ...%d argument... "
+#~ msgstr[1] " ...%d arguments... "
+
+#, php-format
+#~ msgid "Tag deleted: %s"
+#~ msgstr "Etiqueta eliminada: %s"
+
+#, php-format
+#~ msgid "%s: Error %d: %s while connecting to %s:%d"
+#~ msgstr "%s: Error %d: %s mentre es connectava a %s:%d"
+
+#~ msgid "Error writing to socket."
+#~ msgstr "Hi ha hagut un error escrivint al socket."
+
+#~ msgid "Maximum number of redirections exceeded."
+#~ msgstr "S'ha excedit el nombre màxim de redireccions."
+
+#~ msgid "Redirection response without Location: header."
+#~ msgstr "La resposta de la redirecció no té Location: header."
+
+#~ msgid "Request did not yet execute."
+#~ msgstr "La petició encara no s'ha executat."
+
+#~ msgid "Trying to add a request body to a non-POST request"
+#~ msgstr "intentant afegir un cos de petició a una petició que no és POST"
+
+#~ msgid "Trying to fetch response headers for a pending request."
+#~ msgstr "Intentant cercar encapçalaments de resposta per una petició pendent."
+
+#~ msgid "Trying to fetch response body for a pending request."
+#~ msgstr "Intentant cercar cos de resposta per una petició pendent."
+
+#~ msgid "Bitmask names must be pre-defined strings or bitmask indexes"
+#~ msgstr ""
+#~ "Els noms de l'emmascarador de bits han de ser cadenes predefinides o índex "
+#~ "d'emmascaradors de bits."
+
+#~ msgid "Value must be a valid URL."
+#~ msgstr "El valor ha de ser una URL vàlida."
+
+#, php-format
+#~ msgid "New tag %1$s (%2$s);  Slug: %3$s"
+#~ msgstr "Nova etiqueta: %1$s (%2$s);  URL: %3$s"
+
+#, php-format
+#~ msgid "Tag %1$s (%2$s) deleted."
+#~ msgstr "S'ha eliminat l'etiqueta %1$s (%2$s)"
+
+#, php-format
+#~ msgid "Could not create schema tables... %s"
+#~ msgstr "No s'ha pogut crear les taules d'esquema... %s"
+
+#~ msgid "The SQLite data file is not writable by the web server."
+#~ msgstr "L'arxiu de dades SQLite no pot ser escrit pel servidor web."
+
+#~ msgid ""
+#~ "The SQLite data file does not exist, and it cannot be created in the "
+#~ "specified directory.  SQLite requires that the directory containing the "
+#~ "database file be writable by the web server."
+#~ msgstr ""
+#~ "L'arxiu de dades SQLite no existeix i no pot ser creat al directori "
+#~ "especificat. SQLite necessita que el directori que conté l'arxiu de dades "
+#~ "pugui ser escrit pel servidor."
+
+#, php-format
+#~ msgid "%s: CURL Error %d: %s"
+#~ msgstr "%s Error CURL %d: %s"
+
+#, php-format
+#~ msgid "Bad return code (%1$d) for: %2$s"
+#~ msgstr "Mal codi de retorn (%1$d) per: %2$s"
+
+#~ msgid "Before you install <em>Habari</em>..."
+#~ msgstr "Abans que instal·lis <em>Habari</em>..."
+
+#~ msgid ""
+#~ "Before you can install Habari, you first need to make the install directory "
+#~ "writable by php, so that the installation script can write your "
+#~ "configuration information properly. The exact process of server and the "
+#~ "ownership of the directory."
+#~ msgstr ""
+#~ "Abans que pugis instal·lar Habari, has de fer que el directori "
+#~ "d'instal·lació pugui ser escrit per PHP perquè l'instal3lador pugui escriure "
+#~ "la teva informació de configuració correctament. El procés exacte del "
+#~ "servidor i del propietari del directori."
+
+#~ msgid ""
+#~ "If your webserver is part of the group which owns the directory, you'll need "
+#~ "to add group write permissions to the directory. The procedure for this is "
+#~ "as follows:"
+#~ msgstr ""
+#~ "Si el teu servidor web forma part del grup que té el directori, hauràs "
+#~ "d'afegir permisos d'escriptura per grups al directori. El procediment és el "
+#~ "que segueix:"
+
+#~ msgid ""
+#~ "If the webserver is not part of the group which owns the directory, you will "
+#~ "need to <strong>temporarily</strong> grant world write permissions to the "
+#~ "directory:"
+#~ msgstr ""
+#~ "Si el servidor web no forma part del grup que posseeix el directori, "
+#~ "necessitaràs garantir <strong>temporalment</strong> permisos d'esciptura per "
+#~ "a tothom al directori:"
+
+#~ msgid "PHP Upgrade needed..."
+#~ msgstr "Es necessita una actualització de PHP..."
+
+#~ msgid "requires that the following PHP extensions to be installed:"
+#~ msgstr "necessita les següents extensions PHP instal·lades:"
+
+#~ msgid "Learn More..."
+#~ msgstr "Apren més..."
+
+#~ msgid ""
+#~ "<strong>Password</strong> is the password of the initial user in Habari."
+#~ msgstr ""
+#~ "<strong>Contrasenya</strong>és la contrasenya de l'usuari inicial de Habari."
+
+#~ msgid "Access to that post id is denied"
+#~ msgstr "Se t'ha denegat l'acés a aquesta ID d'entrada"
+
+#~ msgid ""
+#~ "SQLite requires that the directory that holds the DB file be writable by the "
+#~ "web server."
+#~ msgstr ""
+#~ "SQL necessita que el directori que conté l'arxiu de la BD pugui ser escrit "
+#~ "pel servidor."
+
+#~ msgid "Permission Denied"
+#~ msgstr "S'ha denegat el permís"

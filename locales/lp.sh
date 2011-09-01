@@ -2,7 +2,7 @@
 
 # setup tmp files from tar.gz's
 cd /home/matt/habari-locales/bzr/
-bzr pull
+bzr merge
 cd ../
 
 # check fo .po
