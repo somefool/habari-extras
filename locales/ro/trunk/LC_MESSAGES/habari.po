@@ -1,63 +1,64 @@
-# Norwegian Bokmal translation for habari
-# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# Romanian translation for habari
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the habari package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: habari\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-09-04 00:00+0000\n"
-"PO-Revision-Date: 2011-05-13 17:42+0000\n"
-"Last-Translator: HenrikWL <henrik.w.lund@gmail.com>\n"
-"Language-Team: Norwegian Bokmal <nb@li.org>\n"
+"PO-Revision-Date: 2011-09-03 00:21+0000\n"
+"Last-Translator: transla73436 <Unknown>\n"
+"Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2011-09-04 04:33+0000\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 ? 0: (((n % 100 > 19) || ((n % 100 "
+"== 0) && (n != 0))) ? 2: 1));\n"
+"X-Launchpad-Export-Date: 2011-09-04 04:34+0000\n"
 "X-Generator: Launchpad (build 13830)\n"
 
 #: admin/tags.php:5
 msgid "Type and wait to search tags"
-msgstr "Skriv inn og vent for søkestring"
+msgstr "Tastează și așteaptă căutarea de tag-uri"
 
 #: admin/tags.php:22 admin/users.php:65 admin/posts.php:43 admin/posts.php:69
 #: admin/logs.php:38 admin/logs.php:101 admin/comments.php:46
 #: admin/comments.php:70
 msgid "None selected"
-msgstr "Ingen valgt"
+msgstr "Nimic selectat"
 
 #: admin/tags.php:27 admin/tags.php:147 admin/tags.php:150
 msgid "Rename"
-msgstr "Endre navn"
+msgstr "Redenumește"
 
 #: admin/tags.php:29 admin/user.php:13 admin/users.php:30 admin/options.php:12
 #: admin/plugins.php:20 admin/groups.php:13 admin/group.php:13
 msgid "or"
-msgstr "eller"
+msgstr "sau"
 
 #: admin/tags.php:31 admin/users.php:74 admin/posts.php:47 admin/posts.php:73
 #: admin/logs.php:42 admin/logs.php:105 admin/comments.php:49
 #: admin/comments.php:73
 msgid "Delete Selected"
-msgstr "Slett Valgt"
+msgstr "Șterge selecția"
 
 #: admin/tags.php:60 admin/tags.php:103
 msgid "Error: No tags selected."
-msgstr "Feil: Ingen enmer valgt"
+msgstr "Eroare: nicio etichetă selectată."
 
 #: admin/tags.php:107 handlers/admintagshandler.php:91
 msgid "Error: New name not specified."
-msgstr "Feil: Nytt navn må spesifiseres"
+msgstr "Eroare: Numele nou nu a fost specificat."
 
 #: admin/tags.php:153
 msgid "Merge"
-msgstr "Flett sammen"
+msgstr "Îmbinare"
 
 #: admin/groups_item.php:4 admin/groups_item.php:7
 msgid "Edit group"
-msgstr "Endre gruppering"
+msgstr "Editare grup"
 
 #: admin/groups_item.php:7 admin/posts_items.php:27
 #: themes/charcoal/page.single.php:22 themes/charcoal/home.php:34
@@ -69,11 +70,11 @@ msgstr "Endre gruppering"
 #: themes/k2/search.php:17 themes/k2/entry.single.php:25
 #: handlers/admincommentshandler.php:454
 msgid "Edit"
-msgstr "Endre"
+msgstr "Modificare"
 
 #: admin/groups_item.php:8
 msgid "Delete this group"
-msgstr "Slett gruppering"
+msgstr "Şterge grupul"
 
 #: admin/groups_item.php:8 admin/block_instances.php:24 admin/publish.php:15
 #: admin/posts_items.php:29 admin/group.php:127
@@ -81,138 +82,138 @@ msgstr "Slett gruppering"
 #: plugins/habarisilo/habarisilo.plugin.php:483
 #: plugins/habarisilo/habarisilo.plugin.php:500
 msgid "Delete"
-msgstr "Slett"
+msgstr "Șterge"
 
 #: admin/groups_item.php:18
 msgid "Members: "
-msgstr "Medlemmer: "
+msgstr "Membrii "
 
 #: admin/groups_item.php:20
 msgid "No members"
-msgstr "Ingen meslemmer"
+msgstr "Niciun membru"
 
 #: admin/dashboard_modules.php:5 handlers/admindashboardhandler.php:172
 msgid "Add Item"
-msgstr "Legg til enhet"
+msgstr "Adaugă element"
 
 #: admin/users_items.php:15
 #, php-format
 msgid "Open %s's user page"
-msgstr "Åpne %s's brukerside"
+msgstr "Deschide pagina utilizatorului %s"
 
 #: admin/users_items.php:25
 msgid "has not logged in yet"
-msgstr "har ikke logget inn enda"
+msgstr "încă nu s-a conectat"
 
 #: admin/users_items.php:29
 #, php-format
 msgid "was last seen %1$s at %2$s"
-msgstr "ble siste sett %1$s klokken %2$s"
+msgstr "a fost văzut ultima dată %1$s la %2$s"
 
 #: admin/users_items.php:48 admin/user.php:30
 msgid " post"
-msgstr " post"
+msgstr " postare"
 
 #: admin/users_items.php:48 admin/user.php:30
 msgid " posts"
-msgstr " poster"
+msgstr " postări"
 
 #: admin/users_items.php:56
 #, php-format
 msgid "%1$s and currently has %2$s"
-msgstr "%1$s og har foreløpig %2$s"
+msgstr "%1$s și deocamdata are %2$s"
 
 #: admin/db_profiling.php:40 themes/k2/db_profiling.php:32
 msgid "DB Profiling"
-msgstr "DB profilering"
+msgstr ""
 
 #: admin/db_profiling.php:48 themes/k2/db_profiling.php:43
 msgid "Time to Execute:"
-msgstr "Tid for kjøring:"
+msgstr "Timp de execuție"
 
 #: admin/db_profiling.php:50
 msgid "BACKTRACE:"
-msgstr "Tilbakesporing"
+msgstr "BACKTRACE:"
 
 #: admin/db_profiling.php:57 themes/k2/db_profiling.php:57
 msgid "Total Time Executing Queries:"
-msgstr "Total tid for kjøring av spørringer:"
+msgstr "Timp total de execuție a cererilor"
 
 #: admin/user.php:8 admin/options.php:8
 msgid "All options"
-msgstr "Alle valg"
+msgstr "Toate opţiunile"
 
 #: admin/user.php:16 admin/users.php:33
 msgid "search users"
-msgstr "søk brukere"
+msgstr "caută utilizatori"
 
 #: admin/user.php:36
 msgid "No published posts."
-msgstr "Ingen publiserte poster"
+msgstr "Nicio postare publicată"
 
 #: admin/block_instances.php:2
 msgid "New Block Type:"
-msgstr "Ny blokktype:"
+msgstr ""
 
 #: admin/block_instances.php:7 themes/mzingi/loginform.php:19
 #: themes/mzingi/theme.php:94 themes/k2/loginform.php:21
 msgid "Name:"
-msgstr "Navn:"
+msgstr "Denumire:"
 
 #: admin/block_instances.php:16
 #, php-format
 msgid "Configure Block: %1s (%2s)"
-msgstr "Konfigurér blokk: %1s (%2s)"
+msgstr ""
 
 #: admin/block_instances.php:16 classes/pluggable.php:221
 #: plugins/undelete/undelete.plugin.php:163
 #: plugins/undelete/undelete.plugin.php:175
 #: plugins/flickrsilo/flickrsilo.plugin.php:803
 msgid "Configure"
-msgstr "Konfigurér"
+msgstr "Configurează"
 
 #: admin/formcontrols/formcontrol_textmulti.php:16 classes/formui.php:1632
 msgid "remove"
-msgstr "fjern"
+msgstr "şterge"
 
 #: admin/formcontrols/formcontrol_textmulti.php:21
 msgid "add"
-msgstr "legg til"
+msgstr "adaugă"
 
 #: admin/comments_items.php:17
 msgid "in"
-msgstr "inn"
+msgstr "în"
 
 #: admin/comments_items.php:17
 #, php-format
 msgid "Go to %s"
-msgstr "Gå til %s"
+msgstr "Mergi la %s"
 
 #: admin/comments_items.php:18 admin/posts_items.php:22
 #: themes/mzingi/commentform.php:47
 msgid "on"
-msgstr "på"
+msgstr "activat"
 
 #: admin/comments_items.php:18
 #, php-format
 msgid "Search for other comments from %s"
-msgstr "Søk etter andre kommentarer fra %s"
+msgstr "Caută alte comentarii provenite de la %s"
 
 #: admin/comments_items.php:19 admin/posts_items.php:23
 msgid "at"
-msgstr "at"
+msgstr "la"
 
 #: admin/comments_items.php:52
 msgid "Marked as spam"
-msgstr "Marker som søppelpost"
+msgstr "Etichetat ca spam"
 
 #: admin/comments_items.php:64
 msgid "this post contains text in an invalid encoding"
-msgstr "dette innlegget inneholder tekst med ugyldig tegnkoding"
+msgstr "această postare conține un text codat prost"
 
 #: admin/comments_items.php:73
 msgid "No comments could be found to match the query criteria."
-msgstr "Ingen kommentarer ble funnet som matchet søkekriteriene."
+msgstr "Niciun comentariu nu a fost găsit după criteriul de căutare."
 
 #: admin/comment.overview.php:6
 #, php-format
@@ -221,9 +222,9 @@ msgid ""
 "%3$s\">%3$s</a> posted on <a href=\"%4$s\" title=\"View post\">%5$s</a> at "
 "<strong>%6$s</strong> on <strong>%7$s</strong>"
 msgstr ""
-"<a href=\"%1$s\">Kommentar</a> skrevet av <a href=\"%2$s\" title=\"Besøk "
-"%3$s\">%3$s</a> publisert i <a href=\"%4$s\" title=\"Les innlegg\">%5$s</a> "
-"klokken <strong>%6$s</strong> den <strong>%7$s</strong>"
+"<a href=\"%1$s\">Comentariu</a> de către <a href=\"%2$s\" title=\"Vezi "
+"%3$s\">%3$s</a> postat pe <a href=\"%4$s\" title=\"Vezi post\">%5$s</a> la "
+"<strong>%6$s</strong> pe <strong>%7$s</strong>"
 
 #: admin/comment.overview.php:20
 #, php-format
@@ -232,214 +233,215 @@ msgid ""
 "href=\"%3$s\" title=\"View post\">%4$s</a> at <strong>%5$s</strong> on "
 "<strong>%6$s</strong>"
 msgstr ""
-"<a href=\"%1$s\">Kommentar</a> skrevet av <strong>%2$s</strong> publisert i "
-"<a href=\"%3$s\" title=\"Les innlegg\">%4$s</a> at <strong>%5$s</strong> den "
+"<a href=\"%1$s\">Comentariu</a> by <strong>%2$s</strong> postat pe <a "
+"href=\"%3$s\" title=\"View post\">%4$s</a> la <strong>%5$s</strong> pe "
 "<strong>%6$s</strong>"
 
 #: admin/users.php:25
 msgid "Complete User List"
-msgstr "Komplett Brukerliste"
+msgstr "Listă completă cu utilizatori"
 
 #: admin/users.php:42 installer/db_setup.php:51 installer/db_setup.php:98
 #: installer/db_setup.php:181
 msgid "Username"
-msgstr "Brukernavn"
+msgstr "Nume de utilizator"
 
 #: admin/users.php:45
 msgid "E-Mail"
-msgstr "E-post"
+msgstr "E-mail"
 
 #: admin/users.php:48 admin/login.php:43 installer/db_setup.php:62
 #: installer/db_setup.php:109 installer/db_setup.php:191
 msgid "Password"
-msgstr "Passord"
+msgstr "Parolă"
 
 #: admin/users.php:51
 msgid "Password Again"
-msgstr "Passord en gang til"
+msgstr "Reintrodu parola"
 
 #: admin/users.php:54
 msgid "Add User"
-msgstr "Legg til Bruker"
+msgstr "Adaugă utilizator"
 
 #: admin/users.php:73
 #, php-format
 msgid "Reassign posts to %s"
-msgstr "Tildel innlegg til %s"
+msgstr "Redesemnează postările către %s"
 
 #: admin/block_areas.php:2
 msgid "Scope:"
-msgstr "Virkeområde:"
+msgstr "Domeniu:"
 
 #: admin/block_areas.php:3
 msgid "Default"
-msgstr "Standard"
+msgstr "Implicit"
 
 #: admin/publish.php:29
 msgid "Publish"
-msgstr "Publiser"
+msgstr "Publică"
 
 #: admin/publish.php:61
 msgid ""
 "You did not save the changes you made. \\nLeaving this page will result in "
 "the lose of data."
 msgstr ""
-"Du lagret ikke endingene du ha gjort. \\nAvslutting av sidevisningen vil "
-"resulterer i tap av data."
+"Nu ai salvat modificările. \\nPărăsind această pagină modificările se vor "
+"pierde."
 
 #: admin/header.php:65 admin/login.php:33
 msgid "Go to Site"
-msgstr "Gå til Side"
+msgstr "Mergi la Situl"
 
 #: admin/plugin.php:6
 #, php-format
 msgid "The plugin file %s had syntax errors and could not load."
-msgstr "Tilleggsfilen %s har syntaks feil og kunne ikke åpnes."
+msgstr ""
+"Fișierul de extensie %s are erori de sintaxă și nu poate fi încărcat."
 
 #: admin/plugin.php:9
 msgid "Show Error"
-msgstr "Vis Feil"
+msgstr "Arată eroarea"
 
 #: admin/plugin.php:18 installer/db_setup.php:228
 #, php-format
 msgid ""
 "The plugin file %s is a legacy plugin, and does not include an XML info file."
-msgstr ""
-"Tillegget %s er et gammelt tillegg, og inneholder ingen XML-informasjonsfil."
+msgstr "Fișierul de extensie %s nu include un fișier XML."
 
 #: admin/plugin.php:26
 #, php-format
 msgid ""
 "The XML file for the plugin %s contained errors and could not be loaded."
-msgstr "XML-filen for tillegget %s inneholdt feil og kunne ikke lastes inn."
+msgstr ""
+"Fișierul XML pentru extensia %s conține erori și nu a putut fi încărcat."
 
 #: admin/plugin.php:35 admin/posts_items.php:21 admin/themes.php:9
 #: admin/themes.php:96 plugins/coredashmodules/dash_latestentries.php:9
 msgid "by"
-msgstr "av"
+msgstr "de către"
 
 #: admin/plugin.php:42 admin/themes.php:15 admin/themes.php:102
 #: themes/charcoal/footer.php:10 classes/format.php:247 classes/format.php:282
 msgid " and "
-msgstr " og "
+msgstr " şi "
 
 #: admin/plugin.php:57
 msgid "v1.1 Update Available Now"
-msgstr "v1.1 Oppdatering er Tilgjenglig"
+msgstr "versiune 1.1 Actualizare Disponibilă"
 
 #: admin/plugin.php:70
 msgid ""
 "This plugin cannot be activated because the following features were not "
 "present:"
 msgstr ""
-"Dette tillegget kan ikke aktiveres fordi følgende egenskaper ikke var "
-"tilgjengelige:"
+"Această extensie nu a putut fi încărcată datorită lipsei a următoarelor "
+"cerințe:"
 
 #: admin/plugin.php:115
 msgid "Close"
-msgstr "Lukk"
+msgstr "Închide"
 
 #: admin/options.php:15 admin/groups.php:16 admin/group.php:16
 msgid "search settings"
-msgstr "søkestreng"
+msgstr "setări de căutare"
 
 #: admin/posts_items.php:15 admin/posts_items.php:27
 #: plugins/coredashmodules/dash_latestentries.php:9
 #, php-format
 msgid "Edit '%s'"
-msgstr "Velg '%s'"
+msgstr "Modifică '%s'"
 
 #: admin/posts_items.php:20
 #, php-format
 msgid "Search for other %s items"
-msgstr "Søk etter andre %s enhet"
+msgstr "Caută alte %s elemente"
 
 #: admin/posts_items.php:21
 #, php-format
 msgid "Search for other items by %s"
-msgstr "Søk etter andre enheter med %s"
+msgstr "Caută alte elemente după %s"
 
 #: admin/posts_items.php:22
 #, php-format
 msgid "Search for other items from %s"
-msgstr "Søk etter andre enhet med %s"
+msgstr "Caută alte elemente provenind de la %s"
 
 #: admin/posts_items.php:28
 #, php-format
 msgid "View '%s'"
-msgstr "Vis '%s'"
+msgstr "Vizualizare '%s'"
 
 #: admin/posts_items.php:28
 msgid "View"
-msgstr "Vis"
+msgstr "Vizualizare"
 
 #: admin/posts_items.php:29
 msgid "Delete this item"
-msgstr "Slett valgte enhet"
+msgstr "Șterge acest element"
 
 #: admin/posts_items.php:47
 msgid "No posts could be found to match the query criteria."
-msgstr "Ingen kommentarer ble funnet som passer til spørringen."
+msgstr "Nicio postare nu se potrivește criteriului de căutare."
 
 #: admin/posts.php:6 admin/logs.php:9 admin/comments.php:5
 msgid "Older"
-msgstr "Eldre"
+msgstr "Mai vechi"
 
 #: admin/posts.php:7
 msgid "no results"
-msgstr "ingen resultater"
+msgstr "fără rezultate"
 
 #: admin/posts.php:9 admin/comments.php:8
 msgid "Type and wait to search"
-msgstr "Skriv og vent for å søke"
+msgstr "Tastează și așteaptă căutarea"
 
 #: admin/posts.php:14 admin/comments.php:13
 #, php-format
 msgid "Filter results for '%s'"
-msgstr "Bruk filter på søkeresultatene for '%s'"
+msgstr "Filtrează rezultatele după '%s'"
 
 #: admin/posts.php:18 admin/logs.php:13 admin/comments.php:17
 msgid "Newer"
-msgstr "Nyere"
+msgstr "Mai nouă"
 
 #: admin/import.php:6
 msgid "Conflicting Plugins"
-msgstr ""
+msgstr "Extensii conflictive"
 
 #: admin/import.php:10 handlers/adminhandler.php:336
 #: plugins/wpimport/wpimport.plugin.php:143
 #: plugins/wpimport/wpimport.plugin.php:219
 msgid "Import"
-msgstr "Importér"
+msgstr "Importă"
 
 #: admin/import.php:21
 msgid "You do not currently have any import plugins installed."
-msgstr "Du har ikke installert noe import oppsett."
+msgstr "La ora actuală nu dețineți nici o extensie de import instalată."
 
 #: admin/import.php:22
 #, php-format
 msgid ""
 "Please <a href=\"%1$s\">activate an import plugin</a> to enable importing."
 msgstr ""
-"Vennligst <a href=\"%1$s\">aktiver et importeringstillegg</a> for å starte "
-"importeringen."
+"Te rog <a href=\"%1$s\">activează o extensie de import</a> pentru a activa "
+"importarea de date."
 
 #: admin/import.php:27
 msgid "Please choose the type of import to perform:"
-msgstr "Vennligst velg importerestype:"
+msgstr "Alege modul de import a excuta:"
 
 #: admin/import.php:37
 msgid "Select"
-msgstr "Valg"
+msgstr "Alege"
 
 #: admin/themes.php:5
 msgid "Current Theme"
-msgstr "Gjeldende tema"
+msgstr "Temă vizuală actuală"
 
 #: admin/themes.php:20 classes/post.php:865
 #: handlers/admincommentshandler.php:73
 msgid "Settings"
-msgstr "Innstillinger"
+msgstr "Setări"
 
 #: admin/themes.php:26
 msgid "v"
@@ -447,72 +449,72 @@ msgstr "v"
 
 #: admin/themes.php:26
 msgid "Update Available"
-msgstr "Oppdatering Tilgjengelig"
+msgstr "Actualizări disponibile"
 
 #: admin/themes.php:36 admin/themes.php:112
 #, php-format
 msgid "%1$s is licensed under the %2$s"
-msgstr "%1$s er lisensiert under %2$s"
+msgstr "%1$s este licențiat sub %2$s"
 
 #: admin/themes.php:68 themes/charcoal/theme.php:66 classes/post.php:904
 #: handlers/adminthemeshandler.php:141
 #: plugins/undelete/undelete.plugin.php:178
 #: plugins/flickrsilo/flickrsilo.plugin.php:876
 msgid "Save"
-msgstr "Lagre"
+msgstr "Salvează"
 
 #: admin/themes.php:90
 msgid "Available Themes"
-msgstr "Tilgjengelige temaer"
+msgstr "Teme disponibile"
 
 #: admin/themes.php:118
 msgid "Legacy theme."
-msgstr "Gammelt tema."
+msgstr ""
 
 #: admin/themes.php:122
 msgid "End Preview"
-msgstr "Avslutt Forhåndsvisning"
+msgstr "Oprește previzualizarea"
 
 #: admin/themes.php:124
 msgid "Preview"
-msgstr "Forhåndsvisning"
+msgstr "Previzualizare"
 
 #: admin/themes.php:126 handlers/installhandler.php:221
 #: handlers/adminpluginshandler.php:91 handlers/adminpluginshandler.php:95
 msgid "Activate"
-msgstr "Aktivér"
+msgstr "Activează"
 
 #: admin/footer.php:4
 msgid "Go to the Habari site"
-msgstr "Gå til Habarisiden"
+msgstr "Mergi la situl web Habari"
 
 #: admin/footer.php:12
 msgid "Logged in as"
-msgstr "Logget inn som"
+msgstr "Conectat ca"
 
 #: admin/footer.php:14
 msgid "Go to your user page"
-msgstr "Gå til din brukerside"
+msgstr "Mergi la pagina mea de utilizator"
 
 #: admin/footer.php:19
 msgid "Open the Habari manual in a new window"
-msgstr "Åpne med Habarimanualen i et nytt vindu"
+msgstr "Deschide manualul Habari întro fereastră nouă."
 
 #: admin/footer.php:19 installer/header.php:28
 msgid "Manual"
-msgstr "Manualen"
+msgstr "Manual"
 
 #: admin/footer.php:24 admin/sysinfo.php:2 admin/sysinfo.php:7
 msgid "System Information"
-msgstr "Systeminformasjon"
+msgstr "Informații despre sistem"
 
 #: admin/sysinfo.php:8
 msgid "SYSTEM INFORMATION\n"
-msgstr "SYSTEM INFORMASJON\n"
+msgstr "INFORMAȚII DESPRE SISTEM\n"
 
 #: admin/sysinfo.php:24
 msgid "Site Information"
-msgstr "Stedsinformasjon"
+msgstr "Informații despre sit"
 
 #: admin/sysinfo.php:25
 msgid ""
@@ -520,31 +522,29 @@ msgid ""
 "SITE INFORMATION\n"
 msgstr ""
 "\n"
-"STEDSINFORMASJON\n"
+"INFORMAȚII DESPRE WEBSITE\n"
 
 #: admin/sysinfo.php:41
 msgid "User Classes"
-msgstr "Brukerklasser"
+msgstr ""
 
 #: admin/sysinfo.php:42
 msgid ""
 "\n"
 "USER CLASSES\n"
 msgstr ""
-"\n"
-"BRUKERGRUPPER\n"
 
 #: admin/sysinfo.php:53 admin/sysinfo.php:78
 msgid "None found"
-msgstr "Ingen funnet"
+msgstr "Niciunul găsit"
 
 #: admin/sysinfo.php:54 admin/sysinfo.php:79
 msgid "None found\n"
-msgstr "Ingen funnet\n"
+msgstr "Niciunul găsit\n"
 
 #: admin/sysinfo.php:60
 msgid "Plugin Information"
-msgstr "Tilleggsinformasjon"
+msgstr "Detalii despre extensie"
 
 #: admin/sysinfo.php:61
 msgid ""
@@ -552,31 +552,31 @@ msgid ""
 "PLUGIN INFORMATION"
 msgstr ""
 "\n"
-"TILLEGGSINFORMASJON"
+"INFORMAȚIE DESPRE EXTENSIE"
 
 #: admin/sysinfo.php:86
 msgid "All Results"
-msgstr "Alle resultater"
+msgstr "Toate rezultatele"
 
 #: admin/logs.php:10
 msgid "0-0 of 0"
-msgstr "0-0 av 0"
+msgstr "0-0 din 0"
 
 #: admin/logs.php:11
 msgid "Type and wait to search any log entry component"
-msgstr "Skriv inn og søket loggkomponentene"
+msgstr "Tastează și așteaptă căutarea componentelor din registru."
 
 #: admin/logs.php:43 admin/logs.php:106
 msgid "Purge Logs"
-msgstr "Skrubb Logger"
+msgstr "Curățare jurnal"
 
 #: admin/logs.php:58
 msgid "Date &amp; Time"
-msgstr "Dato &amp; Tid"
+msgstr "Data &amp; Ora"
 
 #: admin/logs.php:59 themes/k2/sidebar.php:18
 msgid "User"
-msgstr "Bruker"
+msgstr "Utilizator"
 
 #: admin/logs.php:60
 msgid "IP"
@@ -588,37 +588,38 @@ msgstr "Modul"
 
 #: admin/logs.php:62
 msgid "Type"
-msgstr "Type"
+msgstr "Tip"
 
 #: admin/logs.php:63
 msgid "Severity"
-msgstr "Grad"
+msgstr "Severitate"
 
 #: admin/logs.php:64
 msgid "Message"
-msgstr "Beskjed"
+msgstr "Mesaj"
 
 #: admin/logs.php:76
 msgid "Filter"
-msgstr "Filter"
+msgstr "Filtru"
 
 #: admin/logs.php:90
 msgid "There are no logs to be displayed at this time."
-msgstr "Det finnes ikke noen logger å vise på dette tidspunkt."
+msgstr "Nu există niciun registru pentru afișare la ora actuală."
 
 #: admin/dashboard.php:10
 msgid ""
 "Oh, great! You're using IE6! I've finally found someone I can pawn this old "
 "betamax player off on!"
 msgstr ""
-"Flott! Du bruker IE6! Jeg har endelig funnet noen jeg kan skyve denne gamle "
-"betamax-spilleren på!"
+"Ce grozăvie! Folosești Internet Explorer 6! Însfârșit am găsit pe cineva de "
+"care să râd, încă folosești casete, nu?!"
 
 #: admin/dashboard.php:11 classes/habaridatetime.php:473
 msgid "year"
 msgid_plural "years"
-msgstr[0] "år"
-msgstr[1] "år"
+msgstr[0] "an"
+msgstr[1] "ani"
+msgstr[2] "de ani"
 
 #: admin/dashboard.php:11
 #, php-format
@@ -626,8 +627,9 @@ msgid ""
 "If you're reading this you're surfing using Internet Explorer 6, a browser "
 "that is %d %s old and cannot cope with the demands of the modern internet."
 msgstr ""
-"Hvis du leser dette så bruker du Internet Explorer 6, en nettleser som er %d "
-"%s gammel og ikke i stand til å takle kravene til det moderne internett."
+"Dacă citești acest mesaj înseamnă că folosești Internet Explore 6, un "
+"explorator de internet vechi de %d %s, care nu poate îndeplini sarcinele "
+"internetului modern."
 
 #: admin/dashboard.php:12
 msgid ""
@@ -637,98 +639,105 @@ msgid ""
 "version of <a href=\"http://www.microsoft.com/windows/Internet-"
 "explorer/default.aspx\">Internet Explorer</a>."
 msgstr ""
-"Vurdér gjerne å bytte til <a href=\"http://mozilla.com\">Mozilla "
-"Firefox</a>, <a href=\"http://www.apple.com/safari/download/\">Safari</a>, "
-"<a href=\"http://www.google.com/chrome\">Google Chrome</a>, eller en nyere "
-"versjon av <a href=\"http://www.microsoft.com/windows/Internet-"
+"Ia în considerare opțiunea de a te schimba la exploratorul <a "
+"href=\"http://mozilla.com\">Mozilla Firefox</a>, <a "
+"href=\"http://www.apple.com/safari/download/\">Safari</a>, <a "
+"href=\"http://www.google.com/chrome\">Google Chrome</a>, sau o versiune mai "
+"recentă a lui <a href=\"http://www.microsoft.com/windows/Internet-"
 "explorer/default.aspx\">Internet Explorer</a>."
 
 #: admin/dashboard.php:18
 #, php-format
 msgid "%s has been active for %s"
-msgstr "%s har vært aktiv i %s"
+msgstr "%s a fost activ de când %s"
 
 #: admin/dashboard.php:25
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d postare"
+msgstr[1] "%d postări"
 
 #: admin/dashboard.php:38
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] "%d kommentar"
-msgstr[1] "%d kommentarer"
+msgstr[0] "%d comentariu"
+msgstr[1] "%d comentarii"
+msgstr[2] "%d comentarii"
 
 #: admin/dashboard.php:47
 #, php-format
 msgid "%d tag"
 msgid_plural "%d tags"
-msgstr[0] "%d merkelapp"
-msgstr[1] "%d merkelapper"
+msgstr[0] "%d etichetă"
+msgstr[1] "%d etichete"
+msgstr[2] "%d etichetă"
 
 #: admin/dashboard.php:54
 #, php-format
 msgid "[You] have published %1$s%2$s"
 msgid_plural "The [%3$d authors] have published %1$s%2$s"
-msgstr[0] "[Du] har publisert %1$s%2$s"
-msgstr[1] "De [%3$d forfatterne] har publisert %1$s%2$s"
+msgstr[0] "Tu ai publicat %1$s%2$s"
+msgstr[1] "Autorii %3$d au publicat %1$s%2$s"
+msgstr[2] "Autorii %3$d au publicat %1$s%2$s"
 
 #: admin/dashboard.php:56
 msgid " with "
-msgstr " med "
+msgstr " cu "
 
 #: admin/dashboard.php:76
 #, php-format
 msgid "%d draft"
 msgid_plural "%d drafts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ciornă"
+msgstr[1] "%d ciorne"
+msgstr[2] "%d de ciorne"
 
 #: admin/dashboard.php:87
 #, php-format
 msgid "%d scheduled post"
 msgid_plural "%d scheduled posts"
-msgstr[0] "%d planlagt post"
-msgstr[1] "%d planlagte poster"
+msgstr[0] "%d postare programată"
+msgstr[1] "%d postare programată"
 
 #: admin/dashboard.php:100
 #, php-format
 msgid "%d comment awaiting approval"
 msgid_plural "%d comments awaiting approval"
-msgstr[0] "%d kommentar i godkjenningskø"
-msgstr[1] "%d kommentarer i godkjenningskø"
+msgstr[0] "%d comentariu așteaptă aprobare"
+msgstr[1] "%d comentarii așteaptă aprobare"
+msgstr[2] "%d de comentarii așteaptă aprobare"
 
 #: admin/dashboard.php:107
 #, php-format
 msgid "%d spam comment"
 msgid_plural "%d spam comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d comentariu spam"
+msgstr[1] "%d comentarii spam"
+msgstr[2] "%d de comentarii spam"
 
 #: admin/dashboard.php:113
 #, php-format
 msgid "You have %s"
-msgstr "du har %s"
+msgstr "Tu ai %s"
 
 #: admin/dashboard.php:133
 #, php-format
 msgid "%1$s update released on %2$s: %3$s"
-msgstr "%1$s oppdatering lansert %2$s: %3$s"
+msgstr "%1$s actualizare emisă pe %2$s: %3$s"
 
 #: admin/dashboard.php:136
 #, php-format
 msgid "%1$s update: %3$s"
-msgstr "%1$s oppdatering: %3$s"
+msgstr "%1$s actualizare: %3$s"
 
 #: admin/dashboard.php:156
 #, php-format
 msgid ""
 "%1$s <a href=\"%2$s\">%3$s</a> has the following updates available: %4$s"
 msgstr ""
-"%1$s <a href=\"%2$s\">%3$s</a> har følgende oppdateringer tilgjengelig: %4$s"
+"%1$s <a href=\"%2$s\">%3$s</a> are disponibile următoarele actualizări: %4$s"
 
 #: admin/dashboard.php:176
 msgid ""
@@ -738,205 +747,207 @@ msgid ""
 "install. This link also appears at the bottom of every page in the admin "
 "area."
 msgstr ""
-"Velkomment il Habari! Vi håper du du vil komme rask i gang med "
-"utforskningen. Hvis du sitter fast eller ønsker å lære mer om de avanserte "
-"tilleggene, håper vi at du leser [manualen], som ble installert sammen med "
-"Habariversjonen du har. Denne linken finnes også på alle sidene inne på "
-"administrasjonsområdet."
+"Bine ai venit la Habari! Sperăm că vei începe imediat a-l explora. Dacă ai "
+"vreo problemă sau vrei să înțeti mai mult despre configurări avansate, îți "
+"recomandăm să citești  [manual]ul, care vine preinstalat cu fiecare pachet "
+"instalat de Habari. Legătura către manual se regăsește mereu la finalul "
+"tuturor paginilor din panoul de administrare."
 
 #: admin/dashboard.php:177
 msgid "Habari Manual"
-msgstr "Habari Manualen"
+msgstr "Manualul Habari"
 
 #: admin/dashboard.php:183
 msgid "This message will disappear next time you visit."
-msgstr "Denne meldingen vil forsvinne neste gang du logger inn."
+msgstr "Acest mesaj nu va mai fi afișat la următoarea accesare."
 
 #: admin/plugins.php:7
 msgid "All plugins"
-msgstr "Alle tillegg"
+msgstr "Toate extensiile"
 
 #: admin/plugins.php:12 admin/plugins.php:53
 msgid "Active Plugins"
-msgstr "Aktiver Tillegg"
+msgstr "Extensii active"
 
 #: admin/plugins.php:15 admin/plugins.php:68
 msgid "Inactive Plugins"
-msgstr "Inaktive Tillegg"
+msgstr "Extensii inactive"
 
 #: admin/plugins.php:23
 msgid "search plugins"
-msgstr "søk på tillegg"
+msgstr "caută extensii"
 
 #: admin/plugins.php:85
 msgid "Upload Plugin Package"
-msgstr "Legg opp ny Tillegspakke"
+msgstr "Încarcă un pachet cu extensii"
 
 #: admin/plugins.php:88 plugins/habarisilo/habarisilo.plugin.php:416
 #: plugins/habarisilo/habarisilo.plugin.php:567
 msgid "Upload"
-msgstr "Last opp"
+msgstr "Încarcă"
 
 #: admin/groups.php:6 admin/group.php:6
 msgid "All Groups"
-msgstr "Alle Grupper"
+msgstr "Toate grupurile"
 
 #: admin/groups.php:22
 msgid "Group Management"
-msgstr "Gruppeadministrasjon"
+msgstr "Administrare grupuri"
 
 #: admin/groups.php:43 admin/groups.php:60
 msgid "Add Group"
-msgstr "Legg til gruppe"
+msgstr "Adaugă grup"
 
 #: admin/groups.php:47
 msgid "Group Name"
-msgstr "Gruppenavn"
+msgstr "Numele grupului"
 
 #: admin/comments.php:6
 msgid "0 of 0"
-msgstr "0 av 0"
+msgstr "0 din 0"
 
 #: admin/comments.php:49 admin/comments.php:73
 msgid "Delete selected comments"
-msgstr "Slett valgte kommentarer"
+msgstr "Șterge comentariile selectate"
 
 #: admin/comments.php:50 admin/comments.php:74
 msgid "Delete all spam comments"
-msgstr "Slett alle spamkommentarer"
+msgstr "Șterge toate comentariile spam"
 
 #: admin/comments.php:50 admin/comments.php:74
 msgid "Delete All Spam"
-msgstr "Slett All Spam"
+msgstr "Șterge tot spam-ul"
 
 #: admin/comments.php:51 admin/comments.php:75
 msgid "Delete all unapproved comments"
-msgstr "Slett alle ikke-godkjente kommentarer"
+msgstr "Șterge toate comentariile fără aprobare."
 
 #: admin/comments.php:51 admin/comments.php:75
 msgid "Delete All Unapproved"
-msgstr "Slett Alle Ikke-godkjente"
+msgstr "Șterge toate neaprobate"
 
 #: admin/comments.php:54 admin/comments.php:78
 msgid "Approve selected comments"
-msgstr "Godkjenn valgte kommentarer"
+msgstr "Aprobă comentariile selectate"
 
 #: admin/comments.php:54 admin/comments.php:78
 msgid "Mark selected approved"
-msgstr "Markér valgte som godkjent"
+msgstr "Bifează aprobatele selectate"
 
 #: admin/comments.php:55 admin/comments.php:79
 msgid "Unapprove selected comments"
-msgstr "Fjern godkjenning fra valgte kommentarer"
+msgstr "Dezaprobă comentariile selectate"
 
 #: admin/comments.php:55 admin/comments.php:79
 msgid "Mark selected unapproved"
-msgstr "Markér valgte som ikke-godkjente"
+msgstr "Bifează neaprobatele selectate"
 
 #: admin/comments.php:56 admin/comments.php:80
 msgid "Mark selected comments as spam"
-msgstr "Markér valgte kommentarer som spam"
+msgstr "Bifează comentariile selectate ca spam"
 
 #: admin/comments.php:56 admin/comments.php:80
 msgid "Mark selected spam"
-msgstr "Markér valgte som spam"
+msgstr "Bifează spamurile selectate"
 
 #: admin/group.php:21
 #, php-format
 msgid "Group %1$s has <strong>%2$d</strong> member"
 msgid_plural "Group %1$s has <strong>%2$d</strong> members"
-msgstr[0] "Gruppe %1$s har <strong>%2$d</strong> medlem"
-msgstr[1] "Gruppe %1$s har <strong>%2$d</strong> medlemmer"
+msgstr[0] "Grupul %1$s are <strong>%2$d</strong> membru"
+msgstr[1] "Grupul %1$s are <strong>%2$d</strong> membrii"
+msgstr[2] "Al grupului %1$s are <strong>%2$d</strong> membrii"
 
 #: admin/group.php:27
 msgid "Group Members"
-msgstr "Gruppemedlemmer"
+msgstr "Membri grupului"
 
 #: admin/group.php:32
 msgid "Members"
-msgstr "Medlemmer"
+msgstr "Membrii"
 
 #: admin/group.php:38
 msgid "Members To Add"
-msgstr "Medlemmer som skal legges til"
+msgstr "Membrii a se adăuga"
 
 #: admin/group.php:48
 msgid "Add"
-msgstr "Legg til"
+msgstr "Adăugare"
 
 #: admin/group.php:53
 msgid "Members To Remove"
-msgstr "Medlemmer som skal fjernes"
+msgstr "Membrii a se exclude"
 
 #: admin/group.php:66
 msgid "Group Permissions"
-msgstr "Gruppetilganger"
+msgstr "Permisiile grupului"
 
 #: admin/group.php:78 admin/group.php:101
 msgid "Token Description"
-msgstr ""
+msgstr "Descrierea elementului"
 
 #: admin/group.php:102
 msgid "allow"
-msgstr "tillat"
+msgstr "permite"
 
 #: admin/group.php:103
 msgid "deny"
-msgstr "avvis"
+msgstr "interzice"
 
 #: admin/group.php:130 handlers/adminoptionshandler.php:169
 #: handlers/adminusershandler.php:167
 msgid "Apply"
-msgstr "Bruk"
+msgstr "Aplică"
 
 #: admin/login.php:5
 #, php-format
 msgid "Login to %s"
-msgstr "Logg inn med %s"
+msgstr "Contează-te la %s"
 
 #: admin/login.php:40 themes/charcoal/theme.php:215 themes/k2/theme.php:125
 msgid "Name"
-msgstr "Navn"
+msgstr "Nume"
 
 #: admin/login.php:40
 msgid "name"
-msgstr "navn"
+msgstr "nume"
 
 #: admin/login.php:43
 msgid "password"
-msgstr "passord"
+msgstr "parolă"
 
 #: admin/login.php:47 themes/charcoal/header.php:41
 #: plugins/coreblocks/coreblocks.plugin.php:328
 msgid "Login"
-msgstr "Innlogging"
+msgstr "Conectare"
 
 #: admin/login.php:51 themes/mzingi/loginform.php:31
 #: handlers/userhandler.php:21
 msgid "Reset password"
-msgstr "Nullstill passord"
+msgstr "Resetează parola"
 
 #: admin/tag_collection.php:13
 #, php-format
 msgid "Manage posts tagged %1$s"
-msgstr "Administrér innlegg merket med %1$s"
+msgstr "Administreză postările marcate ca/cu %1$s"
 
 #: admin/tag_collection.php:18
 msgid "No tags could be found to match the query criteria."
-msgstr "Ingen merkelapper funnet tilfredsstiller søkekriteriene."
+msgstr "Nicio etichetă nu se potrivește criteriului de căutare."
 
 #: schema/mysql/connection.php:248 schema/pgsql/connection.php:345
 msgid "No Upgrades"
-msgstr "Ingen Oppgraderinger"
+msgstr "Fără actualizări"
 
 #: schema/sqlite/connection.php:70
 #, php-format
 msgid "Database file \"%s\" must be writable."
-msgstr "Databasefilen \"%s\" må være skrivbar."
+msgstr ""
+"Fișierul \"%s\" din baza de date trebuie să fie modificabil(writable)"
 
 #: schema/sqlite/connection.php:197
 msgid "not yet supported on SQLite"
-msgstr "støttes enda ikke av SQLite"
+msgstr "deocamdată fără suport pe SQLiter"
 
 #: themes/charcoal/page.single.php:22 themes/charcoal/home.php:34
 #: themes/charcoal/entry.single.php:40 themes/mzingi/page.single.php:17
@@ -946,664 +957,666 @@ msgstr "støttes enda ikke av SQLite"
 #: themes/k2/tag.php:16 themes/k2/entry.multiple.php:16 themes/k2/home.php:16
 #: themes/k2/search.php:17 themes/k2/entry.single.php:25
 msgid "Edit post"
-msgstr "Velg post"
+msgstr "Editează postarea"
 
 #: themes/charcoal/tag.php:21 themes/charcoal/home.php:24
 #: themes/charcoal/multiple.php:20 themes/charcoal/search.php:22
 #: themes/charcoal/entry.single.php:30 themes/k2/theme.php:116
 msgid "Comments on this post"
-msgstr "Kommenter på posten"
+msgstr "Comentarii la această postare"
 
 #: themes/charcoal/tag.php:40 themes/charcoal/home.php:71
 #: themes/charcoal/multiple.php:41 themes/charcoal/search.php:48
 #: themes/mzingi/entry.multiple.php:28 themes/mzingi/home.php:32
 msgid "Newer Posts"
-msgstr "Nyere Innlegg"
+msgstr "Postări noi"
 
 #: themes/charcoal/tag.php:41 themes/charcoal/home.php:72
 #: themes/charcoal/multiple.php:42 themes/charcoal/search.php:49
 #: themes/mzingi/entry.multiple.php:28 themes/mzingi/home.php:32
 msgid "Older Posts"
-msgstr "Eldre Innlegg"
+msgstr "Postări vechi"
 
 #: themes/charcoal/commentform.php:9
 msgid "Comments are closed for this post"
-msgstr "Kommentering er stengt"
+msgstr "Comentariile sunt închise pentru acest post"
 
 #: themes/charcoal/404.php:7
 msgid "Whoops! 404"
-msgstr "Heisann! 404"
+msgstr "Eroare 404"
 
 #: themes/charcoal/404.php:10
 msgid ""
 "The page you were trying to access is not really there. Please try again."
-msgstr "Siden du prøver å nå eksisterer ikke. Vennligst prøv igjen."
+msgstr "Pagina care se dorește a accesa nu este disponibilă. Încercați iar."
 
 #: themes/charcoal/searchform.php:3
 #, php-format
 msgid "Search %s"
-msgstr "Søk i %s"
+msgstr "Caută în %s"
 
 #: themes/charcoal/searchform.php:4
 msgid "Go"
-msgstr "Utfør"
+msgstr "Navighează"
 
 #: themes/charcoal/sidebar.php:7
 msgid "{blog entries}"
-msgstr "{blogginnlegg}"
+msgstr ""
 
 #: themes/charcoal/sidebar.php:8
 msgid "{comments}"
-msgstr "{kommentarer}"
+msgstr "(comentarii)"
 
 #: themes/charcoal/sidebar.php:12
 msgid "Powered by Habari"
-msgstr "Drevet av Habari"
+msgstr "Creat de"
 
 #: themes/charcoal/header.php:39 themes/k2/theme.php:165
 msgid "Admin area"
-msgstr "Administratorområde"
+msgstr "Zona de administrare"
 
 #: themes/charcoal/header.php:39 themes/k2/theme.php:165
 msgid "Admin"
-msgstr "Admin"
+msgstr "Administrator"
 
 #: themes/charcoal/home.php:40
 msgid "No posts published, yet."
-msgstr "Ingen innlegg publisert enda."
+msgstr "Nici o postare publicată, de moment."
 
 #: themes/charcoal/home.php:64
 #, php-format
 msgid "Continue reading %s"
-msgstr "Fortsett å lese %s"
+msgstr "Continuă citirea %s"
 
 #: themes/charcoal/home.php:64
 msgid "more"
-msgstr "mer"
+msgstr "mai multe"
 
 #: themes/charcoal/footer.php:8
 #, php-format
 msgid "%1$s is powered by %2$s"
-msgstr "%1$s er drevet av %2$s"
+msgstr "%1$s este creat de %2$s"
 
 #: themes/charcoal/footer.php:10 themes/k2/footer.php:12
 msgid "Atom Entries"
-msgstr "Atom Innlegg"
+msgstr "Postări în Atom"
 
 #: themes/charcoal/footer.php:11 themes/k2/footer.php:12
 msgid "Atom Comments"
-msgstr "Atom Kommentarer"
+msgstr "Comentarii în Atom"
 
 #: themes/charcoal/theme.php:29 themes/charcoal/theme.php:230
 msgid "Charcoal Menu"
-msgstr ""
+msgstr "Meniu Cărbune"
 
 #: themes/charcoal/theme.php:34
 msgid "Added Charcoal Menu block to Nav area."
-msgstr ""
+msgstr "Meniul Cărbune a fost adăugat la zona de navigare."
 
 #: themes/charcoal/theme.php:46
 msgid "Show Title Image:"
-msgstr "Vis Tittelbilde:"
+msgstr "Arată titlul imaginii:"
 
 #: themes/charcoal/theme.php:47
 msgid "Check to show the title image, uncheck to display the title text."
 msgstr ""
-"Kryss av for å vise tittelbildet, fjern avkrysning for å vise tittelteksten."
+"Bifează pentru a arăta titlu imaginii, debifează pentru a arată titlul "
+"textului."
 
 #: themes/charcoal/theme.php:48
 msgid "Home label:"
-msgstr ""
+msgstr "Etichetă principală:"
 
 #: themes/charcoal/theme.php:49
 msgid "Set to whatever you want your first tab text to be."
-msgstr "Sett til det du ønsker at teksten på første fane skal være."
+msgstr "Configurează cum vrei tu să fie primul tab."
 
 #: themes/charcoal/theme.php:50
 msgid "Show Entry Paperclip:"
-msgstr "Vis Binders på Innlegg:"
+msgstr ""
 
 #: themes/charcoal/theme.php:51
 msgid "Check to show the paperclip graphic in posts, uncheck to hide it."
 msgstr ""
-"Kryss av for å vise bindersen på innlegg, fjern avkrysning for å skjule den."
 
 #: themes/charcoal/theme.php:52
 msgid "Show Page Paperclip:"
-msgstr "Vis Binders på Sider:"
+msgstr ""
 
 #: themes/charcoal/theme.php:53
 msgid "Check to show the paperclip graphic in pages, uncheck to hide it."
 msgstr ""
-"Kryss av for å vise bindersen på sider, fjern avkrysning for å skjule den."
 
 #: themes/charcoal/theme.php:54
 msgid "Show Powered By:"
-msgstr "Vis Drevet Av:"
+msgstr "Arată Creat De:"
 
 #: themes/charcoal/theme.php:55
 msgid ""
 "Check to show the \"powered by Habari\" graphic in the sidebar, uncheck to "
 "hide it."
 msgstr ""
-"Kryss av for å vise \"drevet av Habari\" i sidestolpen, fjern avkrysning for "
-"å skjule det."
+"Bifează pentru a arăta grafica cu \"creat de Habari\" în bara laterală, "
+"debifează ca să nu."
 
 #: themes/charcoal/theme.php:56
 msgid "Display Login:"
-msgstr "Vis Innlogging:"
+msgstr "Arată căsuță de conectare:"
 
 #: themes/charcoal/theme.php:57
 msgid ""
 "Check to show the Login/Logout link in the navigation bar, uncheck to hide "
 "it."
 msgstr ""
-"Kryss av for å vise Logg Inn/Logg Ut lenken i navigasjonsstolpen, fjern "
-"avkrysning for å skjule den."
+"Bifează pentru a arată linkul de conectare/deconectare în bara de navigație, "
+"debifează ca să nu."
 
 #: themes/charcoal/theme.php:58
 msgid "Tags in Multiple Posts Page:"
-msgstr ""
+msgstr "Etichete în multiple pagini de postări:"
 
 #: themes/charcoal/theme.php:59
 msgid ""
 "Check to show the post tags in the multiple posts pages (search, tags, "
 "archives), uncheck to hide them."
 msgstr ""
+"Bifează pentru a arată etichetele postării în mai multe pagini(de genul "
+"căutare, etichete, arhive), debifează ca să nu."
 
 #: themes/charcoal/theme.php:60
 msgid "Show Post Navigation:"
-msgstr "Vis Innleggsnavigasjon:"
+msgstr "Arată navigația postării"
 
 #: themes/charcoal/theme.php:61
 msgid "Set to true to show single post navigation links, false to hide them."
 msgstr ""
-"Sett til sann for å vise enkeltvise innleggsnavigasjonslenker, usann for å "
-"skjule dem."
+"Setează ca \"da\" pentru a arată linkurile de navigare întro postare, nu "
+"seta ca să nu."
 
 #: themes/charcoal/theme.php:62
 msgid "Tag Cloud Count:"
-msgstr ""
+msgstr "Contuar de norul cu etichete"
 
 #: themes/charcoal/theme.php:63
 msgid "Set to the number of tags to display on the default \"cloud\"."
-msgstr ""
+msgstr "Setează către numărul de etichete a se afișa în Nor implicit."
 
 #: themes/charcoal/theme.php:67 plugins/flickrsilo/flickrsilo.plugin.php:877
 msgid "Options saved"
-msgstr "Valg lagret"
+msgstr "Opțiuni salvate"
 
 #: themes/charcoal/theme.php:116
 #, php-format
 msgid "Displaying posts tagged: %s"
-msgstr "Viser innlegg merket med: %s"
+msgstr "Afisând postări etichetate cu: %s"
 
 #: themes/charcoal/theme.php:119
 #, php-format
 msgid "Displaying posts not tagged: %s"
-msgstr ""
+msgstr "Afișând postări neetichetate cu: %s"
 
 #: themes/charcoal/theme.php:122
 #, php-format
 msgid "Displaying posts tagged: %s and not %s"
-msgstr ""
+msgstr "Afisând postări etichetate cu: %s și nu cu %s"
 
 #: themes/charcoal/theme.php:148 classes/theme.php:892
 msgid "No Comments"
-msgstr "Ingen Kommentarer"
+msgstr "Fără comentarii"
 
 #: themes/charcoal/theme.php:148
 #, php-format
 msgid "%1$d Comment"
 msgid_plural "%1$d Comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d Comentariu"
+msgstr[1] "%1$d Comentarii"
+msgstr[2] "%1$d de Comentarii"
 
 #: themes/charcoal/theme.php:161
 msgid "Search for "
-msgstr "Søk etter "
+msgstr "Caută după "
 
 #: themes/charcoal/theme.php:166 themes/charcoal/theme.php:172
 #, php-format
 msgid "Search results for '%s'"
-msgstr "Søkeresultat for '%s'"
+msgstr "Rezultatele căutării după '%s'"
 
 #: themes/charcoal/theme.php:169
 #, php-format
 msgid "No results found for your search '%1$s'"
-msgstr "Ingen resultater funnet for ditt søk '%1$s'"
+msgstr "Nu s-au găsit rezultate pentru căutarea după '%1$s'"
 
 #: themes/charcoal/theme.php:169
 #, php-format
 msgid "You can try searching for '%2$s'"
-msgstr "Du kan prøve å søke etter '%2$s'"
+msgstr "Poți încerca să cauți după '%2$s'"
 
 #: themes/charcoal/theme.php:175
 #, php-format
 msgid "No results found for your search '%s'"
-msgstr "Ingen resultater funnet for ditt søk '%s'"
+msgstr "Nu s-au găsit rezultate pentru căutarea după '%s'"
 
 #: themes/charcoal/theme.php:215
 msgid "(Required)"
-msgstr "(Påkrevd)"
+msgstr "(Necesar)"
 
 #: themes/charcoal/theme.php:217 themes/k2/theme.php:127
 msgid "Mail"
-msgstr "E-post"
+msgstr "Mail"
 
 #: themes/charcoal/theme.php:217
 msgid "(will not be published"
-msgstr "(vil ikke bli publisert"
+msgstr "(nu va fi publicat"
 
 #: themes/charcoal/theme.php:217
 msgid "- Required)"
-msgstr "- Påkrevd)"
+msgstr "- Necesar)"
 
 #: themes/charcoal/theme.php:219 themes/k2/theme.php:129 classes/post.php:1001
 msgid "Website"
-msgstr "Nettsted"
+msgstr "Sit web"
 
 #: themes/charcoal/theme.php:222 themes/mzingi/theme.php:114
 #: themes/k2/theme.php:132 classes/post.php:1021
 #: plugins/habarisilo/habarisilo.plugin.php:465
 msgid "Submit"
-msgstr "Send inn"
+msgstr "Trimite"
 
 #: themes/charcoal/theme.php:242 themes/k2/theme.php:152
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: themes/charcoal/comments.php:27
 msgid "Time of this comment - Click for comment permalink"
-msgstr "Tidspunkt for denne kommentar - Klikk for permalenke for kommentar"
+msgstr "Ora acestui comentariu - Apasă pentru permalink-ul comentariului"
 
 #: themes/charcoal/comments.php:29
 msgid "Your comment is awaiting moderation"
-msgstr "Din kommentar ligger i modereringskø"
+msgstr "Comentariul dvs așteaptă aprobare"
 
 #: themes/charcoal/comments.php:35
 msgid "Be the first to write a comment!"
-msgstr "Vær først ute med å skrive en kommentar!"
+msgstr "Fi primul în a scrie un comentariu!"
 
 #. @locale Date formats according to http://php.net/manual/en/function.date.php
 #: themes/mzingi/tag.php:14 themes/mzingi/sidebar.php:23
 #: themes/mzingi/search.php:14
 msgid "F j, Y"
-msgstr ""
+msgstr "F j, Y"
 
 #: themes/mzingi/tag.php:19 themes/mzingi/entry.multiple.php:17
 #: themes/mzingi/home.php:19 themes/mzingi/search.php:19
 #: themes/mzingi/entry.single.php:25
 msgid "Tagged:"
-msgstr "Oppsett:"
+msgstr "Etichetat:"
 
 #: themes/mzingi/tag.php:30 themes/mzingi/search.php:30
 msgid "Newer Results"
-msgstr "Nyerer resultater"
+msgstr "Rezultate noi"
 
 #: themes/mzingi/tag.php:30 themes/mzingi/search.php:30
 msgid "Older Results"
-msgstr "Eldre Resultater"
+msgstr "Rezultate vechi"
 
 #: themes/mzingi/commentform.php:8
 msgid "to"
-msgstr "til"
+msgstr "către"
 
 #: themes/mzingi/commentform.php:9 themes/k2/comments.php:8
 msgid "Feed for this Entry"
-msgstr "Nyhetsliste for dette innlegget"
+msgstr "Feed pentru această postare"
 
 #: themes/mzingi/commentform.php:28 themes/k2/theme.php:116
 #: classes/post.php:1013 handlers/admincommentshandler.php:49
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] "Kommentar"
-msgstr[1] "Kommentarer"
+msgstr[0] "Comentariu"
+msgstr[1] "Comentarii"
 
 #: themes/mzingi/commentform.php:45 themes/k2/comments.php:25
 msgid "Permanent Link to this Comment"
-msgstr "Permanent Lenke til denne Kommentar"
+msgstr "Legătură permanentă către acest comentariu"
 
 #: themes/mzingi/commentform.php:46
 msgid "Comment by"
-msgstr "Kommentar skrevet av"
+msgstr "Comentariu de către"
 
 #: themes/mzingi/commentform.php:47
 msgid "Time of this comment"
-msgstr "Tidspunkt for denne kommentar"
+msgstr "Ora acestui comentariu"
 
 #. @locale Date formats according to http://php.net/manual/en/function.date.php
 #: themes/mzingi/commentform.php:47
 msgid "M j, Y h:ia"
-msgstr ""
+msgstr "M j, Y h:ia"
 
 #: themes/mzingi/commentform.php:47 themes/k2/comments.php:27
 msgid "In moderation"
-msgstr ""
+msgstr "În moderare"
 
 #: themes/mzingi/commentform.php:57 themes/k2/comments.php:39
 msgid "There are currently no comments."
-msgstr ""
+msgstr "Nu sunt comentarii până acum."
 
 #: themes/mzingi/404.php:8
 msgid "It seems you couldn't find what you are looking for."
-msgstr "Søkeresultatet kunne ikke vises siden innholdet ikke ble funnet."
+msgstr "Se pare că nu s-a putut găsi ceea ce cauți."
 
 #: themes/mzingi/404.php:8
 msgid "Perhaps you can try searching."
-msgstr "Du kan forsøke å søke."
+msgstr "Poate poți încerca la căsuța de căutare."
 
 #: themes/mzingi/searchform.php:5 themes/k2/sidebar.php:6
 #: plugins/coreblocks/coreblocks.plugin.php:365
 #: plugins/flickrsilo/flickrsilo.plugin.php:609
 #: plugins/flickrsilo/flickrsilo.plugin.php:982
 msgid "Search"
-msgstr ""
+msgstr "Căutare"
 
 #: themes/mzingi/searchform.php:5 themes/k2/searchform.php:5
 msgid "Go!"
-msgstr ""
+msgstr "Start!"
 
 #: themes/mzingi/sidebar.php:5
 msgid "Subscribe to Feed"
-msgstr "Abbonér på strøm"
+msgstr "Abonare la feed"
 
 #: themes/mzingi/sidebar.php:6
 msgid "Navigation"
-msgstr "Navigasjon"
+msgstr "Navigare"
 
 #: themes/mzingi/sidebar.php:8
 msgid "Home"
-msgstr "Hjem"
+msgstr "Pagina de pornire"
 
 #: themes/mzingi/sidebar.php:17
 msgid "Asides"
-msgstr ""
+msgstr "Pe lângă"
 
 #: themes/mzingi/search.php:8
 msgid "Results for search of"
-msgstr "Resultat av søk om"
+msgstr "Rezultatele căutării ale"
 
 #: themes/mzingi/search.php:32
 msgid "No results for"
-msgstr "Ingen reultater for"
+msgstr "Niciun rezultat pentru"
 
 #: themes/mzingi/footer.php:4
 msgid "is powered by"
-msgstr "er drevet av"
+msgstr "este creat de"
 
 #: themes/mzingi/loginform.php:5 themes/k2/loginform.php:6
 msgid "That login is incorrect."
-msgstr ""
+msgstr "Datele de conectate nu sunt corecte."
 
 #: themes/mzingi/loginform.php:10 themes/k2/loginform.php:12
 msgid "You are logged in as"
-msgstr ""
+msgstr "Conectat ca"
 
 #: themes/mzingi/loginform.php:11 themes/k2/loginform.php:13
 msgid "Want to"
-msgstr ""
+msgstr "Vreau să"
 
 #: themes/mzingi/loginform.php:11 themes/k2/loginform.php:13
 msgid "log out"
-msgstr ""
+msgstr "deconectare"
 
 #: themes/mzingi/loginform.php:23 themes/k2/loginform.php:25
 msgid "Password:"
-msgstr ""
+msgstr "Parolă:"
 
 #: themes/mzingi/loginform.php:28
 msgid "GO!"
-msgstr ""
+msgstr "Conectare"
 
 #: themes/mzingi/theme.php:63
 #, php-format
 msgid "Posts tagged with %s"
-msgstr ""
+msgstr "Postări etichetate cu %s"
 
 #: themes/mzingi/theme.php:66
 #, php-format
 msgid "Posts not tagged with %s"
-msgstr ""
+msgstr "Postări non-etichetate cu %s"
 
 #: themes/mzingi/theme.php:69
 #, php-format
 msgid "Posts tagged with %s and not with %s"
-msgstr ""
+msgstr "Postări etichetate cu %s și nu cu %s"
 
 #: themes/mzingi/theme.php:88
 msgid "About You"
-msgstr ""
+msgstr "Despre dvs"
 
 #: themes/mzingi/theme.php:94 themes/mzingi/theme.php:98
 #: themes/k2/theme.php:125 themes/k2/theme.php:127
 msgid "Required"
-msgstr "Påkrevd"
+msgstr "Necesar"
 
 #: themes/mzingi/theme.php:98
 msgid "Email Address:"
-msgstr ""
+msgstr "Adresă de contact"
 
 #: themes/mzingi/theme.php:101
 msgid "Web Address:"
-msgstr ""
+msgstr "Adresă web:"
 
 #: themes/mzingi/theme.php:103
 msgid "<p><em><small>Email address is not published</small></em></p>"
-msgstr ""
+msgstr "<p><em><small>Adresa email nu se publică</small></em></p>"
 
 #: themes/mzingi/theme.php:107
 msgid "Add to the Discussion"
-msgstr ""
+msgstr "Adaugă în discuție"
 
 #: themes/mzingi/theme.php:112
 msgid "Message: (Required)"
-msgstr ""
+msgstr "Mesaj: (Necesar)"
 
 #: themes/k2/page.single.php:9
 msgid "Page:"
-msgstr ""
+msgstr "Pagină:"
 
 #: themes/k2/page.single.php:11 themes/k2/tag.php:13
 #: themes/k2/entry.multiple.php:13 themes/k2/home.php:13
 #: themes/k2/search.php:14 themes/k2/entry.single.php:22
 #, php-format
 msgid "by %s"
-msgstr ""
+msgstr "de %s"
 
 #: themes/k2/404.php:9
 msgid "Error!"
-msgstr ""
+msgstr "Eroare!"
 
 #: themes/k2/404.php:13
 msgid "The requested post was not found."
-msgstr ""
+msgstr "Postarea nu a fost găsită."
 
 #: themes/k2/sidebar.php:11 handlers/adminoptionshandler.php:43
 msgid "About"
-msgstr ""
+msgstr "Despre"
 
 #: themes/k2/search.php:7
 #, php-format
 msgid "Search results for %s"
-msgstr "Søkeresultat for %s"
+msgstr "Rezultatele căutării a %s"
 
 #: themes/k2/footer.php:10
 msgid " is powered by"
-msgstr " er drevet av"
+msgstr " este creat de"
 
 #: themes/k2/footer.php:10
 msgid "and a huge amount of "
-msgstr ""
+msgstr "și o gramadă de "
 
 #: themes/k2/footer.php:11
 msgid "Caffeine"
-msgstr ""
+msgstr "Cafeină"
 
 #: themes/k2/footer.php:12 handlers/adminusershandler.php:170
 msgid "and"
-msgstr "og"
+msgstr "și"
 
 #: themes/k2/loginform.php:12
 msgid "Edit Your Profile"
-msgstr ""
+msgstr "Configurează-ți profilul"
 
 #: themes/k2/loginform.php:30
 msgid "Sign in"
-msgstr ""
+msgstr "Conectaţi-vă"
 
 #: themes/k2/theme.php:23 themes/k2/theme.php:140
 msgid "K2 Menu"
-msgstr ""
+msgstr "Meniul K2"
 
 #: themes/k2/theme.php:28
 msgid "Added K2 Menu block to Nav area."
-msgstr ""
+msgstr "Meniul K2 a fost atașat zonei de navigare."
 
 #: themes/k2/theme.php:127
 msgid "(will not be published)"
-msgstr ""
+msgstr "(nu va fi publicat)"
 
 #: themes/k2/comments.php:6
 msgid "Responses to"
-msgstr "svar til"
+msgstr "Comentarii la"
 
 #: themes/k2/comments.php:27
 msgid "Time of this Comment"
-msgstr ""
+msgstr "Ora acestui comentariu"
 
 #: themes/k2/comments.php:45
 msgid "Leave a Reply"
-msgstr "Legg igjen en kommentar"
+msgstr "Lăsați un răspuns"
 
 #: classes/acl.php:147
 #, php-format
 msgid "Permission token deleted: %s"
-msgstr ""
+msgstr "Permisiile elementului șterse: %s"
 
 #: classes/acl.php:611
 #, php-format
 msgid "Group %1$s: Access to %2$s changed to %3$s"
-msgstr ""
+msgstr "Grupul %1$s: cu acces la %2$s a fost schimbat la %3$s"
 
 #: classes/acl.php:701
 #, php-format
 msgid "Group %1$s: Permission to %2$s revoked."
-msgstr ""
+msgstr "Grupului %1$s: accesul la %2$s retras."
 
 #: classes/acl.php:763
 msgid "Manage comments on all posts"
-msgstr ""
+msgstr "Administrează comentariile din toate postările"
 
 #: classes/acl.php:764
 msgid "Manage comments on one's own posts"
-msgstr ""
+msgstr "Administrează comentariile din postările propii"
 
 #: classes/acl.php:765 handlers/adminhandler.php:331
 msgid "Manage tags"
-msgstr ""
+msgstr "Administrează etichete"
 
 #: classes/acl.php:766
 msgid "Manage options"
-msgstr ""
+msgstr "Administrează opțiuni"
 
 #: classes/acl.php:767
 msgid "Change theme"
-msgstr ""
+msgstr "Schimbă şablonul paginii"
 
 #: classes/acl.php:768
 msgid "Configure the active theme"
-msgstr ""
+msgstr "Configurează șablonul"
 
 #: classes/acl.php:769
 msgid "Activate/deactivate plugins"
-msgstr ""
+msgstr "Activează/deactivează extensiile"
 
 #: classes/acl.php:770
 msgid "Configure active plugins"
-msgstr ""
+msgstr "Configurează extensiile active"
 
 #: classes/acl.php:771
 msgid "Use the importer"
-msgstr ""
+msgstr "Folosește importatorul"
 
 #: classes/acl.php:772
 msgid "Add, remove, and edit users"
-msgstr ""
+msgstr "Adaugă, șterge și modifică utilizatori"
 
 #: classes/acl.php:773 handlers/installhandler.php:1569
 msgid "Edit own profile"
-msgstr ""
+msgstr "Modifică profilul personal"
 
 #: classes/acl.php:774
 msgid "Manage groups and permissions"
-msgstr ""
+msgstr "Administrează grupuri și permisii"
 
 #: classes/acl.php:775
 msgid "Manage logs"
-msgstr ""
+msgstr "Administrează regiștrii"
 
 #: classes/acl.php:776 handlers/installhandler.php:1574
 msgid "Manage dashboard modules"
-msgstr ""
+msgstr "Administrează modulele din panoul principal"
 
 #: classes/acl.php:779 handlers/installhandler.php:1520
 msgid "Permissions on one's own posts"
-msgstr ""
+msgstr "Permisiuni în propiile postări"
 
 #: classes/acl.php:779 classes/acl.php:780 classes/acl.php:781
 #: classes/acl.php:783 classes/post.php:246 classes/post.php:840
 #: handlers/installhandler.php:1674
 msgid "Content"
-msgstr "Innhold"
+msgstr "Conținut"
 
 #: classes/acl.php:780
 msgid "Permissions to all posts"
-msgstr ""
+msgstr "Permisiile tuturor postărilor"
 
 #: classes/acl.php:781 handlers/installhandler.php:1674
 msgid "Permissions to other users' unpublished posts"
-msgstr ""
+msgstr "Permisii asupra ciornelor altor utilizatori."
 
 #: classes/acl.php:783 classes/post.php:246
 #, php-format
 msgid "Permissions to posts of type \"%s\""
-msgstr ""
+msgstr "Permisii pentru postări de tipul \"%s\""
 
 #: classes/acl.php:787 handlers/adminhandler.php:330
 msgid "Comments"
-msgstr "Kommentarer"
+msgstr "Comentarii"
 
 #: classes/acl.php:804 classes/acl.php:806 handlers/installhandler.php:697
 msgid "admin"
-msgstr ""
+msgstr "administrator"
 
 #: classes/acl.php:809 classes/acl.php:811 handlers/installhandler.php:708
 msgid "anonymous"
-msgstr ""
+msgstr "anonim"
 
 #: classes/acl.php:840 classes/acl.php:842 handlers/installhandler.php:1531
 #: handlers/installhandler.php:1533
 msgid "authenticated"
-msgstr ""
+msgstr "autentificat"
 
 #: classes/htmltokenizer.php:80
 #, php-format
 msgid "Invalid state %d in %s->parse()"
-msgstr "Feil oppsett %d i %s->parse()"
+msgstr "Parametru invalid %d în %s->parse()"
 
 #: classes/socketrequestprocessor.php:65
 #, php-format
 msgid "Unable to connect to %s"
-msgstr ""
+msgstr "Conectarea la %s a eșuat"
 
 #: classes/socketrequestprocessor.php:79
 msgid "Request timed out"
-msgstr ""
+msgstr "Cererea a expirat"
 
 #: classes/xmlrpcclient.php:103
 msgid "Invalid XML response."
-msgstr ""
+msgstr "Răspunsul din partea XML nu este valabil."
 
 #: classes/filecache.php:39
 #, php-format
@@ -1612,111 +1625,116 @@ msgid ""
 "or group, which your web server is running as, needs to have read, write, "
 "and execute permissions on this directory."
 msgstr ""
+"Directoriul cache '%s' nu poate fi scris - cache-ul este dezactivat. "
+"Utilizatorul sau grupul, care lucrează pe acest server, are nevoie să poată "
+"citi, scrie și executa permisii în acest directoriu."
 
 #: classes/filecache.php:40
 #, php-format
 msgid "The cache directory '%s' is not writable - the cache is disabled."
 msgstr ""
+"Directoriul de cache '%s' nu poate fi scris - funcția de cache este "
+"dezactivată."
 
 #: classes/post.php:550
 #, php-format
 msgid "New post %1$s (%2$s);  Type: %3$s; Status: %4$s"
-msgstr ""
+msgstr "Postare nouă %1$s (%2$s); De tip: %3$s; Status: %4$s"
 
 #: classes/post.php:649
 #, php-format
 msgid "Post %1$s (%2$s) deleted."
-msgstr ""
+msgstr "Postarea %1$s (%2$s) a fost ștearsă."
 
 #: classes/post.php:683
 #, php-format
 msgid "Scheduled Post %1$s (%2$s) published at %3$s."
-msgstr ""
+msgstr "Postarea programată %1$s (%2$s) a fost publicată la %3$s."
 
 #: classes/post.php:686
 #, php-format
 msgid "Post %1$s (%2$s) published."
-msgstr ""
+msgstr "Postarea %1$s (%2$s a fost publicată."
 
 #: classes/post.php:822
 msgid "Preview Post"
-msgstr "Forhåndsvis Innlegg"
+msgstr "Previzualizare a postării"
 
 #: classes/post.php:822
 msgid "View Post"
-msgstr "Vis innlegg"
+msgstr "Citeşte postarea"
 
 #: classes/post.php:827
 msgid "Title"
-msgstr "Tittel"
+msgstr "Titlu"
 
 #: classes/post.php:848
 msgid "Tags, separated by, commas"
-msgstr "Merkelapper, adskilt ved, komma"
+msgstr "Etichete, separate de, virgule"
 
 #: classes/post.php:867
 msgid "Content State"
-msgstr "Innholdstilstand"
+msgstr "Starea conținutului"
 
 #: classes/post.php:876
 msgid "Minor Edit"
-msgstr "Mindre Redigering"
+msgstr "Editare minoră"
 
 #: classes/post.php:881
 msgid "Comments Allowed"
-msgstr "Kommentarer Tillatt"
+msgstr "Comentarii permise"
 
 #: classes/post.php:884
 msgid "Publication Time"
-msgstr "Publiseringstidspunkt"
+msgstr "Data publicării"
 
 #: classes/post.php:886
 msgid "YYYY-MM-DD HH:MM:SS"
-msgstr ""
+msgstr "YYYY-MM-DD HH:MM:SS"
 
 #: classes/post.php:891
 msgid "Content Address"
-msgstr "Innholdsaddresse"
+msgstr "Legătura conținutului"
 
 #: classes/post.php:973
 msgid "Name <span class=\"required\">*Required</span>"
-msgstr ""
+msgstr "Nume <span class=\"required\">*Obligatoriu</span>"
 
 #: classes/post.php:975
 msgid "The Name field value is required"
-msgstr ""
+msgstr "Căsuța cu nume trebuie completată"
 
 #: classes/post.php:985 handlers/adminusershandler.php:96
 msgid "Email"
-msgstr "Epost"
+msgstr "Email"
 
 #: classes/post.php:987 classes/post.php:991
 msgid "The Email field value must be a valid email address"
-msgstr ""
+msgstr "Căsuța de email trebuie să conțină o adresă email reală"
 
 #: classes/post.php:992
 msgid "Email <span class=\"required\">*Required</span>"
-msgstr ""
+msgstr "Email<span class=\"required\">*Obligatoriu</span>"
 
 #: classes/post.php:1003
 msgid "The Web Site field value must be a valid URL"
-msgstr ""
+msgstr "Casuța cu pagină web trebuie să conțină o adresă reală"
 
 #: classes/post.php:1015
 msgid "The Content field value is required"
-msgstr ""
+msgstr "Căsuța de conținut trebuie completată"
 
 #: classes/xmlrpcexception.php:37
 msgid "parse error. not well formed"
-msgstr ""
+msgstr "eroare de analiză, nu e scris bine"
 
 #: classes/xmlrpcexception.php:39
 msgid "parse error. unsupported encoding"
-msgstr ""
+msgstr "eroare de analiză, proastă codare"
 
 #: classes/xmlrpcexception.php:41
 msgid "parse error. invalid character for encoding"
-msgstr ""
+msgstr "eroare de analiză, caracter invalid la codare"
 
 #: classes/xmlrpcexception.php:43
 msgid "server error. invalid xml-rpc. not conforming to spec."
@@ -1724,147 +1742,151 @@ msgstr ""
 
 #: classes/xmlrpcexception.php:45
 msgid "server error. requested method not found"
-msgstr ""
+msgstr "eroare de server, nu se găsește cerința"
 
 #: classes/xmlrpcexception.php:47
 msgid "server error. invalid method parameters"
-msgstr ""
+msgstr "eroare de server, parametrii invalizi"
 
 #: classes/xmlrpcexception.php:49
 msgid "server error. internal xml-rpc error"
-msgstr ""
+msgstr "eroare de server internă, xml-rpc"
 
 #: classes/xmlrpcexception.php:51
 msgid "application error"
-msgstr ""
+msgstr "eroare de aplicație"
 
 #: classes/xmlrpcexception.php:53
 msgid "system error"
-msgstr ""
+msgstr "eroare de sistem"
 
 #: classes/xmlrpcexception.php:55
 msgid "transport error"
-msgstr ""
+msgstr "eroare transport"
 
 #: classes/xmlrpcexception.php:59
 msgid "The source URI does not exist."
-msgstr ""
+msgstr "sursa identificatorului de resurse(URI) nu există"
 
 #: classes/xmlrpcexception.php:61
 msgid ""
 "The source URI does not contain a link to the target URI, and so cannot be "
 "used as a source."
 msgstr ""
+"Sursa identificator uniform de resurse(URI) nu conține o legătură către URI "
+"țintă și deci nu poate fi folosit ca sursă"
 
 #: classes/xmlrpcexception.php:63
 msgid "The specified target URI does not exist."
-msgstr ""
+msgstr "Legătura URI specificată nu există."
 
 #: classes/xmlrpcexception.php:65
 msgid "The specified target URI cannot be used as a target."
-msgstr ""
+msgstr "Legătură URI specificată nu poate fi folosită ca țintă."
 
 #: classes/xmlrpcexception.php:67
 msgid "The pingback has already been registered."
-msgstr ""
+msgstr "Pingback-ul a fost deja înregistrat."
 
 #: classes/xmlrpcexception.php:69
 msgid "Access denied."
-msgstr ""
+msgstr "Acces refuzat."
 
 #: classes/xmlrpcexception.php:71
 msgid ""
 "The server could not communicate with an upstream server, or received an "
 "error from an upstream server, and therefore could not complete the request."
 msgstr ""
+"Serverul nu s-a putut comunica cu un server upstream sau a primit eroare de "
+"la unul, cererea nu putând fi îndeplinită."
 
 #: classes/xmlrpcexception.php:75
 msgid "This XMLRPC server only accepts POST requests."
-msgstr ""
+msgstr "Acest server XMLRPC acceptă doar cereri POST"
 
 #: classes/xmlrpcexception.php:78
 msgid "Unknown XMLRPC Exception"
-msgstr ""
+msgstr "Excepție XMLRPC necunoscută"
 
 #: classes/error.php:83
 #, php-format
 msgid "%1$s in %2$s line %3$s on request of \"%4$s\""
-msgstr "%1$s i %2$s linje %3$s ved etterspørsel om \"%4$s\""
+msgstr "%1$s în %2$s linia %3$s la cererea din partea \"%4$s\""
 
 #. @locale A fatal PHP error at runtime. Code execution is stopped
 #: classes/error.php:105
 msgid "Error"
-msgstr ""
+msgstr "Eroare"
 
 #. @locale A non-fatal PHP error at runtime. Code execution is not stopped
 #: classes/error.php:107
 msgid "Warning"
-msgstr ""
+msgstr "Avertisment"
 
 #. @locale A fatal PHP error generated while parsing the PHP
 #: classes/error.php:109
 msgid "Parse Error"
-msgstr ""
+msgstr "Eroare la analiză"
 
 #. @locale PHP encountered something at runtime that could be an error or intended
 #: classes/error.php:111
 msgid "Notice"
-msgstr ""
+msgstr "Notificare"
 
 #. @locale A fatal PHP error during PHP startup. Code execution is stopped.
 #: classes/error.php:113
 msgid "Core Error"
-msgstr ""
+msgstr "Eroare fatală"
 
 #. @locale A non-fatal PHP during PHP startup. Code execution is not stopped.
 #: classes/error.php:115
 msgid "Core Warning"
-msgstr ""
+msgstr "Avertizare core"
 
 #. @locale A fatal PHP error at runtime. Code execution is stopped.
 #: classes/error.php:117
 msgid "Compile Error"
-msgstr ""
+msgstr "Eroare de compilare"
 
 #. @locale A non-fatal PHP error at runtime. Code execution is not stopped.
 #: classes/error.php:119
 msgid "Compile Warning"
-msgstr ""
+msgstr "Alertă de compilare"
 
 #. @locale A fatal error generated by Habari or an addon. Code execution is stopped.
 #: classes/error.php:121
 msgid "User Error"
-msgstr ""
+msgstr "Eroare utilizator"
 
 #. @locale A non-fatal error generated by Habari or an addon. Code execution is not stopped.
 #: classes/error.php:123
 msgid "User Warning"
-msgstr ""
+msgstr "Avertizare utilizator"
 
 #. @locale PHP encountered something generated by Habari or an addon at runtime that could be an error or intended
 #: classes/error.php:125
 msgid "User Notice"
-msgstr ""
+msgstr "Notificare pentru utilizator"
 
 #. @locale A suggestion from PHP that the code may need updated for interoperability or forward compatibility
 #: classes/error.php:127
 msgid "Strict Notice"
-msgstr ""
+msgstr "Notă obligatorie"
 
 #. @locale A fatal PHP error at runtime. An error handler may be able to work around it. If not, code execution stops.
 #: classes/error.php:129
 msgid "Recoverable Error"
-msgstr ""
+msgstr "Eroare recuperabilă"
 
 #. @locale A notification from PHP that the code is outdated and may not work in the future
 #: classes/error.php:133
 msgid "Deprecated violation"
-msgstr ""
+msgstr "Corupere condamnabilă"
 
 #. @locale A notification that the code is outdated and Habari may not work with it in the future
 #: classes/error.php:135
 msgid "User deprecated violation"
-msgstr ""
+msgstr "Corupere a utilizatorului reparabilă"
 
 #: classes/error.php:216
 #, php-format
@@ -1879,92 +1901,98 @@ msgid ""
 "%s line %d:\n"
 "  %s(%s)\n"
 msgstr ""
-"%s linje %d:\n"
-"  %s(%s)\n"
+"%s rând %d:\n"
+"\n"
+" %s(%s\n"
 
 #: classes/session.php:131
 msgid "Your session expired."
-msgstr "Sesjonen er utløpt"
+msgstr "Sesiunea dvs a expirat"
 
 #: classes/user.php:77 classes/comment.php:199
 msgid "Anonymous"
-msgstr "Anonym"
+msgstr "Anonim"
 
 #: classes/user.php:153
 #, php-format
 msgid "New user created: %s"
-msgstr "Ny bruker opprettet: %s"
+msgstr "Utilizator nou creat: %s"
 
 #: classes/user.php:195
 #, php-format
 msgid "User deleted: %s"
-msgstr "Bruker slettet: %s"
+msgstr "Utilizator șters: %s"
 
 #: classes/user.php:269 classes/user.php:298
 #, php-format
 msgid "Successful login for %s"
-msgstr "Vellykket login av %s"
+msgstr "Conectare cu succes pentru %s"
 
 #: classes/user.php:276
 #, php-format
 msgid "Login attempt (via authentication plugin) for non-existent user %s"
 msgstr ""
-"Loginforsøk (via automatiserings oppsett) for ikke eksisterende bruker %s"
+"Încercare de autentificare (prin modul de autentificare) pentru utilizatorul "
+"non-existent %s"
 
 #: classes/user.php:277 classes/user.php:289 classes/user.php:307
 msgid "Invalid username/password"
-msgstr ""
+msgstr "Utilizator/parolă incorectă"
 
 #: classes/user.php:288
 #, php-format
 msgid "Login attempt for non-existent user %s"
-msgstr "Innloggingsforsøk av ikke eksisterende bruker %s"
+msgstr "Încercare de autentificare pentru utilizatorul non-existent %s"
 
 #: classes/user.php:306
 #, php-format
 msgid "Wrong password for user %s"
-msgstr "Feil passord satt ved bruker %s"
+msgstr "Parolă greșită pentru userul %s"
 
 #: classes/user.php:524
 #, php-format
 msgid "User %1$s: Access to %2$s changed to %3$s"
-msgstr "Bruker %1$s: Tilgang til %2$s endret til %3$s"
+msgstr "Utilizatorul %1$s: cu acces la %2$s schimbat la %3$s"
 
 #: classes/user.php:548
 #, php-format
 msgid "User %1$s: Permission to %2$s revoked."
-msgstr "Bruker %1$s: Tilgang til %2$s inndratt."
+msgstr "Utilizator %1$s: Permisie pentru %2$s retrasă."
 
 #: classes/user.php:587
 #, php-format
 msgid " User %1$s: Added to %2$s group."
-msgstr " Bruker %1$s: Lagt til gruppen %2$s."
+msgstr " Utilizatorul %1$s: Adăugat la grupul %2$s."
 
 #: classes/user.php:601
 #, php-format
 msgid " User %1$s: Removed from %2$s group."
-msgstr " Bruker %1$s: Fjernet fra gruppen %2$s."
+msgstr " Utilizator %1$s: Retras din grupul %2$s."
 
 #: classes/modules.php:220 classes/modules.php:221 classes/modules.php:222
 msgid "System Status"
-msgstr "Systemstatus"
+msgstr "Stare de sistem"
 
 #: classes/apccache.php:25 classes/apccache.php:26
 msgid "The APC Cache PHP module is not loaded - the cache is disabled."
 msgstr ""
+"Modulul PHP, APC, pentru cache - nu este încărcat - cache-ul este dezactivat."
 
 #: classes/url.php:219
 #, php-format
 msgid ""
 "Could not find a rule matching the following names: %s. File: %s (line %s)"
 msgstr ""
-"Klarte ikke finne matchende regel for følgende navn: %s. Fil %s (linje %s)"
+"Nu s-a putut găsi un patron potrivit pentru următoarele nume: %s. Fișier: %s "
+"(linia %s)"
 
 #: classes/db.php:65
 msgid ""
 "Panic! No database connection class appears to be found for the connection "
 "string specified. Please check config.php"
 msgstr ""
+"Eroare! Nu s-a găsit o conexiune între baza de date și regula specificată, a "
+"se verifica config.php"
 
 #: classes/block.php:228
 #, php-format
@@ -1982,28 +2010,28 @@ msgstr ""
 
 #: classes/eventlog.php:372 handlers/adminlogshandler.php:268
 msgid "Logs purged."
-msgstr ""
+msgstr "Regiștrii curățați"
 
 #: classes/rpcclient.php:26
 msgid "xmlrpc extension not found"
-msgstr "tillegget xmlrpc ikke funnet"
+msgstr "xmlrpc nu a fost găsit"
 
 #: classes/vocabulary.php:221
 #, php-format
 msgid "New vocabulary %1$s (%2$s)"
-msgstr ""
+msgstr "Vocabular nou %1$s (%2$s)"
 
 #: classes/vocabulary.php:296
 #, php-format
 msgid "Vocabulary %1$s (%2$s) deleted."
-msgstr ""
+msgstr "Vocabularul %1$s (%2$s) s-a șters."
 
 #: classes/vocabulary.php:833
 #, php-format
 msgid "Term %1$s in the %2$s vocabulary has been renamed to %3$s."
 msgid_plural "Terms %1$s in the %2$s vocabulary have been renamed to %3$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Termenul %1$s din vocabularul %2$s a fost redenumit ca %3$s."
+msgstr[1] "Termenii %1$s din vocabularul %2$s au fost redenumiți ca %3$s."
 
 #: classes/plugin.php:62 classes/pluggable.php:187
 #: handlers/adminpluginshandler.php:56 handlers/adminpluginshandler.php:106
@@ -2013,44 +2041,44 @@ msgstr "?"
 #: classes/utils.php:417
 #, php-format
 msgid "Unsupported digest algorithm \"%s\""
-msgstr ""
+msgstr "Algoritmul \"%s\" nu are suport"
 
 #: classes/utils.php:427 classes/utils.php:488 classes/utils.php:527
 msgid "Invalid hash"
-msgstr ""
+msgstr "Hash invalid"
 
 #: classes/utils.php:713
 msgid "Unbalanced braces."
-msgstr ""
+msgstr "Bretele nebalansate."
 
 #: classes/utils.php:1175
 msgid "Not set"
-msgstr ""
+msgstr "Nesetat"
 
 #: classes/remoterequest.php:29 classes/curlrequestprocessor.php:185
 msgid "Unable to get response body. Request did not yet execute."
-msgstr ""
+msgstr "Nu primesc răspun din body. Cererea nu s-a executat."
 
 #: classes/remoterequest.php:38 classes/curlrequestprocessor.php:194
 msgid "Unable to get response headers. Request did not yet execute."
-msgstr ""
+msgstr "Nu primesc răspuns din headers. Cererea nu s-a executat."
 
 #: classes/remoterequest.php:218
 msgid "Trying to add a request body to a GET request."
-msgstr ""
+msgstr "Încerc să adaug o cerere body ca să primesc alta de GET."
 
 #: classes/remoterequest.php:275
 #, php-format
 msgid "File %s not found."
-msgstr ""
+msgstr "Fișierul %s nu a fost găsit."
 
 #: classes/remoterequest.php:375
 msgid "Unable to fetch response headers for a pending request."
-msgstr ""
+msgstr "Nu primesc răspuns de la headers pentru o cerere în așteptare."
 
 #: classes/remoterequest.php:388
 msgid "Unable to fetch response body for a pending request."
-msgstr ""
+msgstr "Nu primesc răspuns de la body pentru o cerere în așteptare."
 
 #. @locale Signifies the plugin or theme is missing needed information to check for an update
 #: classes/update.php:37
@@ -2058,404 +2086,419 @@ msgid ""
 "Invalid Update Beacon information added. The plugin or theme cannot be "
 "identified"
 msgstr ""
+"Informația de Actualizare Beacon adăugată este invalidă. Modulul sau "
+"șablounul nu poate fi indentificat"
 
 #: classes/update.php:199
 msgid "Updates check CronJob completed successfully."
-msgstr ""
+msgstr "Verificarea de actualizări CronJob s-a completat cu succes."
 
 #: classes/update.php:207
 msgid "Updates check CronJob failed!"
-msgstr ""
+msgstr "Verificarea de actualizări CronJob a eșuat!"
 
 #: classes/update.php:275
 msgid ""
 "Perform a single check for plugin updates, the plugin set has changed."
 msgstr ""
+"Fă o singură verificare de actualizări module, setul de module a fost "
+"schimbat."
 
 #: classes/colorutils.php:35
 msgid "Not a valid hex color."
-msgstr ""
+msgstr "Nu este e culoare hex validă."
 
 #: classes/colorutils.php:57
 msgid "Not a valid color format."
-msgstr ""
+msgstr "Formatul de culoare nu este valid."
 
 #: classes/colorutils.php:108
 msgid "Something went terribly wrong here."
-msgstr ""
+msgstr "Ceva a mers extrem de greșit aici."
 
 #: classes/habarilocale.php:138
 #, php-format
 msgid "No translations found for locale %s, domain %s!"
-msgstr "Ingen oversettelse valg for lokalt %s, domene %s!"
+msgstr "Nu s-au găsit traduceri pentru localele %s, domeniul %s!"
 
 #: classes/habarilocale.php:142
 #, php-format
 msgid "Invalid .MO file for locale %s, domain %s!"
-msgstr "Feil .MO fil for lokal %s, domene %s!"
+msgstr "Fișier .mo invalid pentru localele%s, domeniul %s!"
 
 #: classes/habarilocale.php:162
 #, php-format
 msgid "Invalid magic number 0x%08x in %s!"
-msgstr "Feil magisk nummer 0x%08x i %s!"
+msgstr "Număr 0x%08x invalid în %s!"
 
 #: classes/habarilocale.php:168
 #, php-format
 msgid "Unknown revision number %d in %s!"
-msgstr "Feil versjonsnummer %d i %s!"
+msgstr "Număr de revizie %d necunoscut în %s!"
 
 #: classes/habarilocale.php:179
 #, php-format
 msgid "Message count (%d) out of bounds in %s!"
-msgstr "Meldingsantall (%d) er ute av mengden i %s!"
+msgstr "Numărătoarea de mesaje (%d) a ieșit din obligațiunile %s!"
 
 #: classes/habaridatetime.php:222
 msgid "January"
-msgstr ""
+msgstr "Ianuarie"
 
 #: classes/habaridatetime.php:223
 msgid "February"
-msgstr ""
+msgstr "Februarie"
 
 #: classes/habaridatetime.php:224
 msgid "March"
-msgstr ""
+msgstr "Martie"
 
 #: classes/habaridatetime.php:225
 msgid "April"
-msgstr ""
+msgstr "Aprilie"
 
 #: classes/habaridatetime.php:226 classes/habaridatetime.php:238
 msgid "May"
-msgstr ""
+msgstr "Mai"
 
 #: classes/habaridatetime.php:227
 msgid "June"
-msgstr ""
+msgstr "Iunie"
 
 #: classes/habaridatetime.php:228
 msgid "July"
-msgstr ""
+msgstr "Iulie"
 
 #: classes/habaridatetime.php:229
 msgid "August"
-msgstr ""
+msgstr "August"
 
 #: classes/habaridatetime.php:230
 msgid "September"
-msgstr ""
+msgstr "Septembrie"
 
 #: classes/habaridatetime.php:231
 msgid "October"
-msgstr ""
+msgstr "Octombrie"
 
 #: classes/habaridatetime.php:232
 msgid "November"
-msgstr ""
+msgstr "Noiembrie"
 
 #: classes/habaridatetime.php:233
 msgid "December"
-msgstr ""
+msgstr "Decembrie"
 
 #: classes/habaridatetime.php:234
 msgid "Jan"
-msgstr ""
+msgstr "Ian"
 
 #: classes/habaridatetime.php:235
 msgid "Feb"
-msgstr ""
+msgstr "Feb"
 
 #: classes/habaridatetime.php:236
 msgid "Mar"
-msgstr ""
+msgstr "Mar"
 
 #: classes/habaridatetime.php:237
 msgid "Apr"
-msgstr ""
+msgstr "Apr"
 
 #: classes/habaridatetime.php:239
 msgid "Jun"
-msgstr ""
+msgstr "Iun"
 
 #: classes/habaridatetime.php:240
 msgid "Jul"
-msgstr ""
+msgstr "Iul"
 
 #: classes/habaridatetime.php:241
 msgid "Aug"
-msgstr ""
+msgstr "Aug"
 
 #: classes/habaridatetime.php:242
 msgid "Sep"
-msgstr ""
+msgstr "Sep"
 
 #: classes/habaridatetime.php:243
 msgid "Oct"
-msgstr ""
+msgstr "Oct"
 
 #: classes/habaridatetime.php:244
 msgid "Nov"
-msgstr ""
+msgstr "Noi"
 
 #: classes/habaridatetime.php:245
 msgid "Dec"
-msgstr ""
+msgstr "Dec"
 
 #: classes/habaridatetime.php:246
 msgid "Sunday"
-msgstr ""
+msgstr "Duminică"
 
 #: classes/habaridatetime.php:247
 msgid "Monday"
-msgstr ""
+msgstr "Luni"
 
 #: classes/habaridatetime.php:248
 msgid "Tuesday"
-msgstr ""
+msgstr "Marţi"
 
 #: classes/habaridatetime.php:249
 msgid "Wednesday"
-msgstr ""
+msgstr "Miercuri"
 
 #: classes/habaridatetime.php:250
 msgid "Thursday"
-msgstr ""
+msgstr "Joi"
 
 #: classes/habaridatetime.php:251
 msgid "Friday"
-msgstr ""
+msgstr "Vineri"
 
 #: classes/habaridatetime.php:252
 msgid "Saturday"
-msgstr ""
+msgstr "Sâmbătă"
 
 #: classes/habaridatetime.php:253
 msgid "Sun"
-msgstr ""
+msgstr "Dum"
 
 #: classes/habaridatetime.php:254
 msgid "Mon"
-msgstr ""
+msgstr "Lun"
 
 #: classes/habaridatetime.php:255
 msgid "Tue"
-msgstr ""
+msgstr "Mar"
 
 #: classes/habaridatetime.php:256
 msgid "Wed"
-msgstr ""
+msgstr "Mie"
 
 #: classes/habaridatetime.php:257
 msgid "Thu"
-msgstr ""
+msgstr "Joi"
 
 #: classes/habaridatetime.php:258
 msgid "Fri"
-msgstr ""
+msgstr "Vin"
 
 #: classes/habaridatetime.php:259
 msgid "Sat"
-msgstr ""
+msgstr "Sâm"
 
 #: classes/habaridatetime.php:477
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "lună"
+msgstr[1] "luni"
+msgstr[2] "de luni"
 
 #: classes/habaridatetime.php:481
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "săptămână"
+msgstr[1] "săptămâni"
+msgstr[2] "de săptămâni"
 
 #: classes/habaridatetime.php:485
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "zi"
+msgstr[1] "zile"
+msgstr[2] "de zile"
 
 #: classes/habaridatetime.php:489
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "oră"
+msgstr[1] "ore"
+msgstr[2] "de ore"
 
 #: classes/habaridatetime.php:493
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "minut"
+msgstr[1] "minute"
+msgstr[2] "de minute"
 
 #: classes/habaridatetime.php:497
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "secundă"
+msgstr[1] "secunde"
 
 #: classes/habaridatetime.php:508
 #, php-format
 msgid "%s from now"
-msgstr ""
+msgstr "%s de acum"
 
 #: classes/habaridatetime.php:511
 #, php-format
 msgid "%s ago"
-msgstr ""
+msgstr "acum %s"
 
 #: classes/habaridatetime.php:530
 msgid "just now"
-msgstr ""
+msgstr "acum"
 
 #: classes/habaridatetime.php:534
 #, php-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "acum %d minut"
+msgstr[1] "acum %d minute"
+msgstr[2] "acum %d de minute"
 
 #: classes/habaridatetime.php:538
 #, php-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "acum %d oră"
+msgstr[1] "acum %d ore"
+msgstr[2] "acum %d de ore"
 
 #: classes/habaridatetime.php:542
 #, php-format
 msgid "yesterday"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ieri"
+msgstr[1] "acum %d zile"
+msgstr[2] "acum %d de zile"
 
 #: classes/habaridatetime.php:546
 #, php-format
 msgid "last week"
 msgid_plural "%d weeks ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "săptămâna trecută"
+msgstr[1] "acum %d săptămâni"
+msgstr[2] "de acum %d săptămâni"
 
 #: classes/habaridatetime.php:550
 #, php-format
 msgid "last month"
 msgid_plural "%d months ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "luna trecută"
+msgstr[1] "acum %d luni"
+msgstr[2] "de acum %d luni"
 
 #: classes/habaridatetime.php:554
 #, php-format
 msgid "last year"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "anul trecut"
+msgstr[1] "acum %d ani"
+msgstr[2] "de acum %d ani"
 
 #: classes/themes.php:54
 msgid "This theme is a legacy theme that is not compatible with Habari "
-msgstr ""
+msgstr "Acest șablon este un șablon vechi incompatibil cu Habari "
 
 #: classes/themes.php:117
 msgid "There is no valid theme currently installed."
-msgstr ""
+msgstr "Nu există niciun șablon valid instalat."
 
 #: classes/themes.php:191
 #, php-format
 msgid "Activated Theme: %s"
-msgstr ""
+msgstr "Șablon activat: %s"
 
 #: classes/themes.php:209
 #, php-format
 msgid "Previewed Theme: %s"
-msgstr ""
+msgstr "Șablon previzualizat: %s"
 
 #: classes/themes.php:221
 #, php-format
 msgid "Canceled Theme Preview: %s"
-msgstr ""
+msgstr "Previzualizare șablon anulată:%s"
 
 #: classes/themes.php:264 classes/themes.php:273
 msgid "Theme not installed."
-msgstr ""
+msgstr "Șablon neinstalat."
 
 #: classes/site.php:64
 msgid "Could not determine script name."
-msgstr "Klarte ikke gjennkjenne typen på skriptet."
+msgstr "Nu s-a putut determina numele scriptului"
 
 #: classes/hiengine.php:33
 msgid "Failed to register HiEngine stream protocol"
-msgstr "Feil ved registeringen av HiEngine strømprotokoll"
+msgstr "Eroare la înregistrarea protocolului HiEngine de difuziune"
 
 #: classes/comment.php:381
 msgid "Unapprove"
-msgstr "Fjern"
+msgstr "Dezaprobă"
 
 #: classes/comment.php:382
 msgid "Approve"
-msgstr "Godkjenn"
+msgstr "Aprobă"
 
 #: classes/comment.php:383
 msgid "Spam"
-msgstr "Søppel"
+msgstr "Spam"
 
 #: classes/curlrequestprocessor.php:92
 msgid "CURL Error. Unable to create temporary file name."
-msgstr ""
+msgstr "Eroare CURL."
 
 #: classes/curlrequestprocessor.php:97
 msgid "CURL Error. Unable to open temporary file."
-msgstr ""
+msgstr "Eroare CURL. Nu pot deschide fișier temporal."
 
 #: classes/curlrequestprocessor.php:132
 #, php-format
 msgid "CURL Error %1$d: %2$s"
-msgstr ""
+msgstr "Eroare CURL %1$d: %2$s"
 
 #: classes/logentry.php:25
 msgid "any"
-msgstr ""
+msgstr "oricare"
 
 #: classes/logentry.php:26 classes/bitmask.php:177
 msgid "none"
-msgstr "ingen"
+msgstr "niciuna"
 
 #: classes/logentry.php:27
 msgid "debug"
-msgstr ""
+msgstr "debug"
 
 #: classes/logentry.php:28
 msgid "info"
-msgstr ""
+msgstr "info"
 
 #: classes/logentry.php:29
 msgid "notice"
-msgstr ""
+msgstr "notificare"
 
 #: classes/logentry.php:30
 msgid "warning"
-msgstr ""
+msgstr "avertizare"
 
 #: classes/logentry.php:31
 msgid "err"
-msgstr ""
+msgstr "err"
 
 #: classes/logentry.php:32
 msgid "crit"
-msgstr ""
+msgstr "crit"
 
 #: classes/logentry.php:33
 msgid "alert"
-msgstr ""
+msgstr "alertă"
 
 #: classes/logentry.php:34
 msgid "emerg"
-msgstr ""
+msgstr "urgen"
 
 #: classes/logentry.php:176 classes/logentry.php:273 classes/logentry.php:286
 msgid "Unknown"
-msgstr "Ukjent"
+msgstr "Necunoscut"
 
 #: classes/singleton.php:32
 msgid "Not implemented: instance"
-msgstr ""
+msgstr "Nu s-a implementat: dovadă"
 
 #. @locale Habari tried to create a Bitmask with the wrong arguments
 #: classes/bitmask.php:27
@@ -2463,13 +2506,13 @@ msgid ""
 "Bitmask constructor expects either no arguments or an array as a first "
 "argument"
 msgstr ""
-"Bitmask konstruktøren forventer enten ingen argumenter eller et array som "
-"første argument"
+"Construcția Bitmask așteaptă ori lipsă de argumente ori o matrice ca prim "
+"argument"
 
 #. @locale Habari tried to create a new Bitmask with too many flags
 #: classes/bitmask.php:32
 msgid "Bitmask can have a maximum of PHP_INT_MAX >> 1 flags"
-msgstr ""
+msgstr "Bitmask poate avea un maxim de PHP_INT_MAX >> 1 flags"
 
 #. @locale Habari tried to create a new Bitmask object with invalid values in the second argument
 #: classes/bitmask.php:52
@@ -2477,11 +2520,13 @@ msgid ""
 "Bitmask constructor second argument must either be an integer within the "
 "valid range, the name of a flag, or full"
 msgstr ""
+"Constructorul Bitmask, argumentului lui secund, trebuie să fie un integru în "
+"câmpul valid, nume flag sau intreg."
 
 #. @locale Habari tried to set the wrong type of value
 #: classes/bitmask.php:70
 msgid "Bitmask full toggle must be boolean"
-msgstr ""
+msgstr "Comutarea Bitmask trebuie să fie boolean"
 
 #. @locale Habari tried to set the wrong kind of value
 #: classes/bitmask.php:84
@@ -2489,11 +2534,13 @@ msgid ""
 "Setting bitmask value by array must use array with same length as number of "
 "flags"
 msgstr ""
+"Setând valoarea bitmask prin matrice trebuie să folosească o matrice cu "
+"aceași lungime cât număr de flags"
 
 #. @locale Habari tried to set the wrong kind of value
 #: classes/bitmask.php:90 classes/bitmask.php:110
 msgid "Bitmask values must be boolean"
-msgstr "Bitmask verdier må være boolske"
+msgstr "Valorile Bitmask trebuiesc a fi boolean"
 
 #. @locale Habari tried to set the wrong kind of value
 #: classes/bitmask.php:104
@@ -2501,55 +2548,58 @@ msgid ""
 "Bitmask value must either be an integer within the valid range or an array "
 "of booleans"
 msgstr ""
+"Valoarea Bitmask trebuie să fie un integru în câmpul valid sau o matrice de "
+"boolean"
 
 #. @locale Habari tried to set a value that doesn't exist
 #: classes/bitmask.php:117
 msgid "Bitmask cannot set non-existent flag"
-msgstr ""
+msgstr "Bitmask nu poate seta un flag inexistent"
 
 #. @locale Habari tried to get a flag that doesn't exist
 #: classes/bitmask.php:150
 msgid "Bitmask cannot get non-existent flag"
-msgstr ""
+msgstr "Bitmask nu poate obține flag inexistent"
 
 #: classes/bitmask.php:168
 msgid "full"
-msgstr "full"
+msgstr "deplină"
 
 #: classes/term.php:145
 #, php-format
 msgid "New term %1$s: %2$s"
-msgstr ""
+msgstr "Termen nou %1$s: %2$s"
 
 #: classes/term.php:204
 #, php-format
 msgid "Term %1$s (%2$s) deleted."
-msgstr ""
+msgstr "Termenul %1$s (%2$s) a fost șters."
 
 #: classes/plugins.php:261
 #, php-format
 msgid "An empty plugin definition pointing to file \"%1$s\" was removed."
 msgstr ""
+"O definiție de modul goala cu ținta în fișierul \"%1$s\" a fost eliminată."
 
 #: classes/plugins.php:272
 #, php-format
 msgid "Plugin \"%1$s\" deactivated because it could no longer be found."
-msgstr ""
+msgstr "Modulul \"%1$s\" a fost dezactivat datorită lipsei acestuia."
 
 #: classes/plugins.php:442
 #, php-format
 msgid "Invalid plugin XML file: %1$s"
-msgstr ""
+msgstr "Fișier XML de modul invalid: %1$s"
 
 #: classes/plugins.php:549
 #, php-format
 msgid "Activated Plugin: %s"
-msgstr "Aktiver Tillegg: %s"
+msgstr "Modul activat: %s"
 
 #: classes/plugins.php:585
 #, php-format
 msgid "Deactivated Plugin: %s"
-msgstr "Deaktiverte Tillegg: %s"
+msgstr "Modul dezactivad: %s"
 
 #: classes/plugins.php:692
 #, php-format
@@ -2557,58 +2607,58 @@ msgid ""
 "Attempted to load the plugin file \"%s\", but it failed with syntax errors. "
 "<div class=\"reveal\">%s</div>"
 msgstr ""
-"Prøvde å laste tilleggsfilen \"%s\" men det mislyktes med syntaksfeil. <div "
-"class=\"reveal\">%s</div>"
+"S-a încercat încărcarea fișierului de modul \"%s\", dar a eșuat datorită "
+"erorilor de sintaxă. <div class=\"reveal\">%s</div>"
 
 #: classes/formui.php:801
 msgid "Relative urls are not allowed"
-msgstr ""
+msgstr "Legăturile relative nu sunt permise"
 
 #: classes/formui.php:807
 #, php-format
 msgid "Only %s urls are allowed"
-msgstr ""
+msgstr "Doar %s legături sunt permise"
 
 #: classes/formui.php:828
 msgid "Value must be a valid Email Address."
-msgstr "Verdien må være en gyldig Epost Adresse"
+msgstr "Valoare trebuie a fi o adresă email reală"
 
 #: classes/formui.php:847
 msgid "A value for this field is required."
-msgstr "En verdi for dette feltet er påkrevd."
+msgstr "O valoare în acest câmp trebuie introdusă"
 
 #: classes/formui.php:869
 msgid "That username is already in use!"
-msgstr "Det brukernavnet er allerede opptatt!"
+msgstr "Acest nume de utilizator deja există!"
 
 #: classes/formui.php:889
 #, php-format
 msgid "The value of this field must match the value of %s."
-msgstr "Verdien av dette feltet må samsvare med verdien av %s."
+msgstr "Valoarea acestui câmp trebuie să se potrivească valorii de %s."
 
 #: classes/formui.php:912
 msgid "The value does not meet submission requirements"
-msgstr ""
+msgstr "Valoarea respectivă nu îndeplinește cerințele de trimitere."
 
 #: classes/formui.php:933
 #, php-format
 msgid "The value entered is lesser than the minimum of %d."
-msgstr ""
+msgstr "Valoarea inserată este sub minimul de %d."
 
 #: classes/formui.php:939
 #, php-format
 msgid "The value entered is greater than the maximum of %d."
-msgstr ""
+msgstr "Valoarea inserată este mai mare decât maximul %d admis."
 
 #: classes/formui.php:1636
 msgid "Remove this item?"
-msgstr ""
+msgstr "Șterg elementul?"
 
 #: classes/theme.php:250
 msgid ""
 "Whoops! 404. The page you were trying to access is not really there. Please "
 "try again."
-msgstr ""
+msgstr "Eroare 404. Pagina cerută nu există aici. Încearcă iar."
 
 #: classes/theme.php:660
 #, php-format
@@ -2616,246 +2666,253 @@ msgid ""
 "Content could not be displayed. One of the following templates - %s - has to "
 "be present in the active theme."
 msgstr ""
+"Conținutul nu a putut fi afișat. Una din următoarele schițe - %s - trebuie "
+"să fie prezentă în șablon."
 
 #: classes/theme.php:818
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #: classes/theme.php:845
 msgid "Next"
-msgstr ""
+msgstr "Următor"
 
 #: classes/theme.php:871
 msgid "Read Comments"
-msgstr "Les Kommentarer"
+msgstr "Citește comentariile"
 
 #: classes/theme.php:897
 #, php-format
 msgid "%s Comment"
 msgid_plural "%s Comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s Comentariu"
+msgstr[1] "%s Comentarii"
+msgstr[2] "%s de Comentarii"
 
 #: classes/comments.php:437
 #, php-format
 msgid "Comment %1$s moderated from %2$s"
-msgstr ""
+msgstr "Comentariul %1$s moderat de la %2$s"
 
 #: classes/comments.php:444
 #, php-format
 msgid "Comment Moderated on %s"
-msgstr ""
+msgstr "Cometariu moderat la %s"
 
 #: classes/comments.php:641
 #, php-format
 msgid "Comment %1$s deleted from %2$s"
-msgstr ""
+msgstr "Cometariul %1$s șters din %2$s"
 
 #: classes/usergroup.php:93
 #, php-format
 msgid "New group created: %s"
-msgstr "Ny gruppe laget: %s"
+msgstr "Grup nou creat: %s"
 
 #: classes/usergroup.php:113
 #, php-format
 msgid "User Group updated: %s"
-msgstr "Brukergruppe opprettet: %s"
+msgstr "Grup actualizat: %s"
 
 #: classes/usergroup.php:130
 #, php-format
 msgid "User Group %s: Member list reset"
-msgstr "Brukergruppe %s: Medlemsliste nullstilt"
+msgstr "Grupul de utilizatori %s: Lista de membrii resetată"
 
 #: classes/usergroup.php:154
 #, php-format
 msgid "User Group %s: Group deleted."
-msgstr "Brukergruppe %s: Gruppe slettet."
+msgstr "Grupul de utilizatori %s: șters."
 
 #: classes/usergroup.php:204
 #, php-format
 msgid "User Group %1$s: Users were added to the group."
-msgstr "Brukergruppe %1$s: Brukere ble lagt til i gruppen."
+msgstr "Grupul de utilizatori %1$s: Au fost adăugați utilizatori."
 
 #: classes/usergroup.php:221
 #, php-format
 msgid "User Group %1$s: Users were removed from the group."
-msgstr "Brukergruppe %1$s: Brukere ble fjernet fra gruppen."
+msgstr "Grupul de utilizatori  %1$s: Utilizatorii au fost scoși din grup."
 
 #: classes/databaseconnection.php:259
 msgid "Attempt to fetch in class mode with a non-included class"
 msgstr ""
-"Prøver å hente inn klasse oppsett uten å bruke inkludert oppsettsklasse"
 
 #: classes/crontab.php:73
 msgid "CronTab run completed."
-msgstr ""
+msgstr "Executarea CronTab terminată."
 
 #: classes/inputfilter.php:399
 #, php-format
 msgid "Unkown attribute type \"%s\" in %s"
-msgstr "Ukjent attributttype \"%s! i %s"
+msgstr ""
 
 #: handlers/admincommentshandler.php:57
 msgid "Author"
-msgstr "Forfatter"
+msgstr "Autor"
 
 #: handlers/admincommentshandler.php:59
 msgid "Author Name"
-msgstr "Forfatters navn"
+msgstr "Numele autorului"
 
 #: handlers/admincommentshandler.php:62
 msgid "Author Email"
-msgstr "Forfatters epost"
+msgstr "Emailul autorului"
 
 #: handlers/admincommentshandler.php:65
 msgid "Author URL"
-msgstr "Forfatters URL"
+msgstr "Pagina autorului"
 
 #: handlers/admincommentshandler.php:68
 msgid "IP Address:"
-msgstr "IP-adresse:"
+msgstr "Adresa IP:"
 
 #: handlers/admincommentshandler.php:75
 msgid "Date:"
-msgstr "Dato:"
+msgstr "Dată:"
 
 #: handlers/admincommentshandler.php:80
 msgid "Post ID:"
-msgstr "Innleggs ID"
+msgstr "Post ID:"
 
 #: handlers/admincommentshandler.php:85
 msgid "Status"
-msgstr "Status"
+msgstr "Stare"
 
 #: handlers/admincommentshandler.php:273 handlers/admincommentshandler.php:274
 #: handlers/admincommentshandler.php:562
 msgid "Deleted all spam comments"
-msgstr "Slettet alle spamkommentarer"
+msgstr "Toate comentariile spam șterse."
 
 #: handlers/admincommentshandler.php:280 handlers/admincommentshandler.php:281
 #: handlers/admincommentshandler.php:566
 msgid "Deleted all unapproved comments"
-msgstr "Slettet alle ikke-godkjente kommentarer"
+msgstr "Toate comentariile neaprobate șterse."
 
 #: handlers/admincommentshandler.php:315 handlers/admincommentshandler.php:329
 #, php-format
 msgid "Deleted %d comments"
-msgstr ""
+msgstr "%d comentarii șterse."
 
 #: handlers/admincommentshandler.php:316 handlers/admincommentshandler.php:336
 #, php-format
 msgid "Marked %d comments as spam"
-msgstr ""
+msgstr "%d comentarii etichetate ca spam"
 
 #: handlers/admincommentshandler.php:317 handlers/admincommentshandler.php:344
 #, php-format
 msgid "Approved %d comments"
-msgstr ""
+msgstr "%d comentarii aprobate"
 
 #: handlers/admincommentshandler.php:318 handlers/admincommentshandler.php:355
 #, php-format
 msgid "Unapproved %d comments"
-msgstr ""
+msgstr "%d comentarii neaprobate"
 
 #: handlers/admincommentshandler.php:319 handlers/admincommentshandler.php:378
 #, php-format
 msgid "Edited %d comments"
-msgstr ""
+msgstr "%d comentarii editate"
 
 #: handlers/admincommentshandler.php:346
 #, php-format
 msgid "Approved comments on these posts: %s"
-msgstr ""
+msgstr "Comentarii aprobate în aceste postări: %s"
 
 #: handlers/admincommentshandler.php:449
 #, php-format
 msgid "Change this comment's status to %s"
-msgstr "Endre denne kommentarens status til %s"
+msgstr "Schimbă starea acestuit comentariu în %s"
 
 #: handlers/admincommentshandler.php:453
 msgid "Delete this comment"
-msgstr "Slett denne kommentaren"
+msgstr "Şterge acest comentariu"
 
 #: handlers/admincommentshandler.php:454
 msgid "Edit this comment"
-msgstr "Redigér denne kommentaren"
+msgstr "Modifică acest comentariu"
 
 #: handlers/admincommentshandler.php:535 handlers/admintagshandler.php:39
 #: handlers/admintagshandler.php:66 handlers/admingroupshandler.php:116
 #: handlers/admingroupshandler.php:224 handlers/adminlogshandler.php:239
 #: handlers/adminpostshandler.php:519 handlers/adminusershandler.php:290
 msgid "WSSE authentication failed."
-msgstr "WSSE autentisering mislyktes."
+msgstr "Autentificarea WSSE a eșuat."
 
 #: handlers/admincommentshandler.php:550
 msgid "No comments selected."
-msgstr "Ingen kommentarer valgt."
+msgstr "Niciun comentariu selectat."
 
 #: handlers/admincommentshandler.php:557 handlers/adminpostshandler.php:539
 #, php-format
 msgid "Unknown action \"%s\""
-msgstr "Ukjent handling \"%s\""
+msgstr "\"%s\" acțiune necunoscută."
 
 #: handlers/admincommentshandler.php:571
 #, php-format
 msgid "Deleted %d comment"
 msgid_plural "Deleted %d comments"
-msgstr[0] "Slettet %d kommentar"
-msgstr[1] "Slettet %d kommentarer"
+msgstr[0] "Șters %d comentariu"
+msgstr[1] "Șters %d comentarii"
+msgstr[2] "De șters %d comentarii"
 
 #: handlers/admincommentshandler.php:576
 #, php-format
 msgid "Marked %d comment as spam"
 msgid_plural "Marked %d comments as spam"
-msgstr[0] "Merket %d kommentar som spam"
-msgstr[1] "Merket %d kommentarer som spam"
+msgstr[0] "Etichetat %d comentariu ca spam"
+msgstr[1] "Etichetat %d comentarii ca spam"
+msgstr[2] "De etichetat %d comentarii ca spam"
 
 #: handlers/admincommentshandler.php:582
 #, php-format
 msgid "Approved %d comment"
 msgid_plural "Approved %d comments"
-msgstr[0] "Godkjente %d kommentar"
-msgstr[1] "Godkjente %d kommentarer"
+msgstr[0] "%d comentariu aprobat"
+msgstr[1] "%d comentarii aprobate"
+msgstr[2] "%d de comentarii aprobate"
 
 #: handlers/admincommentshandler.php:588
 #, php-format
 msgid "Unapproved %d comment"
 msgid_plural "Unapproved %d comments"
-msgstr[0] "Av-godkjente %d kommentar"
-msgstr[1] "Av-godkjente %d kommentarer"
+msgstr[0] "%d comentariu neaprobat"
+msgstr[1] "%d comentarii neaprobate"
+msgstr[2] "de %d comentarii neaprobate"
 
 #: handlers/installhandler.php:147 handlers/adminusershandler.php:415
 msgid "Password mis-match."
-msgstr "Passord stemmer ikke overens."
+msgstr "Parola nu se potrivește"
 
 #: handlers/installhandler.php:153 handlers/installhandler.php:1740
 #: handlers/installhandler.php:1811
 msgid "Allowed characters are A-Z, a-z and \"_\"."
-msgstr ""
+msgstr "Caracterele permise sunt A-Z, a-z și \"_\"(underline)."
 
 #: handlers/installhandler.php:164
 msgid "Could not write config.php file&hellip;"
-msgstr ""
+msgstr "Nu pot scrie fișierul&hellip; config.php"
 
 #: handlers/installhandler.php:190
 msgid "Habari successfully installed."
-msgstr ""
+msgstr "Habari instalat cu succes."
 
 #: handlers/installhandler.php:404
 msgid "User is required."
-msgstr ""
+msgstr "Utilizatorul este obligatoriu"
 
 #: handlers/installhandler.php:408
 msgid "Name for database is required."
-msgstr ""
+msgstr "Numele de bază este obligatoriu."
 
 #: handlers/installhandler.php:412
 msgid "Host is required."
-msgstr ""
+msgstr "Gazda este obligatorie."
 
 #: handlers/installhandler.php:431 handlers/installhandler.php:642
 msgid "Problem connecting to supplied database credentials"
 msgstr ""
+"Probleme apărute la conectarea în baza de date cu informația furnizată"
 
 #: handlers/installhandler.php:447
 #, php-format
@@ -2864,11 +2921,11 @@ msgstr ""
 
 #: handlers/installhandler.php:456
 msgid "Problem creating default options"
-msgstr ""
+msgstr "Problemă apărută la crearea opțiunilor implicite."
 
 #: handlers/installhandler.php:464
 msgid "Problem creating tags vocabulary"
-msgstr ""
+msgstr "Probleme apărute la crearea de etichete vocabular"
 
 #: handlers/installhandler.php:471
 msgid "Problem creating base post types"
@@ -2876,36 +2933,37 @@ msgstr ""
 
 #: handlers/installhandler.php:482
 msgid "Problem creating admin user."
-msgstr ""
+msgstr "Probleme la crearea contului de administrator."
 
 #: handlers/installhandler.php:488
 msgid "Problem creating admin group."
-msgstr ""
+msgstr "Probleme la crearea grupului de administratori."
 
 #: handlers/installhandler.php:499
 msgid "Problem creating first post."
-msgstr ""
+msgstr "Probleme la crearea primei postări."
 
 #: handlers/installhandler.php:536 handlers/installhandler.php:569
 #: handlers/installhandler.php:1755 handlers/installhandler.php:1826
 msgid "Access denied. Make sure these credentials are valid."
-msgstr ""
+msgstr "Acces refuzat. Verifică validitatea datelor furnizate."
 
 #: handlers/installhandler.php:539 handlers/installhandler.php:572
 #: handlers/installhandler.php:1759 handlers/installhandler.php:1830
 msgid "That database does not exist."
-msgstr ""
+msgstr "Baza de date nu există."
 
 #: handlers/installhandler.php:542 handlers/installhandler.php:575
 #: handlers/installhandler.php:1763 handlers/installhandler.php:1834
 msgid "Could not connect to host."
-msgstr ""
+msgstr "Nu mă pot conecta la gazdă-host."
 
 #: handlers/installhandler.php:603 handlers/installhandler.php:1882
 #, php-format
 msgid ""
 "Cannot write to %s. The SQLite data file is not writable by the web server."
 msgstr ""
+"Nu pot scrie fișierul %s. Acest fișier SQLite nu este modificabil pe server."
 
 #: handlers/installhandler.php:607 handlers/installhandler.php:1875
 #, php-format
@@ -2913,6 +2971,8 @@ msgid ""
 "Cannot write to %s directory. SQLite requires that the directory that holds "
 "the DB file be writable by the web server."
 msgstr ""
+"Nu pot scrie în directoriul %s. SQLite necesită ca directoriul ce conține "
+"baza de date să fie modificabil de către server."
 
 #: handlers/installhandler.php:616
 #, php-format
@@ -2921,6 +2981,9 @@ msgid ""
 "cannot be created in the specified directory. SQLite requires that the "
 "directory containing the database file be writable by the web server."
 msgstr ""
+"Nu pot scrie în directoriul %s. Fișierul de SQLite nu există și nici nu "
+"poate fi creat în directoriul respectiv. SQLite necesită ca directoriul ce "
+"conține baza de date să fie modificabil de către server."
 
 #: handlers/installhandler.php:755 handlers/installhandler.php:1651
 msgid "Trim the log table"
@@ -2928,7 +2991,7 @@ msgstr ""
 
 #: handlers/installhandler.php:758 handlers/installhandler.php:1659
 msgid "Perform a check for plugin updates."
-msgstr ""
+msgstr "Execută o verificare de actualizări pentru module."
 
 #: handlers/installhandler.php:802
 msgid ""
@@ -2938,14 +3001,20 @@ msgid ""
 "href=\"http://habariproject.org/\">http://habariproject.org/</a> to find out "
 "more!"
 msgstr ""
+"Acest sit web funcționează cu <a "
+"href=\"http://habariproject.org/\">Habari</a>, o platformă gratuită de "
+"publicare. Habari este un proiect de grup creat și coordonat de persoane din "
+"toată lumea! Vizitează <a "
+"href=\"http://habariproject.org/\">http://habariproject.org/</a> pentru mai "
+"multe informații."
 
 #: handlers/installhandler.php:865
 msgid "currently unsupported."
-msgstr ""
+msgstr "deocamdata nu are suport."
 
 #: handlers/installhandler.php:979
 msgid "No admin user found"
-msgstr ""
+msgstr "Nu s-a găsit administratorul."
 
 #: handlers/installhandler.php:1381
 msgid "Site Maintenance"
@@ -2953,11 +3022,11 @@ msgstr ""
 
 #: handlers/installhandler.php:1382
 msgid "Habari is currently being upgraded."
-msgstr ""
+msgstr "Habari se află în proces de actualizare."
 
 #: handlers/installhandler.php:1383
 msgid "Try again in a little while."
-msgstr ""
+msgstr "Încearcă un pic mai târziu."
 
 #: handlers/installhandler.php:1396
 msgid "Truncate the log table"
@@ -2969,30 +3038,30 @@ msgstr ""
 
 #: handlers/installhandler.php:1728 handlers/installhandler.php:1799
 msgid "The database name field was left empty."
-msgstr ""
+msgstr "Căsuța cu numele bazei de date este gol."
 
 #: handlers/installhandler.php:1734 handlers/installhandler.php:1805
 msgid "The database user field was left empty."
-msgstr ""
+msgstr "Căsuță cu utilizatorul bazei de date este gol."
 
 #: handlers/installhandler.php:1865
 msgid "The database file was left empty."
-msgstr ""
+msgstr "Baza de date a fost golită."
 
 #: handlers/adminthemeshandler.php:95
 #, php-format
 msgid "Activated theme '%s'"
-msgstr "Aktiverte tema '%s'"
+msgstr "Activează șablonul '%s'"
 
 #: handlers/adminthemeshandler.php:109
 #, php-format
 msgid "Ended the preview of the theme '%s'"
-msgstr ""
+msgstr "S-a terminat previzualizarea șablonului '%s'"
 
 #: handlers/adminthemeshandler.php:113
 #, php-format
 msgid "Previewing theme '%s'"
-msgstr ""
+msgstr "Previzualizând șablonul '%s'"
 
 #: handlers/adminthemeshandler.php:131 handlers/adminthemeshandler.php:134
 msgid "Block Display Settings"
@@ -3031,22 +3100,22 @@ msgstr ""
 
 #: handlers/adminpluginshandler.php:38 handlers/adminpluginshandler.php:77
 msgid "Deactivate"
-msgstr "Deaktivér"
+msgstr "Dezactivează"
 
 #: handlers/adminpluginshandler.php:121 installer/db_setup.php:11
 #: installer/db_setup.php:166 installer/db_setup.php:221
 msgid "Help"
-msgstr "Hjelp"
+msgstr "Ajutor"
 
 #: handlers/adminpluginshandler.php:204
 #, php-format
 msgid "Activated plugin '%s'"
-msgstr "Aktiverte tillegg '%s'"
+msgstr ""
 
 #: handlers/adminpluginshandler.php:213
 #, php-format
 msgid "Deactivated plugin '%s'"
-msgstr "Deaktiverte tillegg '%s'"
+msgstr ""
 
 #: handlers/admintagshandler.php:86
 #, php-format
@@ -3068,21 +3137,20 @@ msgstr[1] ""
 #: handlers/userhandler.php:31
 #, php-format
 msgid "Please visit %1$s to reset your password."
-msgstr "Vennligst gå til %1$s for å tilbakestille passordet ditt."
+msgstr ""
 
 #: handlers/userhandler.php:33
 #, php-format
 msgid "[%1$s] Password reset request for %2$s"
-msgstr "[%1$s] Forespørsel om tilbakestilling av passord for %2$s"
+msgstr ""
 
 #: handlers/userhandler.php:36
 msgid "A password reset request has been sent to the user."
 msgstr ""
-"En forespørsel om tilbakestilling av passord har blitt sendt til brukeren."
 
 #: handlers/userhandler.php:104
 msgid "Bad credentials"
-msgstr "Ugyldige kredentialer"
+msgstr ""
 
 #: handlers/userhandler.php:190
 #, php-format
@@ -3091,30 +3159,23 @@ msgid ""
 "Username: %2$s\n"
 "Password: %3$s"
 msgstr ""
-"Ditt passord for %1$s har blitt tilbakestilt. Dine kredentialer er som "
-"følger---\n"
-"Brukernavn: %2$s\n"
-"Passord: %3$s"
 
 #: handlers/userhandler.php:192
 #, php-format
 msgid "[%1$s] Password has been reset for %2$s"
-msgstr "[%1$s] Passord har blitt tilbakestilt for %2$s"
+msgstr ""
 
 #: handlers/userhandler.php:193
 msgid "A new password has been sent to the user."
-msgstr "Et nytt passord har blitt sendt til brukeren."
+msgstr ""
 
 #: handlers/userhandler.php:196
 msgid "There was a problem resetting the password.  It was not reset."
 msgstr ""
-"Det oppsto et problem under tilbakestilling av passord. Passordet ble ikke "
-"tilbakestilt."
 
 #: handlers/userhandler.php:206
 msgid "The supplied password reset token has expired or is invalid."
 msgstr ""
-"Det oppgitte tilbakestillingsbeviset for passord har utløpt eller er ugyldig."
 
 #: handlers/adminhandler.php:30
 msgid "Your session has ended, please log in and try again."
@@ -3124,57 +3185,55 @@ msgstr ""
 msgid ""
 "We saved the last form you posted. Log back in to continue its submission."
 msgstr ""
-"Vi lagret det forrige skjemaet du sendte inn. Logg inn igjen for å fortsette "
-"utfyllingen."
 
 #: handlers/adminhandler.php:125 handlers/adminusershandler.php:39
 msgid "Access to that page has been denied by the administrator."
-msgstr "Tilgang til den siden har blitt tilbakeholdt av administrator."
+msgstr ""
 
 #: handlers/adminhandler.php:140
 #, php-format
 msgid "%1$s->%2$s() does not exist."
-msgstr "%1$s->%2$s() eksisterer ikke."
+msgstr ""
 
 #: handlers/adminhandler.php:161
 msgid "The page you were looking for was not found."
-msgstr "Siden du lette etter kunne ikke finnes."
+msgstr ""
 
 #: handlers/adminhandler.php:196 handlers/adminhandler.php:198
 msgid "Habari Version"
-msgstr "Habari Versjon"
+msgstr ""
 
 #: handlers/adminhandler.php:201
 msgid "Habari API Version"
-msgstr "Habari API Versjon"
+msgstr ""
 
 #: handlers/adminhandler.php:202
 msgid "Habari DB Version"
-msgstr "Habari DB Versjon"
+msgstr ""
 
 #: handlers/adminhandler.php:203
 msgid "Active Theme"
-msgstr "Aktivt Tema"
+msgstr ""
 
 #: handlers/adminhandler.php:204
 msgid "Site Language"
-msgstr "Nettstedets språk"
+msgstr ""
 
 #: handlers/adminhandler.php:208
 msgid "PHP Version"
-msgstr "PHP Versjon"
+msgstr ""
 
 #: handlers/adminhandler.php:209
 msgid "Server Software"
-msgstr "Server Programvare"
+msgstr ""
 
 #: handlers/adminhandler.php:210
 msgid "Database"
-msgstr "Database"
+msgstr ""
 
 #: handlers/adminhandler.php:211
 msgid "PHP Extensions"
-msgstr "PHP Utvidelser"
+msgstr ""
 
 #: handlers/adminhandler.php:212
 msgid "PHP Configuration Settings"
@@ -3182,37 +3241,37 @@ msgstr ""
 
 #: handlers/adminhandler.php:214 handlers/adminhandler.php:223
 msgid "PCRE Version"
-msgstr "PCRE Versjon"
+msgstr ""
 
 #: handlers/adminhandler.php:225
 msgid "Browser"
-msgstr "Nettleser"
+msgstr ""
 
 #: handlers/adminhandler.php:305
 #, php-format
 msgid "Create a new %s"
-msgstr "Opprett en ny %s"
+msgstr ""
 
 #: handlers/adminhandler.php:309
 #, php-format
 msgid "Manage %s"
-msgstr "Behandle %s"
+msgstr ""
 
 #: handlers/adminhandler.php:328
 msgid "Create content"
-msgstr "Opprett innhold"
+msgstr ""
 
 #: handlers/adminhandler.php:328
 msgid "New"
-msgstr "Ny(tt)"
+msgstr ""
 
 #: handlers/adminhandler.php:329
 msgid "Manage content"
-msgstr "Behandle innhold"
+msgstr ""
 
 #: handlers/adminhandler.php:329
 msgid "Manage"
-msgstr "Behandle"
+msgstr ""
 
 #: handlers/adminhandler.php:330
 msgid "Manage comments"
@@ -3220,15 +3279,15 @@ msgstr ""
 
 #: handlers/adminhandler.php:331 plugins/flickrsilo/flickrsilo.plugin.php:630
 msgid "Tags"
-msgstr "Merkelapper"
+msgstr ""
 
 #: handlers/adminhandler.php:332
 msgid "View your user dashboard"
-msgstr "Vis din brukers oversiktspanel"
+msgstr ""
 
 #: handlers/adminhandler.php:332 handlers/adminusershandler.php:70
 msgid "Dashboard"
-msgstr "Oversiktspanel"
+msgstr ""
 
 #: handlers/adminhandler.php:333
 msgid "View and configure site options"
@@ -3236,23 +3295,23 @@ msgstr ""
 
 #: handlers/adminhandler.php:333
 msgid "Options"
-msgstr "Alternativer"
+msgstr ""
 
 #: handlers/adminhandler.php:334
 msgid "Preview and activate themes"
-msgstr "Forhåndsvis og aktivér temaer"
+msgstr ""
 
 #: handlers/adminhandler.php:334
 msgid "Themes"
-msgstr "Temaer"
+msgstr ""
 
 #: handlers/adminhandler.php:335
 msgid "Activate, deactivate, and configure plugins"
-msgstr "Aktivér, deaktivér og konfigurér tillegg"
+msgstr ""
 
 #: handlers/adminhandler.php:335
 msgid "Plugins"
-msgstr "Tillegg"
+msgstr ""
 
 #: handlers/adminhandler.php:336
 msgid "Import content from another site"
@@ -3260,11 +3319,11 @@ msgstr ""
 
 #: handlers/adminhandler.php:337
 msgid "View and manage users"
-msgstr "Vis og administrér brukere"
+msgstr ""
 
 #: handlers/adminhandler.php:337
 msgid "Users"
-msgstr "Brukere"
+msgstr ""
 
 #: handlers/adminhandler.php:338
 msgid "Manage your user profile"
@@ -3276,70 +3335,70 @@ msgstr ""
 
 #: handlers/adminhandler.php:339
 msgid "View and manage groups"
-msgstr "Se på og behandle grupper"
+msgstr ""
 
 #: handlers/adminhandler.php:339
 msgid "Groups"
-msgstr "Grupper"
+msgstr ""
 
 #: handlers/adminhandler.php:340
 msgid "View system log messages"
-msgstr "Vis meldinger fra systemloggen"
+msgstr ""
 
 #: handlers/adminhandler.php:340
 msgid "Logs"
-msgstr "Logger"
+msgstr ""
 
 #: handlers/adminhandler.php:341
 msgid "Log out of the administration interface"
-msgstr "Logg ut fra administrasjons grensesnittet"
+msgstr ""
 
 #: handlers/adminhandler.php:341 plugins/coreblocks/coreblocks.plugin.php:325
 msgid "Logout"
-msgstr "Logg ut"
+msgstr ""
 
 #: handlers/adminhandler.php:576
 msgid "Entry"
-msgstr "Innlegg"
+msgstr ""
 
 #: handlers/adminhandler.php:577
 msgid "Entries"
-msgstr "Innlegg"
+msgstr ""
 
 #: handlers/adminhandler.php:580
 msgid "Page"
-msgstr "Side"
+msgstr ""
 
 #: handlers/adminhandler.php:581
 msgid "Pages"
-msgstr "Sider"
+msgstr ""
 
 #: handlers/admingroupshandler.php:162
 msgid "Updated permissions."
-msgstr "Oppdaterte tilganger."
+msgstr ""
 
 #: handlers/admingroupshandler.php:243
 #, php-format
 msgid "The group %s already exists"
-msgstr "Gruppen %s eksisterer allerede"
+msgstr ""
 
 #: handlers/admingroupshandler.php:252
 msgid "The group must have a name"
-msgstr "Gruppen må ha et navn"
+msgstr ""
 
 #: handlers/admingroupshandler.php:265
 #, php-format
 msgid "Added group %s"
-msgstr "La til gruppen %s"
+msgstr ""
 
 #: handlers/admingroupshandler.php:302
 msgid "No groups deleted."
-msgstr "Ingen grupper slettet"
+msgstr ""
 
 #: handlers/admingroupshandler.php:316
 #, php-format
 msgid "Deleted %d groups."
-msgstr "Slettet %d grupper."
+msgstr ""
 
 #: handlers/adminimporthandler.php:42
 msgid ""
@@ -3355,7 +3414,7 @@ msgstr ""
 #: handlers/adminlogshandler.php:264
 #, php-format
 msgid "Deleted %d logs."
-msgstr "Slettet %d logger."
+msgstr ""
 
 #: handlers/admindashboardhandler.php:133
 msgid "Modules updated."
@@ -3372,7 +3431,7 @@ msgstr ""
 
 #: handlers/admindashboardhandler.php:166
 msgid "+"
-msgstr "+"
+msgstr ""
 
 #: handlers/adminpostshandler.php:28 handlers/adminpostshandler.php:32
 #: handlers/adminpostshandler.php:113
@@ -3388,7 +3447,7 @@ msgstr ""
 #: handlers/adminpostshandler.php:84
 #, php-format
 msgid "Publish %s"
-msgstr "Publiser %s"
+msgstr ""
 
 #: handlers/adminpostshandler.php:88
 #, php-format
@@ -3399,7 +3458,7 @@ msgstr ""
 
 #: handlers/adminpostshandler.php:103
 msgid "A post slug cannot be empty. Keeping old slug."
-msgstr "En innleggs slug kan ikke være tom. Beholder gammel slug."
+msgstr ""
 
 #: handlers/adminpostshandler.php:120
 msgid "Changing content types is not allowed"
@@ -3412,20 +3471,20 @@ msgstr ""
 #: handlers/adminpostshandler.php:192
 #, php-format
 msgid "The post %1$s has been saved as %2$s."
-msgstr "Innlegget %1$s har blitt lagret som %2$s."
+msgstr ""
 
 #: handlers/adminpostshandler.php:225
 #, php-format
 msgid "Deleted the %1$s titled \"%2$s\"."
-msgstr "Slettet %1$s med tittelen \"%2$s\"."
+msgstr ""
 
 #: handlers/adminpostshandler.php:389 handlers/adminpostshandler.php:390
 msgid "Manage Posts"
-msgstr "Behandle Innlegg"
+msgstr ""
 
 #: handlers/adminpostshandler.php:421
 msgid "Root"
-msgstr "Rot"
+msgstr ""
 
 #: handlers/adminpostshandler.php:550
 msgid "You did not have permission to delete some posts."
@@ -3440,32 +3499,32 @@ msgstr[1] ""
 
 #: handlers/adminoptionshandler.php:31
 msgid "Name & Tagline"
-msgstr "Navn og Tagline"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:33 installer/db_setup.php:170
 msgid "Site Name"
-msgstr "Navn på nettstedet"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:38
 msgid "Site Tagline"
-msgstr "Nettstedets Tagline"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:49
 #: plugins/pingback/pingback.plugin.php:383
 msgid "Publishing"
-msgstr "Publisering"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:51
 msgid "Items per Page"
-msgstr "Elementer pr. Side"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:56
 msgid "Entries to show in Atom feed"
-msgstr "Oppføringer som vises i Atom strømmen"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:61
 msgid "Require Comment Author Info"
-msgstr "Krev Kommentaforfatter Info"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:66
 msgid "Comment SPAM Threshold"
@@ -3477,11 +3536,11 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:72
 msgid "Time & Date"
-msgstr "Tid og dato"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:82
 msgid "Time Zone"
-msgstr "Tidssone"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:85
 #, php-format
@@ -3490,7 +3549,7 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:88 handlers/adminusershandler.php:134
 msgid "Date Format"
-msgstr "Datoformat"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:90
 #, php-format
@@ -3499,7 +3558,7 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:93 handlers/adminusershandler.php:145
 msgid "Time Format"
-msgstr "Klokkeslettformat"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:95
 #, php-format
@@ -3508,11 +3567,11 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:99 installer/locale_dropdown.php:7
 msgid "Language"
-msgstr "Språk"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:101 installer/locale_dropdown.php:3
 msgid "Locale"
-msgstr "Lokalisering"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:104
 msgid "International language code"
@@ -3520,7 +3579,7 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:107
 msgid "System Locale"
-msgstr "Systemlokalisering"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:109
 msgid "The appropriate locale code for your server"
@@ -3528,7 +3587,7 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:113
 msgid "Troubleshooting"
-msgstr "Problemløsing"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:115
 msgid "Minimum Severity"
@@ -3540,7 +3599,7 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:121
 msgid "Log Backtraces"
-msgstr "Loggfør tilbakesporing"
+msgstr ""
 
 #: handlers/adminoptionshandler.php:123
 msgid ""
@@ -3550,7 +3609,7 @@ msgstr ""
 
 #: handlers/adminoptionshandler.php:185
 msgid "Successfully updated options"
-msgstr "Innstillinger oppdatert vellykket"
+msgstr ""
 
 #: handlers/feedbackhandler.php:58
 msgid "There was a problem submitting your comment."
@@ -3582,164 +3641,161 @@ msgstr ""
 
 #: handlers/adminusershandler.php:26
 msgid "You"
-msgstr "Du"
+msgstr ""
 
 #: handlers/adminusershandler.php:27
 msgid "Your User Information"
-msgstr "Din Brukerinformasjon"
+msgstr ""
 
 #: handlers/adminusershandler.php:35
 #, php-format
 msgid "%s's User Information"
-msgstr "%s's Brukerinformasjon"
+msgstr ""
 
 #: handlers/adminusershandler.php:46 handlers/adminusershandler.php:373
 msgid "nobody"
-msgstr "ingen"
+msgstr ""
 
 #: handlers/adminusershandler.php:60
 msgid "No such user!"
-msgstr "Brukeren finnes ikke!"
+msgstr ""
 
 #: handlers/adminusershandler.php:68
 msgid "Change Password"
-msgstr "Bytt Passord"
+msgstr ""
 
 #: handlers/adminusershandler.php:69
 msgid "Regional Settings"
-msgstr "Regionale Innstillinger"
+msgstr ""
 
 #: handlers/adminusershandler.php:87
 msgid "Display Name"
-msgstr "Visningsnavn"
+msgstr ""
 
 #: handlers/adminusershandler.php:91
 msgid "User Name"
-msgstr "Brukermavm"
+msgstr ""
 
 #: handlers/adminusershandler.php:101
 msgid "Portrait URL"
-msgstr "Portrett URL"
+msgstr ""
 
 #: handlers/adminusershandler.php:106
 msgid "New Password"
-msgstr "Nytt Passord"
+msgstr ""
 
 #: handlers/adminusershandler.php:112
 msgid "New Password Again"
-msgstr "Nytt Passord Igjen"
+msgstr ""
 
 #: handlers/adminusershandler.php:121
 msgid "Passwords must match."
-msgstr "Passordene må være like."
+msgstr ""
 
 #: handlers/adminusershandler.php:127
 msgid "Timezone"
-msgstr "Tidssone"
+msgstr ""
 
 #: handlers/adminusershandler.php:143 handlers/adminusershandler.php:154
 #, php-format
 msgid "See <a href=\"%s\">php.net/date</a> for details. Current format: %s"
 msgstr ""
-"Se <a href=\"%s\"<php.net/date</a> for detaljer. Gjeldende format: %s"
 
 #: handlers/adminusershandler.php:157
 msgid "Hide Spam Count"
-msgstr "Gjem Antall Spam"
+msgstr ""
 
 #: handlers/adminusershandler.php:159
 msgid "Hide the number of SPAM comments on your dashboard."
-msgstr "Gjem antall spam kommentarer på dashbordet."
+msgstr ""
 
 #: handlers/adminusershandler.php:170
 #, php-format
 msgid "Reassign posts to: %s"
-msgstr "Tildel innlegg til: %s"
+msgstr ""
 
 #: handlers/adminusershandler.php:216
 #, php-format
 msgid "%s has been deleted"
-msgstr "%s har blitt slettet"
+msgstr ""
 
 #: handlers/adminusershandler.php:221 handlers/adminusershandler.php:348
 msgid "You cannot delete yourself."
-msgstr "Du kan ikke slette deg selv."
+msgstr ""
 
 #: handlers/adminusershandler.php:229
 #, php-format
 msgid "%1$s has been renamed to %2$s."
-msgstr "%1$s har fått endret navn til %2$s."
+msgstr ""
 
 #: handlers/adminusershandler.php:242
 msgid "Password changed."
-msgstr "Passord endret."
+msgstr ""
 
 #: handlers/adminusershandler.php:265
 msgid "User updated."
-msgstr "Bruker oppdatert."
+msgstr ""
 
 #: handlers/adminusershandler.php:318
 msgid "No users deleted."
-msgstr "Ingen brukere slettet."
+msgstr ""
 
 #: handlers/adminusershandler.php:355
 #, php-format
 msgid "Deleted %d users."
-msgstr "Slettet %d brukere."
+msgstr ""
 
 #: handlers/adminusershandler.php:412
 msgid "Password is required."
-msgstr "Passord er påkrevd."
+msgstr ""
 
 #: handlers/adminusershandler.php:418
 msgid "Please supply a valid email address."
-msgstr "Vennligst oppgi en gyldig epost addresse."
+msgstr ""
 
 #: handlers/adminusershandler.php:421
 msgid "Please supply a user name."
-msgstr "Vennligst oppgi et brukernavn."
+msgstr ""
 
 #: handlers/adminusershandler.php:426
 msgid "That username is already assigned."
-msgstr "Det brukernavnet er allerede tildelt."
+msgstr ""
 
 #: handlers/adminusershandler.php:431
 #, php-format
 msgid "Added user '%s'"
-msgstr "La til bruker '%s'"
+msgstr ""
 
 #: handlers/atomhandler.php:139
 msgid "First Page"
-msgstr "Første side"
+msgstr ""
 
 #: handlers/atomhandler.php:147
 msgid "Previous Page"
-msgstr "Forrige side"
+msgstr ""
 
 #: handlers/atomhandler.php:156
 msgid "Next Page"
-msgstr "Neste side"
+msgstr ""
 
 #: handlers/atomhandler.php:164
 msgid "Last Page"
-msgstr "Siste side"
+msgstr ""
 
 #: handlers/atomhandler.php:237
 #, php-format
 msgid "%1$s on \"%2$s\""
-msgstr "%1$s på \"%2$s\""
+msgstr ""
 
 #: plugins/wpimport/wpimport.plugin.php:25
 msgid "WordPress Database"
-msgstr "WordPress Database"
+msgstr ""
 
 #: plugins/wpimport/wpimport.plugin.php:66
 msgid ""
 "Could not connect to the WordPress database using the values supplied. "
 "Please correct them and try again."
 msgstr ""
-"Kunne ikke koble til WordPress databasen med verdiene du oppga. Vennligst "
-"korrigér dem og prøv igjen."
 
 #: plugins/wpimport/wpimport.plugin.php:109
 msgid "Habari will attempt to import from a WordPress database."
@@ -3780,7 +3836,7 @@ msgstr ""
 #: plugins/wpimport/wpimport.plugin.php:161
 #, php-format
 msgid "Starting import from \"%s\""
-msgstr "Starter import fra \"%s\""
+msgstr ""
 
 #: plugins/wpimport/wpimport.plugin.php:163
 msgid "Import in Progress"
@@ -3798,13 +3854,13 @@ msgstr ""
 #: plugins/wpimport/wpimport.plugin.php:592
 #, php-format
 msgid "Failed to import from \"%s\""
-msgstr "Kunne ikke importere fra \"%s\""
+msgstr ""
 
 #: plugins/wpimport/wpimport.plugin.php:262
 #: plugins/wpimport/wpimport.plugin.php:369
 #: plugins/wpimport/wpimport.plugin.php:593
 msgid "Failed to connect using the given database connection details."
-msgstr "Kunne ikke koble til med de oppgitte databasetilkoblingsdetaljene."
+msgstr ""
 
 #: plugins/wpimport/wpimport.plugin.php:273
 msgid "Importing Users&hellip;"
@@ -3865,14 +3921,14 @@ msgstr ""
 
 #: plugins/wpimport/wpimport.plugin.php:769
 msgid "Import is complete."
-msgstr "Importen er ferdig."
+msgstr ""
 
 #: plugins/coredashmodules/dash_latestcomments.php:6
 #, php-format
 msgid "%1$d comment"
 msgid_plural "%1$d comments"
-msgstr[0] "%1$d kommentar"
-msgstr[1] "%1$d kommentarer"
+msgstr[0] ""
+msgstr[1] ""
 
 #. @locale Time formats according to http://php.net/manual/en/function.date.php
 #: plugins/coredashmodules/dash_latestcomments.php:15
@@ -3899,15 +3955,15 @@ msgstr ""
 
 #: plugins/coredashmodules/coredashmodules.plugin.php:94
 msgid "Latest Log Activity"
-msgstr "Seneste loggaktivitet"
+msgstr ""
 
 #: plugins/coredashmodules/coredashmodules.plugin.php:110
 msgid "Latest Entries"
-msgstr "Siste innlegg"
+msgstr ""
 
 #: plugins/coredashmodules/coredashmodules.plugin.php:137
 msgid "Latest Comments"
-msgstr "Siste kommentarer"
+msgstr ""
 
 #. @locale First variable is the post status, second is the post type
 #: plugins/coredashmodules/coredashmodules.plugin.php:165
@@ -3942,16 +3998,12 @@ msgid ""
 "Habari Silo activation failed. The web server does not have permission to "
 "create the 'files' directory for the Habari Media Silo."
 msgstr ""
-"Feil ved registering av Habari Silo. Netttjeneren har ikke tilgang til å "
-"lage 'fil' mappen for Habari Media Silo."
 
 #: plugins/habarisilo/habarisilo.plugin.php:38
 #: plugins/habarisilo/habarisilo.plugin.php:39
 msgid ""
 "Habari Silo activation failed. PHP has not loaded the gd imaging library."
 msgstr ""
-"Feil ved aktiveringen av Habari Silo. PHP er ikke koblet til gd "
-"bildebiblioteket."
 
 #: plugins/habarisilo/habarisilo.plugin.php:49
 msgid "Create media silo directories"
@@ -3983,7 +4035,7 @@ msgstr ""
 
 #: plugins/habarisilo/habarisilo.plugin.php:458
 msgid "Parent Directory:"
-msgstr "Foreldremappe:"
+msgstr ""
 
 #: plugins/habarisilo/habarisilo.plugin.php:463
 msgid "What would you like to call the new directory?"
@@ -4095,19 +4147,19 @@ msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:57
 msgid "Delete forever"
-msgstr "Slett permanent"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:58
 msgid "Permanently delete this post"
-msgstr "Slett dette innlegget permanent"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:62
 msgid "Restore this item"
-msgstr "Gjenopprett denne oppføringen"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:63
 msgid "Restore"
-msgstr "Gjenopprett"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:80
 msgid "Restore Selected Entries"
@@ -4131,34 +4183,32 @@ msgstr ""
 #: plugins/undelete/undelete.plugin.php:123
 #, php-format
 msgid "Post %1$s (%2$s) restored."
-msgstr "Innlegg %1$s (%2$s) gjenopprettet."
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:140
 #, php-format
 msgid "Restored post %d"
-msgstr "Gjenopprettet innlegg %d"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:143
 #, php-format
 msgid "Could not restore post %d"
-msgstr "Kunne ikke gjenopprette innlegg %d"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:165
 #: plugins/undelete/undelete.plugin.php:183
 msgid "Empty Trash"
-msgstr "Tøm Søppel"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:177
 msgid "Style declaration for deleted content:"
-msgstr "Stildeklarasjon for slettet innhold:"
+msgstr ""
 
 #: plugins/undelete/undelete.plugin.php:185
 msgid ""
 "Pressing this button will permanently delete all posts from the virtual "
 "trash can. You cannot undo this."
 msgstr ""
-"Trykker du denne knappen, sletter du alle innlegg fra den virtuelle "
-"søppelbøtten. Dette kan ikke angres."
 
 #: plugins/undelete/undelete.plugin.php:186
 msgid "Delete All"
@@ -4167,64 +4217,64 @@ msgstr ""
 #: plugins/undelete/undelete.plugin.php:205
 #, php-format
 msgid "Permanently deleted %d posts"
-msgstr "Slettet %d innlegg permanent"
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:40
 msgid "Commenters with numeric names are spammy."
-msgstr "Kommentatorer med numeriske navn er spam-aktig."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:49
 msgid "Comments that are only numeric are spammy."
-msgstr "Kommentarer som kun er numeriske er spam-aktig."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:55
 msgid "Comments that are only whitespace characters are spammy."
-msgstr "Kommentarer som kun er mellomrom er spam-aktig."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:61
 msgid "Comments that are only \"array\" are spammy."
-msgstr "Kommentarer som kun er \"array\" er spam-aktig."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:67
 msgid "Comments that consist of only the commenters name are spammy."
-msgstr "Kommentarer som kun består av kommentatorens navn er spam-aktig."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:74
 msgid "Comments that start with strong text are spammy."
-msgstr "Kommentarer som begynner med fet tekst er spam-aktig."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:80
 msgid "There is a 3 URL limit in comments."
-msgstr "Det er en 3 URL grense i kommentarer."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:86
 msgid "There is a 3 URL-encoded character limit in comments."
-msgstr "Det er en 3 URL-enkodede skrifttegnsgrense i kommentarer."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:100
 msgid "We do not accept BBCode here."
-msgstr "Vi tillater ikke BBCode her."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:108
 msgid "Too much text that is a link compared to that which is not."
-msgstr "For mye tekst som er en link i forhold til hva som ikke er det."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:117
 #, php-format
 msgid "Too many existing spams from this IP: %s"
-msgstr "For mye eksisterende spam fra denne IP: %s"
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:124
 msgid "The commenter's session timed out."
-msgstr "Kommentatorens økt timet ut."
+msgstr ""
 
 #: plugins/spamchecker/spamchecker.plugin.php:203
 msgid "The selected action is forbidden."
-msgstr "Den valgte handlingen er ikke tillatt."
+msgstr ""
 
 #: plugins/coreblocks/coreblocks.plugin.php:18
 msgid "Recent Comments"
-msgstr "Tidligere kommentarer"
+msgstr ""
 
 #: plugins/coreblocks/coreblocks.plugin.php:19
 msgid "Recent Posts"
@@ -4304,7 +4354,7 @@ msgstr ""
 
 #: plugins/simple_private_posts/simple_private_posts.plugin.php:26
 msgid "Private Post"
-msgstr "Privat Post"
+msgstr ""
 
 #: plugins/flickrsilo/flickrsilo.plugin.php:614
 msgid "Search CC"
@@ -4324,7 +4374,7 @@ msgstr ""
 
 #: plugins/flickrsilo/flickrsilo.plugin.php:781
 msgid "This photo has no title"
-msgstr "Bildet har ingen tittel"
+msgstr ""
 
 #: plugins/flickrsilo/flickrsilo.plugin.php:798
 msgid "De-Authorize"
@@ -4393,7 +4443,7 @@ msgstr ""
 
 #: plugins/flickrsilo/flickrsilo.plugin.php:874
 msgid "Default size for images in Posts:"
-msgstr "Standard størrelse på bilder i Postene:"
+msgstr ""
 
 #: plugins/flickrsilo/flickrsilo.plugin.php:875
 msgid "Square"
@@ -4437,15 +4487,15 @@ msgstr ""
 
 #: plugins/flickrsilo/flickrsilo.plugin.php:982
 msgid "Search for photos"
-msgstr "Søk etter bilder"
+msgstr ""
 
 #: plugins/viddlersilo/viddlersilo.plugin.php:854
 msgid "The username and password you supplied failed to log in to Viddler."
-msgstr "Brukernavnet og passordet du oppga kunne ikke logges inn på Viddler."
+msgstr ""
 
 #: plugins/viddlersilo/viddlersilo.plugin.php:860
 msgid "You have logged in to Viddler."
-msgstr "Du må logge inn på Viddler"
+msgstr ""
 
 #: plugins/pingback/pingback.plugin.php:272
 #, php-format
@@ -4467,11 +4517,11 @@ msgstr ""
 #: plugins/pingback/pingback.plugin.php:371
 #, php-format
 msgid "Sent pingbacks for \"%1$s\", target: %2$s"
-msgstr "Sendte tilbakeping for \"%1$s\", mål: \"%2$s"
+msgstr ""
 
 #: plugins/pingback/pingback.plugin.php:384
 msgid "Send Pingbacks to Links"
-msgstr "Send Tilbaketråkk til Lenker"
+msgstr ""
 
 #: plugins/pingback/pingback.plugin.php:410
 #: plugins/pingback/pingback.plugin.php:416
@@ -4486,7 +4536,7 @@ msgstr ""
 
 #: installer/htaccess.php:8 installer/config.php:14 installer/sqlite.php:8
 msgid "help"
-msgstr "hjelp"
+msgstr ""
 
 #: installer/htaccess.php:11
 msgid ""
@@ -4517,18 +4567,17 @@ msgstr ""
 #: installer/htaccess.php:25 installer/db_setup.php:253
 #: installer/config.php:31 installer/sqlite.php:25
 msgid "Install"
-msgstr "Installer"
+msgstr ""
 
 #: installer/htaccess.php:28 installer/sqlite.php:28
 msgid ""
 "When you have successfully placed the .htaccess file, run the installer "
 "again."
 msgstr ""
-"Når du har velykket satt opp din .htaccess fil, kjør installeringen på nytt."
 
 #: installer/htaccess.php:29 installer/config.php:35 installer/sqlite.php:29
 msgid "Restart Installer"
-msgstr "Start på nytt installeringen"
+msgstr ""
 
 #: installer/db_setup.php:10
 msgid "Database Setup"
@@ -4701,7 +4750,7 @@ msgstr ""
 
 #: installer/db_setup.php:257 installer/header.php:20
 msgid "Install Habari"
-msgstr "Installér Habari"
+msgstr ""
 
 #: installer/config.php:17
 msgid ""
@@ -4737,86 +4786,3 @@ msgstr ""
 #: installer/header.php:30
 msgid "Mailing List"
 msgstr ""
-
-#~ msgid ""
-#~ "Open a terminal window, and then change to the installation directory:"
-#~ msgstr "Åpne et terminalvindu, og skift til installasjonsmappen:"
-
-#~ msgid "Change the <em>mode</em> (permissions) of the current directory:"
-#~ msgstr "Bytt mappens <em>modus</em> (tilganger):"
-
-#~ msgid "Writable directory needed"
-#~ msgstr "Skrivbar mappe nødvendig"
-
-#~ msgid "Missing Extensions"
-#~ msgstr "Manglende Utvidelser"
-
-#~ msgid ""
-#~ "Please contact your web hosting provider if you do not have access to your "
-#~ "server."
-#~ msgstr ""
-#~ "Vennligst kontakt din webhotell leverandør hvis du ikke har tilgang til "
-#~ "serveren."
-
-#~ msgid "No PDO drivers enabled"
-#~ msgstr "Ingen PDO drivere aktivert"
-
-#~ msgid ""
-#~ "requires that at least one <a href=\"http://www.php.net/pdo\">PDO driver</a> "
-#~ "be installed. Please ask your hosting provider to enable one of the PDO "
-#~ "drivers supported by Habari."
-#~ msgstr ""
-#~ "krever at minst én <a href=\"http://www.php.net/pdo\">PDO driver</a> er "
-#~ "installert. Vennligst spør din webhotell leverandør om å aktivere en av PDO "
-#~ "driverne støttet av Habari."
-
-#, php-format
-#~ msgid ""
-#~ "Your <b>.htaccess</b> file is not writable. In order to secure your SQLite "
-#~ "database, please paste the following into <b>%s</b>:"
-#~ msgstr ""
-#~ "Din <b>.htaccess</b> fil er skrivebeskyttet. For å sikre din SQLite "
-#~ "database, legg inn følgende i <b>%s</b>:"
-
-#, php-format
-#~ msgid "Posted at %1$s"
-#~ msgstr "Publisert %1$s"
-
-#~ msgid "Habari General Error"
-#~ msgstr "Habari Generell Feil"
-
-#~ msgid "An error occurred"
-#~ msgstr "En feil oppstod"
-
-#~ msgid "Unable to connect to database."
-#~ msgstr "Klarer ikke koble til database."
-
-#, php-format
-#~ msgid "%d page"
-#~ msgid_plural "%d pages"
-#~ msgstr[0] "%d side"
-#~ msgstr[1] "%d sider"
-
-#, php-format
-#~ msgid "%d entry"
-#~ msgid_plural "%d entries"
-#~ msgstr[0] "%d innlegg"
-#~ msgstr[1] "%d innlegg"
-
-#, php-format
-#~ msgid "%d entry draft"
-#~ msgid_plural "%d entry drafts"
-#~ msgstr[0] "%d innleggskladd"
-#~ msgstr[1] "%d innleggskladder"
-
-#, php-format
-#~ msgid "%d page draft"
-#~ msgid_plural "%d page drafts"
-#~ msgstr[0] "%d sidekladd"
-#~ msgstr[1] "%d sidekladder"
-
-#, php-format
-#~ msgid "%d spam comment awaiting moderation"
-#~ msgid_plural "%d spam comments awaiting moderation"
-#~ msgstr[0] "%d spamkommentar i modereringskø"
-#~ msgstr[1] "%d spamkommentarer i modereringskø"
