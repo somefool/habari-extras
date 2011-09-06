@@ -32,7 +32,7 @@ class LastRecent extends Plugin
 	function action_plugin_deactivation( $file )
 	{
 		CronTab::delete_cronjob( 'lastrecent' );
-		Cache::expire_group( 'lastrecent' );
+		Cache::expire( array( 'lastrecent' ) );
 	}
 
 	public function filter_plugin_config( $actions )
