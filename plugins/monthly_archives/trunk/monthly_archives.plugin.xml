@@ -10,7 +10,7 @@
 	<guid>726F35A4-16C2-11DD-AF4E-A64656D89593</guid>
 	<help>
 		<value><![CDATA[
-			<p>To display, add <code><?php $theme->monthly_archives(); ?></code> where desired in your theme files.</p>
+			<p>To display, add <code>&lt;?php $theme->monthly_archives(); ?&gt;</code> where desired in your theme files.</p>
 		]]></value>
 	</help>
 </pluggable> 
