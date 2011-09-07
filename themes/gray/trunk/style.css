@@ -222,25 +222,31 @@ strong {
 	float: left;
 }
 
-.tree .tree {
+.menu ol {
 	position: absolute;
 	display: none;
 }
 
-.tree li:hover > .tree {
+.menu li:hover > ol {
 	display: block;
 }
 
-.tree .tree div {
+.menu ol div {
 	margin-top: 10px;
 }
 
-.tree div a {
+.menu div a {
 	background-color: #eaeaea;
 	padding: 6px 16px;
 }
 
-.tree div a:hover {
+.menu li.active > div > a {
+	background-color: #666666;
+	font-weight: bold;
+}
+
+
+.menu div a:hover {
 	text-decoration: none;
 	background-color: #e4e4e4;
 }

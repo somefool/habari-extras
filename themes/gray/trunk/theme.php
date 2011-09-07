@@ -263,6 +263,7 @@ class GrayTheme extends Theme
 	
 	public function filter_get_scopes($scopes)
 	{
+		/*
 		$rules = RewriteRules::get_active();
 		$scopeid = 40000;
 		foreach($rules as $rule) {
@@ -276,6 +277,7 @@ class GrayTheme extends Theme
 			$scopes[] = $scope;
 		}
 
+		*/
 		return $scopes;
 	}
 
