@@ -27,11 +27,11 @@ class HadminStrip extends Plugin
 	/**
 	 * Adds the admin bar stylesheet to the template_stylesheet Stack if the user is logged in.
 	 */
-	public function action_add_template_vars()
+	public function action_template_header()
 	{
-		if ( User::identify()->loggedin ) {
-			Stack::add( 'template_stylesheet', array($this->get_url() . '/hadminstrip.css', 'screen'), 'hadminstrip.css' );
-		}
+			if ( User::identify()->loggedin ) {
+			echo '<link rel="stylesheet" type="text/css" href="' . $this->get_url() . '/hadminstrip.css">';
+				}
 	}
 	
 	/**
